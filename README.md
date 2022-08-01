@@ -258,6 +258,8 @@ public interface IHttpTransport {
 飞书开放平台开放的所有 API
 列表，可点击[这里查看](https://open.feishu.cn/document/ukTMukTMukTM/uYTM5UjL2ETO14iNxkTN/server-api-list)
 
+![](doc/find_method.jpg)
+
 ### 基本用法
 
 如下示例我们通过 client 调用文档业务的 Create 方法，创建一个文档：
