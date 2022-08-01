@@ -148,7 +148,12 @@ public class ImSample {
 
           request.setEntity(builder.build());
         } else {
-          StringEntity entity = new StringEntity(Jsons.DEFAULT.toJson(rawRequest.getBody()));
+          StringEntity entity;
+          if (rawRequest.isSupportLong2String()) {
+            entity = new StringEntity(Jsons.LONG_TO_STR.toJson(rawRequest.getBody()));
+          } else {
+            entity = new StringEntity(Jsons.DEFAULT.toJson(rawRequest.getBody()));
+          }
           request.setEntity(entity);
         }
       }
