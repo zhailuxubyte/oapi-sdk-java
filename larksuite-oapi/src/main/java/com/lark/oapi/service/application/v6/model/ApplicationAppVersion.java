@@ -22,7 +22,7 @@ public class ApplicationAppVersion {
   @SerializedName("version")
   private String version;
   @SerializedName("version_id")
-  private Long versionId;
+  private String versionId;
   @SerializedName("app_name")
   private String appName;
   @SerializedName("avatar_url")
@@ -42,9 +42,9 @@ public class ApplicationAppVersion {
   @SerializedName("status")
   private Integer status;
   @SerializedName("create_time")
-  private Long createTime;
+  private String createTime;
   @SerializedName("publish_time")
-  private Long publishTime;
+  private String publishTime;
   @SerializedName("ability")
   private AppAbility ability;
   @SerializedName("remark")
@@ -93,11 +93,11 @@ public class ApplicationAppVersion {
     this.version = version;
   }
 
-  public Long getVersionId() {
+  public String getVersionId() {
     return this.versionId;
   }
 
-  public void setVersionId(Long versionId) {
+  public void setVersionId(String versionId) {
     this.versionId = versionId;
   }
 
@@ -173,19 +173,19 @@ public class ApplicationAppVersion {
     this.status = status;
   }
 
-  public Long getCreateTime() {
+  public String getCreateTime() {
     return this.createTime;
   }
 
-  public void setCreateTime(Long createTime) {
+  public void setCreateTime(String createTime) {
     this.createTime = createTime;
   }
 
-  public Long getPublishTime() {
+  public String getPublishTime() {
     return this.publishTime;
   }
 
-  public void setPublishTime(Long publishTime) {
+  public void setPublishTime(String publishTime) {
     this.publishTime = publishTime;
   }
 
@@ -209,7 +209,7 @@ public class ApplicationAppVersion {
 
     private String appId;
     private String version;
-    private Long versionId;
+    private String versionId;
     private String appName;
     private String avatarUrl;
     private String description;
@@ -219,8 +219,8 @@ public class ApplicationAppVersion {
     private String[] commonCategories;
     private String[] events;
     private Integer status;
-    private Long createTime;
-    private Long publishTime;
+    private String createTime;
+    private String publishTime;
     private AppAbility ability;
     private AppVersionRemark remark;
 
@@ -234,7 +234,7 @@ public class ApplicationAppVersion {
       return this;
     }
 
-    public Builder versionId(Long versionId) {
+    public Builder versionId(String versionId) {
       this.versionId = versionId;
       return this;
     }
@@ -289,12 +289,12 @@ public class ApplicationAppVersion {
       return this;
     }
 
-    public Builder createTime(Long createTime) {
+    public Builder createTime(String createTime) {
       this.createTime = createTime;
       return this;
     }
 
-    public Builder publishTime(Long publishTime) {
+    public Builder publishTime(String publishTime) {
       this.publishTime = publishTime;
       return this;
     }

@@ -26,9 +26,9 @@ public class CreateMessage {
   @SerializedName("msg_type")
   private String msgType;
   @SerializedName("create_time")
-  private Long createTime;
+  private String createTime;
   @SerializedName("update_time")
-  private Long updateTime;
+  private String updateTime;
   @SerializedName("deleted")
   private Boolean deleted;
   @SerializedName("updated")
@@ -76,19 +76,19 @@ public class CreateMessage {
     this.msgType = msgType;
   }
 
-  public Long getCreateTime() {
+  public String getCreateTime() {
     return this.createTime;
   }
 
-  public void setCreateTime(Long createTime) {
+  public void setCreateTime(String createTime) {
     this.createTime = createTime;
   }
 
-  public Long getUpdateTime() {
+  public String getUpdateTime() {
     return this.updateTime;
   }
 
-  public void setUpdateTime(Long updateTime) {
+  public void setUpdateTime(String updateTime) {
     this.updateTime = updateTime;
   }
 

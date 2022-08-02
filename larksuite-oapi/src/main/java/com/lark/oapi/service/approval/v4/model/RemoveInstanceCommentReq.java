@@ -24,7 +24,7 @@ public class RemoveInstanceCommentReq {
   private String userIdType;
   @Query
   @SerializedName("user_id")
-  private Long userId;
+  private String userId;
   @Path
   @SerializedName("instance_id")
   private String instanceId;
@@ -51,11 +51,11 @@ public class RemoveInstanceCommentReq {
     this.userIdType = userIdType;
   }
 
-  public Long getUserId() {
+  public String getUserId() {
     return this.userId;
   }
 
-  public void setUserId(Long userId) {
+  public void setUserId(String userId) {
     this.userId = userId;
   }
 
@@ -70,7 +70,7 @@ public class RemoveInstanceCommentReq {
   public static class Builder {
 
     private String userIdType;
-    private Long userId;
+    private String userId;
     private String instanceId;
 
     public Builder userIdType(String userIdType) {
@@ -83,7 +83,7 @@ public class RemoveInstanceCommentReq {
       return this;
     }
 
-    public Builder userId(Long userId) {
+    public Builder userId(String userId) {
       this.userId = userId;
       return this;
     }

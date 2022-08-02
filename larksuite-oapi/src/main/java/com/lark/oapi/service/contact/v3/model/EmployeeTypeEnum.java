@@ -20,7 +20,7 @@ public class EmployeeTypeEnum {
   @SerializedName("enum_id")
   private String enumId;
   @SerializedName("enum_value")
-  private Long enumValue;
+  private String enumValue;
   @SerializedName("content")
   private String content;
   @SerializedName("enum_type")
@@ -55,11 +55,11 @@ public class EmployeeTypeEnum {
     this.enumId = enumId;
   }
 
-  public Long getEnumValue() {
+  public String getEnumValue() {
     return this.enumValue;
   }
 
-  public void setEnumValue(Long enumValue) {
+  public void setEnumValue(String enumValue) {
     this.enumValue = enumValue;
   }
 
@@ -98,7 +98,7 @@ public class EmployeeTypeEnum {
   public static class Builder {
 
     private String enumId;
-    private Long enumValue;
+    private String enumValue;
     private String content;
     private Integer enumType;
     private Integer enumStatus;
@@ -109,7 +109,7 @@ public class EmployeeTypeEnum {
       return this;
     }
 
-    public Builder enumValue(Long enumValue) {
+    public Builder enumValue(String enumValue) {
       this.enumValue = enumValue;
       return this;
     }

@@ -42,11 +42,11 @@ public class ExternalInstance {
   @SerializedName("department_name")
   private String departmentName;
   @SerializedName("start_time")
-  private Long startTime;
+  private String startTime;
   @SerializedName("end_time")
-  private Long endTime;
+  private String endTime;
   @SerializedName("update_time")
-  private Long updateTime;
+  private String updateTime;
   @SerializedName("display_method")
   private String displayMethod;
   @SerializedName("update_mode")
@@ -185,27 +185,27 @@ public class ExternalInstance {
     this.departmentName = departmentName;
   }
 
-  public Long getStartTime() {
+  public String getStartTime() {
     return this.startTime;
   }
 
-  public void setStartTime(Long startTime) {
+  public void setStartTime(String startTime) {
     this.startTime = startTime;
   }
 
-  public Long getEndTime() {
+  public String getEndTime() {
     return this.endTime;
   }
 
-  public void setEndTime(Long endTime) {
+  public void setEndTime(String endTime) {
     this.endTime = endTime;
   }
 
-  public Long getUpdateTime() {
+  public String getUpdateTime() {
     return this.updateTime;
   }
 
-  public void setUpdateTime(Long updateTime) {
+  public void setUpdateTime(String updateTime) {
     this.updateTime = updateTime;
   }
 
@@ -263,9 +263,9 @@ public class ExternalInstance {
     private String openId;
     private String departmentId;
     private String departmentName;
-    private Long startTime;
-    private Long endTime;
-    private Long updateTime;
+    private String startTime;
+    private String endTime;
+    private String updateTime;
     private String displayMethod;
     private String updateMode;
     private ExternalInstanceTaskNode[] taskList;
@@ -337,17 +337,17 @@ public class ExternalInstance {
       return this;
     }
 
-    public Builder startTime(Long startTime) {
+    public Builder startTime(String startTime) {
       this.startTime = startTime;
       return this;
     }
 
-    public Builder endTime(Long endTime) {
+    public Builder endTime(String endTime) {
       this.endTime = endTime;
       return this;
     }
 
-    public Builder updateTime(Long updateTime) {
+    public Builder updateTime(String updateTime) {
       this.updateTime = updateTime;
       return this;
     }

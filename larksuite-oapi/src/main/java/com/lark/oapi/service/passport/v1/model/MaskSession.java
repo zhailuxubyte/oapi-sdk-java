@@ -18,7 +18,7 @@ import com.google.gson.annotations.SerializedName;
 public class MaskSession {
 
   @SerializedName("create_time")
-  private Long createTime;
+  private String createTime;
   @SerializedName("terminal_type")
   private Integer terminalType;
   @SerializedName("user_id")
@@ -38,11 +38,11 @@ public class MaskSession {
     return new Builder();
   }
 
-  public Long getCreateTime() {
+  public String getCreateTime() {
     return this.createTime;
   }
 
-  public void setCreateTime(Long createTime) {
+  public void setCreateTime(String createTime) {
     this.createTime = createTime;
   }
 
@@ -64,11 +64,11 @@ public class MaskSession {
 
   public static class Builder {
 
-    private Long createTime;
+    private String createTime;
     private Integer terminalType;
     private String userId;
 
-    public Builder createTime(Long createTime) {
+    public Builder createTime(String createTime) {
       this.createTime = createTime;
       return this;
     }

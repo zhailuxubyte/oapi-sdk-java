@@ -26,10 +26,10 @@ public class ListTaskReq {
   private String pageToken;
   @Query
   @SerializedName("start_create_time")
-  private Long startCreateTime;
+  private String startCreateTime;
   @Query
   @SerializedName("end_create_time")
-  private Long endCreateTime;
+  private String endCreateTime;
   @Query
   @SerializedName("task_completed")
   private Boolean taskCompleted;
@@ -70,19 +70,19 @@ public class ListTaskReq {
     this.pageToken = pageToken;
   }
 
-  public Long getStartCreateTime() {
+  public String getStartCreateTime() {
     return this.startCreateTime;
   }
 
-  public void setStartCreateTime(Long startCreateTime) {
+  public void setStartCreateTime(String startCreateTime) {
     this.startCreateTime = startCreateTime;
   }
 
-  public Long getEndCreateTime() {
+  public String getEndCreateTime() {
     return this.endCreateTime;
   }
 
-  public void setEndCreateTime(Long endCreateTime) {
+  public void setEndCreateTime(String endCreateTime) {
     this.endCreateTime = endCreateTime;
   }
 
@@ -106,8 +106,8 @@ public class ListTaskReq {
 
     private Integer pageSize;
     private String pageToken;
-    private Long startCreateTime;
-    private Long endCreateTime;
+    private String startCreateTime;
+    private String endCreateTime;
     private Boolean taskCompleted;
     private String userIdType;
 
@@ -121,12 +121,12 @@ public class ListTaskReq {
       return this;
     }
 
-    public Builder startCreateTime(Long startCreateTime) {
+    public Builder startCreateTime(String startCreateTime) {
       this.startCreateTime = startCreateTime;
       return this;
     }
 
-    public Builder endCreateTime(Long endCreateTime) {
+    public Builder endCreateTime(String endCreateTime) {
       this.endCreateTime = endCreateTime;
       return this;
     }

@@ -11,48 +11,20 @@
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package com.lark.oapi.service.vc.v1.model;
+package com.lark.oapi.service.application.v6.enums;
 
-import com.google.gson.annotations.SerializedName;
-import com.lark.oapi.core.annotation.Path;
+// 生成枚举值
+public enum PaymentTypeEnum {
+  FREE(0),
+  PAID(1),
+  ;
+  private Integer value;
 
-public class EndMeetingReq {
-
-  @Path
-  @SerializedName("meeting_id")
-  private String meetingId;
-
-  // builder 开始
-  public EndMeetingReq() {
+  PaymentTypeEnum(Integer value) {
+    this.value = value;
   }
 
-  public EndMeetingReq(Builder builder) {
-    this.meetingId = builder.meetingId;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getMeetingId() {
-    return this.meetingId;
-  }
-
-  public void setMeetingId(String meetingId) {
-    this.meetingId = meetingId;
-  }
-
-  public static class Builder {
-
-    private String meetingId;
-
-    public Builder meetingId(String meetingId) {
-      this.meetingId = meetingId;
-      return this;
-    }
-
-    public EndMeetingReq build() {
-      return new EndMeetingReq(this);
-    }
+  public Integer getValue() {
+    return this.value;
   }
 }

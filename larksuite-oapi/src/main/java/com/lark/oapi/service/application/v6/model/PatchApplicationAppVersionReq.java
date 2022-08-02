@@ -25,7 +25,7 @@ public class PatchApplicationAppVersionReq {
   private String userIdType;
   @Query
   @SerializedName("operator_id")
-  private Long operatorId;
+  private String operatorId;
   @Query
   @SerializedName("reject_reason")
   private String rejectReason;
@@ -34,7 +34,7 @@ public class PatchApplicationAppVersionReq {
   private String appId;
   @Path
   @SerializedName("version_id")
-  private Long versionId;
+  private String versionId;
   @Body
   private ApplicationAppVersion body;
 
@@ -63,11 +63,11 @@ public class PatchApplicationAppVersionReq {
     this.userIdType = userIdType;
   }
 
-  public Long getOperatorId() {
+  public String getOperatorId() {
     return this.operatorId;
   }
 
-  public void setOperatorId(Long operatorId) {
+  public void setOperatorId(String operatorId) {
     this.operatorId = operatorId;
   }
 
@@ -87,11 +87,11 @@ public class PatchApplicationAppVersionReq {
     this.appId = appId;
   }
 
-  public Long getVersionId() {
+  public String getVersionId() {
     return this.versionId;
   }
 
-  public void setVersionId(Long versionId) {
+  public void setVersionId(String versionId) {
     this.versionId = versionId;
   }
 
@@ -106,10 +106,10 @@ public class PatchApplicationAppVersionReq {
   public static class Builder {
 
     private String userIdType;
-    private Long operatorId;
+    private String operatorId;
     private String rejectReason;
     private String appId;
-    private Long versionId;
+    private String versionId;
     private ApplicationAppVersion body;
 
     public Builder userIdType(String userIdType) {
@@ -123,7 +123,7 @@ public class PatchApplicationAppVersionReq {
       return this;
     }
 
-    public Builder operatorId(Long operatorId) {
+    public Builder operatorId(String operatorId) {
       this.operatorId = operatorId;
       return this;
     }
@@ -138,7 +138,7 @@ public class PatchApplicationAppVersionReq {
       return this;
     }
 
-    public Builder versionId(Long versionId) {
+    public Builder versionId(String versionId) {
       this.versionId = versionId;
       return this;
     }

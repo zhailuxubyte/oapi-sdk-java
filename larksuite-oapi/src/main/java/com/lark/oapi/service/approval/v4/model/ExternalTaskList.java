@@ -26,7 +26,7 @@ public class ExternalTaskList {
   @SerializedName("status")
   private String status;
   @SerializedName("update_time")
-  private Long updateTime;
+  private String updateTime;
   @SerializedName("tasks")
   private ExternalTaskItem[] tasks;
 
@@ -79,11 +79,11 @@ public class ExternalTaskList {
     this.status = status;
   }
 
-  public Long getUpdateTime() {
+  public String getUpdateTime() {
     return this.updateTime;
   }
 
-  public void setUpdateTime(Long updateTime) {
+  public void setUpdateTime(String updateTime) {
     this.updateTime = updateTime;
   }
 
@@ -101,7 +101,7 @@ public class ExternalTaskList {
     private String approvalId;
     private String approvalCode;
     private String status;
-    private Long updateTime;
+    private String updateTime;
     private ExternalTaskItem[] tasks;
 
     public Builder instanceId(String instanceId) {
@@ -124,7 +124,7 @@ public class ExternalTaskList {
       return this;
     }
 
-    public Builder updateTime(Long updateTime) {
+    public Builder updateTime(String updateTime) {
       this.updateTime = updateTime;
       return this;
     }

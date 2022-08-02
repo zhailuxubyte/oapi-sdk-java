@@ -18,13 +18,13 @@ import com.google.gson.annotations.SerializedName;
 public class ReportMeetingDaily {
 
   @SerializedName("date")
-  private Long date;
+  private String date;
   @SerializedName("meeting_count")
-  private Long meetingCount;
+  private String meetingCount;
   @SerializedName("meeting_duration")
-  private Long meetingDuration;
+  private String meetingDuration;
   @SerializedName("participant_count")
-  private Long participantCount;
+  private String participantCount;
 
   // builder 开始
   public ReportMeetingDaily() {
@@ -41,61 +41,61 @@ public class ReportMeetingDaily {
     return new Builder();
   }
 
-  public Long getDate() {
+  public String getDate() {
     return this.date;
   }
 
-  public void setDate(Long date) {
+  public void setDate(String date) {
     this.date = date;
   }
 
-  public Long getMeetingCount() {
+  public String getMeetingCount() {
     return this.meetingCount;
   }
 
-  public void setMeetingCount(Long meetingCount) {
+  public void setMeetingCount(String meetingCount) {
     this.meetingCount = meetingCount;
   }
 
-  public Long getMeetingDuration() {
+  public String getMeetingDuration() {
     return this.meetingDuration;
   }
 
-  public void setMeetingDuration(Long meetingDuration) {
+  public void setMeetingDuration(String meetingDuration) {
     this.meetingDuration = meetingDuration;
   }
 
-  public Long getParticipantCount() {
+  public String getParticipantCount() {
     return this.participantCount;
   }
 
-  public void setParticipantCount(Long participantCount) {
+  public void setParticipantCount(String participantCount) {
     this.participantCount = participantCount;
   }
 
   public static class Builder {
 
-    private Long date;
-    private Long meetingCount;
-    private Long meetingDuration;
-    private Long participantCount;
+    private String date;
+    private String meetingCount;
+    private String meetingDuration;
+    private String participantCount;
 
-    public Builder date(Long date) {
+    public Builder date(String date) {
       this.date = date;
       return this;
     }
 
-    public Builder meetingCount(Long meetingCount) {
+    public Builder meetingCount(String meetingCount) {
       this.meetingCount = meetingCount;
       return this;
     }
 
-    public Builder meetingDuration(Long meetingDuration) {
+    public Builder meetingDuration(String meetingDuration) {
       this.meetingDuration = meetingDuration;
       return this;
     }
 
-    public Builder participantCount(Long participantCount) {
+    public Builder participantCount(String participantCount) {
       this.participantCount = participantCount;
       return this;
     }

@@ -26,9 +26,9 @@ public class Message {
   @SerializedName("msg_type")
   private String msgType;
   @SerializedName("create_time")
-  private Long createTime;
+  private String createTime;
   @SerializedName("update_time")
-  private Long updateTime;
+  private String updateTime;
   @SerializedName("deleted")
   private Boolean deleted;
   @SerializedName("updated")
@@ -100,19 +100,19 @@ public class Message {
     this.msgType = msgType;
   }
 
-  public Long getCreateTime() {
+  public String getCreateTime() {
     return this.createTime;
   }
 
-  public void setCreateTime(Long createTime) {
+  public void setCreateTime(String createTime) {
     this.createTime = createTime;
   }
 
-  public Long getUpdateTime() {
+  public String getUpdateTime() {
     return this.updateTime;
   }
 
-  public void setUpdateTime(Long updateTime) {
+  public void setUpdateTime(String updateTime) {
     this.updateTime = updateTime;
   }
 
@@ -178,8 +178,8 @@ public class Message {
     private String rootId;
     private String parentId;
     private String msgType;
-    private Long createTime;
-    private Long updateTime;
+    private String createTime;
+    private String updateTime;
     private Boolean deleted;
     private Boolean updated;
     private String chatId;
@@ -208,12 +208,12 @@ public class Message {
       return this;
     }
 
-    public Builder createTime(Long createTime) {
+    public Builder createTime(String createTime) {
       this.createTime = createTime;
       return this;
     }
 
-    public Builder updateTime(Long updateTime) {
+    public Builder updateTime(String updateTime) {
       this.updateTime = updateTime;
       return this;
     }

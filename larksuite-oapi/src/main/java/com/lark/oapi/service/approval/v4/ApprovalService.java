@@ -146,12 +146,6 @@ public class ApprovalService {
         reqOptions = new RequestOptions();
       }
 
-      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
-      reqOptions.setSupportLong2String(true);
-      if (customSupportLong2Str != null) {
-        reqOptions.setSupportLong2String(customSupportLong2Str);
-      }
-
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
           , "/open-apis/approval/v4/approvals"
@@ -170,7 +164,6 @@ public class ApprovalService {
     public CreateApprovalResp create(CreateApprovalReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
@@ -193,12 +186,6 @@ public class ApprovalService {
         reqOptions = new RequestOptions();
       }
 
-      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
-      reqOptions.setSupportLong2String(true);
-      if (customSupportLong2Str != null) {
-        reqOptions.setSupportLong2String(customSupportLong2Str);
-      }
-
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
           , "/open-apis/approval/v4/approvals/:approval_code"
@@ -216,7 +203,6 @@ public class ApprovalService {
     public GetApprovalResp get(GetApprovalReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
@@ -239,12 +225,6 @@ public class ApprovalService {
         reqOptions = new RequestOptions();
       }
 
-      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
-      reqOptions.setSupportLong2String(true);
-      if (customSupportLong2Str != null) {
-        reqOptions.setSupportLong2String(customSupportLong2Str);
-      }
-
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
           , "/open-apis/approval/v4/approvals/:approval_code/subscribe"
@@ -263,7 +243,6 @@ public class ApprovalService {
     public SubscribeApprovalResp subscribe(SubscribeApprovalReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
@@ -287,12 +266,6 @@ public class ApprovalService {
         reqOptions = new RequestOptions();
       }
 
-      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
-      reqOptions.setSupportLong2String(true);
-      if (customSupportLong2Str != null) {
-        reqOptions.setSupportLong2String(customSupportLong2Str);
-      }
-
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
           , "/open-apis/approval/v4/approvals/:approval_code/unsubscribe"
@@ -311,7 +284,6 @@ public class ApprovalService {
     public UnsubscribeApprovalResp unsubscribe(UnsubscribeApprovalReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
@@ -344,12 +316,6 @@ public class ApprovalService {
         reqOptions = new RequestOptions();
       }
 
-      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
-      reqOptions.setSupportLong2String(true);
-      if (customSupportLong2Str != null) {
-        reqOptions.setSupportLong2String(customSupportLong2Str);
-      }
-
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
           , "/open-apis/approval/v4/external_approvals"
@@ -368,7 +334,6 @@ public class ApprovalService {
     public CreateExternalApprovalResp create(CreateExternalApprovalReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
@@ -401,12 +366,6 @@ public class ApprovalService {
         reqOptions = new RequestOptions();
       }
 
-      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
-      reqOptions.setSupportLong2String(true);
-      if (customSupportLong2Str != null) {
-        reqOptions.setSupportLong2String(customSupportLong2Str);
-      }
-
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
           , "/open-apis/approval/v4/external_instances/check"
@@ -425,7 +384,6 @@ public class ApprovalService {
     public CheckExternalInstanceResp check(CheckExternalInstanceReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
@@ -449,12 +407,6 @@ public class ApprovalService {
         reqOptions = new RequestOptions();
       }
 
-      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
-      reqOptions.setSupportLong2String(true);
-      if (customSupportLong2Str != null) {
-        reqOptions.setSupportLong2String(customSupportLong2Str);
-      }
-
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
           , "/open-apis/approval/v4/external_instances"
@@ -473,7 +425,6 @@ public class ApprovalService {
     public CreateExternalInstanceResp create(CreateExternalInstanceReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
@@ -506,12 +457,6 @@ public class ApprovalService {
         reqOptions = new RequestOptions();
       }
 
-      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
-      reqOptions.setSupportLong2String(true);
-      if (customSupportLong2Str != null) {
-        reqOptions.setSupportLong2String(customSupportLong2Str);
-      }
-
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
           , "/open-apis/approval/v4/external_tasks"
@@ -530,7 +475,6 @@ public class ApprovalService {
     public ListExternalTaskResp list(ListExternalTaskReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
@@ -563,12 +507,6 @@ public class ApprovalService {
         reqOptions = new RequestOptions();
       }
 
-      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
-      reqOptions.setSupportLong2String(true);
-      if (customSupportLong2Str != null) {
-        reqOptions.setSupportLong2String(customSupportLong2Str);
-      }
-
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
           , "/open-apis/approval/v4/instances/add_sign"
@@ -587,7 +525,6 @@ public class ApprovalService {
     public AddSignInstanceResp addSign(AddSignInstanceReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
@@ -611,12 +548,6 @@ public class ApprovalService {
         reqOptions = new RequestOptions();
       }
 
-      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
-      reqOptions.setSupportLong2String(true);
-      if (customSupportLong2Str != null) {
-        reqOptions.setSupportLong2String(customSupportLong2Str);
-      }
-
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
           , "/open-apis/approval/v4/instances/cancel"
@@ -635,7 +566,6 @@ public class ApprovalService {
     public CancelInstanceResp cancel(CancelInstanceReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
@@ -658,12 +588,6 @@ public class ApprovalService {
         reqOptions = new RequestOptions();
       }
 
-      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
-      reqOptions.setSupportLong2String(true);
-      if (customSupportLong2Str != null) {
-        reqOptions.setSupportLong2String(customSupportLong2Str);
-      }
-
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
           , "/open-apis/approval/v4/instances/cc"
@@ -681,7 +605,6 @@ public class ApprovalService {
     public CcInstanceResp cc(CcInstanceReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
@@ -704,12 +627,6 @@ public class ApprovalService {
         reqOptions = new RequestOptions();
       }
 
-      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
-      reqOptions.setSupportLong2String(true);
-      if (customSupportLong2Str != null) {
-        reqOptions.setSupportLong2String(customSupportLong2Str);
-      }
-
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
           , "/open-apis/approval/v4/instances"
@@ -728,7 +645,6 @@ public class ApprovalService {
     public CreateInstanceResp create(CreateInstanceReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
@@ -751,12 +667,6 @@ public class ApprovalService {
         reqOptions = new RequestOptions();
       }
 
-      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
-      reqOptions.setSupportLong2String(true);
-      if (customSupportLong2Str != null) {
-        reqOptions.setSupportLong2String(customSupportLong2Str);
-      }
-
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
           , "/open-apis/approval/v4/instances/:instance_id"
@@ -774,7 +684,6 @@ public class ApprovalService {
     public GetInstanceResp get(GetInstanceReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
@@ -796,12 +705,6 @@ public class ApprovalService {
         reqOptions = new RequestOptions();
       }
 
-      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
-      reqOptions.setSupportLong2String(true);
-      if (customSupportLong2Str != null) {
-        reqOptions.setSupportLong2String(customSupportLong2Str);
-      }
-
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
           , "/open-apis/approval/v4/instances"
@@ -819,7 +722,6 @@ public class ApprovalService {
     public ListInstanceResp list(ListInstanceReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
@@ -842,12 +744,6 @@ public class ApprovalService {
         reqOptions = new RequestOptions();
       }
 
-      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
-      reqOptions.setSupportLong2String(true);
-      if (customSupportLong2Str != null) {
-        reqOptions.setSupportLong2String(customSupportLong2Str);
-      }
-
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
           , "/open-apis/approval/v4/instances/preview"
@@ -866,7 +762,6 @@ public class ApprovalService {
     public PreviewInstanceResp preview(PreviewInstanceReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
@@ -890,12 +785,6 @@ public class ApprovalService {
         reqOptions = new RequestOptions();
       }
 
-      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
-      reqOptions.setSupportLong2String(true);
-      if (customSupportLong2Str != null) {
-        reqOptions.setSupportLong2String(customSupportLong2Str);
-      }
-
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
           , "/open-apis/approval/v4/instances/query"
@@ -914,7 +803,6 @@ public class ApprovalService {
     public QueryInstanceResp query(QueryInstanceReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
@@ -938,12 +826,6 @@ public class ApprovalService {
         reqOptions = new RequestOptions();
       }
 
-      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
-      reqOptions.setSupportLong2String(true);
-      if (customSupportLong2Str != null) {
-        reqOptions.setSupportLong2String(customSupportLong2Str);
-      }
-
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
           , "/open-apis/approval/v4/instances/search_cc"
@@ -962,7 +844,6 @@ public class ApprovalService {
     public SearchCcInstanceResp searchCc(SearchCcInstanceReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
@@ -986,12 +867,6 @@ public class ApprovalService {
         reqOptions = new RequestOptions();
       }
 
-      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
-      reqOptions.setSupportLong2String(true);
-      if (customSupportLong2Str != null) {
-        reqOptions.setSupportLong2String(customSupportLong2Str);
-      }
-
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
           , "/open-apis/approval/v4/instances/specified_rollback"
@@ -1011,7 +886,6 @@ public class ApprovalService {
         throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
@@ -1044,12 +918,6 @@ public class ApprovalService {
         reqOptions = new RequestOptions();
       }
 
-      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
-      reqOptions.setSupportLong2String(true);
-      if (customSupportLong2Str != null) {
-        reqOptions.setSupportLong2String(customSupportLong2Str);
-      }
-
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
           , "/open-apis/approval/v4/instances/:instance_id/comments"
@@ -1068,7 +936,6 @@ public class ApprovalService {
     public CreateInstanceCommentResp create(CreateInstanceCommentReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
@@ -1092,12 +959,6 @@ public class ApprovalService {
         reqOptions = new RequestOptions();
       }
 
-      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
-      reqOptions.setSupportLong2String(true);
-      if (customSupportLong2Str != null) {
-        reqOptions.setSupportLong2String(customSupportLong2Str);
-      }
-
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
           , "/open-apis/approval/v4/instances/:instance_id/comments/:comment_id"
@@ -1116,7 +977,6 @@ public class ApprovalService {
     public DeleteInstanceCommentResp delete(DeleteInstanceCommentReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
@@ -1140,12 +1000,6 @@ public class ApprovalService {
         reqOptions = new RequestOptions();
       }
 
-      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
-      reqOptions.setSupportLong2String(true);
-      if (customSupportLong2Str != null) {
-        reqOptions.setSupportLong2String(customSupportLong2Str);
-      }
-
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
           , "/open-apis/approval/v4/instances/:instance_id/comments"
@@ -1164,7 +1018,6 @@ public class ApprovalService {
     public ListInstanceCommentResp list(ListInstanceCommentReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
@@ -1188,12 +1041,6 @@ public class ApprovalService {
         reqOptions = new RequestOptions();
       }
 
-      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
-      reqOptions.setSupportLong2String(true);
-      if (customSupportLong2Str != null) {
-        reqOptions.setSupportLong2String(customSupportLong2Str);
-      }
-
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
           , "/open-apis/approval/v4/instances/:instance_id/comments/remove"
@@ -1212,7 +1059,6 @@ public class ApprovalService {
     public RemoveInstanceCommentResp remove(RemoveInstanceCommentReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
@@ -1244,12 +1090,6 @@ public class ApprovalService {
         reqOptions = new RequestOptions();
       }
 
-      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
-      reqOptions.setSupportLong2String(true);
-      if (customSupportLong2Str != null) {
-        reqOptions.setSupportLong2String(customSupportLong2Str);
-      }
-
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
           , "/open-apis/approval/v4/tasks/approve"
@@ -1267,7 +1107,6 @@ public class ApprovalService {
     public ApproveTaskResp approve(ApproveTaskReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
@@ -1289,12 +1128,6 @@ public class ApprovalService {
         reqOptions = new RequestOptions();
       }
 
-      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
-      reqOptions.setSupportLong2String(true);
-      if (customSupportLong2Str != null) {
-        reqOptions.setSupportLong2String(customSupportLong2Str);
-      }
-
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
           , "/open-apis/approval/v4/tasks/query"
@@ -1312,7 +1145,6 @@ public class ApprovalService {
     public QueryTaskResp query(QueryTaskReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
@@ -1334,12 +1166,6 @@ public class ApprovalService {
         reqOptions = new RequestOptions();
       }
 
-      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
-      reqOptions.setSupportLong2String(true);
-      if (customSupportLong2Str != null) {
-        reqOptions.setSupportLong2String(customSupportLong2Str);
-      }
-
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
           , "/open-apis/approval/v4/tasks/reject"
@@ -1357,7 +1183,6 @@ public class ApprovalService {
     public RejectTaskResp reject(RejectTaskReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
@@ -1379,12 +1204,6 @@ public class ApprovalService {
         reqOptions = new RequestOptions();
       }
 
-      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
-      reqOptions.setSupportLong2String(true);
-      if (customSupportLong2Str != null) {
-        reqOptions.setSupportLong2String(customSupportLong2Str);
-      }
-
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
           , "/open-apis/approval/v4/tasks/search"
@@ -1402,7 +1221,6 @@ public class ApprovalService {
     public SearchTaskResp search(SearchTaskReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
@@ -1425,12 +1243,6 @@ public class ApprovalService {
         reqOptions = new RequestOptions();
       }
 
-      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
-      reqOptions.setSupportLong2String(true);
-      if (customSupportLong2Str != null) {
-        reqOptions.setSupportLong2String(customSupportLong2Str);
-      }
-
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
           , "/open-apis/approval/v4/tasks/transfer"
@@ -1448,7 +1260,6 @@ public class ApprovalService {
     public TransferTaskResp transfer(TransferTaskReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"

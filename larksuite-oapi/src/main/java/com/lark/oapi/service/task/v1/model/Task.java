@@ -24,15 +24,15 @@ public class Task {
   @SerializedName("description")
   private String description;
   @SerializedName("complete_time")
-  private Long completeTime;
+  private String completeTime;
   @SerializedName("creator_id")
   private String creatorId;
   @SerializedName("extra")
   private String extra;
   @SerializedName("create_time")
-  private Long createTime;
+  private String createTime;
   @SerializedName("update_time")
-  private Long updateTime;
+  private String updateTime;
   @SerializedName("due")
   private Due due;
   @SerializedName("origin")
@@ -98,11 +98,11 @@ public class Task {
     this.description = description;
   }
 
-  public Long getCompleteTime() {
+  public String getCompleteTime() {
     return this.completeTime;
   }
 
-  public void setCompleteTime(Long completeTime) {
+  public void setCompleteTime(String completeTime) {
     this.completeTime = completeTime;
   }
 
@@ -122,19 +122,19 @@ public class Task {
     this.extra = extra;
   }
 
-  public Long getCreateTime() {
+  public String getCreateTime() {
     return this.createTime;
   }
 
-  public void setCreateTime(Long createTime) {
+  public void setCreateTime(String createTime) {
     this.createTime = createTime;
   }
 
-  public Long getUpdateTime() {
+  public String getUpdateTime() {
     return this.updateTime;
   }
 
-  public void setUpdateTime(Long updateTime) {
+  public void setUpdateTime(String updateTime) {
     this.updateTime = updateTime;
   }
 
@@ -199,11 +199,11 @@ public class Task {
     private String id;
     private String summary;
     private String description;
-    private Long completeTime;
+    private String completeTime;
     private String creatorId;
     private String extra;
-    private Long createTime;
-    private Long updateTime;
+    private String createTime;
+    private String updateTime;
     private Due due;
     private Origin origin;
     private Boolean canEdit;
@@ -227,7 +227,7 @@ public class Task {
       return this;
     }
 
-    public Builder completeTime(Long completeTime) {
+    public Builder completeTime(String completeTime) {
       this.completeTime = completeTime;
       return this;
     }
@@ -242,12 +242,12 @@ public class Task {
       return this;
     }
 
-    public Builder createTime(Long createTime) {
+    public Builder createTime(String createTime) {
       this.createTime = createTime;
       return this;
     }
 
-    public Builder updateTime(Long updateTime) {
+    public Builder updateTime(String updateTime) {
       this.updateTime = updateTime;
       return this;
     }

@@ -18,9 +18,9 @@ import com.google.gson.annotations.SerializedName;
 public class AppBadge {
 
   @SerializedName("user_id")
-  private Long userId;
+  private String userId;
   @SerializedName("version")
-  private Long version;
+  private String version;
   @SerializedName("extra")
   private String extra;
   @SerializedName("pc")
@@ -44,19 +44,19 @@ public class AppBadge {
     return new Builder();
   }
 
-  public Long getUserId() {
+  public String getUserId() {
     return this.userId;
   }
 
-  public void setUserId(Long userId) {
+  public void setUserId(String userId) {
     this.userId = userId;
   }
 
-  public Long getVersion() {
+  public String getVersion() {
     return this.version;
   }
 
-  public void setVersion(Long version) {
+  public void setVersion(String version) {
     this.version = version;
   }
 
@@ -86,18 +86,18 @@ public class AppBadge {
 
   public static class Builder {
 
-    private Long userId;
-    private Long version;
+    private String userId;
+    private String version;
     private String extra;
     private ClientBadgeNum pc;
     private ClientBadgeNum mobile;
 
-    public Builder userId(Long userId) {
+    public Builder userId(String userId) {
       this.userId = userId;
       return this;
     }
 
-    public Builder version(Long version) {
+    public Builder version(String version) {
       this.version = version;
       return this;
     }

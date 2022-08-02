@@ -100,12 +100,6 @@ public class ApplicationService {
         reqOptions = new RequestOptions();
       }
 
-      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
-      reqOptions.setSupportLong2String(true);
-      if (customSupportLong2Str != null) {
-        reqOptions.setSupportLong2String(customSupportLong2Str);
-      }
-
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
           , "/open-apis/application/v6/applications/:app_id"
@@ -124,7 +118,6 @@ public class ApplicationService {
     public GetApplicationResp get(GetApplicationReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
@@ -148,12 +141,6 @@ public class ApplicationService {
         reqOptions = new RequestOptions();
       }
 
-      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
-      reqOptions.setSupportLong2String(true);
-      if (customSupportLong2Str != null) {
-        reqOptions.setSupportLong2String(customSupportLong2Str);
-      }
-
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "PATCH"
           , "/open-apis/application/v6/applications/:app_id"
@@ -172,7 +159,6 @@ public class ApplicationService {
     public PatchApplicationResp patch(PatchApplicationReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "PATCH"
@@ -196,12 +182,6 @@ public class ApplicationService {
         reqOptions = new RequestOptions();
       }
 
-      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
-      reqOptions.setSupportLong2String(true);
-      if (customSupportLong2Str != null) {
-        reqOptions.setSupportLong2String(customSupportLong2Str);
-      }
-
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
           , "/open-apis/application/v6/applications/underauditlist"
@@ -221,7 +201,6 @@ public class ApplicationService {
         throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
@@ -254,12 +233,6 @@ public class ApplicationService {
         reqOptions = new RequestOptions();
       }
 
-      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
-      reqOptions.setSupportLong2String(true);
-      if (customSupportLong2Str != null) {
-        reqOptions.setSupportLong2String(customSupportLong2Str);
-      }
-
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
           , "/open-apis/application/v6/applications/:app_id/app_usage/overview"
@@ -279,7 +252,6 @@ public class ApplicationService {
         throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
@@ -312,12 +284,6 @@ public class ApplicationService {
         reqOptions = new RequestOptions();
       }
 
-      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
-      reqOptions.setSupportLong2String(true);
-      if (customSupportLong2Str != null) {
-        reqOptions.setSupportLong2String(customSupportLong2Str);
-      }
-
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
           , "/open-apis/application/v6/applications/:app_id/app_versions/:version_id"
@@ -336,7 +302,6 @@ public class ApplicationService {
     public GetApplicationAppVersionResp get(GetApplicationAppVersionReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
@@ -360,12 +325,6 @@ public class ApplicationService {
         reqOptions = new RequestOptions();
       }
 
-      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
-      reqOptions.setSupportLong2String(true);
-      if (customSupportLong2Str != null) {
-        reqOptions.setSupportLong2String(customSupportLong2Str);
-      }
-
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "PATCH"
           , "/open-apis/application/v6/applications/:app_id/app_versions/:version_id"
@@ -385,7 +344,6 @@ public class ApplicationService {
         throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "PATCH"
@@ -418,12 +376,6 @@ public class ApplicationService {
         reqOptions = new RequestOptions();
       }
 
-      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
-      reqOptions.setSupportLong2String(true);
-      if (customSupportLong2Str != null) {
-        reqOptions.setSupportLong2String(customSupportLong2Str);
-      }
-
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
           , "/open-apis/application/v6/applications/:app_id/feedbacks"
@@ -442,7 +394,6 @@ public class ApplicationService {
     public ListApplicationFeedbackResp list(ListApplicationFeedbackReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
@@ -466,12 +417,6 @@ public class ApplicationService {
         reqOptions = new RequestOptions();
       }
 
-      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
-      reqOptions.setSupportLong2String(true);
-      if (customSupportLong2Str != null) {
-        reqOptions.setSupportLong2String(customSupportLong2Str);
-      }
-
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "PATCH"
           , "/open-apis/application/v6/applications/:app_id/feedbacks/:feedback_id"
@@ -490,7 +435,6 @@ public class ApplicationService {
     public PatchApplicationFeedbackResp patch(PatchApplicationFeedbackReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "PATCH"

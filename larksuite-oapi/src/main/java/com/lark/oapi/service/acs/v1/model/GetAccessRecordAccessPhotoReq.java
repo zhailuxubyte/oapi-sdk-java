@@ -20,7 +20,7 @@ public class GetAccessRecordAccessPhotoReq {
 
   @Path
   @SerializedName("access_record_id")
-  private Long accessRecordId;
+  private String accessRecordId;
 
   // builder 开始
   public GetAccessRecordAccessPhotoReq() {
@@ -34,19 +34,19 @@ public class GetAccessRecordAccessPhotoReq {
     return new Builder();
   }
 
-  public Long getAccessRecordId() {
+  public String getAccessRecordId() {
     return this.accessRecordId;
   }
 
-  public void setAccessRecordId(Long accessRecordId) {
+  public void setAccessRecordId(String accessRecordId) {
     this.accessRecordId = accessRecordId;
   }
 
   public static class Builder {
 
-    private Long accessRecordId;
+    private String accessRecordId;
 
-    public Builder accessRecordId(Long accessRecordId) {
+    public Builder accessRecordId(String accessRecordId) {
       this.accessRecordId = accessRecordId;
       return this;
     }

@@ -21,7 +21,7 @@ public class MoveDocsToWikiSpaceNodeReq {
 
   @Path
   @SerializedName("space_id")
-  private Long spaceId;
+  private String spaceId;
   @Body
   private MoveDocsToWikiSpaceNodeReqBody body;
 
@@ -38,11 +38,11 @@ public class MoveDocsToWikiSpaceNodeReq {
     return new Builder();
   }
 
-  public Long getSpaceId() {
+  public String getSpaceId() {
     return this.spaceId;
   }
 
-  public void setSpaceId(Long spaceId) {
+  public void setSpaceId(String spaceId) {
     this.spaceId = spaceId;
   }
 
@@ -56,10 +56,10 @@ public class MoveDocsToWikiSpaceNodeReq {
 
   public static class Builder {
 
-    private Long spaceId;
+    private String spaceId;
     private MoveDocsToWikiSpaceNodeReqBody body;
 
-    public Builder spaceId(Long spaceId) {
+    public Builder spaceId(String spaceId) {
       this.spaceId = spaceId;
       return this;
     }

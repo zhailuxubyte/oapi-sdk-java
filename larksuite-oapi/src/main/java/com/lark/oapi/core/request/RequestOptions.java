@@ -27,6 +27,7 @@ public class RequestOptions {
   private boolean supportDownLoad;
   private Boolean supportLong2String;
   private Map<String, List<String>> headers;
+
   public RequestOptions() {
   }
 

@@ -25,7 +25,7 @@ public class UpdateReserveReq {
   private String userIdType;
   @Path
   @SerializedName("reserve_id")
-  private Long reserveId;
+  private String reserveId;
   @Body
   private UpdateReserveReqBody body;
 
@@ -51,11 +51,11 @@ public class UpdateReserveReq {
     this.userIdType = userIdType;
   }
 
-  public Long getReserveId() {
+  public String getReserveId() {
     return this.reserveId;
   }
 
-  public void setReserveId(Long reserveId) {
+  public void setReserveId(String reserveId) {
     this.reserveId = reserveId;
   }
 
@@ -70,7 +70,7 @@ public class UpdateReserveReq {
   public static class Builder {
 
     private String userIdType;
-    private Long reserveId;
+    private String reserveId;
     private UpdateReserveReqBody body;
 
     public Builder userIdType(String userIdType) {
@@ -83,7 +83,7 @@ public class UpdateReserveReq {
       return this;
     }
 
-    public Builder reserveId(Long reserveId) {
+    public Builder reserveId(String reserveId) {
       this.reserveId = reserveId;
       return this;
     }

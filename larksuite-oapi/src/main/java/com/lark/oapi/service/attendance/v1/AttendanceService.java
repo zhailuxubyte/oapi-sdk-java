@@ -181,12 +181,6 @@ public class AttendanceService {
         reqOptions = new RequestOptions();
       }
 
-      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
-      reqOptions.setSupportLong2String(true);
-      if (customSupportLong2Str != null) {
-        reqOptions.setSupportLong2String(customSupportLong2Str);
-      }
-
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
           , "/open-apis/attendance/v1/approval_infos/process"
@@ -205,7 +199,6 @@ public class AttendanceService {
     public ProcessApprovalInfoResp process(ProcessApprovalInfoReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
@@ -237,12 +230,6 @@ public class AttendanceService {
       if (reqOptions == null) {
         reqOptions = new RequestOptions();
       }
-
-      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
-      reqOptions.setSupportLong2String(true);
-      if (customSupportLong2Str != null) {
-        reqOptions.setSupportLong2String(customSupportLong2Str);
-      }
       reqOptions.setSupportDownLoad(true);
 
       // 发起请求
@@ -271,7 +258,6 @@ public class AttendanceService {
     public DownloadFileResp download(DownloadFileReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportLong2String(true);
       reqOptions.setSupportDownLoad(true);
 
       // 发起请求
@@ -303,12 +289,6 @@ public class AttendanceService {
       if (reqOptions == null) {
         reqOptions = new RequestOptions();
       }
-
-      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
-      reqOptions.setSupportLong2String(true);
-      if (customSupportLong2Str != null) {
-        reqOptions.setSupportLong2String(customSupportLong2Str);
-      }
       reqOptions.setSupportUpload(true);
 
       // 发起请求
@@ -328,7 +308,6 @@ public class AttendanceService {
     public UploadFileResp upload(UploadFileReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportLong2String(true);
       reqOptions.setSupportUpload(true);
 
       // 发起请求
@@ -360,12 +339,6 @@ public class AttendanceService {
         reqOptions = new RequestOptions();
       }
 
-      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
-      reqOptions.setSupportLong2String(true);
-      if (customSupportLong2Str != null) {
-        reqOptions.setSupportLong2String(customSupportLong2Str);
-      }
-
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
           , "/open-apis/attendance/v1/groups"
@@ -383,7 +356,6 @@ public class AttendanceService {
     public CreateGroupResp create(CreateGroupReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
@@ -405,12 +377,6 @@ public class AttendanceService {
         reqOptions = new RequestOptions();
       }
 
-      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
-      reqOptions.setSupportLong2String(true);
-      if (customSupportLong2Str != null) {
-        reqOptions.setSupportLong2String(customSupportLong2Str);
-      }
-
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
           , "/open-apis/attendance/v1/groups/:group_id"
@@ -428,7 +394,6 @@ public class AttendanceService {
     public DeleteGroupResp delete(DeleteGroupReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
@@ -450,12 +415,6 @@ public class AttendanceService {
         reqOptions = new RequestOptions();
       }
 
-      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
-      reqOptions.setSupportLong2String(true);
-      if (customSupportLong2Str != null) {
-        reqOptions.setSupportLong2String(customSupportLong2Str);
-      }
-
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
           , "/open-apis/attendance/v1/groups/:group_id"
@@ -473,7 +432,6 @@ public class AttendanceService {
     public GetGroupResp get(GetGroupReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
@@ -495,12 +453,6 @@ public class AttendanceService {
         reqOptions = new RequestOptions();
       }
 
-      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
-      reqOptions.setSupportLong2String(true);
-      if (customSupportLong2Str != null) {
-        reqOptions.setSupportLong2String(customSupportLong2Str);
-      }
-
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
           , "/open-apis/attendance/v1/groups"
@@ -518,7 +470,6 @@ public class AttendanceService {
     public ListGroupResp list(ListGroupReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
@@ -540,12 +491,6 @@ public class AttendanceService {
         reqOptions = new RequestOptions();
       }
 
-      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
-      reqOptions.setSupportLong2String(true);
-      if (customSupportLong2Str != null) {
-        reqOptions.setSupportLong2String(customSupportLong2Str);
-      }
-
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
           , "/open-apis/attendance/v1/groups/search"
@@ -563,7 +508,6 @@ public class AttendanceService {
     public SearchGroupResp search(SearchGroupReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
@@ -594,12 +538,6 @@ public class AttendanceService {
         reqOptions = new RequestOptions();
       }
 
-      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
-      reqOptions.setSupportLong2String(true);
-      if (customSupportLong2Str != null) {
-        reqOptions.setSupportLong2String(customSupportLong2Str);
-      }
-
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
           , "/open-apis/attendance/v1/shifts"
@@ -617,7 +555,6 @@ public class AttendanceService {
     public CreateShiftResp create(CreateShiftReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
@@ -639,12 +576,6 @@ public class AttendanceService {
         reqOptions = new RequestOptions();
       }
 
-      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
-      reqOptions.setSupportLong2String(true);
-      if (customSupportLong2Str != null) {
-        reqOptions.setSupportLong2String(customSupportLong2Str);
-      }
-
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
           , "/open-apis/attendance/v1/shifts/:shift_id"
@@ -662,7 +593,6 @@ public class AttendanceService {
     public DeleteShiftResp delete(DeleteShiftReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
@@ -684,12 +614,6 @@ public class AttendanceService {
         reqOptions = new RequestOptions();
       }
 
-      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
-      reqOptions.setSupportLong2String(true);
-      if (customSupportLong2Str != null) {
-        reqOptions.setSupportLong2String(customSupportLong2Str);
-      }
-
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
           , "/open-apis/attendance/v1/shifts/:shift_id"
@@ -707,7 +631,6 @@ public class AttendanceService {
     public GetShiftResp get(GetShiftReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
@@ -729,12 +652,6 @@ public class AttendanceService {
         reqOptions = new RequestOptions();
       }
 
-      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
-      reqOptions.setSupportLong2String(true);
-      if (customSupportLong2Str != null) {
-        reqOptions.setSupportLong2String(customSupportLong2Str);
-      }
-
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
           , "/open-apis/attendance/v1/shifts"
@@ -752,7 +669,6 @@ public class AttendanceService {
     public ListShiftResp list(ListShiftReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
@@ -774,12 +690,6 @@ public class AttendanceService {
         reqOptions = new RequestOptions();
       }
 
-      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
-      reqOptions.setSupportLong2String(true);
-      if (customSupportLong2Str != null) {
-        reqOptions.setSupportLong2String(customSupportLong2Str);
-      }
-
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
           , "/open-apis/attendance/v1/shifts/query"
@@ -797,7 +707,6 @@ public class AttendanceService {
     public QueryShiftResp query(QueryShiftReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
@@ -829,12 +738,6 @@ public class AttendanceService {
         reqOptions = new RequestOptions();
       }
 
-      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
-      reqOptions.setSupportLong2String(true);
-      if (customSupportLong2Str != null) {
-        reqOptions.setSupportLong2String(customSupportLong2Str);
-      }
-
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
           , "/open-apis/attendance/v1/user_approvals"
@@ -853,7 +756,6 @@ public class AttendanceService {
     public CreateUserApprovalResp create(CreateUserApprovalReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
@@ -877,12 +779,6 @@ public class AttendanceService {
         reqOptions = new RequestOptions();
       }
 
-      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
-      reqOptions.setSupportLong2String(true);
-      if (customSupportLong2Str != null) {
-        reqOptions.setSupportLong2String(customSupportLong2Str);
-      }
-
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
           , "/open-apis/attendance/v1/user_approvals/query"
@@ -901,7 +797,6 @@ public class AttendanceService {
     public QueryUserApprovalResp query(QueryUserApprovalReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
@@ -934,12 +829,6 @@ public class AttendanceService {
         reqOptions = new RequestOptions();
       }
 
-      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
-      reqOptions.setSupportLong2String(true);
-      if (customSupportLong2Str != null) {
-        reqOptions.setSupportLong2String(customSupportLong2Str);
-      }
-
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
           , "/open-apis/attendance/v1/user_daily_shifts/batch_create"
@@ -959,7 +848,6 @@ public class AttendanceService {
         throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
@@ -983,12 +871,6 @@ public class AttendanceService {
         reqOptions = new RequestOptions();
       }
 
-      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
-      reqOptions.setSupportLong2String(true);
-      if (customSupportLong2Str != null) {
-        reqOptions.setSupportLong2String(customSupportLong2Str);
-      }
-
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
           , "/open-apis/attendance/v1/user_daily_shifts/query"
@@ -1007,7 +889,6 @@ public class AttendanceService {
     public QueryUserDailyShiftResp query(QueryUserDailyShiftReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
@@ -1040,12 +921,6 @@ public class AttendanceService {
         reqOptions = new RequestOptions();
       }
 
-      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
-      reqOptions.setSupportLong2String(true);
-      if (customSupportLong2Str != null) {
-        reqOptions.setSupportLong2String(customSupportLong2Str);
-      }
-
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
           , "/open-apis/attendance/v1/user_flows/batch_create"
@@ -1064,7 +939,6 @@ public class AttendanceService {
     public BatchCreateUserFlowResp batchCreate(BatchCreateUserFlowReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
@@ -1087,12 +961,6 @@ public class AttendanceService {
         reqOptions = new RequestOptions();
       }
 
-      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
-      reqOptions.setSupportLong2String(true);
-      if (customSupportLong2Str != null) {
-        reqOptions.setSupportLong2String(customSupportLong2Str);
-      }
-
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
           , "/open-apis/attendance/v1/user_flows/:user_flow_id"
@@ -1110,7 +978,6 @@ public class AttendanceService {
     public GetUserFlowResp get(GetUserFlowReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
@@ -1133,12 +1000,6 @@ public class AttendanceService {
         reqOptions = new RequestOptions();
       }
 
-      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
-      reqOptions.setSupportLong2String(true);
-      if (customSupportLong2Str != null) {
-        reqOptions.setSupportLong2String(customSupportLong2Str);
-      }
-
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
           , "/open-apis/attendance/v1/user_flows/query"
@@ -1157,7 +1018,6 @@ public class AttendanceService {
     public QueryUserFlowResp query(QueryUserFlowReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
@@ -1190,12 +1050,6 @@ public class AttendanceService {
         reqOptions = new RequestOptions();
       }
 
-      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
-      reqOptions.setSupportLong2String(true);
-      if (customSupportLong2Str != null) {
-        reqOptions.setSupportLong2String(customSupportLong2Str);
-      }
-
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
           , "/open-apis/attendance/v1/user_settings/modify"
@@ -1214,7 +1068,6 @@ public class AttendanceService {
     public ModifyUserSettingResp modify(ModifyUserSettingReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
@@ -1238,12 +1091,6 @@ public class AttendanceService {
         reqOptions = new RequestOptions();
       }
 
-      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
-      reqOptions.setSupportLong2String(true);
-      if (customSupportLong2Str != null) {
-        reqOptions.setSupportLong2String(customSupportLong2Str);
-      }
-
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
           , "/open-apis/attendance/v1/user_settings/query"
@@ -1262,7 +1109,6 @@ public class AttendanceService {
     public QueryUserSettingResp query(QueryUserSettingReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
@@ -1295,12 +1141,6 @@ public class AttendanceService {
         reqOptions = new RequestOptions();
       }
 
-      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
-      reqOptions.setSupportLong2String(true);
-      if (customSupportLong2Str != null) {
-        reqOptions.setSupportLong2String(customSupportLong2Str);
-      }
-
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
           , "/open-apis/attendance/v1/user_stats_datas/query"
@@ -1319,7 +1159,6 @@ public class AttendanceService {
     public QueryUserStatsDataResp query(QueryUserStatsDataReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
@@ -1352,12 +1191,6 @@ public class AttendanceService {
         reqOptions = new RequestOptions();
       }
 
-      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
-      reqOptions.setSupportLong2String(true);
-      if (customSupportLong2Str != null) {
-        reqOptions.setSupportLong2String(customSupportLong2Str);
-      }
-
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
           , "/open-apis/attendance/v1/user_stats_fields/query"
@@ -1376,7 +1209,6 @@ public class AttendanceService {
     public QueryUserStatsFieldResp query(QueryUserStatsFieldReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
@@ -1409,12 +1241,6 @@ public class AttendanceService {
         reqOptions = new RequestOptions();
       }
 
-      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
-      reqOptions.setSupportLong2String(true);
-      if (customSupportLong2Str != null) {
-        reqOptions.setSupportLong2String(customSupportLong2Str);
-      }
-
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
           , "/open-apis/attendance/v1/user_stats_views/query"
@@ -1433,7 +1259,6 @@ public class AttendanceService {
     public QueryUserStatsViewResp query(QueryUserStatsViewReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
@@ -1457,12 +1282,6 @@ public class AttendanceService {
         reqOptions = new RequestOptions();
       }
 
-      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
-      reqOptions.setSupportLong2String(true);
-      if (customSupportLong2Str != null) {
-        reqOptions.setSupportLong2String(customSupportLong2Str);
-      }
-
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "PUT"
           , "/open-apis/attendance/v1/user_stats_views/:user_stats_view_id"
@@ -1481,7 +1300,6 @@ public class AttendanceService {
     public UpdateUserStatsViewResp update(UpdateUserStatsViewReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "PUT"
@@ -1514,12 +1332,6 @@ public class AttendanceService {
         reqOptions = new RequestOptions();
       }
 
-      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
-      reqOptions.setSupportLong2String(true);
-      if (customSupportLong2Str != null) {
-        reqOptions.setSupportLong2String(customSupportLong2Str);
-      }
-
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
           , "/open-apis/attendance/v1/user_tasks/query"
@@ -1538,7 +1350,6 @@ public class AttendanceService {
     public QueryUserTaskResp query(QueryUserTaskReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
@@ -1571,12 +1382,6 @@ public class AttendanceService {
         reqOptions = new RequestOptions();
       }
 
-      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
-      reqOptions.setSupportLong2String(true);
-      if (customSupportLong2Str != null) {
-        reqOptions.setSupportLong2String(customSupportLong2Str);
-      }
-
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
           , "/open-apis/attendance/v1/user_task_remedys"
@@ -1595,7 +1400,6 @@ public class AttendanceService {
     public CreateUserTaskRemedyResp create(CreateUserTaskRemedyReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
@@ -1619,12 +1423,6 @@ public class AttendanceService {
         reqOptions = new RequestOptions();
       }
 
-      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
-      reqOptions.setSupportLong2String(true);
-      if (customSupportLong2Str != null) {
-        reqOptions.setSupportLong2String(customSupportLong2Str);
-      }
-
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
           , "/open-apis/attendance/v1/user_task_remedys/query"
@@ -1643,7 +1441,6 @@ public class AttendanceService {
     public QueryUserTaskRemedyResp query(QueryUserTaskRemedyReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
@@ -1667,12 +1464,6 @@ public class AttendanceService {
         reqOptions = new RequestOptions();
       }
 
-      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
-      reqOptions.setSupportLong2String(true);
-      if (customSupportLong2Str != null) {
-        reqOptions.setSupportLong2String(customSupportLong2Str);
-      }
-
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
           , "/open-apis/attendance/v1/user_task_remedys/query_user_allowed_remedys"
@@ -1692,7 +1483,6 @@ public class AttendanceService {
         QueryUserAllowedRemedysUserTaskRemedyReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"

@@ -155,12 +155,6 @@ public class BitableService {
         reqOptions = new RequestOptions();
       }
 
-      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
-      reqOptions.setSupportLong2String(true);
-      if (customSupportLong2Str != null) {
-        reqOptions.setSupportLong2String(customSupportLong2Str);
-      }
-
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
           , "/open-apis/bitable/v1/apps/:app_token"
@@ -178,7 +172,6 @@ public class BitableService {
     public GetAppResp get(GetAppReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
@@ -200,12 +193,6 @@ public class BitableService {
         reqOptions = new RequestOptions();
       }
 
-      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
-      reqOptions.setSupportLong2String(true);
-      if (customSupportLong2Str != null) {
-        reqOptions.setSupportLong2String(customSupportLong2Str);
-      }
-
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "PUT"
           , "/open-apis/bitable/v1/apps/:app_token"
@@ -223,7 +210,6 @@ public class BitableService {
     public UpdateAppResp update(UpdateAppReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "PUT"
@@ -255,12 +241,6 @@ public class BitableService {
         reqOptions = new RequestOptions();
       }
 
-      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
-      reqOptions.setSupportLong2String(true);
-      if (customSupportLong2Str != null) {
-        reqOptions.setSupportLong2String(customSupportLong2Str);
-      }
-
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
           , "/open-apis/bitable/v1/apps/:app_token/roles"
@@ -279,7 +259,6 @@ public class BitableService {
     public CreateAppRoleResp create(CreateAppRoleReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
@@ -303,12 +282,6 @@ public class BitableService {
         reqOptions = new RequestOptions();
       }
 
-      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
-      reqOptions.setSupportLong2String(true);
-      if (customSupportLong2Str != null) {
-        reqOptions.setSupportLong2String(customSupportLong2Str);
-      }
-
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
           , "/open-apis/bitable/v1/apps/:app_token/roles/:role_id"
@@ -327,7 +300,6 @@ public class BitableService {
     public DeleteAppRoleResp delete(DeleteAppRoleReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
@@ -350,12 +322,6 @@ public class BitableService {
         reqOptions = new RequestOptions();
       }
 
-      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
-      reqOptions.setSupportLong2String(true);
-      if (customSupportLong2Str != null) {
-        reqOptions.setSupportLong2String(customSupportLong2Str);
-      }
-
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
           , "/open-apis/bitable/v1/apps/:app_token/roles"
@@ -373,7 +339,6 @@ public class BitableService {
     public ListAppRoleResp list(ListAppRoleReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
@@ -396,12 +361,6 @@ public class BitableService {
         reqOptions = new RequestOptions();
       }
 
-      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
-      reqOptions.setSupportLong2String(true);
-      if (customSupportLong2Str != null) {
-        reqOptions.setSupportLong2String(customSupportLong2Str);
-      }
-
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "PUT"
           , "/open-apis/bitable/v1/apps/:app_token/roles/:role_id"
@@ -420,7 +379,6 @@ public class BitableService {
     public UpdateAppRoleResp update(UpdateAppRoleReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "PUT"
@@ -453,12 +411,6 @@ public class BitableService {
         reqOptions = new RequestOptions();
       }
 
-      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
-      reqOptions.setSupportLong2String(true);
-      if (customSupportLong2Str != null) {
-        reqOptions.setSupportLong2String(customSupportLong2Str);
-      }
-
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
           , "/open-apis/bitable/v1/apps/:app_token/roles/:role_id/members/batch_create"
@@ -478,7 +430,6 @@ public class BitableService {
         throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
@@ -502,12 +453,6 @@ public class BitableService {
         reqOptions = new RequestOptions();
       }
 
-      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
-      reqOptions.setSupportLong2String(true);
-      if (customSupportLong2Str != null) {
-        reqOptions.setSupportLong2String(customSupportLong2Str);
-      }
-
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
           , "/open-apis/bitable/v1/apps/:app_token/roles/:role_id/members/batch_delete"
@@ -527,7 +472,6 @@ public class BitableService {
         throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
@@ -551,12 +495,6 @@ public class BitableService {
         reqOptions = new RequestOptions();
       }
 
-      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
-      reqOptions.setSupportLong2String(true);
-      if (customSupportLong2Str != null) {
-        reqOptions.setSupportLong2String(customSupportLong2Str);
-      }
-
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
           , "/open-apis/bitable/v1/apps/:app_token/roles/:role_id/members"
@@ -575,7 +513,6 @@ public class BitableService {
     public CreateAppRoleMemberResp create(CreateAppRoleMemberReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
@@ -599,12 +536,6 @@ public class BitableService {
         reqOptions = new RequestOptions();
       }
 
-      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
-      reqOptions.setSupportLong2String(true);
-      if (customSupportLong2Str != null) {
-        reqOptions.setSupportLong2String(customSupportLong2Str);
-      }
-
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
           , "/open-apis/bitable/v1/apps/:app_token/roles/:role_id/members/:member_id"
@@ -623,7 +554,6 @@ public class BitableService {
     public DeleteAppRoleMemberResp delete(DeleteAppRoleMemberReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
@@ -647,12 +577,6 @@ public class BitableService {
         reqOptions = new RequestOptions();
       }
 
-      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
-      reqOptions.setSupportLong2String(true);
-      if (customSupportLong2Str != null) {
-        reqOptions.setSupportLong2String(customSupportLong2Str);
-      }
-
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
           , "/open-apis/bitable/v1/apps/:app_token/roles/:role_id/members"
@@ -671,7 +595,6 @@ public class BitableService {
     public ListAppRoleMemberResp list(ListAppRoleMemberReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
@@ -704,12 +627,6 @@ public class BitableService {
         reqOptions = new RequestOptions();
       }
 
-      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
-      reqOptions.setSupportLong2String(true);
-      if (customSupportLong2Str != null) {
-        reqOptions.setSupportLong2String(customSupportLong2Str);
-      }
-
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
           , "/open-apis/bitable/v1/apps/:app_token/tables/batch_create"
@@ -728,7 +645,6 @@ public class BitableService {
     public BatchCreateAppTableResp batchCreate(BatchCreateAppTableReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
@@ -752,12 +668,6 @@ public class BitableService {
         reqOptions = new RequestOptions();
       }
 
-      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
-      reqOptions.setSupportLong2String(true);
-      if (customSupportLong2Str != null) {
-        reqOptions.setSupportLong2String(customSupportLong2Str);
-      }
-
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
           , "/open-apis/bitable/v1/apps/:app_token/tables/batch_delete"
@@ -776,7 +686,6 @@ public class BitableService {
     public BatchDeleteAppTableResp batchDelete(BatchDeleteAppTableReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
@@ -800,12 +709,6 @@ public class BitableService {
         reqOptions = new RequestOptions();
       }
 
-      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
-      reqOptions.setSupportLong2String(true);
-      if (customSupportLong2Str != null) {
-        reqOptions.setSupportLong2String(customSupportLong2Str);
-      }
-
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
           , "/open-apis/bitable/v1/apps/:app_token/tables"
@@ -824,7 +727,6 @@ public class BitableService {
     public CreateAppTableResp create(CreateAppTableReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
@@ -848,12 +750,6 @@ public class BitableService {
         reqOptions = new RequestOptions();
       }
 
-      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
-      reqOptions.setSupportLong2String(true);
-      if (customSupportLong2Str != null) {
-        reqOptions.setSupportLong2String(customSupportLong2Str);
-      }
-
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
           , "/open-apis/bitable/v1/apps/:app_token/tables/:table_id"
@@ -872,7 +768,6 @@ public class BitableService {
     public DeleteAppTableResp delete(DeleteAppTableReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
@@ -895,12 +790,6 @@ public class BitableService {
         reqOptions = new RequestOptions();
       }
 
-      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
-      reqOptions.setSupportLong2String(true);
-      if (customSupportLong2Str != null) {
-        reqOptions.setSupportLong2String(customSupportLong2Str);
-      }
-
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
           , "/open-apis/bitable/v1/apps/:app_token/tables"
@@ -918,7 +807,6 @@ public class BitableService {
     public ListAppTableResp list(ListAppTableReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
@@ -950,12 +838,6 @@ public class BitableService {
         reqOptions = new RequestOptions();
       }
 
-      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
-      reqOptions.setSupportLong2String(true);
-      if (customSupportLong2Str != null) {
-        reqOptions.setSupportLong2String(customSupportLong2Str);
-      }
-
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
           , "/open-apis/bitable/v1/apps/:app_token/tables/:table_id/fields"
@@ -974,7 +856,6 @@ public class BitableService {
     public CreateAppTableFieldResp create(CreateAppTableFieldReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
@@ -998,12 +879,6 @@ public class BitableService {
         reqOptions = new RequestOptions();
       }
 
-      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
-      reqOptions.setSupportLong2String(true);
-      if (customSupportLong2Str != null) {
-        reqOptions.setSupportLong2String(customSupportLong2Str);
-      }
-
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
           , "/open-apis/bitable/v1/apps/:app_token/tables/:table_id/fields/:field_id"
@@ -1022,7 +897,6 @@ public class BitableService {
     public DeleteAppTableFieldResp delete(DeleteAppTableFieldReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
@@ -1046,12 +920,6 @@ public class BitableService {
         reqOptions = new RequestOptions();
       }
 
-      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
-      reqOptions.setSupportLong2String(true);
-      if (customSupportLong2Str != null) {
-        reqOptions.setSupportLong2String(customSupportLong2Str);
-      }
-
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
           , "/open-apis/bitable/v1/apps/:app_token/tables/:table_id/fields"
@@ -1070,7 +938,6 @@ public class BitableService {
     public ListAppTableFieldResp list(ListAppTableFieldReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
@@ -1094,12 +961,6 @@ public class BitableService {
         reqOptions = new RequestOptions();
       }
 
-      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
-      reqOptions.setSupportLong2String(true);
-      if (customSupportLong2Str != null) {
-        reqOptions.setSupportLong2String(customSupportLong2Str);
-      }
-
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "PUT"
           , "/open-apis/bitable/v1/apps/:app_token/tables/:table_id/fields/:field_id"
@@ -1118,7 +979,6 @@ public class BitableService {
     public UpdateAppTableFieldResp update(UpdateAppTableFieldReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "PUT"
@@ -1151,12 +1011,6 @@ public class BitableService {
         reqOptions = new RequestOptions();
       }
 
-      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
-      reqOptions.setSupportLong2String(true);
-      if (customSupportLong2Str != null) {
-        reqOptions.setSupportLong2String(customSupportLong2Str);
-      }
-
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
           , "/open-apis/bitable/v1/apps/:app_token/tables/:table_id/forms/:form_id/fields"
@@ -1175,7 +1029,6 @@ public class BitableService {
     public ListAppTableFormFieldResp list(ListAppTableFormFieldReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
@@ -1199,12 +1052,6 @@ public class BitableService {
         reqOptions = new RequestOptions();
       }
 
-      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
-      reqOptions.setSupportLong2String(true);
-      if (customSupportLong2Str != null) {
-        reqOptions.setSupportLong2String(customSupportLong2Str);
-      }
-
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "PATCH"
           , "/open-apis/bitable/v1/apps/:app_token/tables/:table_id/forms/:form_id/fields/:field_id"
@@ -1223,7 +1070,6 @@ public class BitableService {
     public PatchAppTableFormFieldResp patch(PatchAppTableFormFieldReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "PATCH"
@@ -1256,12 +1102,6 @@ public class BitableService {
         reqOptions = new RequestOptions();
       }
 
-      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
-      reqOptions.setSupportLong2String(true);
-      if (customSupportLong2Str != null) {
-        reqOptions.setSupportLong2String(customSupportLong2Str);
-      }
-
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
           , "/open-apis/bitable/v1/apps/:app_token/tables/:table_id/records/batch_create"
@@ -1281,7 +1121,6 @@ public class BitableService {
         throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
@@ -1305,12 +1144,6 @@ public class BitableService {
         reqOptions = new RequestOptions();
       }
 
-      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
-      reqOptions.setSupportLong2String(true);
-      if (customSupportLong2Str != null) {
-        reqOptions.setSupportLong2String(customSupportLong2Str);
-      }
-
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
           , "/open-apis/bitable/v1/apps/:app_token/tables/:table_id/records/batch_delete"
@@ -1330,7 +1163,6 @@ public class BitableService {
         throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
@@ -1354,12 +1186,6 @@ public class BitableService {
         reqOptions = new RequestOptions();
       }
 
-      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
-      reqOptions.setSupportLong2String(true);
-      if (customSupportLong2Str != null) {
-        reqOptions.setSupportLong2String(customSupportLong2Str);
-      }
-
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
           , "/open-apis/bitable/v1/apps/:app_token/tables/:table_id/records/batch_update"
@@ -1379,7 +1205,6 @@ public class BitableService {
         throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
@@ -1403,12 +1228,6 @@ public class BitableService {
         reqOptions = new RequestOptions();
       }
 
-      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
-      reqOptions.setSupportLong2String(true);
-      if (customSupportLong2Str != null) {
-        reqOptions.setSupportLong2String(customSupportLong2Str);
-      }
-
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
           , "/open-apis/bitable/v1/apps/:app_token/tables/:table_id/records"
@@ -1427,7 +1246,6 @@ public class BitableService {
     public CreateAppTableRecordResp create(CreateAppTableRecordReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
@@ -1451,12 +1269,6 @@ public class BitableService {
         reqOptions = new RequestOptions();
       }
 
-      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
-      reqOptions.setSupportLong2String(true);
-      if (customSupportLong2Str != null) {
-        reqOptions.setSupportLong2String(customSupportLong2Str);
-      }
-
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
           , "/open-apis/bitable/v1/apps/:app_token/tables/:table_id/records/:record_id"
@@ -1475,7 +1287,6 @@ public class BitableService {
     public DeleteAppTableRecordResp delete(DeleteAppTableRecordReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
@@ -1499,12 +1310,6 @@ public class BitableService {
         reqOptions = new RequestOptions();
       }
 
-      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
-      reqOptions.setSupportLong2String(true);
-      if (customSupportLong2Str != null) {
-        reqOptions.setSupportLong2String(customSupportLong2Str);
-      }
-
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
           , "/open-apis/bitable/v1/apps/:app_token/tables/:table_id/records/:record_id"
@@ -1523,7 +1328,6 @@ public class BitableService {
     public GetAppTableRecordResp get(GetAppTableRecordReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
@@ -1547,12 +1351,6 @@ public class BitableService {
         reqOptions = new RequestOptions();
       }
 
-      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
-      reqOptions.setSupportLong2String(true);
-      if (customSupportLong2Str != null) {
-        reqOptions.setSupportLong2String(customSupportLong2Str);
-      }
-
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
           , "/open-apis/bitable/v1/apps/:app_token/tables/:table_id/records"
@@ -1571,7 +1369,6 @@ public class BitableService {
     public ListAppTableRecordResp list(ListAppTableRecordReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
@@ -1595,12 +1392,6 @@ public class BitableService {
         reqOptions = new RequestOptions();
       }
 
-      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
-      reqOptions.setSupportLong2String(true);
-      if (customSupportLong2Str != null) {
-        reqOptions.setSupportLong2String(customSupportLong2Str);
-      }
-
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "PUT"
           , "/open-apis/bitable/v1/apps/:app_token/tables/:table_id/records/:record_id"
@@ -1619,7 +1410,6 @@ public class BitableService {
     public UpdateAppTableRecordResp update(UpdateAppTableRecordReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "PUT"
@@ -1652,12 +1442,6 @@ public class BitableService {
         reqOptions = new RequestOptions();
       }
 
-      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
-      reqOptions.setSupportLong2String(true);
-      if (customSupportLong2Str != null) {
-        reqOptions.setSupportLong2String(customSupportLong2Str);
-      }
-
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
           , "/open-apis/bitable/v1/apps/:app_token/tables/:table_id/views"
@@ -1676,7 +1460,6 @@ public class BitableService {
     public CreateAppTableViewResp create(CreateAppTableViewReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
@@ -1700,12 +1483,6 @@ public class BitableService {
         reqOptions = new RequestOptions();
       }
 
-      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
-      reqOptions.setSupportLong2String(true);
-      if (customSupportLong2Str != null) {
-        reqOptions.setSupportLong2String(customSupportLong2Str);
-      }
-
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
           , "/open-apis/bitable/v1/apps/:app_token/tables/:table_id/views/:view_id"
@@ -1724,7 +1501,6 @@ public class BitableService {
     public DeleteAppTableViewResp delete(DeleteAppTableViewReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
@@ -1748,12 +1524,6 @@ public class BitableService {
         reqOptions = new RequestOptions();
       }
 
-      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
-      reqOptions.setSupportLong2String(true);
-      if (customSupportLong2Str != null) {
-        reqOptions.setSupportLong2String(customSupportLong2Str);
-      }
-
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
           , "/open-apis/bitable/v1/apps/:app_token/tables/:table_id/views"
@@ -1772,7 +1542,6 @@ public class BitableService {
     public ListAppTableViewResp list(ListAppTableViewReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "GET"

@@ -26,9 +26,9 @@ public class Entity {
   @SerializedName("description")
   private String description;
   @SerializedName("create_time")
-  private Long createTime;
+  private String createTime;
   @SerializedName("update_time")
-  private Long updateTime;
+  private String updateTime;
   @SerializedName("related_meta")
   private RelatedMeta relatedMeta;
   @SerializedName("categories")
@@ -94,19 +94,19 @@ public class Entity {
     this.description = description;
   }
 
-  public Long getCreateTime() {
+  public String getCreateTime() {
     return this.createTime;
   }
 
-  public void setCreateTime(Long createTime) {
+  public void setCreateTime(String createTime) {
     this.createTime = createTime;
   }
 
-  public Long getUpdateTime() {
+  public String getUpdateTime() {
     return this.updateTime;
   }
 
-  public void setUpdateTime(Long updateTime) {
+  public void setUpdateTime(String updateTime) {
     this.updateTime = updateTime;
   }
 
@@ -156,8 +156,8 @@ public class Entity {
     private Term[] mainKeys;
     private Term[] aliases;
     private String description;
-    private Long createTime;
-    private Long updateTime;
+    private String createTime;
+    private String updateTime;
     private RelatedMeta relatedMeta;
     private String[] categories;
     private Statistics statistics;
@@ -185,12 +185,12 @@ public class Entity {
       return this;
     }
 
-    public Builder createTime(Long createTime) {
+    public Builder createTime(String createTime) {
       this.createTime = createTime;
       return this;
     }
 
-    public Builder updateTime(Long updateTime) {
+    public Builder updateTime(String updateTime) {
       this.updateTime = updateTime;
       return this;
     }

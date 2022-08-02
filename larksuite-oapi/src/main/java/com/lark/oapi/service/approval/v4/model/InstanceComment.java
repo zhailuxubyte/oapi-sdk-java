@@ -26,7 +26,7 @@ public class InstanceComment {
   @SerializedName("comment")
   private String comment;
   @SerializedName("create_time")
-  private Long createTime;
+  private String createTime;
 
   // builder 开始
   public InstanceComment() {
@@ -76,11 +76,11 @@ public class InstanceComment {
     this.comment = comment;
   }
 
-  public Long getCreateTime() {
+  public String getCreateTime() {
     return this.createTime;
   }
 
-  public void setCreateTime(Long createTime) {
+  public void setCreateTime(String createTime) {
     this.createTime = createTime;
   }
 
@@ -90,7 +90,7 @@ public class InstanceComment {
     private String userId;
     private String openId;
     private String comment;
-    private Long createTime;
+    private String createTime;
 
     public Builder id(String id) {
       this.id = id;
@@ -112,7 +112,7 @@ public class InstanceComment {
       return this;
     }
 
-    public Builder createTime(Long createTime) {
+    public Builder createTime(String createTime) {
       this.createTime = createTime;
       return this;
     }

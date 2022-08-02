@@ -20,11 +20,11 @@ public class MeetingParticipant {
   @SerializedName("id")
   private String id;
   @SerializedName("first_join_time")
-  private Long firstJoinTime;
+  private String firstJoinTime;
   @SerializedName("final_leave_time")
-  private Long finalLeaveTime;
+  private String finalLeaveTime;
   @SerializedName("in_meeting_duration")
-  private Long inMeetingDuration;
+  private String inMeetingDuration;
   @SerializedName("user_type")
   private Integer userType;
   @SerializedName("is_host")
@@ -64,27 +64,27 @@ public class MeetingParticipant {
     this.id = id;
   }
 
-  public Long getFirstJoinTime() {
+  public String getFirstJoinTime() {
     return this.firstJoinTime;
   }
 
-  public void setFirstJoinTime(Long firstJoinTime) {
+  public void setFirstJoinTime(String firstJoinTime) {
     this.firstJoinTime = firstJoinTime;
   }
 
-  public Long getFinalLeaveTime() {
+  public String getFinalLeaveTime() {
     return this.finalLeaveTime;
   }
 
-  public void setFinalLeaveTime(Long finalLeaveTime) {
+  public void setFinalLeaveTime(String finalLeaveTime) {
     this.finalLeaveTime = finalLeaveTime;
   }
 
-  public Long getInMeetingDuration() {
+  public String getInMeetingDuration() {
     return this.inMeetingDuration;
   }
 
-  public void setInMeetingDuration(Long inMeetingDuration) {
+  public void setInMeetingDuration(String inMeetingDuration) {
     this.inMeetingDuration = inMeetingDuration;
   }
 
@@ -131,9 +131,9 @@ public class MeetingParticipant {
   public static class Builder {
 
     private String id;
-    private Long firstJoinTime;
-    private Long finalLeaveTime;
-    private Long inMeetingDuration;
+    private String firstJoinTime;
+    private String finalLeaveTime;
+    private String inMeetingDuration;
     private Integer userType;
     private Boolean isHost;
     private Boolean isCohost;
@@ -145,17 +145,17 @@ public class MeetingParticipant {
       return this;
     }
 
-    public Builder firstJoinTime(Long firstJoinTime) {
+    public Builder firstJoinTime(String firstJoinTime) {
       this.firstJoinTime = firstJoinTime;
       return this;
     }
 
-    public Builder finalLeaveTime(Long finalLeaveTime) {
+    public Builder finalLeaveTime(String finalLeaveTime) {
       this.finalLeaveTime = finalLeaveTime;
       return this;
     }
 
-    public Builder inMeetingDuration(Long inMeetingDuration) {
+    public Builder inMeetingDuration(String inMeetingDuration) {
       this.inMeetingDuration = inMeetingDuration;
       return this;
     }

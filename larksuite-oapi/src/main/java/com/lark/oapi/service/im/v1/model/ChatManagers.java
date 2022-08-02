@@ -18,7 +18,7 @@ import com.google.gson.annotations.SerializedName;
 public class ChatManagers {
 
   @SerializedName("manager_id")
-  private Long managerId;
+  private String managerId;
 
   // builder 开始
   public ChatManagers() {
@@ -32,19 +32,19 @@ public class ChatManagers {
     return new Builder();
   }
 
-  public Long getManagerId() {
+  public String getManagerId() {
     return this.managerId;
   }
 
-  public void setManagerId(Long managerId) {
+  public void setManagerId(String managerId) {
     this.managerId = managerId;
   }
 
   public static class Builder {
 
-    private Long managerId;
+    private String managerId;
 
-    public Builder managerId(Long managerId) {
+    public Builder managerId(String managerId) {
       this.managerId = managerId;
       return this;
     }

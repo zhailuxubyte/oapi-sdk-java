@@ -1002,7 +1002,7 @@ public class ImSample {
         .createFileReqBody(CreateFileReqBody.newBuilder()
             .fileType(FileTypeEnum.PDF)
             .fileName("db.pdf")
-            .file(new File("/Users/bytedance/Downloads/rocketmq.pdf"))
+            .file(new File("/Users/bytedance/Downloads/redis.pdf"))
             .build())
         .build();
 
@@ -1143,7 +1143,7 @@ public class ImSample {
         .openBaseUrl(BaseUrlEnum.FeiShu) // 设置域名，默认为飞书
         .helpDeskCredential("helpDeskId", "helpDeskSecret") // 服务台应用才需要设置
         .tokenCache(LocalCache.getInstance()) // 设置token缓存，默认为内存缓存
-        .requestTimeout(3, TimeUnit.SECONDS) // 设置httpclient 超时时间，默认永不超时
+        .requestTimeout(10, TimeUnit.SECONDS) // 设置httpclient 超时时间，默认永不超时
         //.disableTokenCache() // 禁用token管理，禁用后需要开发者自己传递token
         .logReqAtDebug(true)
 //        .httpTransport(ApacheHttpClientTransport.newBuilder()
@@ -1151,6 +1151,7 @@ public class ImSample {
 //            .build())
         .build();
 
-    sendInteractiveMonitorMsg(client);
+    // sendInteractiveMonitorMsg(client);
+    downLoadFile(client);
   }
 }

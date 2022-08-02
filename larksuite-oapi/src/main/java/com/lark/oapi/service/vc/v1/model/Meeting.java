@@ -18,7 +18,7 @@ import com.google.gson.annotations.SerializedName;
 public class Meeting {
 
   @SerializedName("id")
-  private Long id;
+  private String id;
   @SerializedName("topic")
   private String topic;
   @SerializedName("url")
@@ -26,19 +26,19 @@ public class Meeting {
   @SerializedName("meeting_no")
   private String meetingNo;
   @SerializedName("create_time")
-  private Long createTime;
+  private String createTime;
   @SerializedName("start_time")
-  private Long startTime;
+  private String startTime;
   @SerializedName("end_time")
-  private Long endTime;
+  private String endTime;
   @SerializedName("host_user")
   private MeetingUser hostUser;
   @SerializedName("status")
   private Integer status;
   @SerializedName("participant_count")
-  private Long participantCount;
+  private String participantCount;
   @SerializedName("participant_count_accumulated")
-  private Long participantCountAccumulated;
+  private String participantCountAccumulated;
   @SerializedName("participants")
   private MeetingParticipant[] participants;
   @SerializedName("ability")
@@ -68,11 +68,11 @@ public class Meeting {
     return new Builder();
   }
 
-  public Long getId() {
+  public String getId() {
     return this.id;
   }
 
-  public void setId(Long id) {
+  public void setId(String id) {
     this.id = id;
   }
 
@@ -100,27 +100,27 @@ public class Meeting {
     this.meetingNo = meetingNo;
   }
 
-  public Long getCreateTime() {
+  public String getCreateTime() {
     return this.createTime;
   }
 
-  public void setCreateTime(Long createTime) {
+  public void setCreateTime(String createTime) {
     this.createTime = createTime;
   }
 
-  public Long getStartTime() {
+  public String getStartTime() {
     return this.startTime;
   }
 
-  public void setStartTime(Long startTime) {
+  public void setStartTime(String startTime) {
     this.startTime = startTime;
   }
 
-  public Long getEndTime() {
+  public String getEndTime() {
     return this.endTime;
   }
 
-  public void setEndTime(Long endTime) {
+  public void setEndTime(String endTime) {
     this.endTime = endTime;
   }
 
@@ -140,19 +140,19 @@ public class Meeting {
     this.status = status;
   }
 
-  public Long getParticipantCount() {
+  public String getParticipantCount() {
     return this.participantCount;
   }
 
-  public void setParticipantCount(Long participantCount) {
+  public void setParticipantCount(String participantCount) {
     this.participantCount = participantCount;
   }
 
-  public Long getParticipantCountAccumulated() {
+  public String getParticipantCountAccumulated() {
     return this.participantCountAccumulated;
   }
 
-  public void setParticipantCountAccumulated(Long participantCountAccumulated) {
+  public void setParticipantCountAccumulated(String participantCountAccumulated) {
     this.participantCountAccumulated = participantCountAccumulated;
   }
 
@@ -174,21 +174,21 @@ public class Meeting {
 
   public static class Builder {
 
-    private Long id;
+    private String id;
     private String topic;
     private String url;
     private String meetingNo;
-    private Long createTime;
-    private Long startTime;
-    private Long endTime;
+    private String createTime;
+    private String startTime;
+    private String endTime;
     private MeetingUser hostUser;
     private Integer status;
-    private Long participantCount;
-    private Long participantCountAccumulated;
+    private String participantCount;
+    private String participantCountAccumulated;
     private MeetingParticipant[] participants;
     private MeetingAbility ability;
 
-    public Builder id(Long id) {
+    public Builder id(String id) {
       this.id = id;
       return this;
     }
@@ -208,17 +208,17 @@ public class Meeting {
       return this;
     }
 
-    public Builder createTime(Long createTime) {
+    public Builder createTime(String createTime) {
       this.createTime = createTime;
       return this;
     }
 
-    public Builder startTime(Long startTime) {
+    public Builder startTime(String startTime) {
       this.startTime = startTime;
       return this;
     }
 
-    public Builder endTime(Long endTime) {
+    public Builder endTime(String endTime) {
       this.endTime = endTime;
       return this;
     }
@@ -238,12 +238,12 @@ public class Meeting {
       return this;
     }
 
-    public Builder participantCount(Long participantCount) {
+    public Builder participantCount(String participantCount) {
       this.participantCount = participantCount;
       return this;
     }
 
-    public Builder participantCountAccumulated(Long participantCountAccumulated) {
+    public Builder participantCountAccumulated(String participantCountAccumulated) {
       this.participantCountAccumulated = participantCountAccumulated;
       return this;
     }

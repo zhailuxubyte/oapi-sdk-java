@@ -24,9 +24,9 @@ public class Reminder {
   @SerializedName("is_whole_day")
   private Boolean isWholeDay;
   @SerializedName("expire_time")
-  private Long expireTime;
+  private String expireTime;
   @SerializedName("notify_time")
-  private Long notifyTime;
+  private String notifyTime;
 
   // builder 开始
   public Reminder() {
@@ -68,19 +68,19 @@ public class Reminder {
     this.isWholeDay = isWholeDay;
   }
 
-  public Long getExpireTime() {
+  public String getExpireTime() {
     return this.expireTime;
   }
 
-  public void setExpireTime(Long expireTime) {
+  public void setExpireTime(String expireTime) {
     this.expireTime = expireTime;
   }
 
-  public Long getNotifyTime() {
+  public String getNotifyTime() {
     return this.notifyTime;
   }
 
-  public void setNotifyTime(Long notifyTime) {
+  public void setNotifyTime(String notifyTime) {
     this.notifyTime = notifyTime;
   }
 
@@ -89,8 +89,8 @@ public class Reminder {
     private String createUserId;
     private Boolean isNotify;
     private Boolean isWholeDay;
-    private Long expireTime;
-    private Long notifyTime;
+    private String expireTime;
+    private String notifyTime;
 
     public Builder createUserId(String createUserId) {
       this.createUserId = createUserId;
@@ -107,12 +107,12 @@ public class Reminder {
       return this;
     }
 
-    public Builder expireTime(Long expireTime) {
+    public Builder expireTime(String expireTime) {
       this.expireTime = expireTime;
       return this;
     }
 
-    public Builder notifyTime(Long notifyTime) {
+    public Builder notifyTime(String notifyTime) {
       this.notifyTime = notifyTime;
       return this;
     }

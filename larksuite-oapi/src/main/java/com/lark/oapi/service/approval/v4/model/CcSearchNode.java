@@ -20,7 +20,7 @@ public class CcSearchNode {
   @SerializedName("user_id")
   private String userId;
   @SerializedName("create_time")
-  private Long createTime;
+  private String createTime;
   @SerializedName("read_status")
   private String readStatus;
   @SerializedName("title")
@@ -55,11 +55,11 @@ public class CcSearchNode {
     this.userId = userId;
   }
 
-  public Long getCreateTime() {
+  public String getCreateTime() {
     return this.createTime;
   }
 
-  public void setCreateTime(Long createTime) {
+  public void setCreateTime(String createTime) {
     this.createTime = createTime;
   }
 
@@ -98,7 +98,7 @@ public class CcSearchNode {
   public static class Builder {
 
     private String userId;
-    private Long createTime;
+    private String createTime;
     private String readStatus;
     private String title;
     private String extra;
@@ -109,7 +109,7 @@ public class CcSearchNode {
       return this;
     }
 
-    public Builder createTime(Long createTime) {
+    public Builder createTime(String createTime) {
       this.createTime = createTime;
       return this;
     }

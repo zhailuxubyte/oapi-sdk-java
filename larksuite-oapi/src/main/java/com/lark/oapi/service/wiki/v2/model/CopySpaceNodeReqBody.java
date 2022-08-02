@@ -20,7 +20,7 @@ public class CopySpaceNodeReqBody {
   @SerializedName("target_parent_token")
   private String targetParentToken;
   @SerializedName("target_space_id")
-  private Long targetSpaceId;
+  private String targetSpaceId;
   @SerializedName("title")
   private String title;
 
@@ -46,11 +46,11 @@ public class CopySpaceNodeReqBody {
     this.targetParentToken = targetParentToken;
   }
 
-  public Long getTargetSpaceId() {
+  public String getTargetSpaceId() {
     return this.targetSpaceId;
   }
 
-  public void setTargetSpaceId(Long targetSpaceId) {
+  public void setTargetSpaceId(String targetSpaceId) {
     this.targetSpaceId = targetSpaceId;
   }
 
@@ -65,7 +65,7 @@ public class CopySpaceNodeReqBody {
   public static class Builder {
 
     private String targetParentToken;
-    private Long targetSpaceId;
+    private String targetSpaceId;
     private String title;
 
     public Builder targetParentToken(String targetParentToken) {
@@ -73,7 +73,7 @@ public class CopySpaceNodeReqBody {
       return this;
     }
 
-    public Builder targetSpaceId(Long targetSpaceId) {
+    public Builder targetSpaceId(String targetSpaceId) {
       this.targetSpaceId = targetSpaceId;
       return this;
     }

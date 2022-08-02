@@ -18,7 +18,7 @@ import com.google.gson.annotations.SerializedName;
 public class UpdateReserveReqBody {
 
   @SerializedName("end_time")
-  private Long endTime;
+  private String endTime;
   @SerializedName("meeting_settings")
   private ReserveMeetingSetting meetingSettings;
 
@@ -35,11 +35,11 @@ public class UpdateReserveReqBody {
     return new Builder();
   }
 
-  public Long getEndTime() {
+  public String getEndTime() {
     return this.endTime;
   }
 
-  public void setEndTime(Long endTime) {
+  public void setEndTime(String endTime) {
     this.endTime = endTime;
   }
 
@@ -53,10 +53,10 @@ public class UpdateReserveReqBody {
 
   public static class Builder {
 
-    private Long endTime;
+    private String endTime;
     private ReserveMeetingSetting meetingSettings;
 
-    public Builder endTime(Long endTime) {
+    public Builder endTime(String endTime) {
       this.endTime = endTime;
       return this;
     }

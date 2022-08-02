@@ -20,7 +20,7 @@ public class ExteranlInstanceCheckResponse {
   @SerializedName("instance_id")
   private String instanceId;
   @SerializedName("update_time")
-  private Long updateTime;
+  private String updateTime;
   @SerializedName("tasks")
   private ExternalInstanceTask[] tasks;
 
@@ -46,11 +46,11 @@ public class ExteranlInstanceCheckResponse {
     this.instanceId = instanceId;
   }
 
-  public Long getUpdateTime() {
+  public String getUpdateTime() {
     return this.updateTime;
   }
 
-  public void setUpdateTime(Long updateTime) {
+  public void setUpdateTime(String updateTime) {
     this.updateTime = updateTime;
   }
 
@@ -65,7 +65,7 @@ public class ExteranlInstanceCheckResponse {
   public static class Builder {
 
     private String instanceId;
-    private Long updateTime;
+    private String updateTime;
     private ExternalInstanceTask[] tasks;
 
     public Builder instanceId(String instanceId) {
@@ -73,7 +73,7 @@ public class ExteranlInstanceCheckResponse {
       return this;
     }
 
-    public Builder updateTime(Long updateTime) {
+    public Builder updateTime(String updateTime) {
       this.updateTime = updateTime;
       return this;
     }

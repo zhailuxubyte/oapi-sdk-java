@@ -41,6 +41,8 @@ public class P2ApplicationFeedbackCreatedV6Data {
   private String[] images;
   @SerializedName("feedback_id")
   private String feedbackId;
+  @SerializedName("feedback_path")
+  private String feedbackPath;
 
   public UserId getUserId() {
     return this.userId;
@@ -136,6 +138,14 @@ public class P2ApplicationFeedbackCreatedV6Data {
 
   public void setFeedbackId(String feedbackId) {
     this.feedbackId = feedbackId;
+  }
+
+  public String getFeedbackPath() {
+    return this.feedbackPath;
+  }
+
+  public void setFeedbackPath(String feedbackPath) {
+    this.feedbackPath = feedbackPath;
   }
 
 }

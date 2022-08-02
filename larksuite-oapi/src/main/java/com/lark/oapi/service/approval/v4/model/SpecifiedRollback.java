@@ -20,7 +20,7 @@ public class SpecifiedRollback {
   @SerializedName("user_id")
   private String userId;
   @SerializedName("task_id")
-  private Long taskId;
+  private String taskId;
   @SerializedName("reason")
   private String reason;
   @SerializedName("extra")
@@ -52,11 +52,11 @@ public class SpecifiedRollback {
     this.userId = userId;
   }
 
-  public Long getTaskId() {
+  public String getTaskId() {
     return this.taskId;
   }
 
-  public void setTaskId(Long taskId) {
+  public void setTaskId(String taskId) {
     this.taskId = taskId;
   }
 
@@ -87,7 +87,7 @@ public class SpecifiedRollback {
   public static class Builder {
 
     private String userId;
-    private Long taskId;
+    private String taskId;
     private String reason;
     private String extra;
     private String[] taskDefKeyList;
@@ -97,7 +97,7 @@ public class SpecifiedRollback {
       return this;
     }
 
-    public Builder taskId(Long taskId) {
+    public Builder taskId(String taskId) {
       this.taskId = taskId;
       return this;
     }

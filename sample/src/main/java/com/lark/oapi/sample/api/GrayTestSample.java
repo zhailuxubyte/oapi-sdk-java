@@ -21,6 +21,8 @@ import com.lark.oapi.core.request.RequestOptions;
 import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.core.utils.Lists;
 import com.lark.oapi.okhttp.OkHttpClient;
+import com.lark.oapi.service.application.v6.model.GetApplicationReq;
+import com.lark.oapi.service.application.v6.model.GetApplicationResp;
 import com.lark.oapi.service.gray_test_open_sg.v1.model.GetMotoReq;
 import com.lark.oapi.service.gray_test_open_sg.v1.model.GetMotoResp;
 import java.util.HashMap;
@@ -46,17 +48,13 @@ public class GrayTestSample {
         .httpTransport(new OkHttpTransport(new OkHttpClient.Builder().build())) // 自定义传输层
         .build();
 
-    Map<String, List<String>> headers = new HashMap<>();
-    headers.put("Request-id1", Lists.newArrayList("a"));
-    GetMotoResp resp = client.grayTestOpenSg().moto().get(GetMotoReq.newBuilder()
-            .bodyLevel("")
-            .motoId("id")
-            .build()
-        , RequestOptions.newBuilder()
-            .headers(headers)
-            .build());
+
+    GetApplicationResp resp = client.application().application().get(GetApplicationReq.newBuilder()
+            .lang("zh_cn")
+            .appId(appId)
+        .build());
     if (resp.success()) {
-      System.out.println(Jsons.DEFAULT.toJson(resp));
+      System.out.println(Jsons.DEFAULT.toJson(resp.getData()));
     } else {
       System.out.println(
           String.format("%d,%s,%s", resp.getCode(), resp.getMsg(), resp.getRequestId()));

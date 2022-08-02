@@ -23,7 +23,7 @@ public class DeleteTaskCommentReq {
   private String taskId;
   @Path
   @SerializedName("comment_id")
-  private Long commentId;
+  private String commentId;
 
   // builder 开始
   public DeleteTaskCommentReq() {
@@ -46,25 +46,25 @@ public class DeleteTaskCommentReq {
     this.taskId = taskId;
   }
 
-  public Long getCommentId() {
+  public String getCommentId() {
     return this.commentId;
   }
 
-  public void setCommentId(Long commentId) {
+  public void setCommentId(String commentId) {
     this.commentId = commentId;
   }
 
   public static class Builder {
 
     private String taskId;
-    private Long commentId;
+    private String commentId;
 
     public Builder taskId(String taskId) {
       this.taskId = taskId;
       return this;
     }
 
-    public Builder commentId(Long commentId) {
+    public Builder commentId(String commentId) {
       this.commentId = commentId;
       return this;
     }

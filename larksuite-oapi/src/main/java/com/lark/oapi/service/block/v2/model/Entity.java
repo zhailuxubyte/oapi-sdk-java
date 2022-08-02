@@ -28,7 +28,7 @@ public class Entity {
   @SerializedName("source_meta")
   private String sourceMeta;
   @SerializedName("version")
-  private Long version;
+  private String version;
   @SerializedName("source_link")
   private String sourceLink;
   @SerializedName("summary")
@@ -108,11 +108,11 @@ public class Entity {
     this.sourceMeta = sourceMeta;
   }
 
-  public Long getVersion() {
+  public String getVersion() {
     return this.version;
   }
 
-  public void setVersion(Long version) {
+  public void setVersion(String version) {
     this.version = version;
   }
 
@@ -179,7 +179,7 @@ public class Entity {
     private String blockTypeId;
     private String sourceData;
     private String sourceMeta;
-    private Long version;
+    private String version;
     private String sourceLink;
     private String summary;
     private String preview;
@@ -213,7 +213,7 @@ public class Entity {
       return this;
     }
 
-    public Builder version(Long version) {
+    public Builder version(String version) {
       this.version = version;
       return this;
     }

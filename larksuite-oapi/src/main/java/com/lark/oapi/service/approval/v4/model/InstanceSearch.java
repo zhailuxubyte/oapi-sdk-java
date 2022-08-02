@@ -32,9 +32,9 @@ public class InstanceSearch {
   @SerializedName("instance_status")
   private String instanceStatus;
   @SerializedName("instance_start_time_from")
-  private Long instanceStartTimeFrom;
+  private String instanceStartTimeFrom;
   @SerializedName("instance_start_time_to")
-  private Long instanceStartTimeTo;
+  private String instanceStartTimeTo;
   @SerializedName("locale")
   private String locale;
 
@@ -115,19 +115,19 @@ public class InstanceSearch {
     this.instanceStatus = instanceStatus;
   }
 
-  public Long getInstanceStartTimeFrom() {
+  public String getInstanceStartTimeFrom() {
     return this.instanceStartTimeFrom;
   }
 
-  public void setInstanceStartTimeFrom(Long instanceStartTimeFrom) {
+  public void setInstanceStartTimeFrom(String instanceStartTimeFrom) {
     this.instanceStartTimeFrom = instanceStartTimeFrom;
   }
 
-  public Long getInstanceStartTimeTo() {
+  public String getInstanceStartTimeTo() {
     return this.instanceStartTimeTo;
   }
 
-  public void setInstanceStartTimeTo(Long instanceStartTimeTo) {
+  public void setInstanceStartTimeTo(String instanceStartTimeTo) {
     this.instanceStartTimeTo = instanceStartTimeTo;
   }
 
@@ -148,8 +148,8 @@ public class InstanceSearch {
     private String groupExternalId;
     private String instanceTitle;
     private String instanceStatus;
-    private Long instanceStartTimeFrom;
-    private Long instanceStartTimeTo;
+    private String instanceStartTimeFrom;
+    private String instanceStartTimeTo;
     private String locale;
 
     public Builder userId(String userId) {
@@ -193,12 +193,12 @@ public class InstanceSearch {
       return this;
     }
 
-    public Builder instanceStartTimeFrom(Long instanceStartTimeFrom) {
+    public Builder instanceStartTimeFrom(String instanceStartTimeFrom) {
       this.instanceStartTimeFrom = instanceStartTimeFrom;
       return this;
     }
 
-    public Builder instanceStartTimeTo(Long instanceStartTimeTo) {
+    public Builder instanceStartTimeTo(String instanceStartTimeTo) {
       this.instanceStartTimeTo = instanceStartTimeTo;
       return this;
     }

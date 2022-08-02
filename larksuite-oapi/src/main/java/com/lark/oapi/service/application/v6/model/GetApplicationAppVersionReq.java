@@ -30,7 +30,7 @@ public class GetApplicationAppVersionReq {
   private String appId;
   @Path
   @SerializedName("version_id")
-  private Long versionId;
+  private String versionId;
 
   // builder 开始
   public GetApplicationAppVersionReq() {
@@ -71,11 +71,11 @@ public class GetApplicationAppVersionReq {
     this.appId = appId;
   }
 
-  public Long getVersionId() {
+  public String getVersionId() {
     return this.versionId;
   }
 
-  public void setVersionId(Long versionId) {
+  public void setVersionId(String versionId) {
     this.versionId = versionId;
   }
 
@@ -84,7 +84,7 @@ public class GetApplicationAppVersionReq {
     private String lang;
     private String userIdType;
     private String appId;
-    private Long versionId;
+    private String versionId;
 
     public Builder lang(String lang) {
       this.lang = lang;
@@ -112,7 +112,7 @@ public class GetApplicationAppVersionReq {
       return this;
     }
 
-    public Builder versionId(Long versionId) {
+    public Builder versionId(String versionId) {
       this.versionId = versionId;
       return this;
     }

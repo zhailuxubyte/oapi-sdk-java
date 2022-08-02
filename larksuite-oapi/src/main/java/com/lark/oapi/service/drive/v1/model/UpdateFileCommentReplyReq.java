@@ -31,10 +31,10 @@ public class UpdateFileCommentReplyReq {
   private String fileToken;
   @Path
   @SerializedName("comment_id")
-  private Long commentId;
+  private String commentId;
   @Path
   @SerializedName("reply_id")
-  private Long replyId;
+  private String replyId;
   @Body
   private UpdateFileCommentReplyReqBody body;
 
@@ -78,19 +78,19 @@ public class UpdateFileCommentReplyReq {
     this.fileToken = fileToken;
   }
 
-  public Long getCommentId() {
+  public String getCommentId() {
     return this.commentId;
   }
 
-  public void setCommentId(Long commentId) {
+  public void setCommentId(String commentId) {
     this.commentId = commentId;
   }
 
-  public Long getReplyId() {
+  public String getReplyId() {
     return this.replyId;
   }
 
-  public void setReplyId(Long replyId) {
+  public void setReplyId(String replyId) {
     this.replyId = replyId;
   }
 
@@ -107,8 +107,8 @@ public class UpdateFileCommentReplyReq {
     private String fileType;
     private String userIdType;
     private String fileToken;
-    private Long commentId;
-    private Long replyId;
+    private String commentId;
+    private String replyId;
     private UpdateFileCommentReplyReqBody body;
 
     public Builder fileType(String fileType) {
@@ -136,12 +136,12 @@ public class UpdateFileCommentReplyReq {
       return this;
     }
 
-    public Builder commentId(Long commentId) {
+    public Builder commentId(String commentId) {
       this.commentId = commentId;
       return this;
     }
 
-    public Builder replyId(Long replyId) {
+    public Builder replyId(String replyId) {
       this.replyId = replyId;
       return this;
     }

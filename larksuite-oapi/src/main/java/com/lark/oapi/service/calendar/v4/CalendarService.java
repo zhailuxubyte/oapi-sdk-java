@@ -164,12 +164,6 @@ public class CalendarService {
         reqOptions = new RequestOptions();
       }
 
-      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
-      reqOptions.setSupportLong2String(true);
-      if (customSupportLong2Str != null) {
-        reqOptions.setSupportLong2String(customSupportLong2Str);
-      }
-
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
           , "/open-apis/calendar/v4/calendars"
@@ -188,7 +182,6 @@ public class CalendarService {
     public CreateCalendarResp create(CreateCalendarReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
@@ -212,12 +205,6 @@ public class CalendarService {
         reqOptions = new RequestOptions();
       }
 
-      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
-      reqOptions.setSupportLong2String(true);
-      if (customSupportLong2Str != null) {
-        reqOptions.setSupportLong2String(customSupportLong2Str);
-      }
-
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
           , "/open-apis/calendar/v4/calendars/:calendar_id"
@@ -236,7 +223,6 @@ public class CalendarService {
     public DeleteCalendarResp delete(DeleteCalendarReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
@@ -259,12 +245,6 @@ public class CalendarService {
         reqOptions = new RequestOptions();
       }
 
-      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
-      reqOptions.setSupportLong2String(true);
-      if (customSupportLong2Str != null) {
-        reqOptions.setSupportLong2String(customSupportLong2Str);
-      }
-
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
           , "/open-apis/calendar/v4/calendars/:calendar_id"
@@ -282,7 +262,6 @@ public class CalendarService {
     public GetCalendarResp get(GetCalendarReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
@@ -304,12 +283,6 @@ public class CalendarService {
         reqOptions = new RequestOptions();
       }
 
-      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
-      reqOptions.setSupportLong2String(true);
-      if (customSupportLong2Str != null) {
-        reqOptions.setSupportLong2String(customSupportLong2Str);
-      }
-
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
           , "/open-apis/calendar/v4/calendars"
@@ -327,7 +300,6 @@ public class CalendarService {
     public ListCalendarResp list(ListCalendarReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
@@ -350,12 +322,6 @@ public class CalendarService {
         reqOptions = new RequestOptions();
       }
 
-      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
-      reqOptions.setSupportLong2String(true);
-      if (customSupportLong2Str != null) {
-        reqOptions.setSupportLong2String(customSupportLong2Str);
-      }
-
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "PATCH"
           , "/open-apis/calendar/v4/calendars/:calendar_id"
@@ -374,7 +340,6 @@ public class CalendarService {
     public PatchCalendarResp patch(PatchCalendarReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "PATCH"
@@ -398,12 +363,6 @@ public class CalendarService {
         reqOptions = new RequestOptions();
       }
 
-      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
-      reqOptions.setSupportLong2String(true);
-      if (customSupportLong2Str != null) {
-        reqOptions.setSupportLong2String(customSupportLong2Str);
-      }
-
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
           , "/open-apis/calendar/v4/calendars/primary"
@@ -422,7 +381,6 @@ public class CalendarService {
     public PrimaryCalendarResp primary(PrimaryCalendarReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
@@ -446,12 +404,6 @@ public class CalendarService {
         reqOptions = new RequestOptions();
       }
 
-      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
-      reqOptions.setSupportLong2String(true);
-      if (customSupportLong2Str != null) {
-        reqOptions.setSupportLong2String(customSupportLong2Str);
-      }
-
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
           , "/open-apis/calendar/v4/calendars/search"
@@ -470,7 +422,6 @@ public class CalendarService {
     public SearchCalendarResp search(SearchCalendarReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
@@ -494,12 +445,6 @@ public class CalendarService {
         reqOptions = new RequestOptions();
       }
 
-      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
-      reqOptions.setSupportLong2String(true);
-      if (customSupportLong2Str != null) {
-        reqOptions.setSupportLong2String(customSupportLong2Str);
-      }
-
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
           , "/open-apis/calendar/v4/calendars/:calendar_id/subscribe"
@@ -518,7 +463,6 @@ public class CalendarService {
     public SubscribeCalendarResp subscribe(SubscribeCalendarReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
@@ -541,12 +485,6 @@ public class CalendarService {
         reqOptions = new RequestOptions();
       }
 
-      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
-      reqOptions.setSupportLong2String(true);
-      if (customSupportLong2Str != null) {
-        reqOptions.setSupportLong2String(customSupportLong2Str);
-      }
-
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
           , "/open-apis/calendar/v4/calendars/subscription"
@@ -563,7 +501,6 @@ public class CalendarService {
     public SubscriptionCalendarResp subscription() throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
@@ -585,12 +522,6 @@ public class CalendarService {
         reqOptions = new RequestOptions();
       }
 
-      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
-      reqOptions.setSupportLong2String(true);
-      if (customSupportLong2Str != null) {
-        reqOptions.setSupportLong2String(customSupportLong2Str);
-      }
-
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
           , "/open-apis/calendar/v4/calendars/:calendar_id/unsubscribe"
@@ -609,7 +540,6 @@ public class CalendarService {
     public UnsubscribeCalendarResp unsubscribe(UnsubscribeCalendarReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
@@ -642,12 +572,6 @@ public class CalendarService {
         reqOptions = new RequestOptions();
       }
 
-      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
-      reqOptions.setSupportLong2String(true);
-      if (customSupportLong2Str != null) {
-        reqOptions.setSupportLong2String(customSupportLong2Str);
-      }
-
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
           , "/open-apis/calendar/v4/calendars/:calendar_id/acls"
@@ -666,7 +590,6 @@ public class CalendarService {
     public CreateCalendarAclResp create(CreateCalendarAclReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
@@ -690,12 +613,6 @@ public class CalendarService {
         reqOptions = new RequestOptions();
       }
 
-      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
-      reqOptions.setSupportLong2String(true);
-      if (customSupportLong2Str != null) {
-        reqOptions.setSupportLong2String(customSupportLong2Str);
-      }
-
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
           , "/open-apis/calendar/v4/calendars/:calendar_id/acls/:acl_id"
@@ -714,7 +631,6 @@ public class CalendarService {
     public DeleteCalendarAclResp delete(DeleteCalendarAclReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
@@ -738,12 +654,6 @@ public class CalendarService {
         reqOptions = new RequestOptions();
       }
 
-      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
-      reqOptions.setSupportLong2String(true);
-      if (customSupportLong2Str != null) {
-        reqOptions.setSupportLong2String(customSupportLong2Str);
-      }
-
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
           , "/open-apis/calendar/v4/calendars/:calendar_id/acls"
@@ -762,7 +672,6 @@ public class CalendarService {
     public ListCalendarAclResp list(ListCalendarAclReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
@@ -786,12 +695,6 @@ public class CalendarService {
         reqOptions = new RequestOptions();
       }
 
-      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
-      reqOptions.setSupportLong2String(true);
-      if (customSupportLong2Str != null) {
-        reqOptions.setSupportLong2String(customSupportLong2Str);
-      }
-
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
           , "/open-apis/calendar/v4/calendars/:calendar_id/acls/subscription"
@@ -811,7 +714,6 @@ public class CalendarService {
         throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
@@ -844,12 +746,6 @@ public class CalendarService {
         reqOptions = new RequestOptions();
       }
 
-      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
-      reqOptions.setSupportLong2String(true);
-      if (customSupportLong2Str != null) {
-        reqOptions.setSupportLong2String(customSupportLong2Str);
-      }
-
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
           , "/open-apis/calendar/v4/calendars/:calendar_id/events"
@@ -868,7 +764,6 @@ public class CalendarService {
     public CreateCalendarEventResp create(CreateCalendarEventReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
@@ -892,12 +787,6 @@ public class CalendarService {
         reqOptions = new RequestOptions();
       }
 
-      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
-      reqOptions.setSupportLong2String(true);
-      if (customSupportLong2Str != null) {
-        reqOptions.setSupportLong2String(customSupportLong2Str);
-      }
-
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
           , "/open-apis/calendar/v4/calendars/:calendar_id/events/:event_id"
@@ -916,7 +805,6 @@ public class CalendarService {
     public DeleteCalendarEventResp delete(DeleteCalendarEventReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
@@ -940,12 +828,6 @@ public class CalendarService {
         reqOptions = new RequestOptions();
       }
 
-      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
-      reqOptions.setSupportLong2String(true);
-      if (customSupportLong2Str != null) {
-        reqOptions.setSupportLong2String(customSupportLong2Str);
-      }
-
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
           , "/open-apis/calendar/v4/calendars/:calendar_id/events/:event_id"
@@ -964,7 +846,6 @@ public class CalendarService {
     public GetCalendarEventResp get(GetCalendarEventReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
@@ -988,12 +869,6 @@ public class CalendarService {
         reqOptions = new RequestOptions();
       }
 
-      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
-      reqOptions.setSupportLong2String(true);
-      if (customSupportLong2Str != null) {
-        reqOptions.setSupportLong2String(customSupportLong2Str);
-      }
-
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
           , "/open-apis/calendar/v4/calendars/:calendar_id/events"
@@ -1012,7 +887,6 @@ public class CalendarService {
     public ListCalendarEventResp list(ListCalendarEventReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
@@ -1036,12 +910,6 @@ public class CalendarService {
         reqOptions = new RequestOptions();
       }
 
-      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
-      reqOptions.setSupportLong2String(true);
-      if (customSupportLong2Str != null) {
-        reqOptions.setSupportLong2String(customSupportLong2Str);
-      }
-
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "PATCH"
           , "/open-apis/calendar/v4/calendars/:calendar_id/events/:event_id"
@@ -1060,7 +928,6 @@ public class CalendarService {
     public PatchCalendarEventResp patch(PatchCalendarEventReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "PATCH"
@@ -1084,12 +951,6 @@ public class CalendarService {
         reqOptions = new RequestOptions();
       }
 
-      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
-      reqOptions.setSupportLong2String(true);
-      if (customSupportLong2Str != null) {
-        reqOptions.setSupportLong2String(customSupportLong2Str);
-      }
-
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
           , "/open-apis/calendar/v4/calendars/:calendar_id/events/search"
@@ -1108,7 +969,6 @@ public class CalendarService {
     public SearchCalendarEventResp search(SearchCalendarEventReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
@@ -1132,12 +992,6 @@ public class CalendarService {
         reqOptions = new RequestOptions();
       }
 
-      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
-      reqOptions.setSupportLong2String(true);
-      if (customSupportLong2Str != null) {
-        reqOptions.setSupportLong2String(customSupportLong2Str);
-      }
-
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
           , "/open-apis/calendar/v4/calendars/:calendar_id/events/subscription"
@@ -1157,7 +1011,6 @@ public class CalendarService {
         throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
@@ -1190,12 +1043,6 @@ public class CalendarService {
         reqOptions = new RequestOptions();
       }
 
-      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
-      reqOptions.setSupportLong2String(true);
-      if (customSupportLong2Str != null) {
-        reqOptions.setSupportLong2String(customSupportLong2Str);
-      }
-
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
           , "/open-apis/calendar/v4/calendars/:calendar_id/events/:event_id/attendees/batch_delete"
@@ -1215,7 +1062,6 @@ public class CalendarService {
         throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
@@ -1239,12 +1085,6 @@ public class CalendarService {
         reqOptions = new RequestOptions();
       }
 
-      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
-      reqOptions.setSupportLong2String(true);
-      if (customSupportLong2Str != null) {
-        reqOptions.setSupportLong2String(customSupportLong2Str);
-      }
-
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
           , "/open-apis/calendar/v4/calendars/:calendar_id/events/:event_id/attendees"
@@ -1264,7 +1104,6 @@ public class CalendarService {
         throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
@@ -1288,12 +1127,6 @@ public class CalendarService {
         reqOptions = new RequestOptions();
       }
 
-      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
-      reqOptions.setSupportLong2String(true);
-      if (customSupportLong2Str != null) {
-        reqOptions.setSupportLong2String(customSupportLong2Str);
-      }
-
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
           , "/open-apis/calendar/v4/calendars/:calendar_id/events/:event_id/attendees"
@@ -1312,7 +1145,6 @@ public class CalendarService {
     public ListCalendarEventAttendeeResp list(ListCalendarEventAttendeeReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
@@ -1345,12 +1177,6 @@ public class CalendarService {
         reqOptions = new RequestOptions();
       }
 
-      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
-      reqOptions.setSupportLong2String(true);
-      if (customSupportLong2Str != null) {
-        reqOptions.setSupportLong2String(customSupportLong2Str);
-      }
-
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
           ,
@@ -1371,7 +1197,6 @@ public class CalendarService {
         throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
@@ -1405,12 +1230,6 @@ public class CalendarService {
         reqOptions = new RequestOptions();
       }
 
-      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
-      reqOptions.setSupportLong2String(true);
-      if (customSupportLong2Str != null) {
-        reqOptions.setSupportLong2String(customSupportLong2Str);
-      }
-
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
           , "/open-apis/calendar/v4/exchange_bindings"
@@ -1429,7 +1248,6 @@ public class CalendarService {
     public CreateExchangeBindingResp create(CreateExchangeBindingReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
@@ -1453,12 +1271,6 @@ public class CalendarService {
         reqOptions = new RequestOptions();
       }
 
-      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
-      reqOptions.setSupportLong2String(true);
-      if (customSupportLong2Str != null) {
-        reqOptions.setSupportLong2String(customSupportLong2Str);
-      }
-
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
           , "/open-apis/calendar/v4/exchange_bindings/:exchange_binding_id"
@@ -1477,7 +1289,6 @@ public class CalendarService {
     public DeleteExchangeBindingResp delete(DeleteExchangeBindingReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
@@ -1501,12 +1312,6 @@ public class CalendarService {
         reqOptions = new RequestOptions();
       }
 
-      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
-      reqOptions.setSupportLong2String(true);
-      if (customSupportLong2Str != null) {
-        reqOptions.setSupportLong2String(customSupportLong2Str);
-      }
-
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
           , "/open-apis/calendar/v4/exchange_bindings/:exchange_binding_id"
@@ -1525,7 +1330,6 @@ public class CalendarService {
     public GetExchangeBindingResp get(GetExchangeBindingReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
@@ -1557,12 +1361,6 @@ public class CalendarService {
         reqOptions = new RequestOptions();
       }
 
-      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
-      reqOptions.setSupportLong2String(true);
-      if (customSupportLong2Str != null) {
-        reqOptions.setSupportLong2String(customSupportLong2Str);
-      }
-
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
           , "/open-apis/calendar/v4/freebusy/list"
@@ -1580,7 +1378,6 @@ public class CalendarService {
     public ListFreebusyResp list(ListFreebusyReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
@@ -1612,12 +1409,6 @@ public class CalendarService {
         reqOptions = new RequestOptions();
       }
 
-      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
-      reqOptions.setSupportLong2String(true);
-      if (customSupportLong2Str != null) {
-        reqOptions.setSupportLong2String(customSupportLong2Str);
-      }
-
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
           , "/open-apis/calendar/v4/settings/generate_caldav_conf"
@@ -1637,7 +1428,6 @@ public class CalendarService {
         throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
@@ -1670,12 +1460,6 @@ public class CalendarService {
         reqOptions = new RequestOptions();
       }
 
-      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
-      reqOptions.setSupportLong2String(true);
-      if (customSupportLong2Str != null) {
-        reqOptions.setSupportLong2String(customSupportLong2Str);
-      }
-
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
           , "/open-apis/calendar/v4/timeoff_events"
@@ -1694,7 +1478,6 @@ public class CalendarService {
     public CreateTimeoffEventResp create(CreateTimeoffEventReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
@@ -1718,12 +1501,6 @@ public class CalendarService {
         reqOptions = new RequestOptions();
       }
 
-      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
-      reqOptions.setSupportLong2String(true);
-      if (customSupportLong2Str != null) {
-        reqOptions.setSupportLong2String(customSupportLong2Str);
-      }
-
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"
           , "/open-apis/calendar/v4/timeoff_events/:timeoff_event_id"
@@ -1742,7 +1519,6 @@ public class CalendarService {
     public DeleteTimeoffEventResp delete(DeleteTimeoffEventReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "DELETE"

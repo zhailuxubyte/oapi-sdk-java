@@ -24,7 +24,7 @@ public class EventMessage {
   @SerializedName("parent_id")
   private String parentId;
   @SerializedName("create_time")
-  private Long createTime;
+  private String createTime;
   @SerializedName("chat_id")
   private String chatId;
   @SerializedName("chat_type")
@@ -80,11 +80,11 @@ public class EventMessage {
     this.parentId = parentId;
   }
 
-  public Long getCreateTime() {
+  public String getCreateTime() {
     return this.createTime;
   }
 
-  public void setCreateTime(Long createTime) {
+  public void setCreateTime(String createTime) {
     this.createTime = createTime;
   }
 
@@ -133,7 +133,7 @@ public class EventMessage {
     private String messageId;
     private String rootId;
     private String parentId;
-    private Long createTime;
+    private String createTime;
     private String chatId;
     private String chatType;
     private String messageType;
@@ -155,7 +155,7 @@ public class EventMessage {
       return this;
     }
 
-    public Builder createTime(Long createTime) {
+    public Builder createTime(String createTime) {
       this.createTime = createTime;
       return this;
     }

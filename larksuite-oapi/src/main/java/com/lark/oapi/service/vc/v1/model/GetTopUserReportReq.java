@@ -20,10 +20,10 @@ public class GetTopUserReportReq {
 
   @Query
   @SerializedName("start_time")
-  private Long startTime;
+  private String startTime;
   @Query
   @SerializedName("end_time")
-  private Long endTime;
+  private String endTime;
   @Query
   @SerializedName("limit")
   private Integer limit;
@@ -50,19 +50,19 @@ public class GetTopUserReportReq {
     return new Builder();
   }
 
-  public Long getStartTime() {
+  public String getStartTime() {
     return this.startTime;
   }
 
-  public void setStartTime(Long startTime) {
+  public void setStartTime(String startTime) {
     this.startTime = startTime;
   }
 
-  public Long getEndTime() {
+  public String getEndTime() {
     return this.endTime;
   }
 
-  public void setEndTime(Long endTime) {
+  public void setEndTime(String endTime) {
     this.endTime = endTime;
   }
 
@@ -92,18 +92,18 @@ public class GetTopUserReportReq {
 
   public static class Builder {
 
-    private Long startTime;
-    private Long endTime;
+    private String startTime;
+    private String endTime;
     private Integer limit;
     private Integer orderBy;
     private String userIdType;
 
-    public Builder startTime(Long startTime) {
+    public Builder startTime(String startTime) {
       this.startTime = startTime;
       return this;
     }
 
-    public Builder endTime(Long endTime) {
+    public Builder endTime(String endTime) {
       this.endTime = endTime;
       return this;
     }

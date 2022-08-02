@@ -18,7 +18,7 @@ import com.google.gson.annotations.SerializedName;
 public class Reserve {
 
   @SerializedName("id")
-  private Long id;
+  private String id;
   @SerializedName("meeting_no")
   private String meetingNo;
   @SerializedName("url")
@@ -28,7 +28,7 @@ public class Reserve {
   @SerializedName("live_link")
   private String liveLink;
   @SerializedName("end_time")
-  private Long endTime;
+  private String endTime;
   @SerializedName("expire_status")
   private Integer expireStatus;
   @SerializedName("reserve_user_id")
@@ -56,11 +56,11 @@ public class Reserve {
     return new Builder();
   }
 
-  public Long getId() {
+  public String getId() {
     return this.id;
   }
 
-  public void setId(Long id) {
+  public void setId(String id) {
     this.id = id;
   }
 
@@ -96,11 +96,11 @@ public class Reserve {
     this.liveLink = liveLink;
   }
 
-  public Long getEndTime() {
+  public String getEndTime() {
     return this.endTime;
   }
 
-  public void setEndTime(Long endTime) {
+  public void setEndTime(String endTime) {
     this.endTime = endTime;
   }
 
@@ -130,17 +130,17 @@ public class Reserve {
 
   public static class Builder {
 
-    private Long id;
+    private String id;
     private String meetingNo;
     private String url;
     private String appLink;
     private String liveLink;
-    private Long endTime;
+    private String endTime;
     private Integer expireStatus;
     private String reserveUserId;
     private ReserveMeetingSetting meetingSettings;
 
-    public Builder id(Long id) {
+    public Builder id(String id) {
       this.id = id;
       return this;
     }
@@ -165,7 +165,7 @@ public class Reserve {
       return this;
     }
 
-    public Builder endTime(Long endTime) {
+    public Builder endTime(String endTime) {
       this.endTime = endTime;
       return this;
     }

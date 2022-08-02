@@ -36,7 +36,7 @@ public class ChildrenDepartmentReq {
   private String pageToken;
   @Path
   @SerializedName("department_id")
-  private Long departmentId;
+  private String departmentId;
 
   // builder 开始
   public ChildrenDepartmentReq() {
@@ -95,11 +95,11 @@ public class ChildrenDepartmentReq {
     this.pageToken = pageToken;
   }
 
-  public Long getDepartmentId() {
+  public String getDepartmentId() {
     return this.departmentId;
   }
 
-  public void setDepartmentId(Long departmentId) {
+  public void setDepartmentId(String departmentId) {
     this.departmentId = departmentId;
   }
 
@@ -110,7 +110,7 @@ public class ChildrenDepartmentReq {
     private Boolean fetchChild;
     private Integer pageSize;
     private String pageToken;
-    private Long departmentId;
+    private String departmentId;
 
     public Builder userIdType(String userIdType) {
       this.userIdType = userIdType;
@@ -148,7 +148,7 @@ public class ChildrenDepartmentReq {
       return this;
     }
 
-    public Builder departmentId(Long departmentId) {
+    public Builder departmentId(String departmentId) {
       this.departmentId = departmentId;
       return this;
     }

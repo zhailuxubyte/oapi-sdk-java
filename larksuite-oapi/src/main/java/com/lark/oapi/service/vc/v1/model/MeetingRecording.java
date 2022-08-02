@@ -18,13 +18,13 @@ import com.google.gson.annotations.SerializedName;
 public class MeetingRecording {
 
   @SerializedName("id")
-  private Long id;
+  private String id;
   @SerializedName("meeting_id")
-  private Long meetingId;
+  private String meetingId;
   @SerializedName("url")
   private String url;
   @SerializedName("duration")
-  private Long duration;
+  private String duration;
 
   // builder 开始
   public MeetingRecording() {
@@ -41,19 +41,19 @@ public class MeetingRecording {
     return new Builder();
   }
 
-  public Long getId() {
+  public String getId() {
     return this.id;
   }
 
-  public void setId(Long id) {
+  public void setId(String id) {
     this.id = id;
   }
 
-  public Long getMeetingId() {
+  public String getMeetingId() {
     return this.meetingId;
   }
 
-  public void setMeetingId(Long meetingId) {
+  public void setMeetingId(String meetingId) {
     this.meetingId = meetingId;
   }
 
@@ -65,27 +65,27 @@ public class MeetingRecording {
     this.url = url;
   }
 
-  public Long getDuration() {
+  public String getDuration() {
     return this.duration;
   }
 
-  public void setDuration(Long duration) {
+  public void setDuration(String duration) {
     this.duration = duration;
   }
 
   public static class Builder {
 
-    private Long id;
-    private Long meetingId;
+    private String id;
+    private String meetingId;
     private String url;
-    private Long duration;
+    private String duration;
 
-    public Builder id(Long id) {
+    public Builder id(String id) {
       this.id = id;
       return this;
     }
 
-    public Builder meetingId(Long meetingId) {
+    public Builder meetingId(String meetingId) {
       this.meetingId = meetingId;
       return this;
     }
@@ -95,7 +95,7 @@ public class MeetingRecording {
       return this;
     }
 
-    public Builder duration(Long duration) {
+    public Builder duration(String duration) {
       this.duration = duration;
       return this;
     }

@@ -18,7 +18,7 @@ import com.google.gson.annotations.SerializedName;
 public class DataSource {
 
   @SerializedName("id")
-  private Long id;
+  private String id;
   @SerializedName("name")
   private String name;
   @SerializedName("state")
@@ -68,11 +68,11 @@ public class DataSource {
     return new Builder();
   }
 
-  public Long getId() {
+  public String getId() {
     return this.id;
   }
 
-  public void setId(Long id) {
+  public void setId(String id) {
     this.id = id;
   }
 
@@ -174,7 +174,7 @@ public class DataSource {
 
   public static class Builder {
 
-    private Long id;
+    private String id;
     private String name;
     private Integer state;
     private String description;
@@ -188,7 +188,7 @@ public class DataSource {
     private I18nMeta i18nDescription;
     private String schemaId;
 
-    public Builder id(Long id) {
+    public Builder id(String id) {
       this.id = id;
       return this;
     }

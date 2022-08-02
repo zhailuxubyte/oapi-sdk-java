@@ -29,10 +29,10 @@ public class ListEmployeeReq {
   private Integer[] type;
   @Query
   @SerializedName("start_time")
-  private Long startTime;
+  private String startTime;
   @Query
   @SerializedName("end_time")
-  private Long endTime;
+  private String endTime;
   @Query
   @SerializedName("user_id_type")
   private String userIdType;
@@ -90,19 +90,19 @@ public class ListEmployeeReq {
     this.type = type;
   }
 
-  public Long getStartTime() {
+  public String getStartTime() {
     return this.startTime;
   }
 
-  public void setStartTime(Long startTime) {
+  public void setStartTime(String startTime) {
     this.startTime = startTime;
   }
 
-  public Long getEndTime() {
+  public String getEndTime() {
     return this.endTime;
   }
 
-  public void setEndTime(Long endTime) {
+  public void setEndTime(String endTime) {
     this.endTime = endTime;
   }
 
@@ -143,8 +143,8 @@ public class ListEmployeeReq {
     private String view;
     private Integer[] status;
     private Integer[] type;
-    private Long startTime;
-    private Long endTime;
+    private String startTime;
+    private String endTime;
     private String userIdType;
     private String[] userIds;
     private String pageToken;
@@ -170,12 +170,12 @@ public class ListEmployeeReq {
       return this;
     }
 
-    public Builder startTime(Long startTime) {
+    public Builder startTime(String startTime) {
       this.startTime = startTime;
       return this;
     }
 
-    public Builder endTime(Long endTime) {
+    public Builder endTime(String endTime) {
       this.endTime = endTime;
       return this;
     }

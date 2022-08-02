@@ -18,9 +18,9 @@ import com.google.gson.annotations.SerializedName;
 public class AppVisibleList {
 
   @SerializedName("open_ids")
-  private Long[] openIds;
+  private String[] openIds;
   @SerializedName("department_ids")
-  private Long[] departmentIds;
+  private String[] departmentIds;
 
   // builder 开始
   public AppVisibleList() {
@@ -35,33 +35,33 @@ public class AppVisibleList {
     return new Builder();
   }
 
-  public Long[] getOpenIds() {
+  public String[] getOpenIds() {
     return this.openIds;
   }
 
-  public void setOpenIds(Long[] openIds) {
+  public void setOpenIds(String[] openIds) {
     this.openIds = openIds;
   }
 
-  public Long[] getDepartmentIds() {
+  public String[] getDepartmentIds() {
     return this.departmentIds;
   }
 
-  public void setDepartmentIds(Long[] departmentIds) {
+  public void setDepartmentIds(String[] departmentIds) {
     this.departmentIds = departmentIds;
   }
 
   public static class Builder {
 
-    private Long[] openIds;
-    private Long[] departmentIds;
+    private String[] openIds;
+    private String[] departmentIds;
 
-    public Builder openIds(Long[] openIds) {
+    public Builder openIds(String[] openIds) {
       this.openIds = openIds;
       return this;
     }
 
-    public Builder departmentIds(Long[] departmentIds) {
+    public Builder departmentIds(String[] departmentIds) {
       this.departmentIds = departmentIds;
       return this;
     }

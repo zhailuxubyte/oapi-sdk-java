@@ -22,7 +22,7 @@ public class ExternalTaskItem {
   @SerializedName("status")
   private String status;
   @SerializedName("update_time")
-  private Long updateTime;
+  private String updateTime;
 
   // builder 开始
   public ExternalTaskItem() {
@@ -54,11 +54,11 @@ public class ExternalTaskItem {
     this.status = status;
   }
 
-  public Long getUpdateTime() {
+  public String getUpdateTime() {
     return this.updateTime;
   }
 
-  public void setUpdateTime(Long updateTime) {
+  public void setUpdateTime(String updateTime) {
     this.updateTime = updateTime;
   }
 
@@ -66,7 +66,7 @@ public class ExternalTaskItem {
 
     private String id;
     private String status;
-    private Long updateTime;
+    private String updateTime;
 
     public Builder id(String id) {
       this.id = id;
@@ -83,7 +83,7 @@ public class ExternalTaskItem {
       return this;
     }
 
-    public Builder updateTime(Long updateTime) {
+    public Builder updateTime(String updateTime) {
       this.updateTime = updateTime;
       return this;
     }

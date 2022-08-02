@@ -27,7 +27,7 @@ public class GetActiveMeetingReserveReq {
   private String userIdType;
   @Path
   @SerializedName("reserve_id")
-  private Long reserveId;
+  private String reserveId;
 
   // builder 开始
   public GetActiveMeetingReserveReq() {
@@ -59,11 +59,11 @@ public class GetActiveMeetingReserveReq {
     this.userIdType = userIdType;
   }
 
-  public Long getReserveId() {
+  public String getReserveId() {
     return this.reserveId;
   }
 
-  public void setReserveId(Long reserveId) {
+  public void setReserveId(String reserveId) {
     this.reserveId = reserveId;
   }
 
@@ -71,7 +71,7 @@ public class GetActiveMeetingReserveReq {
 
     private Boolean withParticipants;
     private String userIdType;
-    private Long reserveId;
+    private String reserveId;
 
     public Builder withParticipants(Boolean withParticipants) {
       this.withParticipants = withParticipants;
@@ -88,7 +88,7 @@ public class GetActiveMeetingReserveReq {
       return this;
     }
 
-    public Builder reserveId(Long reserveId) {
+    public Builder reserveId(String reserveId) {
       this.reserveId = reserveId;
       return this;
     }

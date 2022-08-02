@@ -32,9 +32,9 @@ public class CcNode {
   @SerializedName("title")
   private String title;
   @SerializedName("create_time")
-  private Long createTime;
+  private String createTime;
   @SerializedName("update_time")
-  private Long updateTime;
+  private String updateTime;
   @SerializedName("display_method")
   private String displayMethod;
 
@@ -115,19 +115,19 @@ public class CcNode {
     this.title = title;
   }
 
-  public Long getCreateTime() {
+  public String getCreateTime() {
     return this.createTime;
   }
 
-  public void setCreateTime(Long createTime) {
+  public void setCreateTime(String createTime) {
     this.createTime = createTime;
   }
 
-  public Long getUpdateTime() {
+  public String getUpdateTime() {
     return this.updateTime;
   }
 
-  public void setUpdateTime(Long updateTime) {
+  public void setUpdateTime(String updateTime) {
     this.updateTime = updateTime;
   }
 
@@ -148,8 +148,8 @@ public class CcNode {
     private String readStatus;
     private String extra;
     private String title;
-    private Long createTime;
-    private Long updateTime;
+    private String createTime;
+    private String updateTime;
     private String displayMethod;
 
     public Builder ccId(String ccId) {
@@ -192,12 +192,12 @@ public class CcNode {
       return this;
     }
 
-    public Builder createTime(Long createTime) {
+    public Builder createTime(String createTime) {
       this.createTime = createTime;
       return this;
     }
 
-    public Builder updateTime(Long updateTime) {
+    public Builder updateTime(String updateTime) {
       this.updateTime = updateTime;
       return this;
     }

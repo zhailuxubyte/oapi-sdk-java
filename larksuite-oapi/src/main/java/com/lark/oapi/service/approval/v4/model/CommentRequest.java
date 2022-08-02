@@ -22,9 +22,9 @@ public class CommentRequest {
   @SerializedName("at_info_list")
   private CommentAtInfo[] atInfoList;
   @SerializedName("parent_comment_id")
-  private Long parentCommentId;
+  private String parentCommentId;
   @SerializedName("comment_id")
-  private Long commentId;
+  private String commentId;
   @SerializedName("disable_bot")
   private Boolean disableBot;
   @SerializedName("extra")
@@ -63,19 +63,19 @@ public class CommentRequest {
     this.atInfoList = atInfoList;
   }
 
-  public Long getParentCommentId() {
+  public String getParentCommentId() {
     return this.parentCommentId;
   }
 
-  public void setParentCommentId(Long parentCommentId) {
+  public void setParentCommentId(String parentCommentId) {
     this.parentCommentId = parentCommentId;
   }
 
-  public Long getCommentId() {
+  public String getCommentId() {
     return this.commentId;
   }
 
-  public void setCommentId(Long commentId) {
+  public void setCommentId(String commentId) {
     this.commentId = commentId;
   }
 
@@ -99,8 +99,8 @@ public class CommentRequest {
 
     private String content;
     private CommentAtInfo[] atInfoList;
-    private Long parentCommentId;
-    private Long commentId;
+    private String parentCommentId;
+    private String commentId;
     private Boolean disableBot;
     private String extra;
 
@@ -114,12 +114,12 @@ public class CommentRequest {
       return this;
     }
 
-    public Builder parentCommentId(Long parentCommentId) {
+    public Builder parentCommentId(String parentCommentId) {
       this.parentCommentId = parentCommentId;
       return this;
     }
 
-    public Builder commentId(Long commentId) {
+    public Builder commentId(String commentId) {
       this.commentId = commentId;
       return this;
     }

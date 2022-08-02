@@ -18,15 +18,15 @@ import com.google.gson.annotations.SerializedName;
 public class MeetingEventMeeting {
 
   @SerializedName("id")
-  private Long id;
+  private String id;
   @SerializedName("topic")
   private String topic;
   @SerializedName("meeting_no")
   private String meetingNo;
   @SerializedName("start_time")
-  private Long startTime;
+  private String startTime;
   @SerializedName("end_time")
-  private Long endTime;
+  private String endTime;
   @SerializedName("host_user")
   private MeetingEventUser hostUser;
   @SerializedName("owner")
@@ -50,11 +50,11 @@ public class MeetingEventMeeting {
     return new Builder();
   }
 
-  public Long getId() {
+  public String getId() {
     return this.id;
   }
 
-  public void setId(Long id) {
+  public void setId(String id) {
     this.id = id;
   }
 
@@ -74,19 +74,19 @@ public class MeetingEventMeeting {
     this.meetingNo = meetingNo;
   }
 
-  public Long getStartTime() {
+  public String getStartTime() {
     return this.startTime;
   }
 
-  public void setStartTime(Long startTime) {
+  public void setStartTime(String startTime) {
     this.startTime = startTime;
   }
 
-  public Long getEndTime() {
+  public String getEndTime() {
     return this.endTime;
   }
 
-  public void setEndTime(Long endTime) {
+  public void setEndTime(String endTime) {
     this.endTime = endTime;
   }
 
@@ -108,15 +108,15 @@ public class MeetingEventMeeting {
 
   public static class Builder {
 
-    private Long id;
+    private String id;
     private String topic;
     private String meetingNo;
-    private Long startTime;
-    private Long endTime;
+    private String startTime;
+    private String endTime;
     private MeetingEventUser hostUser;
     private MeetingEventUser owner;
 
-    public Builder id(Long id) {
+    public Builder id(String id) {
       this.id = id;
       return this;
     }
@@ -131,12 +131,12 @@ public class MeetingEventMeeting {
       return this;
     }
 
-    public Builder startTime(Long startTime) {
+    public Builder startTime(String startTime) {
       this.startTime = startTime;
       return this;
     }
 
-    public Builder endTime(Long endTime) {
+    public Builder endTime(String endTime) {
       this.endTime = endTime;
       return this;
     }

@@ -18,9 +18,9 @@ import com.google.gson.annotations.SerializedName;
 public class Task {
 
   @SerializedName("topic")
-  private Long topic;
+  private String topic;
   @SerializedName("user_id")
-  private Long userId;
+  private String userId;
   @SerializedName("title")
   private String title;
   @SerializedName("urls")
@@ -40,17 +40,17 @@ public class Task {
   @SerializedName("initiator_names")
   private String[] initiatorNames;
   @SerializedName("task_id")
-  private Long taskId;
+  private String taskId;
   @SerializedName("process_id")
-  private Long processId;
+  private String processId;
   @SerializedName("process_code")
   private String processCode;
   @SerializedName("definition_group_id")
-  private Long definitionGroupId;
+  private String definitionGroupId;
   @SerializedName("definition_group_name")
   private String definitionGroupName;
   @SerializedName("definition_id")
-  private Long definitionId;
+  private String definitionId;
   @SerializedName("definition_name")
   private String definitionName;
 
@@ -83,19 +83,19 @@ public class Task {
     return new Builder();
   }
 
-  public Long getTopic() {
+  public String getTopic() {
     return this.topic;
   }
 
-  public void setTopic(Long topic) {
+  public void setTopic(String topic) {
     this.topic = topic;
   }
 
-  public Long getUserId() {
+  public String getUserId() {
     return this.userId;
   }
 
-  public void setUserId(Long userId) {
+  public void setUserId(String userId) {
     this.userId = userId;
   }
 
@@ -171,19 +171,19 @@ public class Task {
     this.initiatorNames = initiatorNames;
   }
 
-  public Long getTaskId() {
+  public String getTaskId() {
     return this.taskId;
   }
 
-  public void setTaskId(Long taskId) {
+  public void setTaskId(String taskId) {
     this.taskId = taskId;
   }
 
-  public Long getProcessId() {
+  public String getProcessId() {
     return this.processId;
   }
 
-  public void setProcessId(Long processId) {
+  public void setProcessId(String processId) {
     this.processId = processId;
   }
 
@@ -195,11 +195,11 @@ public class Task {
     this.processCode = processCode;
   }
 
-  public Long getDefinitionGroupId() {
+  public String getDefinitionGroupId() {
     return this.definitionGroupId;
   }
 
-  public void setDefinitionGroupId(Long definitionGroupId) {
+  public void setDefinitionGroupId(String definitionGroupId) {
     this.definitionGroupId = definitionGroupId;
   }
 
@@ -211,11 +211,11 @@ public class Task {
     this.definitionGroupName = definitionGroupName;
   }
 
-  public Long getDefinitionId() {
+  public String getDefinitionId() {
     return this.definitionId;
   }
 
-  public void setDefinitionId(Long definitionId) {
+  public void setDefinitionId(String definitionId) {
     this.definitionId = definitionId;
   }
 
@@ -229,8 +229,8 @@ public class Task {
 
   public static class Builder {
 
-    private Long topic;
-    private Long userId;
+    private String topic;
+    private String userId;
     private String title;
     private TaskUrls urls;
     private String processExternalId;
@@ -240,15 +240,15 @@ public class Task {
     private String definitionCode;
     private String[] initiators;
     private String[] initiatorNames;
-    private Long taskId;
-    private Long processId;
+    private String taskId;
+    private String processId;
     private String processCode;
-    private Long definitionGroupId;
+    private String definitionGroupId;
     private String definitionGroupName;
-    private Long definitionId;
+    private String definitionId;
     private String definitionName;
 
-    public Builder topic(Long topic) {
+    public Builder topic(String topic) {
       this.topic = topic;
       return this;
     }
@@ -258,7 +258,7 @@ public class Task {
       return this;
     }
 
-    public Builder userId(Long userId) {
+    public Builder userId(String userId) {
       this.userId = userId;
       return this;
     }
@@ -319,12 +319,12 @@ public class Task {
       return this;
     }
 
-    public Builder taskId(Long taskId) {
+    public Builder taskId(String taskId) {
       this.taskId = taskId;
       return this;
     }
 
-    public Builder processId(Long processId) {
+    public Builder processId(String processId) {
       this.processId = processId;
       return this;
     }
@@ -334,7 +334,7 @@ public class Task {
       return this;
     }
 
-    public Builder definitionGroupId(Long definitionGroupId) {
+    public Builder definitionGroupId(String definitionGroupId) {
       this.definitionGroupId = definitionGroupId;
       return this;
     }
@@ -344,7 +344,7 @@ public class Task {
       return this;
     }
 
-    public Builder definitionId(Long definitionId) {
+    public Builder definitionId(String definitionId) {
       this.definitionId = definitionId;
       return this;
     }

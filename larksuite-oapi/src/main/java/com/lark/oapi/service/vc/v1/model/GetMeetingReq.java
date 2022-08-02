@@ -30,7 +30,7 @@ public class GetMeetingReq {
   private String userIdType;
   @Path
   @SerializedName("meeting_id")
-  private Long meetingId;
+  private String meetingId;
 
   // builder 开始
   public GetMeetingReq() {
@@ -71,11 +71,11 @@ public class GetMeetingReq {
     this.userIdType = userIdType;
   }
 
-  public Long getMeetingId() {
+  public String getMeetingId() {
     return this.meetingId;
   }
 
-  public void setMeetingId(Long meetingId) {
+  public void setMeetingId(String meetingId) {
     this.meetingId = meetingId;
   }
 
@@ -84,7 +84,7 @@ public class GetMeetingReq {
     private Boolean withParticipants;
     private Boolean withMeetingAbility;
     private String userIdType;
-    private Long meetingId;
+    private String meetingId;
 
     public Builder withParticipants(Boolean withParticipants) {
       this.withParticipants = withParticipants;
@@ -106,7 +106,7 @@ public class GetMeetingReq {
       return this;
     }
 
-    public Builder meetingId(Long meetingId) {
+    public Builder meetingId(String meetingId) {
       this.meetingId = meetingId;
       return this;
     }

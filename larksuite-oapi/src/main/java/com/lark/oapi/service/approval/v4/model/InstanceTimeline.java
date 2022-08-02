@@ -20,7 +20,7 @@ public class InstanceTimeline {
   @SerializedName("type")
   private String type;
   @SerializedName("create_time")
-  private Long createTime;
+  private String createTime;
   @SerializedName("user_id")
   private String userId;
   @SerializedName("open_id")
@@ -70,11 +70,11 @@ public class InstanceTimeline {
     this.type = type;
   }
 
-  public Long getCreateTime() {
+  public String getCreateTime() {
     return this.createTime;
   }
 
-  public void setCreateTime(Long createTime) {
+  public void setCreateTime(String createTime) {
     this.createTime = createTime;
   }
 
@@ -153,7 +153,7 @@ public class InstanceTimeline {
   public static class Builder {
 
     private String type;
-    private Long createTime;
+    private String createTime;
     private String userId;
     private String openId;
     private String[] userIdList;
@@ -174,7 +174,7 @@ public class InstanceTimeline {
       return this;
     }
 
-    public Builder createTime(Long createTime) {
+    public Builder createTime(String createTime) {
       this.createTime = createTime;
       return this;
     }

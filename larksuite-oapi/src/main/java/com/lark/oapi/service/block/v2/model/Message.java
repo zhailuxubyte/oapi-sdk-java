@@ -20,7 +20,7 @@ public class Message {
   @SerializedName("body")
   private String body;
   @SerializedName("version")
-  private Long version;
+  private String version;
   @SerializedName("block_id")
   private String blockId;
   @SerializedName("resource")
@@ -52,11 +52,11 @@ public class Message {
     this.body = body;
   }
 
-  public Long getVersion() {
+  public String getVersion() {
     return this.version;
   }
 
-  public void setVersion(Long version) {
+  public void setVersion(String version) {
     this.version = version;
   }
 
@@ -87,7 +87,7 @@ public class Message {
   public static class Builder {
 
     private String body;
-    private Long version;
+    private String version;
     private String blockId;
     private String resource;
     private String[] openIds;
@@ -97,7 +97,7 @@ public class Message {
       return this;
     }
 
-    public Builder version(Long version) {
+    public Builder version(String version) {
       this.version = version;
       return this;
     }

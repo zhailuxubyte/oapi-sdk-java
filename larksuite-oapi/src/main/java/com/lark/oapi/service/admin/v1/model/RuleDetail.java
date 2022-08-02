@@ -18,9 +18,9 @@ import com.google.gson.annotations.SerializedName;
 public class RuleDetail {
 
   @SerializedName("effective_time")
-  private Long effectiveTime;
+  private String effectiveTime;
   @SerializedName("expiration_time")
-  private Long expirationTime;
+  private String expirationTime;
   @SerializedName("anniversary")
   private Integer anniversary;
   @SerializedName("effective_period")
@@ -41,19 +41,19 @@ public class RuleDetail {
     return new Builder();
   }
 
-  public Long getEffectiveTime() {
+  public String getEffectiveTime() {
     return this.effectiveTime;
   }
 
-  public void setEffectiveTime(Long effectiveTime) {
+  public void setEffectiveTime(String effectiveTime) {
     this.effectiveTime = effectiveTime;
   }
 
-  public Long getExpirationTime() {
+  public String getExpirationTime() {
     return this.expirationTime;
   }
 
-  public void setExpirationTime(Long expirationTime) {
+  public void setExpirationTime(String expirationTime) {
     this.expirationTime = expirationTime;
   }
 
@@ -75,17 +75,17 @@ public class RuleDetail {
 
   public static class Builder {
 
-    private Long effectiveTime;
-    private Long expirationTime;
+    private String effectiveTime;
+    private String expirationTime;
     private Integer anniversary;
     private Integer effectivePeriod;
 
-    public Builder effectiveTime(Long effectiveTime) {
+    public Builder effectiveTime(String effectiveTime) {
       this.effectiveTime = effectiveTime;
       return this;
     }
 
-    public Builder expirationTime(Long expirationTime) {
+    public Builder expirationTime(String expirationTime) {
       this.expirationTime = expirationTime;
       return this;
     }

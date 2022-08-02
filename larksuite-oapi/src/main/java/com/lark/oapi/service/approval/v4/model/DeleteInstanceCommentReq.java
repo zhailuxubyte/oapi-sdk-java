@@ -24,13 +24,13 @@ public class DeleteInstanceCommentReq {
   private String userIdType;
   @Query
   @SerializedName("user_id")
-  private Long userId;
+  private String userId;
   @Path
   @SerializedName("instance_id")
   private String instanceId;
   @Path
   @SerializedName("comment_id")
-  private Long commentId;
+  private String commentId;
 
   // builder 开始
   public DeleteInstanceCommentReq() {
@@ -55,11 +55,11 @@ public class DeleteInstanceCommentReq {
     this.userIdType = userIdType;
   }
 
-  public Long getUserId() {
+  public String getUserId() {
     return this.userId;
   }
 
-  public void setUserId(Long userId) {
+  public void setUserId(String userId) {
     this.userId = userId;
   }
 
@@ -71,20 +71,20 @@ public class DeleteInstanceCommentReq {
     this.instanceId = instanceId;
   }
 
-  public Long getCommentId() {
+  public String getCommentId() {
     return this.commentId;
   }
 
-  public void setCommentId(Long commentId) {
+  public void setCommentId(String commentId) {
     this.commentId = commentId;
   }
 
   public static class Builder {
 
     private String userIdType;
-    private Long userId;
+    private String userId;
     private String instanceId;
-    private Long commentId;
+    private String commentId;
 
     public Builder userIdType(String userIdType) {
       this.userIdType = userIdType;
@@ -96,7 +96,7 @@ public class DeleteInstanceCommentReq {
       return this;
     }
 
-    public Builder userId(Long userId) {
+    public Builder userId(String userId) {
       this.userId = userId;
       return this;
     }
@@ -106,7 +106,7 @@ public class DeleteInstanceCommentReq {
       return this;
     }
 
-    public Builder commentId(Long commentId) {
+    public Builder commentId(String commentId) {
       this.commentId = commentId;
       return this;
     }

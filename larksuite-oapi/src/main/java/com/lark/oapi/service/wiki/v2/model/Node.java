@@ -18,7 +18,7 @@ import com.google.gson.annotations.SerializedName;
 public class Node {
 
   @SerializedName("space_id")
-  private Long spaceId;
+  private String spaceId;
   @SerializedName("node_token")
   private String nodeToken;
   @SerializedName("obj_token")
@@ -32,17 +32,17 @@ public class Node {
   @SerializedName("origin_node_token")
   private String originNodeToken;
   @SerializedName("origin_space_id")
-  private Long originSpaceId;
+  private String originSpaceId;
   @SerializedName("has_child")
   private Boolean hasChild;
   @SerializedName("title")
   private String title;
   @SerializedName("obj_create_time")
-  private Long objCreateTime;
+  private String objCreateTime;
   @SerializedName("obj_edit_time")
-  private Long objEditTime;
+  private String objEditTime;
   @SerializedName("node_create_time")
-  private Long nodeCreateTime;
+  private String nodeCreateTime;
   @SerializedName("creator")
   private String creator;
   @SerializedName("owner")
@@ -74,11 +74,11 @@ public class Node {
     return new Builder();
   }
 
-  public Long getSpaceId() {
+  public String getSpaceId() {
     return this.spaceId;
   }
 
-  public void setSpaceId(Long spaceId) {
+  public void setSpaceId(String spaceId) {
     this.spaceId = spaceId;
   }
 
@@ -130,11 +130,11 @@ public class Node {
     this.originNodeToken = originNodeToken;
   }
 
-  public Long getOriginSpaceId() {
+  public String getOriginSpaceId() {
     return this.originSpaceId;
   }
 
-  public void setOriginSpaceId(Long originSpaceId) {
+  public void setOriginSpaceId(String originSpaceId) {
     this.originSpaceId = originSpaceId;
   }
 
@@ -154,27 +154,27 @@ public class Node {
     this.title = title;
   }
 
-  public Long getObjCreateTime() {
+  public String getObjCreateTime() {
     return this.objCreateTime;
   }
 
-  public void setObjCreateTime(Long objCreateTime) {
+  public void setObjCreateTime(String objCreateTime) {
     this.objCreateTime = objCreateTime;
   }
 
-  public Long getObjEditTime() {
+  public String getObjEditTime() {
     return this.objEditTime;
   }
 
-  public void setObjEditTime(Long objEditTime) {
+  public void setObjEditTime(String objEditTime) {
     this.objEditTime = objEditTime;
   }
 
-  public Long getNodeCreateTime() {
+  public String getNodeCreateTime() {
     return this.nodeCreateTime;
   }
 
-  public void setNodeCreateTime(Long nodeCreateTime) {
+  public void setNodeCreateTime(String nodeCreateTime) {
     this.nodeCreateTime = nodeCreateTime;
   }
 
@@ -196,23 +196,23 @@ public class Node {
 
   public static class Builder {
 
-    private Long spaceId;
+    private String spaceId;
     private String nodeToken;
     private String objToken;
     private String objType;
     private String parentNodeToken;
     private String nodeType;
     private String originNodeToken;
-    private Long originSpaceId;
+    private String originSpaceId;
     private Boolean hasChild;
     private String title;
-    private Long objCreateTime;
-    private Long objEditTime;
-    private Long nodeCreateTime;
+    private String objCreateTime;
+    private String objEditTime;
+    private String nodeCreateTime;
     private String creator;
     private String owner;
 
-    public Builder spaceId(Long spaceId) {
+    public Builder spaceId(String spaceId) {
       this.spaceId = spaceId;
       return this;
     }
@@ -257,7 +257,7 @@ public class Node {
       return this;
     }
 
-    public Builder originSpaceId(Long originSpaceId) {
+    public Builder originSpaceId(String originSpaceId) {
       this.originSpaceId = originSpaceId;
       return this;
     }
@@ -272,17 +272,17 @@ public class Node {
       return this;
     }
 
-    public Builder objCreateTime(Long objCreateTime) {
+    public Builder objCreateTime(String objCreateTime) {
       this.objCreateTime = objCreateTime;
       return this;
     }
 
-    public Builder objEditTime(Long objEditTime) {
+    public Builder objEditTime(String objEditTime) {
       this.objEditTime = objEditTime;
       return this;
     }
 
-    public Builder nodeCreateTime(Long nodeCreateTime) {
+    public Builder nodeCreateTime(String nodeCreateTime) {
       this.nodeCreateTime = nodeCreateTime;
       return this;
     }

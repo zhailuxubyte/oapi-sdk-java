@@ -46,7 +46,7 @@ public class BlockSample {
                 .sourceData(
                     "{\"project_key\":\"617b62edfeaa112cb4a55117\",\"block_type\":\"view\",\"work_item_type\":\"620e2873a1fcfdd1e7a42eb3\",\"story_id\":0,\"view_id\":\"tfj7p4fng\",\"biz_id\":\"tfj7p4fng\",\"block_show_mode\":0,\"timestamp\":1650788824}")
                 .sourceMeta("meta")
-                .version(1234L)
+                .version("1234")
                 .build())
             .build());
 

@@ -18,7 +18,7 @@ import com.google.gson.annotations.SerializedName;
 public class Draft {
 
   @SerializedName("draft_id")
-  private Long draftId;
+  private String draftId;
   @SerializedName("entity")
   private Entity entity;
 
@@ -35,11 +35,11 @@ public class Draft {
     return new Builder();
   }
 
-  public Long getDraftId() {
+  public String getDraftId() {
     return this.draftId;
   }
 
-  public void setDraftId(Long draftId) {
+  public void setDraftId(String draftId) {
     this.draftId = draftId;
   }
 
@@ -53,10 +53,10 @@ public class Draft {
 
   public static class Builder {
 
-    private Long draftId;
+    private String draftId;
     private Entity entity;
 
-    public Builder draftId(Long draftId) {
+    public Builder draftId(String draftId) {
       this.draftId = draftId;
       return this;
     }

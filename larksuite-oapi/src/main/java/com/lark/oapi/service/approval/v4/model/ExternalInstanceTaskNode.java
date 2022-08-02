@@ -32,11 +32,11 @@ public class ExternalInstanceTaskNode {
   @SerializedName("extra")
   private String extra;
   @SerializedName("create_time")
-  private Long createTime;
+  private String createTime;
   @SerializedName("end_time")
-  private Long endTime;
+  private String endTime;
   @SerializedName("update_time")
-  private Long updateTime;
+  private String updateTime;
   @SerializedName("action_context")
   private String actionContext;
   @SerializedName("action_configs")
@@ -124,27 +124,27 @@ public class ExternalInstanceTaskNode {
     this.extra = extra;
   }
 
-  public Long getCreateTime() {
+  public String getCreateTime() {
     return this.createTime;
   }
 
-  public void setCreateTime(Long createTime) {
+  public void setCreateTime(String createTime) {
     this.createTime = createTime;
   }
 
-  public Long getEndTime() {
+  public String getEndTime() {
     return this.endTime;
   }
 
-  public void setEndTime(Long endTime) {
+  public void setEndTime(String endTime) {
     this.endTime = endTime;
   }
 
-  public Long getUpdateTime() {
+  public String getUpdateTime() {
     return this.updateTime;
   }
 
-  public void setUpdateTime(Long updateTime) {
+  public void setUpdateTime(String updateTime) {
     this.updateTime = updateTime;
   }
 
@@ -181,9 +181,9 @@ public class ExternalInstanceTaskNode {
     private ExternalInstanceLink links;
     private String status;
     private String extra;
-    private Long createTime;
-    private Long endTime;
-    private Long updateTime;
+    private String createTime;
+    private String endTime;
+    private String updateTime;
     private String actionContext;
     private ActionConfig[] actionConfigs;
     private String displayMethod;
@@ -228,17 +228,17 @@ public class ExternalInstanceTaskNode {
       return this;
     }
 
-    public Builder createTime(Long createTime) {
+    public Builder createTime(String createTime) {
       this.createTime = createTime;
       return this;
     }
 
-    public Builder endTime(Long endTime) {
+    public Builder endTime(String endTime) {
       this.endTime = endTime;
       return this;
     }
 
-    public Builder updateTime(Long updateTime) {
+    public Builder updateTime(String updateTime) {
       this.updateTime = updateTime;
       return this;
     }

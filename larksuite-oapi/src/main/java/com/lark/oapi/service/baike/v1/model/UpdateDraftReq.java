@@ -25,7 +25,7 @@ public class UpdateDraftReq {
   private String userIdType;
   @Path
   @SerializedName("draft_id")
-  private Long draftId;
+  private String draftId;
   @Body
   private Entity body;
 
@@ -51,11 +51,11 @@ public class UpdateDraftReq {
     this.userIdType = userIdType;
   }
 
-  public Long getDraftId() {
+  public String getDraftId() {
     return this.draftId;
   }
 
-  public void setDraftId(Long draftId) {
+  public void setDraftId(String draftId) {
     this.draftId = draftId;
   }
 
@@ -70,7 +70,7 @@ public class UpdateDraftReq {
   public static class Builder {
 
     private String userIdType;
-    private Long draftId;
+    private String draftId;
     private Entity body;
 
     public Builder userIdType(String userIdType) {
@@ -83,7 +83,7 @@ public class UpdateDraftReq {
       return this;
     }
 
-    public Builder draftId(Long draftId) {
+    public Builder draftId(String draftId) {
       this.draftId = draftId;
       return this;
     }

@@ -20,7 +20,7 @@ public class ExternalInstanceTask {
   @SerializedName("task_id")
   private String taskId;
   @SerializedName("update_time")
-  private Long updateTime;
+  private String updateTime;
 
   // builder 开始
   public ExternalInstanceTask() {
@@ -43,25 +43,25 @@ public class ExternalInstanceTask {
     this.taskId = taskId;
   }
 
-  public Long getUpdateTime() {
+  public String getUpdateTime() {
     return this.updateTime;
   }
 
-  public void setUpdateTime(Long updateTime) {
+  public void setUpdateTime(String updateTime) {
     this.updateTime = updateTime;
   }
 
   public static class Builder {
 
     private String taskId;
-    private Long updateTime;
+    private String updateTime;
 
     public Builder taskId(String taskId) {
       this.taskId = taskId;
       return this;
     }
 
-    public Builder updateTime(Long updateTime) {
+    public Builder updateTime(String updateTime) {
       this.updateTime = updateTime;
       return this;
     }

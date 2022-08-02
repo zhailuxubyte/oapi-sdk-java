@@ -18,9 +18,9 @@ import com.google.gson.annotations.SerializedName;
 public class UsageOverviewItem {
 
   @SerializedName("page_view")
-  private Long pageView;
+  private String pageView;
   @SerializedName("unique_visitor")
-  private Long uniqueVisitor;
+  private String uniqueVisitor;
   @SerializedName("department_id")
   private String departmentId;
 
@@ -38,19 +38,19 @@ public class UsageOverviewItem {
     return new Builder();
   }
 
-  public Long getPageView() {
+  public String getPageView() {
     return this.pageView;
   }
 
-  public void setPageView(Long pageView) {
+  public void setPageView(String pageView) {
     this.pageView = pageView;
   }
 
-  public Long getUniqueVisitor() {
+  public String getUniqueVisitor() {
     return this.uniqueVisitor;
   }
 
-  public void setUniqueVisitor(Long uniqueVisitor) {
+  public void setUniqueVisitor(String uniqueVisitor) {
     this.uniqueVisitor = uniqueVisitor;
   }
 
@@ -64,16 +64,16 @@ public class UsageOverviewItem {
 
   public static class Builder {
 
-    private Long pageView;
-    private Long uniqueVisitor;
+    private String pageView;
+    private String uniqueVisitor;
     private String departmentId;
 
-    public Builder pageView(Long pageView) {
+    public Builder pageView(String pageView) {
       this.pageView = pageView;
       return this;
     }
 
-    public Builder uniqueVisitor(Long uniqueVisitor) {
+    public Builder uniqueVisitor(String uniqueVisitor) {
       this.uniqueVisitor = uniqueVisitor;
       return this;
     }

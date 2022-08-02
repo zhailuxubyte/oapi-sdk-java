@@ -18,13 +18,13 @@ import com.google.gson.annotations.SerializedName;
 public class Comment {
 
   @SerializedName("id")
-  private Long id;
+  private String id;
   @SerializedName("content")
   private String content;
   @SerializedName("create_time")
-  private Long createTime;
+  private String createTime;
   @SerializedName("update_time")
-  private Long updateTime;
+  private String updateTime;
   @SerializedName("is_delete")
   private Integer isDelete;
   @SerializedName("replies")
@@ -56,11 +56,11 @@ public class Comment {
     return new Builder();
   }
 
-  public Long getId() {
+  public String getId() {
     return this.id;
   }
 
-  public void setId(Long id) {
+  public void setId(String id) {
     this.id = id;
   }
 
@@ -72,19 +72,19 @@ public class Comment {
     this.content = content;
   }
 
-  public Long getCreateTime() {
+  public String getCreateTime() {
     return this.createTime;
   }
 
-  public void setCreateTime(Long createTime) {
+  public void setCreateTime(String createTime) {
     this.createTime = createTime;
   }
 
-  public Long getUpdateTime() {
+  public String getUpdateTime() {
     return this.updateTime;
   }
 
-  public void setUpdateTime(Long updateTime) {
+  public void setUpdateTime(String updateTime) {
     this.updateTime = updateTime;
   }
 
@@ -130,17 +130,17 @@ public class Comment {
 
   public static class Builder {
 
-    private Long id;
+    private String id;
     private String content;
-    private Long createTime;
-    private Long updateTime;
+    private String createTime;
+    private String updateTime;
     private Integer isDelete;
     private CommentReply[] replies;
     private CommentAtInfo[] atInfoList;
     private String commentator;
     private String extra;
 
-    public Builder id(Long id) {
+    public Builder id(String id) {
       this.id = id;
       return this;
     }
@@ -150,12 +150,12 @@ public class Comment {
       return this;
     }
 
-    public Builder createTime(Long createTime) {
+    public Builder createTime(String createTime) {
       this.createTime = createTime;
       return this;
     }
 
-    public Builder updateTime(Long updateTime) {
+    public Builder updateTime(String updateTime) {
       this.updateTime = updateTime;
       return this;
     }

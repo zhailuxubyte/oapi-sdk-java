@@ -21,7 +21,7 @@ public class CopySpaceNodeReq {
 
   @Path
   @SerializedName("space_id")
-  private Long spaceId;
+  private String spaceId;
   @Path
   @SerializedName("node_token")
   private String nodeToken;
@@ -42,11 +42,11 @@ public class CopySpaceNodeReq {
     return new Builder();
   }
 
-  public Long getSpaceId() {
+  public String getSpaceId() {
     return this.spaceId;
   }
 
-  public void setSpaceId(Long spaceId) {
+  public void setSpaceId(String spaceId) {
     this.spaceId = spaceId;
   }
 
@@ -68,11 +68,11 @@ public class CopySpaceNodeReq {
 
   public static class Builder {
 
-    private Long spaceId;
+    private String spaceId;
     private String nodeToken;
     private CopySpaceNodeReqBody body;
 
-    public Builder spaceId(Long spaceId) {
+    public Builder spaceId(String spaceId) {
       this.spaceId = spaceId;
       return this;
     }

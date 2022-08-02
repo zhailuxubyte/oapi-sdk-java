@@ -32,7 +32,7 @@ public class Department {
   @SerializedName("chat_id")
   private String chatId;
   @SerializedName("order")
-  private Long order;
+  private String order;
   @SerializedName("unit_ids")
   private String[] unitIds;
   @SerializedName("member_count")
@@ -121,11 +121,11 @@ public class Department {
     this.chatId = chatId;
   }
 
-  public Long getOrder() {
+  public String getOrder() {
     return this.order;
   }
 
-  public void setOrder(Long order) {
+  public void setOrder(String order) {
     this.order = order;
   }
 
@@ -170,7 +170,7 @@ public class Department {
     private String openDepartmentId;
     private String leaderUserId;
     private String chatId;
-    private Long order;
+    private String order;
     private String[] unitIds;
     private Integer memberCount;
     private DepartmentStatus status;
@@ -211,7 +211,7 @@ public class Department {
       return this;
     }
 
-    public Builder order(Long order) {
+    public Builder order(String order) {
       this.order = order;
       return this;
     }

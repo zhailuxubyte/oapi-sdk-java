@@ -18,7 +18,7 @@ import com.google.gson.annotations.SerializedName;
 public class Device {
 
   @SerializedName("device_id")
-  private Long deviceId;
+  private String deviceId;
   @SerializedName("device_name")
   private String deviceName;
   @SerializedName("device_sn")
@@ -38,11 +38,11 @@ public class Device {
     return new Builder();
   }
 
-  public Long getDeviceId() {
+  public String getDeviceId() {
     return this.deviceId;
   }
 
-  public void setDeviceId(Long deviceId) {
+  public void setDeviceId(String deviceId) {
     this.deviceId = deviceId;
   }
 
@@ -64,11 +64,11 @@ public class Device {
 
   public static class Builder {
 
-    private Long deviceId;
+    private String deviceId;
     private String deviceName;
     private String deviceSn;
 
-    public Builder deviceId(Long deviceId) {
+    public Builder deviceId(String deviceId) {
       this.deviceId = deviceId;
       return this;
     }

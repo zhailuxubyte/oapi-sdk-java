@@ -22,7 +22,7 @@ public class Area {
   @SerializedName("center")
   private Coordinate center;
   @SerializedName("radius")
-  private Long radius;
+  private String radius;
   @SerializedName("coords")
   private Coordinate[] coords;
 
@@ -57,11 +57,11 @@ public class Area {
     this.center = center;
   }
 
-  public Long getRadius() {
+  public String getRadius() {
     return this.radius;
   }
 
-  public void setRadius(Long radius) {
+  public void setRadius(String radius) {
     this.radius = radius;
   }
 
@@ -77,7 +77,7 @@ public class Area {
 
     private String type;
     private Coordinate center;
-    private Long radius;
+    private String radius;
     private Coordinate[] coords;
 
     public Builder type(String type) {
@@ -90,7 +90,7 @@ public class Area {
       return this;
     }
 
-    public Builder radius(Long radius) {
+    public Builder radius(String radius) {
       this.radius = radius;
       return this;
     }

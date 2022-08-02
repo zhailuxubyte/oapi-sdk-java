@@ -57,12 +57,6 @@ public class EhrService {
       if (reqOptions == null) {
         reqOptions = new RequestOptions();
       }
-
-      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
-      reqOptions.setSupportLong2String(true);
-      if (customSupportLong2Str != null) {
-        reqOptions.setSupportLong2String(customSupportLong2Str);
-      }
       reqOptions.setSupportDownLoad(true);
 
       // 发起请求
@@ -92,7 +86,6 @@ public class EhrService {
     public GetAttachmentResp get(GetAttachmentReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportLong2String(true);
       reqOptions.setSupportDownLoad(true);
 
       // 发起请求
@@ -135,12 +128,6 @@ public class EhrService {
         reqOptions = new RequestOptions();
       }
 
-      Boolean customSupportLong2Str = reqOptions.isSupportLong2String();
-      reqOptions.setSupportLong2String(true);
-      if (customSupportLong2Str != null) {
-        reqOptions.setSupportLong2String(customSupportLong2Str);
-      }
-
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
           , "/open-apis/ehr/v1/employees"
@@ -158,7 +145,6 @@ public class EhrService {
     public ListEmployeeResp list(ListEmployeeReq req) throws Exception {
       // 请求参数选项
       RequestOptions reqOptions = new RequestOptions();
-      reqOptions.setSupportLong2String(true);
 
       // 发起请求
       RawResponse httpResponse = Transport.send(config, reqOptions, "GET"

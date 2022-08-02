@@ -18,7 +18,7 @@ import com.google.gson.annotations.SerializedName;
 public class ChatCard {
 
   @SerializedName("chat_id")
-  private Long chatId;
+  private String chatId;
   @SerializedName("align")
   private Integer align;
 
@@ -35,11 +35,11 @@ public class ChatCard {
     return new Builder();
   }
 
-  public Long getChatId() {
+  public String getChatId() {
     return this.chatId;
   }
 
-  public void setChatId(Long chatId) {
+  public void setChatId(String chatId) {
     this.chatId = chatId;
   }
 
@@ -53,10 +53,10 @@ public class ChatCard {
 
   public static class Builder {
 
-    private Long chatId;
+    private String chatId;
     private Integer align;
 
-    public Builder chatId(Long chatId) {
+    public Builder chatId(String chatId) {
       this.chatId = chatId;
       return this;
     }

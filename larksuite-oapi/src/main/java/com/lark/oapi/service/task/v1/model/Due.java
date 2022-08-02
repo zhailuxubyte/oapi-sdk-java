@@ -18,7 +18,7 @@ import com.google.gson.annotations.SerializedName;
 public class Due {
 
   @SerializedName("time")
-  private Long time;
+  private String time;
   @SerializedName("timezone")
   private String timezone;
   @SerializedName("is_all_day")
@@ -38,11 +38,11 @@ public class Due {
     return new Builder();
   }
 
-  public Long getTime() {
+  public String getTime() {
     return this.time;
   }
 
-  public void setTime(Long time) {
+  public void setTime(String time) {
     this.time = time;
   }
 
@@ -64,11 +64,11 @@ public class Due {
 
   public static class Builder {
 
-    private Long time;
+    private String time;
     private String timezone;
     private Boolean isAllDay;
 
-    public Builder time(Long time) {
+    public Builder time(String time) {
       this.time = time;
       return this;
     }

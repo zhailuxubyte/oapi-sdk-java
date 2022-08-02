@@ -32,9 +32,9 @@ public class TaskSearch {
   @SerializedName("task_status")
   private String taskStatus;
   @SerializedName("instance_start_time_from")
-  private Long instanceStartTimeFrom;
+  private String instanceStartTimeFrom;
   @SerializedName("instance_start_time_to")
-  private Long instanceStartTimeTo;
+  private String instanceStartTimeTo;
   @SerializedName("locale")
   private String locale;
 
@@ -115,19 +115,19 @@ public class TaskSearch {
     this.taskStatus = taskStatus;
   }
 
-  public Long getInstanceStartTimeFrom() {
+  public String getInstanceStartTimeFrom() {
     return this.instanceStartTimeFrom;
   }
 
-  public void setInstanceStartTimeFrom(Long instanceStartTimeFrom) {
+  public void setInstanceStartTimeFrom(String instanceStartTimeFrom) {
     this.instanceStartTimeFrom = instanceStartTimeFrom;
   }
 
-  public Long getInstanceStartTimeTo() {
+  public String getInstanceStartTimeTo() {
     return this.instanceStartTimeTo;
   }
 
-  public void setInstanceStartTimeTo(Long instanceStartTimeTo) {
+  public void setInstanceStartTimeTo(String instanceStartTimeTo) {
     this.instanceStartTimeTo = instanceStartTimeTo;
   }
 
@@ -148,8 +148,8 @@ public class TaskSearch {
     private String groupExternalId;
     private String taskTitle;
     private String taskStatus;
-    private Long instanceStartTimeFrom;
-    private Long instanceStartTimeTo;
+    private String instanceStartTimeFrom;
+    private String instanceStartTimeTo;
     private String locale;
 
     public Builder userId(String userId) {
@@ -192,12 +192,12 @@ public class TaskSearch {
       return this;
     }
 
-    public Builder instanceStartTimeFrom(Long instanceStartTimeFrom) {
+    public Builder instanceStartTimeFrom(String instanceStartTimeFrom) {
       this.instanceStartTimeFrom = instanceStartTimeFrom;
       return this;
     }
 
-    public Builder instanceStartTimeTo(Long instanceStartTimeTo) {
+    public Builder instanceStartTimeTo(String instanceStartTimeTo) {
       this.instanceStartTimeTo = instanceStartTimeTo;
       return this;
     }

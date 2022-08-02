@@ -25,7 +25,7 @@ public class CreateInstanceCommentReq {
   private String userIdType;
   @Query
   @SerializedName("user_id")
-  private Long userId;
+  private String userId;
   @Path
   @SerializedName("instance_id")
   private String instanceId;
@@ -55,11 +55,11 @@ public class CreateInstanceCommentReq {
     this.userIdType = userIdType;
   }
 
-  public Long getUserId() {
+  public String getUserId() {
     return this.userId;
   }
 
-  public void setUserId(Long userId) {
+  public void setUserId(String userId) {
     this.userId = userId;
   }
 
@@ -82,7 +82,7 @@ public class CreateInstanceCommentReq {
   public static class Builder {
 
     private String userIdType;
-    private Long userId;
+    private String userId;
     private String instanceId;
     private CommentRequest body;
 
@@ -96,7 +96,7 @@ public class CreateInstanceCommentReq {
       return this;
     }
 
-    public Builder userId(Long userId) {
+    public Builder userId(String userId) {
       this.userId = userId;
       return this;
     }

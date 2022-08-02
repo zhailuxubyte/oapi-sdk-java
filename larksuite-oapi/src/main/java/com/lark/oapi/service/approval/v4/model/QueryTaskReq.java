@@ -29,7 +29,7 @@ public class QueryTaskReq {
   private String userId;
   @Query
   @SerializedName("topic")
-  private Long topic;
+  private String topic;
   @Query
   @SerializedName("user_id_type")
   private String userIdType;
@@ -74,11 +74,11 @@ public class QueryTaskReq {
     this.userId = userId;
   }
 
-  public Long getTopic() {
+  public String getTopic() {
     return this.topic;
   }
 
-  public void setTopic(Long topic) {
+  public void setTopic(String topic) {
     this.topic = topic;
   }
 
@@ -95,7 +95,7 @@ public class QueryTaskReq {
     private Integer pageSize;
     private String pageToken;
     private String userId;
-    private Long topic;
+    private String topic;
     private String userIdType;
 
     public Builder pageSize(Integer pageSize) {
@@ -113,7 +113,7 @@ public class QueryTaskReq {
       return this;
     }
 
-    public Builder topic(Long topic) {
+    public Builder topic(String topic) {
       this.topic = topic;
       return this;
     }

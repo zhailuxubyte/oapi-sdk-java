@@ -18,11 +18,11 @@ import com.google.gson.annotations.SerializedName;
 public class UsageTrendItem {
 
   @SerializedName("timestamp")
-  private Long timestamp;
+  private String timestamp;
   @SerializedName("page_view")
-  private Long pageView;
+  private String pageView;
   @SerializedName("unique_visitor")
-  private Long uniqueVisitor;
+  private String uniqueVisitor;
 
   // builder 开始
   public UsageTrendItem() {
@@ -38,47 +38,47 @@ public class UsageTrendItem {
     return new Builder();
   }
 
-  public Long getTimestamp() {
+  public String getTimestamp() {
     return this.timestamp;
   }
 
-  public void setTimestamp(Long timestamp) {
+  public void setTimestamp(String timestamp) {
     this.timestamp = timestamp;
   }
 
-  public Long getPageView() {
+  public String getPageView() {
     return this.pageView;
   }
 
-  public void setPageView(Long pageView) {
+  public void setPageView(String pageView) {
     this.pageView = pageView;
   }
 
-  public Long getUniqueVisitor() {
+  public String getUniqueVisitor() {
     return this.uniqueVisitor;
   }
 
-  public void setUniqueVisitor(Long uniqueVisitor) {
+  public void setUniqueVisitor(String uniqueVisitor) {
     this.uniqueVisitor = uniqueVisitor;
   }
 
   public static class Builder {
 
-    private Long timestamp;
-    private Long pageView;
-    private Long uniqueVisitor;
+    private String timestamp;
+    private String pageView;
+    private String uniqueVisitor;
 
-    public Builder timestamp(Long timestamp) {
+    public Builder timestamp(String timestamp) {
       this.timestamp = timestamp;
       return this;
     }
 
-    public Builder pageView(Long pageView) {
+    public Builder pageView(String pageView) {
       this.pageView = pageView;
       return this;
     }
 
-    public Builder uniqueVisitor(Long uniqueVisitor) {
+    public Builder uniqueVisitor(String uniqueVisitor) {
       this.uniqueVisitor = uniqueVisitor;
       return this;
     }

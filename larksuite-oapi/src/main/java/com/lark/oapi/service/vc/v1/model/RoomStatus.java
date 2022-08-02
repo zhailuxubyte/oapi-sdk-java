@@ -22,9 +22,9 @@ public class RoomStatus {
   @SerializedName("schedule_status")
   private Boolean scheduleStatus;
   @SerializedName("disable_start_time")
-  private Long disableStartTime;
+  private String disableStartTime;
   @SerializedName("disable_end_time")
-  private Long disableEndTime;
+  private String disableEndTime;
   @SerializedName("disable_reason")
   private String disableReason;
   @SerializedName("contact_ids")
@@ -69,19 +69,19 @@ public class RoomStatus {
     this.scheduleStatus = scheduleStatus;
   }
 
-  public Long getDisableStartTime() {
+  public String getDisableStartTime() {
     return this.disableStartTime;
   }
 
-  public void setDisableStartTime(Long disableStartTime) {
+  public void setDisableStartTime(String disableStartTime) {
     this.disableStartTime = disableStartTime;
   }
 
-  public Long getDisableEndTime() {
+  public String getDisableEndTime() {
     return this.disableEndTime;
   }
 
-  public void setDisableEndTime(Long disableEndTime) {
+  public void setDisableEndTime(String disableEndTime) {
     this.disableEndTime = disableEndTime;
   }
 
@@ -121,8 +121,8 @@ public class RoomStatus {
 
     private Boolean status;
     private Boolean scheduleStatus;
-    private Long disableStartTime;
-    private Long disableEndTime;
+    private String disableStartTime;
+    private String disableEndTime;
     private String disableReason;
     private String[] contactIds;
     private Boolean disableNotice;
@@ -138,12 +138,12 @@ public class RoomStatus {
       return this;
     }
 
-    public Builder disableStartTime(Long disableStartTime) {
+    public Builder disableStartTime(String disableStartTime) {
       this.disableStartTime = disableStartTime;
       return this;
     }
 
-    public Builder disableEndTime(Long disableEndTime) {
+    public Builder disableEndTime(String disableEndTime) {
       this.disableEndTime = disableEndTime;
       return this;
     }

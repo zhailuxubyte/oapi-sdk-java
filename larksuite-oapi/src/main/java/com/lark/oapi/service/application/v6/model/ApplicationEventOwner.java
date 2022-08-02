@@ -11,45 +11,45 @@
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package com.lark.oapi.service.vc.v1.model;
+package com.lark.oapi.service.application.v6.model;
 
 import com.google.gson.annotations.SerializedName;
 
-public class ReportTopUser {
+public class ApplicationEventOwner {
 
-  @SerializedName("id")
-  private String id;
+  @SerializedName("type")
+  private Integer type;
   @SerializedName("name")
   private String name;
-  @SerializedName("user_type")
-  private Integer userType;
-  @SerializedName("meeting_count")
-  private String meetingCount;
-  @SerializedName("meeting_duration")
-  private String meetingDuration;
+  @SerializedName("help_desk")
+  private String helpDesk;
+  @SerializedName("email")
+  private String email;
+  @SerializedName("phone")
+  private String phone;
 
   // builder 开始
-  public ReportTopUser() {
+  public ApplicationEventOwner() {
   }
 
-  public ReportTopUser(Builder builder) {
-    this.id = builder.id;
+  public ApplicationEventOwner(Builder builder) {
+    this.type = builder.type;
     this.name = builder.name;
-    this.userType = builder.userType;
-    this.meetingCount = builder.meetingCount;
-    this.meetingDuration = builder.meetingDuration;
+    this.helpDesk = builder.helpDesk;
+    this.email = builder.email;
+    this.phone = builder.phone;
   }
 
   public static Builder newBuilder() {
     return new Builder();
   }
 
-  public String getId() {
-    return this.id;
+  public Integer getType() {
+    return this.type;
   }
 
-  public void setId(String id) {
-    this.id = id;
+  public void setType(Integer type) {
+    this.type = type;
   }
 
   public String getName() {
@@ -60,40 +60,40 @@ public class ReportTopUser {
     this.name = name;
   }
 
-  public Integer getUserType() {
-    return this.userType;
+  public String getHelpDesk() {
+    return this.helpDesk;
   }
 
-  public void setUserType(Integer userType) {
-    this.userType = userType;
+  public void setHelpDesk(String helpDesk) {
+    this.helpDesk = helpDesk;
   }
 
-  public String getMeetingCount() {
-    return this.meetingCount;
+  public String getEmail() {
+    return this.email;
   }
 
-  public void setMeetingCount(String meetingCount) {
-    this.meetingCount = meetingCount;
+  public void setEmail(String email) {
+    this.email = email;
   }
 
-  public String getMeetingDuration() {
-    return this.meetingDuration;
+  public String getPhone() {
+    return this.phone;
   }
 
-  public void setMeetingDuration(String meetingDuration) {
-    this.meetingDuration = meetingDuration;
+  public void setPhone(String phone) {
+    this.phone = phone;
   }
 
   public static class Builder {
 
-    private String id;
+    private Integer type;
     private String name;
-    private Integer userType;
-    private String meetingCount;
-    private String meetingDuration;
+    private String helpDesk;
+    private String email;
+    private String phone;
 
-    public Builder id(String id) {
-      this.id = id;
+    public Builder type(Integer type) {
+      this.type = type;
       return this;
     }
 
@@ -102,29 +102,24 @@ public class ReportTopUser {
       return this;
     }
 
-    public Builder userType(Integer userType) {
-      this.userType = userType;
+    public Builder helpDesk(String helpDesk) {
+      this.helpDesk = helpDesk;
       return this;
     }
 
-    public Builder userType(com.lark.oapi.service.vc.v1.enums.UserTypeEnum userType) {
-      this.userType = userType.getValue();
+    public Builder email(String email) {
+      this.email = email;
       return this;
     }
 
-    public Builder meetingCount(String meetingCount) {
-      this.meetingCount = meetingCount;
-      return this;
-    }
-
-    public Builder meetingDuration(String meetingDuration) {
-      this.meetingDuration = meetingDuration;
+    public Builder phone(String phone) {
+      this.phone = phone;
       return this;
     }
 
 
-    public ReportTopUser build() {
-      return new ReportTopUser(this);
+    public ApplicationEventOwner build() {
+      return new ApplicationEventOwner(this);
     }
   }
 }

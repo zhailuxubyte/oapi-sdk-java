@@ -20,7 +20,7 @@ public class DeleteReserveReq {
 
   @Path
   @SerializedName("reserve_id")
-  private Long reserveId;
+  private String reserveId;
 
   // builder 开始
   public DeleteReserveReq() {
@@ -34,19 +34,19 @@ public class DeleteReserveReq {
     return new Builder();
   }
 
-  public Long getReserveId() {
+  public String getReserveId() {
     return this.reserveId;
   }
 
-  public void setReserveId(Long reserveId) {
+  public void setReserveId(String reserveId) {
     this.reserveId = reserveId;
   }
 
   public static class Builder {
 
-    private Long reserveId;
+    private String reserveId;
 
-    public Builder reserveId(Long reserveId) {
+    public Builder reserveId(String reserveId) {
       this.reserveId = reserveId;
       return this;
     }

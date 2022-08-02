@@ -30,7 +30,7 @@ public class GetFileCommentReq {
   private String fileToken;
   @Path
   @SerializedName("comment_id")
-  private Long commentId;
+  private String commentId;
 
   // builder 开始
   public GetFileCommentReq() {
@@ -71,11 +71,11 @@ public class GetFileCommentReq {
     this.fileToken = fileToken;
   }
 
-  public Long getCommentId() {
+  public String getCommentId() {
     return this.commentId;
   }
 
-  public void setCommentId(Long commentId) {
+  public void setCommentId(String commentId) {
     this.commentId = commentId;
   }
 
@@ -84,7 +84,7 @@ public class GetFileCommentReq {
     private String fileType;
     private String userIdType;
     private String fileToken;
-    private Long commentId;
+    private String commentId;
 
     public Builder fileType(String fileType) {
       this.fileType = fileType;
@@ -111,7 +111,7 @@ public class GetFileCommentReq {
       return this;
     }
 
-    public Builder commentId(Long commentId) {
+    public Builder commentId(String commentId) {
       this.commentId = commentId;
       return this;
     }

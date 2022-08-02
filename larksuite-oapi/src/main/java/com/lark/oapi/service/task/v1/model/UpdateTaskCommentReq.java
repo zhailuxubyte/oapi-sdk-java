@@ -24,7 +24,7 @@ public class UpdateTaskCommentReq {
   private String taskId;
   @Path
   @SerializedName("comment_id")
-  private Long commentId;
+  private String commentId;
   @Body
   private UpdateTaskCommentReqBody body;
 
@@ -50,11 +50,11 @@ public class UpdateTaskCommentReq {
     this.taskId = taskId;
   }
 
-  public Long getCommentId() {
+  public String getCommentId() {
     return this.commentId;
   }
 
-  public void setCommentId(Long commentId) {
+  public void setCommentId(String commentId) {
     this.commentId = commentId;
   }
 
@@ -69,7 +69,7 @@ public class UpdateTaskCommentReq {
   public static class Builder {
 
     private String taskId;
-    private Long commentId;
+    private String commentId;
     private UpdateTaskCommentReqBody body;
 
     public Builder taskId(String taskId) {
@@ -77,7 +77,7 @@ public class UpdateTaskCommentReq {
       return this;
     }
 
-    public Builder commentId(Long commentId) {
+    public Builder commentId(String commentId) {
       this.commentId = commentId;
       return this;
     }

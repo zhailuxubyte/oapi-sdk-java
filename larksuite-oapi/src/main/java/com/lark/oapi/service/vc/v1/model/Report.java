@@ -18,11 +18,11 @@ import com.google.gson.annotations.SerializedName;
 public class Report {
 
   @SerializedName("total_meeting_count")
-  private Long totalMeetingCount;
+  private String totalMeetingCount;
   @SerializedName("total_meeting_duration")
-  private Long totalMeetingDuration;
+  private String totalMeetingDuration;
   @SerializedName("total_participant_count")
-  private Long totalParticipantCount;
+  private String totalParticipantCount;
   @SerializedName("daily_report")
   private ReportMeetingDaily[] dailyReport;
 
@@ -41,27 +41,27 @@ public class Report {
     return new Builder();
   }
 
-  public Long getTotalMeetingCount() {
+  public String getTotalMeetingCount() {
     return this.totalMeetingCount;
   }
 
-  public void setTotalMeetingCount(Long totalMeetingCount) {
+  public void setTotalMeetingCount(String totalMeetingCount) {
     this.totalMeetingCount = totalMeetingCount;
   }
 
-  public Long getTotalMeetingDuration() {
+  public String getTotalMeetingDuration() {
     return this.totalMeetingDuration;
   }
 
-  public void setTotalMeetingDuration(Long totalMeetingDuration) {
+  public void setTotalMeetingDuration(String totalMeetingDuration) {
     this.totalMeetingDuration = totalMeetingDuration;
   }
 
-  public Long getTotalParticipantCount() {
+  public String getTotalParticipantCount() {
     return this.totalParticipantCount;
   }
 
-  public void setTotalParticipantCount(Long totalParticipantCount) {
+  public void setTotalParticipantCount(String totalParticipantCount) {
     this.totalParticipantCount = totalParticipantCount;
   }
 
@@ -75,22 +75,22 @@ public class Report {
 
   public static class Builder {
 
-    private Long totalMeetingCount;
-    private Long totalMeetingDuration;
-    private Long totalParticipantCount;
+    private String totalMeetingCount;
+    private String totalMeetingDuration;
+    private String totalParticipantCount;
     private ReportMeetingDaily[] dailyReport;
 
-    public Builder totalMeetingCount(Long totalMeetingCount) {
+    public Builder totalMeetingCount(String totalMeetingCount) {
       this.totalMeetingCount = totalMeetingCount;
       return this;
     }
 
-    public Builder totalMeetingDuration(Long totalMeetingDuration) {
+    public Builder totalMeetingDuration(String totalMeetingDuration) {
       this.totalMeetingDuration = totalMeetingDuration;
       return this;
     }
 
-    public Builder totalParticipantCount(Long totalParticipantCount) {
+    public Builder totalParticipantCount(String totalParticipantCount) {
       this.totalParticipantCount = totalParticipantCount;
       return this;
     }

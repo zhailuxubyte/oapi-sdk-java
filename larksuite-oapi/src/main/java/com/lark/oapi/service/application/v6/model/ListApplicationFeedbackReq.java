@@ -36,7 +36,7 @@ public class ListApplicationFeedbackReq {
   private String userIdType;
   @Query
   @SerializedName("page_token")
-  private Long pageToken;
+  private String pageToken;
   @Query
   @SerializedName("page_size")
   private Integer pageSize;
@@ -103,11 +103,11 @@ public class ListApplicationFeedbackReq {
     this.userIdType = userIdType;
   }
 
-  public Long getPageToken() {
+  public String getPageToken() {
     return this.pageToken;
   }
 
-  public void setPageToken(Long pageToken) {
+  public void setPageToken(String pageToken) {
     this.pageToken = pageToken;
   }
 
@@ -134,7 +134,7 @@ public class ListApplicationFeedbackReq {
     private Integer feedbackType;
     private Integer status;
     private String userIdType;
-    private Long pageToken;
+    private String pageToken;
     private Integer pageSize;
     private String appId;
 
@@ -180,7 +180,7 @@ public class ListApplicationFeedbackReq {
       return this;
     }
 
-    public Builder pageToken(Long pageToken) {
+    public Builder pageToken(String pageToken) {
       this.pageToken = pageToken;
       return this;
     }

@@ -22,7 +22,7 @@ public class P2MeetingRecordingReadyV1Data {
   @SerializedName("url")
   private String url;
   @SerializedName("duration")
-  private Long duration;
+  private String duration;
 
   public MeetingEventMeeting getMeeting() {
     return this.meeting;
@@ -40,11 +40,11 @@ public class P2MeetingRecordingReadyV1Data {
     this.url = url;
   }
 
-  public Long getDuration() {
+  public String getDuration() {
     return this.duration;
   }
 
-  public void setDuration(Long duration) {
+  public void setDuration(String duration) {
     this.duration = duration;
   }
 

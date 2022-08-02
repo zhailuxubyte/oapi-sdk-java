@@ -21,7 +21,7 @@ public class StartMeetingRecordingReq {
 
   @Path
   @SerializedName("meeting_id")
-  private Long meetingId;
+  private String meetingId;
   @Body
   private StartMeetingRecordingReqBody body;
 
@@ -38,11 +38,11 @@ public class StartMeetingRecordingReq {
     return new Builder();
   }
 
-  public Long getMeetingId() {
+  public String getMeetingId() {
     return this.meetingId;
   }
 
-  public void setMeetingId(Long meetingId) {
+  public void setMeetingId(String meetingId) {
     this.meetingId = meetingId;
   }
 
@@ -56,10 +56,10 @@ public class StartMeetingRecordingReq {
 
   public static class Builder {
 
-    private Long meetingId;
+    private String meetingId;
     private StartMeetingRecordingReqBody body;
 
-    public Builder meetingId(Long meetingId) {
+    public Builder meetingId(String meetingId) {
       this.meetingId = meetingId;
       return this;
     }

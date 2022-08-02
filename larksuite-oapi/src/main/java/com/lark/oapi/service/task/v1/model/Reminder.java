@@ -18,7 +18,7 @@ import com.google.gson.annotations.SerializedName;
 public class Reminder {
 
   @SerializedName("id")
-  private Long id;
+  private String id;
   @SerializedName("relative_fire_minute")
   private Integer relativeFireMinute;
 
@@ -35,11 +35,11 @@ public class Reminder {
     return new Builder();
   }
 
-  public Long getId() {
+  public String getId() {
     return this.id;
   }
 
-  public void setId(Long id) {
+  public void setId(String id) {
     this.id = id;
   }
 
@@ -53,10 +53,10 @@ public class Reminder {
 
   public static class Builder {
 
-    private Long id;
+    private String id;
     private Integer relativeFireMinute;
 
-    public Builder id(Long id) {
+    public Builder id(String id) {
       this.id = id;
       return this;
     }

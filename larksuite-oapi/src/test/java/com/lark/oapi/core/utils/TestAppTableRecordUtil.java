@@ -38,12 +38,18 @@ public class TestAppTableRecordUtil {
     AppTableRecord appTableRecord = new AppTableRecord();
     appTableRecord.setFields(map);
 
-    System.out.println(Jsons.DEFAULT.toJson(AppTableRecordUtil.getBooleanField(appTableRecord,"bool")));
-    System.out.println(Jsons.DEFAULT.toJson(AppTableRecordUtil.getStringField(appTableRecord,"str")));
-    System.out.println(Jsons.DEFAULT.toJson(AppTableRecordUtil.getStringListField(appTableRecord,"strList")));
-    System.out.println(Jsons.DEFAULT.toJson(AppTableRecordUtil.getUrlListField(appTableRecord,"urlList")));
-    System.out.println(Jsons.DEFAULT.toJson(AppTableRecordUtil.getPersonListField(appTableRecord,"personList")));
-    System.out.println(Jsons.DEFAULT.toJson(AppTableRecordUtil.getAttachmentListField(appTableRecord,"attatchList")));
+    System.out.println(
+        Jsons.DEFAULT.toJson(AppTableRecordUtil.getBooleanField(appTableRecord, "bool")));
+    System.out.println(
+        Jsons.DEFAULT.toJson(AppTableRecordUtil.getStringField(appTableRecord, "str")));
+    System.out.println(
+        Jsons.DEFAULT.toJson(AppTableRecordUtil.getStringListField(appTableRecord, "strList")));
+    System.out.println(
+        Jsons.DEFAULT.toJson(AppTableRecordUtil.getUrlListField(appTableRecord, "urlList")));
+    System.out.println(
+        Jsons.DEFAULT.toJson(AppTableRecordUtil.getPersonListField(appTableRecord, "personList")));
+    System.out.println(Jsons.DEFAULT.toJson(
+        AppTableRecordUtil.getAttachmentListField(appTableRecord, "attatchList")));
 
   }
 }

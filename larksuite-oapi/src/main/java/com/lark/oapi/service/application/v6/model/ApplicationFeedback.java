@@ -18,7 +18,7 @@ import com.google.gson.annotations.SerializedName;
 public class ApplicationFeedback {
 
   @SerializedName("feedback_id")
-  private Long feedbackId;
+  private String feedbackId;
   @SerializedName("app_id")
   private String appId;
   @SerializedName("feedback_time")
@@ -47,6 +47,8 @@ public class ApplicationFeedback {
   private String operatorId;
   @SerializedName("images")
   private String[] images;
+  @SerializedName("feedback_path")
+  private String feedbackPath;
 
   // builder 开始
   public ApplicationFeedback() {
@@ -68,17 +70,18 @@ public class ApplicationFeedback {
     this.userId = builder.userId;
     this.operatorId = builder.operatorId;
     this.images = builder.images;
+    this.feedbackPath = builder.feedbackPath;
   }
 
   public static Builder newBuilder() {
     return new Builder();
   }
 
-  public Long getFeedbackId() {
+  public String getFeedbackId() {
     return this.feedbackId;
   }
 
-  public void setFeedbackId(Long feedbackId) {
+  public void setFeedbackId(String feedbackId) {
     this.feedbackId = feedbackId;
   }
 
@@ -194,9 +197,17 @@ public class ApplicationFeedback {
     this.images = images;
   }
 
+  public String getFeedbackPath() {
+    return this.feedbackPath;
+  }
+
+  public void setFeedbackPath(String feedbackPath) {
+    this.feedbackPath = feedbackPath;
+  }
+
   public static class Builder {
 
-    private Long feedbackId;
+    private String feedbackId;
     private String appId;
     private String feedbackTime;
     private String tenantName;
@@ -211,8 +222,9 @@ public class ApplicationFeedback {
     private String userId;
     private String operatorId;
     private String[] images;
+    private String feedbackPath;
 
-    public Builder feedbackId(Long feedbackId) {
+    public Builder feedbackId(String feedbackId) {
       this.feedbackId = feedbackId;
       return this;
     }
@@ -301,6 +313,11 @@ public class ApplicationFeedback {
 
     public Builder images(String[] images) {
       this.images = images;
+      return this;
+    }
+
+    public Builder feedbackPath(String feedbackPath) {
+      this.feedbackPath = feedbackPath;
       return this;
     }
 

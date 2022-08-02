@@ -15,7 +15,7 @@ package com.lark.oapi.service.application.v6.model;
 
 import com.google.gson.annotations.SerializedName;
 
-public class Application {
+public class ApplicationV2 {
 
   @SerializedName("app_id")
   private String appId;
@@ -53,10 +53,10 @@ public class Application {
   private ApplicationOwner owner;
 
   // builder 开始
-  public Application() {
+  public ApplicationV2() {
   }
 
-  public Application(Builder builder) {
+  public ApplicationV2(Builder builder) {
     this.appId = builder.appId;
     this.creatorId = builder.creatorId;
     this.status = builder.status;
@@ -345,8 +345,8 @@ public class Application {
     }
 
 
-    public Application build() {
-      return new Application(this);
+    public ApplicationV2 build() {
+      return new ApplicationV2(this);
     }
   }
 }

@@ -18,7 +18,7 @@ import com.google.gson.annotations.SerializedName;
 public class Administrator {
 
   @SerializedName("user_id")
-  private Long userId;
+  private String userId;
   @SerializedName("is_super_administrator")
   private Boolean isSuperAdministrator;
   @SerializedName("is_administrator")
@@ -38,11 +38,11 @@ public class Administrator {
     return new Builder();
   }
 
-  public Long getUserId() {
+  public String getUserId() {
     return this.userId;
   }
 
-  public void setUserId(Long userId) {
+  public void setUserId(String userId) {
     this.userId = userId;
   }
 
@@ -64,11 +64,11 @@ public class Administrator {
 
   public static class Builder {
 
-    private Long userId;
+    private String userId;
     private Boolean isSuperAdministrator;
     private Boolean isAdministrator;
 
-    public Builder userId(Long userId) {
+    public Builder userId(String userId) {
       this.userId = userId;
       return this;
     }

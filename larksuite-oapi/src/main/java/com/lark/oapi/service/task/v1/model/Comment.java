@@ -20,9 +20,9 @@ public class Comment {
   @SerializedName("content")
   private String content;
   @SerializedName("parent_id")
-  private Long parentId;
+  private String parentId;
   @SerializedName("id")
-  private Long id;
+  private String id;
 
   // builder 开始
   public Comment() {
@@ -46,39 +46,39 @@ public class Comment {
     this.content = content;
   }
 
-  public Long getParentId() {
+  public String getParentId() {
     return this.parentId;
   }
 
-  public void setParentId(Long parentId) {
+  public void setParentId(String parentId) {
     this.parentId = parentId;
   }
 
-  public Long getId() {
+  public String getId() {
     return this.id;
   }
 
-  public void setId(Long id) {
+  public void setId(String id) {
     this.id = id;
   }
 
   public static class Builder {
 
     private String content;
-    private Long parentId;
-    private Long id;
+    private String parentId;
+    private String id;
 
     public Builder content(String content) {
       this.content = content;
       return this;
     }
 
-    public Builder parentId(Long parentId) {
+    public Builder parentId(String parentId) {
       this.parentId = parentId;
       return this;
     }
 
-    public Builder id(Long id) {
+    public Builder id(String id) {
       this.id = id;
       return this;
     }

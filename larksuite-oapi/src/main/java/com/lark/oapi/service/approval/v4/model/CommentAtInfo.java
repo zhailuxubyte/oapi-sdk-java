@@ -18,11 +18,11 @@ import com.google.gson.annotations.SerializedName;
 public class CommentAtInfo {
 
   @SerializedName("user_id")
-  private Long userId;
+  private String userId;
   @SerializedName("name")
   private String name;
   @SerializedName("offset")
-  private Long offset;
+  private String offset;
 
   // builder 开始
   public CommentAtInfo() {
@@ -38,11 +38,11 @@ public class CommentAtInfo {
     return new Builder();
   }
 
-  public Long getUserId() {
+  public String getUserId() {
     return this.userId;
   }
 
-  public void setUserId(Long userId) {
+  public void setUserId(String userId) {
     this.userId = userId;
   }
 
@@ -54,21 +54,21 @@ public class CommentAtInfo {
     this.name = name;
   }
 
-  public Long getOffset() {
+  public String getOffset() {
     return this.offset;
   }
 
-  public void setOffset(Long offset) {
+  public void setOffset(String offset) {
     this.offset = offset;
   }
 
   public static class Builder {
 
-    private Long userId;
+    private String userId;
     private String name;
-    private Long offset;
+    private String offset;
 
-    public Builder userId(Long userId) {
+    public Builder userId(String userId) {
       this.userId = userId;
       return this;
     }
@@ -78,7 +78,7 @@ public class CommentAtInfo {
       return this;
     }
 
-    public Builder offset(Long offset) {
+    public Builder offset(String offset) {
       this.offset = offset;
       return this;
     }

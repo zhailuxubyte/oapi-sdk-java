@@ -257,7 +257,8 @@ public interface IHttpTransport {
 
 ![](doc/find_method.jpg)
 
-飞书开放平台开放的所有 API 列表，可点击[这里查看](https://open.feishu.cn/document/ukTMukTMukTM/uYTM5UjL2ETO14iNxkTN/server-api-list)
+飞书开放平台开放的所有 API
+列表，可点击[这里查看](https://open.feishu.cn/document/ukTMukTMukTM/uYTM5UjL2ETO14iNxkTN/server-api-list)
 
 ### 基本用法
 

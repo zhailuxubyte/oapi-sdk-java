@@ -32,9 +32,9 @@ public class CcSearch {
   @SerializedName("read_status")
   private String readStatus;
   @SerializedName("cc_create_time_from")
-  private Long ccCreateTimeFrom;
+  private String ccCreateTimeFrom;
   @SerializedName("cc_create_time_to")
-  private Long ccCreateTimeTo;
+  private String ccCreateTimeTo;
   @SerializedName("locale")
   private String locale;
 
@@ -115,19 +115,19 @@ public class CcSearch {
     this.readStatus = readStatus;
   }
 
-  public Long getCcCreateTimeFrom() {
+  public String getCcCreateTimeFrom() {
     return this.ccCreateTimeFrom;
   }
 
-  public void setCcCreateTimeFrom(Long ccCreateTimeFrom) {
+  public void setCcCreateTimeFrom(String ccCreateTimeFrom) {
     this.ccCreateTimeFrom = ccCreateTimeFrom;
   }
 
-  public Long getCcCreateTimeTo() {
+  public String getCcCreateTimeTo() {
     return this.ccCreateTimeTo;
   }
 
-  public void setCcCreateTimeTo(Long ccCreateTimeTo) {
+  public void setCcCreateTimeTo(String ccCreateTimeTo) {
     this.ccCreateTimeTo = ccCreateTimeTo;
   }
 
@@ -148,8 +148,8 @@ public class CcSearch {
     private String groupExternalId;
     private String ccTitle;
     private String readStatus;
-    private Long ccCreateTimeFrom;
-    private Long ccCreateTimeTo;
+    private String ccCreateTimeFrom;
+    private String ccCreateTimeTo;
     private String locale;
 
     public Builder userId(String userId) {
@@ -192,12 +192,12 @@ public class CcSearch {
       return this;
     }
 
-    public Builder ccCreateTimeFrom(Long ccCreateTimeFrom) {
+    public Builder ccCreateTimeFrom(String ccCreateTimeFrom) {
       this.ccCreateTimeFrom = ccCreateTimeFrom;
       return this;
     }
 
-    public Builder ccCreateTimeTo(Long ccCreateTimeTo) {
+    public Builder ccCreateTimeTo(String ccCreateTimeTo) {
       this.ccCreateTimeTo = ccCreateTimeTo;
       return this;
     }

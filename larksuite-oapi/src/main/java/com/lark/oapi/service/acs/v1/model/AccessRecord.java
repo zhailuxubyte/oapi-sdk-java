@@ -18,15 +18,15 @@ import com.google.gson.annotations.SerializedName;
 public class AccessRecord {
 
   @SerializedName("access_record_id")
-  private Long accessRecordId;
+  private String accessRecordId;
   @SerializedName("user_id")
   private String userId;
   @SerializedName("device_id")
-  private Long deviceId;
+  private String deviceId;
   @SerializedName("is_clock_in")
   private Boolean isClockIn;
   @SerializedName("access_time")
-  private Long accessTime;
+  private String accessTime;
   @SerializedName("access_type")
   private String accessType;
   @SerializedName("access_data")
@@ -53,11 +53,11 @@ public class AccessRecord {
     return new Builder();
   }
 
-  public Long getAccessRecordId() {
+  public String getAccessRecordId() {
     return this.accessRecordId;
   }
 
-  public void setAccessRecordId(Long accessRecordId) {
+  public void setAccessRecordId(String accessRecordId) {
     this.accessRecordId = accessRecordId;
   }
 
@@ -69,11 +69,11 @@ public class AccessRecord {
     this.userId = userId;
   }
 
-  public Long getDeviceId() {
+  public String getDeviceId() {
     return this.deviceId;
   }
 
-  public void setDeviceId(Long deviceId) {
+  public void setDeviceId(String deviceId) {
     this.deviceId = deviceId;
   }
 
@@ -85,11 +85,11 @@ public class AccessRecord {
     this.isClockIn = isClockIn;
   }
 
-  public Long getAccessTime() {
+  public String getAccessTime() {
     return this.accessTime;
   }
 
-  public void setAccessTime(Long accessTime) {
+  public void setAccessTime(String accessTime) {
     this.accessTime = accessTime;
   }
 
@@ -119,16 +119,16 @@ public class AccessRecord {
 
   public static class Builder {
 
-    private Long accessRecordId;
+    private String accessRecordId;
     private String userId;
-    private Long deviceId;
+    private String deviceId;
     private Boolean isClockIn;
-    private Long accessTime;
+    private String accessTime;
     private String accessType;
     private String accessData;
     private Boolean isDoorOpen;
 
-    public Builder accessRecordId(Long accessRecordId) {
+    public Builder accessRecordId(String accessRecordId) {
       this.accessRecordId = accessRecordId;
       return this;
     }
@@ -138,7 +138,7 @@ public class AccessRecord {
       return this;
     }
 
-    public Builder deviceId(Long deviceId) {
+    public Builder deviceId(String deviceId) {
       this.deviceId = deviceId;
       return this;
     }
@@ -148,7 +148,7 @@ public class AccessRecord {
       return this;
     }
 
-    public Builder accessTime(Long accessTime) {
+    public Builder accessTime(String accessTime) {
       this.accessTime = accessTime;
       return this;
     }

@@ -20,7 +20,7 @@ public class CreateApproval {
   @SerializedName("approval_code")
   private String approvalCode;
   @SerializedName("approval_id")
-  private Long approvalId;
+  private String approvalId;
 
   public String getApprovalCode() {
     return this.approvalCode;
@@ -30,11 +30,11 @@ public class CreateApproval {
     this.approvalCode = approvalCode;
   }
 
-  public Long getApprovalId() {
+  public String getApprovalId() {
     return this.approvalId;
   }
 
-  public void setApprovalId(Long approvalId) {
+  public void setApprovalId(String approvalId) {
     this.approvalId = approvalId;
   }
 

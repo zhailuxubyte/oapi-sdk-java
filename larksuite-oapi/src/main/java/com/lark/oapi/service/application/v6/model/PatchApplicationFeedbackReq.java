@@ -33,7 +33,7 @@ public class PatchApplicationFeedbackReq {
   private String appId;
   @Path
   @SerializedName("feedback_id")
-  private Long feedbackId;
+  private String feedbackId;
 
   // builder 开始
   public PatchApplicationFeedbackReq() {
@@ -83,11 +83,11 @@ public class PatchApplicationFeedbackReq {
     this.appId = appId;
   }
 
-  public Long getFeedbackId() {
+  public String getFeedbackId() {
     return this.feedbackId;
   }
 
-  public void setFeedbackId(Long feedbackId) {
+  public void setFeedbackId(String feedbackId) {
     this.feedbackId = feedbackId;
   }
 
@@ -97,7 +97,7 @@ public class PatchApplicationFeedbackReq {
     private Integer status;
     private String operatorId;
     private String appId;
-    private Long feedbackId;
+    private String feedbackId;
 
     public Builder userIdType(String userIdType) {
       this.userIdType = userIdType;
@@ -130,7 +130,7 @@ public class PatchApplicationFeedbackReq {
       return this;
     }
 
-    public Builder feedbackId(Long feedbackId) {
+    public Builder feedbackId(String feedbackId) {
       this.feedbackId = feedbackId;
       return this;
     }

@@ -42,9 +42,9 @@ public class ApplicationAppVersionEvent {
   @SerializedName("status")
   private Integer status;
   @SerializedName("create_time")
-  private Long createTime;
+  private String createTime;
   @SerializedName("publish_time")
-  private Long publishTime;
+  private String publishTime;
   @SerializedName("ability")
   private AppAbility ability;
   @SerializedName("remark")
@@ -173,19 +173,19 @@ public class ApplicationAppVersionEvent {
     this.status = status;
   }
 
-  public Long getCreateTime() {
+  public String getCreateTime() {
     return this.createTime;
   }
 
-  public void setCreateTime(Long createTime) {
+  public void setCreateTime(String createTime) {
     this.createTime = createTime;
   }
 
-  public Long getPublishTime() {
+  public String getPublishTime() {
     return this.publishTime;
   }
 
-  public void setPublishTime(Long publishTime) {
+  public void setPublishTime(String publishTime) {
     this.publishTime = publishTime;
   }
 
@@ -219,8 +219,8 @@ public class ApplicationAppVersionEvent {
     private String[] commonCategories;
     private String[] events;
     private Integer status;
-    private Long createTime;
-    private Long publishTime;
+    private String createTime;
+    private String publishTime;
     private AppAbility ability;
     private AppVersionRemarkEvent remark;
 
@@ -289,12 +289,12 @@ public class ApplicationAppVersionEvent {
       return this;
     }
 
-    public Builder createTime(Long createTime) {
+    public Builder createTime(String createTime) {
       this.createTime = createTime;
       return this;
     }
 
-    public Builder publishTime(Long publishTime) {
+    public Builder publishTime(String publishTime) {
       this.publishTime = publishTime;
       return this;
     }

@@ -22,7 +22,7 @@ public class CreateMessageReaction {
   @SerializedName("operator")
   private Operator operator;
   @SerializedName("action_time")
-  private Long actionTime;
+  private String actionTime;
   @SerializedName("reaction_type")
   private Emoji reactionType;
 
@@ -42,11 +42,11 @@ public class CreateMessageReaction {
     this.operator = operator;
   }
 
-  public Long getActionTime() {
+  public String getActionTime() {
     return this.actionTime;
   }
 
-  public void setActionTime(Long actionTime) {
+  public void setActionTime(String actionTime) {
     this.actionTime = actionTime;
   }
 

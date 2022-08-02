@@ -26,11 +26,11 @@ public class Meta {
   @SerializedName("owner_id")
   private String ownerId;
   @SerializedName("create_time")
-  private Long createTime;
+  private String createTime;
   @SerializedName("latest_modify_user")
   private String latestModifyUser;
   @SerializedName("latest_modify_time")
-  private Long latestModifyTime;
+  private String latestModifyTime;
   @SerializedName("url")
   private String url;
 
@@ -85,11 +85,11 @@ public class Meta {
     this.ownerId = ownerId;
   }
 
-  public Long getCreateTime() {
+  public String getCreateTime() {
     return this.createTime;
   }
 
-  public void setCreateTime(Long createTime) {
+  public void setCreateTime(String createTime) {
     this.createTime = createTime;
   }
 
@@ -101,11 +101,11 @@ public class Meta {
     this.latestModifyUser = latestModifyUser;
   }
 
-  public Long getLatestModifyTime() {
+  public String getLatestModifyTime() {
     return this.latestModifyTime;
   }
 
-  public void setLatestModifyTime(Long latestModifyTime) {
+  public void setLatestModifyTime(String latestModifyTime) {
     this.latestModifyTime = latestModifyTime;
   }
 
@@ -123,9 +123,9 @@ public class Meta {
     private String docType;
     private String title;
     private String ownerId;
-    private Long createTime;
+    private String createTime;
     private String latestModifyUser;
-    private Long latestModifyTime;
+    private String latestModifyTime;
     private String url;
 
     public Builder docToken(String docToken) {
@@ -148,7 +148,7 @@ public class Meta {
       return this;
     }
 
-    public Builder createTime(Long createTime) {
+    public Builder createTime(String createTime) {
       this.createTime = createTime;
       return this;
     }
@@ -158,7 +158,7 @@ public class Meta {
       return this;
     }
 
-    public Builder latestModifyTime(Long latestModifyTime) {
+    public Builder latestModifyTime(String latestModifyTime) {
       this.latestModifyTime = latestModifyTime;
       return this;
     }

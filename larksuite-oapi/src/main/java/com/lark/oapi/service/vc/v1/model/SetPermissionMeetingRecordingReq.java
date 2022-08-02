@@ -25,7 +25,7 @@ public class SetPermissionMeetingRecordingReq {
   private String userIdType;
   @Path
   @SerializedName("meeting_id")
-  private Long meetingId;
+  private String meetingId;
   @Body
   private SetPermissionMeetingRecordingReqBody body;
 
@@ -51,11 +51,11 @@ public class SetPermissionMeetingRecordingReq {
     this.userIdType = userIdType;
   }
 
-  public Long getMeetingId() {
+  public String getMeetingId() {
     return this.meetingId;
   }
 
-  public void setMeetingId(Long meetingId) {
+  public void setMeetingId(String meetingId) {
     this.meetingId = meetingId;
   }
 
@@ -70,7 +70,7 @@ public class SetPermissionMeetingRecordingReq {
   public static class Builder {
 
     private String userIdType;
-    private Long meetingId;
+    private String meetingId;
     private SetPermissionMeetingRecordingReqBody body;
 
     public Builder userIdType(String userIdType) {
@@ -83,7 +83,7 @@ public class SetPermissionMeetingRecordingReq {
       return this;
     }
 
-    public Builder meetingId(Long meetingId) {
+    public Builder meetingId(String meetingId) {
       this.meetingId = meetingId;
       return this;
     }

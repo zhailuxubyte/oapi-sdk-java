@@ -32,7 +32,7 @@ public class ListAccessRecordReq {
   private Integer to;
   @Query
   @SerializedName("device_id")
-  private Long deviceId;
+  private String deviceId;
   @Query
   @SerializedName("user_id_type")
   private String userIdType;
@@ -86,11 +86,11 @@ public class ListAccessRecordReq {
     this.to = to;
   }
 
-  public Long getDeviceId() {
+  public String getDeviceId() {
     return this.deviceId;
   }
 
-  public void setDeviceId(Long deviceId) {
+  public void setDeviceId(String deviceId) {
     this.deviceId = deviceId;
   }
 
@@ -108,7 +108,7 @@ public class ListAccessRecordReq {
     private String pageToken;
     private Integer from;
     private Integer to;
-    private Long deviceId;
+    private String deviceId;
     private String userIdType;
 
     public Builder pageSize(Integer pageSize) {
@@ -131,7 +131,7 @@ public class ListAccessRecordReq {
       return this;
     }
 
-    public Builder deviceId(Long deviceId) {
+    public Builder deviceId(String deviceId) {
       this.deviceId = deviceId;
       return this;
     }

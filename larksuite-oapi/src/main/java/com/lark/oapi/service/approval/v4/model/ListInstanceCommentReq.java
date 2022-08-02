@@ -24,7 +24,7 @@ public class ListInstanceCommentReq {
   private String userIdType;
   @Query
   @SerializedName("user_id")
-  private Long userId;
+  private String userId;
   @Query
   @SerializedName("page_token")
   private String pageToken;
@@ -59,11 +59,11 @@ public class ListInstanceCommentReq {
     this.userIdType = userIdType;
   }
 
-  public Long getUserId() {
+  public String getUserId() {
     return this.userId;
   }
 
-  public void setUserId(Long userId) {
+  public void setUserId(String userId) {
     this.userId = userId;
   }
 
@@ -94,7 +94,7 @@ public class ListInstanceCommentReq {
   public static class Builder {
 
     private String userIdType;
-    private Long userId;
+    private String userId;
     private String pageToken;
     private Integer pageSize;
     private String instanceId;
@@ -109,7 +109,7 @@ public class ListInstanceCommentReq {
       return this;
     }
 
-    public Builder userId(Long userId) {
+    public Builder userId(String userId) {
       this.userId = userId;
       return this;
     }

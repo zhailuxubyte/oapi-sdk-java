@@ -18,13 +18,13 @@ import com.google.gson.annotations.SerializedName;
 public class DeleteInstanceComment {
 
   @SerializedName("comment_id")
-  private Long commentId;
+  private String commentId;
 
-  public Long getCommentId() {
+  public String getCommentId() {
     return this.commentId;
   }
 
-  public void setCommentId(Long commentId) {
+  public void setCommentId(String commentId) {
     this.commentId = commentId;
   }
 
