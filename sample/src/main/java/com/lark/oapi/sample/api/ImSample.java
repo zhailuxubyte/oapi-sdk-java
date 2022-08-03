@@ -1151,7 +1151,7 @@ public class ImSample {
 //            .build())
         .build();
 
-    // sendInteractiveMonitorMsg(client);
-    downLoadFile(client);
+     sendInteractiveMonitorMsg(client);
+   // downLoadFile(client);
   }
 }

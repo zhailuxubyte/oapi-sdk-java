@@ -516,11 +516,17 @@ public class RawApiCall {
 需在项目 pom 文件中引入下面 maven 坐标
 
 ```shell
-  <dependency>
-    <groupId>com.larksuite.oapi</groupId>
-    <artifactId>oapi-sdk-servlet-ext</artifactId>
-    <version>1.0.0-rc1</version>
-  </dependency>
+<dependency>
+  <artifactId>oapi-sdk-servlet-ext</artifactId>
+  <groupId>com.larksuite.oapi</groupId>
+  <version>1.0.0-rc2</version>
+  <exclusions>
+    <exclusion>
+      <artifactId>oapi-sdk</artifactId>
+      <groupId>com.larksuite.oapi</groupId>
+    </exclusion>
+  </exclusions>
+</dependency>
 ```
 
 #### 集成示例
@@ -713,12 +719,17 @@ public class EventController {
 需在项目 pom 文件中引入下面 maven 坐标
 
 ```shell
-  <dependency>
-    <groupId>com.larksuite.oapi</groupId>
-    <artifactId>oapi-sdk-servlet-ext</artifactId>
-    <version>1.0.0-rc1</ver
-    sion>
-  </dependency>
+<dependency>
+  <artifactId>oapi-sdk-servlet-ext</artifactId>
+  <groupId>com.larksuite.oapi</groupId>
+  <version>1.0.0-rc2</version>
+  <exclusions>
+    <exclusion>
+      <artifactId>oapi-sdk</artifactId>
+      <groupId>com.larksuite.oapi</groupId>
+    </exclusion>
+  </exclusions>
+</dependency>
 ```
 
 #### 集成示例
