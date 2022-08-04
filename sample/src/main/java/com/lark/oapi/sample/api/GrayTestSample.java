@@ -17,17 +17,10 @@ import com.lark.oapi.core.cache.LocalCache;
 import com.lark.oapi.core.enums.AppType;
 import com.lark.oapi.core.enums.BaseUrlEnum;
 import com.lark.oapi.core.httpclient.OkHttpTransport;
-import com.lark.oapi.core.request.RequestOptions;
 import com.lark.oapi.core.utils.Jsons;
-import com.lark.oapi.core.utils.Lists;
 import com.lark.oapi.okhttp.OkHttpClient;
 import com.lark.oapi.service.application.v6.model.GetApplicationReq;
 import com.lark.oapi.service.application.v6.model.GetApplicationResp;
-import com.lark.oapi.service.gray_test_open_sg.v1.model.GetMotoReq;
-import com.lark.oapi.service.gray_test_open_sg.v1.model.GetMotoResp;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 public class GrayTestSample {
@@ -48,10 +41,9 @@ public class GrayTestSample {
         .httpTransport(new OkHttpTransport(new OkHttpClient.Builder().build())) // 自定义传输层
         .build();
 
-
     GetApplicationResp resp = client.application().application().get(GetApplicationReq.newBuilder()
-            .lang("zh_cn")
-            .appId(appId)
+        .lang("zh_cn")
+        .appId(appId)
         .build());
     if (resp.success()) {
       System.out.println(Jsons.DEFAULT.toJson(resp.getData()));

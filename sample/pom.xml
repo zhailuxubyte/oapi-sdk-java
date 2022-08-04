@@ -27,25 +27,25 @@
   <dependencies>
     <dependency>
       <artifactId>oapi-sdk-apache-httpclient</artifactId>
-      <groupId>com.larksuite.oapi</groupId>
-      <version>1.0.1-snapshot</version>
       <exclusions>
         <exclusion>
           <artifactId>oapi-sdk</artifactId>
           <groupId>com.larksuite.oapi</groupId>
         </exclusion>
       </exclusions>
+      <groupId>com.larksuite.oapi</groupId>
+      <version>1.0.1-snapshot</version>
     </dependency>
     <dependency>
       <artifactId>oapi-sdk-servlet-ext</artifactId>
-      <groupId>com.larksuite.oapi</groupId>
-      <version>1.0.0-rc2</version>
       <exclusions>
         <exclusion>
           <artifactId>oapi-sdk</artifactId>
           <groupId>com.larksuite.oapi</groupId>
         </exclusion>
       </exclusions>
+      <groupId>com.larksuite.oapi</groupId>
+      <version>1.0.0-rc2</version>
     </dependency>
     <dependency>
       <artifactId>oapi-sdk</artifactId>

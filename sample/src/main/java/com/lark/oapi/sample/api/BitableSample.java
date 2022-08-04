@@ -17,7 +17,6 @@ import com.lark.oapi.core.request.RequestOptions;
 import com.lark.oapi.core.utils.Jsons;
 import com.lark.oapi.service.bitable.v1.enums.UserIdTypeEnum;
 import com.lark.oapi.service.bitable.v1.model.AppTableRecord;
-import com.lark.oapi.service.bitable.v1.model.Attachment;
 import com.lark.oapi.service.bitable.v1.model.BatchCreateAppTableRecordReq;
 import com.lark.oapi.service.bitable.v1.model.BatchCreateAppTableRecordReqBody;
 import com.lark.oapi.service.bitable.v1.model.BatchCreateAppTableRecordResp;

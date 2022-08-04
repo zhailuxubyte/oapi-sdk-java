@@ -972,10 +972,11 @@ public class ImSample {
 
   public static void uploadImage(Client client) throws Exception {
     // 创建请求对象
+    File file = new File("/Users/bytedance/Downloads/go-icon.png");
     CreateImageReq req = CreateImageReq.newBuilder()
         .createImageReqBody(CreateImageReqBody.newBuilder()
             .imageType(ImageTypeEnum.MESSAGE)
-            .image(new File("/Users/bytedance/Downloads/go-icon.png"))
+            .image(file)
             .build())
         .build();
 
@@ -1151,7 +1152,7 @@ public class ImSample {
 //            .build())
         .build();
 
-     sendInteractiveMonitorMsg(client);
-   // downLoadFile(client);
+    sendInteractiveMonitorMsg(client);
+    // downLoadFile(client);
   }
 }
