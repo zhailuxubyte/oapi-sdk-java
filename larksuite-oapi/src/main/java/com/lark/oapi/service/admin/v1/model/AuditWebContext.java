@@ -12,63 +12,69 @@
  */
 
 package com.lark.oapi.service.admin.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.admin.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class AuditWebContext {
-
-  @SerializedName("user_agent")
-  private String userAgent;
-  @SerializedName("IP")
-  private String iP;
-
-  // builder 开始
-  public AuditWebContext() {
-  }
-
-  public AuditWebContext(Builder builder) {
-    this.userAgent = builder.userAgent;
-    this.iP = builder.iP;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getUserAgent() {
-    return this.userAgent;
-  }
-
-  public void setUserAgent(String userAgent) {
-    this.userAgent = userAgent;
-  }
-
-  public String getIP() {
-    return this.iP;
-  }
-
-  public void setIP(String iP) {
-    this.iP = iP;
-  }
-
-  public static class Builder {
-
+    @SerializedName("user_agent")
     private String userAgent;
+    @SerializedName("IP")
     private String iP;
-
-    public Builder userAgent(String userAgent) {
-      this.userAgent = userAgent;
-      return this;
+    public String getUserAgent() {
+        return this.userAgent;
     }
 
-    public Builder iP(String iP) {
-      this.iP = iP;
-      return this;
+    public void setUserAgent(String userAgent) {
+        this.userAgent = userAgent;
+    }
+
+    public String getIP() {
+        return this.iP;
+    }
+
+    public void setIP(String iP) {
+        this.iP = iP;
     }
 
 
-    public AuditWebContext build() {
-      return new AuditWebContext(this);
-    }
+// builder 开始
+  public AuditWebContext(){}
+
+  public AuditWebContext(Builder builder){
+      this.userAgent = builder.userAgent;
+      this.iP = builder.iP;
   }
+
+    public static class Builder {
+        private String userAgent;
+        private String iP;
+        public Builder userAgent(String userAgent) {
+             this.userAgent = userAgent;
+             return this;
+        }
+    
+        public Builder iP(String iP) {
+             this.iP = iP;
+             return this;
+        }
+    
+    
+    public AuditWebContext build(){
+        return new AuditWebContext(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

@@ -12,87 +12,90 @@
  */
 
 package com.lark.oapi.service.bitable.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.bitable.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class CreateAppTableViewReq {
-
-  @Path
-  @SerializedName("app_token")
-  private String appToken;
-  @Path
-  @SerializedName("table_id")
-  private String tableId;
-  @Body
-  private ReqView body;
-
-  // builder 开始
-  public CreateAppTableViewReq() {
-  }
-
-  public CreateAppTableViewReq(Builder builder) {
-    this.appToken = builder.appToken;
-    this.tableId = builder.tableId;
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getAppToken() {
-    return this.appToken;
-  }
-
-  public void setAppToken(String appToken) {
-    this.appToken = appToken;
-  }
-
-  public String getTableId() {
-    return this.tableId;
-  }
-
-  public void setTableId(String tableId) {
-    this.tableId = tableId;
-  }
-
-  public ReqView getReqView() {
-    return this.body;
-  }
-
-  public void setReqView(ReqView body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
+    @Path
+    @SerializedName("app_token")
     private String appToken;
+    @Path
+    @SerializedName("table_id")
     private String tableId;
+    public String getAppToken() {
+        return this.appToken;
+    }
+
+    public void setAppToken(String appToken) {
+        this.appToken = appToken;
+    }
+
+    public String getTableId() {
+        return this.tableId;
+    }
+
+    public void setTableId(String tableId) {
+        this.tableId = tableId;
+    }
+
+    @Body
     private ReqView body;
 
-    public Builder appToken(String appToken) {
-      this.appToken = appToken;
-      return this;
-    }
-
-    public Builder tableId(String tableId) {
-      this.tableId = tableId;
-      return this;
-    }
-
     public ReqView getReqView() {
-      return this.body;
+        return this.body;
     }
 
-    public Builder reqView(ReqView body) {
-      this.body = body;
-      return this;
+    public void setReqView(ReqView body) {
+        this.body = body;
     }
 
-    public CreateAppTableViewReq build() {
-      return new CreateAppTableViewReq(this);
-    }
+// builder 开始
+  public CreateAppTableViewReq(){}
+
+  public CreateAppTableViewReq(Builder builder){
+       this.appToken = builder.appToken;
+       this.tableId = builder.tableId;
+        this.body = builder.body;
   }
+
+    public static class Builder {
+    
+        private String appToken;
+        private String tableId;
+          public Builder appToken(String appToken) {
+               this.appToken = appToken;
+               return this;
+          }
+    
+          public Builder tableId(String tableId) {
+               this.tableId = tableId;
+               return this;
+          }
+    
+        private ReqView body;
+    
+        public ReqView getReqView() {
+            return this.body;
+        }
+        public Builder reqView(ReqView body) {
+             this.body = body;
+             return this;
+        }
+    public CreateAppTableViewReq build(){
+        return new CreateAppTableViewReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

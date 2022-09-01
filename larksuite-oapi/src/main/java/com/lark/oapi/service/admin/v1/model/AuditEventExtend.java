@@ -12,199 +12,205 @@
  */
 
 package com.lark.oapi.service.admin.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.admin.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class AuditEventExtend {
-
-  @SerializedName("comment_type")
-  private String commentType;
-  @SerializedName("app_detail")
-  private String appDetail;
-  @SerializedName("two_step_validation")
-  private Boolean twoStepValidation;
-  @SerializedName("login_method")
-  private String loginMethod;
-  @SerializedName("new_people_num_in_video")
-  private Integer newPeopleNumInVideo;
-  @SerializedName("external_people_num_in_video")
-  private Integer externalPeopleNumInVideo;
-  @SerializedName("external_people_num_in_chat")
-  private Integer externalPeopleNumInChat;
-  @SerializedName("join_group")
-  private Integer joinGroup;
-  @SerializedName("quit_group")
-  private Integer quitGroup;
-  @SerializedName("external_people_num_in_doc_share")
-  private Integer externalPeopleNumInDocShare;
-
-  // builder 开始
-  public AuditEventExtend() {
-  }
-
-  public AuditEventExtend(Builder builder) {
-    this.commentType = builder.commentType;
-    this.appDetail = builder.appDetail;
-    this.twoStepValidation = builder.twoStepValidation;
-    this.loginMethod = builder.loginMethod;
-    this.newPeopleNumInVideo = builder.newPeopleNumInVideo;
-    this.externalPeopleNumInVideo = builder.externalPeopleNumInVideo;
-    this.externalPeopleNumInChat = builder.externalPeopleNumInChat;
-    this.joinGroup = builder.joinGroup;
-    this.quitGroup = builder.quitGroup;
-    this.externalPeopleNumInDocShare = builder.externalPeopleNumInDocShare;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getCommentType() {
-    return this.commentType;
-  }
-
-  public void setCommentType(String commentType) {
-    this.commentType = commentType;
-  }
-
-  public String getAppDetail() {
-    return this.appDetail;
-  }
-
-  public void setAppDetail(String appDetail) {
-    this.appDetail = appDetail;
-  }
-
-  public Boolean getTwoStepValidation() {
-    return this.twoStepValidation;
-  }
-
-  public void setTwoStepValidation(Boolean twoStepValidation) {
-    this.twoStepValidation = twoStepValidation;
-  }
-
-  public String getLoginMethod() {
-    return this.loginMethod;
-  }
-
-  public void setLoginMethod(String loginMethod) {
-    this.loginMethod = loginMethod;
-  }
-
-  public Integer getNewPeopleNumInVideo() {
-    return this.newPeopleNumInVideo;
-  }
-
-  public void setNewPeopleNumInVideo(Integer newPeopleNumInVideo) {
-    this.newPeopleNumInVideo = newPeopleNumInVideo;
-  }
-
-  public Integer getExternalPeopleNumInVideo() {
-    return this.externalPeopleNumInVideo;
-  }
-
-  public void setExternalPeopleNumInVideo(Integer externalPeopleNumInVideo) {
-    this.externalPeopleNumInVideo = externalPeopleNumInVideo;
-  }
-
-  public Integer getExternalPeopleNumInChat() {
-    return this.externalPeopleNumInChat;
-  }
-
-  public void setExternalPeopleNumInChat(Integer externalPeopleNumInChat) {
-    this.externalPeopleNumInChat = externalPeopleNumInChat;
-  }
-
-  public Integer getJoinGroup() {
-    return this.joinGroup;
-  }
-
-  public void setJoinGroup(Integer joinGroup) {
-    this.joinGroup = joinGroup;
-  }
-
-  public Integer getQuitGroup() {
-    return this.quitGroup;
-  }
-
-  public void setQuitGroup(Integer quitGroup) {
-    this.quitGroup = quitGroup;
-  }
-
-  public Integer getExternalPeopleNumInDocShare() {
-    return this.externalPeopleNumInDocShare;
-  }
-
-  public void setExternalPeopleNumInDocShare(Integer externalPeopleNumInDocShare) {
-    this.externalPeopleNumInDocShare = externalPeopleNumInDocShare;
-  }
-
-  public static class Builder {
-
+    @SerializedName("comment_type")
     private String commentType;
+    @SerializedName("app_detail")
     private String appDetail;
+    @SerializedName("two_step_validation")
     private Boolean twoStepValidation;
+    @SerializedName("login_method")
     private String loginMethod;
+    @SerializedName("new_people_num_in_video")
     private Integer newPeopleNumInVideo;
+    @SerializedName("external_people_num_in_video")
     private Integer externalPeopleNumInVideo;
+    @SerializedName("external_people_num_in_chat")
     private Integer externalPeopleNumInChat;
+    @SerializedName("join_group")
     private Integer joinGroup;
+    @SerializedName("quit_group")
     private Integer quitGroup;
+    @SerializedName("external_people_num_in_doc_share")
     private Integer externalPeopleNumInDocShare;
-
-    public Builder commentType(String commentType) {
-      this.commentType = commentType;
-      return this;
+    public String getCommentType() {
+        return this.commentType;
     }
 
-    public Builder appDetail(String appDetail) {
-      this.appDetail = appDetail;
-      return this;
+    public void setCommentType(String commentType) {
+        this.commentType = commentType;
     }
 
-    public Builder twoStepValidation(Boolean twoStepValidation) {
-      this.twoStepValidation = twoStepValidation;
-      return this;
+    public String getAppDetail() {
+        return this.appDetail;
     }
 
-    public Builder loginMethod(String loginMethod) {
-      this.loginMethod = loginMethod;
-      return this;
+    public void setAppDetail(String appDetail) {
+        this.appDetail = appDetail;
     }
 
-    public Builder newPeopleNumInVideo(Integer newPeopleNumInVideo) {
-      this.newPeopleNumInVideo = newPeopleNumInVideo;
-      return this;
+    public Boolean getTwoStepValidation() {
+        return this.twoStepValidation;
     }
 
-    public Builder externalPeopleNumInVideo(Integer externalPeopleNumInVideo) {
-      this.externalPeopleNumInVideo = externalPeopleNumInVideo;
-      return this;
+    public void setTwoStepValidation(Boolean twoStepValidation) {
+        this.twoStepValidation = twoStepValidation;
     }
 
-    public Builder externalPeopleNumInChat(Integer externalPeopleNumInChat) {
-      this.externalPeopleNumInChat = externalPeopleNumInChat;
-      return this;
+    public String getLoginMethod() {
+        return this.loginMethod;
     }
 
-    public Builder joinGroup(Integer joinGroup) {
-      this.joinGroup = joinGroup;
-      return this;
+    public void setLoginMethod(String loginMethod) {
+        this.loginMethod = loginMethod;
     }
 
-    public Builder quitGroup(Integer quitGroup) {
-      this.quitGroup = quitGroup;
-      return this;
+    public Integer getNewPeopleNumInVideo() {
+        return this.newPeopleNumInVideo;
     }
 
-    public Builder externalPeopleNumInDocShare(Integer externalPeopleNumInDocShare) {
-      this.externalPeopleNumInDocShare = externalPeopleNumInDocShare;
-      return this;
+    public void setNewPeopleNumInVideo(Integer newPeopleNumInVideo) {
+        this.newPeopleNumInVideo = newPeopleNumInVideo;
+    }
+
+    public Integer getExternalPeopleNumInVideo() {
+        return this.externalPeopleNumInVideo;
+    }
+
+    public void setExternalPeopleNumInVideo(Integer externalPeopleNumInVideo) {
+        this.externalPeopleNumInVideo = externalPeopleNumInVideo;
+    }
+
+    public Integer getExternalPeopleNumInChat() {
+        return this.externalPeopleNumInChat;
+    }
+
+    public void setExternalPeopleNumInChat(Integer externalPeopleNumInChat) {
+        this.externalPeopleNumInChat = externalPeopleNumInChat;
+    }
+
+    public Integer getJoinGroup() {
+        return this.joinGroup;
+    }
+
+    public void setJoinGroup(Integer joinGroup) {
+        this.joinGroup = joinGroup;
+    }
+
+    public Integer getQuitGroup() {
+        return this.quitGroup;
+    }
+
+    public void setQuitGroup(Integer quitGroup) {
+        this.quitGroup = quitGroup;
+    }
+
+    public Integer getExternalPeopleNumInDocShare() {
+        return this.externalPeopleNumInDocShare;
+    }
+
+    public void setExternalPeopleNumInDocShare(Integer externalPeopleNumInDocShare) {
+        this.externalPeopleNumInDocShare = externalPeopleNumInDocShare;
     }
 
 
-    public AuditEventExtend build() {
-      return new AuditEventExtend(this);
-    }
+// builder 开始
+  public AuditEventExtend(){}
+
+  public AuditEventExtend(Builder builder){
+      this.commentType = builder.commentType;
+      this.appDetail = builder.appDetail;
+      this.twoStepValidation = builder.twoStepValidation;
+      this.loginMethod = builder.loginMethod;
+      this.newPeopleNumInVideo = builder.newPeopleNumInVideo;
+      this.externalPeopleNumInVideo = builder.externalPeopleNumInVideo;
+      this.externalPeopleNumInChat = builder.externalPeopleNumInChat;
+      this.joinGroup = builder.joinGroup;
+      this.quitGroup = builder.quitGroup;
+      this.externalPeopleNumInDocShare = builder.externalPeopleNumInDocShare;
   }
+
+    public static class Builder {
+        private String commentType;
+        private String appDetail;
+        private Boolean twoStepValidation;
+        private String loginMethod;
+        private Integer newPeopleNumInVideo;
+        private Integer externalPeopleNumInVideo;
+        private Integer externalPeopleNumInChat;
+        private Integer joinGroup;
+        private Integer quitGroup;
+        private Integer externalPeopleNumInDocShare;
+        public Builder commentType(String commentType) {
+             this.commentType = commentType;
+             return this;
+        }
+    
+        public Builder appDetail(String appDetail) {
+             this.appDetail = appDetail;
+             return this;
+        }
+    
+        public Builder twoStepValidation(Boolean twoStepValidation) {
+             this.twoStepValidation = twoStepValidation;
+             return this;
+        }
+    
+        public Builder loginMethod(String loginMethod) {
+             this.loginMethod = loginMethod;
+             return this;
+        }
+    
+        public Builder newPeopleNumInVideo(Integer newPeopleNumInVideo) {
+             this.newPeopleNumInVideo = newPeopleNumInVideo;
+             return this;
+        }
+    
+        public Builder externalPeopleNumInVideo(Integer externalPeopleNumInVideo) {
+             this.externalPeopleNumInVideo = externalPeopleNumInVideo;
+             return this;
+        }
+    
+        public Builder externalPeopleNumInChat(Integer externalPeopleNumInChat) {
+             this.externalPeopleNumInChat = externalPeopleNumInChat;
+             return this;
+        }
+    
+        public Builder joinGroup(Integer joinGroup) {
+             this.joinGroup = joinGroup;
+             return this;
+        }
+    
+        public Builder quitGroup(Integer quitGroup) {
+             this.quitGroup = quitGroup;
+             return this;
+        }
+    
+        public Builder externalPeopleNumInDocShare(Integer externalPeopleNumInDocShare) {
+             this.externalPeopleNumInDocShare = externalPeopleNumInDocShare;
+             return this;
+        }
+    
+    
+    public AuditEventExtend build(){
+        return new AuditEventExtend(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

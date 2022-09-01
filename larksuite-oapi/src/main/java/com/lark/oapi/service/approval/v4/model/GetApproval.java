@@ -12,60 +12,67 @@
  */
 
 package com.lark.oapi.service.approval.v4.model;
-
+import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class GetApproval {
+    @SerializedName("approval_name")
+    private String approvalName;
+    @SerializedName("status")
+    private String status;
+    @SerializedName("form")
+    private String form;
+    @SerializedName("node_list")
+    private ApprovalNodeInfo[] nodeList;
+    @SerializedName("viewers")
+    private ApprovalViewerInfo[] viewers;
+    public String getApprovalName() {
+        return this.approvalName;
+    }
 
-  @SerializedName("approval_name")
-  private String approvalName;
-  @SerializedName("status")
-  private String status;
-  @SerializedName("form")
-  private String form;
-  @SerializedName("node_list")
-  private ApprovalNodeInfo[] nodeList;
-  @SerializedName("viewers")
-  private ApprovalViewerInfo[] viewers;
+    public void setApprovalName(String approvalName) {
+        this.approvalName = approvalName;
+    }
 
-  public String getApprovalName() {
-    return this.approvalName;
-  }
+    public String getStatus() {
+        return this.status;
+    }
 
-  public void setApprovalName(String approvalName) {
-    this.approvalName = approvalName;
-  }
+    public void setStatus(String status) {
+        this.status = status;
+    }
 
-  public String getStatus() {
-    return this.status;
-  }
+    public String getForm() {
+        return this.form;
+    }
 
-  public void setStatus(String status) {
-    this.status = status;
-  }
+    public void setForm(String form) {
+        this.form = form;
+    }
 
-  public String getForm() {
-    return this.form;
-  }
+    public ApprovalNodeInfo[] getNodeList() {
+        return this.nodeList;
+    }
 
-  public void setForm(String form) {
-    this.form = form;
-  }
+    public void setNodeList(ApprovalNodeInfo[] nodeList) {
+        this.nodeList = nodeList;
+    }
 
-  public ApprovalNodeInfo[] getNodeList() {
-    return this.nodeList;
-  }
+    public ApprovalViewerInfo[] getViewers() {
+        return this.viewers;
+    }
 
-  public void setNodeList(ApprovalNodeInfo[] nodeList) {
-    this.nodeList = nodeList;
-  }
-
-  public ApprovalViewerInfo[] getViewers() {
-    return this.viewers;
-  }
-
-  public void setViewers(ApprovalViewerInfo[] viewers) {
-    this.viewers = viewers;
-  }
+    public void setViewers(ApprovalViewerInfo[] viewers) {
+        this.viewers = viewers;
+    }
 
 }

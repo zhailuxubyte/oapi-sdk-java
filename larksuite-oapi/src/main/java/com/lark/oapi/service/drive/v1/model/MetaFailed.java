@@ -12,68 +12,73 @@
  */
 
 package com.lark.oapi.service.drive.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.drive.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class MetaFailed {
-
-  @SerializedName("token")
-  private String token;
-  @SerializedName("code")
-  private Integer code;
-
-  // builder 开始
-  public MetaFailed() {
-  }
-
-  public MetaFailed(Builder builder) {
-    this.token = builder.token;
-    this.code = builder.code;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getToken() {
-    return this.token;
-  }
-
-  public void setToken(String token) {
-    this.token = token;
-  }
-
-  public Integer getCode() {
-    return this.code;
-  }
-
-  public void setCode(Integer code) {
-    this.code = code;
-  }
-
-  public static class Builder {
-
+    @SerializedName("token")
     private String token;
+    @SerializedName("code")
     private Integer code;
-
-    public Builder token(String token) {
-      this.token = token;
-      return this;
+    public String getToken() {
+        return this.token;
     }
 
-    public Builder code(Integer code) {
-      this.code = code;
-      return this;
+    public void setToken(String token) {
+        this.token = token;
     }
 
-    public Builder code(com.lark.oapi.service.drive.v1.enums.CodeEnum code) {
-      this.code = code.getValue();
-      return this;
+    public Integer getCode() {
+        return this.code;
+    }
+
+    public void setCode(Integer code) {
+        this.code = code;
     }
 
 
-    public MetaFailed build() {
-      return new MetaFailed(this);
-    }
+// builder 开始
+  public MetaFailed(){}
+
+  public MetaFailed(Builder builder){
+      this.token = builder.token;
+      this.code = builder.code;
   }
+
+    public static class Builder {
+        private String token;
+        private Integer code;
+        public Builder token(String token) {
+             this.token = token;
+             return this;
+        }
+    
+        public Builder code(Integer code) {
+             this.code = code;
+             return this;
+        }
+        public Builder code(com.lark.oapi.service.drive.v1.enums.CodeEnum code) {
+             this.code = code.getValue();
+             return this;
+        }
+    
+    
+    public MetaFailed build(){
+        return new MetaFailed(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

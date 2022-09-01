@@ -12,80 +12,87 @@
  */
 
 package com.lark.oapi.service.application.v6.model;
-
+import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class P2ApplicationAppVersionAuditV6Data {
+    @SerializedName("operator_id")
+    private UserId operatorId;
+    @SerializedName("version_id")
+    private String versionId;
+    @SerializedName("creator_id")
+    private UserId creatorId;
+    @SerializedName("app_id")
+    private String appId;
+    @SerializedName("operation")
+    private String operation;
+    @SerializedName("remark")
+    private String remark;
+    @SerializedName("audit_source")
+    private String auditSource;
+    public UserId getOperatorId() {
+        return this.operatorId;
+    }
 
-  @SerializedName("operator_id")
-  private UserId operatorId;
-  @SerializedName("version_id")
-  private String versionId;
-  @SerializedName("creator_id")
-  private UserId creatorId;
-  @SerializedName("app_id")
-  private String appId;
-  @SerializedName("operation")
-  private String operation;
-  @SerializedName("remark")
-  private String remark;
-  @SerializedName("audit_source")
-  private String auditSource;
+    public void setOperatorId(UserId operatorId) {
+        this.operatorId = operatorId;
+    }
 
-  public UserId getOperatorId() {
-    return this.operatorId;
-  }
+    public String getVersionId() {
+        return this.versionId;
+    }
 
-  public void setOperatorId(UserId operatorId) {
-    this.operatorId = operatorId;
-  }
+    public void setVersionId(String versionId) {
+        this.versionId = versionId;
+    }
 
-  public String getVersionId() {
-    return this.versionId;
-  }
+    public UserId getCreatorId() {
+        return this.creatorId;
+    }
 
-  public void setVersionId(String versionId) {
-    this.versionId = versionId;
-  }
+    public void setCreatorId(UserId creatorId) {
+        this.creatorId = creatorId;
+    }
 
-  public UserId getCreatorId() {
-    return this.creatorId;
-  }
+    public String getAppId() {
+        return this.appId;
+    }
 
-  public void setCreatorId(UserId creatorId) {
-    this.creatorId = creatorId;
-  }
+    public void setAppId(String appId) {
+        this.appId = appId;
+    }
 
-  public String getAppId() {
-    return this.appId;
-  }
+    public String getOperation() {
+        return this.operation;
+    }
 
-  public void setAppId(String appId) {
-    this.appId = appId;
-  }
+    public void setOperation(String operation) {
+        this.operation = operation;
+    }
 
-  public String getOperation() {
-    return this.operation;
-  }
+    public String getRemark() {
+        return this.remark;
+    }
 
-  public void setOperation(String operation) {
-    this.operation = operation;
-  }
+    public void setRemark(String remark) {
+        this.remark = remark;
+    }
 
-  public String getRemark() {
-    return this.remark;
-  }
+    public String getAuditSource() {
+        return this.auditSource;
+    }
 
-  public void setRemark(String remark) {
-    this.remark = remark;
-  }
-
-  public String getAuditSource() {
-    return this.auditSource;
-  }
-
-  public void setAuditSource(String auditSource) {
-    this.auditSource = auditSource;
-  }
+    public void setAuditSource(String auditSource) {
+        this.auditSource = auditSource;
+    }
 
 }

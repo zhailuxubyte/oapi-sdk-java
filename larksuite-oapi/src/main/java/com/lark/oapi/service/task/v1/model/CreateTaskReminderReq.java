@@ -12,69 +12,72 @@
  */
 
 package com.lark.oapi.service.task.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.task.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class CreateTaskReminderReq {
-
-  @Path
-  @SerializedName("task_id")
-  private String taskId;
-  @Body
-  private Reminder body;
-
-  // builder 开始
-  public CreateTaskReminderReq() {
-  }
-
-  public CreateTaskReminderReq(Builder builder) {
-    this.taskId = builder.taskId;
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getTaskId() {
-    return this.taskId;
-  }
-
-  public void setTaskId(String taskId) {
-    this.taskId = taskId;
-  }
-
-  public Reminder getReminder() {
-    return this.body;
-  }
-
-  public void setReminder(Reminder body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
+    @Path
+    @SerializedName("task_id")
     private String taskId;
+    public String getTaskId() {
+        return this.taskId;
+    }
+
+    public void setTaskId(String taskId) {
+        this.taskId = taskId;
+    }
+
+    @Body
     private Reminder body;
 
-    public Builder taskId(String taskId) {
-      this.taskId = taskId;
-      return this;
-    }
-
     public Reminder getReminder() {
-      return this.body;
+        return this.body;
     }
 
-    public Builder reminder(Reminder body) {
-      this.body = body;
-      return this;
+    public void setReminder(Reminder body) {
+        this.body = body;
     }
 
-    public CreateTaskReminderReq build() {
-      return new CreateTaskReminderReq(this);
-    }
+// builder 开始
+  public CreateTaskReminderReq(){}
+
+  public CreateTaskReminderReq(Builder builder){
+       this.taskId = builder.taskId;
+        this.body = builder.body;
   }
+
+    public static class Builder {
+    
+        private String taskId;
+          public Builder taskId(String taskId) {
+               this.taskId = taskId;
+               return this;
+          }
+    
+        private Reminder body;
+    
+        public Reminder getReminder() {
+            return this.body;
+        }
+        public Builder reminder(Reminder body) {
+             this.body = body;
+             return this;
+        }
+    public CreateTaskReminderReq build(){
+        return new CreateTaskReminderReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

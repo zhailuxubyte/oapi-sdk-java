@@ -12,63 +12,69 @@
  */
 
 package com.lark.oapi.service.baike.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.baike.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class Draft {
-
-  @SerializedName("draft_id")
-  private String draftId;
-  @SerializedName("entity")
-  private Entity entity;
-
-  // builder 开始
-  public Draft() {
-  }
-
-  public Draft(Builder builder) {
-    this.draftId = builder.draftId;
-    this.entity = builder.entity;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getDraftId() {
-    return this.draftId;
-  }
-
-  public void setDraftId(String draftId) {
-    this.draftId = draftId;
-  }
-
-  public Entity getEntity() {
-    return this.entity;
-  }
-
-  public void setEntity(Entity entity) {
-    this.entity = entity;
-  }
-
-  public static class Builder {
-
+    @SerializedName("draft_id")
     private String draftId;
+    @SerializedName("entity")
     private Entity entity;
-
-    public Builder draftId(String draftId) {
-      this.draftId = draftId;
-      return this;
+    public String getDraftId() {
+        return this.draftId;
     }
 
-    public Builder entity(Entity entity) {
-      this.entity = entity;
-      return this;
+    public void setDraftId(String draftId) {
+        this.draftId = draftId;
+    }
+
+    public Entity getEntity() {
+        return this.entity;
+    }
+
+    public void setEntity(Entity entity) {
+        this.entity = entity;
     }
 
 
-    public Draft build() {
-      return new Draft(this);
-    }
+// builder 开始
+  public Draft(){}
+
+  public Draft(Builder builder){
+      this.draftId = builder.draftId;
+      this.entity = builder.entity;
   }
+
+    public static class Builder {
+        private String draftId;
+        private Entity entity;
+        public Builder draftId(String draftId) {
+             this.draftId = draftId;
+             return this;
+        }
+    
+        public Builder entity(Entity entity) {
+             this.entity = entity;
+             return this;
+        }
+    
+    
+    public Draft build(){
+        return new Draft(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

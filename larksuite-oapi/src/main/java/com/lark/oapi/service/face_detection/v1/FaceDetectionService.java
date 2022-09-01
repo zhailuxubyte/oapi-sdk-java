@@ -13,77 +13,78 @@
 
 package com.lark.oapi.service.face_detection.v1;
 
-import com.lark.oapi.core.Config;
-import com.lark.oapi.core.Transport;
-import com.lark.oapi.core.request.RequestOptions;
-import com.lark.oapi.core.response.RawResponse;
 import com.lark.oapi.core.token.AccessTokenType;
-import com.lark.oapi.core.utils.Sets;
+import com.lark.oapi.core.Transport;
+import com.lark.oapi.core.response.RawResponse;
 import com.lark.oapi.core.utils.UnmarshalRespUtil;
-import com.lark.oapi.service.face_detection.v1.model.DetectFaceAttributesImageReq;
-import com.lark.oapi.service.face_detection.v1.model.DetectFaceAttributesImageResp;
+import com.lark.oapi.core.utils.Sets;
+
+
+
+import com.lark.oapi.core.Config;
+import com.lark.oapi.core.request.RequestOptions;
+import java.io.ByteArrayOutputStream;
+import com.lark.oapi.event.model.BaseEvent;
+import com.lark.oapi.event.model.BaseEventV2;
+import com.lark.oapi.service.face_detection.v1.model.*;
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
 
 public class FaceDetectionService {
+    private final Image image;
 
-  private final Image image;
-
-  public FaceDetectionService(Config config) {
-    this.image = new Image(config);
-  }
-
-  public Image image() {
-    return image;
-  }
-
-  public static class Image {
-
-    private final Config config;
-
-    public Image(Config config) {
-      this.config = config;
+    public FaceDetectionService(Config config) {
+        this.image = new Image(config);
+    }
+    public Image image() {
+        return image;
     }
 
-    public DetectFaceAttributesImageResp detectFaceAttributes(DetectFaceAttributesImageReq req,
-        RequestOptions reqOptions) throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
+    public static class Image {
+        private final Config config;
 
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          , "/open-apis/face_detection/v1/image/detect_face_attributes"
-          , Sets.newHashSet(AccessTokenType.Tenant)
-          , req);
+        public Image(Config config) {
+            this.config = config;
+        }
+    
+        public DetectFaceAttributesImageResp detectFaceAttributes(DetectFaceAttributesImageReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
 
-      // 反序列化
-      DetectFaceAttributesImageResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          DetectFaceAttributesImageResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config,reqOptions, "POST"
+                       ,"/open-apis/face_detection/v1/image/detect_face_attributes"
+                       ,Sets.newHashSet(AccessTokenType.Tenant)
+                       ,req);
+	       
+           // 反序列化
+           DetectFaceAttributesImageResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DetectFaceAttributesImageResp.class);
+           resp.setRawResponse(httpResponse);
+           resp.setRequest(req);
+           
+           return resp;
+        }
 
-      return resp;
+        public DetectFaceAttributesImageResp detectFaceAttributes(DetectFaceAttributesImageReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config,reqOptions, "POST"
+                       ,"/open-apis/face_detection/v1/image/detect_face_attributes"
+                       ,Sets.newHashSet(AccessTokenType.Tenant)
+                       ,req);
+            
+           // 反序列化
+           DetectFaceAttributesImageResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, DetectFaceAttributesImageResp.class);
+           resp.setRawResponse(httpResponse);
+           resp.setRequest(req);
+           
+           return resp;
+        }
     }
-
-    public DetectFaceAttributesImageResp detectFaceAttributes(DetectFaceAttributesImageReq req)
-        throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          , "/open-apis/face_detection/v1/image/detect_face_attributes"
-          , Sets.newHashSet(AccessTokenType.Tenant)
-          , req);
-
-      // 反序列化
-      DetectFaceAttributesImageResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          DetectFaceAttributesImageResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-  }
 
 }

@@ -12,63 +12,68 @@
  */
 
 package com.lark.oapi.service.speech_to_text.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class Speech {
-
-  @SerializedName("speech")
-  private String speech;
-  @SerializedName("speech_key")
-  private String speechKey;
-
-  // builder 开始
-  public Speech() {
-  }
-
-  public Speech(Builder builder) {
-    this.speech = builder.speech;
-    this.speechKey = builder.speechKey;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getSpeech() {
-    return this.speech;
-  }
-
-  public void setSpeech(String speech) {
-    this.speech = speech;
-  }
-
-  public String getSpeechKey() {
-    return this.speechKey;
-  }
-
-  public void setSpeechKey(String speechKey) {
-    this.speechKey = speechKey;
-  }
-
-  public static class Builder {
-
+    @SerializedName("speech")
     private String speech;
+    @SerializedName("speech_key")
     private String speechKey;
-
-    public Builder speech(String speech) {
-      this.speech = speech;
-      return this;
+    public String getSpeech() {
+        return this.speech;
     }
 
-    public Builder speechKey(String speechKey) {
-      this.speechKey = speechKey;
-      return this;
+    public void setSpeech(String speech) {
+        this.speech = speech;
+    }
+
+    public String getSpeechKey() {
+        return this.speechKey;
+    }
+
+    public void setSpeechKey(String speechKey) {
+        this.speechKey = speechKey;
     }
 
 
-    public Speech build() {
-      return new Speech(this);
-    }
+// builder 开始
+  public Speech(){}
+
+  public Speech(Builder builder){
+      this.speech = builder.speech;
+      this.speechKey = builder.speechKey;
   }
+
+    public static class Builder {
+        private String speech;
+        private String speechKey;
+        public Builder speech(String speech) {
+             this.speech = speech;
+             return this;
+        }
+    
+        public Builder speechKey(String speechKey) {
+             this.speechKey = speechKey;
+             return this;
+        }
+    
+    
+    public Speech build(){
+        return new Speech(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

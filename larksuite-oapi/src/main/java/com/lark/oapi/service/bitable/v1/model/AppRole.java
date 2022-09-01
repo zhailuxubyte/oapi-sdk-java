@@ -12,80 +12,86 @@
  */
 
 package com.lark.oapi.service.bitable.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.bitable.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class AppRole {
-
-  @SerializedName("role_name")
-  private String roleName;
-  @SerializedName("role_id")
-  private String roleId;
-  @SerializedName("table_roles")
-  private AppRoleTableRole[] tableRoles;
-
-  // builder 开始
-  public AppRole() {
-  }
-
-  public AppRole(Builder builder) {
-    this.roleName = builder.roleName;
-    this.roleId = builder.roleId;
-    this.tableRoles = builder.tableRoles;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getRoleName() {
-    return this.roleName;
-  }
-
-  public void setRoleName(String roleName) {
-    this.roleName = roleName;
-  }
-
-  public String getRoleId() {
-    return this.roleId;
-  }
-
-  public void setRoleId(String roleId) {
-    this.roleId = roleId;
-  }
-
-  public AppRoleTableRole[] getTableRoles() {
-    return this.tableRoles;
-  }
-
-  public void setTableRoles(AppRoleTableRole[] tableRoles) {
-    this.tableRoles = tableRoles;
-  }
-
-  public static class Builder {
-
+    @SerializedName("role_name")
     private String roleName;
+    @SerializedName("role_id")
     private String roleId;
+    @SerializedName("table_roles")
     private AppRoleTableRole[] tableRoles;
-
-    public Builder roleName(String roleName) {
-      this.roleName = roleName;
-      return this;
+    public String getRoleName() {
+        return this.roleName;
     }
 
-    public Builder roleId(String roleId) {
-      this.roleId = roleId;
-      return this;
+    public void setRoleName(String roleName) {
+        this.roleName = roleName;
     }
 
-    public Builder tableRoles(AppRoleTableRole[] tableRoles) {
-      this.tableRoles = tableRoles;
-      return this;
+    public String getRoleId() {
+        return this.roleId;
+    }
+
+    public void setRoleId(String roleId) {
+        this.roleId = roleId;
+    }
+
+    public AppRoleTableRole[] getTableRoles() {
+        return this.tableRoles;
+    }
+
+    public void setTableRoles(AppRoleTableRole[] tableRoles) {
+        this.tableRoles = tableRoles;
     }
 
 
-    public AppRole build() {
-      return new AppRole(this);
-    }
+// builder 开始
+  public AppRole(){}
+
+  public AppRole(Builder builder){
+      this.roleName = builder.roleName;
+      this.roleId = builder.roleId;
+      this.tableRoles = builder.tableRoles;
   }
+
+    public static class Builder {
+        private String roleName;
+        private String roleId;
+        private AppRoleTableRole[] tableRoles;
+        public Builder roleName(String roleName) {
+             this.roleName = roleName;
+             return this;
+        }
+    
+        public Builder roleId(String roleId) {
+             this.roleId = roleId;
+             return this;
+        }
+    
+        public Builder tableRoles(AppRoleTableRole[] tableRoles) {
+             this.tableRoles = tableRoles;
+             return this;
+        }
+    
+    
+    public AppRole build(){
+        return new AppRole(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

@@ -12,100 +12,107 @@
  */
 
 package com.lark.oapi.service.attendance.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class GetShift {
+    @SerializedName("shift_id")
+    private String shiftId;
+    @SerializedName("shift_name")
+    private String shiftName;
+    @SerializedName("punch_times")
+    private Integer punchTimes;
+    @SerializedName("is_flexible")
+    private Boolean isFlexible;
+    @SerializedName("flexible_minutes")
+    private Integer flexibleMinutes;
+    @SerializedName("no_need_off")
+    private Boolean noNeedOff;
+    @SerializedName("punch_time_rule")
+    private PunchTimeRule[] punchTimeRule;
+    @SerializedName("late_off_late_on_rule")
+    private LateOffLateOnRule[] lateOffLateOnRule;
+    @SerializedName("rest_time_rule")
+    private RestRule[] restTimeRule;
+    public String getShiftId() {
+        return this.shiftId;
+    }
 
-  @SerializedName("shift_id")
-  private String shiftId;
-  @SerializedName("shift_name")
-  private String shiftName;
-  @SerializedName("punch_times")
-  private Integer punchTimes;
-  @SerializedName("is_flexible")
-  private Boolean isFlexible;
-  @SerializedName("flexible_minutes")
-  private Integer flexibleMinutes;
-  @SerializedName("no_need_off")
-  private Boolean noNeedOff;
-  @SerializedName("punch_time_rule")
-  private PunchTimeRule[] punchTimeRule;
-  @SerializedName("late_off_late_on_rule")
-  private LateOffLateOnRule[] lateOffLateOnRule;
-  @SerializedName("rest_time_rule")
-  private RestRule[] restTimeRule;
+    public void setShiftId(String shiftId) {
+        this.shiftId = shiftId;
+    }
 
-  public String getShiftId() {
-    return this.shiftId;
-  }
+    public String getShiftName() {
+        return this.shiftName;
+    }
 
-  public void setShiftId(String shiftId) {
-    this.shiftId = shiftId;
-  }
+    public void setShiftName(String shiftName) {
+        this.shiftName = shiftName;
+    }
 
-  public String getShiftName() {
-    return this.shiftName;
-  }
+    public Integer getPunchTimes() {
+        return this.punchTimes;
+    }
 
-  public void setShiftName(String shiftName) {
-    this.shiftName = shiftName;
-  }
+    public void setPunchTimes(Integer punchTimes) {
+        this.punchTimes = punchTimes;
+    }
 
-  public Integer getPunchTimes() {
-    return this.punchTimes;
-  }
+    public Boolean getIsFlexible() {
+        return this.isFlexible;
+    }
 
-  public void setPunchTimes(Integer punchTimes) {
-    this.punchTimes = punchTimes;
-  }
+    public void setIsFlexible(Boolean isFlexible) {
+        this.isFlexible = isFlexible;
+    }
 
-  public Boolean getIsFlexible() {
-    return this.isFlexible;
-  }
+    public Integer getFlexibleMinutes() {
+        return this.flexibleMinutes;
+    }
 
-  public void setIsFlexible(Boolean isFlexible) {
-    this.isFlexible = isFlexible;
-  }
+    public void setFlexibleMinutes(Integer flexibleMinutes) {
+        this.flexibleMinutes = flexibleMinutes;
+    }
 
-  public Integer getFlexibleMinutes() {
-    return this.flexibleMinutes;
-  }
+    public Boolean getNoNeedOff() {
+        return this.noNeedOff;
+    }
 
-  public void setFlexibleMinutes(Integer flexibleMinutes) {
-    this.flexibleMinutes = flexibleMinutes;
-  }
+    public void setNoNeedOff(Boolean noNeedOff) {
+        this.noNeedOff = noNeedOff;
+    }
 
-  public Boolean getNoNeedOff() {
-    return this.noNeedOff;
-  }
+    public PunchTimeRule[] getPunchTimeRule() {
+        return this.punchTimeRule;
+    }
 
-  public void setNoNeedOff(Boolean noNeedOff) {
-    this.noNeedOff = noNeedOff;
-  }
+    public void setPunchTimeRule(PunchTimeRule[] punchTimeRule) {
+        this.punchTimeRule = punchTimeRule;
+    }
 
-  public PunchTimeRule[] getPunchTimeRule() {
-    return this.punchTimeRule;
-  }
+    public LateOffLateOnRule[] getLateOffLateOnRule() {
+        return this.lateOffLateOnRule;
+    }
 
-  public void setPunchTimeRule(PunchTimeRule[] punchTimeRule) {
-    this.punchTimeRule = punchTimeRule;
-  }
+    public void setLateOffLateOnRule(LateOffLateOnRule[] lateOffLateOnRule) {
+        this.lateOffLateOnRule = lateOffLateOnRule;
+    }
 
-  public LateOffLateOnRule[] getLateOffLateOnRule() {
-    return this.lateOffLateOnRule;
-  }
+    public RestRule[] getRestTimeRule() {
+        return this.restTimeRule;
+    }
 
-  public void setLateOffLateOnRule(LateOffLateOnRule[] lateOffLateOnRule) {
-    this.lateOffLateOnRule = lateOffLateOnRule;
-  }
-
-  public RestRule[] getRestTimeRule() {
-    return this.restTimeRule;
-  }
-
-  public void setRestTimeRule(RestRule[] restTimeRule) {
-    this.restTimeRule = restTimeRule;
-  }
+    public void setRestTimeRule(RestRule[] restTimeRule) {
+        this.restTimeRule = restTimeRule;
+    }
 
 }

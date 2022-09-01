@@ -12,69 +12,71 @@
  */
 
 package com.lark.oapi.service.gray_test_open_sg.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class CreateMotoReq {
-
-  @Query
-  @SerializedName("department_id_type")
-  private String departmentIdType;
-  @Body
-  private Level body;
-
-  // builder 开始
-  public CreateMotoReq() {
-  }
-
-  public CreateMotoReq(Builder builder) {
-    this.departmentIdType = builder.departmentIdType;
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getDepartmentIdType() {
-    return this.departmentIdType;
-  }
-
-  public void setDepartmentIdType(String departmentIdType) {
-    this.departmentIdType = departmentIdType;
-  }
-
-  public Level getLevel() {
-    return this.body;
-  }
-
-  public void setLevel(Level body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
+    @Query
+    @SerializedName("department_id_type")
     private String departmentIdType;
+    public String getDepartmentIdType() {
+        return this.departmentIdType;
+    }
+
+    public void setDepartmentIdType(String departmentIdType) {
+        this.departmentIdType = departmentIdType;
+    }
+
+    @Body
     private Level body;
 
-    public Builder departmentIdType(String departmentIdType) {
-      this.departmentIdType = departmentIdType;
-      return this;
-    }
-
     public Level getLevel() {
-      return this.body;
+        return this.body;
     }
 
-    public Builder level(Level body) {
-      this.body = body;
-      return this;
+    public void setLevel(Level body) {
+        this.body = body;
     }
 
-    public CreateMotoReq build() {
-      return new CreateMotoReq(this);
-    }
+// builder 开始
+  public CreateMotoReq(){}
+
+  public CreateMotoReq(Builder builder){
+       this.departmentIdType = builder.departmentIdType;
+        this.body = builder.body;
   }
+
+    public static class Builder {
+        private String departmentIdType;
+    
+           public Builder departmentIdType(String departmentIdType) {
+                this.departmentIdType = departmentIdType;
+                return this;
+           }
+    
+        private Level body;
+    
+        public Level getLevel() {
+            return this.body;
+        }
+        public Builder level(Level body) {
+             this.body = body;
+             return this;
+        }
+    public CreateMotoReq build(){
+        return new CreateMotoReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

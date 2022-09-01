@@ -12,46 +12,52 @@
  */
 
 package com.lark.oapi.service.calendar.v4.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.calendar.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class GenerateCaldavConfSettingReqBody {
-
-  @SerializedName("device_name")
-  private String deviceName;
-
-  // builder 开始
-  public GenerateCaldavConfSettingReqBody() {
-  }
-
-  public GenerateCaldavConfSettingReqBody(Builder builder) {
-    this.deviceName = builder.deviceName;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getDeviceName() {
-    return this.deviceName;
-  }
-
-  public void setDeviceName(String deviceName) {
-    this.deviceName = deviceName;
-  }
-
-  public static class Builder {
-
+    @SerializedName("device_name")
     private String deviceName;
+    public String getDeviceName() {
+        return this.deviceName;
+    }
 
-    public Builder deviceName(String deviceName) {
-      this.deviceName = deviceName;
-      return this;
+    public void setDeviceName(String deviceName) {
+        this.deviceName = deviceName;
     }
 
 
-    public GenerateCaldavConfSettingReqBody build() {
-      return new GenerateCaldavConfSettingReqBody(this);
-    }
+// builder 开始
+  public GenerateCaldavConfSettingReqBody(){}
+
+  public GenerateCaldavConfSettingReqBody(Builder builder){
+      this.deviceName = builder.deviceName;
   }
+
+    public static class Builder {
+        private String deviceName;
+        public Builder deviceName(String deviceName) {
+             this.deviceName = deviceName;
+             return this;
+        }
+    
+    
+    public GenerateCaldavConfSettingReqBody build(){
+        return new GenerateCaldavConfSettingReqBody(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

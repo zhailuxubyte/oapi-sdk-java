@@ -12,107 +12,110 @@
  */
 
 package com.lark.oapi.service.vc.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.vc.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class GetMeetingReq {
-
-  @Query
-  @SerializedName("with_participants")
-  private Boolean withParticipants;
-  @Query
-  @SerializedName("with_meeting_ability")
-  private Boolean withMeetingAbility;
-  @Query
-  @SerializedName("user_id_type")
-  private String userIdType;
-  @Path
-  @SerializedName("meeting_id")
-  private String meetingId;
-
-  // builder 开始
-  public GetMeetingReq() {
-  }
-
-  public GetMeetingReq(Builder builder) {
-    this.withParticipants = builder.withParticipants;
-    this.withMeetingAbility = builder.withMeetingAbility;
-    this.userIdType = builder.userIdType;
-    this.meetingId = builder.meetingId;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Boolean getWithParticipants() {
-    return this.withParticipants;
-  }
-
-  public void setWithParticipants(Boolean withParticipants) {
-    this.withParticipants = withParticipants;
-  }
-
-  public Boolean getWithMeetingAbility() {
-    return this.withMeetingAbility;
-  }
-
-  public void setWithMeetingAbility(Boolean withMeetingAbility) {
-    this.withMeetingAbility = withMeetingAbility;
-  }
-
-  public String getUserIdType() {
-    return this.userIdType;
-  }
-
-  public void setUserIdType(String userIdType) {
-    this.userIdType = userIdType;
-  }
-
-  public String getMeetingId() {
-    return this.meetingId;
-  }
-
-  public void setMeetingId(String meetingId) {
-    this.meetingId = meetingId;
-  }
-
-  public static class Builder {
-
+    @Query
+    @SerializedName("with_participants")
     private Boolean withParticipants;
+    @Query
+    @SerializedName("with_meeting_ability")
     private Boolean withMeetingAbility;
+    @Query
+    @SerializedName("user_id_type")
     private String userIdType;
+    public Boolean getWithParticipants() {
+        return this.withParticipants;
+    }
+
+    public void setWithParticipants(Boolean withParticipants) {
+        this.withParticipants = withParticipants;
+    }
+
+    public Boolean getWithMeetingAbility() {
+        return this.withMeetingAbility;
+    }
+
+    public void setWithMeetingAbility(Boolean withMeetingAbility) {
+        this.withMeetingAbility = withMeetingAbility;
+    }
+
+    public String getUserIdType() {
+        return this.userIdType;
+    }
+
+    public void setUserIdType(String userIdType) {
+        this.userIdType = userIdType;
+    }
+
+    @Path
+    @SerializedName("meeting_id")
     private String meetingId;
-
-    public Builder withParticipants(Boolean withParticipants) {
-      this.withParticipants = withParticipants;
-      return this;
+    public String getMeetingId() {
+        return this.meetingId;
     }
 
-    public Builder withMeetingAbility(Boolean withMeetingAbility) {
-      this.withMeetingAbility = withMeetingAbility;
-      return this;
+    public void setMeetingId(String meetingId) {
+        this.meetingId = meetingId;
     }
 
-    public Builder userIdType(String userIdType) {
-      this.userIdType = userIdType;
-      return this;
-    }
 
-    public Builder userIdType(com.lark.oapi.service.vc.v1.enums.UserIdTypeEnum userIdType) {
-      this.userIdType = userIdType.getValue();
-      return this;
-    }
+// builder 开始
+  public GetMeetingReq(){}
 
-    public Builder meetingId(String meetingId) {
-      this.meetingId = meetingId;
-      return this;
-    }
-
-    public GetMeetingReq build() {
-      return new GetMeetingReq(this);
-    }
+  public GetMeetingReq(Builder builder){
+       this.withParticipants = builder.withParticipants;
+       this.withMeetingAbility = builder.withMeetingAbility;
+       this.userIdType = builder.userIdType;
+       this.meetingId = builder.meetingId;
   }
+
+    public static class Builder {
+        private Boolean withParticipants;
+        private Boolean withMeetingAbility;
+        private String userIdType;
+    
+           public Builder withParticipants(Boolean withParticipants) {
+                this.withParticipants = withParticipants;
+                return this;
+           }
+    
+           public Builder withMeetingAbility(Boolean withMeetingAbility) {
+                this.withMeetingAbility = withMeetingAbility;
+                return this;
+           }
+    
+           public Builder userIdType(String userIdType) {
+                this.userIdType = userIdType;
+                return this;
+           }
+          public Builder userIdType(com.lark.oapi.service.vc.v1.enums.UserIdTypeEnum userIdType) {
+               this.userIdType = userIdType.getValue();
+               return this;
+          }
+    
+        private String meetingId;
+          public Builder meetingId(String meetingId) {
+               this.meetingId = meetingId;
+               return this;
+          }
+    
+    public GetMeetingReq build(){
+        return new GetMeetingReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

@@ -12,102 +12,107 @@
  */
 
 package com.lark.oapi.service.drive.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.drive.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class ReplyElement {
-
-  @SerializedName("type")
-  private String type;
-  @SerializedName("text_run")
-  private TextRun textRun;
-  @SerializedName("docs_link")
-  private DocsLink docsLink;
-  @SerializedName("person")
-  private Person person;
-
-  // builder 开始
-  public ReplyElement() {
-  }
-
-  public ReplyElement(Builder builder) {
-    this.type = builder.type;
-    this.textRun = builder.textRun;
-    this.docsLink = builder.docsLink;
-    this.person = builder.person;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getType() {
-    return this.type;
-  }
-
-  public void setType(String type) {
-    this.type = type;
-  }
-
-  public TextRun getTextRun() {
-    return this.textRun;
-  }
-
-  public void setTextRun(TextRun textRun) {
-    this.textRun = textRun;
-  }
-
-  public DocsLink getDocsLink() {
-    return this.docsLink;
-  }
-
-  public void setDocsLink(DocsLink docsLink) {
-    this.docsLink = docsLink;
-  }
-
-  public Person getPerson() {
-    return this.person;
-  }
-
-  public void setPerson(Person person) {
-    this.person = person;
-  }
-
-  public static class Builder {
-
+    @SerializedName("type")
     private String type;
+    @SerializedName("text_run")
     private TextRun textRun;
+    @SerializedName("docs_link")
     private DocsLink docsLink;
+    @SerializedName("person")
     private Person person;
-
-    public Builder type(String type) {
-      this.type = type;
-      return this;
+    public String getType() {
+        return this.type;
     }
 
-    public Builder type(com.lark.oapi.service.drive.v1.enums.TypeEnum type) {
-      this.type = type.getValue();
-      return this;
+    public void setType(String type) {
+        this.type = type;
     }
 
-    public Builder textRun(TextRun textRun) {
-      this.textRun = textRun;
-      return this;
+    public TextRun getTextRun() {
+        return this.textRun;
     }
 
-    public Builder docsLink(DocsLink docsLink) {
-      this.docsLink = docsLink;
-      return this;
+    public void setTextRun(TextRun textRun) {
+        this.textRun = textRun;
     }
 
-    public Builder person(Person person) {
-      this.person = person;
-      return this;
+    public DocsLink getDocsLink() {
+        return this.docsLink;
+    }
+
+    public void setDocsLink(DocsLink docsLink) {
+        this.docsLink = docsLink;
+    }
+
+    public Person getPerson() {
+        return this.person;
+    }
+
+    public void setPerson(Person person) {
+        this.person = person;
     }
 
 
-    public ReplyElement build() {
-      return new ReplyElement(this);
-    }
+// builder 开始
+  public ReplyElement(){}
+
+  public ReplyElement(Builder builder){
+      this.type = builder.type;
+      this.textRun = builder.textRun;
+      this.docsLink = builder.docsLink;
+      this.person = builder.person;
   }
+
+    public static class Builder {
+        private String type;
+        private TextRun textRun;
+        private DocsLink docsLink;
+        private Person person;
+        public Builder type(String type) {
+             this.type = type;
+             return this;
+        }
+        public Builder type(com.lark.oapi.service.drive.v1.enums.TypeEnum type) {
+             this.type = type.getValue();
+             return this;
+        }
+    
+        public Builder textRun(TextRun textRun) {
+             this.textRun = textRun;
+             return this;
+        }
+    
+        public Builder docsLink(DocsLink docsLink) {
+             this.docsLink = docsLink;
+             return this;
+        }
+    
+        public Builder person(Person person) {
+             this.person = person;
+             return this;
+        }
+    
+    
+    public ReplyElement build(){
+        return new ReplyElement(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

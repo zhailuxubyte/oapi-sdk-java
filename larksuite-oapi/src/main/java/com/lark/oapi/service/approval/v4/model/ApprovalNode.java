@@ -12,136 +12,141 @@
  */
 
 package com.lark.oapi.service.approval.v4.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.approval.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class ApprovalNode {
-
-  @SerializedName("id")
-  private String id;
-  @SerializedName("name")
-  private String name;
-  @SerializedName("node_type")
-  private String nodeType;
-  @SerializedName("approver")
-  private ApprovalApproverCcer[] approver;
-  @SerializedName("ccer")
-  private ApprovalApproverCcer[] ccer;
-  @SerializedName("privilege_field")
-  private FieldGroup privilegeField;
-
-  // builder 开始
-  public ApprovalNode() {
-  }
-
-  public ApprovalNode(Builder builder) {
-    this.id = builder.id;
-    this.name = builder.name;
-    this.nodeType = builder.nodeType;
-    this.approver = builder.approver;
-    this.ccer = builder.ccer;
-    this.privilegeField = builder.privilegeField;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getId() {
-    return this.id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public String getName() {
-    return this.name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public String getNodeType() {
-    return this.nodeType;
-  }
-
-  public void setNodeType(String nodeType) {
-    this.nodeType = nodeType;
-  }
-
-  public ApprovalApproverCcer[] getApprover() {
-    return this.approver;
-  }
-
-  public void setApprover(ApprovalApproverCcer[] approver) {
-    this.approver = approver;
-  }
-
-  public ApprovalApproverCcer[] getCcer() {
-    return this.ccer;
-  }
-
-  public void setCcer(ApprovalApproverCcer[] ccer) {
-    this.ccer = ccer;
-  }
-
-  public FieldGroup getPrivilegeField() {
-    return this.privilegeField;
-  }
-
-  public void setPrivilegeField(FieldGroup privilegeField) {
-    this.privilegeField = privilegeField;
-  }
-
-  public static class Builder {
-
+    @SerializedName("id")
     private String id;
+    @SerializedName("name")
     private String name;
+    @SerializedName("node_type")
     private String nodeType;
+    @SerializedName("approver")
     private ApprovalApproverCcer[] approver;
+    @SerializedName("ccer")
     private ApprovalApproverCcer[] ccer;
+    @SerializedName("privilege_field")
     private FieldGroup privilegeField;
-
-    public Builder id(String id) {
-      this.id = id;
-      return this;
+    public String getId() {
+        return this.id;
     }
 
-    public Builder name(String name) {
-      this.name = name;
-      return this;
+    public void setId(String id) {
+        this.id = id;
     }
 
-    public Builder nodeType(String nodeType) {
-      this.nodeType = nodeType;
-      return this;
+    public String getName() {
+        return this.name;
     }
 
-    public Builder nodeType(com.lark.oapi.service.approval.v4.enums.NodeTypeEnum nodeType) {
-      this.nodeType = nodeType.getValue();
-      return this;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public Builder approver(ApprovalApproverCcer[] approver) {
-      this.approver = approver;
-      return this;
+    public String getNodeType() {
+        return this.nodeType;
     }
 
-    public Builder ccer(ApprovalApproverCcer[] ccer) {
-      this.ccer = ccer;
-      return this;
+    public void setNodeType(String nodeType) {
+        this.nodeType = nodeType;
     }
 
-    public Builder privilegeField(FieldGroup privilegeField) {
-      this.privilegeField = privilegeField;
-      return this;
+    public ApprovalApproverCcer[] getApprover() {
+        return this.approver;
+    }
+
+    public void setApprover(ApprovalApproverCcer[] approver) {
+        this.approver = approver;
+    }
+
+    public ApprovalApproverCcer[] getCcer() {
+        return this.ccer;
+    }
+
+    public void setCcer(ApprovalApproverCcer[] ccer) {
+        this.ccer = ccer;
+    }
+
+    public FieldGroup getPrivilegeField() {
+        return this.privilegeField;
+    }
+
+    public void setPrivilegeField(FieldGroup privilegeField) {
+        this.privilegeField = privilegeField;
     }
 
 
-    public ApprovalNode build() {
-      return new ApprovalNode(this);
-    }
+// builder 开始
+  public ApprovalNode(){}
+
+  public ApprovalNode(Builder builder){
+      this.id = builder.id;
+      this.name = builder.name;
+      this.nodeType = builder.nodeType;
+      this.approver = builder.approver;
+      this.ccer = builder.ccer;
+      this.privilegeField = builder.privilegeField;
   }
+
+    public static class Builder {
+        private String id;
+        private String name;
+        private String nodeType;
+        private ApprovalApproverCcer[] approver;
+        private ApprovalApproverCcer[] ccer;
+        private FieldGroup privilegeField;
+        public Builder id(String id) {
+             this.id = id;
+             return this;
+        }
+    
+        public Builder name(String name) {
+             this.name = name;
+             return this;
+        }
+    
+        public Builder nodeType(String nodeType) {
+             this.nodeType = nodeType;
+             return this;
+        }
+        public Builder nodeType(com.lark.oapi.service.approval.v4.enums.NodeTypeEnum nodeType) {
+             this.nodeType = nodeType.getValue();
+             return this;
+        }
+    
+        public Builder approver(ApprovalApproverCcer[] approver) {
+             this.approver = approver;
+             return this;
+        }
+    
+        public Builder ccer(ApprovalApproverCcer[] ccer) {
+             this.ccer = ccer;
+             return this;
+        }
+    
+        public Builder privilegeField(FieldGroup privilegeField) {
+             this.privilegeField = privilegeField;
+             return this;
+        }
+    
+    
+    public ApprovalNode build(){
+        return new ApprovalNode(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

@@ -12,68 +12,73 @@
  */
 
 package com.lark.oapi.service.im.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.im.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class SpecialFocus {
-
-  @SerializedName("id")
-  private String id;
-  @SerializedName("id_type")
-  private String idType;
-
-  // builder 开始
-  public SpecialFocus() {
-  }
-
-  public SpecialFocus(Builder builder) {
-    this.id = builder.id;
-    this.idType = builder.idType;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getId() {
-    return this.id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public String getIdType() {
-    return this.idType;
-  }
-
-  public void setIdType(String idType) {
-    this.idType = idType;
-  }
-
-  public static class Builder {
-
+    @SerializedName("id")
     private String id;
+    @SerializedName("id_type")
     private String idType;
-
-    public Builder id(String id) {
-      this.id = id;
-      return this;
+    public String getId() {
+        return this.id;
     }
 
-    public Builder idType(String idType) {
-      this.idType = idType;
-      return this;
+    public void setId(String id) {
+        this.id = id;
     }
 
-    public Builder idType(com.lark.oapi.service.im.v1.enums.IdTypeEnum idType) {
-      this.idType = idType.getValue();
-      return this;
+    public String getIdType() {
+        return this.idType;
+    }
+
+    public void setIdType(String idType) {
+        this.idType = idType;
     }
 
 
-    public SpecialFocus build() {
-      return new SpecialFocus(this);
-    }
+// builder 开始
+  public SpecialFocus(){}
+
+  public SpecialFocus(Builder builder){
+      this.id = builder.id;
+      this.idType = builder.idType;
   }
+
+    public static class Builder {
+        private String id;
+        private String idType;
+        public Builder id(String id) {
+             this.id = id;
+             return this;
+        }
+    
+        public Builder idType(String idType) {
+             this.idType = idType;
+             return this;
+        }
+        public Builder idType(com.lark.oapi.service.im.v1.enums.IdTypeEnum idType) {
+             this.idType = idType.getValue();
+             return this;
+        }
+    
+    
+    public SpecialFocus build(){
+        return new SpecialFocus(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

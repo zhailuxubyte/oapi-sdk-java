@@ -12,20 +12,27 @@
  */
 
 package com.lark.oapi.service.gray_test_open_sg.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class GetMoto {
+    @SerializedName("moto")
+    private Moto moto;
+    public Moto getMoto() {
+        return this.moto;
+    }
 
-  @SerializedName("moto")
-  private Moto moto;
-
-  public Moto getMoto() {
-    return this.moto;
-  }
-
-  public void setMoto(Moto moto) {
-    this.moto = moto;
-  }
+    public void setMoto(Moto moto) {
+        this.moto = moto;
+    }
 
 }

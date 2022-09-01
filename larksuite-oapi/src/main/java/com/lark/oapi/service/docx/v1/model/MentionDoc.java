@@ -12,102 +12,107 @@
  */
 
 package com.lark.oapi.service.docx.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.docx.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class MentionDoc {
-
-  @SerializedName("token")
-  private String token;
-  @SerializedName("obj_type")
-  private Integer objType;
-  @SerializedName("url")
-  private String url;
-  @SerializedName("title")
-  private String title;
-
-  // builder 开始
-  public MentionDoc() {
-  }
-
-  public MentionDoc(Builder builder) {
-    this.token = builder.token;
-    this.objType = builder.objType;
-    this.url = builder.url;
-    this.title = builder.title;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getToken() {
-    return this.token;
-  }
-
-  public void setToken(String token) {
-    this.token = token;
-  }
-
-  public Integer getObjType() {
-    return this.objType;
-  }
-
-  public void setObjType(Integer objType) {
-    this.objType = objType;
-  }
-
-  public String getUrl() {
-    return this.url;
-  }
-
-  public void setUrl(String url) {
-    this.url = url;
-  }
-
-  public String getTitle() {
-    return this.title;
-  }
-
-  public void setTitle(String title) {
-    this.title = title;
-  }
-
-  public static class Builder {
-
+    @SerializedName("token")
     private String token;
+    @SerializedName("obj_type")
     private Integer objType;
+    @SerializedName("url")
     private String url;
+    @SerializedName("title")
     private String title;
-
-    public Builder token(String token) {
-      this.token = token;
-      return this;
+    public String getToken() {
+        return this.token;
     }
 
-    public Builder objType(Integer objType) {
-      this.objType = objType;
-      return this;
+    public void setToken(String token) {
+        this.token = token;
     }
 
-    public Builder objType(com.lark.oapi.service.docx.v1.enums.MentionObjTypeEnum objType) {
-      this.objType = objType.getValue();
-      return this;
+    public Integer getObjType() {
+        return this.objType;
     }
 
-    public Builder url(String url) {
-      this.url = url;
-      return this;
+    public void setObjType(Integer objType) {
+        this.objType = objType;
     }
 
-    public Builder title(String title) {
-      this.title = title;
-      return this;
+    public String getUrl() {
+        return this.url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public String getTitle() {
+        return this.title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 
 
-    public MentionDoc build() {
-      return new MentionDoc(this);
-    }
+// builder 开始
+  public MentionDoc(){}
+
+  public MentionDoc(Builder builder){
+      this.token = builder.token;
+      this.objType = builder.objType;
+      this.url = builder.url;
+      this.title = builder.title;
   }
+
+    public static class Builder {
+        private String token;
+        private Integer objType;
+        private String url;
+        private String title;
+        public Builder token(String token) {
+             this.token = token;
+             return this;
+        }
+    
+        public Builder objType(Integer objType) {
+             this.objType = objType;
+             return this;
+        }
+        public Builder objType(com.lark.oapi.service.docx.v1.enums.MentionObjTypeEnum objType) {
+             this.objType = objType.getValue();
+             return this;
+        }
+    
+        public Builder url(String url) {
+             this.url = url;
+             return this;
+        }
+    
+        public Builder title(String title) {
+             this.title = title;
+             return this;
+        }
+    
+    
+    public MentionDoc build(){
+        return new MentionDoc(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

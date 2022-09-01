@@ -12,63 +12,69 @@
  */
 
 package com.lark.oapi.service.ehr.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.ehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class NativeRegion {
-
-  @SerializedName("iso_code")
-  private String isoCode;
-  @SerializedName("name")
-  private String name;
-
-  // builder 开始
-  public NativeRegion() {
-  }
-
-  public NativeRegion(Builder builder) {
-    this.isoCode = builder.isoCode;
-    this.name = builder.name;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getIsoCode() {
-    return this.isoCode;
-  }
-
-  public void setIsoCode(String isoCode) {
-    this.isoCode = isoCode;
-  }
-
-  public String getName() {
-    return this.name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public static class Builder {
-
+    @SerializedName("iso_code")
     private String isoCode;
+    @SerializedName("name")
     private String name;
-
-    public Builder isoCode(String isoCode) {
-      this.isoCode = isoCode;
-      return this;
+    public String getIsoCode() {
+        return this.isoCode;
     }
 
-    public Builder name(String name) {
-      this.name = name;
-      return this;
+    public void setIsoCode(String isoCode) {
+        this.isoCode = isoCode;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
 
-    public NativeRegion build() {
-      return new NativeRegion(this);
-    }
+// builder 开始
+  public NativeRegion(){}
+
+  public NativeRegion(Builder builder){
+      this.isoCode = builder.isoCode;
+      this.name = builder.name;
   }
+
+    public static class Builder {
+        private String isoCode;
+        private String name;
+        public Builder isoCode(String isoCode) {
+             this.isoCode = isoCode;
+             return this;
+        }
+    
+        public Builder name(String name) {
+             this.name = name;
+             return this;
+        }
+    
+    
+    public NativeRegion build(){
+        return new NativeRegion(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

@@ -12,46 +12,52 @@
  */
 
 package com.lark.oapi.service.helpdesk.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.helpdesk.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class SubmitApproveNotificationReqBody {
-
-  @SerializedName("reason")
-  private String reason;
-
-  // builder 开始
-  public SubmitApproveNotificationReqBody() {
-  }
-
-  public SubmitApproveNotificationReqBody(Builder builder) {
-    this.reason = builder.reason;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getReason() {
-    return this.reason;
-  }
-
-  public void setReason(String reason) {
-    this.reason = reason;
-  }
-
-  public static class Builder {
-
+    @SerializedName("reason")
     private String reason;
+    public String getReason() {
+        return this.reason;
+    }
 
-    public Builder reason(String reason) {
-      this.reason = reason;
-      return this;
+    public void setReason(String reason) {
+        this.reason = reason;
     }
 
 
-    public SubmitApproveNotificationReqBody build() {
-      return new SubmitApproveNotificationReqBody(this);
-    }
+// builder 开始
+  public SubmitApproveNotificationReqBody(){}
+
+  public SubmitApproveNotificationReqBody(Builder builder){
+      this.reason = builder.reason;
   }
+
+    public static class Builder {
+        private String reason;
+        public Builder reason(String reason) {
+             this.reason = reason;
+             return this;
+        }
+    
+    
+    public SubmitApproveNotificationReqBody build(){
+        return new SubmitApproveNotificationReqBody(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

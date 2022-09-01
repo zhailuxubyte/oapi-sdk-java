@@ -12,69 +12,72 @@
  */
 
 package com.lark.oapi.service.wiki.v2.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.wiki.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class CreateSpaceNodeReq {
-
-  @Path
-  @SerializedName("space_id")
-  private String spaceId;
-  @Body
-  private Node body;
-
-  // builder 开始
-  public CreateSpaceNodeReq() {
-  }
-
-  public CreateSpaceNodeReq(Builder builder) {
-    this.spaceId = builder.spaceId;
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getSpaceId() {
-    return this.spaceId;
-  }
-
-  public void setSpaceId(String spaceId) {
-    this.spaceId = spaceId;
-  }
-
-  public Node getNode() {
-    return this.body;
-  }
-
-  public void setNode(Node body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
+    @Path
+    @SerializedName("space_id")
     private String spaceId;
+    public String getSpaceId() {
+        return this.spaceId;
+    }
+
+    public void setSpaceId(String spaceId) {
+        this.spaceId = spaceId;
+    }
+
+    @Body
     private Node body;
 
-    public Builder spaceId(String spaceId) {
-      this.spaceId = spaceId;
-      return this;
-    }
-
     public Node getNode() {
-      return this.body;
+        return this.body;
     }
 
-    public Builder node(Node body) {
-      this.body = body;
-      return this;
+    public void setNode(Node body) {
+        this.body = body;
     }
 
-    public CreateSpaceNodeReq build() {
-      return new CreateSpaceNodeReq(this);
-    }
+// builder 开始
+  public CreateSpaceNodeReq(){}
+
+  public CreateSpaceNodeReq(Builder builder){
+       this.spaceId = builder.spaceId;
+        this.body = builder.body;
   }
+
+    public static class Builder {
+    
+        private String spaceId;
+          public Builder spaceId(String spaceId) {
+               this.spaceId = spaceId;
+               return this;
+          }
+    
+        private Node body;
+    
+        public Node getNode() {
+            return this.body;
+        }
+        public Builder node(Node body) {
+             this.body = body;
+             return this;
+        }
+    public CreateSpaceNodeReq build(){
+        return new CreateSpaceNodeReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

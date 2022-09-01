@@ -12,46 +12,52 @@
  */
 
 package com.lark.oapi.service.bitable.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.bitable.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class BatchDeleteAppTableRecordReqBody {
-
-  @SerializedName("records")
-  private String[] records;
-
-  // builder 开始
-  public BatchDeleteAppTableRecordReqBody() {
-  }
-
-  public BatchDeleteAppTableRecordReqBody(Builder builder) {
-    this.records = builder.records;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String[] getRecords() {
-    return this.records;
-  }
-
-  public void setRecords(String[] records) {
-    this.records = records;
-  }
-
-  public static class Builder {
-
+    @SerializedName("records")
     private String[] records;
+    public String[] getRecords() {
+        return this.records;
+    }
 
-    public Builder records(String[] records) {
-      this.records = records;
-      return this;
+    public void setRecords(String[] records) {
+        this.records = records;
     }
 
 
-    public BatchDeleteAppTableRecordReqBody build() {
-      return new BatchDeleteAppTableRecordReqBody(this);
-    }
+// builder 开始
+  public BatchDeleteAppTableRecordReqBody(){}
+
+  public BatchDeleteAppTableRecordReqBody(Builder builder){
+      this.records = builder.records;
   }
+
+    public static class Builder {
+        private String[] records;
+        public Builder records(String[] records) {
+             this.records = records;
+             return this;
+        }
+    
+    
+    public BatchDeleteAppTableRecordReqBody build(){
+        return new BatchDeleteAppTableRecordReqBody(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

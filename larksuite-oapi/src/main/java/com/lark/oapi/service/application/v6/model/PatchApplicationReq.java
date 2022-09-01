@@ -12,93 +12,94 @@
  */
 
 package com.lark.oapi.service.application.v6.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.application.v6.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class PatchApplicationReq {
-
-  @Query
-  @SerializedName("lang")
-  private String lang;
-  @Path
-  @SerializedName("app_id")
-  private String appId;
-  @Body
-  private Application body;
-
-  // builder 开始
-  public PatchApplicationReq() {
-  }
-
-  public PatchApplicationReq(Builder builder) {
-    this.lang = builder.lang;
-    this.appId = builder.appId;
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getLang() {
-    return this.lang;
-  }
-
-  public void setLang(String lang) {
-    this.lang = lang;
-  }
-
-  public String getAppId() {
-    return this.appId;
-  }
-
-  public void setAppId(String appId) {
-    this.appId = appId;
-  }
-
-  public Application getApplication() {
-    return this.body;
-  }
-
-  public void setApplication(Application body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
+    @Query
+    @SerializedName("lang")
     private String lang;
+    public String getLang() {
+        return this.lang;
+    }
+
+    public void setLang(String lang) {
+        this.lang = lang;
+    }
+
+    @Path
+    @SerializedName("app_id")
     private String appId;
+    public String getAppId() {
+        return this.appId;
+    }
+
+    public void setAppId(String appId) {
+        this.appId = appId;
+    }
+
+    @Body
     private Application body;
 
-    public Builder lang(String lang) {
-      this.lang = lang;
-      return this;
-    }
-
-    public Builder lang(com.lark.oapi.service.application.v6.enums.I18nKeyEnum lang) {
-      this.lang = lang.getValue();
-      return this;
-    }
-
-    public Builder appId(String appId) {
-      this.appId = appId;
-      return this;
-    }
-
     public Application getApplication() {
-      return this.body;
+        return this.body;
     }
 
-    public Builder application(Application body) {
-      this.body = body;
-      return this;
+    public void setApplication(Application body) {
+        this.body = body;
     }
 
-    public PatchApplicationReq build() {
-      return new PatchApplicationReq(this);
-    }
+// builder 开始
+  public PatchApplicationReq(){}
+
+  public PatchApplicationReq(Builder builder){
+       this.lang = builder.lang;
+       this.appId = builder.appId;
+        this.body = builder.body;
   }
+
+    public static class Builder {
+        private String lang;
+    
+           public Builder lang(String lang) {
+                this.lang = lang;
+                return this;
+           }
+          public Builder lang(com.lark.oapi.service.application.v6.enums.I18nKeyEnum lang) {
+               this.lang = lang.getValue();
+               return this;
+          }
+    
+        private String appId;
+          public Builder appId(String appId) {
+               this.appId = appId;
+               return this;
+          }
+    
+        private Application body;
+    
+        public Application getApplication() {
+            return this.body;
+        }
+        public Builder application(Application body) {
+             this.body = body;
+             return this;
+        }
+    public PatchApplicationReq build(){
+        return new PatchApplicationReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

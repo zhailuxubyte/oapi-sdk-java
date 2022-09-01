@@ -12,85 +12,90 @@
  */
 
 package com.lark.oapi.service.approval.v4.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.approval.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class ApprovalViewerInfo {
-
-  @SerializedName("type")
-  private String type;
-  @SerializedName("id")
-  private String id;
-  @SerializedName("user_id")
-  private String userId;
-
-  // builder 开始
-  public ApprovalViewerInfo() {
-  }
-
-  public ApprovalViewerInfo(Builder builder) {
-    this.type = builder.type;
-    this.id = builder.id;
-    this.userId = builder.userId;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getType() {
-    return this.type;
-  }
-
-  public void setType(String type) {
-    this.type = type;
-  }
-
-  public String getId() {
-    return this.id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public String getUserId() {
-    return this.userId;
-  }
-
-  public void setUserId(String userId) {
-    this.userId = userId;
-  }
-
-  public static class Builder {
-
+    @SerializedName("type")
     private String type;
+    @SerializedName("id")
     private String id;
+    @SerializedName("user_id")
     private String userId;
-
-    public Builder type(String type) {
-      this.type = type;
-      return this;
+    public String getType() {
+        return this.type;
     }
 
-    public Builder type(com.lark.oapi.service.approval.v4.enums.TypeEnum type) {
-      this.type = type.getValue();
-      return this;
+    public void setType(String type) {
+        this.type = type;
     }
 
-    public Builder id(String id) {
-      this.id = id;
-      return this;
+    public String getId() {
+        return this.id;
     }
 
-    public Builder userId(String userId) {
-      this.userId = userId;
-      return this;
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getUserId() {
+        return this.userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
 
-    public ApprovalViewerInfo build() {
-      return new ApprovalViewerInfo(this);
-    }
+// builder 开始
+  public ApprovalViewerInfo(){}
+
+  public ApprovalViewerInfo(Builder builder){
+      this.type = builder.type;
+      this.id = builder.id;
+      this.userId = builder.userId;
   }
+
+    public static class Builder {
+        private String type;
+        private String id;
+        private String userId;
+        public Builder type(String type) {
+             this.type = type;
+             return this;
+        }
+        public Builder type(com.lark.oapi.service.approval.v4.enums.TypeEnum type) {
+             this.type = type.getValue();
+             return this;
+        }
+    
+        public Builder id(String id) {
+             this.id = id;
+             return this;
+        }
+    
+        public Builder userId(String userId) {
+             this.userId = userId;
+             return this;
+        }
+    
+    
+    public ApprovalViewerInfo build(){
+        return new ApprovalViewerInfo(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

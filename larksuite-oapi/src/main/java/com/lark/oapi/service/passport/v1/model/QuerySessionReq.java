@@ -12,74 +12,76 @@
  */
 
 package com.lark.oapi.service.passport.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.passport.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class QuerySessionReq {
-
-  @Query
-  @SerializedName("user_id_type")
-  private String userIdType;
-  @Body
-  private QuerySessionReqBody body;
-
-  // builder 开始
-  public QuerySessionReq() {
-  }
-
-  public QuerySessionReq(Builder builder) {
-    this.userIdType = builder.userIdType;
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getUserIdType() {
-    return this.userIdType;
-  }
-
-  public void setUserIdType(String userIdType) {
-    this.userIdType = userIdType;
-  }
-
-  public QuerySessionReqBody getQuerySessionReqBody() {
-    return this.body;
-  }
-
-  public void setQuerySessionReqBody(QuerySessionReqBody body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
+    @Query
+    @SerializedName("user_id_type")
     private String userIdType;
+    public String getUserIdType() {
+        return this.userIdType;
+    }
+
+    public void setUserIdType(String userIdType) {
+        this.userIdType = userIdType;
+    }
+
+    @Body
     private QuerySessionReqBody body;
 
-    public Builder userIdType(String userIdType) {
-      this.userIdType = userIdType;
-      return this;
-    }
-
-    public Builder userIdType(com.lark.oapi.service.passport.v1.enums.UserIdTypeEnum userIdType) {
-      this.userIdType = userIdType.getValue();
-      return this;
-    }
-
     public QuerySessionReqBody getQuerySessionReqBody() {
-      return this.body;
+        return this.body;
     }
 
-    public Builder querySessionReqBody(QuerySessionReqBody body) {
-      this.body = body;
-      return this;
+    public void setQuerySessionReqBody(QuerySessionReqBody body) {
+        this.body = body;
     }
 
-    public QuerySessionReq build() {
-      return new QuerySessionReq(this);
-    }
+// builder 开始
+  public QuerySessionReq(){}
+
+  public QuerySessionReq(Builder builder){
+       this.userIdType = builder.userIdType;
+        this.body = builder.body;
   }
+
+    public static class Builder {
+        private String userIdType;
+    
+           public Builder userIdType(String userIdType) {
+                this.userIdType = userIdType;
+                return this;
+           }
+          public Builder userIdType(com.lark.oapi.service.passport.v1.enums.UserIdTypeEnum userIdType) {
+               this.userIdType = userIdType.getValue();
+               return this;
+          }
+    
+        private QuerySessionReqBody body;
+    
+        public QuerySessionReqBody getQuerySessionReqBody() {
+            return this.body;
+        }
+        public Builder querySessionReqBody(QuerySessionReqBody body) {
+             this.body = body;
+             return this;
+        }
+    public QuerySessionReq build(){
+        return new QuerySessionReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

@@ -12,80 +12,86 @@
  */
 
 package com.lark.oapi.service.ehr.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.ehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class Manager {
-
-  @SerializedName("user_id")
-  private String userId;
-  @SerializedName("name")
-  private String name;
-  @SerializedName("en_name")
-  private String enName;
-
-  // builder 开始
-  public Manager() {
-  }
-
-  public Manager(Builder builder) {
-    this.userId = builder.userId;
-    this.name = builder.name;
-    this.enName = builder.enName;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getUserId() {
-    return this.userId;
-  }
-
-  public void setUserId(String userId) {
-    this.userId = userId;
-  }
-
-  public String getName() {
-    return this.name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public String getEnName() {
-    return this.enName;
-  }
-
-  public void setEnName(String enName) {
-    this.enName = enName;
-  }
-
-  public static class Builder {
-
+    @SerializedName("user_id")
     private String userId;
+    @SerializedName("name")
     private String name;
+    @SerializedName("en_name")
     private String enName;
-
-    public Builder userId(String userId) {
-      this.userId = userId;
-      return this;
+    public String getUserId() {
+        return this.userId;
     }
 
-    public Builder name(String name) {
-      this.name = name;
-      return this;
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
-    public Builder enName(String enName) {
-      this.enName = enName;
-      return this;
+    public String getName() {
+        return this.name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getEnName() {
+        return this.enName;
+    }
+
+    public void setEnName(String enName) {
+        this.enName = enName;
     }
 
 
-    public Manager build() {
-      return new Manager(this);
-    }
+// builder 开始
+  public Manager(){}
+
+  public Manager(Builder builder){
+      this.userId = builder.userId;
+      this.name = builder.name;
+      this.enName = builder.enName;
   }
+
+    public static class Builder {
+        private String userId;
+        private String name;
+        private String enName;
+        public Builder userId(String userId) {
+             this.userId = userId;
+             return this;
+        }
+    
+        public Builder name(String name) {
+             this.name = name;
+             return this;
+        }
+    
+        public Builder enName(String enName) {
+             this.enName = enName;
+             return this;
+        }
+    
+    
+    public Manager build(){
+        return new Manager(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

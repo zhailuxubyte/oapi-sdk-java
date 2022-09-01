@@ -12,90 +12,94 @@
  */
 
 package com.lark.oapi.service.bitable.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.bitable.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class AppRoleTableRoleRecRule {
-
-  @SerializedName("conditions")
-  private AppRoleTableRoleRecRuleCondition[] conditions;
-  @SerializedName("conjunction")
-  private String conjunction;
-  @SerializedName("other_perm")
-  private Integer otherPerm;
-
-  // builder 开始
-  public AppRoleTableRoleRecRule() {
-  }
-
-  public AppRoleTableRoleRecRule(Builder builder) {
-    this.conditions = builder.conditions;
-    this.conjunction = builder.conjunction;
-    this.otherPerm = builder.otherPerm;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public AppRoleTableRoleRecRuleCondition[] getConditions() {
-    return this.conditions;
-  }
-
-  public void setConditions(AppRoleTableRoleRecRuleCondition[] conditions) {
-    this.conditions = conditions;
-  }
-
-  public String getConjunction() {
-    return this.conjunction;
-  }
-
-  public void setConjunction(String conjunction) {
-    this.conjunction = conjunction;
-  }
-
-  public Integer getOtherPerm() {
-    return this.otherPerm;
-  }
-
-  public void setOtherPerm(Integer otherPerm) {
-    this.otherPerm = otherPerm;
-  }
-
-  public static class Builder {
-
+    @SerializedName("conditions")
     private AppRoleTableRoleRecRuleCondition[] conditions;
+    @SerializedName("conjunction")
     private String conjunction;
+    @SerializedName("other_perm")
     private Integer otherPerm;
-
-    public Builder conditions(AppRoleTableRoleRecRuleCondition[] conditions) {
-      this.conditions = conditions;
-      return this;
+    public AppRoleTableRoleRecRuleCondition[] getConditions() {
+        return this.conditions;
     }
 
-    public Builder conjunction(String conjunction) {
-      this.conjunction = conjunction;
-      return this;
+    public void setConditions(AppRoleTableRoleRecRuleCondition[] conditions) {
+        this.conditions = conditions;
     }
 
-    public Builder conjunction(com.lark.oapi.service.bitable.v1.enums.ConjunctionEnum conjunction) {
-      this.conjunction = conjunction.getValue();
-      return this;
+    public String getConjunction() {
+        return this.conjunction;
     }
 
-    public Builder otherPerm(Integer otherPerm) {
-      this.otherPerm = otherPerm;
-      return this;
+    public void setConjunction(String conjunction) {
+        this.conjunction = conjunction;
     }
 
-    public Builder otherPerm(com.lark.oapi.service.bitable.v1.enums.OtherPermEnum otherPerm) {
-      this.otherPerm = otherPerm.getValue();
-      return this;
+    public Integer getOtherPerm() {
+        return this.otherPerm;
+    }
+
+    public void setOtherPerm(Integer otherPerm) {
+        this.otherPerm = otherPerm;
     }
 
 
-    public AppRoleTableRoleRecRule build() {
-      return new AppRoleTableRoleRecRule(this);
-    }
+// builder 开始
+  public AppRoleTableRoleRecRule(){}
+
+  public AppRoleTableRoleRecRule(Builder builder){
+      this.conditions = builder.conditions;
+      this.conjunction = builder.conjunction;
+      this.otherPerm = builder.otherPerm;
   }
+
+    public static class Builder {
+        private AppRoleTableRoleRecRuleCondition[] conditions;
+        private String conjunction;
+        private Integer otherPerm;
+        public Builder conditions(AppRoleTableRoleRecRuleCondition[] conditions) {
+             this.conditions = conditions;
+             return this;
+        }
+    
+        public Builder conjunction(String conjunction) {
+             this.conjunction = conjunction;
+             return this;
+        }
+        public Builder conjunction(com.lark.oapi.service.bitable.v1.enums.ConjunctionEnum conjunction) {
+             this.conjunction = conjunction.getValue();
+             return this;
+        }
+    
+        public Builder otherPerm(Integer otherPerm) {
+             this.otherPerm = otherPerm;
+             return this;
+        }
+        public Builder otherPerm(com.lark.oapi.service.bitable.v1.enums.OtherPermEnum otherPerm) {
+             this.otherPerm = otherPerm.getValue();
+             return this;
+        }
+    
+    
+    public AppRoleTableRoleRecRule build(){
+        return new AppRoleTableRoleRecRule(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

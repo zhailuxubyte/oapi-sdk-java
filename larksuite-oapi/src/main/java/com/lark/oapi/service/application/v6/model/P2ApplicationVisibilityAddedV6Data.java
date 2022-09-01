@@ -12,30 +12,37 @@
  */
 
 package com.lark.oapi.service.application.v6.model;
-
+import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class P2ApplicationVisibilityAddedV6Data {
+    @SerializedName("users")
+    private User[] users;
+    @SerializedName("source")
+    private Integer source;
+    public User[] getUsers() {
+        return this.users;
+    }
 
-  @SerializedName("users")
-  private User[] users;
-  @SerializedName("source")
-  private Integer source;
+    public void setUsers(User[] users) {
+        this.users = users;
+    }
 
-  public User[] getUsers() {
-    return this.users;
-  }
+    public Integer getSource() {
+        return this.source;
+    }
 
-  public void setUsers(User[] users) {
-    this.users = users;
-  }
-
-  public Integer getSource() {
-    return this.source;
-  }
-
-  public void setSource(Integer source) {
-    this.source = source;
-  }
+    public void setSource(Integer source) {
+        this.source = source;
+    }
 
 }

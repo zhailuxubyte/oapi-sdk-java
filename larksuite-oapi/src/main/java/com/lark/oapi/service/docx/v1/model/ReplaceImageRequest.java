@@ -12,46 +12,52 @@
  */
 
 package com.lark.oapi.service.docx.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.docx.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class ReplaceImageRequest {
-
-  @SerializedName("token")
-  private String token;
-
-  // builder 开始
-  public ReplaceImageRequest() {
-  }
-
-  public ReplaceImageRequest(Builder builder) {
-    this.token = builder.token;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getToken() {
-    return this.token;
-  }
-
-  public void setToken(String token) {
-    this.token = token;
-  }
-
-  public static class Builder {
-
+    @SerializedName("token")
     private String token;
+    public String getToken() {
+        return this.token;
+    }
 
-    public Builder token(String token) {
-      this.token = token;
-      return this;
+    public void setToken(String token) {
+        this.token = token;
     }
 
 
-    public ReplaceImageRequest build() {
-      return new ReplaceImageRequest(this);
-    }
+// builder 开始
+  public ReplaceImageRequest(){}
+
+  public ReplaceImageRequest(Builder builder){
+      this.token = builder.token;
   }
+
+    public static class Builder {
+        private String token;
+        public Builder token(String token) {
+             this.token = token;
+             return this;
+        }
+    
+    
+    public ReplaceImageRequest build(){
+        return new ReplaceImageRequest(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

@@ -12,74 +12,76 @@
  */
 
 package com.lark.oapi.service.calendar.v4.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.calendar.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class ListFreebusyReq {
-
-  @Query
-  @SerializedName("user_id_type")
-  private String userIdType;
-  @Body
-  private ListFreebusyReqBody body;
-
-  // builder 开始
-  public ListFreebusyReq() {
-  }
-
-  public ListFreebusyReq(Builder builder) {
-    this.userIdType = builder.userIdType;
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getUserIdType() {
-    return this.userIdType;
-  }
-
-  public void setUserIdType(String userIdType) {
-    this.userIdType = userIdType;
-  }
-
-  public ListFreebusyReqBody getListFreebusyReqBody() {
-    return this.body;
-  }
-
-  public void setListFreebusyReqBody(ListFreebusyReqBody body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
+    @Query
+    @SerializedName("user_id_type")
     private String userIdType;
+    public String getUserIdType() {
+        return this.userIdType;
+    }
+
+    public void setUserIdType(String userIdType) {
+        this.userIdType = userIdType;
+    }
+
+    @Body
     private ListFreebusyReqBody body;
 
-    public Builder userIdType(String userIdType) {
-      this.userIdType = userIdType;
-      return this;
-    }
-
-    public Builder userIdType(com.lark.oapi.service.calendar.v4.enums.UserIdTypeEnum userIdType) {
-      this.userIdType = userIdType.getValue();
-      return this;
-    }
-
     public ListFreebusyReqBody getListFreebusyReqBody() {
-      return this.body;
+        return this.body;
     }
 
-    public Builder listFreebusyReqBody(ListFreebusyReqBody body) {
-      this.body = body;
-      return this;
+    public void setListFreebusyReqBody(ListFreebusyReqBody body) {
+        this.body = body;
     }
 
-    public ListFreebusyReq build() {
-      return new ListFreebusyReq(this);
-    }
+// builder 开始
+  public ListFreebusyReq(){}
+
+  public ListFreebusyReq(Builder builder){
+       this.userIdType = builder.userIdType;
+        this.body = builder.body;
   }
+
+    public static class Builder {
+        private String userIdType;
+    
+           public Builder userIdType(String userIdType) {
+                this.userIdType = userIdType;
+                return this;
+           }
+          public Builder userIdType(com.lark.oapi.service.calendar.v4.enums.UserIdTypeEnum userIdType) {
+               this.userIdType = userIdType.getValue();
+               return this;
+          }
+    
+        private ListFreebusyReqBody body;
+    
+        public ListFreebusyReqBody getListFreebusyReqBody() {
+            return this.body;
+        }
+        public Builder listFreebusyReqBody(ListFreebusyReqBody body) {
+             this.body = body;
+             return this;
+        }
+    public ListFreebusyReq build(){
+        return new ListFreebusyReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

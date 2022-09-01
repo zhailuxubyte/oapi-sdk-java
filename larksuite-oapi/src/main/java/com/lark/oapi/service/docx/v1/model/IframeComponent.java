@@ -12,69 +12,73 @@
  */
 
 package com.lark.oapi.service.docx.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.docx.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class IframeComponent {
-
-  @SerializedName("iframe_type")
-  private Integer iframeType;
-  @SerializedName("url")
-  private String url;
-
-  // builder 开始
-  public IframeComponent() {
-  }
-
-  public IframeComponent(Builder builder) {
-    this.iframeType = builder.iframeType;
-    this.url = builder.url;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Integer getIframeType() {
-    return this.iframeType;
-  }
-
-  public void setIframeType(Integer iframeType) {
-    this.iframeType = iframeType;
-  }
-
-  public String getUrl() {
-    return this.url;
-  }
-
-  public void setUrl(String url) {
-    this.url = url;
-  }
-
-  public static class Builder {
-
+    @SerializedName("iframe_type")
     private Integer iframeType;
+    @SerializedName("url")
     private String url;
-
-    public Builder iframeType(Integer iframeType) {
-      this.iframeType = iframeType;
-      return this;
+    public Integer getIframeType() {
+        return this.iframeType;
     }
 
-    public Builder iframeType(
-        com.lark.oapi.service.docx.v1.enums.IframeComponentTypeEnum iframeType) {
-      this.iframeType = iframeType.getValue();
-      return this;
+    public void setIframeType(Integer iframeType) {
+        this.iframeType = iframeType;
     }
 
-    public Builder url(String url) {
-      this.url = url;
-      return this;
+    public String getUrl() {
+        return this.url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 
 
-    public IframeComponent build() {
-      return new IframeComponent(this);
-    }
+// builder 开始
+  public IframeComponent(){}
+
+  public IframeComponent(Builder builder){
+      this.iframeType = builder.iframeType;
+      this.url = builder.url;
   }
+
+    public static class Builder {
+        private Integer iframeType;
+        private String url;
+        public Builder iframeType(Integer iframeType) {
+             this.iframeType = iframeType;
+             return this;
+        }
+        public Builder iframeType(com.lark.oapi.service.docx.v1.enums.IframeComponentTypeEnum iframeType) {
+             this.iframeType = iframeType.getValue();
+             return this;
+        }
+    
+        public Builder url(String url) {
+             this.url = url;
+             return this;
+        }
+    
+    
+    public IframeComponent build(){
+        return new IframeComponent(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

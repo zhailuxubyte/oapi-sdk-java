@@ -12,105 +12,107 @@
  */
 
 package com.lark.oapi.service.sheets.v3.model;
-
+import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class PatchSpreadsheetSheetFloatImageReq {
-
-  @Path
-  @SerializedName("spreadsheet_token")
-  private String spreadsheetToken;
-  @Path
-  @SerializedName("sheet_id")
-  private String sheetId;
-  @Path
-  @SerializedName("float_image_id")
-  private String floatImageId;
-  @Body
-  private FloatImage body;
-
-  // builder 开始
-  public PatchSpreadsheetSheetFloatImageReq() {
-  }
-
-  public PatchSpreadsheetSheetFloatImageReq(Builder builder) {
-    this.spreadsheetToken = builder.spreadsheetToken;
-    this.sheetId = builder.sheetId;
-    this.floatImageId = builder.floatImageId;
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getSpreadsheetToken() {
-    return this.spreadsheetToken;
-  }
-
-  public void setSpreadsheetToken(String spreadsheetToken) {
-    this.spreadsheetToken = spreadsheetToken;
-  }
-
-  public String getSheetId() {
-    return this.sheetId;
-  }
-
-  public void setSheetId(String sheetId) {
-    this.sheetId = sheetId;
-  }
-
-  public String getFloatImageId() {
-    return this.floatImageId;
-  }
-
-  public void setFloatImageId(String floatImageId) {
-    this.floatImageId = floatImageId;
-  }
-
-  public FloatImage getFloatImage() {
-    return this.body;
-  }
-
-  public void setFloatImage(FloatImage body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
+    @Path
+    @SerializedName("spreadsheet_token")
     private String spreadsheetToken;
+    @Path
+    @SerializedName("sheet_id")
     private String sheetId;
+    @Path
+    @SerializedName("float_image_id")
     private String floatImageId;
+    public String getSpreadsheetToken() {
+        return this.spreadsheetToken;
+    }
+
+    public void setSpreadsheetToken(String spreadsheetToken) {
+        this.spreadsheetToken = spreadsheetToken;
+    }
+
+    public String getSheetId() {
+        return this.sheetId;
+    }
+
+    public void setSheetId(String sheetId) {
+        this.sheetId = sheetId;
+    }
+
+    public String getFloatImageId() {
+        return this.floatImageId;
+    }
+
+    public void setFloatImageId(String floatImageId) {
+        this.floatImageId = floatImageId;
+    }
+
+    @Body
     private FloatImage body;
 
-    public Builder spreadsheetToken(String spreadsheetToken) {
-      this.spreadsheetToken = spreadsheetToken;
-      return this;
-    }
-
-    public Builder sheetId(String sheetId) {
-      this.sheetId = sheetId;
-      return this;
-    }
-
-    public Builder floatImageId(String floatImageId) {
-      this.floatImageId = floatImageId;
-      return this;
-    }
-
     public FloatImage getFloatImage() {
-      return this.body;
+        return this.body;
     }
 
-    public Builder floatImage(FloatImage body) {
-      this.body = body;
-      return this;
+    public void setFloatImage(FloatImage body) {
+        this.body = body;
     }
 
-    public PatchSpreadsheetSheetFloatImageReq build() {
-      return new PatchSpreadsheetSheetFloatImageReq(this);
-    }
+// builder 开始
+  public PatchSpreadsheetSheetFloatImageReq(){}
+
+  public PatchSpreadsheetSheetFloatImageReq(Builder builder){
+       this.spreadsheetToken = builder.spreadsheetToken;
+       this.sheetId = builder.sheetId;
+       this.floatImageId = builder.floatImageId;
+        this.body = builder.body;
   }
+
+    public static class Builder {
+    
+        private String spreadsheetToken;
+        private String sheetId;
+        private String floatImageId;
+          public Builder spreadsheetToken(String spreadsheetToken) {
+               this.spreadsheetToken = spreadsheetToken;
+               return this;
+          }
+    
+          public Builder sheetId(String sheetId) {
+               this.sheetId = sheetId;
+               return this;
+          }
+    
+          public Builder floatImageId(String floatImageId) {
+               this.floatImageId = floatImageId;
+               return this;
+          }
+    
+        private FloatImage body;
+    
+        public FloatImage getFloatImage() {
+            return this.body;
+        }
+        public Builder floatImage(FloatImage body) {
+             this.body = body;
+             return this;
+        }
+    public PatchSpreadsheetSheetFloatImageReq build(){
+        return new PatchSpreadsheetSheetFloatImageReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

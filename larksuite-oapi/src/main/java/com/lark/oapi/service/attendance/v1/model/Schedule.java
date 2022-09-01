@@ -12,63 +12,69 @@
  */
 
 package com.lark.oapi.service.attendance.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.attendance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class Schedule {
-
-  @SerializedName("group_id")
-  private String groupId;
-  @SerializedName("shifts")
-  private String[] shifts;
-
-  // builder 开始
-  public Schedule() {
-  }
-
-  public Schedule(Builder builder) {
-    this.groupId = builder.groupId;
-    this.shifts = builder.shifts;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getGroupId() {
-    return this.groupId;
-  }
-
-  public void setGroupId(String groupId) {
-    this.groupId = groupId;
-  }
-
-  public String[] getShifts() {
-    return this.shifts;
-  }
-
-  public void setShifts(String[] shifts) {
-    this.shifts = shifts;
-  }
-
-  public static class Builder {
-
+    @SerializedName("group_id")
     private String groupId;
+    @SerializedName("shifts")
     private String[] shifts;
-
-    public Builder groupId(String groupId) {
-      this.groupId = groupId;
-      return this;
+    public String getGroupId() {
+        return this.groupId;
     }
 
-    public Builder shifts(String[] shifts) {
-      this.shifts = shifts;
-      return this;
+    public void setGroupId(String groupId) {
+        this.groupId = groupId;
+    }
+
+    public String[] getShifts() {
+        return this.shifts;
+    }
+
+    public void setShifts(String[] shifts) {
+        this.shifts = shifts;
     }
 
 
-    public Schedule build() {
-      return new Schedule(this);
-    }
+// builder 开始
+  public Schedule(){}
+
+  public Schedule(Builder builder){
+      this.groupId = builder.groupId;
+      this.shifts = builder.shifts;
   }
+
+    public static class Builder {
+        private String groupId;
+        private String[] shifts;
+        public Builder groupId(String groupId) {
+             this.groupId = groupId;
+             return this;
+        }
+    
+        public Builder shifts(String[] shifts) {
+             this.shifts = shifts;
+             return this;
+        }
+    
+    
+    public Schedule build(){
+        return new Schedule(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

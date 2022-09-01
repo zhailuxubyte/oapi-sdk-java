@@ -12,69 +12,72 @@
  */
 
 package com.lark.oapi.service.im.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.im.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class CreateChatTabReq {
-
-  @Path
-  @SerializedName("chat_id")
-  private String chatId;
-  @Body
-  private CreateChatTabReqBody body;
-
-  // builder 开始
-  public CreateChatTabReq() {
-  }
-
-  public CreateChatTabReq(Builder builder) {
-    this.chatId = builder.chatId;
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getChatId() {
-    return this.chatId;
-  }
-
-  public void setChatId(String chatId) {
-    this.chatId = chatId;
-  }
-
-  public CreateChatTabReqBody getCreateChatTabReqBody() {
-    return this.body;
-  }
-
-  public void setCreateChatTabReqBody(CreateChatTabReqBody body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
+    @Path
+    @SerializedName("chat_id")
     private String chatId;
+    public String getChatId() {
+        return this.chatId;
+    }
+
+    public void setChatId(String chatId) {
+        this.chatId = chatId;
+    }
+
+    @Body
     private CreateChatTabReqBody body;
 
-    public Builder chatId(String chatId) {
-      this.chatId = chatId;
-      return this;
-    }
-
     public CreateChatTabReqBody getCreateChatTabReqBody() {
-      return this.body;
+        return this.body;
     }
 
-    public Builder createChatTabReqBody(CreateChatTabReqBody body) {
-      this.body = body;
-      return this;
+    public void setCreateChatTabReqBody(CreateChatTabReqBody body) {
+        this.body = body;
     }
 
-    public CreateChatTabReq build() {
-      return new CreateChatTabReq(this);
-    }
+// builder 开始
+  public CreateChatTabReq(){}
+
+  public CreateChatTabReq(Builder builder){
+       this.chatId = builder.chatId;
+        this.body = builder.body;
   }
+
+    public static class Builder {
+    
+        private String chatId;
+          public Builder chatId(String chatId) {
+               this.chatId = chatId;
+               return this;
+          }
+    
+        private CreateChatTabReqBody body;
+    
+        public CreateChatTabReqBody getCreateChatTabReqBody() {
+            return this.body;
+        }
+        public Builder createChatTabReqBody(CreateChatTabReqBody body) {
+             this.body = body;
+             return this;
+        }
+    public CreateChatTabReq build(){
+        return new CreateChatTabReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

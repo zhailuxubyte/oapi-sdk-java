@@ -15,17 +15,16 @@ package com.lark.oapi.service.ehr.v1.enums;
 
 // 生成枚举值
 public enum DegreeEnum {
-  BACHELOR(1),
-  MASTER(2),
-  DOCTOR(3),
+     BACHELOR(1),
+     MASTER(2),
+     DOCTOR(3),
   ;
-  private Integer value;
+   private Integer value;
+    DegreeEnum(Integer value) {
+      this.value = value;
+    }
 
-  DegreeEnum(Integer value) {
-    this.value = value;
-  }
-
-  public Integer getValue() {
-    return this.value;
-  }
+    public Integer getValue() {
+      return this.value;
+    }
 }

@@ -12,63 +12,69 @@
  */
 
 package com.lark.oapi.service.approval.v4.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.approval.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class InstanceSearchGroup {
-
-  @SerializedName("external_id")
-  private String externalId;
-  @SerializedName("name")
-  private String name;
-
-  // builder 开始
-  public InstanceSearchGroup() {
-  }
-
-  public InstanceSearchGroup(Builder builder) {
-    this.externalId = builder.externalId;
-    this.name = builder.name;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getExternalId() {
-    return this.externalId;
-  }
-
-  public void setExternalId(String externalId) {
-    this.externalId = externalId;
-  }
-
-  public String getName() {
-    return this.name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public static class Builder {
-
+    @SerializedName("external_id")
     private String externalId;
+    @SerializedName("name")
     private String name;
-
-    public Builder externalId(String externalId) {
-      this.externalId = externalId;
-      return this;
+    public String getExternalId() {
+        return this.externalId;
     }
 
-    public Builder name(String name) {
-      this.name = name;
-      return this;
+    public void setExternalId(String externalId) {
+        this.externalId = externalId;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
 
-    public InstanceSearchGroup build() {
-      return new InstanceSearchGroup(this);
-    }
+// builder 开始
+  public InstanceSearchGroup(){}
+
+  public InstanceSearchGroup(Builder builder){
+      this.externalId = builder.externalId;
+      this.name = builder.name;
   }
+
+    public static class Builder {
+        private String externalId;
+        private String name;
+        public Builder externalId(String externalId) {
+             this.externalId = externalId;
+             return this;
+        }
+    
+        public Builder name(String name) {
+             this.name = name;
+             return this;
+        }
+    
+    
+    public InstanceSearchGroup build(){
+        return new InstanceSearchGroup(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

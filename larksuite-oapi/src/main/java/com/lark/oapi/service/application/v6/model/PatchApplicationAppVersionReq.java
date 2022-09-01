@@ -12,148 +12,148 @@
  */
 
 package com.lark.oapi.service.application.v6.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.application.v6.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class PatchApplicationAppVersionReq {
-
-  @Query
-  @SerializedName("user_id_type")
-  private String userIdType;
-  @Query
-  @SerializedName("operator_id")
-  private String operatorId;
-  @Query
-  @SerializedName("reject_reason")
-  private String rejectReason;
-  @Path
-  @SerializedName("app_id")
-  private String appId;
-  @Path
-  @SerializedName("version_id")
-  private String versionId;
-  @Body
-  private ApplicationAppVersion body;
-
-  // builder 开始
-  public PatchApplicationAppVersionReq() {
-  }
-
-  public PatchApplicationAppVersionReq(Builder builder) {
-    this.userIdType = builder.userIdType;
-    this.operatorId = builder.operatorId;
-    this.rejectReason = builder.rejectReason;
-    this.appId = builder.appId;
-    this.versionId = builder.versionId;
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getUserIdType() {
-    return this.userIdType;
-  }
-
-  public void setUserIdType(String userIdType) {
-    this.userIdType = userIdType;
-  }
-
-  public String getOperatorId() {
-    return this.operatorId;
-  }
-
-  public void setOperatorId(String operatorId) {
-    this.operatorId = operatorId;
-  }
-
-  public String getRejectReason() {
-    return this.rejectReason;
-  }
-
-  public void setRejectReason(String rejectReason) {
-    this.rejectReason = rejectReason;
-  }
-
-  public String getAppId() {
-    return this.appId;
-  }
-
-  public void setAppId(String appId) {
-    this.appId = appId;
-  }
-
-  public String getVersionId() {
-    return this.versionId;
-  }
-
-  public void setVersionId(String versionId) {
-    this.versionId = versionId;
-  }
-
-  public ApplicationAppVersion getApplicationAppVersion() {
-    return this.body;
-  }
-
-  public void setApplicationAppVersion(ApplicationAppVersion body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
+    @Query
+    @SerializedName("user_id_type")
     private String userIdType;
+    @Query
+    @SerializedName("operator_id")
     private String operatorId;
+    @Query
+    @SerializedName("reject_reason")
     private String rejectReason;
+    public String getUserIdType() {
+        return this.userIdType;
+    }
+
+    public void setUserIdType(String userIdType) {
+        this.userIdType = userIdType;
+    }
+
+    public String getOperatorId() {
+        return this.operatorId;
+    }
+
+    public void setOperatorId(String operatorId) {
+        this.operatorId = operatorId;
+    }
+
+    public String getRejectReason() {
+        return this.rejectReason;
+    }
+
+    public void setRejectReason(String rejectReason) {
+        this.rejectReason = rejectReason;
+    }
+
+    @Path
+    @SerializedName("app_id")
     private String appId;
+    @Path
+    @SerializedName("version_id")
     private String versionId;
+    public String getAppId() {
+        return this.appId;
+    }
+
+    public void setAppId(String appId) {
+        this.appId = appId;
+    }
+
+    public String getVersionId() {
+        return this.versionId;
+    }
+
+    public void setVersionId(String versionId) {
+        this.versionId = versionId;
+    }
+
+    @Body
     private ApplicationAppVersion body;
 
-    public Builder userIdType(String userIdType) {
-      this.userIdType = userIdType;
-      return this;
-    }
-
-    public Builder userIdType(
-        com.lark.oapi.service.application.v6.enums.UserIdTypeEnum userIdType) {
-      this.userIdType = userIdType.getValue();
-      return this;
-    }
-
-    public Builder operatorId(String operatorId) {
-      this.operatorId = operatorId;
-      return this;
-    }
-
-    public Builder rejectReason(String rejectReason) {
-      this.rejectReason = rejectReason;
-      return this;
-    }
-
-    public Builder appId(String appId) {
-      this.appId = appId;
-      return this;
-    }
-
-    public Builder versionId(String versionId) {
-      this.versionId = versionId;
-      return this;
-    }
-
     public ApplicationAppVersion getApplicationAppVersion() {
-      return this.body;
+        return this.body;
     }
 
-    public Builder applicationAppVersion(ApplicationAppVersion body) {
-      this.body = body;
-      return this;
+    public void setApplicationAppVersion(ApplicationAppVersion body) {
+        this.body = body;
     }
 
-    public PatchApplicationAppVersionReq build() {
-      return new PatchApplicationAppVersionReq(this);
-    }
+// builder 开始
+  public PatchApplicationAppVersionReq(){}
+
+  public PatchApplicationAppVersionReq(Builder builder){
+       this.userIdType = builder.userIdType;
+       this.operatorId = builder.operatorId;
+       this.rejectReason = builder.rejectReason;
+       this.appId = builder.appId;
+       this.versionId = builder.versionId;
+        this.body = builder.body;
   }
+
+    public static class Builder {
+        private String userIdType;
+        private String operatorId;
+        private String rejectReason;
+    
+           public Builder userIdType(String userIdType) {
+                this.userIdType = userIdType;
+                return this;
+           }
+          public Builder userIdType(com.lark.oapi.service.application.v6.enums.UserIdTypeEnum userIdType) {
+               this.userIdType = userIdType.getValue();
+               return this;
+          }
+    
+           public Builder operatorId(String operatorId) {
+                this.operatorId = operatorId;
+                return this;
+           }
+    
+           public Builder rejectReason(String rejectReason) {
+                this.rejectReason = rejectReason;
+                return this;
+           }
+    
+        private String appId;
+        private String versionId;
+          public Builder appId(String appId) {
+               this.appId = appId;
+               return this;
+          }
+    
+          public Builder versionId(String versionId) {
+               this.versionId = versionId;
+               return this;
+          }
+    
+        private ApplicationAppVersion body;
+    
+        public ApplicationAppVersion getApplicationAppVersion() {
+            return this.body;
+        }
+        public Builder applicationAppVersion(ApplicationAppVersion body) {
+             this.body = body;
+             return this;
+        }
+    public PatchApplicationAppVersionReq build(){
+        return new PatchApplicationAppVersionReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

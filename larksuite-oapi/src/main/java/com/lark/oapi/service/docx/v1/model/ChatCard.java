@@ -12,68 +12,73 @@
  */
 
 package com.lark.oapi.service.docx.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.docx.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class ChatCard {
-
-  @SerializedName("chat_id")
-  private String chatId;
-  @SerializedName("align")
-  private Integer align;
-
-  // builder 开始
-  public ChatCard() {
-  }
-
-  public ChatCard(Builder builder) {
-    this.chatId = builder.chatId;
-    this.align = builder.align;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getChatId() {
-    return this.chatId;
-  }
-
-  public void setChatId(String chatId) {
-    this.chatId = chatId;
-  }
-
-  public Integer getAlign() {
-    return this.align;
-  }
-
-  public void setAlign(Integer align) {
-    this.align = align;
-  }
-
-  public static class Builder {
-
+    @SerializedName("chat_id")
     private String chatId;
+    @SerializedName("align")
     private Integer align;
-
-    public Builder chatId(String chatId) {
-      this.chatId = chatId;
-      return this;
+    public String getChatId() {
+        return this.chatId;
     }
 
-    public Builder align(Integer align) {
-      this.align = align;
-      return this;
+    public void setChatId(String chatId) {
+        this.chatId = chatId;
     }
 
-    public Builder align(com.lark.oapi.service.docx.v1.enums.AlignEnum align) {
-      this.align = align.getValue();
-      return this;
+    public Integer getAlign() {
+        return this.align;
+    }
+
+    public void setAlign(Integer align) {
+        this.align = align;
     }
 
 
-    public ChatCard build() {
-      return new ChatCard(this);
-    }
+// builder 开始
+  public ChatCard(){}
+
+  public ChatCard(Builder builder){
+      this.chatId = builder.chatId;
+      this.align = builder.align;
   }
+
+    public static class Builder {
+        private String chatId;
+        private Integer align;
+        public Builder chatId(String chatId) {
+             this.chatId = chatId;
+             return this;
+        }
+    
+        public Builder align(Integer align) {
+             this.align = align;
+             return this;
+        }
+        public Builder align(com.lark.oapi.service.docx.v1.enums.AlignEnum align) {
+             this.align = align.getValue();
+             return this;
+        }
+    
+    
+    public ChatCard build(){
+        return new ChatCard(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

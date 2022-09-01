@@ -12,80 +12,86 @@
  */
 
 package com.lark.oapi.service.helpdesk.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.helpdesk.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class AgentScheduleUpdateInfo {
-
-  @SerializedName("agent_id")
-  private String agentId;
-  @SerializedName("schedule")
-  private WeekdaySchedule[] schedule;
-  @SerializedName("agent_skill_ids")
-  private String[] agentSkillIds;
-
-  // builder 开始
-  public AgentScheduleUpdateInfo() {
-  }
-
-  public AgentScheduleUpdateInfo(Builder builder) {
-    this.agentId = builder.agentId;
-    this.schedule = builder.schedule;
-    this.agentSkillIds = builder.agentSkillIds;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getAgentId() {
-    return this.agentId;
-  }
-
-  public void setAgentId(String agentId) {
-    this.agentId = agentId;
-  }
-
-  public WeekdaySchedule[] getSchedule() {
-    return this.schedule;
-  }
-
-  public void setSchedule(WeekdaySchedule[] schedule) {
-    this.schedule = schedule;
-  }
-
-  public String[] getAgentSkillIds() {
-    return this.agentSkillIds;
-  }
-
-  public void setAgentSkillIds(String[] agentSkillIds) {
-    this.agentSkillIds = agentSkillIds;
-  }
-
-  public static class Builder {
-
+    @SerializedName("agent_id")
     private String agentId;
+    @SerializedName("schedule")
     private WeekdaySchedule[] schedule;
+    @SerializedName("agent_skill_ids")
     private String[] agentSkillIds;
-
-    public Builder agentId(String agentId) {
-      this.agentId = agentId;
-      return this;
+    public String getAgentId() {
+        return this.agentId;
     }
 
-    public Builder schedule(WeekdaySchedule[] schedule) {
-      this.schedule = schedule;
-      return this;
+    public void setAgentId(String agentId) {
+        this.agentId = agentId;
     }
 
-    public Builder agentSkillIds(String[] agentSkillIds) {
-      this.agentSkillIds = agentSkillIds;
-      return this;
+    public WeekdaySchedule[] getSchedule() {
+        return this.schedule;
+    }
+
+    public void setSchedule(WeekdaySchedule[] schedule) {
+        this.schedule = schedule;
+    }
+
+    public String[] getAgentSkillIds() {
+        return this.agentSkillIds;
+    }
+
+    public void setAgentSkillIds(String[] agentSkillIds) {
+        this.agentSkillIds = agentSkillIds;
     }
 
 
-    public AgentScheduleUpdateInfo build() {
-      return new AgentScheduleUpdateInfo(this);
-    }
+// builder 开始
+  public AgentScheduleUpdateInfo(){}
+
+  public AgentScheduleUpdateInfo(Builder builder){
+      this.agentId = builder.agentId;
+      this.schedule = builder.schedule;
+      this.agentSkillIds = builder.agentSkillIds;
   }
+
+    public static class Builder {
+        private String agentId;
+        private WeekdaySchedule[] schedule;
+        private String[] agentSkillIds;
+        public Builder agentId(String agentId) {
+             this.agentId = agentId;
+             return this;
+        }
+    
+        public Builder schedule(WeekdaySchedule[] schedule) {
+             this.schedule = schedule;
+             return this;
+        }
+    
+        public Builder agentSkillIds(String[] agentSkillIds) {
+             this.agentSkillIds = agentSkillIds;
+             return this;
+        }
+    
+    
+    public AgentScheduleUpdateInfo build(){
+        return new AgentScheduleUpdateInfo(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

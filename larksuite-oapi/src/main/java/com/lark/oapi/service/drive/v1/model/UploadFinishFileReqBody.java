@@ -12,63 +12,69 @@
  */
 
 package com.lark.oapi.service.drive.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.drive.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class UploadFinishFileReqBody {
-
-  @SerializedName("upload_id")
-  private String uploadId;
-  @SerializedName("block_num")
-  private Integer blockNum;
-
-  // builder 开始
-  public UploadFinishFileReqBody() {
-  }
-
-  public UploadFinishFileReqBody(Builder builder) {
-    this.uploadId = builder.uploadId;
-    this.blockNum = builder.blockNum;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getUploadId() {
-    return this.uploadId;
-  }
-
-  public void setUploadId(String uploadId) {
-    this.uploadId = uploadId;
-  }
-
-  public Integer getBlockNum() {
-    return this.blockNum;
-  }
-
-  public void setBlockNum(Integer blockNum) {
-    this.blockNum = blockNum;
-  }
-
-  public static class Builder {
-
+    @SerializedName("upload_id")
     private String uploadId;
+    @SerializedName("block_num")
     private Integer blockNum;
-
-    public Builder uploadId(String uploadId) {
-      this.uploadId = uploadId;
-      return this;
+    public String getUploadId() {
+        return this.uploadId;
     }
 
-    public Builder blockNum(Integer blockNum) {
-      this.blockNum = blockNum;
-      return this;
+    public void setUploadId(String uploadId) {
+        this.uploadId = uploadId;
+    }
+
+    public Integer getBlockNum() {
+        return this.blockNum;
+    }
+
+    public void setBlockNum(Integer blockNum) {
+        this.blockNum = blockNum;
     }
 
 
-    public UploadFinishFileReqBody build() {
-      return new UploadFinishFileReqBody(this);
-    }
+// builder 开始
+  public UploadFinishFileReqBody(){}
+
+  public UploadFinishFileReqBody(Builder builder){
+      this.uploadId = builder.uploadId;
+      this.blockNum = builder.blockNum;
   }
+
+    public static class Builder {
+        private String uploadId;
+        private Integer blockNum;
+        public Builder uploadId(String uploadId) {
+             this.uploadId = uploadId;
+             return this;
+        }
+    
+        public Builder blockNum(Integer blockNum) {
+             this.blockNum = blockNum;
+             return this;
+        }
+    
+    
+    public UploadFinishFileReqBody build(){
+        return new UploadFinishFileReqBody(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

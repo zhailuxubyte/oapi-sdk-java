@@ -12,49 +12,54 @@
  */
 
 package com.lark.oapi.service.approval.v4.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.approval.v4.enums.*;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
-
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class AddSignInstanceReq {
-
-  @Body
-  private AddSignInstanceReqBody body;
-
-  // builder 开始
-  public AddSignInstanceReq() {
-  }
-
-  public AddSignInstanceReq(Builder builder) {
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public AddSignInstanceReqBody getAddSignInstanceReqBody() {
-    return this.body;
-  }
-
-  public void setAddSignInstanceReqBody(AddSignInstanceReqBody body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
+    @Body
     private AddSignInstanceReqBody body;
 
     public AddSignInstanceReqBody getAddSignInstanceReqBody() {
-      return this.body;
+        return this.body;
     }
 
-    public Builder addSignInstanceReqBody(AddSignInstanceReqBody body) {
-      this.body = body;
-      return this;
+    public void setAddSignInstanceReqBody(AddSignInstanceReqBody body) {
+        this.body = body;
     }
 
-    public AddSignInstanceReq build() {
-      return new AddSignInstanceReq(this);
-    }
+// builder 开始
+  public AddSignInstanceReq(){}
+
+  public AddSignInstanceReq(Builder builder){
+        this.body = builder.body;
   }
+
+    public static class Builder {
+    
+        private AddSignInstanceReqBody body;
+    
+        public AddSignInstanceReqBody getAddSignInstanceReqBody() {
+            return this.body;
+        }
+        public Builder addSignInstanceReqBody(AddSignInstanceReqBody body) {
+             this.body = body;
+             return this;
+        }
+    public AddSignInstanceReq build(){
+        return new AddSignInstanceReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

@@ -12,63 +12,69 @@
  */
 
 package com.lark.oapi.service.wiki.v2.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.wiki.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class MoveSpaceNodeReqBody {
-
-  @SerializedName("target_parent_token")
-  private String targetParentToken;
-  @SerializedName("target_space_id")
-  private String targetSpaceId;
-
-  // builder 开始
-  public MoveSpaceNodeReqBody() {
-  }
-
-  public MoveSpaceNodeReqBody(Builder builder) {
-    this.targetParentToken = builder.targetParentToken;
-    this.targetSpaceId = builder.targetSpaceId;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getTargetParentToken() {
-    return this.targetParentToken;
-  }
-
-  public void setTargetParentToken(String targetParentToken) {
-    this.targetParentToken = targetParentToken;
-  }
-
-  public String getTargetSpaceId() {
-    return this.targetSpaceId;
-  }
-
-  public void setTargetSpaceId(String targetSpaceId) {
-    this.targetSpaceId = targetSpaceId;
-  }
-
-  public static class Builder {
-
+    @SerializedName("target_parent_token")
     private String targetParentToken;
+    @SerializedName("target_space_id")
     private String targetSpaceId;
-
-    public Builder targetParentToken(String targetParentToken) {
-      this.targetParentToken = targetParentToken;
-      return this;
+    public String getTargetParentToken() {
+        return this.targetParentToken;
     }
 
-    public Builder targetSpaceId(String targetSpaceId) {
-      this.targetSpaceId = targetSpaceId;
-      return this;
+    public void setTargetParentToken(String targetParentToken) {
+        this.targetParentToken = targetParentToken;
+    }
+
+    public String getTargetSpaceId() {
+        return this.targetSpaceId;
+    }
+
+    public void setTargetSpaceId(String targetSpaceId) {
+        this.targetSpaceId = targetSpaceId;
     }
 
 
-    public MoveSpaceNodeReqBody build() {
-      return new MoveSpaceNodeReqBody(this);
-    }
+// builder 开始
+  public MoveSpaceNodeReqBody(){}
+
+  public MoveSpaceNodeReqBody(Builder builder){
+      this.targetParentToken = builder.targetParentToken;
+      this.targetSpaceId = builder.targetSpaceId;
   }
+
+    public static class Builder {
+        private String targetParentToken;
+        private String targetSpaceId;
+        public Builder targetParentToken(String targetParentToken) {
+             this.targetParentToken = targetParentToken;
+             return this;
+        }
+    
+        public Builder targetSpaceId(String targetSpaceId) {
+             this.targetSpaceId = targetSpaceId;
+             return this;
+        }
+    
+    
+    public MoveSpaceNodeReqBody build(){
+        return new MoveSpaceNodeReqBody(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

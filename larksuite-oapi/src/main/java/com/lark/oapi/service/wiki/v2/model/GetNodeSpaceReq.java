@@ -12,47 +12,52 @@
  */
 
 package com.lark.oapi.service.wiki.v2.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.wiki.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class GetNodeSpaceReq {
-
-  @Query
-  @SerializedName("token")
-  private String token;
-
-  // builder 开始
-  public GetNodeSpaceReq() {
-  }
-
-  public GetNodeSpaceReq(Builder builder) {
-    this.token = builder.token;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getToken() {
-    return this.token;
-  }
-
-  public void setToken(String token) {
-    this.token = token;
-  }
-
-  public static class Builder {
-
+    @Query
+    @SerializedName("token")
     private String token;
-
-    public Builder token(String token) {
-      this.token = token;
-      return this;
+    public String getToken() {
+        return this.token;
     }
 
-    public GetNodeSpaceReq build() {
-      return new GetNodeSpaceReq(this);
+    public void setToken(String token) {
+        this.token = token;
     }
+
+
+// builder 开始
+  public GetNodeSpaceReq(){}
+
+  public GetNodeSpaceReq(Builder builder){
+       this.token = builder.token;
   }
+
+    public static class Builder {
+        private String token;
+    
+           public Builder token(String token) {
+                this.token = token;
+                return this;
+           }
+    
+    public GetNodeSpaceReq build(){
+        return new GetNodeSpaceReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

@@ -12,47 +12,52 @@
  */
 
 package com.lark.oapi.service.mail.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.mail.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class ListPublicMailboxAliasReq {
-
-  @Path
-  @SerializedName("public_mailbox_id")
-  private String publicMailboxId;
-
-  // builder 开始
-  public ListPublicMailboxAliasReq() {
-  }
-
-  public ListPublicMailboxAliasReq(Builder builder) {
-    this.publicMailboxId = builder.publicMailboxId;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getPublicMailboxId() {
-    return this.publicMailboxId;
-  }
-
-  public void setPublicMailboxId(String publicMailboxId) {
-    this.publicMailboxId = publicMailboxId;
-  }
-
-  public static class Builder {
-
+    @Path
+    @SerializedName("public_mailbox_id")
     private String publicMailboxId;
-
-    public Builder publicMailboxId(String publicMailboxId) {
-      this.publicMailboxId = publicMailboxId;
-      return this;
+    public String getPublicMailboxId() {
+        return this.publicMailboxId;
     }
 
-    public ListPublicMailboxAliasReq build() {
-      return new ListPublicMailboxAliasReq(this);
+    public void setPublicMailboxId(String publicMailboxId) {
+        this.publicMailboxId = publicMailboxId;
     }
+
+
+// builder 开始
+  public ListPublicMailboxAliasReq(){}
+
+  public ListPublicMailboxAliasReq(Builder builder){
+       this.publicMailboxId = builder.publicMailboxId;
   }
+
+    public static class Builder {
+    
+        private String publicMailboxId;
+          public Builder publicMailboxId(String publicMailboxId) {
+               this.publicMailboxId = publicMailboxId;
+               return this;
+          }
+    
+    public ListPublicMailboxAliasReq build(){
+        return new ListPublicMailboxAliasReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

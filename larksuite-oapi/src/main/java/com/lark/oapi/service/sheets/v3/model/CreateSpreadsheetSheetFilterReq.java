@@ -12,87 +12,89 @@
  */
 
 package com.lark.oapi.service.sheets.v3.model;
-
+import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class CreateSpreadsheetSheetFilterReq {
-
-  @Path
-  @SerializedName("spreadsheet_token")
-  private String spreadsheetToken;
-  @Path
-  @SerializedName("sheet_id")
-  private String sheetId;
-  @Body
-  private CreateSheetFilter body;
-
-  // builder 开始
-  public CreateSpreadsheetSheetFilterReq() {
-  }
-
-  public CreateSpreadsheetSheetFilterReq(Builder builder) {
-    this.spreadsheetToken = builder.spreadsheetToken;
-    this.sheetId = builder.sheetId;
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getSpreadsheetToken() {
-    return this.spreadsheetToken;
-  }
-
-  public void setSpreadsheetToken(String spreadsheetToken) {
-    this.spreadsheetToken = spreadsheetToken;
-  }
-
-  public String getSheetId() {
-    return this.sheetId;
-  }
-
-  public void setSheetId(String sheetId) {
-    this.sheetId = sheetId;
-  }
-
-  public CreateSheetFilter getCreateSheetFilter() {
-    return this.body;
-  }
-
-  public void setCreateSheetFilter(CreateSheetFilter body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
+    @Path
+    @SerializedName("spreadsheet_token")
     private String spreadsheetToken;
+    @Path
+    @SerializedName("sheet_id")
     private String sheetId;
+    public String getSpreadsheetToken() {
+        return this.spreadsheetToken;
+    }
+
+    public void setSpreadsheetToken(String spreadsheetToken) {
+        this.spreadsheetToken = spreadsheetToken;
+    }
+
+    public String getSheetId() {
+        return this.sheetId;
+    }
+
+    public void setSheetId(String sheetId) {
+        this.sheetId = sheetId;
+    }
+
+    @Body
     private CreateSheetFilter body;
 
-    public Builder spreadsheetToken(String spreadsheetToken) {
-      this.spreadsheetToken = spreadsheetToken;
-      return this;
-    }
-
-    public Builder sheetId(String sheetId) {
-      this.sheetId = sheetId;
-      return this;
-    }
-
     public CreateSheetFilter getCreateSheetFilter() {
-      return this.body;
+        return this.body;
     }
 
-    public Builder createSheetFilter(CreateSheetFilter body) {
-      this.body = body;
-      return this;
+    public void setCreateSheetFilter(CreateSheetFilter body) {
+        this.body = body;
     }
 
-    public CreateSpreadsheetSheetFilterReq build() {
-      return new CreateSpreadsheetSheetFilterReq(this);
-    }
+// builder 开始
+  public CreateSpreadsheetSheetFilterReq(){}
+
+  public CreateSpreadsheetSheetFilterReq(Builder builder){
+       this.spreadsheetToken = builder.spreadsheetToken;
+       this.sheetId = builder.sheetId;
+        this.body = builder.body;
   }
+
+    public static class Builder {
+    
+        private String spreadsheetToken;
+        private String sheetId;
+          public Builder spreadsheetToken(String spreadsheetToken) {
+               this.spreadsheetToken = spreadsheetToken;
+               return this;
+          }
+    
+          public Builder sheetId(String sheetId) {
+               this.sheetId = sheetId;
+               return this;
+          }
+    
+        private CreateSheetFilter body;
+    
+        public CreateSheetFilter getCreateSheetFilter() {
+            return this.body;
+        }
+        public Builder createSheetFilter(CreateSheetFilter body) {
+             this.body = body;
+             return this;
+        }
+    public CreateSpreadsheetSheetFilterReq build(){
+        return new CreateSpreadsheetSheetFilterReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

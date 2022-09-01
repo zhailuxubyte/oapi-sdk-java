@@ -12,80 +12,86 @@
  */
 
 package com.lark.oapi.service.application.v6.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.application.v6.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class UsageOverviewItem {
-
-  @SerializedName("page_view")
-  private String pageView;
-  @SerializedName("unique_visitor")
-  private String uniqueVisitor;
-  @SerializedName("department_id")
-  private String departmentId;
-
-  // builder 开始
-  public UsageOverviewItem() {
-  }
-
-  public UsageOverviewItem(Builder builder) {
-    this.pageView = builder.pageView;
-    this.uniqueVisitor = builder.uniqueVisitor;
-    this.departmentId = builder.departmentId;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getPageView() {
-    return this.pageView;
-  }
-
-  public void setPageView(String pageView) {
-    this.pageView = pageView;
-  }
-
-  public String getUniqueVisitor() {
-    return this.uniqueVisitor;
-  }
-
-  public void setUniqueVisitor(String uniqueVisitor) {
-    this.uniqueVisitor = uniqueVisitor;
-  }
-
-  public String getDepartmentId() {
-    return this.departmentId;
-  }
-
-  public void setDepartmentId(String departmentId) {
-    this.departmentId = departmentId;
-  }
-
-  public static class Builder {
-
+    @SerializedName("page_view")
     private String pageView;
+    @SerializedName("unique_visitor")
     private String uniqueVisitor;
+    @SerializedName("department_id")
     private String departmentId;
-
-    public Builder pageView(String pageView) {
-      this.pageView = pageView;
-      return this;
+    public String getPageView() {
+        return this.pageView;
     }
 
-    public Builder uniqueVisitor(String uniqueVisitor) {
-      this.uniqueVisitor = uniqueVisitor;
-      return this;
+    public void setPageView(String pageView) {
+        this.pageView = pageView;
     }
 
-    public Builder departmentId(String departmentId) {
-      this.departmentId = departmentId;
-      return this;
+    public String getUniqueVisitor() {
+        return this.uniqueVisitor;
+    }
+
+    public void setUniqueVisitor(String uniqueVisitor) {
+        this.uniqueVisitor = uniqueVisitor;
+    }
+
+    public String getDepartmentId() {
+        return this.departmentId;
+    }
+
+    public void setDepartmentId(String departmentId) {
+        this.departmentId = departmentId;
     }
 
 
-    public UsageOverviewItem build() {
-      return new UsageOverviewItem(this);
-    }
+// builder 开始
+  public UsageOverviewItem(){}
+
+  public UsageOverviewItem(Builder builder){
+      this.pageView = builder.pageView;
+      this.uniqueVisitor = builder.uniqueVisitor;
+      this.departmentId = builder.departmentId;
   }
+
+    public static class Builder {
+        private String pageView;
+        private String uniqueVisitor;
+        private String departmentId;
+        public Builder pageView(String pageView) {
+             this.pageView = pageView;
+             return this;
+        }
+    
+        public Builder uniqueVisitor(String uniqueVisitor) {
+             this.uniqueVisitor = uniqueVisitor;
+             return this;
+        }
+    
+        public Builder departmentId(String departmentId) {
+             this.departmentId = departmentId;
+             return this;
+        }
+    
+    
+    public UsageOverviewItem build(){
+        return new UsageOverviewItem(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

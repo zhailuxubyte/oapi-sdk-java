@@ -12,46 +12,52 @@
  */
 
 package com.lark.oapi.service.helpdesk.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.helpdesk.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class UnsubscribeEventReqBody {
-
-  @SerializedName("events")
-  private Event[] events;
-
-  // builder 开始
-  public UnsubscribeEventReqBody() {
-  }
-
-  public UnsubscribeEventReqBody(Builder builder) {
-    this.events = builder.events;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Event[] getEvents() {
-    return this.events;
-  }
-
-  public void setEvents(Event[] events) {
-    this.events = events;
-  }
-
-  public static class Builder {
-
+    @SerializedName("events")
     private Event[] events;
+    public Event[] getEvents() {
+        return this.events;
+    }
 
-    public Builder events(Event[] events) {
-      this.events = events;
-      return this;
+    public void setEvents(Event[] events) {
+        this.events = events;
     }
 
 
-    public UnsubscribeEventReqBody build() {
-      return new UnsubscribeEventReqBody(this);
-    }
+// builder 开始
+  public UnsubscribeEventReqBody(){}
+
+  public UnsubscribeEventReqBody(Builder builder){
+      this.events = builder.events;
   }
+
+    public static class Builder {
+        private Event[] events;
+        public Builder events(Event[] events) {
+             this.events = events;
+             return this;
+        }
+    
+    
+    public UnsubscribeEventReqBody build(){
+        return new UnsubscribeEventReqBody(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

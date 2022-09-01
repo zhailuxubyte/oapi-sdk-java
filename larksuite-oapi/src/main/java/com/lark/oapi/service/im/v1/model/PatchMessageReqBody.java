@@ -12,46 +12,52 @@
  */
 
 package com.lark.oapi.service.im.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.im.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class PatchMessageReqBody {
-
-  @SerializedName("content")
-  private String content;
-
-  // builder 开始
-  public PatchMessageReqBody() {
-  }
-
-  public PatchMessageReqBody(Builder builder) {
-    this.content = builder.content;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getContent() {
-    return this.content;
-  }
-
-  public void setContent(String content) {
-    this.content = content;
-  }
-
-  public static class Builder {
-
+    @SerializedName("content")
     private String content;
+    public String getContent() {
+        return this.content;
+    }
 
-    public Builder content(String content) {
-      this.content = content;
-      return this;
+    public void setContent(String content) {
+        this.content = content;
     }
 
 
-    public PatchMessageReqBody build() {
-      return new PatchMessageReqBody(this);
-    }
+// builder 开始
+  public PatchMessageReqBody(){}
+
+  public PatchMessageReqBody(Builder builder){
+      this.content = builder.content;
   }
+
+    public static class Builder {
+        private String content;
+        public Builder content(String content) {
+             this.content = content;
+             return this;
+        }
+    
+    
+    public PatchMessageReqBody build(){
+        return new PatchMessageReqBody(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

@@ -12,41 +12,47 @@
  */
 
 package com.lark.oapi.service.drive.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
 import java.io.File;
-
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class ListFile {
+    @SerializedName("files")
+    private File[] files;
+    @SerializedName("next_page_token")
+    private String nextPageToken;
+    @SerializedName("has_more")
+    private Boolean hasMore;
+    public File[] getFiles() {
+        return this.files;
+    }
 
-  @SerializedName("files")
-  private File[] files;
-  @SerializedName("next_page_token")
-  private String nextPageToken;
-  @SerializedName("has_more")
-  private Boolean hasMore;
+    public void setFiles(File[] files) {
+        this.files = files;
+    }
 
-  public File[] getFiles() {
-    return this.files;
-  }
+    public String getNextPageToken() {
+        return this.nextPageToken;
+    }
 
-  public void setFiles(File[] files) {
-    this.files = files;
-  }
+    public void setNextPageToken(String nextPageToken) {
+        this.nextPageToken = nextPageToken;
+    }
 
-  public String getNextPageToken() {
-    return this.nextPageToken;
-  }
+    public Boolean getHasMore() {
+        return this.hasMore;
+    }
 
-  public void setNextPageToken(String nextPageToken) {
-    this.nextPageToken = nextPageToken;
-  }
-
-  public Boolean getHasMore() {
-    return this.hasMore;
-  }
-
-  public void setHasMore(Boolean hasMore) {
-    this.hasMore = hasMore;
-  }
+    public void setHasMore(Boolean hasMore) {
+        this.hasMore = hasMore;
+    }
 
 }

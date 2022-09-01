@@ -12,50 +12,57 @@
  */
 
 package com.lark.oapi.service.task.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class P2TaskUpdateTenantV1Data {
+    @SerializedName("user_id_list")
+    private UserIdList userIdList;
+    @SerializedName("task_id")
+    private String taskId;
+    @SerializedName("object_type")
+    private String objectType;
+    @SerializedName("event_type")
+    private String eventType;
+    public UserIdList getUserIdList() {
+        return this.userIdList;
+    }
 
-  @SerializedName("user_id_list")
-  private UserIdList userIdList;
-  @SerializedName("task_id")
-  private String taskId;
-  @SerializedName("object_type")
-  private String objectType;
-  @SerializedName("event_type")
-  private String eventType;
+    public void setUserIdList(UserIdList userIdList) {
+        this.userIdList = userIdList;
+    }
 
-  public UserIdList getUserIdList() {
-    return this.userIdList;
-  }
+    public String getTaskId() {
+        return this.taskId;
+    }
 
-  public void setUserIdList(UserIdList userIdList) {
-    this.userIdList = userIdList;
-  }
+    public void setTaskId(String taskId) {
+        this.taskId = taskId;
+    }
 
-  public String getTaskId() {
-    return this.taskId;
-  }
+    public String getObjectType() {
+        return this.objectType;
+    }
 
-  public void setTaskId(String taskId) {
-    this.taskId = taskId;
-  }
+    public void setObjectType(String objectType) {
+        this.objectType = objectType;
+    }
 
-  public String getObjectType() {
-    return this.objectType;
-  }
+    public String getEventType() {
+        return this.eventType;
+    }
 
-  public void setObjectType(String objectType) {
-    this.objectType = objectType;
-  }
-
-  public String getEventType() {
-    return this.eventType;
-  }
-
-  public void setEventType(String eventType) {
-    this.eventType = eventType;
-  }
+    public void setEventType(String eventType) {
+        this.eventType = eventType;
+    }
 
 }

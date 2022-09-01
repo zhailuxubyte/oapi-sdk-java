@@ -12,73 +12,77 @@
  */
 
 package com.lark.oapi.service.search.v2.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.search.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class SchemaSortOptions {
-
-  @SerializedName("priority")
-  private Integer priority;
-  @SerializedName("order")
-  private String order;
-
-  // builder 开始
-  public SchemaSortOptions() {
-  }
-
-  public SchemaSortOptions(Builder builder) {
-    this.priority = builder.priority;
-    this.order = builder.order;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Integer getPriority() {
-    return this.priority;
-  }
-
-  public void setPriority(Integer priority) {
-    this.priority = priority;
-  }
-
-  public String getOrder() {
-    return this.order;
-  }
-
-  public void setOrder(String order) {
-    this.order = order;
-  }
-
-  public static class Builder {
-
+    @SerializedName("priority")
     private Integer priority;
+    @SerializedName("order")
     private String order;
-
-    public Builder priority(Integer priority) {
-      this.priority = priority;
-      return this;
+    public Integer getPriority() {
+        return this.priority;
     }
 
-    public Builder priority(com.lark.oapi.service.search.v2.enums.SchemaSortPriorityEnum priority) {
-      this.priority = priority.getValue();
-      return this;
+    public void setPriority(Integer priority) {
+        this.priority = priority;
     }
 
-    public Builder order(String order) {
-      this.order = order;
-      return this;
+    public String getOrder() {
+        return this.order;
     }
 
-    public Builder order(com.lark.oapi.service.search.v2.enums.SchemaSortOrderEnum order) {
-      this.order = order.getValue();
-      return this;
+    public void setOrder(String order) {
+        this.order = order;
     }
 
 
-    public SchemaSortOptions build() {
-      return new SchemaSortOptions(this);
-    }
+// builder 开始
+  public SchemaSortOptions(){}
+
+  public SchemaSortOptions(Builder builder){
+      this.priority = builder.priority;
+      this.order = builder.order;
   }
+
+    public static class Builder {
+        private Integer priority;
+        private String order;
+        public Builder priority(Integer priority) {
+             this.priority = priority;
+             return this;
+        }
+        public Builder priority(com.lark.oapi.service.search.v2.enums.SchemaSortPriorityEnum priority) {
+             this.priority = priority.getValue();
+             return this;
+        }
+    
+        public Builder order(String order) {
+             this.order = order;
+             return this;
+        }
+        public Builder order(com.lark.oapi.service.search.v2.enums.SchemaSortOrderEnum order) {
+             this.order = order.getValue();
+             return this;
+        }
+    
+    
+    public SchemaSortOptions build(){
+        return new SchemaSortOptions(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

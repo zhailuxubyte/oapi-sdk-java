@@ -12,85 +12,90 @@
  */
 
 package com.lark.oapi.service.approval.v4.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.approval.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class I18nResource {
-
-  @SerializedName("locale")
-  private String locale;
-  @SerializedName("texts")
-  private I18nResourceText[] texts;
-  @SerializedName("is_default")
-  private Boolean isDefault;
-
-  // builder 开始
-  public I18nResource() {
-  }
-
-  public I18nResource(Builder builder) {
-    this.locale = builder.locale;
-    this.texts = builder.texts;
-    this.isDefault = builder.isDefault;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getLocale() {
-    return this.locale;
-  }
-
-  public void setLocale(String locale) {
-    this.locale = locale;
-  }
-
-  public I18nResourceText[] getTexts() {
-    return this.texts;
-  }
-
-  public void setTexts(I18nResourceText[] texts) {
-    this.texts = texts;
-  }
-
-  public Boolean getIsDefault() {
-    return this.isDefault;
-  }
-
-  public void setIsDefault(Boolean isDefault) {
-    this.isDefault = isDefault;
-  }
-
-  public static class Builder {
-
+    @SerializedName("locale")
     private String locale;
+    @SerializedName("texts")
     private I18nResourceText[] texts;
+    @SerializedName("is_default")
     private Boolean isDefault;
-
-    public Builder locale(String locale) {
-      this.locale = locale;
-      return this;
+    public String getLocale() {
+        return this.locale;
     }
 
-    public Builder locale(com.lark.oapi.service.approval.v4.enums.LocaleEnum locale) {
-      this.locale = locale.getValue();
-      return this;
+    public void setLocale(String locale) {
+        this.locale = locale;
     }
 
-    public Builder texts(I18nResourceText[] texts) {
-      this.texts = texts;
-      return this;
+    public I18nResourceText[] getTexts() {
+        return this.texts;
     }
 
-    public Builder isDefault(Boolean isDefault) {
-      this.isDefault = isDefault;
-      return this;
+    public void setTexts(I18nResourceText[] texts) {
+        this.texts = texts;
+    }
+
+    public Boolean getIsDefault() {
+        return this.isDefault;
+    }
+
+    public void setIsDefault(Boolean isDefault) {
+        this.isDefault = isDefault;
     }
 
 
-    public I18nResource build() {
-      return new I18nResource(this);
-    }
+// builder 开始
+  public I18nResource(){}
+
+  public I18nResource(Builder builder){
+      this.locale = builder.locale;
+      this.texts = builder.texts;
+      this.isDefault = builder.isDefault;
   }
+
+    public static class Builder {
+        private String locale;
+        private I18nResourceText[] texts;
+        private Boolean isDefault;
+        public Builder locale(String locale) {
+             this.locale = locale;
+             return this;
+        }
+        public Builder locale(com.lark.oapi.service.approval.v4.enums.LocaleEnum locale) {
+             this.locale = locale.getValue();
+             return this;
+        }
+    
+        public Builder texts(I18nResourceText[] texts) {
+             this.texts = texts;
+             return this;
+        }
+    
+        public Builder isDefault(Boolean isDefault) {
+             this.isDefault = isDefault;
+             return this;
+        }
+    
+    
+    public I18nResource build(){
+        return new I18nResource(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

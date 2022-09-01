@@ -12,65 +12,70 @@
  */
 
 package com.lark.oapi.service.bitable.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.bitable.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class DeleteAppRoleReq {
-
-  @Path
-  @SerializedName("app_token")
-  private String appToken;
-  @Path
-  @SerializedName("role_id")
-  private String roleId;
-
-  // builder 开始
-  public DeleteAppRoleReq() {
-  }
-
-  public DeleteAppRoleReq(Builder builder) {
-    this.appToken = builder.appToken;
-    this.roleId = builder.roleId;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getAppToken() {
-    return this.appToken;
-  }
-
-  public void setAppToken(String appToken) {
-    this.appToken = appToken;
-  }
-
-  public String getRoleId() {
-    return this.roleId;
-  }
-
-  public void setRoleId(String roleId) {
-    this.roleId = roleId;
-  }
-
-  public static class Builder {
-
+    @Path
+    @SerializedName("app_token")
     private String appToken;
+    @Path
+    @SerializedName("role_id")
     private String roleId;
-
-    public Builder appToken(String appToken) {
-      this.appToken = appToken;
-      return this;
+    public String getAppToken() {
+        return this.appToken;
     }
 
-    public Builder roleId(String roleId) {
-      this.roleId = roleId;
-      return this;
+    public void setAppToken(String appToken) {
+        this.appToken = appToken;
     }
 
-    public DeleteAppRoleReq build() {
-      return new DeleteAppRoleReq(this);
+    public String getRoleId() {
+        return this.roleId;
     }
+
+    public void setRoleId(String roleId) {
+        this.roleId = roleId;
+    }
+
+
+// builder 开始
+  public DeleteAppRoleReq(){}
+
+  public DeleteAppRoleReq(Builder builder){
+       this.appToken = builder.appToken;
+       this.roleId = builder.roleId;
   }
+
+    public static class Builder {
+    
+        private String appToken;
+        private String roleId;
+          public Builder appToken(String appToken) {
+               this.appToken = appToken;
+               return this;
+          }
+    
+          public Builder roleId(String roleId) {
+               this.roleId = roleId;
+               return this;
+          }
+    
+    public DeleteAppRoleReq build(){
+        return new DeleteAppRoleReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

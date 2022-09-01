@@ -12,63 +12,69 @@
  */
 
 package com.lark.oapi.service.contact.v3.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.contact.v3.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class GroupEvent {
-
-  @SerializedName("user_group_id")
-  private String userGroupId;
-  @SerializedName("name")
-  private String name;
-
-  // builder 开始
-  public GroupEvent() {
-  }
-
-  public GroupEvent(Builder builder) {
-    this.userGroupId = builder.userGroupId;
-    this.name = builder.name;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getUserGroupId() {
-    return this.userGroupId;
-  }
-
-  public void setUserGroupId(String userGroupId) {
-    this.userGroupId = userGroupId;
-  }
-
-  public String getName() {
-    return this.name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public static class Builder {
-
+    @SerializedName("user_group_id")
     private String userGroupId;
+    @SerializedName("name")
     private String name;
-
-    public Builder userGroupId(String userGroupId) {
-      this.userGroupId = userGroupId;
-      return this;
+    public String getUserGroupId() {
+        return this.userGroupId;
     }
 
-    public Builder name(String name) {
-      this.name = name;
-      return this;
+    public void setUserGroupId(String userGroupId) {
+        this.userGroupId = userGroupId;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
 
-    public GroupEvent build() {
-      return new GroupEvent(this);
-    }
+// builder 开始
+  public GroupEvent(){}
+
+  public GroupEvent(Builder builder){
+      this.userGroupId = builder.userGroupId;
+      this.name = builder.name;
   }
+
+    public static class Builder {
+        private String userGroupId;
+        private String name;
+        public Builder userGroupId(String userGroupId) {
+             this.userGroupId = userGroupId;
+             return this;
+        }
+    
+        public Builder name(String name) {
+             this.name = name;
+             return this;
+        }
+    
+    
+    public GroupEvent build(){
+        return new GroupEvent(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

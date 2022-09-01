@@ -12,106 +12,110 @@
  */
 
 package com.lark.oapi.service.baike.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.baike.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class ListEntityReq {
-
-  @Query
-  @SerializedName("page_size")
-  private Integer pageSize;
-  @Query
-  @SerializedName("page_token")
-  private String pageToken;
-  @Query
-  @SerializedName("provider")
-  private String provider;
-  @Query
-  @SerializedName("user_id_type")
-  private String userIdType;
-
-  // builder 开始
-  public ListEntityReq() {
-  }
-
-  public ListEntityReq(Builder builder) {
-    this.pageSize = builder.pageSize;
-    this.pageToken = builder.pageToken;
-    this.provider = builder.provider;
-    this.userIdType = builder.userIdType;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Integer getPageSize() {
-    return this.pageSize;
-  }
-
-  public void setPageSize(Integer pageSize) {
-    this.pageSize = pageSize;
-  }
-
-  public String getPageToken() {
-    return this.pageToken;
-  }
-
-  public void setPageToken(String pageToken) {
-    this.pageToken = pageToken;
-  }
-
-  public String getProvider() {
-    return this.provider;
-  }
-
-  public void setProvider(String provider) {
-    this.provider = provider;
-  }
-
-  public String getUserIdType() {
-    return this.userIdType;
-  }
-
-  public void setUserIdType(String userIdType) {
-    this.userIdType = userIdType;
-  }
-
-  public static class Builder {
-
+    @Query
+    @SerializedName("page_size")
     private Integer pageSize;
+    @Query
+    @SerializedName("page_token")
     private String pageToken;
+    @Query
+    @SerializedName("provider")
     private String provider;
+    @Query
+    @SerializedName("user_id_type")
     private String userIdType;
-
-    public Builder pageSize(Integer pageSize) {
-      this.pageSize = pageSize;
-      return this;
+    public Integer getPageSize() {
+        return this.pageSize;
     }
 
-    public Builder pageToken(String pageToken) {
-      this.pageToken = pageToken;
-      return this;
+    public void setPageSize(Integer pageSize) {
+        this.pageSize = pageSize;
     }
 
-    public Builder provider(String provider) {
-      this.provider = provider;
-      return this;
+    public String getPageToken() {
+        return this.pageToken;
     }
 
-    public Builder userIdType(String userIdType) {
-      this.userIdType = userIdType;
-      return this;
+    public void setPageToken(String pageToken) {
+        this.pageToken = pageToken;
     }
 
-    public Builder userIdType(com.lark.oapi.service.baike.v1.enums.UserIdTypeEnum userIdType) {
-      this.userIdType = userIdType.getValue();
-      return this;
+    public String getProvider() {
+        return this.provider;
     }
 
-    public ListEntityReq build() {
-      return new ListEntityReq(this);
+    public void setProvider(String provider) {
+        this.provider = provider;
     }
+
+    public String getUserIdType() {
+        return this.userIdType;
+    }
+
+    public void setUserIdType(String userIdType) {
+        this.userIdType = userIdType;
+    }
+
+
+// builder 开始
+  public ListEntityReq(){}
+
+  public ListEntityReq(Builder builder){
+       this.pageSize = builder.pageSize;
+       this.pageToken = builder.pageToken;
+       this.provider = builder.provider;
+       this.userIdType = builder.userIdType;
   }
+
+    public static class Builder {
+        private Integer pageSize;
+        private String pageToken;
+        private String provider;
+        private String userIdType;
+    
+           public Builder pageSize(Integer pageSize) {
+                this.pageSize = pageSize;
+                return this;
+           }
+    
+           public Builder pageToken(String pageToken) {
+                this.pageToken = pageToken;
+                return this;
+           }
+    
+           public Builder provider(String provider) {
+                this.provider = provider;
+                return this;
+           }
+    
+           public Builder userIdType(String userIdType) {
+                this.userIdType = userIdType;
+                return this;
+           }
+          public Builder userIdType(com.lark.oapi.service.baike.v1.enums.UserIdTypeEnum userIdType) {
+               this.userIdType = userIdType.getValue();
+               return this;
+          }
+    
+    public ListEntityReq build(){
+        return new ListEntityReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

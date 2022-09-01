@@ -12,80 +12,86 @@
  */
 
 package com.lark.oapi.service.task.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.task.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class Due {
-
-  @SerializedName("time")
-  private String time;
-  @SerializedName("timezone")
-  private String timezone;
-  @SerializedName("is_all_day")
-  private Boolean isAllDay;
-
-  // builder 开始
-  public Due() {
-  }
-
-  public Due(Builder builder) {
-    this.time = builder.time;
-    this.timezone = builder.timezone;
-    this.isAllDay = builder.isAllDay;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getTime() {
-    return this.time;
-  }
-
-  public void setTime(String time) {
-    this.time = time;
-  }
-
-  public String getTimezone() {
-    return this.timezone;
-  }
-
-  public void setTimezone(String timezone) {
-    this.timezone = timezone;
-  }
-
-  public Boolean getIsAllDay() {
-    return this.isAllDay;
-  }
-
-  public void setIsAllDay(Boolean isAllDay) {
-    this.isAllDay = isAllDay;
-  }
-
-  public static class Builder {
-
+    @SerializedName("time")
     private String time;
+    @SerializedName("timezone")
     private String timezone;
+    @SerializedName("is_all_day")
     private Boolean isAllDay;
-
-    public Builder time(String time) {
-      this.time = time;
-      return this;
+    public String getTime() {
+        return this.time;
     }
 
-    public Builder timezone(String timezone) {
-      this.timezone = timezone;
-      return this;
+    public void setTime(String time) {
+        this.time = time;
     }
 
-    public Builder isAllDay(Boolean isAllDay) {
-      this.isAllDay = isAllDay;
-      return this;
+    public String getTimezone() {
+        return this.timezone;
+    }
+
+    public void setTimezone(String timezone) {
+        this.timezone = timezone;
+    }
+
+    public Boolean getIsAllDay() {
+        return this.isAllDay;
+    }
+
+    public void setIsAllDay(Boolean isAllDay) {
+        this.isAllDay = isAllDay;
     }
 
 
-    public Due build() {
-      return new Due(this);
-    }
+// builder 开始
+  public Due(){}
+
+  public Due(Builder builder){
+      this.time = builder.time;
+      this.timezone = builder.timezone;
+      this.isAllDay = builder.isAllDay;
   }
+
+    public static class Builder {
+        private String time;
+        private String timezone;
+        private Boolean isAllDay;
+        public Builder time(String time) {
+             this.time = time;
+             return this;
+        }
+    
+        public Builder timezone(String timezone) {
+             this.timezone = timezone;
+             return this;
+        }
+    
+        public Builder isAllDay(Boolean isAllDay) {
+             this.isAllDay = isAllDay;
+             return this;
+        }
+    
+    
+    public Due build(){
+        return new Due(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

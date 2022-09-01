@@ -12,63 +12,69 @@
  */
 
 package com.lark.oapi.service.calendar.v4.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.calendar.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class Freebusy {
-
-  @SerializedName("start_time")
-  private String startTime;
-  @SerializedName("end_time")
-  private String endTime;
-
-  // builder 开始
-  public Freebusy() {
-  }
-
-  public Freebusy(Builder builder) {
-    this.startTime = builder.startTime;
-    this.endTime = builder.endTime;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getStartTime() {
-    return this.startTime;
-  }
-
-  public void setStartTime(String startTime) {
-    this.startTime = startTime;
-  }
-
-  public String getEndTime() {
-    return this.endTime;
-  }
-
-  public void setEndTime(String endTime) {
-    this.endTime = endTime;
-  }
-
-  public static class Builder {
-
+    @SerializedName("start_time")
     private String startTime;
+    @SerializedName("end_time")
     private String endTime;
-
-    public Builder startTime(String startTime) {
-      this.startTime = startTime;
-      return this;
+    public String getStartTime() {
+        return this.startTime;
     }
 
-    public Builder endTime(String endTime) {
-      this.endTime = endTime;
-      return this;
+    public void setStartTime(String startTime) {
+        this.startTime = startTime;
+    }
+
+    public String getEndTime() {
+        return this.endTime;
+    }
+
+    public void setEndTime(String endTime) {
+        this.endTime = endTime;
     }
 
 
-    public Freebusy build() {
-      return new Freebusy(this);
-    }
+// builder 开始
+  public Freebusy(){}
+
+  public Freebusy(Builder builder){
+      this.startTime = builder.startTime;
+      this.endTime = builder.endTime;
   }
+
+    public static class Builder {
+        private String startTime;
+        private String endTime;
+        public Builder startTime(String startTime) {
+             this.startTime = startTime;
+             return this;
+        }
+    
+        public Builder endTime(String endTime) {
+             this.endTime = endTime;
+             return this;
+        }
+    
+    
+    public Freebusy build(){
+        return new Freebusy(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

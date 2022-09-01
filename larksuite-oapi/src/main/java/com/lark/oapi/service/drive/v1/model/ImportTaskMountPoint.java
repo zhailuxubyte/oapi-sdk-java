@@ -12,68 +12,73 @@
  */
 
 package com.lark.oapi.service.drive.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.drive.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class ImportTaskMountPoint {
-
-  @SerializedName("mount_type")
-  private Integer mountType;
-  @SerializedName("mount_key")
-  private String mountKey;
-
-  // builder 开始
-  public ImportTaskMountPoint() {
-  }
-
-  public ImportTaskMountPoint(Builder builder) {
-    this.mountType = builder.mountType;
-    this.mountKey = builder.mountKey;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Integer getMountType() {
-    return this.mountType;
-  }
-
-  public void setMountType(Integer mountType) {
-    this.mountType = mountType;
-  }
-
-  public String getMountKey() {
-    return this.mountKey;
-  }
-
-  public void setMountKey(String mountKey) {
-    this.mountKey = mountKey;
-  }
-
-  public static class Builder {
-
+    @SerializedName("mount_type")
     private Integer mountType;
+    @SerializedName("mount_key")
     private String mountKey;
-
-    public Builder mountType(Integer mountType) {
-      this.mountType = mountType;
-      return this;
+    public Integer getMountType() {
+        return this.mountType;
     }
 
-    public Builder mountType(com.lark.oapi.service.drive.v1.enums.MountTypeEnum mountType) {
-      this.mountType = mountType.getValue();
-      return this;
+    public void setMountType(Integer mountType) {
+        this.mountType = mountType;
     }
 
-    public Builder mountKey(String mountKey) {
-      this.mountKey = mountKey;
-      return this;
+    public String getMountKey() {
+        return this.mountKey;
+    }
+
+    public void setMountKey(String mountKey) {
+        this.mountKey = mountKey;
     }
 
 
-    public ImportTaskMountPoint build() {
-      return new ImportTaskMountPoint(this);
-    }
+// builder 开始
+  public ImportTaskMountPoint(){}
+
+  public ImportTaskMountPoint(Builder builder){
+      this.mountType = builder.mountType;
+      this.mountKey = builder.mountKey;
   }
+
+    public static class Builder {
+        private Integer mountType;
+        private String mountKey;
+        public Builder mountType(Integer mountType) {
+             this.mountType = mountType;
+             return this;
+        }
+        public Builder mountType(com.lark.oapi.service.drive.v1.enums.MountTypeEnum mountType) {
+             this.mountType = mountType.getValue();
+             return this;
+        }
+    
+        public Builder mountKey(String mountKey) {
+             this.mountKey = mountKey;
+             return this;
+        }
+    
+    
+    public ImportTaskMountPoint build(){
+        return new ImportTaskMountPoint(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

@@ -12,60 +12,67 @@
  */
 
 package com.lark.oapi.service.vc.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class QueryRoomConfig {
+    @SerializedName("room_background")
+    private String roomBackground;
+    @SerializedName("display_background")
+    private String displayBackground;
+    @SerializedName("digital_signage")
+    private RoomDigitalSignage digitalSignage;
+    @SerializedName("room_box_digital_signage")
+    private RoomDigitalSignage roomBoxDigitalSignage;
+    @SerializedName("room_status")
+    private RoomStatus roomStatus;
+    public String getRoomBackground() {
+        return this.roomBackground;
+    }
 
-  @SerializedName("room_background")
-  private String roomBackground;
-  @SerializedName("display_background")
-  private String displayBackground;
-  @SerializedName("digital_signage")
-  private RoomDigitalSignage digitalSignage;
-  @SerializedName("room_box_digital_signage")
-  private RoomDigitalSignage roomBoxDigitalSignage;
-  @SerializedName("room_status")
-  private RoomStatus roomStatus;
+    public void setRoomBackground(String roomBackground) {
+        this.roomBackground = roomBackground;
+    }
 
-  public String getRoomBackground() {
-    return this.roomBackground;
-  }
+    public String getDisplayBackground() {
+        return this.displayBackground;
+    }
 
-  public void setRoomBackground(String roomBackground) {
-    this.roomBackground = roomBackground;
-  }
+    public void setDisplayBackground(String displayBackground) {
+        this.displayBackground = displayBackground;
+    }
 
-  public String getDisplayBackground() {
-    return this.displayBackground;
-  }
+    public RoomDigitalSignage getDigitalSignage() {
+        return this.digitalSignage;
+    }
 
-  public void setDisplayBackground(String displayBackground) {
-    this.displayBackground = displayBackground;
-  }
+    public void setDigitalSignage(RoomDigitalSignage digitalSignage) {
+        this.digitalSignage = digitalSignage;
+    }
 
-  public RoomDigitalSignage getDigitalSignage() {
-    return this.digitalSignage;
-  }
+    public RoomDigitalSignage getRoomBoxDigitalSignage() {
+        return this.roomBoxDigitalSignage;
+    }
 
-  public void setDigitalSignage(RoomDigitalSignage digitalSignage) {
-    this.digitalSignage = digitalSignage;
-  }
+    public void setRoomBoxDigitalSignage(RoomDigitalSignage roomBoxDigitalSignage) {
+        this.roomBoxDigitalSignage = roomBoxDigitalSignage;
+    }
 
-  public RoomDigitalSignage getRoomBoxDigitalSignage() {
-    return this.roomBoxDigitalSignage;
-  }
+    public RoomStatus getRoomStatus() {
+        return this.roomStatus;
+    }
 
-  public void setRoomBoxDigitalSignage(RoomDigitalSignage roomBoxDigitalSignage) {
-    this.roomBoxDigitalSignage = roomBoxDigitalSignage;
-  }
-
-  public RoomStatus getRoomStatus() {
-    return this.roomStatus;
-  }
-
-  public void setRoomStatus(RoomStatus roomStatus) {
-    this.roomStatus = roomStatus;
-  }
+    public void setRoomStatus(RoomStatus roomStatus) {
+        this.roomStatus = roomStatus;
+    }
 
 }

@@ -12,69 +12,72 @@
  */
 
 package com.lark.oapi.service.im.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.im.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class PatchMessageReq {
-
-  @Path
-  @SerializedName("message_id")
-  private String messageId;
-  @Body
-  private PatchMessageReqBody body;
-
-  // builder 开始
-  public PatchMessageReq() {
-  }
-
-  public PatchMessageReq(Builder builder) {
-    this.messageId = builder.messageId;
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getMessageId() {
-    return this.messageId;
-  }
-
-  public void setMessageId(String messageId) {
-    this.messageId = messageId;
-  }
-
-  public PatchMessageReqBody getPatchMessageReqBody() {
-    return this.body;
-  }
-
-  public void setPatchMessageReqBody(PatchMessageReqBody body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
+    @Path
+    @SerializedName("message_id")
     private String messageId;
+    public String getMessageId() {
+        return this.messageId;
+    }
+
+    public void setMessageId(String messageId) {
+        this.messageId = messageId;
+    }
+
+    @Body
     private PatchMessageReqBody body;
 
-    public Builder messageId(String messageId) {
-      this.messageId = messageId;
-      return this;
-    }
-
     public PatchMessageReqBody getPatchMessageReqBody() {
-      return this.body;
+        return this.body;
     }
 
-    public Builder patchMessageReqBody(PatchMessageReqBody body) {
-      this.body = body;
-      return this;
+    public void setPatchMessageReqBody(PatchMessageReqBody body) {
+        this.body = body;
     }
 
-    public PatchMessageReq build() {
-      return new PatchMessageReq(this);
-    }
+// builder 开始
+  public PatchMessageReq(){}
+
+  public PatchMessageReq(Builder builder){
+       this.messageId = builder.messageId;
+        this.body = builder.body;
   }
+
+    public static class Builder {
+    
+        private String messageId;
+          public Builder messageId(String messageId) {
+               this.messageId = messageId;
+               return this;
+          }
+    
+        private PatchMessageReqBody body;
+    
+        public PatchMessageReqBody getPatchMessageReqBody() {
+            return this.body;
+        }
+        public Builder patchMessageReqBody(PatchMessageReqBody body) {
+             this.body = body;
+             return this;
+        }
+    public PatchMessageReq build(){
+        return new PatchMessageReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

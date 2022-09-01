@@ -12,46 +12,52 @@
  */
 
 package com.lark.oapi.service.application.v6.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.application.v6.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class Bot {
-
-  @SerializedName("card_request_url")
-  private String cardRequestUrl;
-
-  // builder 开始
-  public Bot() {
-  }
-
-  public Bot(Builder builder) {
-    this.cardRequestUrl = builder.cardRequestUrl;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getCardRequestUrl() {
-    return this.cardRequestUrl;
-  }
-
-  public void setCardRequestUrl(String cardRequestUrl) {
-    this.cardRequestUrl = cardRequestUrl;
-  }
-
-  public static class Builder {
-
+    @SerializedName("card_request_url")
     private String cardRequestUrl;
+    public String getCardRequestUrl() {
+        return this.cardRequestUrl;
+    }
 
-    public Builder cardRequestUrl(String cardRequestUrl) {
-      this.cardRequestUrl = cardRequestUrl;
-      return this;
+    public void setCardRequestUrl(String cardRequestUrl) {
+        this.cardRequestUrl = cardRequestUrl;
     }
 
 
-    public Bot build() {
-      return new Bot(this);
-    }
+// builder 开始
+  public Bot(){}
+
+  public Bot(Builder builder){
+      this.cardRequestUrl = builder.cardRequestUrl;
   }
+
+    public static class Builder {
+        private String cardRequestUrl;
+        public Builder cardRequestUrl(String cardRequestUrl) {
+             this.cardRequestUrl = cardRequestUrl;
+             return this;
+        }
+    
+    
+    public Bot build(){
+        return new Bot(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

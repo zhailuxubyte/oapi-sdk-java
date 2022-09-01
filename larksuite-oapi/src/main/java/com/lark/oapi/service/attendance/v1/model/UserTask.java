@@ -12,148 +12,154 @@
  */
 
 package com.lark.oapi.service.attendance.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.attendance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class UserTask {
-
-  @SerializedName("result_id")
-  private String resultId;
-  @SerializedName("user_id")
-  private String userId;
-  @SerializedName("employee_name")
-  private String employeeName;
-  @SerializedName("day")
-  private Integer day;
-  @SerializedName("group_id")
-  private String groupId;
-  @SerializedName("shift_id")
-  private String shiftId;
-  @SerializedName("records")
-  private TaskResult[] records;
-
-  // builder 开始
-  public UserTask() {
-  }
-
-  public UserTask(Builder builder) {
-    this.resultId = builder.resultId;
-    this.userId = builder.userId;
-    this.employeeName = builder.employeeName;
-    this.day = builder.day;
-    this.groupId = builder.groupId;
-    this.shiftId = builder.shiftId;
-    this.records = builder.records;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getResultId() {
-    return this.resultId;
-  }
-
-  public void setResultId(String resultId) {
-    this.resultId = resultId;
-  }
-
-  public String getUserId() {
-    return this.userId;
-  }
-
-  public void setUserId(String userId) {
-    this.userId = userId;
-  }
-
-  public String getEmployeeName() {
-    return this.employeeName;
-  }
-
-  public void setEmployeeName(String employeeName) {
-    this.employeeName = employeeName;
-  }
-
-  public Integer getDay() {
-    return this.day;
-  }
-
-  public void setDay(Integer day) {
-    this.day = day;
-  }
-
-  public String getGroupId() {
-    return this.groupId;
-  }
-
-  public void setGroupId(String groupId) {
-    this.groupId = groupId;
-  }
-
-  public String getShiftId() {
-    return this.shiftId;
-  }
-
-  public void setShiftId(String shiftId) {
-    this.shiftId = shiftId;
-  }
-
-  public TaskResult[] getRecords() {
-    return this.records;
-  }
-
-  public void setRecords(TaskResult[] records) {
-    this.records = records;
-  }
-
-  public static class Builder {
-
+    @SerializedName("result_id")
     private String resultId;
+    @SerializedName("user_id")
     private String userId;
+    @SerializedName("employee_name")
     private String employeeName;
+    @SerializedName("day")
     private Integer day;
+    @SerializedName("group_id")
     private String groupId;
+    @SerializedName("shift_id")
     private String shiftId;
+    @SerializedName("records")
     private TaskResult[] records;
-
-    public Builder resultId(String resultId) {
-      this.resultId = resultId;
-      return this;
+    public String getResultId() {
+        return this.resultId;
     }
 
-    public Builder userId(String userId) {
-      this.userId = userId;
-      return this;
+    public void setResultId(String resultId) {
+        this.resultId = resultId;
     }
 
-    public Builder employeeName(String employeeName) {
-      this.employeeName = employeeName;
-      return this;
+    public String getUserId() {
+        return this.userId;
     }
 
-    public Builder day(Integer day) {
-      this.day = day;
-      return this;
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
-    public Builder groupId(String groupId) {
-      this.groupId = groupId;
-      return this;
+    public String getEmployeeName() {
+        return this.employeeName;
     }
 
-    public Builder shiftId(String shiftId) {
-      this.shiftId = shiftId;
-      return this;
+    public void setEmployeeName(String employeeName) {
+        this.employeeName = employeeName;
     }
 
-    public Builder records(TaskResult[] records) {
-      this.records = records;
-      return this;
+    public Integer getDay() {
+        return this.day;
+    }
+
+    public void setDay(Integer day) {
+        this.day = day;
+    }
+
+    public String getGroupId() {
+        return this.groupId;
+    }
+
+    public void setGroupId(String groupId) {
+        this.groupId = groupId;
+    }
+
+    public String getShiftId() {
+        return this.shiftId;
+    }
+
+    public void setShiftId(String shiftId) {
+        this.shiftId = shiftId;
+    }
+
+    public TaskResult[] getRecords() {
+        return this.records;
+    }
+
+    public void setRecords(TaskResult[] records) {
+        this.records = records;
     }
 
 
-    public UserTask build() {
-      return new UserTask(this);
-    }
+// builder 开始
+  public UserTask(){}
+
+  public UserTask(Builder builder){
+      this.resultId = builder.resultId;
+      this.userId = builder.userId;
+      this.employeeName = builder.employeeName;
+      this.day = builder.day;
+      this.groupId = builder.groupId;
+      this.shiftId = builder.shiftId;
+      this.records = builder.records;
   }
+
+    public static class Builder {
+        private String resultId;
+        private String userId;
+        private String employeeName;
+        private Integer day;
+        private String groupId;
+        private String shiftId;
+        private TaskResult[] records;
+        public Builder resultId(String resultId) {
+             this.resultId = resultId;
+             return this;
+        }
+    
+        public Builder userId(String userId) {
+             this.userId = userId;
+             return this;
+        }
+    
+        public Builder employeeName(String employeeName) {
+             this.employeeName = employeeName;
+             return this;
+        }
+    
+        public Builder day(Integer day) {
+             this.day = day;
+             return this;
+        }
+    
+        public Builder groupId(String groupId) {
+             this.groupId = groupId;
+             return this;
+        }
+    
+        public Builder shiftId(String shiftId) {
+             this.shiftId = shiftId;
+             return this;
+        }
+    
+        public Builder records(TaskResult[] records) {
+             this.records = records;
+             return this;
+        }
+    
+    
+    public UserTask build(){
+        return new UserTask(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

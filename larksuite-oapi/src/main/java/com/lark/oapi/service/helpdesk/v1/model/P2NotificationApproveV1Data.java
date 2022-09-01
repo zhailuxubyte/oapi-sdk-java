@@ -12,40 +12,47 @@
  */
 
 package com.lark.oapi.service.helpdesk.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class P2NotificationApproveV1Data {
+    @SerializedName("notification_id")
+    private String notificationId;
+    @SerializedName("helpdesk_id")
+    private String helpdeskId;
+    @SerializedName("approve_status")
+    private String approveStatus;
+    public String getNotificationId() {
+        return this.notificationId;
+    }
 
-  @SerializedName("notification_id")
-  private String notificationId;
-  @SerializedName("helpdesk_id")
-  private String helpdeskId;
-  @SerializedName("approve_status")
-  private String approveStatus;
+    public void setNotificationId(String notificationId) {
+        this.notificationId = notificationId;
+    }
 
-  public String getNotificationId() {
-    return this.notificationId;
-  }
+    public String getHelpdeskId() {
+        return this.helpdeskId;
+    }
 
-  public void setNotificationId(String notificationId) {
-    this.notificationId = notificationId;
-  }
+    public void setHelpdeskId(String helpdeskId) {
+        this.helpdeskId = helpdeskId;
+    }
 
-  public String getHelpdeskId() {
-    return this.helpdeskId;
-  }
+    public String getApproveStatus() {
+        return this.approveStatus;
+    }
 
-  public void setHelpdeskId(String helpdeskId) {
-    this.helpdeskId = helpdeskId;
-  }
-
-  public String getApproveStatus() {
-    return this.approveStatus;
-  }
-
-  public void setApproveStatus(String approveStatus) {
-    this.approveStatus = approveStatus;
-  }
+    public void setApproveStatus(String approveStatus) {
+        this.approveStatus = approveStatus;
+    }
 
 }

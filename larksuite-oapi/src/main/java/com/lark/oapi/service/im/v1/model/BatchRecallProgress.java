@@ -12,63 +12,69 @@
  */
 
 package com.lark.oapi.service.im.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.im.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class BatchRecallProgress {
-
-  @SerializedName("recall_count")
-  private String recallCount;
-  @SerializedName("total_recall_count")
-  private String totalRecallCount;
-
-  // builder 开始
-  public BatchRecallProgress() {
-  }
-
-  public BatchRecallProgress(Builder builder) {
-    this.recallCount = builder.recallCount;
-    this.totalRecallCount = builder.totalRecallCount;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getRecallCount() {
-    return this.recallCount;
-  }
-
-  public void setRecallCount(String recallCount) {
-    this.recallCount = recallCount;
-  }
-
-  public String getTotalRecallCount() {
-    return this.totalRecallCount;
-  }
-
-  public void setTotalRecallCount(String totalRecallCount) {
-    this.totalRecallCount = totalRecallCount;
-  }
-
-  public static class Builder {
-
+    @SerializedName("recall_count")
     private String recallCount;
+    @SerializedName("total_recall_count")
     private String totalRecallCount;
-
-    public Builder recallCount(String recallCount) {
-      this.recallCount = recallCount;
-      return this;
+    public String getRecallCount() {
+        return this.recallCount;
     }
 
-    public Builder totalRecallCount(String totalRecallCount) {
-      this.totalRecallCount = totalRecallCount;
-      return this;
+    public void setRecallCount(String recallCount) {
+        this.recallCount = recallCount;
+    }
+
+    public String getTotalRecallCount() {
+        return this.totalRecallCount;
+    }
+
+    public void setTotalRecallCount(String totalRecallCount) {
+        this.totalRecallCount = totalRecallCount;
     }
 
 
-    public BatchRecallProgress build() {
-      return new BatchRecallProgress(this);
-    }
+// builder 开始
+  public BatchRecallProgress(){}
+
+  public BatchRecallProgress(Builder builder){
+      this.recallCount = builder.recallCount;
+      this.totalRecallCount = builder.totalRecallCount;
   }
+
+    public static class Builder {
+        private String recallCount;
+        private String totalRecallCount;
+        public Builder recallCount(String recallCount) {
+             this.recallCount = recallCount;
+             return this;
+        }
+    
+        public Builder totalRecallCount(String totalRecallCount) {
+             this.totalRecallCount = totalRecallCount;
+             return this;
+        }
+    
+    
+    public BatchRecallProgress build(){
+        return new BatchRecallProgress(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

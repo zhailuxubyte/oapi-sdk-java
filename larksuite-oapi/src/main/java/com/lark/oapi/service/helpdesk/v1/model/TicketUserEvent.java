@@ -12,97 +12,103 @@
  */
 
 package com.lark.oapi.service.helpdesk.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.helpdesk.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class TicketUserEvent {
-
-  @SerializedName("id")
-  private UserId id;
-  @SerializedName("avatar_url")
-  private String avatarUrl;
-  @SerializedName("name")
-  private String name;
-  @SerializedName("email")
-  private String email;
-
-  // builder 开始
-  public TicketUserEvent() {
-  }
-
-  public TicketUserEvent(Builder builder) {
-    this.id = builder.id;
-    this.avatarUrl = builder.avatarUrl;
-    this.name = builder.name;
-    this.email = builder.email;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public UserId getId() {
-    return this.id;
-  }
-
-  public void setId(UserId id) {
-    this.id = id;
-  }
-
-  public String getAvatarUrl() {
-    return this.avatarUrl;
-  }
-
-  public void setAvatarUrl(String avatarUrl) {
-    this.avatarUrl = avatarUrl;
-  }
-
-  public String getName() {
-    return this.name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public String getEmail() {
-    return this.email;
-  }
-
-  public void setEmail(String email) {
-    this.email = email;
-  }
-
-  public static class Builder {
-
+    @SerializedName("id")
     private UserId id;
+    @SerializedName("avatar_url")
     private String avatarUrl;
+    @SerializedName("name")
     private String name;
+    @SerializedName("email")
     private String email;
-
-    public Builder id(UserId id) {
-      this.id = id;
-      return this;
+    public UserId getId() {
+        return this.id;
     }
 
-    public Builder avatarUrl(String avatarUrl) {
-      this.avatarUrl = avatarUrl;
-      return this;
+    public void setId(UserId id) {
+        this.id = id;
     }
 
-    public Builder name(String name) {
-      this.name = name;
-      return this;
+    public String getAvatarUrl() {
+        return this.avatarUrl;
     }
 
-    public Builder email(String email) {
-      this.email = email;
-      return this;
+    public void setAvatarUrl(String avatarUrl) {
+        this.avatarUrl = avatarUrl;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getEmail() {
+        return this.email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
 
-    public TicketUserEvent build() {
-      return new TicketUserEvent(this);
-    }
+// builder 开始
+  public TicketUserEvent(){}
+
+  public TicketUserEvent(Builder builder){
+      this.id = builder.id;
+      this.avatarUrl = builder.avatarUrl;
+      this.name = builder.name;
+      this.email = builder.email;
   }
+
+    public static class Builder {
+        private UserId id;
+        private String avatarUrl;
+        private String name;
+        private String email;
+        public Builder id(UserId id) {
+             this.id = id;
+             return this;
+        }
+    
+        public Builder avatarUrl(String avatarUrl) {
+             this.avatarUrl = avatarUrl;
+             return this;
+        }
+    
+        public Builder name(String name) {
+             this.name = name;
+             return this;
+        }
+    
+        public Builder email(String email) {
+             this.email = email;
+             return this;
+        }
+    
+    
+    public TicketUserEvent build(){
+        return new TicketUserEvent(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

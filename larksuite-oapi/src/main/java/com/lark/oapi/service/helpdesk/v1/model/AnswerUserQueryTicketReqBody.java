@@ -12,63 +12,69 @@
  */
 
 package com.lark.oapi.service.helpdesk.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.helpdesk.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class AnswerUserQueryTicketReqBody {
-
-  @SerializedName("event_id")
-  private String eventId;
-  @SerializedName("faqs")
-  private UserQueryFaqInfo[] faqs;
-
-  // builder 开始
-  public AnswerUserQueryTicketReqBody() {
-  }
-
-  public AnswerUserQueryTicketReqBody(Builder builder) {
-    this.eventId = builder.eventId;
-    this.faqs = builder.faqs;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getEventId() {
-    return this.eventId;
-  }
-
-  public void setEventId(String eventId) {
-    this.eventId = eventId;
-  }
-
-  public UserQueryFaqInfo[] getFaqs() {
-    return this.faqs;
-  }
-
-  public void setFaqs(UserQueryFaqInfo[] faqs) {
-    this.faqs = faqs;
-  }
-
-  public static class Builder {
-
+    @SerializedName("event_id")
     private String eventId;
+    @SerializedName("faqs")
     private UserQueryFaqInfo[] faqs;
-
-    public Builder eventId(String eventId) {
-      this.eventId = eventId;
-      return this;
+    public String getEventId() {
+        return this.eventId;
     }
 
-    public Builder faqs(UserQueryFaqInfo[] faqs) {
-      this.faqs = faqs;
-      return this;
+    public void setEventId(String eventId) {
+        this.eventId = eventId;
+    }
+
+    public UserQueryFaqInfo[] getFaqs() {
+        return this.faqs;
+    }
+
+    public void setFaqs(UserQueryFaqInfo[] faqs) {
+        this.faqs = faqs;
     }
 
 
-    public AnswerUserQueryTicketReqBody build() {
-      return new AnswerUserQueryTicketReqBody(this);
-    }
+// builder 开始
+  public AnswerUserQueryTicketReqBody(){}
+
+  public AnswerUserQueryTicketReqBody(Builder builder){
+      this.eventId = builder.eventId;
+      this.faqs = builder.faqs;
   }
+
+    public static class Builder {
+        private String eventId;
+        private UserQueryFaqInfo[] faqs;
+        public Builder eventId(String eventId) {
+             this.eventId = eventId;
+             return this;
+        }
+    
+        public Builder faqs(UserQueryFaqInfo[] faqs) {
+             this.faqs = faqs;
+             return this;
+        }
+    
+    
+    public AnswerUserQueryTicketReqBody build(){
+        return new AnswerUserQueryTicketReqBody(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

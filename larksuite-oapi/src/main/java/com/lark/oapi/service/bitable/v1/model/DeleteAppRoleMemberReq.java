@@ -12,108 +12,110 @@
  */
 
 package com.lark.oapi.service.bitable.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.bitable.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class DeleteAppRoleMemberReq {
-
-  @Query
-  @SerializedName("member_id_type")
-  private String memberIdType;
-  @Path
-  @SerializedName("app_token")
-  private String appToken;
-  @Path
-  @SerializedName("role_id")
-  private String roleId;
-  @Path
-  @SerializedName("member_id")
-  private String memberId;
-
-  // builder 开始
-  public DeleteAppRoleMemberReq() {
-  }
-
-  public DeleteAppRoleMemberReq(Builder builder) {
-    this.memberIdType = builder.memberIdType;
-    this.appToken = builder.appToken;
-    this.roleId = builder.roleId;
-    this.memberId = builder.memberId;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getMemberIdType() {
-    return this.memberIdType;
-  }
-
-  public void setMemberIdType(String memberIdType) {
-    this.memberIdType = memberIdType;
-  }
-
-  public String getAppToken() {
-    return this.appToken;
-  }
-
-  public void setAppToken(String appToken) {
-    this.appToken = appToken;
-  }
-
-  public String getRoleId() {
-    return this.roleId;
-  }
-
-  public void setRoleId(String roleId) {
-    this.roleId = roleId;
-  }
-
-  public String getMemberId() {
-    return this.memberId;
-  }
-
-  public void setMemberId(String memberId) {
-    this.memberId = memberId;
-  }
-
-  public static class Builder {
-
+    @Query
+    @SerializedName("member_id_type")
     private String memberIdType;
+    public String getMemberIdType() {
+        return this.memberIdType;
+    }
+
+    public void setMemberIdType(String memberIdType) {
+        this.memberIdType = memberIdType;
+    }
+
+    @Path
+    @SerializedName("app_token")
     private String appToken;
+    @Path
+    @SerializedName("role_id")
     private String roleId;
+    @Path
+    @SerializedName("member_id")
     private String memberId;
-
-    public Builder memberIdType(String memberIdType) {
-      this.memberIdType = memberIdType;
-      return this;
+    public String getAppToken() {
+        return this.appToken;
     }
 
-    public Builder memberIdType(
-        com.lark.oapi.service.bitable.v1.enums.MemberIdTypeEnum memberIdType) {
-      this.memberIdType = memberIdType.getValue();
-      return this;
+    public void setAppToken(String appToken) {
+        this.appToken = appToken;
     }
 
-    public Builder appToken(String appToken) {
-      this.appToken = appToken;
-      return this;
+    public String getRoleId() {
+        return this.roleId;
     }
 
-    public Builder roleId(String roleId) {
-      this.roleId = roleId;
-      return this;
+    public void setRoleId(String roleId) {
+        this.roleId = roleId;
     }
 
-    public Builder memberId(String memberId) {
-      this.memberId = memberId;
-      return this;
+    public String getMemberId() {
+        return this.memberId;
     }
 
-    public DeleteAppRoleMemberReq build() {
-      return new DeleteAppRoleMemberReq(this);
+    public void setMemberId(String memberId) {
+        this.memberId = memberId;
     }
+
+
+// builder 开始
+  public DeleteAppRoleMemberReq(){}
+
+  public DeleteAppRoleMemberReq(Builder builder){
+       this.memberIdType = builder.memberIdType;
+       this.appToken = builder.appToken;
+       this.roleId = builder.roleId;
+       this.memberId = builder.memberId;
   }
+
+    public static class Builder {
+        private String memberIdType;
+    
+           public Builder memberIdType(String memberIdType) {
+                this.memberIdType = memberIdType;
+                return this;
+           }
+          public Builder memberIdType(com.lark.oapi.service.bitable.v1.enums.MemberIdTypeEnum memberIdType) {
+               this.memberIdType = memberIdType.getValue();
+               return this;
+          }
+    
+        private String appToken;
+        private String roleId;
+        private String memberId;
+          public Builder appToken(String appToken) {
+               this.appToken = appToken;
+               return this;
+          }
+    
+          public Builder roleId(String roleId) {
+               this.roleId = roleId;
+               return this;
+          }
+    
+          public Builder memberId(String memberId) {
+               this.memberId = memberId;
+               return this;
+          }
+    
+    public DeleteAppRoleMemberReq build(){
+        return new DeleteAppRoleMemberReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

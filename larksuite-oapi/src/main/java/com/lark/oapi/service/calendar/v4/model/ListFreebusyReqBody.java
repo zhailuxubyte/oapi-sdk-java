@@ -12,97 +12,103 @@
  */
 
 package com.lark.oapi.service.calendar.v4.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.calendar.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class ListFreebusyReqBody {
-
-  @SerializedName("time_min")
-  private String timeMin;
-  @SerializedName("time_max")
-  private String timeMax;
-  @SerializedName("user_id")
-  private String userId;
-  @SerializedName("room_id")
-  private String roomId;
-
-  // builder 开始
-  public ListFreebusyReqBody() {
-  }
-
-  public ListFreebusyReqBody(Builder builder) {
-    this.timeMin = builder.timeMin;
-    this.timeMax = builder.timeMax;
-    this.userId = builder.userId;
-    this.roomId = builder.roomId;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getTimeMin() {
-    return this.timeMin;
-  }
-
-  public void setTimeMin(String timeMin) {
-    this.timeMin = timeMin;
-  }
-
-  public String getTimeMax() {
-    return this.timeMax;
-  }
-
-  public void setTimeMax(String timeMax) {
-    this.timeMax = timeMax;
-  }
-
-  public String getUserId() {
-    return this.userId;
-  }
-
-  public void setUserId(String userId) {
-    this.userId = userId;
-  }
-
-  public String getRoomId() {
-    return this.roomId;
-  }
-
-  public void setRoomId(String roomId) {
-    this.roomId = roomId;
-  }
-
-  public static class Builder {
-
+    @SerializedName("time_min")
     private String timeMin;
+    @SerializedName("time_max")
     private String timeMax;
+    @SerializedName("user_id")
     private String userId;
+    @SerializedName("room_id")
     private String roomId;
-
-    public Builder timeMin(String timeMin) {
-      this.timeMin = timeMin;
-      return this;
+    public String getTimeMin() {
+        return this.timeMin;
     }
 
-    public Builder timeMax(String timeMax) {
-      this.timeMax = timeMax;
-      return this;
+    public void setTimeMin(String timeMin) {
+        this.timeMin = timeMin;
     }
 
-    public Builder userId(String userId) {
-      this.userId = userId;
-      return this;
+    public String getTimeMax() {
+        return this.timeMax;
     }
 
-    public Builder roomId(String roomId) {
-      this.roomId = roomId;
-      return this;
+    public void setTimeMax(String timeMax) {
+        this.timeMax = timeMax;
+    }
+
+    public String getUserId() {
+        return this.userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    public String getRoomId() {
+        return this.roomId;
+    }
+
+    public void setRoomId(String roomId) {
+        this.roomId = roomId;
     }
 
 
-    public ListFreebusyReqBody build() {
-      return new ListFreebusyReqBody(this);
-    }
+// builder 开始
+  public ListFreebusyReqBody(){}
+
+  public ListFreebusyReqBody(Builder builder){
+      this.timeMin = builder.timeMin;
+      this.timeMax = builder.timeMax;
+      this.userId = builder.userId;
+      this.roomId = builder.roomId;
   }
+
+    public static class Builder {
+        private String timeMin;
+        private String timeMax;
+        private String userId;
+        private String roomId;
+        public Builder timeMin(String timeMin) {
+             this.timeMin = timeMin;
+             return this;
+        }
+    
+        public Builder timeMax(String timeMax) {
+             this.timeMax = timeMax;
+             return this;
+        }
+    
+        public Builder userId(String userId) {
+             this.userId = userId;
+             return this;
+        }
+    
+        public Builder roomId(String roomId) {
+             this.roomId = roomId;
+             return this;
+        }
+    
+    
+    public ListFreebusyReqBody build(){
+        return new ListFreebusyReqBody(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

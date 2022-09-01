@@ -12,148 +12,154 @@
  */
 
 package com.lark.oapi.service.vc.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.vc.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class MeetingEventMeeting {
-
-  @SerializedName("id")
-  private String id;
-  @SerializedName("topic")
-  private String topic;
-  @SerializedName("meeting_no")
-  private String meetingNo;
-  @SerializedName("start_time")
-  private String startTime;
-  @SerializedName("end_time")
-  private String endTime;
-  @SerializedName("host_user")
-  private MeetingEventUser hostUser;
-  @SerializedName("owner")
-  private MeetingEventUser owner;
-
-  // builder 开始
-  public MeetingEventMeeting() {
-  }
-
-  public MeetingEventMeeting(Builder builder) {
-    this.id = builder.id;
-    this.topic = builder.topic;
-    this.meetingNo = builder.meetingNo;
-    this.startTime = builder.startTime;
-    this.endTime = builder.endTime;
-    this.hostUser = builder.hostUser;
-    this.owner = builder.owner;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getId() {
-    return this.id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public String getTopic() {
-    return this.topic;
-  }
-
-  public void setTopic(String topic) {
-    this.topic = topic;
-  }
-
-  public String getMeetingNo() {
-    return this.meetingNo;
-  }
-
-  public void setMeetingNo(String meetingNo) {
-    this.meetingNo = meetingNo;
-  }
-
-  public String getStartTime() {
-    return this.startTime;
-  }
-
-  public void setStartTime(String startTime) {
-    this.startTime = startTime;
-  }
-
-  public String getEndTime() {
-    return this.endTime;
-  }
-
-  public void setEndTime(String endTime) {
-    this.endTime = endTime;
-  }
-
-  public MeetingEventUser getHostUser() {
-    return this.hostUser;
-  }
-
-  public void setHostUser(MeetingEventUser hostUser) {
-    this.hostUser = hostUser;
-  }
-
-  public MeetingEventUser getOwner() {
-    return this.owner;
-  }
-
-  public void setOwner(MeetingEventUser owner) {
-    this.owner = owner;
-  }
-
-  public static class Builder {
-
+    @SerializedName("id")
     private String id;
+    @SerializedName("topic")
     private String topic;
+    @SerializedName("meeting_no")
     private String meetingNo;
+    @SerializedName("start_time")
     private String startTime;
+    @SerializedName("end_time")
     private String endTime;
+    @SerializedName("host_user")
     private MeetingEventUser hostUser;
+    @SerializedName("owner")
     private MeetingEventUser owner;
-
-    public Builder id(String id) {
-      this.id = id;
-      return this;
+    public String getId() {
+        return this.id;
     }
 
-    public Builder topic(String topic) {
-      this.topic = topic;
-      return this;
+    public void setId(String id) {
+        this.id = id;
     }
 
-    public Builder meetingNo(String meetingNo) {
-      this.meetingNo = meetingNo;
-      return this;
+    public String getTopic() {
+        return this.topic;
     }
 
-    public Builder startTime(String startTime) {
-      this.startTime = startTime;
-      return this;
+    public void setTopic(String topic) {
+        this.topic = topic;
     }
 
-    public Builder endTime(String endTime) {
-      this.endTime = endTime;
-      return this;
+    public String getMeetingNo() {
+        return this.meetingNo;
     }
 
-    public Builder hostUser(MeetingEventUser hostUser) {
-      this.hostUser = hostUser;
-      return this;
+    public void setMeetingNo(String meetingNo) {
+        this.meetingNo = meetingNo;
     }
 
-    public Builder owner(MeetingEventUser owner) {
-      this.owner = owner;
-      return this;
+    public String getStartTime() {
+        return this.startTime;
+    }
+
+    public void setStartTime(String startTime) {
+        this.startTime = startTime;
+    }
+
+    public String getEndTime() {
+        return this.endTime;
+    }
+
+    public void setEndTime(String endTime) {
+        this.endTime = endTime;
+    }
+
+    public MeetingEventUser getHostUser() {
+        return this.hostUser;
+    }
+
+    public void setHostUser(MeetingEventUser hostUser) {
+        this.hostUser = hostUser;
+    }
+
+    public MeetingEventUser getOwner() {
+        return this.owner;
+    }
+
+    public void setOwner(MeetingEventUser owner) {
+        this.owner = owner;
     }
 
 
-    public MeetingEventMeeting build() {
-      return new MeetingEventMeeting(this);
-    }
+// builder 开始
+  public MeetingEventMeeting(){}
+
+  public MeetingEventMeeting(Builder builder){
+      this.id = builder.id;
+      this.topic = builder.topic;
+      this.meetingNo = builder.meetingNo;
+      this.startTime = builder.startTime;
+      this.endTime = builder.endTime;
+      this.hostUser = builder.hostUser;
+      this.owner = builder.owner;
   }
+
+    public static class Builder {
+        private String id;
+        private String topic;
+        private String meetingNo;
+        private String startTime;
+        private String endTime;
+        private MeetingEventUser hostUser;
+        private MeetingEventUser owner;
+        public Builder id(String id) {
+             this.id = id;
+             return this;
+        }
+    
+        public Builder topic(String topic) {
+             this.topic = topic;
+             return this;
+        }
+    
+        public Builder meetingNo(String meetingNo) {
+             this.meetingNo = meetingNo;
+             return this;
+        }
+    
+        public Builder startTime(String startTime) {
+             this.startTime = startTime;
+             return this;
+        }
+    
+        public Builder endTime(String endTime) {
+             this.endTime = endTime;
+             return this;
+        }
+    
+        public Builder hostUser(MeetingEventUser hostUser) {
+             this.hostUser = hostUser;
+             return this;
+        }
+    
+        public Builder owner(MeetingEventUser owner) {
+             this.owner = owner;
+             return this;
+        }
+    
+    
+    public MeetingEventMeeting build(){
+        return new MeetingEventMeeting(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

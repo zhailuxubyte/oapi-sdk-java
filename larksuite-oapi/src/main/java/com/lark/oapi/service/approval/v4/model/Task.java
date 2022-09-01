@@ -12,351 +12,353 @@
  */
 
 package com.lark.oapi.service.approval.v4.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.approval.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class Task {
-
-  @SerializedName("topic")
-  private String topic;
-  @SerializedName("user_id")
-  private String userId;
-  @SerializedName("title")
-  private String title;
-  @SerializedName("urls")
-  private TaskUrls urls;
-  @SerializedName("process_external_id")
-  private String processExternalId;
-  @SerializedName("task_external_id")
-  private String taskExternalId;
-  @SerializedName("status")
-  private String status;
-  @SerializedName("process_status")
-  private String processStatus;
-  @SerializedName("definition_code")
-  private String definitionCode;
-  @SerializedName("initiators")
-  private String[] initiators;
-  @SerializedName("initiator_names")
-  private String[] initiatorNames;
-  @SerializedName("task_id")
-  private String taskId;
-  @SerializedName("process_id")
-  private String processId;
-  @SerializedName("process_code")
-  private String processCode;
-  @SerializedName("definition_group_id")
-  private String definitionGroupId;
-  @SerializedName("definition_group_name")
-  private String definitionGroupName;
-  @SerializedName("definition_id")
-  private String definitionId;
-  @SerializedName("definition_name")
-  private String definitionName;
-
-  // builder 开始
-  public Task() {
-  }
-
-  public Task(Builder builder) {
-    this.topic = builder.topic;
-    this.userId = builder.userId;
-    this.title = builder.title;
-    this.urls = builder.urls;
-    this.processExternalId = builder.processExternalId;
-    this.taskExternalId = builder.taskExternalId;
-    this.status = builder.status;
-    this.processStatus = builder.processStatus;
-    this.definitionCode = builder.definitionCode;
-    this.initiators = builder.initiators;
-    this.initiatorNames = builder.initiatorNames;
-    this.taskId = builder.taskId;
-    this.processId = builder.processId;
-    this.processCode = builder.processCode;
-    this.definitionGroupId = builder.definitionGroupId;
-    this.definitionGroupName = builder.definitionGroupName;
-    this.definitionId = builder.definitionId;
-    this.definitionName = builder.definitionName;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getTopic() {
-    return this.topic;
-  }
-
-  public void setTopic(String topic) {
-    this.topic = topic;
-  }
-
-  public String getUserId() {
-    return this.userId;
-  }
-
-  public void setUserId(String userId) {
-    this.userId = userId;
-  }
-
-  public String getTitle() {
-    return this.title;
-  }
-
-  public void setTitle(String title) {
-    this.title = title;
-  }
-
-  public TaskUrls getUrls() {
-    return this.urls;
-  }
-
-  public void setUrls(TaskUrls urls) {
-    this.urls = urls;
-  }
-
-  public String getProcessExternalId() {
-    return this.processExternalId;
-  }
-
-  public void setProcessExternalId(String processExternalId) {
-    this.processExternalId = processExternalId;
-  }
-
-  public String getTaskExternalId() {
-    return this.taskExternalId;
-  }
-
-  public void setTaskExternalId(String taskExternalId) {
-    this.taskExternalId = taskExternalId;
-  }
-
-  public String getStatus() {
-    return this.status;
-  }
-
-  public void setStatus(String status) {
-    this.status = status;
-  }
-
-  public String getProcessStatus() {
-    return this.processStatus;
-  }
-
-  public void setProcessStatus(String processStatus) {
-    this.processStatus = processStatus;
-  }
-
-  public String getDefinitionCode() {
-    return this.definitionCode;
-  }
-
-  public void setDefinitionCode(String definitionCode) {
-    this.definitionCode = definitionCode;
-  }
-
-  public String[] getInitiators() {
-    return this.initiators;
-  }
-
-  public void setInitiators(String[] initiators) {
-    this.initiators = initiators;
-  }
-
-  public String[] getInitiatorNames() {
-    return this.initiatorNames;
-  }
-
-  public void setInitiatorNames(String[] initiatorNames) {
-    this.initiatorNames = initiatorNames;
-  }
-
-  public String getTaskId() {
-    return this.taskId;
-  }
-
-  public void setTaskId(String taskId) {
-    this.taskId = taskId;
-  }
-
-  public String getProcessId() {
-    return this.processId;
-  }
-
-  public void setProcessId(String processId) {
-    this.processId = processId;
-  }
-
-  public String getProcessCode() {
-    return this.processCode;
-  }
-
-  public void setProcessCode(String processCode) {
-    this.processCode = processCode;
-  }
-
-  public String getDefinitionGroupId() {
-    return this.definitionGroupId;
-  }
-
-  public void setDefinitionGroupId(String definitionGroupId) {
-    this.definitionGroupId = definitionGroupId;
-  }
-
-  public String getDefinitionGroupName() {
-    return this.definitionGroupName;
-  }
-
-  public void setDefinitionGroupName(String definitionGroupName) {
-    this.definitionGroupName = definitionGroupName;
-  }
-
-  public String getDefinitionId() {
-    return this.definitionId;
-  }
-
-  public void setDefinitionId(String definitionId) {
-    this.definitionId = definitionId;
-  }
-
-  public String getDefinitionName() {
-    return this.definitionName;
-  }
-
-  public void setDefinitionName(String definitionName) {
-    this.definitionName = definitionName;
-  }
-
-  public static class Builder {
-
+    @SerializedName("topic")
     private String topic;
+    @SerializedName("user_id")
     private String userId;
+    @SerializedName("title")
     private String title;
+    @SerializedName("urls")
     private TaskUrls urls;
+    @SerializedName("process_external_id")
     private String processExternalId;
+    @SerializedName("task_external_id")
     private String taskExternalId;
+    @SerializedName("status")
     private String status;
+    @SerializedName("process_status")
     private String processStatus;
+    @SerializedName("definition_code")
     private String definitionCode;
+    @SerializedName("initiators")
     private String[] initiators;
+    @SerializedName("initiator_names")
     private String[] initiatorNames;
+    @SerializedName("task_id")
     private String taskId;
+    @SerializedName("process_id")
     private String processId;
+    @SerializedName("process_code")
     private String processCode;
+    @SerializedName("definition_group_id")
     private String definitionGroupId;
+    @SerializedName("definition_group_name")
     private String definitionGroupName;
+    @SerializedName("definition_id")
     private String definitionId;
+    @SerializedName("definition_name")
     private String definitionName;
-
-    public Builder topic(String topic) {
-      this.topic = topic;
-      return this;
+    public String getTopic() {
+        return this.topic;
     }
 
-    public Builder topic(com.lark.oapi.service.approval.v4.enums.TopicEnum topic) {
-      this.topic = topic.getValue();
-      return this;
+    public void setTopic(String topic) {
+        this.topic = topic;
     }
 
-    public Builder userId(String userId) {
-      this.userId = userId;
-      return this;
+    public String getUserId() {
+        return this.userId;
     }
 
-    public Builder title(String title) {
-      this.title = title;
-      return this;
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
-    public Builder urls(TaskUrls urls) {
-      this.urls = urls;
-      return this;
+    public String getTitle() {
+        return this.title;
     }
 
-    public Builder processExternalId(String processExternalId) {
-      this.processExternalId = processExternalId;
-      return this;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-    public Builder taskExternalId(String taskExternalId) {
-      this.taskExternalId = taskExternalId;
-      return this;
+    public TaskUrls getUrls() {
+        return this.urls;
     }
 
-    public Builder status(String status) {
-      this.status = status;
-      return this;
+    public void setUrls(TaskUrls urls) {
+        this.urls = urls;
     }
 
-    public Builder status(com.lark.oapi.service.approval.v4.enums.TaskStatusEnum status) {
-      this.status = status.getValue();
-      return this;
+    public String getProcessExternalId() {
+        return this.processExternalId;
     }
 
-    public Builder processStatus(String processStatus) {
-      this.processStatus = processStatus;
-      return this;
+    public void setProcessExternalId(String processExternalId) {
+        this.processExternalId = processExternalId;
     }
 
-    public Builder processStatus(
-        com.lark.oapi.service.approval.v4.enums.ProcessStatusEnum processStatus) {
-      this.processStatus = processStatus.getValue();
-      return this;
+    public String getTaskExternalId() {
+        return this.taskExternalId;
     }
 
-    public Builder definitionCode(String definitionCode) {
-      this.definitionCode = definitionCode;
-      return this;
+    public void setTaskExternalId(String taskExternalId) {
+        this.taskExternalId = taskExternalId;
     }
 
-    public Builder initiators(String[] initiators) {
-      this.initiators = initiators;
-      return this;
+    public String getStatus() {
+        return this.status;
     }
 
-    public Builder initiatorNames(String[] initiatorNames) {
-      this.initiatorNames = initiatorNames;
-      return this;
+    public void setStatus(String status) {
+        this.status = status;
     }
 
-    public Builder taskId(String taskId) {
-      this.taskId = taskId;
-      return this;
+    public String getProcessStatus() {
+        return this.processStatus;
     }
 
-    public Builder processId(String processId) {
-      this.processId = processId;
-      return this;
+    public void setProcessStatus(String processStatus) {
+        this.processStatus = processStatus;
     }
 
-    public Builder processCode(String processCode) {
-      this.processCode = processCode;
-      return this;
+    public String getDefinitionCode() {
+        return this.definitionCode;
     }
 
-    public Builder definitionGroupId(String definitionGroupId) {
-      this.definitionGroupId = definitionGroupId;
-      return this;
+    public void setDefinitionCode(String definitionCode) {
+        this.definitionCode = definitionCode;
     }
 
-    public Builder definitionGroupName(String definitionGroupName) {
-      this.definitionGroupName = definitionGroupName;
-      return this;
+    public String[] getInitiators() {
+        return this.initiators;
     }
 
-    public Builder definitionId(String definitionId) {
-      this.definitionId = definitionId;
-      return this;
+    public void setInitiators(String[] initiators) {
+        this.initiators = initiators;
     }
 
-    public Builder definitionName(String definitionName) {
-      this.definitionName = definitionName;
-      return this;
+    public String[] getInitiatorNames() {
+        return this.initiatorNames;
+    }
+
+    public void setInitiatorNames(String[] initiatorNames) {
+        this.initiatorNames = initiatorNames;
+    }
+
+    public String getTaskId() {
+        return this.taskId;
+    }
+
+    public void setTaskId(String taskId) {
+        this.taskId = taskId;
+    }
+
+    public String getProcessId() {
+        return this.processId;
+    }
+
+    public void setProcessId(String processId) {
+        this.processId = processId;
+    }
+
+    public String getProcessCode() {
+        return this.processCode;
+    }
+
+    public void setProcessCode(String processCode) {
+        this.processCode = processCode;
+    }
+
+    public String getDefinitionGroupId() {
+        return this.definitionGroupId;
+    }
+
+    public void setDefinitionGroupId(String definitionGroupId) {
+        this.definitionGroupId = definitionGroupId;
+    }
+
+    public String getDefinitionGroupName() {
+        return this.definitionGroupName;
+    }
+
+    public void setDefinitionGroupName(String definitionGroupName) {
+        this.definitionGroupName = definitionGroupName;
+    }
+
+    public String getDefinitionId() {
+        return this.definitionId;
+    }
+
+    public void setDefinitionId(String definitionId) {
+        this.definitionId = definitionId;
+    }
+
+    public String getDefinitionName() {
+        return this.definitionName;
+    }
+
+    public void setDefinitionName(String definitionName) {
+        this.definitionName = definitionName;
     }
 
 
-    public Task build() {
-      return new Task(this);
-    }
+// builder 开始
+  public Task(){}
+
+  public Task(Builder builder){
+      this.topic = builder.topic;
+      this.userId = builder.userId;
+      this.title = builder.title;
+      this.urls = builder.urls;
+      this.processExternalId = builder.processExternalId;
+      this.taskExternalId = builder.taskExternalId;
+      this.status = builder.status;
+      this.processStatus = builder.processStatus;
+      this.definitionCode = builder.definitionCode;
+      this.initiators = builder.initiators;
+      this.initiatorNames = builder.initiatorNames;
+      this.taskId = builder.taskId;
+      this.processId = builder.processId;
+      this.processCode = builder.processCode;
+      this.definitionGroupId = builder.definitionGroupId;
+      this.definitionGroupName = builder.definitionGroupName;
+      this.definitionId = builder.definitionId;
+      this.definitionName = builder.definitionName;
   }
+
+    public static class Builder {
+        private String topic;
+        private String userId;
+        private String title;
+        private TaskUrls urls;
+        private String processExternalId;
+        private String taskExternalId;
+        private String status;
+        private String processStatus;
+        private String definitionCode;
+        private String[] initiators;
+        private String[] initiatorNames;
+        private String taskId;
+        private String processId;
+        private String processCode;
+        private String definitionGroupId;
+        private String definitionGroupName;
+        private String definitionId;
+        private String definitionName;
+        public Builder topic(String topic) {
+             this.topic = topic;
+             return this;
+        }
+        public Builder topic(com.lark.oapi.service.approval.v4.enums.TopicEnum topic) {
+             this.topic = topic.getValue();
+             return this;
+        }
+    
+        public Builder userId(String userId) {
+             this.userId = userId;
+             return this;
+        }
+    
+        public Builder title(String title) {
+             this.title = title;
+             return this;
+        }
+    
+        public Builder urls(TaskUrls urls) {
+             this.urls = urls;
+             return this;
+        }
+    
+        public Builder processExternalId(String processExternalId) {
+             this.processExternalId = processExternalId;
+             return this;
+        }
+    
+        public Builder taskExternalId(String taskExternalId) {
+             this.taskExternalId = taskExternalId;
+             return this;
+        }
+    
+        public Builder status(String status) {
+             this.status = status;
+             return this;
+        }
+        public Builder status(com.lark.oapi.service.approval.v4.enums.TaskStatusEnum status) {
+             this.status = status.getValue();
+             return this;
+        }
+    
+        public Builder processStatus(String processStatus) {
+             this.processStatus = processStatus;
+             return this;
+        }
+        public Builder processStatus(com.lark.oapi.service.approval.v4.enums.ProcessStatusEnum processStatus) {
+             this.processStatus = processStatus.getValue();
+             return this;
+        }
+    
+        public Builder definitionCode(String definitionCode) {
+             this.definitionCode = definitionCode;
+             return this;
+        }
+    
+        public Builder initiators(String[] initiators) {
+             this.initiators = initiators;
+             return this;
+        }
+    
+        public Builder initiatorNames(String[] initiatorNames) {
+             this.initiatorNames = initiatorNames;
+             return this;
+        }
+    
+        public Builder taskId(String taskId) {
+             this.taskId = taskId;
+             return this;
+        }
+    
+        public Builder processId(String processId) {
+             this.processId = processId;
+             return this;
+        }
+    
+        public Builder processCode(String processCode) {
+             this.processCode = processCode;
+             return this;
+        }
+    
+        public Builder definitionGroupId(String definitionGroupId) {
+             this.definitionGroupId = definitionGroupId;
+             return this;
+        }
+    
+        public Builder definitionGroupName(String definitionGroupName) {
+             this.definitionGroupName = definitionGroupName;
+             return this;
+        }
+    
+        public Builder definitionId(String definitionId) {
+             this.definitionId = definitionId;
+             return this;
+        }
+    
+        public Builder definitionName(String definitionName) {
+             this.definitionName = definitionName;
+             return this;
+        }
+    
+    
+    public Task build(){
+        return new Task(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

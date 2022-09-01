@@ -12,170 +12,177 @@
  */
 
 package com.lark.oapi.service.attendance.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class GetUserFlow {
+    @SerializedName("user_id")
+    private String userId;
+    @SerializedName("creator_id")
+    private String creatorId;
+    @SerializedName("location_name")
+    private String locationName;
+    @SerializedName("check_time")
+    private String checkTime;
+    @SerializedName("comment")
+    private String comment;
+    @SerializedName("record_id")
+    private String recordId;
+    @SerializedName("longitude")
+    private Double longitude;
+    @SerializedName("latitude")
+    private Double latitude;
+    @SerializedName("ssid")
+    private String ssid;
+    @SerializedName("bssid")
+    private String bssid;
+    @SerializedName("is_field")
+    private Boolean isField;
+    @SerializedName("is_wifi")
+    private Boolean isWifi;
+    @SerializedName("type")
+    private Integer type;
+    @SerializedName("photo_urls")
+    private String[] photoUrls;
+    @SerializedName("device_id")
+    private String deviceId;
+    @SerializedName("check_result")
+    private String checkResult;
+    public String getUserId() {
+        return this.userId;
+    }
 
-  @SerializedName("user_id")
-  private String userId;
-  @SerializedName("creator_id")
-  private String creatorId;
-  @SerializedName("location_name")
-  private String locationName;
-  @SerializedName("check_time")
-  private String checkTime;
-  @SerializedName("comment")
-  private String comment;
-  @SerializedName("record_id")
-  private String recordId;
-  @SerializedName("longitude")
-  private Double longitude;
-  @SerializedName("latitude")
-  private Double latitude;
-  @SerializedName("ssid")
-  private String ssid;
-  @SerializedName("bssid")
-  private String bssid;
-  @SerializedName("is_field")
-  private Boolean isField;
-  @SerializedName("is_wifi")
-  private Boolean isWifi;
-  @SerializedName("type")
-  private Integer type;
-  @SerializedName("photo_urls")
-  private String[] photoUrls;
-  @SerializedName("device_id")
-  private String deviceId;
-  @SerializedName("check_result")
-  private String checkResult;
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
 
-  public String getUserId() {
-    return this.userId;
-  }
+    public String getCreatorId() {
+        return this.creatorId;
+    }
 
-  public void setUserId(String userId) {
-    this.userId = userId;
-  }
+    public void setCreatorId(String creatorId) {
+        this.creatorId = creatorId;
+    }
 
-  public String getCreatorId() {
-    return this.creatorId;
-  }
+    public String getLocationName() {
+        return this.locationName;
+    }
 
-  public void setCreatorId(String creatorId) {
-    this.creatorId = creatorId;
-  }
+    public void setLocationName(String locationName) {
+        this.locationName = locationName;
+    }
 
-  public String getLocationName() {
-    return this.locationName;
-  }
+    public String getCheckTime() {
+        return this.checkTime;
+    }
 
-  public void setLocationName(String locationName) {
-    this.locationName = locationName;
-  }
+    public void setCheckTime(String checkTime) {
+        this.checkTime = checkTime;
+    }
 
-  public String getCheckTime() {
-    return this.checkTime;
-  }
+    public String getComment() {
+        return this.comment;
+    }
 
-  public void setCheckTime(String checkTime) {
-    this.checkTime = checkTime;
-  }
+    public void setComment(String comment) {
+        this.comment = comment;
+    }
 
-  public String getComment() {
-    return this.comment;
-  }
+    public String getRecordId() {
+        return this.recordId;
+    }
 
-  public void setComment(String comment) {
-    this.comment = comment;
-  }
+    public void setRecordId(String recordId) {
+        this.recordId = recordId;
+    }
 
-  public String getRecordId() {
-    return this.recordId;
-  }
+    public Double getLongitude() {
+        return this.longitude;
+    }
 
-  public void setRecordId(String recordId) {
-    this.recordId = recordId;
-  }
+    public void setLongitude(Double longitude) {
+        this.longitude = longitude;
+    }
 
-  public Double getLongitude() {
-    return this.longitude;
-  }
+    public Double getLatitude() {
+        return this.latitude;
+    }
 
-  public void setLongitude(Double longitude) {
-    this.longitude = longitude;
-  }
+    public void setLatitude(Double latitude) {
+        this.latitude = latitude;
+    }
 
-  public Double getLatitude() {
-    return this.latitude;
-  }
+    public String getSsid() {
+        return this.ssid;
+    }
 
-  public void setLatitude(Double latitude) {
-    this.latitude = latitude;
-  }
+    public void setSsid(String ssid) {
+        this.ssid = ssid;
+    }
 
-  public String getSsid() {
-    return this.ssid;
-  }
+    public String getBssid() {
+        return this.bssid;
+    }
 
-  public void setSsid(String ssid) {
-    this.ssid = ssid;
-  }
+    public void setBssid(String bssid) {
+        this.bssid = bssid;
+    }
 
-  public String getBssid() {
-    return this.bssid;
-  }
+    public Boolean getIsField() {
+        return this.isField;
+    }
 
-  public void setBssid(String bssid) {
-    this.bssid = bssid;
-  }
+    public void setIsField(Boolean isField) {
+        this.isField = isField;
+    }
 
-  public Boolean getIsField() {
-    return this.isField;
-  }
+    public Boolean getIsWifi() {
+        return this.isWifi;
+    }
 
-  public void setIsField(Boolean isField) {
-    this.isField = isField;
-  }
+    public void setIsWifi(Boolean isWifi) {
+        this.isWifi = isWifi;
+    }
 
-  public Boolean getIsWifi() {
-    return this.isWifi;
-  }
+    public Integer getType() {
+        return this.type;
+    }
 
-  public void setIsWifi(Boolean isWifi) {
-    this.isWifi = isWifi;
-  }
+    public void setType(Integer type) {
+        this.type = type;
+    }
 
-  public Integer getType() {
-    return this.type;
-  }
+    public String[] getPhotoUrls() {
+        return this.photoUrls;
+    }
 
-  public void setType(Integer type) {
-    this.type = type;
-  }
+    public void setPhotoUrls(String[] photoUrls) {
+        this.photoUrls = photoUrls;
+    }
 
-  public String[] getPhotoUrls() {
-    return this.photoUrls;
-  }
+    public String getDeviceId() {
+        return this.deviceId;
+    }
 
-  public void setPhotoUrls(String[] photoUrls) {
-    this.photoUrls = photoUrls;
-  }
+    public void setDeviceId(String deviceId) {
+        this.deviceId = deviceId;
+    }
 
-  public String getDeviceId() {
-    return this.deviceId;
-  }
+    public String getCheckResult() {
+        return this.checkResult;
+    }
 
-  public void setDeviceId(String deviceId) {
-    this.deviceId = deviceId;
-  }
-
-  public String getCheckResult() {
-    return this.checkResult;
-  }
-
-  public void setCheckResult(String checkResult) {
-    this.checkResult = checkResult;
-  }
+    public void setCheckResult(String checkResult) {
+        this.checkResult = checkResult;
+    }
 
 }

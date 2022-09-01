@@ -12,65 +12,70 @@
  */
 
 package com.lark.oapi.service.helpdesk.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.helpdesk.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class FaqImageFaqReq {
-
-  @Path
-  @SerializedName("id")
-  private String id;
-  @Path
-  @SerializedName("image_key")
-  private String imageKey;
-
-  // builder 开始
-  public FaqImageFaqReq() {
-  }
-
-  public FaqImageFaqReq(Builder builder) {
-    this.id = builder.id;
-    this.imageKey = builder.imageKey;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getId() {
-    return this.id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public String getImageKey() {
-    return this.imageKey;
-  }
-
-  public void setImageKey(String imageKey) {
-    this.imageKey = imageKey;
-  }
-
-  public static class Builder {
-
+    @Path
+    @SerializedName("id")
     private String id;
+    @Path
+    @SerializedName("image_key")
     private String imageKey;
-
-    public Builder id(String id) {
-      this.id = id;
-      return this;
+    public String getId() {
+        return this.id;
     }
 
-    public Builder imageKey(String imageKey) {
-      this.imageKey = imageKey;
-      return this;
+    public void setId(String id) {
+        this.id = id;
     }
 
-    public FaqImageFaqReq build() {
-      return new FaqImageFaqReq(this);
+    public String getImageKey() {
+        return this.imageKey;
     }
+
+    public void setImageKey(String imageKey) {
+        this.imageKey = imageKey;
+    }
+
+
+// builder 开始
+  public FaqImageFaqReq(){}
+
+  public FaqImageFaqReq(Builder builder){
+       this.id = builder.id;
+       this.imageKey = builder.imageKey;
   }
+
+    public static class Builder {
+    
+        private String id;
+        private String imageKey;
+          public Builder id(String id) {
+               this.id = id;
+               return this;
+          }
+    
+          public Builder imageKey(String imageKey) {
+               this.imageKey = imageKey;
+               return this;
+          }
+    
+    public FaqImageFaqReq build(){
+        return new FaqImageFaqReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

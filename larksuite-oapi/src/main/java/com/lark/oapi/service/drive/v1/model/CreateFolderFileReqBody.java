@@ -12,63 +12,69 @@
  */
 
 package com.lark.oapi.service.drive.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.drive.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class CreateFolderFileReqBody {
-
-  @SerializedName("name")
-  private String name;
-  @SerializedName("folder_token")
-  private String folderToken;
-
-  // builder 开始
-  public CreateFolderFileReqBody() {
-  }
-
-  public CreateFolderFileReqBody(Builder builder) {
-    this.name = builder.name;
-    this.folderToken = builder.folderToken;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getName() {
-    return this.name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public String getFolderToken() {
-    return this.folderToken;
-  }
-
-  public void setFolderToken(String folderToken) {
-    this.folderToken = folderToken;
-  }
-
-  public static class Builder {
-
+    @SerializedName("name")
     private String name;
+    @SerializedName("folder_token")
     private String folderToken;
-
-    public Builder name(String name) {
-      this.name = name;
-      return this;
+    public String getName() {
+        return this.name;
     }
 
-    public Builder folderToken(String folderToken) {
-      this.folderToken = folderToken;
-      return this;
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getFolderToken() {
+        return this.folderToken;
+    }
+
+    public void setFolderToken(String folderToken) {
+        this.folderToken = folderToken;
     }
 
 
-    public CreateFolderFileReqBody build() {
-      return new CreateFolderFileReqBody(this);
-    }
+// builder 开始
+  public CreateFolderFileReqBody(){}
+
+  public CreateFolderFileReqBody(Builder builder){
+      this.name = builder.name;
+      this.folderToken = builder.folderToken;
   }
+
+    public static class Builder {
+        private String name;
+        private String folderToken;
+        public Builder name(String name) {
+             this.name = name;
+             return this;
+        }
+    
+        public Builder folderToken(String folderToken) {
+             this.folderToken = folderToken;
+             return this;
+        }
+    
+    
+    public CreateFolderFileReqBody build(){
+        return new CreateFolderFileReqBody(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

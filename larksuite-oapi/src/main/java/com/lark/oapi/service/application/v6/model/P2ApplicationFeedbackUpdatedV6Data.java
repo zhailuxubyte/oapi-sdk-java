@@ -12,60 +12,67 @@
  */
 
 package com.lark.oapi.service.application.v6.model;
-
+import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class P2ApplicationFeedbackUpdatedV6Data {
+    @SerializedName("feedback_ids")
+    private String[] feedbackIds;
+    @SerializedName("status")
+    private Integer status;
+    @SerializedName("app_id")
+    private String appId;
+    @SerializedName("update_time")
+    private String updateTime;
+    @SerializedName("operator_id")
+    private UserId operatorId;
+    public String[] getFeedbackIds() {
+        return this.feedbackIds;
+    }
 
-  @SerializedName("feedback_ids")
-  private String[] feedbackIds;
-  @SerializedName("status")
-  private Integer status;
-  @SerializedName("app_id")
-  private String appId;
-  @SerializedName("update_time")
-  private String updateTime;
-  @SerializedName("operator_id")
-  private UserId operatorId;
+    public void setFeedbackIds(String[] feedbackIds) {
+        this.feedbackIds = feedbackIds;
+    }
 
-  public String[] getFeedbackIds() {
-    return this.feedbackIds;
-  }
+    public Integer getStatus() {
+        return this.status;
+    }
 
-  public void setFeedbackIds(String[] feedbackIds) {
-    this.feedbackIds = feedbackIds;
-  }
+    public void setStatus(Integer status) {
+        this.status = status;
+    }
 
-  public Integer getStatus() {
-    return this.status;
-  }
+    public String getAppId() {
+        return this.appId;
+    }
 
-  public void setStatus(Integer status) {
-    this.status = status;
-  }
+    public void setAppId(String appId) {
+        this.appId = appId;
+    }
 
-  public String getAppId() {
-    return this.appId;
-  }
+    public String getUpdateTime() {
+        return this.updateTime;
+    }
 
-  public void setAppId(String appId) {
-    this.appId = appId;
-  }
+    public void setUpdateTime(String updateTime) {
+        this.updateTime = updateTime;
+    }
 
-  public String getUpdateTime() {
-    return this.updateTime;
-  }
+    public UserId getOperatorId() {
+        return this.operatorId;
+    }
 
-  public void setUpdateTime(String updateTime) {
-    this.updateTime = updateTime;
-  }
-
-  public UserId getOperatorId() {
-    return this.operatorId;
-  }
-
-  public void setOperatorId(UserId operatorId) {
-    this.operatorId = operatorId;
-  }
+    public void setOperatorId(UserId operatorId) {
+        this.operatorId = operatorId;
+    }
 
 }

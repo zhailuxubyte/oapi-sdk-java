@@ -12,46 +12,52 @@
  */
 
 package com.lark.oapi.service.admin.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.admin.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class Password {
-
-  @SerializedName("ent_email_password")
-  private String entEmailPassword;
-
-  // builder 开始
-  public Password() {
-  }
-
-  public Password(Builder builder) {
-    this.entEmailPassword = builder.entEmailPassword;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getEntEmailPassword() {
-    return this.entEmailPassword;
-  }
-
-  public void setEntEmailPassword(String entEmailPassword) {
-    this.entEmailPassword = entEmailPassword;
-  }
-
-  public static class Builder {
-
+    @SerializedName("ent_email_password")
     private String entEmailPassword;
+    public String getEntEmailPassword() {
+        return this.entEmailPassword;
+    }
 
-    public Builder entEmailPassword(String entEmailPassword) {
-      this.entEmailPassword = entEmailPassword;
-      return this;
+    public void setEntEmailPassword(String entEmailPassword) {
+        this.entEmailPassword = entEmailPassword;
     }
 
 
-    public Password build() {
-      return new Password(this);
-    }
+// builder 开始
+  public Password(){}
+
+  public Password(Builder builder){
+      this.entEmailPassword = builder.entEmailPassword;
   }
+
+    public static class Builder {
+        private String entEmailPassword;
+        public Builder entEmailPassword(String entEmailPassword) {
+             this.entEmailPassword = entEmailPassword;
+             return this;
+        }
+    
+    
+    public Password build(){
+        return new Password(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

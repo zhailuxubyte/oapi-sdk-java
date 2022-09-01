@@ -12,136 +12,141 @@
  */
 
 package com.lark.oapi.service.calendar.v4.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.calendar.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class CalendarEventAttendeeId {
-
-  @SerializedName("type")
-  private String type;
-  @SerializedName("attendee_id")
-  private String attendeeId;
-  @SerializedName("user_id")
-  private String userId;
-  @SerializedName("chat_id")
-  private String chatId;
-  @SerializedName("room_id")
-  private String roomId;
-  @SerializedName("third_party_email")
-  private String thirdPartyEmail;
-
-  // builder 开始
-  public CalendarEventAttendeeId() {
-  }
-
-  public CalendarEventAttendeeId(Builder builder) {
-    this.type = builder.type;
-    this.attendeeId = builder.attendeeId;
-    this.userId = builder.userId;
-    this.chatId = builder.chatId;
-    this.roomId = builder.roomId;
-    this.thirdPartyEmail = builder.thirdPartyEmail;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getType() {
-    return this.type;
-  }
-
-  public void setType(String type) {
-    this.type = type;
-  }
-
-  public String getAttendeeId() {
-    return this.attendeeId;
-  }
-
-  public void setAttendeeId(String attendeeId) {
-    this.attendeeId = attendeeId;
-  }
-
-  public String getUserId() {
-    return this.userId;
-  }
-
-  public void setUserId(String userId) {
-    this.userId = userId;
-  }
-
-  public String getChatId() {
-    return this.chatId;
-  }
-
-  public void setChatId(String chatId) {
-    this.chatId = chatId;
-  }
-
-  public String getRoomId() {
-    return this.roomId;
-  }
-
-  public void setRoomId(String roomId) {
-    this.roomId = roomId;
-  }
-
-  public String getThirdPartyEmail() {
-    return this.thirdPartyEmail;
-  }
-
-  public void setThirdPartyEmail(String thirdPartyEmail) {
-    this.thirdPartyEmail = thirdPartyEmail;
-  }
-
-  public static class Builder {
-
+    @SerializedName("type")
     private String type;
+    @SerializedName("attendee_id")
     private String attendeeId;
+    @SerializedName("user_id")
     private String userId;
+    @SerializedName("chat_id")
     private String chatId;
+    @SerializedName("room_id")
     private String roomId;
+    @SerializedName("third_party_email")
     private String thirdPartyEmail;
-
-    public Builder type(String type) {
-      this.type = type;
-      return this;
+    public String getType() {
+        return this.type;
     }
 
-    public Builder type(com.lark.oapi.service.calendar.v4.enums.EventAttendeeTypeEnum type) {
-      this.type = type.getValue();
-      return this;
+    public void setType(String type) {
+        this.type = type;
     }
 
-    public Builder attendeeId(String attendeeId) {
-      this.attendeeId = attendeeId;
-      return this;
+    public String getAttendeeId() {
+        return this.attendeeId;
     }
 
-    public Builder userId(String userId) {
-      this.userId = userId;
-      return this;
+    public void setAttendeeId(String attendeeId) {
+        this.attendeeId = attendeeId;
     }
 
-    public Builder chatId(String chatId) {
-      this.chatId = chatId;
-      return this;
+    public String getUserId() {
+        return this.userId;
     }
 
-    public Builder roomId(String roomId) {
-      this.roomId = roomId;
-      return this;
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
-    public Builder thirdPartyEmail(String thirdPartyEmail) {
-      this.thirdPartyEmail = thirdPartyEmail;
-      return this;
+    public String getChatId() {
+        return this.chatId;
+    }
+
+    public void setChatId(String chatId) {
+        this.chatId = chatId;
+    }
+
+    public String getRoomId() {
+        return this.roomId;
+    }
+
+    public void setRoomId(String roomId) {
+        this.roomId = roomId;
+    }
+
+    public String getThirdPartyEmail() {
+        return this.thirdPartyEmail;
+    }
+
+    public void setThirdPartyEmail(String thirdPartyEmail) {
+        this.thirdPartyEmail = thirdPartyEmail;
     }
 
 
-    public CalendarEventAttendeeId build() {
-      return new CalendarEventAttendeeId(this);
-    }
+// builder 开始
+  public CalendarEventAttendeeId(){}
+
+  public CalendarEventAttendeeId(Builder builder){
+      this.type = builder.type;
+      this.attendeeId = builder.attendeeId;
+      this.userId = builder.userId;
+      this.chatId = builder.chatId;
+      this.roomId = builder.roomId;
+      this.thirdPartyEmail = builder.thirdPartyEmail;
   }
+
+    public static class Builder {
+        private String type;
+        private String attendeeId;
+        private String userId;
+        private String chatId;
+        private String roomId;
+        private String thirdPartyEmail;
+        public Builder type(String type) {
+             this.type = type;
+             return this;
+        }
+        public Builder type(com.lark.oapi.service.calendar.v4.enums.EventAttendeeTypeEnum type) {
+             this.type = type.getValue();
+             return this;
+        }
+    
+        public Builder attendeeId(String attendeeId) {
+             this.attendeeId = attendeeId;
+             return this;
+        }
+    
+        public Builder userId(String userId) {
+             this.userId = userId;
+             return this;
+        }
+    
+        public Builder chatId(String chatId) {
+             this.chatId = chatId;
+             return this;
+        }
+    
+        public Builder roomId(String roomId) {
+             this.roomId = roomId;
+             return this;
+        }
+    
+        public Builder thirdPartyEmail(String thirdPartyEmail) {
+             this.thirdPartyEmail = thirdPartyEmail;
+             return this;
+        }
+    
+    
+    public CalendarEventAttendeeId build(){
+        return new CalendarEventAttendeeId(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

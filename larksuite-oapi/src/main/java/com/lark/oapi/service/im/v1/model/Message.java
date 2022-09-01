@@ -12,250 +12,256 @@
  */
 
 package com.lark.oapi.service.im.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.im.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class Message {
-
-  @SerializedName("message_id")
-  private String messageId;
-  @SerializedName("root_id")
-  private String rootId;
-  @SerializedName("parent_id")
-  private String parentId;
-  @SerializedName("msg_type")
-  private String msgType;
-  @SerializedName("create_time")
-  private String createTime;
-  @SerializedName("update_time")
-  private String updateTime;
-  @SerializedName("deleted")
-  private Boolean deleted;
-  @SerializedName("updated")
-  private Boolean updated;
-  @SerializedName("chat_id")
-  private String chatId;
-  @SerializedName("sender")
-  private Sender sender;
-  @SerializedName("body")
-  private MessageBody body;
-  @SerializedName("mentions")
-  private Mention[] mentions;
-  @SerializedName("upper_message_id")
-  private String upperMessageId;
-
-  // builder 开始
-  public Message() {
-  }
-
-  public Message(Builder builder) {
-    this.messageId = builder.messageId;
-    this.rootId = builder.rootId;
-    this.parentId = builder.parentId;
-    this.msgType = builder.msgType;
-    this.createTime = builder.createTime;
-    this.updateTime = builder.updateTime;
-    this.deleted = builder.deleted;
-    this.updated = builder.updated;
-    this.chatId = builder.chatId;
-    this.sender = builder.sender;
-    this.body = builder.body;
-    this.mentions = builder.mentions;
-    this.upperMessageId = builder.upperMessageId;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getMessageId() {
-    return this.messageId;
-  }
-
-  public void setMessageId(String messageId) {
-    this.messageId = messageId;
-  }
-
-  public String getRootId() {
-    return this.rootId;
-  }
-
-  public void setRootId(String rootId) {
-    this.rootId = rootId;
-  }
-
-  public String getParentId() {
-    return this.parentId;
-  }
-
-  public void setParentId(String parentId) {
-    this.parentId = parentId;
-  }
-
-  public String getMsgType() {
-    return this.msgType;
-  }
-
-  public void setMsgType(String msgType) {
-    this.msgType = msgType;
-  }
-
-  public String getCreateTime() {
-    return this.createTime;
-  }
-
-  public void setCreateTime(String createTime) {
-    this.createTime = createTime;
-  }
-
-  public String getUpdateTime() {
-    return this.updateTime;
-  }
-
-  public void setUpdateTime(String updateTime) {
-    this.updateTime = updateTime;
-  }
-
-  public Boolean getDeleted() {
-    return this.deleted;
-  }
-
-  public void setDeleted(Boolean deleted) {
-    this.deleted = deleted;
-  }
-
-  public Boolean getUpdated() {
-    return this.updated;
-  }
-
-  public void setUpdated(Boolean updated) {
-    this.updated = updated;
-  }
-
-  public String getChatId() {
-    return this.chatId;
-  }
-
-  public void setChatId(String chatId) {
-    this.chatId = chatId;
-  }
-
-  public Sender getSender() {
-    return this.sender;
-  }
-
-  public void setSender(Sender sender) {
-    this.sender = sender;
-  }
-
-  public MessageBody getBody() {
-    return this.body;
-  }
-
-  public void setBody(MessageBody body) {
-    this.body = body;
-  }
-
-  public Mention[] getMentions() {
-    return this.mentions;
-  }
-
-  public void setMentions(Mention[] mentions) {
-    this.mentions = mentions;
-  }
-
-  public String getUpperMessageId() {
-    return this.upperMessageId;
-  }
-
-  public void setUpperMessageId(String upperMessageId) {
-    this.upperMessageId = upperMessageId;
-  }
-
-  public static class Builder {
-
+    @SerializedName("message_id")
     private String messageId;
+    @SerializedName("root_id")
     private String rootId;
+    @SerializedName("parent_id")
     private String parentId;
+    @SerializedName("msg_type")
     private String msgType;
+    @SerializedName("create_time")
     private String createTime;
+    @SerializedName("update_time")
     private String updateTime;
+    @SerializedName("deleted")
     private Boolean deleted;
+    @SerializedName("updated")
     private Boolean updated;
+    @SerializedName("chat_id")
     private String chatId;
+    @SerializedName("sender")
     private Sender sender;
+    @SerializedName("body")
     private MessageBody body;
+    @SerializedName("mentions")
     private Mention[] mentions;
+    @SerializedName("upper_message_id")
     private String upperMessageId;
-
-    public Builder messageId(String messageId) {
-      this.messageId = messageId;
-      return this;
+    public String getMessageId() {
+        return this.messageId;
     }
 
-    public Builder rootId(String rootId) {
-      this.rootId = rootId;
-      return this;
+    public void setMessageId(String messageId) {
+        this.messageId = messageId;
     }
 
-    public Builder parentId(String parentId) {
-      this.parentId = parentId;
-      return this;
+    public String getRootId() {
+        return this.rootId;
     }
 
-    public Builder msgType(String msgType) {
-      this.msgType = msgType;
-      return this;
+    public void setRootId(String rootId) {
+        this.rootId = rootId;
     }
 
-    public Builder createTime(String createTime) {
-      this.createTime = createTime;
-      return this;
+    public String getParentId() {
+        return this.parentId;
     }
 
-    public Builder updateTime(String updateTime) {
-      this.updateTime = updateTime;
-      return this;
+    public void setParentId(String parentId) {
+        this.parentId = parentId;
     }
 
-    public Builder deleted(Boolean deleted) {
-      this.deleted = deleted;
-      return this;
+    public String getMsgType() {
+        return this.msgType;
     }
 
-    public Builder updated(Boolean updated) {
-      this.updated = updated;
-      return this;
+    public void setMsgType(String msgType) {
+        this.msgType = msgType;
     }
 
-    public Builder chatId(String chatId) {
-      this.chatId = chatId;
-      return this;
+    public String getCreateTime() {
+        return this.createTime;
     }
 
-    public Builder sender(Sender sender) {
-      this.sender = sender;
-      return this;
+    public void setCreateTime(String createTime) {
+        this.createTime = createTime;
     }
 
-    public Builder body(MessageBody body) {
-      this.body = body;
-      return this;
+    public String getUpdateTime() {
+        return this.updateTime;
     }
 
-    public Builder mentions(Mention[] mentions) {
-      this.mentions = mentions;
-      return this;
+    public void setUpdateTime(String updateTime) {
+        this.updateTime = updateTime;
     }
 
-    public Builder upperMessageId(String upperMessageId) {
-      this.upperMessageId = upperMessageId;
-      return this;
+    public Boolean getDeleted() {
+        return this.deleted;
+    }
+
+    public void setDeleted(Boolean deleted) {
+        this.deleted = deleted;
+    }
+
+    public Boolean getUpdated() {
+        return this.updated;
+    }
+
+    public void setUpdated(Boolean updated) {
+        this.updated = updated;
+    }
+
+    public String getChatId() {
+        return this.chatId;
+    }
+
+    public void setChatId(String chatId) {
+        this.chatId = chatId;
+    }
+
+    public Sender getSender() {
+        return this.sender;
+    }
+
+    public void setSender(Sender sender) {
+        this.sender = sender;
+    }
+
+    public MessageBody getBody() {
+        return this.body;
+    }
+
+    public void setBody(MessageBody body) {
+        this.body = body;
+    }
+
+    public Mention[] getMentions() {
+        return this.mentions;
+    }
+
+    public void setMentions(Mention[] mentions) {
+        this.mentions = mentions;
+    }
+
+    public String getUpperMessageId() {
+        return this.upperMessageId;
+    }
+
+    public void setUpperMessageId(String upperMessageId) {
+        this.upperMessageId = upperMessageId;
     }
 
 
-    public Message build() {
-      return new Message(this);
-    }
+// builder 开始
+  public Message(){}
+
+  public Message(Builder builder){
+      this.messageId = builder.messageId;
+      this.rootId = builder.rootId;
+      this.parentId = builder.parentId;
+      this.msgType = builder.msgType;
+      this.createTime = builder.createTime;
+      this.updateTime = builder.updateTime;
+      this.deleted = builder.deleted;
+      this.updated = builder.updated;
+      this.chatId = builder.chatId;
+      this.sender = builder.sender;
+      this.body = builder.body;
+      this.mentions = builder.mentions;
+      this.upperMessageId = builder.upperMessageId;
   }
+
+    public static class Builder {
+        private String messageId;
+        private String rootId;
+        private String parentId;
+        private String msgType;
+        private String createTime;
+        private String updateTime;
+        private Boolean deleted;
+        private Boolean updated;
+        private String chatId;
+        private Sender sender;
+        private MessageBody body;
+        private Mention[] mentions;
+        private String upperMessageId;
+        public Builder messageId(String messageId) {
+             this.messageId = messageId;
+             return this;
+        }
+    
+        public Builder rootId(String rootId) {
+             this.rootId = rootId;
+             return this;
+        }
+    
+        public Builder parentId(String parentId) {
+             this.parentId = parentId;
+             return this;
+        }
+    
+        public Builder msgType(String msgType) {
+             this.msgType = msgType;
+             return this;
+        }
+    
+        public Builder createTime(String createTime) {
+             this.createTime = createTime;
+             return this;
+        }
+    
+        public Builder updateTime(String updateTime) {
+             this.updateTime = updateTime;
+             return this;
+        }
+    
+        public Builder deleted(Boolean deleted) {
+             this.deleted = deleted;
+             return this;
+        }
+    
+        public Builder updated(Boolean updated) {
+             this.updated = updated;
+             return this;
+        }
+    
+        public Builder chatId(String chatId) {
+             this.chatId = chatId;
+             return this;
+        }
+    
+        public Builder sender(Sender sender) {
+             this.sender = sender;
+             return this;
+        }
+    
+        public Builder body(MessageBody body) {
+             this.body = body;
+             return this;
+        }
+    
+        public Builder mentions(Mention[] mentions) {
+             this.mentions = mentions;
+             return this;
+        }
+    
+        public Builder upperMessageId(String upperMessageId) {
+             this.upperMessageId = upperMessageId;
+             return this;
+        }
+    
+    
+    public Message build(){
+        return new Message(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

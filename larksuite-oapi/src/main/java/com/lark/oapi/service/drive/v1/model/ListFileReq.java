@@ -12,83 +12,88 @@
  */
 
 package com.lark.oapi.service.drive.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.drive.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class ListFileReq {
-
-  @Query
-  @SerializedName("page_size")
-  private Integer pageSize;
-  @Query
-  @SerializedName("page_token")
-  private String pageToken;
-  @Query
-  @SerializedName("folder_token")
-  private String folderToken;
-
-  // builder 开始
-  public ListFileReq() {
-  }
-
-  public ListFileReq(Builder builder) {
-    this.pageSize = builder.pageSize;
-    this.pageToken = builder.pageToken;
-    this.folderToken = builder.folderToken;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Integer getPageSize() {
-    return this.pageSize;
-  }
-
-  public void setPageSize(Integer pageSize) {
-    this.pageSize = pageSize;
-  }
-
-  public String getPageToken() {
-    return this.pageToken;
-  }
-
-  public void setPageToken(String pageToken) {
-    this.pageToken = pageToken;
-  }
-
-  public String getFolderToken() {
-    return this.folderToken;
-  }
-
-  public void setFolderToken(String folderToken) {
-    this.folderToken = folderToken;
-  }
-
-  public static class Builder {
-
+    @Query
+    @SerializedName("page_size")
     private Integer pageSize;
+    @Query
+    @SerializedName("page_token")
     private String pageToken;
+    @Query
+    @SerializedName("folder_token")
     private String folderToken;
-
-    public Builder pageSize(Integer pageSize) {
-      this.pageSize = pageSize;
-      return this;
+    public Integer getPageSize() {
+        return this.pageSize;
     }
 
-    public Builder pageToken(String pageToken) {
-      this.pageToken = pageToken;
-      return this;
+    public void setPageSize(Integer pageSize) {
+        this.pageSize = pageSize;
     }
 
-    public Builder folderToken(String folderToken) {
-      this.folderToken = folderToken;
-      return this;
+    public String getPageToken() {
+        return this.pageToken;
     }
 
-    public ListFileReq build() {
-      return new ListFileReq(this);
+    public void setPageToken(String pageToken) {
+        this.pageToken = pageToken;
     }
+
+    public String getFolderToken() {
+        return this.folderToken;
+    }
+
+    public void setFolderToken(String folderToken) {
+        this.folderToken = folderToken;
+    }
+
+
+// builder 开始
+  public ListFileReq(){}
+
+  public ListFileReq(Builder builder){
+       this.pageSize = builder.pageSize;
+       this.pageToken = builder.pageToken;
+       this.folderToken = builder.folderToken;
   }
+
+    public static class Builder {
+        private Integer pageSize;
+        private String pageToken;
+        private String folderToken;
+    
+           public Builder pageSize(Integer pageSize) {
+                this.pageSize = pageSize;
+                return this;
+           }
+    
+           public Builder pageToken(String pageToken) {
+                this.pageToken = pageToken;
+                return this;
+           }
+    
+           public Builder folderToken(String folderToken) {
+                this.folderToken = folderToken;
+                return this;
+           }
+    
+    public ListFileReq build(){
+        return new ListFileReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

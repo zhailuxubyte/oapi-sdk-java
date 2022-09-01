@@ -12,47 +12,52 @@
  */
 
 package com.lark.oapi.service.attendance.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.attendance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class GetShiftReq {
-
-  @Path
-  @SerializedName("shift_id")
-  private String shiftId;
-
-  // builder 开始
-  public GetShiftReq() {
-  }
-
-  public GetShiftReq(Builder builder) {
-    this.shiftId = builder.shiftId;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getShiftId() {
-    return this.shiftId;
-  }
-
-  public void setShiftId(String shiftId) {
-    this.shiftId = shiftId;
-  }
-
-  public static class Builder {
-
+    @Path
+    @SerializedName("shift_id")
     private String shiftId;
-
-    public Builder shiftId(String shiftId) {
-      this.shiftId = shiftId;
-      return this;
+    public String getShiftId() {
+        return this.shiftId;
     }
 
-    public GetShiftReq build() {
-      return new GetShiftReq(this);
+    public void setShiftId(String shiftId) {
+        this.shiftId = shiftId;
     }
+
+
+// builder 开始
+  public GetShiftReq(){}
+
+  public GetShiftReq(Builder builder){
+       this.shiftId = builder.shiftId;
   }
+
+    public static class Builder {
+    
+        private String shiftId;
+          public Builder shiftId(String shiftId) {
+               this.shiftId = shiftId;
+               return this;
+          }
+    
+    public GetShiftReq build(){
+        return new GetShiftReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

@@ -12,63 +12,69 @@
  */
 
 package com.lark.oapi.service.im.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.im.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class BatchMessageRecallProgress {
-
-  @SerializedName("recall")
-  private Boolean recall;
-  @SerializedName("recall_count")
-  private Integer recallCount;
-
-  // builder 开始
-  public BatchMessageRecallProgress() {
-  }
-
-  public BatchMessageRecallProgress(Builder builder) {
-    this.recall = builder.recall;
-    this.recallCount = builder.recallCount;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Boolean getRecall() {
-    return this.recall;
-  }
-
-  public void setRecall(Boolean recall) {
-    this.recall = recall;
-  }
-
-  public Integer getRecallCount() {
-    return this.recallCount;
-  }
-
-  public void setRecallCount(Integer recallCount) {
-    this.recallCount = recallCount;
-  }
-
-  public static class Builder {
-
+    @SerializedName("recall")
     private Boolean recall;
+    @SerializedName("recall_count")
     private Integer recallCount;
-
-    public Builder recall(Boolean recall) {
-      this.recall = recall;
-      return this;
+    public Boolean getRecall() {
+        return this.recall;
     }
 
-    public Builder recallCount(Integer recallCount) {
-      this.recallCount = recallCount;
-      return this;
+    public void setRecall(Boolean recall) {
+        this.recall = recall;
+    }
+
+    public Integer getRecallCount() {
+        return this.recallCount;
+    }
+
+    public void setRecallCount(Integer recallCount) {
+        this.recallCount = recallCount;
     }
 
 
-    public BatchMessageRecallProgress build() {
-      return new BatchMessageRecallProgress(this);
-    }
+// builder 开始
+  public BatchMessageRecallProgress(){}
+
+  public BatchMessageRecallProgress(Builder builder){
+      this.recall = builder.recall;
+      this.recallCount = builder.recallCount;
   }
+
+    public static class Builder {
+        private Boolean recall;
+        private Integer recallCount;
+        public Builder recall(Boolean recall) {
+             this.recall = recall;
+             return this;
+        }
+    
+        public Builder recallCount(Integer recallCount) {
+             this.recallCount = recallCount;
+             return this;
+        }
+    
+    
+    public BatchMessageRecallProgress build(){
+        return new BatchMessageRecallProgress(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

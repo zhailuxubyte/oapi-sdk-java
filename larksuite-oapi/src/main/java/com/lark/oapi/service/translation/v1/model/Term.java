@@ -12,63 +12,68 @@
  */
 
 package com.lark.oapi.service.translation.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class Term {
-
-  @SerializedName("from")
-  private String from;
-  @SerializedName("to")
-  private String to;
-
-  // builder 开始
-  public Term() {
-  }
-
-  public Term(Builder builder) {
-    this.from = builder.from;
-    this.to = builder.to;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getFrom() {
-    return this.from;
-  }
-
-  public void setFrom(String from) {
-    this.from = from;
-  }
-
-  public String getTo() {
-    return this.to;
-  }
-
-  public void setTo(String to) {
-    this.to = to;
-  }
-
-  public static class Builder {
-
+    @SerializedName("from")
     private String from;
+    @SerializedName("to")
     private String to;
-
-    public Builder from(String from) {
-      this.from = from;
-      return this;
+    public String getFrom() {
+        return this.from;
     }
 
-    public Builder to(String to) {
-      this.to = to;
-      return this;
+    public void setFrom(String from) {
+        this.from = from;
+    }
+
+    public String getTo() {
+        return this.to;
+    }
+
+    public void setTo(String to) {
+        this.to = to;
     }
 
 
-    public Term build() {
-      return new Term(this);
-    }
+// builder 开始
+  public Term(){}
+
+  public Term(Builder builder){
+      this.from = builder.from;
+      this.to = builder.to;
   }
+
+    public static class Builder {
+        private String from;
+        private String to;
+        public Builder from(String from) {
+             this.from = from;
+             return this;
+        }
+    
+        public Builder to(String to) {
+             this.to = to;
+             return this;
+        }
+    
+    
+    public Term build(){
+        return new Term(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

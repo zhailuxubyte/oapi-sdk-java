@@ -12,47 +12,52 @@
  */
 
 package com.lark.oapi.service.im.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.im.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class GetFileReq {
-
-  @Path
-  @SerializedName("file_key")
-  private String fileKey;
-
-  // builder 开始
-  public GetFileReq() {
-  }
-
-  public GetFileReq(Builder builder) {
-    this.fileKey = builder.fileKey;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getFileKey() {
-    return this.fileKey;
-  }
-
-  public void setFileKey(String fileKey) {
-    this.fileKey = fileKey;
-  }
-
-  public static class Builder {
-
+    @Path
+    @SerializedName("file_key")
     private String fileKey;
-
-    public Builder fileKey(String fileKey) {
-      this.fileKey = fileKey;
-      return this;
+    public String getFileKey() {
+        return this.fileKey;
     }
 
-    public GetFileReq build() {
-      return new GetFileReq(this);
+    public void setFileKey(String fileKey) {
+        this.fileKey = fileKey;
     }
+
+
+// builder 开始
+  public GetFileReq(){}
+
+  public GetFileReq(Builder builder){
+       this.fileKey = builder.fileKey;
   }
+
+    public static class Builder {
+    
+        private String fileKey;
+          public Builder fileKey(String fileKey) {
+               this.fileKey = fileKey;
+               return this;
+          }
+    
+    public GetFileReq build(){
+        return new GetFileReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

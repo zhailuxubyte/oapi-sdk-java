@@ -12,65 +12,70 @@
  */
 
 package com.lark.oapi.service.mail.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.mail.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class DeletePublicMailboxAliasReq {
-
-  @Path
-  @SerializedName("public_mailbox_id")
-  private String publicMailboxId;
-  @Path
-  @SerializedName("alias_id")
-  private String aliasId;
-
-  // builder 开始
-  public DeletePublicMailboxAliasReq() {
-  }
-
-  public DeletePublicMailboxAliasReq(Builder builder) {
-    this.publicMailboxId = builder.publicMailboxId;
-    this.aliasId = builder.aliasId;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getPublicMailboxId() {
-    return this.publicMailboxId;
-  }
-
-  public void setPublicMailboxId(String publicMailboxId) {
-    this.publicMailboxId = publicMailboxId;
-  }
-
-  public String getAliasId() {
-    return this.aliasId;
-  }
-
-  public void setAliasId(String aliasId) {
-    this.aliasId = aliasId;
-  }
-
-  public static class Builder {
-
+    @Path
+    @SerializedName("public_mailbox_id")
     private String publicMailboxId;
+    @Path
+    @SerializedName("alias_id")
     private String aliasId;
-
-    public Builder publicMailboxId(String publicMailboxId) {
-      this.publicMailboxId = publicMailboxId;
-      return this;
+    public String getPublicMailboxId() {
+        return this.publicMailboxId;
     }
 
-    public Builder aliasId(String aliasId) {
-      this.aliasId = aliasId;
-      return this;
+    public void setPublicMailboxId(String publicMailboxId) {
+        this.publicMailboxId = publicMailboxId;
     }
 
-    public DeletePublicMailboxAliasReq build() {
-      return new DeletePublicMailboxAliasReq(this);
+    public String getAliasId() {
+        return this.aliasId;
     }
+
+    public void setAliasId(String aliasId) {
+        this.aliasId = aliasId;
+    }
+
+
+// builder 开始
+  public DeletePublicMailboxAliasReq(){}
+
+  public DeletePublicMailboxAliasReq(Builder builder){
+       this.publicMailboxId = builder.publicMailboxId;
+       this.aliasId = builder.aliasId;
   }
+
+    public static class Builder {
+    
+        private String publicMailboxId;
+        private String aliasId;
+          public Builder publicMailboxId(String publicMailboxId) {
+               this.publicMailboxId = publicMailboxId;
+               return this;
+          }
+    
+          public Builder aliasId(String aliasId) {
+               this.aliasId = aliasId;
+               return this;
+          }
+    
+    public DeletePublicMailboxAliasReq build(){
+        return new DeletePublicMailboxAliasReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

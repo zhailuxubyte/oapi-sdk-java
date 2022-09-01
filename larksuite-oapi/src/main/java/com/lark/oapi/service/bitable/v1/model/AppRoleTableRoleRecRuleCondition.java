@@ -12,102 +12,107 @@
  */
 
 package com.lark.oapi.service.bitable.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.bitable.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class AppRoleTableRoleRecRuleCondition {
-
-  @SerializedName("field_name")
-  private String fieldName;
-  @SerializedName("operator")
-  private String operator;
-  @SerializedName("value")
-  private String[] value;
-  @SerializedName("field_type")
-  private Integer fieldType;
-
-  // builder 开始
-  public AppRoleTableRoleRecRuleCondition() {
-  }
-
-  public AppRoleTableRoleRecRuleCondition(Builder builder) {
-    this.fieldName = builder.fieldName;
-    this.operator = builder.operator;
-    this.value = builder.value;
-    this.fieldType = builder.fieldType;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getFieldName() {
-    return this.fieldName;
-  }
-
-  public void setFieldName(String fieldName) {
-    this.fieldName = fieldName;
-  }
-
-  public String getOperator() {
-    return this.operator;
-  }
-
-  public void setOperator(String operator) {
-    this.operator = operator;
-  }
-
-  public String[] getValue() {
-    return this.value;
-  }
-
-  public void setValue(String[] value) {
-    this.value = value;
-  }
-
-  public Integer getFieldType() {
-    return this.fieldType;
-  }
-
-  public void setFieldType(Integer fieldType) {
-    this.fieldType = fieldType;
-  }
-
-  public static class Builder {
-
+    @SerializedName("field_name")
     private String fieldName;
+    @SerializedName("operator")
     private String operator;
+    @SerializedName("value")
     private String[] value;
+    @SerializedName("field_type")
     private Integer fieldType;
-
-    public Builder fieldName(String fieldName) {
-      this.fieldName = fieldName;
-      return this;
+    public String getFieldName() {
+        return this.fieldName;
     }
 
-    public Builder operator(String operator) {
-      this.operator = operator;
-      return this;
+    public void setFieldName(String fieldName) {
+        this.fieldName = fieldName;
     }
 
-    public Builder operator(com.lark.oapi.service.bitable.v1.enums.OperatorEnum operator) {
-      this.operator = operator.getValue();
-      return this;
+    public String getOperator() {
+        return this.operator;
     }
 
-    public Builder value(String[] value) {
-      this.value = value;
-      return this;
+    public void setOperator(String operator) {
+        this.operator = operator;
     }
 
-    public Builder fieldType(Integer fieldType) {
-      this.fieldType = fieldType;
-      return this;
+    public String[] getValue() {
+        return this.value;
+    }
+
+    public void setValue(String[] value) {
+        this.value = value;
+    }
+
+    public Integer getFieldType() {
+        return this.fieldType;
+    }
+
+    public void setFieldType(Integer fieldType) {
+        this.fieldType = fieldType;
     }
 
 
-    public AppRoleTableRoleRecRuleCondition build() {
-      return new AppRoleTableRoleRecRuleCondition(this);
-    }
+// builder 开始
+  public AppRoleTableRoleRecRuleCondition(){}
+
+  public AppRoleTableRoleRecRuleCondition(Builder builder){
+      this.fieldName = builder.fieldName;
+      this.operator = builder.operator;
+      this.value = builder.value;
+      this.fieldType = builder.fieldType;
   }
+
+    public static class Builder {
+        private String fieldName;
+        private String operator;
+        private String[] value;
+        private Integer fieldType;
+        public Builder fieldName(String fieldName) {
+             this.fieldName = fieldName;
+             return this;
+        }
+    
+        public Builder operator(String operator) {
+             this.operator = operator;
+             return this;
+        }
+        public Builder operator(com.lark.oapi.service.bitable.v1.enums.OperatorEnum operator) {
+             this.operator = operator.getValue();
+             return this;
+        }
+    
+        public Builder value(String[] value) {
+             this.value = value;
+             return this;
+        }
+    
+        public Builder fieldType(Integer fieldType) {
+             this.fieldType = fieldType;
+             return this;
+        }
+    
+    
+    public AppRoleTableRoleRecRuleCondition build(){
+        return new AppRoleTableRoleRecRuleCondition(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

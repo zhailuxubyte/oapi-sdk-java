@@ -12,65 +12,70 @@
  */
 
 package com.lark.oapi.service.attendance.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.attendance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class ListShiftReq {
-
-  @Query
-  @SerializedName("page_size")
-  private Integer pageSize;
-  @Query
-  @SerializedName("page_token")
-  private String pageToken;
-
-  // builder 开始
-  public ListShiftReq() {
-  }
-
-  public ListShiftReq(Builder builder) {
-    this.pageSize = builder.pageSize;
-    this.pageToken = builder.pageToken;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Integer getPageSize() {
-    return this.pageSize;
-  }
-
-  public void setPageSize(Integer pageSize) {
-    this.pageSize = pageSize;
-  }
-
-  public String getPageToken() {
-    return this.pageToken;
-  }
-
-  public void setPageToken(String pageToken) {
-    this.pageToken = pageToken;
-  }
-
-  public static class Builder {
-
+    @Query
+    @SerializedName("page_size")
     private Integer pageSize;
+    @Query
+    @SerializedName("page_token")
     private String pageToken;
-
-    public Builder pageSize(Integer pageSize) {
-      this.pageSize = pageSize;
-      return this;
+    public Integer getPageSize() {
+        return this.pageSize;
     }
 
-    public Builder pageToken(String pageToken) {
-      this.pageToken = pageToken;
-      return this;
+    public void setPageSize(Integer pageSize) {
+        this.pageSize = pageSize;
     }
 
-    public ListShiftReq build() {
-      return new ListShiftReq(this);
+    public String getPageToken() {
+        return this.pageToken;
     }
+
+    public void setPageToken(String pageToken) {
+        this.pageToken = pageToken;
+    }
+
+
+// builder 开始
+  public ListShiftReq(){}
+
+  public ListShiftReq(Builder builder){
+       this.pageSize = builder.pageSize;
+       this.pageToken = builder.pageToken;
   }
+
+    public static class Builder {
+        private Integer pageSize;
+        private String pageToken;
+    
+           public Builder pageSize(Integer pageSize) {
+                this.pageSize = pageSize;
+                return this;
+           }
+    
+           public Builder pageToken(String pageToken) {
+                this.pageToken = pageToken;
+                return this;
+           }
+    
+    public ListShiftReq build(){
+        return new ListShiftReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

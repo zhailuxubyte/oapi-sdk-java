@@ -12,65 +12,70 @@
  */
 
 package com.lark.oapi.service.task.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.task.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class DeleteTaskReminderReq {
-
-  @Path
-  @SerializedName("task_id")
-  private String taskId;
-  @Path
-  @SerializedName("reminder_id")
-  private String reminderId;
-
-  // builder 开始
-  public DeleteTaskReminderReq() {
-  }
-
-  public DeleteTaskReminderReq(Builder builder) {
-    this.taskId = builder.taskId;
-    this.reminderId = builder.reminderId;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getTaskId() {
-    return this.taskId;
-  }
-
-  public void setTaskId(String taskId) {
-    this.taskId = taskId;
-  }
-
-  public String getReminderId() {
-    return this.reminderId;
-  }
-
-  public void setReminderId(String reminderId) {
-    this.reminderId = reminderId;
-  }
-
-  public static class Builder {
-
+    @Path
+    @SerializedName("task_id")
     private String taskId;
+    @Path
+    @SerializedName("reminder_id")
     private String reminderId;
-
-    public Builder taskId(String taskId) {
-      this.taskId = taskId;
-      return this;
+    public String getTaskId() {
+        return this.taskId;
     }
 
-    public Builder reminderId(String reminderId) {
-      this.reminderId = reminderId;
-      return this;
+    public void setTaskId(String taskId) {
+        this.taskId = taskId;
     }
 
-    public DeleteTaskReminderReq build() {
-      return new DeleteTaskReminderReq(this);
+    public String getReminderId() {
+        return this.reminderId;
     }
+
+    public void setReminderId(String reminderId) {
+        this.reminderId = reminderId;
+    }
+
+
+// builder 开始
+  public DeleteTaskReminderReq(){}
+
+  public DeleteTaskReminderReq(Builder builder){
+       this.taskId = builder.taskId;
+       this.reminderId = builder.reminderId;
   }
+
+    public static class Builder {
+    
+        private String taskId;
+        private String reminderId;
+          public Builder taskId(String taskId) {
+               this.taskId = taskId;
+               return this;
+          }
+    
+          public Builder reminderId(String reminderId) {
+               this.reminderId = reminderId;
+               return this;
+          }
+    
+    public DeleteTaskReminderReq build(){
+        return new DeleteTaskReminderReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

@@ -12,46 +12,52 @@
  */
 
 package com.lark.oapi.service.helpdesk.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.helpdesk.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class CancelSendNotificationReqBody {
-
-  @SerializedName("is_recall")
-  private Boolean isRecall;
-
-  // builder 开始
-  public CancelSendNotificationReqBody() {
-  }
-
-  public CancelSendNotificationReqBody(Builder builder) {
-    this.isRecall = builder.isRecall;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Boolean getIsRecall() {
-    return this.isRecall;
-  }
-
-  public void setIsRecall(Boolean isRecall) {
-    this.isRecall = isRecall;
-  }
-
-  public static class Builder {
-
+    @SerializedName("is_recall")
     private Boolean isRecall;
+    public Boolean getIsRecall() {
+        return this.isRecall;
+    }
 
-    public Builder isRecall(Boolean isRecall) {
-      this.isRecall = isRecall;
-      return this;
+    public void setIsRecall(Boolean isRecall) {
+        this.isRecall = isRecall;
     }
 
 
-    public CancelSendNotificationReqBody build() {
-      return new CancelSendNotificationReqBody(this);
-    }
+// builder 开始
+  public CancelSendNotificationReqBody(){}
+
+  public CancelSendNotificationReqBody(Builder builder){
+      this.isRecall = builder.isRecall;
   }
+
+    public static class Builder {
+        private Boolean isRecall;
+        public Builder isRecall(Boolean isRecall) {
+             this.isRecall = isRecall;
+             return this;
+        }
+    
+    
+    public CancelSendNotificationReqBody build(){
+        return new CancelSendNotificationReqBody(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

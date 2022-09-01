@@ -12,80 +12,86 @@
  */
 
 package com.lark.oapi.service.baike.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.baike.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class Phrase {
-
-  @SerializedName("name")
-  private String name;
-  @SerializedName("entity_ids")
-  private String[] entityIds;
-  @SerializedName("span")
-  private Span span;
-
-  // builder 开始
-  public Phrase() {
-  }
-
-  public Phrase(Builder builder) {
-    this.name = builder.name;
-    this.entityIds = builder.entityIds;
-    this.span = builder.span;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getName() {
-    return this.name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public String[] getEntityIds() {
-    return this.entityIds;
-  }
-
-  public void setEntityIds(String[] entityIds) {
-    this.entityIds = entityIds;
-  }
-
-  public Span getSpan() {
-    return this.span;
-  }
-
-  public void setSpan(Span span) {
-    this.span = span;
-  }
-
-  public static class Builder {
-
+    @SerializedName("name")
     private String name;
+    @SerializedName("entity_ids")
     private String[] entityIds;
+    @SerializedName("span")
     private Span span;
-
-    public Builder name(String name) {
-      this.name = name;
-      return this;
+    public String getName() {
+        return this.name;
     }
 
-    public Builder entityIds(String[] entityIds) {
-      this.entityIds = entityIds;
-      return this;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public Builder span(Span span) {
-      this.span = span;
-      return this;
+    public String[] getEntityIds() {
+        return this.entityIds;
+    }
+
+    public void setEntityIds(String[] entityIds) {
+        this.entityIds = entityIds;
+    }
+
+    public Span getSpan() {
+        return this.span;
+    }
+
+    public void setSpan(Span span) {
+        this.span = span;
     }
 
 
-    public Phrase build() {
-      return new Phrase(this);
-    }
+// builder 开始
+  public Phrase(){}
+
+  public Phrase(Builder builder){
+      this.name = builder.name;
+      this.entityIds = builder.entityIds;
+      this.span = builder.span;
   }
+
+    public static class Builder {
+        private String name;
+        private String[] entityIds;
+        private Span span;
+        public Builder name(String name) {
+             this.name = name;
+             return this;
+        }
+    
+        public Builder entityIds(String[] entityIds) {
+             this.entityIds = entityIds;
+             return this;
+        }
+    
+        public Builder span(Span span) {
+             this.span = span;
+             return this;
+        }
+    
+    
+    public Phrase build(){
+        return new Phrase(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

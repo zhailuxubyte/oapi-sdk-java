@@ -12,63 +12,69 @@
  */
 
 package com.lark.oapi.service.helpdesk.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.helpdesk.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class Richtext {
-
-  @SerializedName("content")
-  private String content;
-  @SerializedName("type")
-  private String type;
-
-  // builder 开始
-  public Richtext() {
-  }
-
-  public Richtext(Builder builder) {
-    this.content = builder.content;
-    this.type = builder.type;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getContent() {
-    return this.content;
-  }
-
-  public void setContent(String content) {
-    this.content = content;
-  }
-
-  public String getType() {
-    return this.type;
-  }
-
-  public void setType(String type) {
-    this.type = type;
-  }
-
-  public static class Builder {
-
+    @SerializedName("content")
     private String content;
+    @SerializedName("type")
     private String type;
-
-    public Builder content(String content) {
-      this.content = content;
-      return this;
+    public String getContent() {
+        return this.content;
     }
 
-    public Builder type(String type) {
-      this.type = type;
-      return this;
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public String getType() {
+        return this.type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 
 
-    public Richtext build() {
-      return new Richtext(this);
-    }
+// builder 开始
+  public Richtext(){}
+
+  public Richtext(Builder builder){
+      this.content = builder.content;
+      this.type = builder.type;
   }
+
+    public static class Builder {
+        private String content;
+        private String type;
+        public Builder content(String content) {
+             this.content = content;
+             return this;
+        }
+    
+        public Builder type(String type) {
+             this.type = type;
+             return this;
+        }
+    
+    
+    public Richtext build(){
+        return new Richtext(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

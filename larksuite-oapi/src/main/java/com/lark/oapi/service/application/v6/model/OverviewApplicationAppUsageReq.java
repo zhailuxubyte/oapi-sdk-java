@@ -12,94 +12,94 @@
  */
 
 package com.lark.oapi.service.application.v6.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.application.v6.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class OverviewApplicationAppUsageReq {
-
-  @Query
-  @SerializedName("department_id_type")
-  private String departmentIdType;
-  @Path
-  @SerializedName("app_id")
-  private String appId;
-  @Body
-  private OverviewApplicationAppUsageReqBody body;
-
-  // builder 开始
-  public OverviewApplicationAppUsageReq() {
-  }
-
-  public OverviewApplicationAppUsageReq(Builder builder) {
-    this.departmentIdType = builder.departmentIdType;
-    this.appId = builder.appId;
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getDepartmentIdType() {
-    return this.departmentIdType;
-  }
-
-  public void setDepartmentIdType(String departmentIdType) {
-    this.departmentIdType = departmentIdType;
-  }
-
-  public String getAppId() {
-    return this.appId;
-  }
-
-  public void setAppId(String appId) {
-    this.appId = appId;
-  }
-
-  public OverviewApplicationAppUsageReqBody getOverviewApplicationAppUsageReqBody() {
-    return this.body;
-  }
-
-  public void setOverviewApplicationAppUsageReqBody(OverviewApplicationAppUsageReqBody body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
+    @Query
+    @SerializedName("department_id_type")
     private String departmentIdType;
+    public String getDepartmentIdType() {
+        return this.departmentIdType;
+    }
+
+    public void setDepartmentIdType(String departmentIdType) {
+        this.departmentIdType = departmentIdType;
+    }
+
+    @Path
+    @SerializedName("app_id")
     private String appId;
+    public String getAppId() {
+        return this.appId;
+    }
+
+    public void setAppId(String appId) {
+        this.appId = appId;
+    }
+
+    @Body
     private OverviewApplicationAppUsageReqBody body;
 
-    public Builder departmentIdType(String departmentIdType) {
-      this.departmentIdType = departmentIdType;
-      return this;
-    }
-
-    public Builder departmentIdType(
-        com.lark.oapi.service.application.v6.enums.DepartmentIdTypeEnum departmentIdType) {
-      this.departmentIdType = departmentIdType.getValue();
-      return this;
-    }
-
-    public Builder appId(String appId) {
-      this.appId = appId;
-      return this;
-    }
-
     public OverviewApplicationAppUsageReqBody getOverviewApplicationAppUsageReqBody() {
-      return this.body;
+        return this.body;
     }
 
-    public Builder overviewApplicationAppUsageReqBody(OverviewApplicationAppUsageReqBody body) {
-      this.body = body;
-      return this;
+    public void setOverviewApplicationAppUsageReqBody(OverviewApplicationAppUsageReqBody body) {
+        this.body = body;
     }
 
-    public OverviewApplicationAppUsageReq build() {
-      return new OverviewApplicationAppUsageReq(this);
-    }
+// builder 开始
+  public OverviewApplicationAppUsageReq(){}
+
+  public OverviewApplicationAppUsageReq(Builder builder){
+       this.departmentIdType = builder.departmentIdType;
+       this.appId = builder.appId;
+        this.body = builder.body;
   }
+
+    public static class Builder {
+        private String departmentIdType;
+    
+           public Builder departmentIdType(String departmentIdType) {
+                this.departmentIdType = departmentIdType;
+                return this;
+           }
+          public Builder departmentIdType(com.lark.oapi.service.application.v6.enums.DepartmentIdTypeEnum departmentIdType) {
+               this.departmentIdType = departmentIdType.getValue();
+               return this;
+          }
+    
+        private String appId;
+          public Builder appId(String appId) {
+               this.appId = appId;
+               return this;
+          }
+    
+        private OverviewApplicationAppUsageReqBody body;
+    
+        public OverviewApplicationAppUsageReqBody getOverviewApplicationAppUsageReqBody() {
+            return this.body;
+        }
+        public Builder overviewApplicationAppUsageReqBody(OverviewApplicationAppUsageReqBody body) {
+             this.body = body;
+             return this;
+        }
+    public OverviewApplicationAppUsageReq build(){
+        return new OverviewApplicationAppUsageReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

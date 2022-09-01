@@ -12,154 +12,158 @@
  */
 
 package com.lark.oapi.service.application.v6.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.application.v6.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class Gadget {
-
-  @SerializedName("enable_pc_mode")
-  private Integer enablePcMode;
-  @SerializedName("schema_urls")
-  private String[] schemaUrls;
-  @SerializedName("pc_use_mobile_pkg")
-  private Boolean pcUseMobilePkg;
-  @SerializedName("pc_version")
-  private String pcVersion;
-  @SerializedName("mobile_version")
-  private String mobileVersion;
-  @SerializedName("mobile_min_lark_version")
-  private String mobileMinLarkVersion;
-  @SerializedName("pc_min_lark_version")
-  private String pcMinLarkVersion;
-
-  // builder 开始
-  public Gadget() {
-  }
-
-  public Gadget(Builder builder) {
-    this.enablePcMode = builder.enablePcMode;
-    this.schemaUrls = builder.schemaUrls;
-    this.pcUseMobilePkg = builder.pcUseMobilePkg;
-    this.pcVersion = builder.pcVersion;
-    this.mobileVersion = builder.mobileVersion;
-    this.mobileMinLarkVersion = builder.mobileMinLarkVersion;
-    this.pcMinLarkVersion = builder.pcMinLarkVersion;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Integer getEnablePcMode() {
-    return this.enablePcMode;
-  }
-
-  public void setEnablePcMode(Integer enablePcMode) {
-    this.enablePcMode = enablePcMode;
-  }
-
-  public String[] getSchemaUrls() {
-    return this.schemaUrls;
-  }
-
-  public void setSchemaUrls(String[] schemaUrls) {
-    this.schemaUrls = schemaUrls;
-  }
-
-  public Boolean getPcUseMobilePkg() {
-    return this.pcUseMobilePkg;
-  }
-
-  public void setPcUseMobilePkg(Boolean pcUseMobilePkg) {
-    this.pcUseMobilePkg = pcUseMobilePkg;
-  }
-
-  public String getPcVersion() {
-    return this.pcVersion;
-  }
-
-  public void setPcVersion(String pcVersion) {
-    this.pcVersion = pcVersion;
-  }
-
-  public String getMobileVersion() {
-    return this.mobileVersion;
-  }
-
-  public void setMobileVersion(String mobileVersion) {
-    this.mobileVersion = mobileVersion;
-  }
-
-  public String getMobileMinLarkVersion() {
-    return this.mobileMinLarkVersion;
-  }
-
-  public void setMobileMinLarkVersion(String mobileMinLarkVersion) {
-    this.mobileMinLarkVersion = mobileMinLarkVersion;
-  }
-
-  public String getPcMinLarkVersion() {
-    return this.pcMinLarkVersion;
-  }
-
-  public void setPcMinLarkVersion(String pcMinLarkVersion) {
-    this.pcMinLarkVersion = pcMinLarkVersion;
-  }
-
-  public static class Builder {
-
+    @SerializedName("enable_pc_mode")
     private Integer enablePcMode;
+    @SerializedName("schema_urls")
     private String[] schemaUrls;
+    @SerializedName("pc_use_mobile_pkg")
     private Boolean pcUseMobilePkg;
+    @SerializedName("pc_version")
     private String pcVersion;
+    @SerializedName("mobile_version")
     private String mobileVersion;
+    @SerializedName("mobile_min_lark_version")
     private String mobileMinLarkVersion;
+    @SerializedName("pc_min_lark_version")
     private String pcMinLarkVersion;
-
-    public Builder enablePcMode(Integer enablePcMode) {
-      this.enablePcMode = enablePcMode;
-      return this;
+    public Integer getEnablePcMode() {
+        return this.enablePcMode;
     }
 
-    public Builder enablePcMode(
-        com.lark.oapi.service.application.v6.enums.GadgetEnablePcModeEnum enablePcMode) {
-      this.enablePcMode = enablePcMode.getValue();
-      return this;
+    public void setEnablePcMode(Integer enablePcMode) {
+        this.enablePcMode = enablePcMode;
     }
 
-    public Builder schemaUrls(String[] schemaUrls) {
-      this.schemaUrls = schemaUrls;
-      return this;
+    public String[] getSchemaUrls() {
+        return this.schemaUrls;
     }
 
-    public Builder pcUseMobilePkg(Boolean pcUseMobilePkg) {
-      this.pcUseMobilePkg = pcUseMobilePkg;
-      return this;
+    public void setSchemaUrls(String[] schemaUrls) {
+        this.schemaUrls = schemaUrls;
     }
 
-    public Builder pcVersion(String pcVersion) {
-      this.pcVersion = pcVersion;
-      return this;
+    public Boolean getPcUseMobilePkg() {
+        return this.pcUseMobilePkg;
     }
 
-    public Builder mobileVersion(String mobileVersion) {
-      this.mobileVersion = mobileVersion;
-      return this;
+    public void setPcUseMobilePkg(Boolean pcUseMobilePkg) {
+        this.pcUseMobilePkg = pcUseMobilePkg;
     }
 
-    public Builder mobileMinLarkVersion(String mobileMinLarkVersion) {
-      this.mobileMinLarkVersion = mobileMinLarkVersion;
-      return this;
+    public String getPcVersion() {
+        return this.pcVersion;
     }
 
-    public Builder pcMinLarkVersion(String pcMinLarkVersion) {
-      this.pcMinLarkVersion = pcMinLarkVersion;
-      return this;
+    public void setPcVersion(String pcVersion) {
+        this.pcVersion = pcVersion;
+    }
+
+    public String getMobileVersion() {
+        return this.mobileVersion;
+    }
+
+    public void setMobileVersion(String mobileVersion) {
+        this.mobileVersion = mobileVersion;
+    }
+
+    public String getMobileMinLarkVersion() {
+        return this.mobileMinLarkVersion;
+    }
+
+    public void setMobileMinLarkVersion(String mobileMinLarkVersion) {
+        this.mobileMinLarkVersion = mobileMinLarkVersion;
+    }
+
+    public String getPcMinLarkVersion() {
+        return this.pcMinLarkVersion;
+    }
+
+    public void setPcMinLarkVersion(String pcMinLarkVersion) {
+        this.pcMinLarkVersion = pcMinLarkVersion;
     }
 
 
-    public Gadget build() {
-      return new Gadget(this);
-    }
+// builder 开始
+  public Gadget(){}
+
+  public Gadget(Builder builder){
+      this.enablePcMode = builder.enablePcMode;
+      this.schemaUrls = builder.schemaUrls;
+      this.pcUseMobilePkg = builder.pcUseMobilePkg;
+      this.pcVersion = builder.pcVersion;
+      this.mobileVersion = builder.mobileVersion;
+      this.mobileMinLarkVersion = builder.mobileMinLarkVersion;
+      this.pcMinLarkVersion = builder.pcMinLarkVersion;
   }
+
+    public static class Builder {
+        private Integer enablePcMode;
+        private String[] schemaUrls;
+        private Boolean pcUseMobilePkg;
+        private String pcVersion;
+        private String mobileVersion;
+        private String mobileMinLarkVersion;
+        private String pcMinLarkVersion;
+        public Builder enablePcMode(Integer enablePcMode) {
+             this.enablePcMode = enablePcMode;
+             return this;
+        }
+        public Builder enablePcMode(com.lark.oapi.service.application.v6.enums.GadgetEnablePcModeEnum enablePcMode) {
+             this.enablePcMode = enablePcMode.getValue();
+             return this;
+        }
+    
+        public Builder schemaUrls(String[] schemaUrls) {
+             this.schemaUrls = schemaUrls;
+             return this;
+        }
+    
+        public Builder pcUseMobilePkg(Boolean pcUseMobilePkg) {
+             this.pcUseMobilePkg = pcUseMobilePkg;
+             return this;
+        }
+    
+        public Builder pcVersion(String pcVersion) {
+             this.pcVersion = pcVersion;
+             return this;
+        }
+    
+        public Builder mobileVersion(String mobileVersion) {
+             this.mobileVersion = mobileVersion;
+             return this;
+        }
+    
+        public Builder mobileMinLarkVersion(String mobileMinLarkVersion) {
+             this.mobileMinLarkVersion = mobileMinLarkVersion;
+             return this;
+        }
+    
+        public Builder pcMinLarkVersion(String pcMinLarkVersion) {
+             this.pcMinLarkVersion = pcMinLarkVersion;
+             return this;
+        }
+    
+    
+    public Gadget build(){
+        return new Gadget(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

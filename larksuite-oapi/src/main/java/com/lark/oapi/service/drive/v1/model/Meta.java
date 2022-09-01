@@ -12,165 +12,171 @@
  */
 
 package com.lark.oapi.service.drive.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.drive.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class Meta {
-
-  @SerializedName("doc_token")
-  private String docToken;
-  @SerializedName("doc_type")
-  private String docType;
-  @SerializedName("title")
-  private String title;
-  @SerializedName("owner_id")
-  private String ownerId;
-  @SerializedName("create_time")
-  private String createTime;
-  @SerializedName("latest_modify_user")
-  private String latestModifyUser;
-  @SerializedName("latest_modify_time")
-  private String latestModifyTime;
-  @SerializedName("url")
-  private String url;
-
-  // builder 开始
-  public Meta() {
-  }
-
-  public Meta(Builder builder) {
-    this.docToken = builder.docToken;
-    this.docType = builder.docType;
-    this.title = builder.title;
-    this.ownerId = builder.ownerId;
-    this.createTime = builder.createTime;
-    this.latestModifyUser = builder.latestModifyUser;
-    this.latestModifyTime = builder.latestModifyTime;
-    this.url = builder.url;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getDocToken() {
-    return this.docToken;
-  }
-
-  public void setDocToken(String docToken) {
-    this.docToken = docToken;
-  }
-
-  public String getDocType() {
-    return this.docType;
-  }
-
-  public void setDocType(String docType) {
-    this.docType = docType;
-  }
-
-  public String getTitle() {
-    return this.title;
-  }
-
-  public void setTitle(String title) {
-    this.title = title;
-  }
-
-  public String getOwnerId() {
-    return this.ownerId;
-  }
-
-  public void setOwnerId(String ownerId) {
-    this.ownerId = ownerId;
-  }
-
-  public String getCreateTime() {
-    return this.createTime;
-  }
-
-  public void setCreateTime(String createTime) {
-    this.createTime = createTime;
-  }
-
-  public String getLatestModifyUser() {
-    return this.latestModifyUser;
-  }
-
-  public void setLatestModifyUser(String latestModifyUser) {
-    this.latestModifyUser = latestModifyUser;
-  }
-
-  public String getLatestModifyTime() {
-    return this.latestModifyTime;
-  }
-
-  public void setLatestModifyTime(String latestModifyTime) {
-    this.latestModifyTime = latestModifyTime;
-  }
-
-  public String getUrl() {
-    return this.url;
-  }
-
-  public void setUrl(String url) {
-    this.url = url;
-  }
-
-  public static class Builder {
-
+    @SerializedName("doc_token")
     private String docToken;
+    @SerializedName("doc_type")
     private String docType;
+    @SerializedName("title")
     private String title;
+    @SerializedName("owner_id")
     private String ownerId;
+    @SerializedName("create_time")
     private String createTime;
+    @SerializedName("latest_modify_user")
     private String latestModifyUser;
+    @SerializedName("latest_modify_time")
     private String latestModifyTime;
+    @SerializedName("url")
     private String url;
-
-    public Builder docToken(String docToken) {
-      this.docToken = docToken;
-      return this;
+    public String getDocToken() {
+        return this.docToken;
     }
 
-    public Builder docType(String docType) {
-      this.docType = docType;
-      return this;
+    public void setDocToken(String docToken) {
+        this.docToken = docToken;
     }
 
-    public Builder title(String title) {
-      this.title = title;
-      return this;
+    public String getDocType() {
+        return this.docType;
     }
 
-    public Builder ownerId(String ownerId) {
-      this.ownerId = ownerId;
-      return this;
+    public void setDocType(String docType) {
+        this.docType = docType;
     }
 
-    public Builder createTime(String createTime) {
-      this.createTime = createTime;
-      return this;
+    public String getTitle() {
+        return this.title;
     }
 
-    public Builder latestModifyUser(String latestModifyUser) {
-      this.latestModifyUser = latestModifyUser;
-      return this;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-    public Builder latestModifyTime(String latestModifyTime) {
-      this.latestModifyTime = latestModifyTime;
-      return this;
+    public String getOwnerId() {
+        return this.ownerId;
     }
 
-    public Builder url(String url) {
-      this.url = url;
-      return this;
+    public void setOwnerId(String ownerId) {
+        this.ownerId = ownerId;
+    }
+
+    public String getCreateTime() {
+        return this.createTime;
+    }
+
+    public void setCreateTime(String createTime) {
+        this.createTime = createTime;
+    }
+
+    public String getLatestModifyUser() {
+        return this.latestModifyUser;
+    }
+
+    public void setLatestModifyUser(String latestModifyUser) {
+        this.latestModifyUser = latestModifyUser;
+    }
+
+    public String getLatestModifyTime() {
+        return this.latestModifyTime;
+    }
+
+    public void setLatestModifyTime(String latestModifyTime) {
+        this.latestModifyTime = latestModifyTime;
+    }
+
+    public String getUrl() {
+        return this.url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 
 
-    public Meta build() {
-      return new Meta(this);
-    }
+// builder 开始
+  public Meta(){}
+
+  public Meta(Builder builder){
+      this.docToken = builder.docToken;
+      this.docType = builder.docType;
+      this.title = builder.title;
+      this.ownerId = builder.ownerId;
+      this.createTime = builder.createTime;
+      this.latestModifyUser = builder.latestModifyUser;
+      this.latestModifyTime = builder.latestModifyTime;
+      this.url = builder.url;
   }
+
+    public static class Builder {
+        private String docToken;
+        private String docType;
+        private String title;
+        private String ownerId;
+        private String createTime;
+        private String latestModifyUser;
+        private String latestModifyTime;
+        private String url;
+        public Builder docToken(String docToken) {
+             this.docToken = docToken;
+             return this;
+        }
+    
+        public Builder docType(String docType) {
+             this.docType = docType;
+             return this;
+        }
+    
+        public Builder title(String title) {
+             this.title = title;
+             return this;
+        }
+    
+        public Builder ownerId(String ownerId) {
+             this.ownerId = ownerId;
+             return this;
+        }
+    
+        public Builder createTime(String createTime) {
+             this.createTime = createTime;
+             return this;
+        }
+    
+        public Builder latestModifyUser(String latestModifyUser) {
+             this.latestModifyUser = latestModifyUser;
+             return this;
+        }
+    
+        public Builder latestModifyTime(String latestModifyTime) {
+             this.latestModifyTime = latestModifyTime;
+             return this;
+        }
+    
+        public Builder url(String url) {
+             this.url = url;
+             return this;
+        }
+    
+    
+    public Meta build(){
+        return new Meta(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

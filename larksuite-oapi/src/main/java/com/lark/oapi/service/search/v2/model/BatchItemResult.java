@@ -12,80 +12,86 @@
  */
 
 package com.lark.oapi.service.search.v2.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.search.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class BatchItemResult {
-
-  @SerializedName("item_id")
-  private String itemId;
-  @SerializedName("is_success")
-  private Boolean isSuccess;
-  @SerializedName("err")
-  private String err;
-
-  // builder 开始
-  public BatchItemResult() {
-  }
-
-  public BatchItemResult(Builder builder) {
-    this.itemId = builder.itemId;
-    this.isSuccess = builder.isSuccess;
-    this.err = builder.err;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getItemId() {
-    return this.itemId;
-  }
-
-  public void setItemId(String itemId) {
-    this.itemId = itemId;
-  }
-
-  public Boolean getIsSuccess() {
-    return this.isSuccess;
-  }
-
-  public void setIsSuccess(Boolean isSuccess) {
-    this.isSuccess = isSuccess;
-  }
-
-  public String getErr() {
-    return this.err;
-  }
-
-  public void setErr(String err) {
-    this.err = err;
-  }
-
-  public static class Builder {
-
+    @SerializedName("item_id")
     private String itemId;
+    @SerializedName("is_success")
     private Boolean isSuccess;
+    @SerializedName("err")
     private String err;
-
-    public Builder itemId(String itemId) {
-      this.itemId = itemId;
-      return this;
+    public String getItemId() {
+        return this.itemId;
     }
 
-    public Builder isSuccess(Boolean isSuccess) {
-      this.isSuccess = isSuccess;
-      return this;
+    public void setItemId(String itemId) {
+        this.itemId = itemId;
     }
 
-    public Builder err(String err) {
-      this.err = err;
-      return this;
+    public Boolean getIsSuccess() {
+        return this.isSuccess;
+    }
+
+    public void setIsSuccess(Boolean isSuccess) {
+        this.isSuccess = isSuccess;
+    }
+
+    public String getErr() {
+        return this.err;
+    }
+
+    public void setErr(String err) {
+        this.err = err;
     }
 
 
-    public BatchItemResult build() {
-      return new BatchItemResult(this);
-    }
+// builder 开始
+  public BatchItemResult(){}
+
+  public BatchItemResult(Builder builder){
+      this.itemId = builder.itemId;
+      this.isSuccess = builder.isSuccess;
+      this.err = builder.err;
   }
+
+    public static class Builder {
+        private String itemId;
+        private Boolean isSuccess;
+        private String err;
+        public Builder itemId(String itemId) {
+             this.itemId = itemId;
+             return this;
+        }
+    
+        public Builder isSuccess(Boolean isSuccess) {
+             this.isSuccess = isSuccess;
+             return this;
+        }
+    
+        public Builder err(String err) {
+             this.err = err;
+             return this;
+        }
+    
+    
+    public BatchItemResult build(){
+        return new BatchItemResult(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

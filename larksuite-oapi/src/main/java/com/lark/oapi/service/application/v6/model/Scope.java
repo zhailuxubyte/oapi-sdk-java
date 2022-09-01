@@ -12,69 +12,73 @@
  */
 
 package com.lark.oapi.service.application.v6.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.application.v6.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class Scope {
-
-  @SerializedName("scope_name")
-  private String scopeName;
-  @SerializedName("grant_status")
-  private Integer grantStatus;
-
-  // builder 开始
-  public Scope() {
-  }
-
-  public Scope(Builder builder) {
-    this.scopeName = builder.scopeName;
-    this.grantStatus = builder.grantStatus;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getScopeName() {
-    return this.scopeName;
-  }
-
-  public void setScopeName(String scopeName) {
-    this.scopeName = scopeName;
-  }
-
-  public Integer getGrantStatus() {
-    return this.grantStatus;
-  }
-
-  public void setGrantStatus(Integer grantStatus) {
-    this.grantStatus = grantStatus;
-  }
-
-  public static class Builder {
-
+    @SerializedName("scope_name")
     private String scopeName;
+    @SerializedName("grant_status")
     private Integer grantStatus;
-
-    public Builder scopeName(String scopeName) {
-      this.scopeName = scopeName;
-      return this;
+    public String getScopeName() {
+        return this.scopeName;
     }
 
-    public Builder grantStatus(Integer grantStatus) {
-      this.grantStatus = grantStatus;
-      return this;
+    public void setScopeName(String scopeName) {
+        this.scopeName = scopeName;
     }
 
-    public Builder grantStatus(
-        com.lark.oapi.service.application.v6.enums.GrantStatusEnum grantStatus) {
-      this.grantStatus = grantStatus.getValue();
-      return this;
+    public Integer getGrantStatus() {
+        return this.grantStatus;
+    }
+
+    public void setGrantStatus(Integer grantStatus) {
+        this.grantStatus = grantStatus;
     }
 
 
-    public Scope build() {
-      return new Scope(this);
-    }
+// builder 开始
+  public Scope(){}
+
+  public Scope(Builder builder){
+      this.scopeName = builder.scopeName;
+      this.grantStatus = builder.grantStatus;
   }
+
+    public static class Builder {
+        private String scopeName;
+        private Integer grantStatus;
+        public Builder scopeName(String scopeName) {
+             this.scopeName = scopeName;
+             return this;
+        }
+    
+        public Builder grantStatus(Integer grantStatus) {
+             this.grantStatus = grantStatus;
+             return this;
+        }
+        public Builder grantStatus(com.lark.oapi.service.application.v6.enums.GrantStatusEnum grantStatus) {
+             this.grantStatus = grantStatus.getValue();
+             return this;
+        }
+    
+    
+    public Scope build(){
+        return new Scope(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

@@ -12,80 +12,86 @@
  */
 
 package com.lark.oapi.service.helpdesk.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.helpdesk.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class TicketEventUpdateInfo {
-
-  @SerializedName("stage")
-  private Integer stage;
-  @SerializedName("status")
-  private Integer status;
-  @SerializedName("updated_at")
-  private Integer updatedAt;
-
-  // builder 开始
-  public TicketEventUpdateInfo() {
-  }
-
-  public TicketEventUpdateInfo(Builder builder) {
-    this.stage = builder.stage;
-    this.status = builder.status;
-    this.updatedAt = builder.updatedAt;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Integer getStage() {
-    return this.stage;
-  }
-
-  public void setStage(Integer stage) {
-    this.stage = stage;
-  }
-
-  public Integer getStatus() {
-    return this.status;
-  }
-
-  public void setStatus(Integer status) {
-    this.status = status;
-  }
-
-  public Integer getUpdatedAt() {
-    return this.updatedAt;
-  }
-
-  public void setUpdatedAt(Integer updatedAt) {
-    this.updatedAt = updatedAt;
-  }
-
-  public static class Builder {
-
+    @SerializedName("stage")
     private Integer stage;
+    @SerializedName("status")
     private Integer status;
+    @SerializedName("updated_at")
     private Integer updatedAt;
-
-    public Builder stage(Integer stage) {
-      this.stage = stage;
-      return this;
+    public Integer getStage() {
+        return this.stage;
     }
 
-    public Builder status(Integer status) {
-      this.status = status;
-      return this;
+    public void setStage(Integer stage) {
+        this.stage = stage;
     }
 
-    public Builder updatedAt(Integer updatedAt) {
-      this.updatedAt = updatedAt;
-      return this;
+    public Integer getStatus() {
+        return this.status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
+    }
+
+    public Integer getUpdatedAt() {
+        return this.updatedAt;
+    }
+
+    public void setUpdatedAt(Integer updatedAt) {
+        this.updatedAt = updatedAt;
     }
 
 
-    public TicketEventUpdateInfo build() {
-      return new TicketEventUpdateInfo(this);
-    }
+// builder 开始
+  public TicketEventUpdateInfo(){}
+
+  public TicketEventUpdateInfo(Builder builder){
+      this.stage = builder.stage;
+      this.status = builder.status;
+      this.updatedAt = builder.updatedAt;
   }
+
+    public static class Builder {
+        private Integer stage;
+        private Integer status;
+        private Integer updatedAt;
+        public Builder stage(Integer stage) {
+             this.stage = stage;
+             return this;
+        }
+    
+        public Builder status(Integer status) {
+             this.status = status;
+             return this;
+        }
+    
+        public Builder updatedAt(Integer updatedAt) {
+             this.updatedAt = updatedAt;
+             return this;
+        }
+    
+    
+    public TicketEventUpdateInfo build(){
+        return new TicketEventUpdateInfo(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

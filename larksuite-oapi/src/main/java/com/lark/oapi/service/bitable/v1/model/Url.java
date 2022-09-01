@@ -12,63 +12,69 @@
  */
 
 package com.lark.oapi.service.bitable.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.bitable.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class Url {
-
-  @SerializedName("text")
-  private String text;
-  @SerializedName("link")
-  private String link;
-
-  // builder 开始
-  public Url() {
-  }
-
-  public Url(Builder builder) {
-    this.text = builder.text;
-    this.link = builder.link;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getText() {
-    return this.text;
-  }
-
-  public void setText(String text) {
-    this.text = text;
-  }
-
-  public String getLink() {
-    return this.link;
-  }
-
-  public void setLink(String link) {
-    this.link = link;
-  }
-
-  public static class Builder {
-
+    @SerializedName("text")
     private String text;
+    @SerializedName("link")
     private String link;
-
-    public Builder text(String text) {
-      this.text = text;
-      return this;
+    public String getText() {
+        return this.text;
     }
 
-    public Builder link(String link) {
-      this.link = link;
-      return this;
+    public void setText(String text) {
+        this.text = text;
+    }
+
+    public String getLink() {
+        return this.link;
+    }
+
+    public void setLink(String link) {
+        this.link = link;
     }
 
 
-    public Url build() {
-      return new Url(this);
-    }
+// builder 开始
+  public Url(){}
+
+  public Url(Builder builder){
+      this.text = builder.text;
+      this.link = builder.link;
   }
+
+    public static class Builder {
+        private String text;
+        private String link;
+        public Builder text(String text) {
+             this.text = text;
+             return this;
+        }
+    
+        public Builder link(String link) {
+             this.link = link;
+             return this;
+        }
+    
+    
+    public Url build(){
+        return new Url(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

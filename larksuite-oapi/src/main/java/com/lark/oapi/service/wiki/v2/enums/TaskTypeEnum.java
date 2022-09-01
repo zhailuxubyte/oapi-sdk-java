@@ -15,15 +15,14 @@ package com.lark.oapi.service.wiki.v2.enums;
 
 // 生成枚举值
 public enum TaskTypeEnum {
-  MOVE("move"),
+     MOVE("move"),
   ;
-  private String value;
+   private String value;
+    TaskTypeEnum(String value) {
+      this.value = value;
+    }
 
-  TaskTypeEnum(String value) {
-    this.value = value;
-  }
-
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+      return this.value;
+    }
 }

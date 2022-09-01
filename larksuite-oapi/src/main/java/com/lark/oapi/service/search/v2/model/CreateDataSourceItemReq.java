@@ -12,69 +12,72 @@
  */
 
 package com.lark.oapi.service.search.v2.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.search.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class CreateDataSourceItemReq {
-
-  @Path
-  @SerializedName("data_source_id")
-  private String dataSourceId;
-  @Body
-  private Item body;
-
-  // builder 开始
-  public CreateDataSourceItemReq() {
-  }
-
-  public CreateDataSourceItemReq(Builder builder) {
-    this.dataSourceId = builder.dataSourceId;
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getDataSourceId() {
-    return this.dataSourceId;
-  }
-
-  public void setDataSourceId(String dataSourceId) {
-    this.dataSourceId = dataSourceId;
-  }
-
-  public Item getItem() {
-    return this.body;
-  }
-
-  public void setItem(Item body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
+    @Path
+    @SerializedName("data_source_id")
     private String dataSourceId;
+    public String getDataSourceId() {
+        return this.dataSourceId;
+    }
+
+    public void setDataSourceId(String dataSourceId) {
+        this.dataSourceId = dataSourceId;
+    }
+
+    @Body
     private Item body;
 
-    public Builder dataSourceId(String dataSourceId) {
-      this.dataSourceId = dataSourceId;
-      return this;
-    }
-
     public Item getItem() {
-      return this.body;
+        return this.body;
     }
 
-    public Builder item(Item body) {
-      this.body = body;
-      return this;
+    public void setItem(Item body) {
+        this.body = body;
     }
 
-    public CreateDataSourceItemReq build() {
-      return new CreateDataSourceItemReq(this);
-    }
+// builder 开始
+  public CreateDataSourceItemReq(){}
+
+  public CreateDataSourceItemReq(Builder builder){
+       this.dataSourceId = builder.dataSourceId;
+        this.body = builder.body;
   }
+
+    public static class Builder {
+    
+        private String dataSourceId;
+          public Builder dataSourceId(String dataSourceId) {
+               this.dataSourceId = dataSourceId;
+               return this;
+          }
+    
+        private Item body;
+    
+        public Item getItem() {
+            return this.body;
+        }
+        public Builder item(Item body) {
+             this.body = body;
+             return this;
+        }
+    public CreateDataSourceItemReq build(){
+        return new CreateDataSourceItemReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

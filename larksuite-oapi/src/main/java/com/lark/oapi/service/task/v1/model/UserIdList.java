@@ -12,46 +12,52 @@
  */
 
 package com.lark.oapi.service.task.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.task.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class UserIdList {
-
-  @SerializedName("user_id_list")
-  private UserId[] userIdList;
-
-  // builder 开始
-  public UserIdList() {
-  }
-
-  public UserIdList(Builder builder) {
-    this.userIdList = builder.userIdList;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public UserId[] getUserIdList() {
-    return this.userIdList;
-  }
-
-  public void setUserIdList(UserId[] userIdList) {
-    this.userIdList = userIdList;
-  }
-
-  public static class Builder {
-
+    @SerializedName("user_id_list")
     private UserId[] userIdList;
+    public UserId[] getUserIdList() {
+        return this.userIdList;
+    }
 
-    public Builder userIdList(UserId[] userIdList) {
-      this.userIdList = userIdList;
-      return this;
+    public void setUserIdList(UserId[] userIdList) {
+        this.userIdList = userIdList;
     }
 
 
-    public UserIdList build() {
-      return new UserIdList(this);
-    }
+// builder 开始
+  public UserIdList(){}
+
+  public UserIdList(Builder builder){
+      this.userIdList = builder.userIdList;
   }
+
+    public static class Builder {
+        private UserId[] userIdList;
+        public Builder userIdList(UserId[] userIdList) {
+             this.userIdList = userIdList;
+             return this;
+        }
+    
+    
+    public UserIdList build(){
+        return new UserIdList(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

@@ -12,129 +12,132 @@
  */
 
 package com.lark.oapi.service.vc.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.vc.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class GetTopUserReportReq {
-
-  @Query
-  @SerializedName("start_time")
-  private String startTime;
-  @Query
-  @SerializedName("end_time")
-  private String endTime;
-  @Query
-  @SerializedName("limit")
-  private Integer limit;
-  @Query
-  @SerializedName("order_by")
-  private Integer orderBy;
-  @Query
-  @SerializedName("user_id_type")
-  private String userIdType;
-
-  // builder 开始
-  public GetTopUserReportReq() {
-  }
-
-  public GetTopUserReportReq(Builder builder) {
-    this.startTime = builder.startTime;
-    this.endTime = builder.endTime;
-    this.limit = builder.limit;
-    this.orderBy = builder.orderBy;
-    this.userIdType = builder.userIdType;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getStartTime() {
-    return this.startTime;
-  }
-
-  public void setStartTime(String startTime) {
-    this.startTime = startTime;
-  }
-
-  public String getEndTime() {
-    return this.endTime;
-  }
-
-  public void setEndTime(String endTime) {
-    this.endTime = endTime;
-  }
-
-  public Integer getLimit() {
-    return this.limit;
-  }
-
-  public void setLimit(Integer limit) {
-    this.limit = limit;
-  }
-
-  public Integer getOrderBy() {
-    return this.orderBy;
-  }
-
-  public void setOrderBy(Integer orderBy) {
-    this.orderBy = orderBy;
-  }
-
-  public String getUserIdType() {
-    return this.userIdType;
-  }
-
-  public void setUserIdType(String userIdType) {
-    this.userIdType = userIdType;
-  }
-
-  public static class Builder {
-
+    @Query
+    @SerializedName("start_time")
     private String startTime;
+    @Query
+    @SerializedName("end_time")
     private String endTime;
+    @Query
+    @SerializedName("limit")
     private Integer limit;
+    @Query
+    @SerializedName("order_by")
     private Integer orderBy;
+    @Query
+    @SerializedName("user_id_type")
     private String userIdType;
-
-    public Builder startTime(String startTime) {
-      this.startTime = startTime;
-      return this;
+    public String getStartTime() {
+        return this.startTime;
     }
 
-    public Builder endTime(String endTime) {
-      this.endTime = endTime;
-      return this;
+    public void setStartTime(String startTime) {
+        this.startTime = startTime;
     }
 
-    public Builder limit(Integer limit) {
-      this.limit = limit;
-      return this;
+    public String getEndTime() {
+        return this.endTime;
     }
 
-    public Builder orderBy(Integer orderBy) {
-      this.orderBy = orderBy;
-      return this;
+    public void setEndTime(String endTime) {
+        this.endTime = endTime;
     }
 
-    public Builder orderBy(com.lark.oapi.service.vc.v1.enums.TopUserOrderByEnum orderBy) {
-      this.orderBy = orderBy.getValue();
-      return this;
+    public Integer getLimit() {
+        return this.limit;
     }
 
-    public Builder userIdType(String userIdType) {
-      this.userIdType = userIdType;
-      return this;
+    public void setLimit(Integer limit) {
+        this.limit = limit;
     }
 
-    public Builder userIdType(com.lark.oapi.service.vc.v1.enums.UserIdTypeEnum userIdType) {
-      this.userIdType = userIdType.getValue();
-      return this;
+    public Integer getOrderBy() {
+        return this.orderBy;
     }
 
-    public GetTopUserReportReq build() {
-      return new GetTopUserReportReq(this);
+    public void setOrderBy(Integer orderBy) {
+        this.orderBy = orderBy;
     }
+
+    public String getUserIdType() {
+        return this.userIdType;
+    }
+
+    public void setUserIdType(String userIdType) {
+        this.userIdType = userIdType;
+    }
+
+
+// builder 开始
+  public GetTopUserReportReq(){}
+
+  public GetTopUserReportReq(Builder builder){
+       this.startTime = builder.startTime;
+       this.endTime = builder.endTime;
+       this.limit = builder.limit;
+       this.orderBy = builder.orderBy;
+       this.userIdType = builder.userIdType;
   }
+
+    public static class Builder {
+        private String startTime;
+        private String endTime;
+        private Integer limit;
+        private Integer orderBy;
+        private String userIdType;
+    
+           public Builder startTime(String startTime) {
+                this.startTime = startTime;
+                return this;
+           }
+    
+           public Builder endTime(String endTime) {
+                this.endTime = endTime;
+                return this;
+           }
+    
+           public Builder limit(Integer limit) {
+                this.limit = limit;
+                return this;
+           }
+    
+           public Builder orderBy(Integer orderBy) {
+                this.orderBy = orderBy;
+                return this;
+           }
+          public Builder orderBy(com.lark.oapi.service.vc.v1.enums.TopUserOrderByEnum orderBy) {
+               this.orderBy = orderBy.getValue();
+               return this;
+          }
+    
+           public Builder userIdType(String userIdType) {
+                this.userIdType = userIdType;
+                return this;
+           }
+          public Builder userIdType(com.lark.oapi.service.vc.v1.enums.UserIdTypeEnum userIdType) {
+               this.userIdType = userIdType.getValue();
+               return this;
+          }
+    
+    public GetTopUserReportReq build(){
+        return new GetTopUserReportReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

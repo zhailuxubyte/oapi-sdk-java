@@ -12,85 +12,90 @@
  */
 
 package com.lark.oapi.service.drive.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.drive.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class CopyFileReqBody {
-
-  @SerializedName("name")
-  private String name;
-  @SerializedName("type")
-  private String type;
-  @SerializedName("folder_token")
-  private String folderToken;
-
-  // builder 开始
-  public CopyFileReqBody() {
-  }
-
-  public CopyFileReqBody(Builder builder) {
-    this.name = builder.name;
-    this.type = builder.type;
-    this.folderToken = builder.folderToken;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getName() {
-    return this.name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public String getType() {
-    return this.type;
-  }
-
-  public void setType(String type) {
-    this.type = type;
-  }
-
-  public String getFolderToken() {
-    return this.folderToken;
-  }
-
-  public void setFolderToken(String folderToken) {
-    this.folderToken = folderToken;
-  }
-
-  public static class Builder {
-
+    @SerializedName("name")
     private String name;
+    @SerializedName("type")
     private String type;
+    @SerializedName("folder_token")
     private String folderToken;
-
-    public Builder name(String name) {
-      this.name = name;
-      return this;
+    public String getName() {
+        return this.name;
     }
 
-    public Builder type(String type) {
-      this.type = type;
-      return this;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public Builder type(com.lark.oapi.service.drive.v1.enums.TypeEnum type) {
-      this.type = type.getValue();
-      return this;
+    public String getType() {
+        return this.type;
     }
 
-    public Builder folderToken(String folderToken) {
-      this.folderToken = folderToken;
-      return this;
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public String getFolderToken() {
+        return this.folderToken;
+    }
+
+    public void setFolderToken(String folderToken) {
+        this.folderToken = folderToken;
     }
 
 
-    public CopyFileReqBody build() {
-      return new CopyFileReqBody(this);
-    }
+// builder 开始
+  public CopyFileReqBody(){}
+
+  public CopyFileReqBody(Builder builder){
+      this.name = builder.name;
+      this.type = builder.type;
+      this.folderToken = builder.folderToken;
   }
+
+    public static class Builder {
+        private String name;
+        private String type;
+        private String folderToken;
+        public Builder name(String name) {
+             this.name = name;
+             return this;
+        }
+    
+        public Builder type(String type) {
+             this.type = type;
+             return this;
+        }
+        public Builder type(com.lark.oapi.service.drive.v1.enums.TypeEnum type) {
+             this.type = type.getValue();
+             return this;
+        }
+    
+        public Builder folderToken(String folderToken) {
+             this.folderToken = folderToken;
+             return this;
+        }
+    
+    
+    public CopyFileReqBody build(){
+        return new CopyFileReqBody(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

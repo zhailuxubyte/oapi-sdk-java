@@ -12,182 +12,188 @@
  */
 
 package com.lark.oapi.service.attendance.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.attendance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class Shift {
-
-  @SerializedName("shift_id")
-  private String shiftId;
-  @SerializedName("shift_name")
-  private String shiftName;
-  @SerializedName("punch_times")
-  private Integer punchTimes;
-  @SerializedName("is_flexible")
-  private Boolean isFlexible;
-  @SerializedName("flexible_minutes")
-  private Integer flexibleMinutes;
-  @SerializedName("no_need_off")
-  private Boolean noNeedOff;
-  @SerializedName("punch_time_rule")
-  private PunchTimeRule[] punchTimeRule;
-  @SerializedName("late_off_late_on_rule")
-  private LateOffLateOnRule[] lateOffLateOnRule;
-  @SerializedName("rest_time_rule")
-  private RestRule[] restTimeRule;
-
-  // builder 开始
-  public Shift() {
-  }
-
-  public Shift(Builder builder) {
-    this.shiftId = builder.shiftId;
-    this.shiftName = builder.shiftName;
-    this.punchTimes = builder.punchTimes;
-    this.isFlexible = builder.isFlexible;
-    this.flexibleMinutes = builder.flexibleMinutes;
-    this.noNeedOff = builder.noNeedOff;
-    this.punchTimeRule = builder.punchTimeRule;
-    this.lateOffLateOnRule = builder.lateOffLateOnRule;
-    this.restTimeRule = builder.restTimeRule;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getShiftId() {
-    return this.shiftId;
-  }
-
-  public void setShiftId(String shiftId) {
-    this.shiftId = shiftId;
-  }
-
-  public String getShiftName() {
-    return this.shiftName;
-  }
-
-  public void setShiftName(String shiftName) {
-    this.shiftName = shiftName;
-  }
-
-  public Integer getPunchTimes() {
-    return this.punchTimes;
-  }
-
-  public void setPunchTimes(Integer punchTimes) {
-    this.punchTimes = punchTimes;
-  }
-
-  public Boolean getIsFlexible() {
-    return this.isFlexible;
-  }
-
-  public void setIsFlexible(Boolean isFlexible) {
-    this.isFlexible = isFlexible;
-  }
-
-  public Integer getFlexibleMinutes() {
-    return this.flexibleMinutes;
-  }
-
-  public void setFlexibleMinutes(Integer flexibleMinutes) {
-    this.flexibleMinutes = flexibleMinutes;
-  }
-
-  public Boolean getNoNeedOff() {
-    return this.noNeedOff;
-  }
-
-  public void setNoNeedOff(Boolean noNeedOff) {
-    this.noNeedOff = noNeedOff;
-  }
-
-  public PunchTimeRule[] getPunchTimeRule() {
-    return this.punchTimeRule;
-  }
-
-  public void setPunchTimeRule(PunchTimeRule[] punchTimeRule) {
-    this.punchTimeRule = punchTimeRule;
-  }
-
-  public LateOffLateOnRule[] getLateOffLateOnRule() {
-    return this.lateOffLateOnRule;
-  }
-
-  public void setLateOffLateOnRule(LateOffLateOnRule[] lateOffLateOnRule) {
-    this.lateOffLateOnRule = lateOffLateOnRule;
-  }
-
-  public RestRule[] getRestTimeRule() {
-    return this.restTimeRule;
-  }
-
-  public void setRestTimeRule(RestRule[] restTimeRule) {
-    this.restTimeRule = restTimeRule;
-  }
-
-  public static class Builder {
-
+    @SerializedName("shift_id")
     private String shiftId;
+    @SerializedName("shift_name")
     private String shiftName;
+    @SerializedName("punch_times")
     private Integer punchTimes;
+    @SerializedName("is_flexible")
     private Boolean isFlexible;
+    @SerializedName("flexible_minutes")
     private Integer flexibleMinutes;
+    @SerializedName("no_need_off")
     private Boolean noNeedOff;
+    @SerializedName("punch_time_rule")
     private PunchTimeRule[] punchTimeRule;
+    @SerializedName("late_off_late_on_rule")
     private LateOffLateOnRule[] lateOffLateOnRule;
+    @SerializedName("rest_time_rule")
     private RestRule[] restTimeRule;
-
-    public Builder shiftId(String shiftId) {
-      this.shiftId = shiftId;
-      return this;
+    public String getShiftId() {
+        return this.shiftId;
     }
 
-    public Builder shiftName(String shiftName) {
-      this.shiftName = shiftName;
-      return this;
+    public void setShiftId(String shiftId) {
+        this.shiftId = shiftId;
     }
 
-    public Builder punchTimes(Integer punchTimes) {
-      this.punchTimes = punchTimes;
-      return this;
+    public String getShiftName() {
+        return this.shiftName;
     }
 
-    public Builder isFlexible(Boolean isFlexible) {
-      this.isFlexible = isFlexible;
-      return this;
+    public void setShiftName(String shiftName) {
+        this.shiftName = shiftName;
     }
 
-    public Builder flexibleMinutes(Integer flexibleMinutes) {
-      this.flexibleMinutes = flexibleMinutes;
-      return this;
+    public Integer getPunchTimes() {
+        return this.punchTimes;
     }
 
-    public Builder noNeedOff(Boolean noNeedOff) {
-      this.noNeedOff = noNeedOff;
-      return this;
+    public void setPunchTimes(Integer punchTimes) {
+        this.punchTimes = punchTimes;
     }
 
-    public Builder punchTimeRule(PunchTimeRule[] punchTimeRule) {
-      this.punchTimeRule = punchTimeRule;
-      return this;
+    public Boolean getIsFlexible() {
+        return this.isFlexible;
     }
 
-    public Builder lateOffLateOnRule(LateOffLateOnRule[] lateOffLateOnRule) {
-      this.lateOffLateOnRule = lateOffLateOnRule;
-      return this;
+    public void setIsFlexible(Boolean isFlexible) {
+        this.isFlexible = isFlexible;
     }
 
-    public Builder restTimeRule(RestRule[] restTimeRule) {
-      this.restTimeRule = restTimeRule;
-      return this;
+    public Integer getFlexibleMinutes() {
+        return this.flexibleMinutes;
+    }
+
+    public void setFlexibleMinutes(Integer flexibleMinutes) {
+        this.flexibleMinutes = flexibleMinutes;
+    }
+
+    public Boolean getNoNeedOff() {
+        return this.noNeedOff;
+    }
+
+    public void setNoNeedOff(Boolean noNeedOff) {
+        this.noNeedOff = noNeedOff;
+    }
+
+    public PunchTimeRule[] getPunchTimeRule() {
+        return this.punchTimeRule;
+    }
+
+    public void setPunchTimeRule(PunchTimeRule[] punchTimeRule) {
+        this.punchTimeRule = punchTimeRule;
+    }
+
+    public LateOffLateOnRule[] getLateOffLateOnRule() {
+        return this.lateOffLateOnRule;
+    }
+
+    public void setLateOffLateOnRule(LateOffLateOnRule[] lateOffLateOnRule) {
+        this.lateOffLateOnRule = lateOffLateOnRule;
+    }
+
+    public RestRule[] getRestTimeRule() {
+        return this.restTimeRule;
+    }
+
+    public void setRestTimeRule(RestRule[] restTimeRule) {
+        this.restTimeRule = restTimeRule;
     }
 
 
-    public Shift build() {
-      return new Shift(this);
-    }
+// builder 开始
+  public Shift(){}
+
+  public Shift(Builder builder){
+      this.shiftId = builder.shiftId;
+      this.shiftName = builder.shiftName;
+      this.punchTimes = builder.punchTimes;
+      this.isFlexible = builder.isFlexible;
+      this.flexibleMinutes = builder.flexibleMinutes;
+      this.noNeedOff = builder.noNeedOff;
+      this.punchTimeRule = builder.punchTimeRule;
+      this.lateOffLateOnRule = builder.lateOffLateOnRule;
+      this.restTimeRule = builder.restTimeRule;
   }
+
+    public static class Builder {
+        private String shiftId;
+        private String shiftName;
+        private Integer punchTimes;
+        private Boolean isFlexible;
+        private Integer flexibleMinutes;
+        private Boolean noNeedOff;
+        private PunchTimeRule[] punchTimeRule;
+        private LateOffLateOnRule[] lateOffLateOnRule;
+        private RestRule[] restTimeRule;
+        public Builder shiftId(String shiftId) {
+             this.shiftId = shiftId;
+             return this;
+        }
+    
+        public Builder shiftName(String shiftName) {
+             this.shiftName = shiftName;
+             return this;
+        }
+    
+        public Builder punchTimes(Integer punchTimes) {
+             this.punchTimes = punchTimes;
+             return this;
+        }
+    
+        public Builder isFlexible(Boolean isFlexible) {
+             this.isFlexible = isFlexible;
+             return this;
+        }
+    
+        public Builder flexibleMinutes(Integer flexibleMinutes) {
+             this.flexibleMinutes = flexibleMinutes;
+             return this;
+        }
+    
+        public Builder noNeedOff(Boolean noNeedOff) {
+             this.noNeedOff = noNeedOff;
+             return this;
+        }
+    
+        public Builder punchTimeRule(PunchTimeRule[] punchTimeRule) {
+             this.punchTimeRule = punchTimeRule;
+             return this;
+        }
+    
+        public Builder lateOffLateOnRule(LateOffLateOnRule[] lateOffLateOnRule) {
+             this.lateOffLateOnRule = lateOffLateOnRule;
+             return this;
+        }
+    
+        public Builder restTimeRule(RestRule[] restTimeRule) {
+             this.restTimeRule = restTimeRule;
+             return this;
+        }
+    
+    
+    public Shift build(){
+        return new Shift(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

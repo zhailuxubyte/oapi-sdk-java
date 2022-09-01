@@ -12,90 +12,97 @@
  */
 
 package com.lark.oapi.service.drive.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class CreateFileComment {
+    @SerializedName("comment_id")
+    private String commentId;
+    @SerializedName("user_id")
+    private String userId;
+    @SerializedName("create_time")
+    private Integer createTime;
+    @SerializedName("update_time")
+    private Integer updateTime;
+    @SerializedName("is_solved")
+    private Boolean isSolved;
+    @SerializedName("solved_time")
+    private Integer solvedTime;
+    @SerializedName("solver_user_id")
+    private String solverUserId;
+    @SerializedName("reply_list")
+    private ReplyList replyList;
+    public String getCommentId() {
+        return this.commentId;
+    }
 
-  @SerializedName("comment_id")
-  private String commentId;
-  @SerializedName("user_id")
-  private String userId;
-  @SerializedName("create_time")
-  private Integer createTime;
-  @SerializedName("update_time")
-  private Integer updateTime;
-  @SerializedName("is_solved")
-  private Boolean isSolved;
-  @SerializedName("solved_time")
-  private Integer solvedTime;
-  @SerializedName("solver_user_id")
-  private String solverUserId;
-  @SerializedName("reply_list")
-  private ReplyList replyList;
+    public void setCommentId(String commentId) {
+        this.commentId = commentId;
+    }
 
-  public String getCommentId() {
-    return this.commentId;
-  }
+    public String getUserId() {
+        return this.userId;
+    }
 
-  public void setCommentId(String commentId) {
-    this.commentId = commentId;
-  }
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
 
-  public String getUserId() {
-    return this.userId;
-  }
+    public Integer getCreateTime() {
+        return this.createTime;
+    }
 
-  public void setUserId(String userId) {
-    this.userId = userId;
-  }
+    public void setCreateTime(Integer createTime) {
+        this.createTime = createTime;
+    }
 
-  public Integer getCreateTime() {
-    return this.createTime;
-  }
+    public Integer getUpdateTime() {
+        return this.updateTime;
+    }
 
-  public void setCreateTime(Integer createTime) {
-    this.createTime = createTime;
-  }
+    public void setUpdateTime(Integer updateTime) {
+        this.updateTime = updateTime;
+    }
 
-  public Integer getUpdateTime() {
-    return this.updateTime;
-  }
+    public Boolean getIsSolved() {
+        return this.isSolved;
+    }
 
-  public void setUpdateTime(Integer updateTime) {
-    this.updateTime = updateTime;
-  }
+    public void setIsSolved(Boolean isSolved) {
+        this.isSolved = isSolved;
+    }
 
-  public Boolean getIsSolved() {
-    return this.isSolved;
-  }
+    public Integer getSolvedTime() {
+        return this.solvedTime;
+    }
 
-  public void setIsSolved(Boolean isSolved) {
-    this.isSolved = isSolved;
-  }
+    public void setSolvedTime(Integer solvedTime) {
+        this.solvedTime = solvedTime;
+    }
 
-  public Integer getSolvedTime() {
-    return this.solvedTime;
-  }
+    public String getSolverUserId() {
+        return this.solverUserId;
+    }
 
-  public void setSolvedTime(Integer solvedTime) {
-    this.solvedTime = solvedTime;
-  }
+    public void setSolverUserId(String solverUserId) {
+        this.solverUserId = solverUserId;
+    }
 
-  public String getSolverUserId() {
-    return this.solverUserId;
-  }
+    public ReplyList getReplyList() {
+        return this.replyList;
+    }
 
-  public void setSolverUserId(String solverUserId) {
-    this.solverUserId = solverUserId;
-  }
-
-  public ReplyList getReplyList() {
-    return this.replyList;
-  }
-
-  public void setReplyList(ReplyList replyList) {
-    this.replyList = replyList;
-  }
+    public void setReplyList(ReplyList replyList) {
+        this.replyList = replyList;
+    }
 
 }

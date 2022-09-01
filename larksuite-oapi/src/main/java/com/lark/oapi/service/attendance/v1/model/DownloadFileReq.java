@@ -12,47 +12,52 @@
  */
 
 package com.lark.oapi.service.attendance.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.attendance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class DownloadFileReq {
-
-  @Path
-  @SerializedName("file_id")
-  private String fileId;
-
-  // builder 开始
-  public DownloadFileReq() {
-  }
-
-  public DownloadFileReq(Builder builder) {
-    this.fileId = builder.fileId;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getFileId() {
-    return this.fileId;
-  }
-
-  public void setFileId(String fileId) {
-    this.fileId = fileId;
-  }
-
-  public static class Builder {
-
+    @Path
+    @SerializedName("file_id")
     private String fileId;
-
-    public Builder fileId(String fileId) {
-      this.fileId = fileId;
-      return this;
+    public String getFileId() {
+        return this.fileId;
     }
 
-    public DownloadFileReq build() {
-      return new DownloadFileReq(this);
+    public void setFileId(String fileId) {
+        this.fileId = fileId;
     }
+
+
+// builder 开始
+  public DownloadFileReq(){}
+
+  public DownloadFileReq(Builder builder){
+       this.fileId = builder.fileId;
   }
+
+    public static class Builder {
+    
+        private String fileId;
+          public Builder fileId(String fileId) {
+               this.fileId = fileId;
+               return this;
+          }
+    
+    public DownloadFileReq build(){
+        return new DownloadFileReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

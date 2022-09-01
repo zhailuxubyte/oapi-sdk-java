@@ -12,80 +12,86 @@
  */
 
 package com.lark.oapi.service.calendar.v4.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.calendar.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class CalendarFreebusy {
-
-  @SerializedName("start_time")
-  private String startTime;
-  @SerializedName("end_time")
-  private String endTime;
-  @SerializedName("calendar_id")
-  private String calendarId;
-
-  // builder 开始
-  public CalendarFreebusy() {
-  }
-
-  public CalendarFreebusy(Builder builder) {
-    this.startTime = builder.startTime;
-    this.endTime = builder.endTime;
-    this.calendarId = builder.calendarId;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getStartTime() {
-    return this.startTime;
-  }
-
-  public void setStartTime(String startTime) {
-    this.startTime = startTime;
-  }
-
-  public String getEndTime() {
-    return this.endTime;
-  }
-
-  public void setEndTime(String endTime) {
-    this.endTime = endTime;
-  }
-
-  public String getCalendarId() {
-    return this.calendarId;
-  }
-
-  public void setCalendarId(String calendarId) {
-    this.calendarId = calendarId;
-  }
-
-  public static class Builder {
-
+    @SerializedName("start_time")
     private String startTime;
+    @SerializedName("end_time")
     private String endTime;
+    @SerializedName("calendar_id")
     private String calendarId;
-
-    public Builder startTime(String startTime) {
-      this.startTime = startTime;
-      return this;
+    public String getStartTime() {
+        return this.startTime;
     }
 
-    public Builder endTime(String endTime) {
-      this.endTime = endTime;
-      return this;
+    public void setStartTime(String startTime) {
+        this.startTime = startTime;
     }
 
-    public Builder calendarId(String calendarId) {
-      this.calendarId = calendarId;
-      return this;
+    public String getEndTime() {
+        return this.endTime;
+    }
+
+    public void setEndTime(String endTime) {
+        this.endTime = endTime;
+    }
+
+    public String getCalendarId() {
+        return this.calendarId;
+    }
+
+    public void setCalendarId(String calendarId) {
+        this.calendarId = calendarId;
     }
 
 
-    public CalendarFreebusy build() {
-      return new CalendarFreebusy(this);
-    }
+// builder 开始
+  public CalendarFreebusy(){}
+
+  public CalendarFreebusy(Builder builder){
+      this.startTime = builder.startTime;
+      this.endTime = builder.endTime;
+      this.calendarId = builder.calendarId;
   }
+
+    public static class Builder {
+        private String startTime;
+        private String endTime;
+        private String calendarId;
+        public Builder startTime(String startTime) {
+             this.startTime = startTime;
+             return this;
+        }
+    
+        public Builder endTime(String endTime) {
+             this.endTime = endTime;
+             return this;
+        }
+    
+        public Builder calendarId(String calendarId) {
+             this.calendarId = calendarId;
+             return this;
+        }
+    
+    
+    public CalendarFreebusy build(){
+        return new CalendarFreebusy(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

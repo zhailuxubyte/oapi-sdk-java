@@ -12,210 +12,213 @@
  */
 
 package com.lark.oapi.service.approval.v4.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.approval.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class CcNode {
-
-  @SerializedName("cc_id")
-  private String ccId;
-  @SerializedName("user_id")
-  private String userId;
-  @SerializedName("open_id")
-  private String openId;
-  @SerializedName("links")
-  private ExternalInstanceLink links;
-  @SerializedName("read_status")
-  private String readStatus;
-  @SerializedName("extra")
-  private String extra;
-  @SerializedName("title")
-  private String title;
-  @SerializedName("create_time")
-  private String createTime;
-  @SerializedName("update_time")
-  private String updateTime;
-  @SerializedName("display_method")
-  private String displayMethod;
-
-  // builder 开始
-  public CcNode() {
-  }
-
-  public CcNode(Builder builder) {
-    this.ccId = builder.ccId;
-    this.userId = builder.userId;
-    this.openId = builder.openId;
-    this.links = builder.links;
-    this.readStatus = builder.readStatus;
-    this.extra = builder.extra;
-    this.title = builder.title;
-    this.createTime = builder.createTime;
-    this.updateTime = builder.updateTime;
-    this.displayMethod = builder.displayMethod;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getCcId() {
-    return this.ccId;
-  }
-
-  public void setCcId(String ccId) {
-    this.ccId = ccId;
-  }
-
-  public String getUserId() {
-    return this.userId;
-  }
-
-  public void setUserId(String userId) {
-    this.userId = userId;
-  }
-
-  public String getOpenId() {
-    return this.openId;
-  }
-
-  public void setOpenId(String openId) {
-    this.openId = openId;
-  }
-
-  public ExternalInstanceLink getLinks() {
-    return this.links;
-  }
-
-  public void setLinks(ExternalInstanceLink links) {
-    this.links = links;
-  }
-
-  public String getReadStatus() {
-    return this.readStatus;
-  }
-
-  public void setReadStatus(String readStatus) {
-    this.readStatus = readStatus;
-  }
-
-  public String getExtra() {
-    return this.extra;
-  }
-
-  public void setExtra(String extra) {
-    this.extra = extra;
-  }
-
-  public String getTitle() {
-    return this.title;
-  }
-
-  public void setTitle(String title) {
-    this.title = title;
-  }
-
-  public String getCreateTime() {
-    return this.createTime;
-  }
-
-  public void setCreateTime(String createTime) {
-    this.createTime = createTime;
-  }
-
-  public String getUpdateTime() {
-    return this.updateTime;
-  }
-
-  public void setUpdateTime(String updateTime) {
-    this.updateTime = updateTime;
-  }
-
-  public String getDisplayMethod() {
-    return this.displayMethod;
-  }
-
-  public void setDisplayMethod(String displayMethod) {
-    this.displayMethod = displayMethod;
-  }
-
-  public static class Builder {
-
+    @SerializedName("cc_id")
     private String ccId;
+    @SerializedName("user_id")
     private String userId;
+    @SerializedName("open_id")
     private String openId;
+    @SerializedName("links")
     private ExternalInstanceLink links;
+    @SerializedName("read_status")
     private String readStatus;
+    @SerializedName("extra")
     private String extra;
+    @SerializedName("title")
     private String title;
+    @SerializedName("create_time")
     private String createTime;
+    @SerializedName("update_time")
     private String updateTime;
+    @SerializedName("display_method")
     private String displayMethod;
-
-    public Builder ccId(String ccId) {
-      this.ccId = ccId;
-      return this;
+    public String getCcId() {
+        return this.ccId;
     }
 
-    public Builder userId(String userId) {
-      this.userId = userId;
-      return this;
+    public void setCcId(String ccId) {
+        this.ccId = ccId;
     }
 
-    public Builder openId(String openId) {
-      this.openId = openId;
-      return this;
+    public String getUserId() {
+        return this.userId;
     }
 
-    public Builder links(ExternalInstanceLink links) {
-      this.links = links;
-      return this;
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
-    public Builder readStatus(String readStatus) {
-      this.readStatus = readStatus;
-      return this;
+    public String getOpenId() {
+        return this.openId;
     }
 
-    public Builder readStatus(com.lark.oapi.service.approval.v4.enums.ReadStatusEnum readStatus) {
-      this.readStatus = readStatus.getValue();
-      return this;
+    public void setOpenId(String openId) {
+        this.openId = openId;
     }
 
-    public Builder extra(String extra) {
-      this.extra = extra;
-      return this;
+    public ExternalInstanceLink getLinks() {
+        return this.links;
     }
 
-    public Builder title(String title) {
-      this.title = title;
-      return this;
+    public void setLinks(ExternalInstanceLink links) {
+        this.links = links;
     }
 
-    public Builder createTime(String createTime) {
-      this.createTime = createTime;
-      return this;
+    public String getReadStatus() {
+        return this.readStatus;
     }
 
-    public Builder updateTime(String updateTime) {
-      this.updateTime = updateTime;
-      return this;
+    public void setReadStatus(String readStatus) {
+        this.readStatus = readStatus;
     }
 
-    public Builder displayMethod(String displayMethod) {
-      this.displayMethod = displayMethod;
-      return this;
+    public String getExtra() {
+        return this.extra;
     }
 
-    public Builder displayMethod(
-        com.lark.oapi.service.approval.v4.enums.DisplayMethodEnum displayMethod) {
-      this.displayMethod = displayMethod.getValue();
-      return this;
+    public void setExtra(String extra) {
+        this.extra = extra;
+    }
+
+    public String getTitle() {
+        return this.title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getCreateTime() {
+        return this.createTime;
+    }
+
+    public void setCreateTime(String createTime) {
+        this.createTime = createTime;
+    }
+
+    public String getUpdateTime() {
+        return this.updateTime;
+    }
+
+    public void setUpdateTime(String updateTime) {
+        this.updateTime = updateTime;
+    }
+
+    public String getDisplayMethod() {
+        return this.displayMethod;
+    }
+
+    public void setDisplayMethod(String displayMethod) {
+        this.displayMethod = displayMethod;
     }
 
 
-    public CcNode build() {
-      return new CcNode(this);
-    }
+// builder 开始
+  public CcNode(){}
+
+  public CcNode(Builder builder){
+      this.ccId = builder.ccId;
+      this.userId = builder.userId;
+      this.openId = builder.openId;
+      this.links = builder.links;
+      this.readStatus = builder.readStatus;
+      this.extra = builder.extra;
+      this.title = builder.title;
+      this.createTime = builder.createTime;
+      this.updateTime = builder.updateTime;
+      this.displayMethod = builder.displayMethod;
   }
+
+    public static class Builder {
+        private String ccId;
+        private String userId;
+        private String openId;
+        private ExternalInstanceLink links;
+        private String readStatus;
+        private String extra;
+        private String title;
+        private String createTime;
+        private String updateTime;
+        private String displayMethod;
+        public Builder ccId(String ccId) {
+             this.ccId = ccId;
+             return this;
+        }
+    
+        public Builder userId(String userId) {
+             this.userId = userId;
+             return this;
+        }
+    
+        public Builder openId(String openId) {
+             this.openId = openId;
+             return this;
+        }
+    
+        public Builder links(ExternalInstanceLink links) {
+             this.links = links;
+             return this;
+        }
+    
+        public Builder readStatus(String readStatus) {
+             this.readStatus = readStatus;
+             return this;
+        }
+        public Builder readStatus(com.lark.oapi.service.approval.v4.enums.ReadStatusEnum readStatus) {
+             this.readStatus = readStatus.getValue();
+             return this;
+        }
+    
+        public Builder extra(String extra) {
+             this.extra = extra;
+             return this;
+        }
+    
+        public Builder title(String title) {
+             this.title = title;
+             return this;
+        }
+    
+        public Builder createTime(String createTime) {
+             this.createTime = createTime;
+             return this;
+        }
+    
+        public Builder updateTime(String updateTime) {
+             this.updateTime = updateTime;
+             return this;
+        }
+    
+        public Builder displayMethod(String displayMethod) {
+             this.displayMethod = displayMethod;
+             return this;
+        }
+        public Builder displayMethod(com.lark.oapi.service.approval.v4.enums.DisplayMethodEnum displayMethod) {
+             this.displayMethod = displayMethod.getValue();
+             return this;
+        }
+    
+    
+    public CcNode build(){
+        return new CcNode(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

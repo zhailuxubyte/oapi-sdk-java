@@ -12,30 +12,37 @@
  */
 
 package com.lark.oapi.service.im.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class GetProgressBatchMessage {
+    @SerializedName("batch_message_send_progress")
+    private BatchMessageSendProgress batchMessageSendProgress;
+    @SerializedName("batch_message_recall_progress")
+    private BatchMessageRecallProgress batchMessageRecallProgress;
+    public BatchMessageSendProgress getBatchMessageSendProgress() {
+        return this.batchMessageSendProgress;
+    }
 
-  @SerializedName("batch_message_send_progress")
-  private BatchMessageSendProgress batchMessageSendProgress;
-  @SerializedName("batch_message_recall_progress")
-  private BatchMessageRecallProgress batchMessageRecallProgress;
+    public void setBatchMessageSendProgress(BatchMessageSendProgress batchMessageSendProgress) {
+        this.batchMessageSendProgress = batchMessageSendProgress;
+    }
 
-  public BatchMessageSendProgress getBatchMessageSendProgress() {
-    return this.batchMessageSendProgress;
-  }
+    public BatchMessageRecallProgress getBatchMessageRecallProgress() {
+        return this.batchMessageRecallProgress;
+    }
 
-  public void setBatchMessageSendProgress(BatchMessageSendProgress batchMessageSendProgress) {
-    this.batchMessageSendProgress = batchMessageSendProgress;
-  }
-
-  public BatchMessageRecallProgress getBatchMessageRecallProgress() {
-    return this.batchMessageRecallProgress;
-  }
-
-  public void setBatchMessageRecallProgress(BatchMessageRecallProgress batchMessageRecallProgress) {
-    this.batchMessageRecallProgress = batchMessageRecallProgress;
-  }
+    public void setBatchMessageRecallProgress(BatchMessageRecallProgress batchMessageRecallProgress) {
+        this.batchMessageRecallProgress = batchMessageRecallProgress;
+    }
 
 }

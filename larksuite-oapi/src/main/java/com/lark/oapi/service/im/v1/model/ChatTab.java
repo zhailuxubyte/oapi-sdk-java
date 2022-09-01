@@ -12,102 +12,107 @@
  */
 
 package com.lark.oapi.service.im.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.im.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class ChatTab {
-
-  @SerializedName("tab_id")
-  private String tabId;
-  @SerializedName("tab_name")
-  private String tabName;
-  @SerializedName("tab_type")
-  private String tabType;
-  @SerializedName("tab_content")
-  private ChatTabContent tabContent;
-
-  // builder 开始
-  public ChatTab() {
-  }
-
-  public ChatTab(Builder builder) {
-    this.tabId = builder.tabId;
-    this.tabName = builder.tabName;
-    this.tabType = builder.tabType;
-    this.tabContent = builder.tabContent;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getTabId() {
-    return this.tabId;
-  }
-
-  public void setTabId(String tabId) {
-    this.tabId = tabId;
-  }
-
-  public String getTabName() {
-    return this.tabName;
-  }
-
-  public void setTabName(String tabName) {
-    this.tabName = tabName;
-  }
-
-  public String getTabType() {
-    return this.tabType;
-  }
-
-  public void setTabType(String tabType) {
-    this.tabType = tabType;
-  }
-
-  public ChatTabContent getTabContent() {
-    return this.tabContent;
-  }
-
-  public void setTabContent(ChatTabContent tabContent) {
-    this.tabContent = tabContent;
-  }
-
-  public static class Builder {
-
+    @SerializedName("tab_id")
     private String tabId;
+    @SerializedName("tab_name")
     private String tabName;
+    @SerializedName("tab_type")
     private String tabType;
+    @SerializedName("tab_content")
     private ChatTabContent tabContent;
-
-    public Builder tabId(String tabId) {
-      this.tabId = tabId;
-      return this;
+    public String getTabId() {
+        return this.tabId;
     }
 
-    public Builder tabName(String tabName) {
-      this.tabName = tabName;
-      return this;
+    public void setTabId(String tabId) {
+        this.tabId = tabId;
     }
 
-    public Builder tabType(String tabType) {
-      this.tabType = tabType;
-      return this;
+    public String getTabName() {
+        return this.tabName;
     }
 
-    public Builder tabType(com.lark.oapi.service.im.v1.enums.TabTypeEnum tabType) {
-      this.tabType = tabType.getValue();
-      return this;
+    public void setTabName(String tabName) {
+        this.tabName = tabName;
     }
 
-    public Builder tabContent(ChatTabContent tabContent) {
-      this.tabContent = tabContent;
-      return this;
+    public String getTabType() {
+        return this.tabType;
+    }
+
+    public void setTabType(String tabType) {
+        this.tabType = tabType;
+    }
+
+    public ChatTabContent getTabContent() {
+        return this.tabContent;
+    }
+
+    public void setTabContent(ChatTabContent tabContent) {
+        this.tabContent = tabContent;
     }
 
 
-    public ChatTab build() {
-      return new ChatTab(this);
-    }
+// builder 开始
+  public ChatTab(){}
+
+  public ChatTab(Builder builder){
+      this.tabId = builder.tabId;
+      this.tabName = builder.tabName;
+      this.tabType = builder.tabType;
+      this.tabContent = builder.tabContent;
   }
+
+    public static class Builder {
+        private String tabId;
+        private String tabName;
+        private String tabType;
+        private ChatTabContent tabContent;
+        public Builder tabId(String tabId) {
+             this.tabId = tabId;
+             return this;
+        }
+    
+        public Builder tabName(String tabName) {
+             this.tabName = tabName;
+             return this;
+        }
+    
+        public Builder tabType(String tabType) {
+             this.tabType = tabType;
+             return this;
+        }
+        public Builder tabType(com.lark.oapi.service.im.v1.enums.TabTypeEnum tabType) {
+             this.tabType = tabType.getValue();
+             return this;
+        }
+    
+        public Builder tabContent(ChatTabContent tabContent) {
+             this.tabContent = tabContent;
+             return this;
+        }
+    
+    
+    public ChatTab build(){
+        return new ChatTab(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

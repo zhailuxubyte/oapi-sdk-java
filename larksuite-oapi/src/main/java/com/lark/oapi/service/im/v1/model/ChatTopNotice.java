@@ -12,68 +12,73 @@
  */
 
 package com.lark.oapi.service.im.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.im.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class ChatTopNotice {
-
-  @SerializedName("action_type")
-  private String actionType;
-  @SerializedName("message_id")
-  private String messageId;
-
-  // builder 开始
-  public ChatTopNotice() {
-  }
-
-  public ChatTopNotice(Builder builder) {
-    this.actionType = builder.actionType;
-    this.messageId = builder.messageId;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getActionType() {
-    return this.actionType;
-  }
-
-  public void setActionType(String actionType) {
-    this.actionType = actionType;
-  }
-
-  public String getMessageId() {
-    return this.messageId;
-  }
-
-  public void setMessageId(String messageId) {
-    this.messageId = messageId;
-  }
-
-  public static class Builder {
-
+    @SerializedName("action_type")
     private String actionType;
+    @SerializedName("message_id")
     private String messageId;
-
-    public Builder actionType(String actionType) {
-      this.actionType = actionType;
-      return this;
+    public String getActionType() {
+        return this.actionType;
     }
 
-    public Builder actionType(com.lark.oapi.service.im.v1.enums.ActionTypeEnum actionType) {
-      this.actionType = actionType.getValue();
-      return this;
+    public void setActionType(String actionType) {
+        this.actionType = actionType;
     }
 
-    public Builder messageId(String messageId) {
-      this.messageId = messageId;
-      return this;
+    public String getMessageId() {
+        return this.messageId;
+    }
+
+    public void setMessageId(String messageId) {
+        this.messageId = messageId;
     }
 
 
-    public ChatTopNotice build() {
-      return new ChatTopNotice(this);
-    }
+// builder 开始
+  public ChatTopNotice(){}
+
+  public ChatTopNotice(Builder builder){
+      this.actionType = builder.actionType;
+      this.messageId = builder.messageId;
   }
+
+    public static class Builder {
+        private String actionType;
+        private String messageId;
+        public Builder actionType(String actionType) {
+             this.actionType = actionType;
+             return this;
+        }
+        public Builder actionType(com.lark.oapi.service.im.v1.enums.ActionTypeEnum actionType) {
+             this.actionType = actionType.getValue();
+             return this;
+        }
+    
+        public Builder messageId(String messageId) {
+             this.messageId = messageId;
+             return this;
+        }
+    
+    
+    public ChatTopNotice build(){
+        return new ChatTopNotice(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

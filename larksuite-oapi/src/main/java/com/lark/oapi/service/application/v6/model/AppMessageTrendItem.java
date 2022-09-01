@@ -12,113 +12,115 @@
  */
 
 package com.lark.oapi.service.application.v6.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.application.v6.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class AppMessageTrendItem {
-
-  @SerializedName("chat_type")
-  private String chatType;
-  @SerializedName("event_type")
-  private String eventType;
-  @SerializedName("message_type")
-  private String messageType;
-  @SerializedName("trend")
-  private UsageTrendItem[] trend;
-
-  // builder 开始
-  public AppMessageTrendItem() {
-  }
-
-  public AppMessageTrendItem(Builder builder) {
-    this.chatType = builder.chatType;
-    this.eventType = builder.eventType;
-    this.messageType = builder.messageType;
-    this.trend = builder.trend;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getChatType() {
-    return this.chatType;
-  }
-
-  public void setChatType(String chatType) {
-    this.chatType = chatType;
-  }
-
-  public String getEventType() {
-    return this.eventType;
-  }
-
-  public void setEventType(String eventType) {
-    this.eventType = eventType;
-  }
-
-  public String getMessageType() {
-    return this.messageType;
-  }
-
-  public void setMessageType(String messageType) {
-    this.messageType = messageType;
-  }
-
-  public UsageTrendItem[] getTrend() {
-    return this.trend;
-  }
-
-  public void setTrend(UsageTrendItem[] trend) {
-    this.trend = trend;
-  }
-
-  public static class Builder {
-
+    @SerializedName("chat_type")
     private String chatType;
+    @SerializedName("event_type")
     private String eventType;
+    @SerializedName("message_type")
     private String messageType;
+    @SerializedName("trend")
     private UsageTrendItem[] trend;
-
-    public Builder chatType(String chatType) {
-      this.chatType = chatType;
-      return this;
+    public String getChatType() {
+        return this.chatType;
     }
 
-    public Builder chatType(com.lark.oapi.service.application.v6.enums.ChatTypeEnum chatType) {
-      this.chatType = chatType.getValue();
-      return this;
+    public void setChatType(String chatType) {
+        this.chatType = chatType;
     }
 
-    public Builder eventType(String eventType) {
-      this.eventType = eventType;
-      return this;
+    public String getEventType() {
+        return this.eventType;
     }
 
-    public Builder eventType(com.lark.oapi.service.application.v6.enums.EventTypeEnum eventType) {
-      this.eventType = eventType.getValue();
-      return this;
+    public void setEventType(String eventType) {
+        this.eventType = eventType;
     }
 
-    public Builder messageType(String messageType) {
-      this.messageType = messageType;
-      return this;
+    public String getMessageType() {
+        return this.messageType;
     }
 
-    public Builder messageType(
-        com.lark.oapi.service.application.v6.enums.MessageTypeEnum messageType) {
-      this.messageType = messageType.getValue();
-      return this;
+    public void setMessageType(String messageType) {
+        this.messageType = messageType;
     }
 
-    public Builder trend(UsageTrendItem[] trend) {
-      this.trend = trend;
-      return this;
+    public UsageTrendItem[] getTrend() {
+        return this.trend;
+    }
+
+    public void setTrend(UsageTrendItem[] trend) {
+        this.trend = trend;
     }
 
 
-    public AppMessageTrendItem build() {
-      return new AppMessageTrendItem(this);
-    }
+// builder 开始
+  public AppMessageTrendItem(){}
+
+  public AppMessageTrendItem(Builder builder){
+      this.chatType = builder.chatType;
+      this.eventType = builder.eventType;
+      this.messageType = builder.messageType;
+      this.trend = builder.trend;
   }
+
+    public static class Builder {
+        private String chatType;
+        private String eventType;
+        private String messageType;
+        private UsageTrendItem[] trend;
+        public Builder chatType(String chatType) {
+             this.chatType = chatType;
+             return this;
+        }
+        public Builder chatType(com.lark.oapi.service.application.v6.enums.ChatTypeEnum chatType) {
+             this.chatType = chatType.getValue();
+             return this;
+        }
+    
+        public Builder eventType(String eventType) {
+             this.eventType = eventType;
+             return this;
+        }
+        public Builder eventType(com.lark.oapi.service.application.v6.enums.EventTypeEnum eventType) {
+             this.eventType = eventType.getValue();
+             return this;
+        }
+    
+        public Builder messageType(String messageType) {
+             this.messageType = messageType;
+             return this;
+        }
+        public Builder messageType(com.lark.oapi.service.application.v6.enums.MessageTypeEnum messageType) {
+             this.messageType = messageType.getValue();
+             return this;
+        }
+    
+        public Builder trend(UsageTrendItem[] trend) {
+             this.trend = trend;
+             return this;
+        }
+    
+    
+    public AppMessageTrendItem build(){
+        return new AppMessageTrendItem(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

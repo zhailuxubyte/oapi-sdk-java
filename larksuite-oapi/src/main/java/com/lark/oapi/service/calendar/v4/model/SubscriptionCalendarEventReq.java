@@ -12,47 +12,52 @@
  */
 
 package com.lark.oapi.service.calendar.v4.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.calendar.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class SubscriptionCalendarEventReq {
-
-  @Path
-  @SerializedName("calendar_id")
-  private String calendarId;
-
-  // builder 开始
-  public SubscriptionCalendarEventReq() {
-  }
-
-  public SubscriptionCalendarEventReq(Builder builder) {
-    this.calendarId = builder.calendarId;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getCalendarId() {
-    return this.calendarId;
-  }
-
-  public void setCalendarId(String calendarId) {
-    this.calendarId = calendarId;
-  }
-
-  public static class Builder {
-
+    @Path
+    @SerializedName("calendar_id")
     private String calendarId;
-
-    public Builder calendarId(String calendarId) {
-      this.calendarId = calendarId;
-      return this;
+    public String getCalendarId() {
+        return this.calendarId;
     }
 
-    public SubscriptionCalendarEventReq build() {
-      return new SubscriptionCalendarEventReq(this);
+    public void setCalendarId(String calendarId) {
+        this.calendarId = calendarId;
     }
+
+
+// builder 开始
+  public SubscriptionCalendarEventReq(){}
+
+  public SubscriptionCalendarEventReq(Builder builder){
+       this.calendarId = builder.calendarId;
   }
+
+    public static class Builder {
+    
+        private String calendarId;
+          public Builder calendarId(String calendarId) {
+               this.calendarId = calendarId;
+               return this;
+          }
+    
+    public SubscriptionCalendarEventReq build(){
+        return new SubscriptionCalendarEventReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

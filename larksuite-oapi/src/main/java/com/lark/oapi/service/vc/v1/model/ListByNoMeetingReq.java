@@ -12,119 +12,124 @@
  */
 
 package com.lark.oapi.service.vc.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.vc.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class ListByNoMeetingReq {
-
-  @Query
-  @SerializedName("meeting_no")
-  private String meetingNo;
-  @Query
-  @SerializedName("start_time")
-  private String startTime;
-  @Query
-  @SerializedName("end_time")
-  private String endTime;
-  @Query
-  @SerializedName("page_token")
-  private String pageToken;
-  @Query
-  @SerializedName("page_size")
-  private Integer pageSize;
-
-  // builder 开始
-  public ListByNoMeetingReq() {
-  }
-
-  public ListByNoMeetingReq(Builder builder) {
-    this.meetingNo = builder.meetingNo;
-    this.startTime = builder.startTime;
-    this.endTime = builder.endTime;
-    this.pageToken = builder.pageToken;
-    this.pageSize = builder.pageSize;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getMeetingNo() {
-    return this.meetingNo;
-  }
-
-  public void setMeetingNo(String meetingNo) {
-    this.meetingNo = meetingNo;
-  }
-
-  public String getStartTime() {
-    return this.startTime;
-  }
-
-  public void setStartTime(String startTime) {
-    this.startTime = startTime;
-  }
-
-  public String getEndTime() {
-    return this.endTime;
-  }
-
-  public void setEndTime(String endTime) {
-    this.endTime = endTime;
-  }
-
-  public String getPageToken() {
-    return this.pageToken;
-  }
-
-  public void setPageToken(String pageToken) {
-    this.pageToken = pageToken;
-  }
-
-  public Integer getPageSize() {
-    return this.pageSize;
-  }
-
-  public void setPageSize(Integer pageSize) {
-    this.pageSize = pageSize;
-  }
-
-  public static class Builder {
-
+    @Query
+    @SerializedName("meeting_no")
     private String meetingNo;
+    @Query
+    @SerializedName("start_time")
     private String startTime;
+    @Query
+    @SerializedName("end_time")
     private String endTime;
+    @Query
+    @SerializedName("page_token")
     private String pageToken;
+    @Query
+    @SerializedName("page_size")
     private Integer pageSize;
-
-    public Builder meetingNo(String meetingNo) {
-      this.meetingNo = meetingNo;
-      return this;
+    public String getMeetingNo() {
+        return this.meetingNo;
     }
 
-    public Builder startTime(String startTime) {
-      this.startTime = startTime;
-      return this;
+    public void setMeetingNo(String meetingNo) {
+        this.meetingNo = meetingNo;
     }
 
-    public Builder endTime(String endTime) {
-      this.endTime = endTime;
-      return this;
+    public String getStartTime() {
+        return this.startTime;
     }
 
-    public Builder pageToken(String pageToken) {
-      this.pageToken = pageToken;
-      return this;
+    public void setStartTime(String startTime) {
+        this.startTime = startTime;
     }
 
-    public Builder pageSize(Integer pageSize) {
-      this.pageSize = pageSize;
-      return this;
+    public String getEndTime() {
+        return this.endTime;
     }
 
-    public ListByNoMeetingReq build() {
-      return new ListByNoMeetingReq(this);
+    public void setEndTime(String endTime) {
+        this.endTime = endTime;
     }
+
+    public String getPageToken() {
+        return this.pageToken;
+    }
+
+    public void setPageToken(String pageToken) {
+        this.pageToken = pageToken;
+    }
+
+    public Integer getPageSize() {
+        return this.pageSize;
+    }
+
+    public void setPageSize(Integer pageSize) {
+        this.pageSize = pageSize;
+    }
+
+
+// builder 开始
+  public ListByNoMeetingReq(){}
+
+  public ListByNoMeetingReq(Builder builder){
+       this.meetingNo = builder.meetingNo;
+       this.startTime = builder.startTime;
+       this.endTime = builder.endTime;
+       this.pageToken = builder.pageToken;
+       this.pageSize = builder.pageSize;
   }
+
+    public static class Builder {
+        private String meetingNo;
+        private String startTime;
+        private String endTime;
+        private String pageToken;
+        private Integer pageSize;
+    
+           public Builder meetingNo(String meetingNo) {
+                this.meetingNo = meetingNo;
+                return this;
+           }
+    
+           public Builder startTime(String startTime) {
+                this.startTime = startTime;
+                return this;
+           }
+    
+           public Builder endTime(String endTime) {
+                this.endTime = endTime;
+                return this;
+           }
+    
+           public Builder pageToken(String pageToken) {
+                this.pageToken = pageToken;
+                return this;
+           }
+    
+           public Builder pageSize(Integer pageSize) {
+                this.pageSize = pageSize;
+                return this;
+           }
+    
+    public ListByNoMeetingReq build(){
+        return new ListByNoMeetingReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

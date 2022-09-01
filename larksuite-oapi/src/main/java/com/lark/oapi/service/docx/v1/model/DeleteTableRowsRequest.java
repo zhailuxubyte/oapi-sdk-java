@@ -12,63 +12,69 @@
  */
 
 package com.lark.oapi.service.docx.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.docx.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class DeleteTableRowsRequest {
-
-  @SerializedName("row_start_index")
-  private Integer rowStartIndex;
-  @SerializedName("row_end_index")
-  private Integer rowEndIndex;
-
-  // builder 开始
-  public DeleteTableRowsRequest() {
-  }
-
-  public DeleteTableRowsRequest(Builder builder) {
-    this.rowStartIndex = builder.rowStartIndex;
-    this.rowEndIndex = builder.rowEndIndex;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Integer getRowStartIndex() {
-    return this.rowStartIndex;
-  }
-
-  public void setRowStartIndex(Integer rowStartIndex) {
-    this.rowStartIndex = rowStartIndex;
-  }
-
-  public Integer getRowEndIndex() {
-    return this.rowEndIndex;
-  }
-
-  public void setRowEndIndex(Integer rowEndIndex) {
-    this.rowEndIndex = rowEndIndex;
-  }
-
-  public static class Builder {
-
+    @SerializedName("row_start_index")
     private Integer rowStartIndex;
+    @SerializedName("row_end_index")
     private Integer rowEndIndex;
-
-    public Builder rowStartIndex(Integer rowStartIndex) {
-      this.rowStartIndex = rowStartIndex;
-      return this;
+    public Integer getRowStartIndex() {
+        return this.rowStartIndex;
     }
 
-    public Builder rowEndIndex(Integer rowEndIndex) {
-      this.rowEndIndex = rowEndIndex;
-      return this;
+    public void setRowStartIndex(Integer rowStartIndex) {
+        this.rowStartIndex = rowStartIndex;
+    }
+
+    public Integer getRowEndIndex() {
+        return this.rowEndIndex;
+    }
+
+    public void setRowEndIndex(Integer rowEndIndex) {
+        this.rowEndIndex = rowEndIndex;
     }
 
 
-    public DeleteTableRowsRequest build() {
-      return new DeleteTableRowsRequest(this);
-    }
+// builder 开始
+  public DeleteTableRowsRequest(){}
+
+  public DeleteTableRowsRequest(Builder builder){
+      this.rowStartIndex = builder.rowStartIndex;
+      this.rowEndIndex = builder.rowEndIndex;
   }
+
+    public static class Builder {
+        private Integer rowStartIndex;
+        private Integer rowEndIndex;
+        public Builder rowStartIndex(Integer rowStartIndex) {
+             this.rowStartIndex = rowStartIndex;
+             return this;
+        }
+    
+        public Builder rowEndIndex(Integer rowEndIndex) {
+             this.rowEndIndex = rowEndIndex;
+             return this;
+        }
+    
+    
+    public DeleteTableRowsRequest build(){
+        return new DeleteTableRowsRequest(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

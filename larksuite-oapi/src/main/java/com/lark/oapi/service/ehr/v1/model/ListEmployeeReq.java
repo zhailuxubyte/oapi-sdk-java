@@ -12,201 +12,204 @@
  */
 
 package com.lark.oapi.service.ehr.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.ehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class ListEmployeeReq {
-
-  @Query
-  @SerializedName("view")
-  private String view;
-  @Query
-  @SerializedName("status")
-  private Integer[] status;
-  @Query
-  @SerializedName("type")
-  private Integer[] type;
-  @Query
-  @SerializedName("start_time")
-  private String startTime;
-  @Query
-  @SerializedName("end_time")
-  private String endTime;
-  @Query
-  @SerializedName("user_id_type")
-  private String userIdType;
-  @Query
-  @SerializedName("user_ids")
-  private String[] userIds;
-  @Query
-  @SerializedName("page_token")
-  private String pageToken;
-  @Query
-  @SerializedName("page_size")
-  private Integer pageSize;
-
-  // builder 开始
-  public ListEmployeeReq() {
-  }
-
-  public ListEmployeeReq(Builder builder) {
-    this.view = builder.view;
-    this.status = builder.status;
-    this.type = builder.type;
-    this.startTime = builder.startTime;
-    this.endTime = builder.endTime;
-    this.userIdType = builder.userIdType;
-    this.userIds = builder.userIds;
-    this.pageToken = builder.pageToken;
-    this.pageSize = builder.pageSize;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getView() {
-    return this.view;
-  }
-
-  public void setView(String view) {
-    this.view = view;
-  }
-
-  public Integer[] getStatus() {
-    return this.status;
-  }
-
-  public void setStatus(Integer[] status) {
-    this.status = status;
-  }
-
-  public Integer[] getType() {
-    return this.type;
-  }
-
-  public void setType(Integer[] type) {
-    this.type = type;
-  }
-
-  public String getStartTime() {
-    return this.startTime;
-  }
-
-  public void setStartTime(String startTime) {
-    this.startTime = startTime;
-  }
-
-  public String getEndTime() {
-    return this.endTime;
-  }
-
-  public void setEndTime(String endTime) {
-    this.endTime = endTime;
-  }
-
-  public String getUserIdType() {
-    return this.userIdType;
-  }
-
-  public void setUserIdType(String userIdType) {
-    this.userIdType = userIdType;
-  }
-
-  public String[] getUserIds() {
-    return this.userIds;
-  }
-
-  public void setUserIds(String[] userIds) {
-    this.userIds = userIds;
-  }
-
-  public String getPageToken() {
-    return this.pageToken;
-  }
-
-  public void setPageToken(String pageToken) {
-    this.pageToken = pageToken;
-  }
-
-  public Integer getPageSize() {
-    return this.pageSize;
-  }
-
-  public void setPageSize(Integer pageSize) {
-    this.pageSize = pageSize;
-  }
-
-  public static class Builder {
-
+    @Query
+    @SerializedName("view")
     private String view;
+    @Query
+    @SerializedName("status")
     private Integer[] status;
+    @Query
+    @SerializedName("type")
     private Integer[] type;
+    @Query
+    @SerializedName("start_time")
     private String startTime;
+    @Query
+    @SerializedName("end_time")
     private String endTime;
+    @Query
+    @SerializedName("user_id_type")
     private String userIdType;
+    @Query
+    @SerializedName("user_ids")
     private String[] userIds;
+    @Query
+    @SerializedName("page_token")
     private String pageToken;
+    @Query
+    @SerializedName("page_size")
     private Integer pageSize;
-
-    public Builder view(String view) {
-      this.view = view;
-      return this;
+    public String getView() {
+        return this.view;
     }
 
-    public Builder view(com.lark.oapi.service.ehr.v1.enums.ViewEnum view) {
-      this.view = view.getValue();
-      return this;
+    public void setView(String view) {
+        this.view = view;
     }
 
-    public Builder status(Integer[] status) {
-      this.status = status;
-      return this;
+    public Integer[] getStatus() {
+        return this.status;
     }
 
-    public Builder type(Integer[] type) {
-      this.type = type;
-      return this;
+    public void setStatus(Integer[] status) {
+        this.status = status;
     }
 
-    public Builder startTime(String startTime) {
-      this.startTime = startTime;
-      return this;
+    public Integer[] getType() {
+        return this.type;
     }
 
-    public Builder endTime(String endTime) {
-      this.endTime = endTime;
-      return this;
+    public void setType(Integer[] type) {
+        this.type = type;
     }
 
-    public Builder userIdType(String userIdType) {
-      this.userIdType = userIdType;
-      return this;
+    public String getStartTime() {
+        return this.startTime;
     }
 
-    public Builder userIdType(com.lark.oapi.service.ehr.v1.enums.UserIdTypeEnum userIdType) {
-      this.userIdType = userIdType.getValue();
-      return this;
+    public void setStartTime(String startTime) {
+        this.startTime = startTime;
     }
 
-    public Builder userIds(String[] userIds) {
-      this.userIds = userIds;
-      return this;
+    public String getEndTime() {
+        return this.endTime;
     }
 
-    public Builder pageToken(String pageToken) {
-      this.pageToken = pageToken;
-      return this;
+    public void setEndTime(String endTime) {
+        this.endTime = endTime;
     }
 
-    public Builder pageSize(Integer pageSize) {
-      this.pageSize = pageSize;
-      return this;
+    public String getUserIdType() {
+        return this.userIdType;
     }
 
-    public ListEmployeeReq build() {
-      return new ListEmployeeReq(this);
+    public void setUserIdType(String userIdType) {
+        this.userIdType = userIdType;
     }
+
+    public String[] getUserIds() {
+        return this.userIds;
+    }
+
+    public void setUserIds(String[] userIds) {
+        this.userIds = userIds;
+    }
+
+    public String getPageToken() {
+        return this.pageToken;
+    }
+
+    public void setPageToken(String pageToken) {
+        this.pageToken = pageToken;
+    }
+
+    public Integer getPageSize() {
+        return this.pageSize;
+    }
+
+    public void setPageSize(Integer pageSize) {
+        this.pageSize = pageSize;
+    }
+
+
+// builder 开始
+  public ListEmployeeReq(){}
+
+  public ListEmployeeReq(Builder builder){
+       this.view = builder.view;
+       this.status = builder.status;
+       this.type = builder.type;
+       this.startTime = builder.startTime;
+       this.endTime = builder.endTime;
+       this.userIdType = builder.userIdType;
+       this.userIds = builder.userIds;
+       this.pageToken = builder.pageToken;
+       this.pageSize = builder.pageSize;
   }
+
+    public static class Builder {
+        private String view;
+        private Integer[] status;
+        private Integer[] type;
+        private String startTime;
+        private String endTime;
+        private String userIdType;
+        private String[] userIds;
+        private String pageToken;
+        private Integer pageSize;
+    
+           public Builder view(String view) {
+                this.view = view;
+                return this;
+           }
+          public Builder view(com.lark.oapi.service.ehr.v1.enums.ViewEnum view) {
+               this.view = view.getValue();
+               return this;
+          }
+    
+           public Builder status(Integer[] status) {
+                this.status = status;
+                return this;
+           }
+    
+           public Builder type(Integer[] type) {
+                this.type = type;
+                return this;
+           }
+    
+           public Builder startTime(String startTime) {
+                this.startTime = startTime;
+                return this;
+           }
+    
+           public Builder endTime(String endTime) {
+                this.endTime = endTime;
+                return this;
+           }
+    
+           public Builder userIdType(String userIdType) {
+                this.userIdType = userIdType;
+                return this;
+           }
+          public Builder userIdType(com.lark.oapi.service.ehr.v1.enums.UserIdTypeEnum userIdType) {
+               this.userIdType = userIdType.getValue();
+               return this;
+          }
+    
+           public Builder userIds(String[] userIds) {
+                this.userIds = userIds;
+                return this;
+           }
+    
+           public Builder pageToken(String pageToken) {
+                this.pageToken = pageToken;
+                return this;
+           }
+    
+           public Builder pageSize(Integer pageSize) {
+                this.pageSize = pageSize;
+                return this;
+           }
+    
+    public ListEmployeeReq build(){
+        return new ListEmployeeReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

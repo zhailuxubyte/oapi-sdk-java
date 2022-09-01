@@ -12,60 +12,67 @@
  */
 
 package com.lark.oapi.service.helpdesk.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class GetCategory {
+    @SerializedName("category_id")
+    private String categoryId;
+    @SerializedName("id")
+    private String id;
+    @SerializedName("name")
+    private String name;
+    @SerializedName("helpdesk_id")
+    private String helpdeskId;
+    @SerializedName("language")
+    private String language;
+    public String getCategoryId() {
+        return this.categoryId;
+    }
 
-  @SerializedName("category_id")
-  private String categoryId;
-  @SerializedName("id")
-  private String id;
-  @SerializedName("name")
-  private String name;
-  @SerializedName("helpdesk_id")
-  private String helpdeskId;
-  @SerializedName("language")
-  private String language;
+    public void setCategoryId(String categoryId) {
+        this.categoryId = categoryId;
+    }
 
-  public String getCategoryId() {
-    return this.categoryId;
-  }
+    public String getId() {
+        return this.id;
+    }
 
-  public void setCategoryId(String categoryId) {
-    this.categoryId = categoryId;
-  }
+    public void setId(String id) {
+        this.id = id;
+    }
 
-  public String getId() {
-    return this.id;
-  }
+    public String getName() {
+        return this.name;
+    }
 
-  public void setId(String id) {
-    this.id = id;
-  }
+    public void setName(String name) {
+        this.name = name;
+    }
 
-  public String getName() {
-    return this.name;
-  }
+    public String getHelpdeskId() {
+        return this.helpdeskId;
+    }
 
-  public void setName(String name) {
-    this.name = name;
-  }
+    public void setHelpdeskId(String helpdeskId) {
+        this.helpdeskId = helpdeskId;
+    }
 
-  public String getHelpdeskId() {
-    return this.helpdeskId;
-  }
+    public String getLanguage() {
+        return this.language;
+    }
 
-  public void setHelpdeskId(String helpdeskId) {
-    this.helpdeskId = helpdeskId;
-  }
-
-  public String getLanguage() {
-    return this.language;
-  }
-
-  public void setLanguage(String language) {
-    this.language = language;
-  }
+    public void setLanguage(String language) {
+        this.language = language;
+    }
 
 }

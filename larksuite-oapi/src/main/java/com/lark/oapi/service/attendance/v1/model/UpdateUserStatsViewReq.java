@@ -12,94 +12,94 @@
  */
 
 package com.lark.oapi.service.attendance.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.attendance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class UpdateUserStatsViewReq {
-
-  @Query
-  @SerializedName("employee_type")
-  private String employeeType;
-  @Path
-  @SerializedName("user_stats_view_id")
-  private String userStatsViewId;
-  @Body
-  private UpdateUserStatsViewReqBody body;
-
-  // builder 开始
-  public UpdateUserStatsViewReq() {
-  }
-
-  public UpdateUserStatsViewReq(Builder builder) {
-    this.employeeType = builder.employeeType;
-    this.userStatsViewId = builder.userStatsViewId;
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getEmployeeType() {
-    return this.employeeType;
-  }
-
-  public void setEmployeeType(String employeeType) {
-    this.employeeType = employeeType;
-  }
-
-  public String getUserStatsViewId() {
-    return this.userStatsViewId;
-  }
-
-  public void setUserStatsViewId(String userStatsViewId) {
-    this.userStatsViewId = userStatsViewId;
-  }
-
-  public UpdateUserStatsViewReqBody getUpdateUserStatsViewReqBody() {
-    return this.body;
-  }
-
-  public void setUpdateUserStatsViewReqBody(UpdateUserStatsViewReqBody body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
+    @Query
+    @SerializedName("employee_type")
     private String employeeType;
+    public String getEmployeeType() {
+        return this.employeeType;
+    }
+
+    public void setEmployeeType(String employeeType) {
+        this.employeeType = employeeType;
+    }
+
+    @Path
+    @SerializedName("user_stats_view_id")
     private String userStatsViewId;
+    public String getUserStatsViewId() {
+        return this.userStatsViewId;
+    }
+
+    public void setUserStatsViewId(String userStatsViewId) {
+        this.userStatsViewId = userStatsViewId;
+    }
+
+    @Body
     private UpdateUserStatsViewReqBody body;
 
-    public Builder employeeType(String employeeType) {
-      this.employeeType = employeeType;
-      return this;
-    }
-
-    public Builder employeeType(
-        com.lark.oapi.service.attendance.v1.enums.EmployeeTypeEnum employeeType) {
-      this.employeeType = employeeType.getValue();
-      return this;
-    }
-
-    public Builder userStatsViewId(String userStatsViewId) {
-      this.userStatsViewId = userStatsViewId;
-      return this;
-    }
-
     public UpdateUserStatsViewReqBody getUpdateUserStatsViewReqBody() {
-      return this.body;
+        return this.body;
     }
 
-    public Builder updateUserStatsViewReqBody(UpdateUserStatsViewReqBody body) {
-      this.body = body;
-      return this;
+    public void setUpdateUserStatsViewReqBody(UpdateUserStatsViewReqBody body) {
+        this.body = body;
     }
 
-    public UpdateUserStatsViewReq build() {
-      return new UpdateUserStatsViewReq(this);
-    }
+// builder 开始
+  public UpdateUserStatsViewReq(){}
+
+  public UpdateUserStatsViewReq(Builder builder){
+       this.employeeType = builder.employeeType;
+       this.userStatsViewId = builder.userStatsViewId;
+        this.body = builder.body;
   }
+
+    public static class Builder {
+        private String employeeType;
+    
+           public Builder employeeType(String employeeType) {
+                this.employeeType = employeeType;
+                return this;
+           }
+          public Builder employeeType(com.lark.oapi.service.attendance.v1.enums.EmployeeTypeEnum employeeType) {
+               this.employeeType = employeeType.getValue();
+               return this;
+          }
+    
+        private String userStatsViewId;
+          public Builder userStatsViewId(String userStatsViewId) {
+               this.userStatsViewId = userStatsViewId;
+               return this;
+          }
+    
+        private UpdateUserStatsViewReqBody body;
+    
+        public UpdateUserStatsViewReqBody getUpdateUserStatsViewReqBody() {
+            return this.body;
+        }
+        public Builder updateUserStatsViewReqBody(UpdateUserStatsViewReqBody body) {
+             this.body = body;
+             return this;
+        }
+    public UpdateUserStatsViewReq build(){
+        return new UpdateUserStatsViewReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

@@ -12,63 +12,69 @@
  */
 
 package com.lark.oapi.service.drive.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.drive.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class ShortcutInfo {
-
-  @SerializedName("target_type")
-  private String targetType;
-  @SerializedName("target_token")
-  private String targetToken;
-
-  // builder 开始
-  public ShortcutInfo() {
-  }
-
-  public ShortcutInfo(Builder builder) {
-    this.targetType = builder.targetType;
-    this.targetToken = builder.targetToken;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getTargetType() {
-    return this.targetType;
-  }
-
-  public void setTargetType(String targetType) {
-    this.targetType = targetType;
-  }
-
-  public String getTargetToken() {
-    return this.targetToken;
-  }
-
-  public void setTargetToken(String targetToken) {
-    this.targetToken = targetToken;
-  }
-
-  public static class Builder {
-
+    @SerializedName("target_type")
     private String targetType;
+    @SerializedName("target_token")
     private String targetToken;
-
-    public Builder targetType(String targetType) {
-      this.targetType = targetType;
-      return this;
+    public String getTargetType() {
+        return this.targetType;
     }
 
-    public Builder targetToken(String targetToken) {
-      this.targetToken = targetToken;
-      return this;
+    public void setTargetType(String targetType) {
+        this.targetType = targetType;
+    }
+
+    public String getTargetToken() {
+        return this.targetToken;
+    }
+
+    public void setTargetToken(String targetToken) {
+        this.targetToken = targetToken;
     }
 
 
-    public ShortcutInfo build() {
-      return new ShortcutInfo(this);
-    }
+// builder 开始
+  public ShortcutInfo(){}
+
+  public ShortcutInfo(Builder builder){
+      this.targetType = builder.targetType;
+      this.targetToken = builder.targetToken;
   }
+
+    public static class Builder {
+        private String targetType;
+        private String targetToken;
+        public Builder targetType(String targetType) {
+             this.targetType = targetType;
+             return this;
+        }
+    
+        public Builder targetToken(String targetToken) {
+             this.targetToken = targetToken;
+             return this;
+        }
+    
+    
+    public ShortcutInfo build(){
+        return new ShortcutInfo(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

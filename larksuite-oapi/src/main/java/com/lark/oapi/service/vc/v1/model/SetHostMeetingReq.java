@@ -12,93 +12,94 @@
  */
 
 package com.lark.oapi.service.vc.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.vc.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class SetHostMeetingReq {
-
-  @Query
-  @SerializedName("user_id_type")
-  private String userIdType;
-  @Path
-  @SerializedName("meeting_id")
-  private String meetingId;
-  @Body
-  private SetHostMeetingReqBody body;
-
-  // builder 开始
-  public SetHostMeetingReq() {
-  }
-
-  public SetHostMeetingReq(Builder builder) {
-    this.userIdType = builder.userIdType;
-    this.meetingId = builder.meetingId;
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getUserIdType() {
-    return this.userIdType;
-  }
-
-  public void setUserIdType(String userIdType) {
-    this.userIdType = userIdType;
-  }
-
-  public String getMeetingId() {
-    return this.meetingId;
-  }
-
-  public void setMeetingId(String meetingId) {
-    this.meetingId = meetingId;
-  }
-
-  public SetHostMeetingReqBody getSetHostMeetingReqBody() {
-    return this.body;
-  }
-
-  public void setSetHostMeetingReqBody(SetHostMeetingReqBody body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
+    @Query
+    @SerializedName("user_id_type")
     private String userIdType;
+    public String getUserIdType() {
+        return this.userIdType;
+    }
+
+    public void setUserIdType(String userIdType) {
+        this.userIdType = userIdType;
+    }
+
+    @Path
+    @SerializedName("meeting_id")
     private String meetingId;
+    public String getMeetingId() {
+        return this.meetingId;
+    }
+
+    public void setMeetingId(String meetingId) {
+        this.meetingId = meetingId;
+    }
+
+    @Body
     private SetHostMeetingReqBody body;
 
-    public Builder userIdType(String userIdType) {
-      this.userIdType = userIdType;
-      return this;
-    }
-
-    public Builder userIdType(com.lark.oapi.service.vc.v1.enums.UserIdTypeEnum userIdType) {
-      this.userIdType = userIdType.getValue();
-      return this;
-    }
-
-    public Builder meetingId(String meetingId) {
-      this.meetingId = meetingId;
-      return this;
-    }
-
     public SetHostMeetingReqBody getSetHostMeetingReqBody() {
-      return this.body;
+        return this.body;
     }
 
-    public Builder setHostMeetingReqBody(SetHostMeetingReqBody body) {
-      this.body = body;
-      return this;
+    public void setSetHostMeetingReqBody(SetHostMeetingReqBody body) {
+        this.body = body;
     }
 
-    public SetHostMeetingReq build() {
-      return new SetHostMeetingReq(this);
-    }
+// builder 开始
+  public SetHostMeetingReq(){}
+
+  public SetHostMeetingReq(Builder builder){
+       this.userIdType = builder.userIdType;
+       this.meetingId = builder.meetingId;
+        this.body = builder.body;
   }
+
+    public static class Builder {
+        private String userIdType;
+    
+           public Builder userIdType(String userIdType) {
+                this.userIdType = userIdType;
+                return this;
+           }
+          public Builder userIdType(com.lark.oapi.service.vc.v1.enums.UserIdTypeEnum userIdType) {
+               this.userIdType = userIdType.getValue();
+               return this;
+          }
+    
+        private String meetingId;
+          public Builder meetingId(String meetingId) {
+               this.meetingId = meetingId;
+               return this;
+          }
+    
+        private SetHostMeetingReqBody body;
+    
+        public SetHostMeetingReqBody getSetHostMeetingReqBody() {
+            return this.body;
+        }
+        public Builder setHostMeetingReqBody(SetHostMeetingReqBody body) {
+             this.body = body;
+             return this;
+        }
+    public SetHostMeetingReq build(){
+        return new SetHostMeetingReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

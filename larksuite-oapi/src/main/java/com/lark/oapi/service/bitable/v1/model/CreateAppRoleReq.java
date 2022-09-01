@@ -12,69 +12,72 @@
  */
 
 package com.lark.oapi.service.bitable.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.bitable.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class CreateAppRoleReq {
-
-  @Path
-  @SerializedName("app_token")
-  private String appToken;
-  @Body
-  private AppRole body;
-
-  // builder 开始
-  public CreateAppRoleReq() {
-  }
-
-  public CreateAppRoleReq(Builder builder) {
-    this.appToken = builder.appToken;
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getAppToken() {
-    return this.appToken;
-  }
-
-  public void setAppToken(String appToken) {
-    this.appToken = appToken;
-  }
-
-  public AppRole getAppRole() {
-    return this.body;
-  }
-
-  public void setAppRole(AppRole body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
+    @Path
+    @SerializedName("app_token")
     private String appToken;
+    public String getAppToken() {
+        return this.appToken;
+    }
+
+    public void setAppToken(String appToken) {
+        this.appToken = appToken;
+    }
+
+    @Body
     private AppRole body;
 
-    public Builder appToken(String appToken) {
-      this.appToken = appToken;
-      return this;
-    }
-
     public AppRole getAppRole() {
-      return this.body;
+        return this.body;
     }
 
-    public Builder appRole(AppRole body) {
-      this.body = body;
-      return this;
+    public void setAppRole(AppRole body) {
+        this.body = body;
     }
 
-    public CreateAppRoleReq build() {
-      return new CreateAppRoleReq(this);
-    }
+// builder 开始
+  public CreateAppRoleReq(){}
+
+  public CreateAppRoleReq(Builder builder){
+       this.appToken = builder.appToken;
+        this.body = builder.body;
   }
+
+    public static class Builder {
+    
+        private String appToken;
+          public Builder appToken(String appToken) {
+               this.appToken = appToken;
+               return this;
+          }
+    
+        private AppRole body;
+    
+        public AppRole getAppRole() {
+            return this.body;
+        }
+        public Builder appRole(AppRole body) {
+             this.body = body;
+             return this;
+        }
+    public CreateAppRoleReq build(){
+        return new CreateAppRoleReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

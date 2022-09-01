@@ -12,125 +12,128 @@
  */
 
 package com.lark.oapi.service.docx.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.docx.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class ListDocumentBlockReq {
-
-  @Query
-  @SerializedName("page_size")
-  private Integer pageSize;
-  @Query
-  @SerializedName("page_token")
-  private String pageToken;
-  @Query
-  @SerializedName("document_revision_id")
-  private Integer documentRevisionId;
-  @Query
-  @SerializedName("user_id_type")
-  private String userIdType;
-  @Path
-  @SerializedName("document_id")
-  private String documentId;
-
-  // builder 开始
-  public ListDocumentBlockReq() {
-  }
-
-  public ListDocumentBlockReq(Builder builder) {
-    this.pageSize = builder.pageSize;
-    this.pageToken = builder.pageToken;
-    this.documentRevisionId = builder.documentRevisionId;
-    this.userIdType = builder.userIdType;
-    this.documentId = builder.documentId;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Integer getPageSize() {
-    return this.pageSize;
-  }
-
-  public void setPageSize(Integer pageSize) {
-    this.pageSize = pageSize;
-  }
-
-  public String getPageToken() {
-    return this.pageToken;
-  }
-
-  public void setPageToken(String pageToken) {
-    this.pageToken = pageToken;
-  }
-
-  public Integer getDocumentRevisionId() {
-    return this.documentRevisionId;
-  }
-
-  public void setDocumentRevisionId(Integer documentRevisionId) {
-    this.documentRevisionId = documentRevisionId;
-  }
-
-  public String getUserIdType() {
-    return this.userIdType;
-  }
-
-  public void setUserIdType(String userIdType) {
-    this.userIdType = userIdType;
-  }
-
-  public String getDocumentId() {
-    return this.documentId;
-  }
-
-  public void setDocumentId(String documentId) {
-    this.documentId = documentId;
-  }
-
-  public static class Builder {
-
+    @Query
+    @SerializedName("page_size")
     private Integer pageSize;
+    @Query
+    @SerializedName("page_token")
     private String pageToken;
+    @Query
+    @SerializedName("document_revision_id")
     private Integer documentRevisionId;
+    @Query
+    @SerializedName("user_id_type")
     private String userIdType;
+    public Integer getPageSize() {
+        return this.pageSize;
+    }
+
+    public void setPageSize(Integer pageSize) {
+        this.pageSize = pageSize;
+    }
+
+    public String getPageToken() {
+        return this.pageToken;
+    }
+
+    public void setPageToken(String pageToken) {
+        this.pageToken = pageToken;
+    }
+
+    public Integer getDocumentRevisionId() {
+        return this.documentRevisionId;
+    }
+
+    public void setDocumentRevisionId(Integer documentRevisionId) {
+        this.documentRevisionId = documentRevisionId;
+    }
+
+    public String getUserIdType() {
+        return this.userIdType;
+    }
+
+    public void setUserIdType(String userIdType) {
+        this.userIdType = userIdType;
+    }
+
+    @Path
+    @SerializedName("document_id")
     private String documentId;
-
-    public Builder pageSize(Integer pageSize) {
-      this.pageSize = pageSize;
-      return this;
+    public String getDocumentId() {
+        return this.documentId;
     }
 
-    public Builder pageToken(String pageToken) {
-      this.pageToken = pageToken;
-      return this;
+    public void setDocumentId(String documentId) {
+        this.documentId = documentId;
     }
 
-    public Builder documentRevisionId(Integer documentRevisionId) {
-      this.documentRevisionId = documentRevisionId;
-      return this;
-    }
 
-    public Builder userIdType(String userIdType) {
-      this.userIdType = userIdType;
-      return this;
-    }
+// builder 开始
+  public ListDocumentBlockReq(){}
 
-    public Builder userIdType(com.lark.oapi.service.docx.v1.enums.UserIdTypeEnum userIdType) {
-      this.userIdType = userIdType.getValue();
-      return this;
-    }
-
-    public Builder documentId(String documentId) {
-      this.documentId = documentId;
-      return this;
-    }
-
-    public ListDocumentBlockReq build() {
-      return new ListDocumentBlockReq(this);
-    }
+  public ListDocumentBlockReq(Builder builder){
+       this.pageSize = builder.pageSize;
+       this.pageToken = builder.pageToken;
+       this.documentRevisionId = builder.documentRevisionId;
+       this.userIdType = builder.userIdType;
+       this.documentId = builder.documentId;
   }
+
+    public static class Builder {
+        private Integer pageSize;
+        private String pageToken;
+        private Integer documentRevisionId;
+        private String userIdType;
+    
+           public Builder pageSize(Integer pageSize) {
+                this.pageSize = pageSize;
+                return this;
+           }
+    
+           public Builder pageToken(String pageToken) {
+                this.pageToken = pageToken;
+                return this;
+           }
+    
+           public Builder documentRevisionId(Integer documentRevisionId) {
+                this.documentRevisionId = documentRevisionId;
+                return this;
+           }
+    
+           public Builder userIdType(String userIdType) {
+                this.userIdType = userIdType;
+                return this;
+           }
+          public Builder userIdType(com.lark.oapi.service.docx.v1.enums.UserIdTypeEnum userIdType) {
+               this.userIdType = userIdType.getValue();
+               return this;
+          }
+    
+        private String documentId;
+          public Builder documentId(String documentId) {
+               this.documentId = documentId;
+               return this;
+          }
+    
+    public ListDocumentBlockReq build(){
+        return new ListDocumentBlockReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

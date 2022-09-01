@@ -12,40 +12,47 @@
  */
 
 package com.lark.oapi.service.docx.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class BatchUpdateDocumentBlock {
+    @SerializedName("blocks")
+    private Block[] blocks;
+    @SerializedName("document_revision_id")
+    private Integer documentRevisionId;
+    @SerializedName("client_token")
+    private String clientToken;
+    public Block[] getBlocks() {
+        return this.blocks;
+    }
 
-  @SerializedName("blocks")
-  private Block[] blocks;
-  @SerializedName("document_revision_id")
-  private Integer documentRevisionId;
-  @SerializedName("client_token")
-  private String clientToken;
+    public void setBlocks(Block[] blocks) {
+        this.blocks = blocks;
+    }
 
-  public Block[] getBlocks() {
-    return this.blocks;
-  }
+    public Integer getDocumentRevisionId() {
+        return this.documentRevisionId;
+    }
 
-  public void setBlocks(Block[] blocks) {
-    this.blocks = blocks;
-  }
+    public void setDocumentRevisionId(Integer documentRevisionId) {
+        this.documentRevisionId = documentRevisionId;
+    }
 
-  public Integer getDocumentRevisionId() {
-    return this.documentRevisionId;
-  }
+    public String getClientToken() {
+        return this.clientToken;
+    }
 
-  public void setDocumentRevisionId(Integer documentRevisionId) {
-    this.documentRevisionId = documentRevisionId;
-  }
-
-  public String getClientToken() {
-    return this.clientToken;
-  }
-
-  public void setClientToken(String clientToken) {
-    this.clientToken = clientToken;
-  }
+    public void setClientToken(String clientToken) {
+        this.clientToken = clientToken;
+    }
 
 }

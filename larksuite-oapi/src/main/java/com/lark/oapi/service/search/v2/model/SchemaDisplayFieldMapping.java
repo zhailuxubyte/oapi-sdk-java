@@ -12,63 +12,69 @@
  */
 
 package com.lark.oapi.service.search.v2.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.search.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class SchemaDisplayFieldMapping {
-
-  @SerializedName("display_field")
-  private String displayField;
-  @SerializedName("data_field")
-  private String dataField;
-
-  // builder 开始
-  public SchemaDisplayFieldMapping() {
-  }
-
-  public SchemaDisplayFieldMapping(Builder builder) {
-    this.displayField = builder.displayField;
-    this.dataField = builder.dataField;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getDisplayField() {
-    return this.displayField;
-  }
-
-  public void setDisplayField(String displayField) {
-    this.displayField = displayField;
-  }
-
-  public String getDataField() {
-    return this.dataField;
-  }
-
-  public void setDataField(String dataField) {
-    this.dataField = dataField;
-  }
-
-  public static class Builder {
-
+    @SerializedName("display_field")
     private String displayField;
+    @SerializedName("data_field")
     private String dataField;
-
-    public Builder displayField(String displayField) {
-      this.displayField = displayField;
-      return this;
+    public String getDisplayField() {
+        return this.displayField;
     }
 
-    public Builder dataField(String dataField) {
-      this.dataField = dataField;
-      return this;
+    public void setDisplayField(String displayField) {
+        this.displayField = displayField;
+    }
+
+    public String getDataField() {
+        return this.dataField;
+    }
+
+    public void setDataField(String dataField) {
+        this.dataField = dataField;
     }
 
 
-    public SchemaDisplayFieldMapping build() {
-      return new SchemaDisplayFieldMapping(this);
-    }
+// builder 开始
+  public SchemaDisplayFieldMapping(){}
+
+  public SchemaDisplayFieldMapping(Builder builder){
+      this.displayField = builder.displayField;
+      this.dataField = builder.dataField;
   }
+
+    public static class Builder {
+        private String displayField;
+        private String dataField;
+        public Builder displayField(String displayField) {
+             this.displayField = displayField;
+             return this;
+        }
+    
+        public Builder dataField(String dataField) {
+             this.dataField = dataField;
+             return this;
+        }
+    
+    
+    public SchemaDisplayFieldMapping build(){
+        return new SchemaDisplayFieldMapping(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

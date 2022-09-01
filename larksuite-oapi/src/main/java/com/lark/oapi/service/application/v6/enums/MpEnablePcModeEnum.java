@@ -15,17 +15,16 @@ package com.lark.oapi.service.application.v6.enums;
 
 // 生成枚举值
 public enum MpEnablePcModeEnum {
-  SIDEBAR(1),
-  PC(2),
-  NAVIGATE(4),
+     SIDEBAR(1),
+     PC(2),
+     NAVIGATE(4),
   ;
-  private Integer value;
+   private Integer value;
+    MpEnablePcModeEnum(Integer value) {
+      this.value = value;
+    }
 
-  MpEnablePcModeEnum(Integer value) {
-    this.value = value;
-  }
-
-  public Integer getValue() {
-    return this.value;
-  }
+    public Integer getValue() {
+      return this.value;
+    }
 }

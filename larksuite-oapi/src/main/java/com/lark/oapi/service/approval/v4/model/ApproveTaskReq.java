@@ -12,74 +12,76 @@
  */
 
 package com.lark.oapi.service.approval.v4.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.approval.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class ApproveTaskReq {
-
-  @Query
-  @SerializedName("user_id_type")
-  private String userIdType;
-  @Body
-  private TaskApprove body;
-
-  // builder 开始
-  public ApproveTaskReq() {
-  }
-
-  public ApproveTaskReq(Builder builder) {
-    this.userIdType = builder.userIdType;
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getUserIdType() {
-    return this.userIdType;
-  }
-
-  public void setUserIdType(String userIdType) {
-    this.userIdType = userIdType;
-  }
-
-  public TaskApprove getTaskApprove() {
-    return this.body;
-  }
-
-  public void setTaskApprove(TaskApprove body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
+    @Query
+    @SerializedName("user_id_type")
     private String userIdType;
+    public String getUserIdType() {
+        return this.userIdType;
+    }
+
+    public void setUserIdType(String userIdType) {
+        this.userIdType = userIdType;
+    }
+
+    @Body
     private TaskApprove body;
 
-    public Builder userIdType(String userIdType) {
-      this.userIdType = userIdType;
-      return this;
-    }
-
-    public Builder userIdType(com.lark.oapi.service.approval.v4.enums.UserIdTypeEnum userIdType) {
-      this.userIdType = userIdType.getValue();
-      return this;
-    }
-
     public TaskApprove getTaskApprove() {
-      return this.body;
+        return this.body;
     }
 
-    public Builder taskApprove(TaskApprove body) {
-      this.body = body;
-      return this;
+    public void setTaskApprove(TaskApprove body) {
+        this.body = body;
     }
 
-    public ApproveTaskReq build() {
-      return new ApproveTaskReq(this);
-    }
+// builder 开始
+  public ApproveTaskReq(){}
+
+  public ApproveTaskReq(Builder builder){
+       this.userIdType = builder.userIdType;
+        this.body = builder.body;
   }
+
+    public static class Builder {
+        private String userIdType;
+    
+           public Builder userIdType(String userIdType) {
+                this.userIdType = userIdType;
+                return this;
+           }
+          public Builder userIdType(com.lark.oapi.service.approval.v4.enums.UserIdTypeEnum userIdType) {
+               this.userIdType = userIdType.getValue();
+               return this;
+          }
+    
+        private TaskApprove body;
+    
+        public TaskApprove getTaskApprove() {
+            return this.body;
+        }
+        public Builder taskApprove(TaskApprove body) {
+             this.body = body;
+             return this;
+        }
+    public ApproveTaskReq build(){
+        return new ApproveTaskReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

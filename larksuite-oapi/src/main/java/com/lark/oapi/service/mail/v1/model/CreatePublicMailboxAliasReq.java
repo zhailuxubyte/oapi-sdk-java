@@ -12,69 +12,72 @@
  */
 
 package com.lark.oapi.service.mail.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.mail.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class CreatePublicMailboxAliasReq {
-
-  @Path
-  @SerializedName("public_mailbox_id")
-  private String publicMailboxId;
-  @Body
-  private EmailAlias body;
-
-  // builder 开始
-  public CreatePublicMailboxAliasReq() {
-  }
-
-  public CreatePublicMailboxAliasReq(Builder builder) {
-    this.publicMailboxId = builder.publicMailboxId;
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getPublicMailboxId() {
-    return this.publicMailboxId;
-  }
-
-  public void setPublicMailboxId(String publicMailboxId) {
-    this.publicMailboxId = publicMailboxId;
-  }
-
-  public EmailAlias getEmailAlias() {
-    return this.body;
-  }
-
-  public void setEmailAlias(EmailAlias body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
+    @Path
+    @SerializedName("public_mailbox_id")
     private String publicMailboxId;
+    public String getPublicMailboxId() {
+        return this.publicMailboxId;
+    }
+
+    public void setPublicMailboxId(String publicMailboxId) {
+        this.publicMailboxId = publicMailboxId;
+    }
+
+    @Body
     private EmailAlias body;
 
-    public Builder publicMailboxId(String publicMailboxId) {
-      this.publicMailboxId = publicMailboxId;
-      return this;
-    }
-
     public EmailAlias getEmailAlias() {
-      return this.body;
+        return this.body;
     }
 
-    public Builder emailAlias(EmailAlias body) {
-      this.body = body;
-      return this;
+    public void setEmailAlias(EmailAlias body) {
+        this.body = body;
     }
 
-    public CreatePublicMailboxAliasReq build() {
-      return new CreatePublicMailboxAliasReq(this);
-    }
+// builder 开始
+  public CreatePublicMailboxAliasReq(){}
+
+  public CreatePublicMailboxAliasReq(Builder builder){
+       this.publicMailboxId = builder.publicMailboxId;
+        this.body = builder.body;
   }
+
+    public static class Builder {
+    
+        private String publicMailboxId;
+          public Builder publicMailboxId(String publicMailboxId) {
+               this.publicMailboxId = publicMailboxId;
+               return this;
+          }
+    
+        private EmailAlias body;
+    
+        public EmailAlias getEmailAlias() {
+            return this.body;
+        }
+        public Builder emailAlias(EmailAlias body) {
+             this.body = body;
+             return this;
+        }
+    public CreatePublicMailboxAliasReq build(){
+        return new CreatePublicMailboxAliasReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

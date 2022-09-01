@@ -12,132 +12,138 @@
  */
 
 package com.lark.oapi.service.bitable.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.bitable.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
 import java.util.Map;
-
+import com.lark.oapi.core.response.BaseResponse;
 public class AppTableRecord {
-
-  @SerializedName("record_id")
-  private String recordId;
-  @SerializedName("created_by")
-  private Person createdBy;
-  @SerializedName("created_time")
-  private Integer createdTime;
-  @SerializedName("last_modified_by")
-  private Person lastModifiedBy;
-  @SerializedName("last_modified_time")
-  private Integer lastModifiedTime;
-  @SerializedName("fields")
-  private Map<String, Object> fields;
-
-  // builder 开始
-  public AppTableRecord() {
-  }
-
-  public AppTableRecord(Builder builder) {
-    this.recordId = builder.recordId;
-    this.createdBy = builder.createdBy;
-    this.createdTime = builder.createdTime;
-    this.lastModifiedBy = builder.lastModifiedBy;
-    this.lastModifiedTime = builder.lastModifiedTime;
-    this.fields = builder.fields;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getRecordId() {
-    return this.recordId;
-  }
-
-  public void setRecordId(String recordId) {
-    this.recordId = recordId;
-  }
-
-  public Person getCreatedBy() {
-    return this.createdBy;
-  }
-
-  public void setCreatedBy(Person createdBy) {
-    this.createdBy = createdBy;
-  }
-
-  public Integer getCreatedTime() {
-    return this.createdTime;
-  }
-
-  public void setCreatedTime(Integer createdTime) {
-    this.createdTime = createdTime;
-  }
-
-  public Person getLastModifiedBy() {
-    return this.lastModifiedBy;
-  }
-
-  public void setLastModifiedBy(Person lastModifiedBy) {
-    this.lastModifiedBy = lastModifiedBy;
-  }
-
-  public Integer getLastModifiedTime() {
-    return this.lastModifiedTime;
-  }
-
-  public void setLastModifiedTime(Integer lastModifiedTime) {
-    this.lastModifiedTime = lastModifiedTime;
-  }
-
-  public Map<String, Object> getFields() {
-    return this.fields;
-  }
-
-  public void setFields(Map<String, Object> fields) {
-    this.fields = fields;
-  }
-
-  public static class Builder {
-
+    @SerializedName("record_id")
     private String recordId;
+    @SerializedName("created_by")
     private Person createdBy;
+    @SerializedName("created_time")
     private Integer createdTime;
+    @SerializedName("last_modified_by")
     private Person lastModifiedBy;
+    @SerializedName("last_modified_time")
     private Integer lastModifiedTime;
+    @SerializedName("fields")
     private Map<String, Object> fields;
-
-    public Builder recordId(String recordId) {
-      this.recordId = recordId;
-      return this;
+    public String getRecordId() {
+        return this.recordId;
     }
 
-    public Builder createdBy(Person createdBy) {
-      this.createdBy = createdBy;
-      return this;
+    public void setRecordId(String recordId) {
+        this.recordId = recordId;
     }
 
-    public Builder createdTime(Integer createdTime) {
-      this.createdTime = createdTime;
-      return this;
+    public Person getCreatedBy() {
+        return this.createdBy;
     }
 
-    public Builder lastModifiedBy(Person lastModifiedBy) {
-      this.lastModifiedBy = lastModifiedBy;
-      return this;
+    public void setCreatedBy(Person createdBy) {
+        this.createdBy = createdBy;
     }
 
-    public Builder lastModifiedTime(Integer lastModifiedTime) {
-      this.lastModifiedTime = lastModifiedTime;
-      return this;
+    public Integer getCreatedTime() {
+        return this.createdTime;
     }
 
-    public Builder fields(Map<String, Object> fields) {
-      this.fields = fields;
-      return this;
+    public void setCreatedTime(Integer createdTime) {
+        this.createdTime = createdTime;
+    }
+
+    public Person getLastModifiedBy() {
+        return this.lastModifiedBy;
+    }
+
+    public void setLastModifiedBy(Person lastModifiedBy) {
+        this.lastModifiedBy = lastModifiedBy;
+    }
+
+    public Integer getLastModifiedTime() {
+        return this.lastModifiedTime;
+    }
+
+    public void setLastModifiedTime(Integer lastModifiedTime) {
+        this.lastModifiedTime = lastModifiedTime;
+    }
+
+    public Map<String, Object> getFields() {
+        return this.fields;
+    }
+
+    public void setFields(Map<String, Object> fields) {
+        this.fields = fields;
     }
 
 
-    public AppTableRecord build() {
-      return new AppTableRecord(this);
-    }
+// builder 开始
+  public AppTableRecord(){}
+
+  public AppTableRecord(Builder builder){
+      this.recordId = builder.recordId;
+      this.createdBy = builder.createdBy;
+      this.createdTime = builder.createdTime;
+      this.lastModifiedBy = builder.lastModifiedBy;
+      this.lastModifiedTime = builder.lastModifiedTime;
+      this.fields = builder.fields;
   }
+
+    public static class Builder {
+        private String recordId;
+        private Person createdBy;
+        private Integer createdTime;
+        private Person lastModifiedBy;
+        private Integer lastModifiedTime;
+        private Map<String, Object> fields;
+        public Builder recordId(String recordId) {
+             this.recordId = recordId;
+             return this;
+        }
+    
+        public Builder createdBy(Person createdBy) {
+             this.createdBy = createdBy;
+             return this;
+        }
+    
+        public Builder createdTime(Integer createdTime) {
+             this.createdTime = createdTime;
+             return this;
+        }
+    
+        public Builder lastModifiedBy(Person lastModifiedBy) {
+             this.lastModifiedBy = lastModifiedBy;
+             return this;
+        }
+    
+        public Builder lastModifiedTime(Integer lastModifiedTime) {
+             this.lastModifiedTime = lastModifiedTime;
+             return this;
+        }
+    
+        public Builder fields(Map<String, Object> fields) {
+             this.fields = fields;
+             return this;
+        }
+    
+    
+    public AppTableRecord build(){
+        return new AppTableRecord(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

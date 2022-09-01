@@ -12,136 +12,141 @@
  */
 
 package com.lark.oapi.service.approval.v4.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.approval.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class CcSearchNode {
-
-  @SerializedName("user_id")
-  private String userId;
-  @SerializedName("create_time")
-  private String createTime;
-  @SerializedName("read_status")
-  private String readStatus;
-  @SerializedName("title")
-  private String title;
-  @SerializedName("extra")
-  private String extra;
-  @SerializedName("link")
-  private InstanceSearchLink link;
-
-  // builder 开始
-  public CcSearchNode() {
-  }
-
-  public CcSearchNode(Builder builder) {
-    this.userId = builder.userId;
-    this.createTime = builder.createTime;
-    this.readStatus = builder.readStatus;
-    this.title = builder.title;
-    this.extra = builder.extra;
-    this.link = builder.link;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getUserId() {
-    return this.userId;
-  }
-
-  public void setUserId(String userId) {
-    this.userId = userId;
-  }
-
-  public String getCreateTime() {
-    return this.createTime;
-  }
-
-  public void setCreateTime(String createTime) {
-    this.createTime = createTime;
-  }
-
-  public String getReadStatus() {
-    return this.readStatus;
-  }
-
-  public void setReadStatus(String readStatus) {
-    this.readStatus = readStatus;
-  }
-
-  public String getTitle() {
-    return this.title;
-  }
-
-  public void setTitle(String title) {
-    this.title = title;
-  }
-
-  public String getExtra() {
-    return this.extra;
-  }
-
-  public void setExtra(String extra) {
-    this.extra = extra;
-  }
-
-  public InstanceSearchLink getLink() {
-    return this.link;
-  }
-
-  public void setLink(InstanceSearchLink link) {
-    this.link = link;
-  }
-
-  public static class Builder {
-
+    @SerializedName("user_id")
     private String userId;
+    @SerializedName("create_time")
     private String createTime;
+    @SerializedName("read_status")
     private String readStatus;
+    @SerializedName("title")
     private String title;
+    @SerializedName("extra")
     private String extra;
+    @SerializedName("link")
     private InstanceSearchLink link;
-
-    public Builder userId(String userId) {
-      this.userId = userId;
-      return this;
+    public String getUserId() {
+        return this.userId;
     }
 
-    public Builder createTime(String createTime) {
-      this.createTime = createTime;
-      return this;
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
-    public Builder readStatus(String readStatus) {
-      this.readStatus = readStatus;
-      return this;
+    public String getCreateTime() {
+        return this.createTime;
     }
 
-    public Builder readStatus(com.lark.oapi.service.approval.v4.enums.ReadStatusEnum readStatus) {
-      this.readStatus = readStatus.getValue();
-      return this;
+    public void setCreateTime(String createTime) {
+        this.createTime = createTime;
     }
 
-    public Builder title(String title) {
-      this.title = title;
-      return this;
+    public String getReadStatus() {
+        return this.readStatus;
     }
 
-    public Builder extra(String extra) {
-      this.extra = extra;
-      return this;
+    public void setReadStatus(String readStatus) {
+        this.readStatus = readStatus;
     }
 
-    public Builder link(InstanceSearchLink link) {
-      this.link = link;
-      return this;
+    public String getTitle() {
+        return this.title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getExtra() {
+        return this.extra;
+    }
+
+    public void setExtra(String extra) {
+        this.extra = extra;
+    }
+
+    public InstanceSearchLink getLink() {
+        return this.link;
+    }
+
+    public void setLink(InstanceSearchLink link) {
+        this.link = link;
     }
 
 
-    public CcSearchNode build() {
-      return new CcSearchNode(this);
-    }
+// builder 开始
+  public CcSearchNode(){}
+
+  public CcSearchNode(Builder builder){
+      this.userId = builder.userId;
+      this.createTime = builder.createTime;
+      this.readStatus = builder.readStatus;
+      this.title = builder.title;
+      this.extra = builder.extra;
+      this.link = builder.link;
   }
+
+    public static class Builder {
+        private String userId;
+        private String createTime;
+        private String readStatus;
+        private String title;
+        private String extra;
+        private InstanceSearchLink link;
+        public Builder userId(String userId) {
+             this.userId = userId;
+             return this;
+        }
+    
+        public Builder createTime(String createTime) {
+             this.createTime = createTime;
+             return this;
+        }
+    
+        public Builder readStatus(String readStatus) {
+             this.readStatus = readStatus;
+             return this;
+        }
+        public Builder readStatus(com.lark.oapi.service.approval.v4.enums.ReadStatusEnum readStatus) {
+             this.readStatus = readStatus.getValue();
+             return this;
+        }
+    
+        public Builder title(String title) {
+             this.title = title;
+             return this;
+        }
+    
+        public Builder extra(String extra) {
+             this.extra = extra;
+             return this;
+        }
+    
+        public Builder link(InstanceSearchLink link) {
+             this.link = link;
+             return this;
+        }
+    
+    
+    public CcSearchNode build(){
+        return new CcSearchNode(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

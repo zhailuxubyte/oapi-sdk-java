@@ -12,80 +12,86 @@
  */
 
 package com.lark.oapi.service.attendance.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.attendance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class UserStatsData {
-
-  @SerializedName("name")
-  private String name;
-  @SerializedName("user_id")
-  private String userId;
-  @SerializedName("datas")
-  private UserStatsDataCell[] datas;
-
-  // builder 开始
-  public UserStatsData() {
-  }
-
-  public UserStatsData(Builder builder) {
-    this.name = builder.name;
-    this.userId = builder.userId;
-    this.datas = builder.datas;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getName() {
-    return this.name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public String getUserId() {
-    return this.userId;
-  }
-
-  public void setUserId(String userId) {
-    this.userId = userId;
-  }
-
-  public UserStatsDataCell[] getDatas() {
-    return this.datas;
-  }
-
-  public void setDatas(UserStatsDataCell[] datas) {
-    this.datas = datas;
-  }
-
-  public static class Builder {
-
+    @SerializedName("name")
     private String name;
+    @SerializedName("user_id")
     private String userId;
+    @SerializedName("datas")
     private UserStatsDataCell[] datas;
-
-    public Builder name(String name) {
-      this.name = name;
-      return this;
+    public String getName() {
+        return this.name;
     }
 
-    public Builder userId(String userId) {
-      this.userId = userId;
-      return this;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public Builder datas(UserStatsDataCell[] datas) {
-      this.datas = datas;
-      return this;
+    public String getUserId() {
+        return this.userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    public UserStatsDataCell[] getDatas() {
+        return this.datas;
+    }
+
+    public void setDatas(UserStatsDataCell[] datas) {
+        this.datas = datas;
     }
 
 
-    public UserStatsData build() {
-      return new UserStatsData(this);
-    }
+// builder 开始
+  public UserStatsData(){}
+
+  public UserStatsData(Builder builder){
+      this.name = builder.name;
+      this.userId = builder.userId;
+      this.datas = builder.datas;
   }
+
+    public static class Builder {
+        private String name;
+        private String userId;
+        private UserStatsDataCell[] datas;
+        public Builder name(String name) {
+             this.name = name;
+             return this;
+        }
+    
+        public Builder userId(String userId) {
+             this.userId = userId;
+             return this;
+        }
+    
+        public Builder datas(UserStatsDataCell[] datas) {
+             this.datas = datas;
+             return this;
+        }
+    
+    
+    public UserStatsData build(){
+        return new UserStatsData(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

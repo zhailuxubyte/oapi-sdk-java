@@ -15,16 +15,15 @@ package com.lark.oapi.service.vc.v1.enums;
 
 // 生成枚举值
 public enum TopUserOrderByEnum {
-  MEETING_COUNT(1),
-  MEETING_DURATION(2),
+     MEETING_COUNT(1),
+     MEETING_DURATION(2),
   ;
-  private Integer value;
+   private Integer value;
+    TopUserOrderByEnum(Integer value) {
+      this.value = value;
+    }
 
-  TopUserOrderByEnum(Integer value) {
-    this.value = value;
-  }
-
-  public Integer getValue() {
-    return this.value;
-  }
+    public Integer getValue() {
+      return this.value;
+    }
 }

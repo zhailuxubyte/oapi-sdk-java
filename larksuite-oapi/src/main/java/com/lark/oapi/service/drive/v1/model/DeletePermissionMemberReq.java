@@ -12,112 +12,114 @@
  */
 
 package com.lark.oapi.service.drive.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.drive.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class DeletePermissionMemberReq {
-
-  @Query
-  @SerializedName("type")
-  private String type;
-  @Query
-  @SerializedName("member_type")
-  private String memberType;
-  @Path
-  @SerializedName("token")
-  private String token;
-  @Path
-  @SerializedName("member_id")
-  private String memberId;
-
-  // builder 开始
-  public DeletePermissionMemberReq() {
-  }
-
-  public DeletePermissionMemberReq(Builder builder) {
-    this.type = builder.type;
-    this.memberType = builder.memberType;
-    this.token = builder.token;
-    this.memberId = builder.memberId;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getType() {
-    return this.type;
-  }
-
-  public void setType(String type) {
-    this.type = type;
-  }
-
-  public String getMemberType() {
-    return this.memberType;
-  }
-
-  public void setMemberType(String memberType) {
-    this.memberType = memberType;
-  }
-
-  public String getToken() {
-    return this.token;
-  }
-
-  public void setToken(String token) {
-    this.token = token;
-  }
-
-  public String getMemberId() {
-    return this.memberId;
-  }
-
-  public void setMemberId(String memberId) {
-    this.memberId = memberId;
-  }
-
-  public static class Builder {
-
+    @Query
+    @SerializedName("type")
     private String type;
+    @Query
+    @SerializedName("member_type")
     private String memberType;
+    public String getType() {
+        return this.type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public String getMemberType() {
+        return this.memberType;
+    }
+
+    public void setMemberType(String memberType) {
+        this.memberType = memberType;
+    }
+
+    @Path
+    @SerializedName("token")
     private String token;
+    @Path
+    @SerializedName("member_id")
     private String memberId;
-
-    public Builder type(String type) {
-      this.type = type;
-      return this;
+    public String getToken() {
+        return this.token;
     }
 
-    public Builder type(com.lark.oapi.service.drive.v1.enums.TokenTypeV2Enum type) {
-      this.type = type.getValue();
-      return this;
+    public void setToken(String token) {
+        this.token = token;
     }
 
-    public Builder memberType(String memberType) {
-      this.memberType = memberType;
-      return this;
+    public String getMemberId() {
+        return this.memberId;
     }
 
-    public Builder memberType(com.lark.oapi.service.drive.v1.enums.MemberTypeEnum memberType) {
-      this.memberType = memberType.getValue();
-      return this;
+    public void setMemberId(String memberId) {
+        this.memberId = memberId;
     }
 
-    public Builder token(String token) {
-      this.token = token;
-      return this;
-    }
 
-    public Builder memberId(String memberId) {
-      this.memberId = memberId;
-      return this;
-    }
+// builder 开始
+  public DeletePermissionMemberReq(){}
 
-    public DeletePermissionMemberReq build() {
-      return new DeletePermissionMemberReq(this);
-    }
+  public DeletePermissionMemberReq(Builder builder){
+       this.type = builder.type;
+       this.memberType = builder.memberType;
+       this.token = builder.token;
+       this.memberId = builder.memberId;
   }
+
+    public static class Builder {
+        private String type;
+        private String memberType;
+    
+           public Builder type(String type) {
+                this.type = type;
+                return this;
+           }
+          public Builder type(com.lark.oapi.service.drive.v1.enums.TokenTypeV2Enum type) {
+               this.type = type.getValue();
+               return this;
+          }
+    
+           public Builder memberType(String memberType) {
+                this.memberType = memberType;
+                return this;
+           }
+          public Builder memberType(com.lark.oapi.service.drive.v1.enums.MemberTypeEnum memberType) {
+               this.memberType = memberType.getValue();
+               return this;
+          }
+    
+        private String token;
+        private String memberId;
+          public Builder token(String token) {
+               this.token = token;
+               return this;
+          }
+    
+          public Builder memberId(String memberId) {
+               this.memberId = memberId;
+               return this;
+          }
+    
+    public DeletePermissionMemberReq build(){
+        return new DeletePermissionMemberReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

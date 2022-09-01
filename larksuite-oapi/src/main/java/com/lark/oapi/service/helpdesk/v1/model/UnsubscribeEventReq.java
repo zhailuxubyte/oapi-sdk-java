@@ -12,49 +12,54 @@
  */
 
 package com.lark.oapi.service.helpdesk.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.helpdesk.v1.enums.*;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
-
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class UnsubscribeEventReq {
-
-  @Body
-  private UnsubscribeEventReqBody body;
-
-  // builder 开始
-  public UnsubscribeEventReq() {
-  }
-
-  public UnsubscribeEventReq(Builder builder) {
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public UnsubscribeEventReqBody getUnsubscribeEventReqBody() {
-    return this.body;
-  }
-
-  public void setUnsubscribeEventReqBody(UnsubscribeEventReqBody body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
+    @Body
     private UnsubscribeEventReqBody body;
 
     public UnsubscribeEventReqBody getUnsubscribeEventReqBody() {
-      return this.body;
+        return this.body;
     }
 
-    public Builder unsubscribeEventReqBody(UnsubscribeEventReqBody body) {
-      this.body = body;
-      return this;
+    public void setUnsubscribeEventReqBody(UnsubscribeEventReqBody body) {
+        this.body = body;
     }
 
-    public UnsubscribeEventReq build() {
-      return new UnsubscribeEventReq(this);
-    }
+// builder 开始
+  public UnsubscribeEventReq(){}
+
+  public UnsubscribeEventReq(Builder builder){
+        this.body = builder.body;
   }
+
+    public static class Builder {
+    
+        private UnsubscribeEventReqBody body;
+    
+        public UnsubscribeEventReqBody getUnsubscribeEventReqBody() {
+            return this.body;
+        }
+        public Builder unsubscribeEventReqBody(UnsubscribeEventReqBody body) {
+             this.body = body;
+             return this;
+        }
+    public UnsubscribeEventReq build(){
+        return new UnsubscribeEventReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

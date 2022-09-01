@@ -12,108 +12,110 @@
  */
 
 package com.lark.oapi.service.task.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.task.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class ListTaskCommentReq {
-
-  @Query
-  @SerializedName("page_size")
-  private Integer pageSize;
-  @Query
-  @SerializedName("page_token")
-  private String pageToken;
-  @Query
-  @SerializedName("list_direction")
-  private Integer listDirection;
-  @Path
-  @SerializedName("task_id")
-  private String taskId;
-
-  // builder 开始
-  public ListTaskCommentReq() {
-  }
-
-  public ListTaskCommentReq(Builder builder) {
-    this.pageSize = builder.pageSize;
-    this.pageToken = builder.pageToken;
-    this.listDirection = builder.listDirection;
-    this.taskId = builder.taskId;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Integer getPageSize() {
-    return this.pageSize;
-  }
-
-  public void setPageSize(Integer pageSize) {
-    this.pageSize = pageSize;
-  }
-
-  public String getPageToken() {
-    return this.pageToken;
-  }
-
-  public void setPageToken(String pageToken) {
-    this.pageToken = pageToken;
-  }
-
-  public Integer getListDirection() {
-    return this.listDirection;
-  }
-
-  public void setListDirection(Integer listDirection) {
-    this.listDirection = listDirection;
-  }
-
-  public String getTaskId() {
-    return this.taskId;
-  }
-
-  public void setTaskId(String taskId) {
-    this.taskId = taskId;
-  }
-
-  public static class Builder {
-
+    @Query
+    @SerializedName("page_size")
     private Integer pageSize;
+    @Query
+    @SerializedName("page_token")
     private String pageToken;
+    @Query
+    @SerializedName("list_direction")
     private Integer listDirection;
+    public Integer getPageSize() {
+        return this.pageSize;
+    }
+
+    public void setPageSize(Integer pageSize) {
+        this.pageSize = pageSize;
+    }
+
+    public String getPageToken() {
+        return this.pageToken;
+    }
+
+    public void setPageToken(String pageToken) {
+        this.pageToken = pageToken;
+    }
+
+    public Integer getListDirection() {
+        return this.listDirection;
+    }
+
+    public void setListDirection(Integer listDirection) {
+        this.listDirection = listDirection;
+    }
+
+    @Path
+    @SerializedName("task_id")
     private String taskId;
-
-    public Builder pageSize(Integer pageSize) {
-      this.pageSize = pageSize;
-      return this;
+    public String getTaskId() {
+        return this.taskId;
     }
 
-    public Builder pageToken(String pageToken) {
-      this.pageToken = pageToken;
-      return this;
+    public void setTaskId(String taskId) {
+        this.taskId = taskId;
     }
 
-    public Builder listDirection(Integer listDirection) {
-      this.listDirection = listDirection;
-      return this;
-    }
 
-    public Builder listDirection(
-        com.lark.oapi.service.task.v1.enums.ListDirectionEnum listDirection) {
-      this.listDirection = listDirection.getValue();
-      return this;
-    }
+// builder 开始
+  public ListTaskCommentReq(){}
 
-    public Builder taskId(String taskId) {
-      this.taskId = taskId;
-      return this;
-    }
-
-    public ListTaskCommentReq build() {
-      return new ListTaskCommentReq(this);
-    }
+  public ListTaskCommentReq(Builder builder){
+       this.pageSize = builder.pageSize;
+       this.pageToken = builder.pageToken;
+       this.listDirection = builder.listDirection;
+       this.taskId = builder.taskId;
   }
+
+    public static class Builder {
+        private Integer pageSize;
+        private String pageToken;
+        private Integer listDirection;
+    
+           public Builder pageSize(Integer pageSize) {
+                this.pageSize = pageSize;
+                return this;
+           }
+    
+           public Builder pageToken(String pageToken) {
+                this.pageToken = pageToken;
+                return this;
+           }
+    
+           public Builder listDirection(Integer listDirection) {
+                this.listDirection = listDirection;
+                return this;
+           }
+          public Builder listDirection(com.lark.oapi.service.task.v1.enums.ListDirectionEnum listDirection) {
+               this.listDirection = listDirection.getValue();
+               return this;
+          }
+    
+        private String taskId;
+          public Builder taskId(String taskId) {
+               this.taskId = taskId;
+               return this;
+          }
+    
+    public ListTaskCommentReq build(){
+        return new ListTaskCommentReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

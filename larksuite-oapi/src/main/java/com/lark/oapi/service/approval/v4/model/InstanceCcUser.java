@@ -12,80 +12,86 @@
  */
 
 package com.lark.oapi.service.approval.v4.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.approval.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class InstanceCcUser {
-
-  @SerializedName("user_id")
-  private String userId;
-  @SerializedName("cc_id")
-  private String ccId;
-  @SerializedName("open_id")
-  private String openId;
-
-  // builder 开始
-  public InstanceCcUser() {
-  }
-
-  public InstanceCcUser(Builder builder) {
-    this.userId = builder.userId;
-    this.ccId = builder.ccId;
-    this.openId = builder.openId;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getUserId() {
-    return this.userId;
-  }
-
-  public void setUserId(String userId) {
-    this.userId = userId;
-  }
-
-  public String getCcId() {
-    return this.ccId;
-  }
-
-  public void setCcId(String ccId) {
-    this.ccId = ccId;
-  }
-
-  public String getOpenId() {
-    return this.openId;
-  }
-
-  public void setOpenId(String openId) {
-    this.openId = openId;
-  }
-
-  public static class Builder {
-
+    @SerializedName("user_id")
     private String userId;
+    @SerializedName("cc_id")
     private String ccId;
+    @SerializedName("open_id")
     private String openId;
-
-    public Builder userId(String userId) {
-      this.userId = userId;
-      return this;
+    public String getUserId() {
+        return this.userId;
     }
 
-    public Builder ccId(String ccId) {
-      this.ccId = ccId;
-      return this;
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
-    public Builder openId(String openId) {
-      this.openId = openId;
-      return this;
+    public String getCcId() {
+        return this.ccId;
+    }
+
+    public void setCcId(String ccId) {
+        this.ccId = ccId;
+    }
+
+    public String getOpenId() {
+        return this.openId;
+    }
+
+    public void setOpenId(String openId) {
+        this.openId = openId;
     }
 
 
-    public InstanceCcUser build() {
-      return new InstanceCcUser(this);
-    }
+// builder 开始
+  public InstanceCcUser(){}
+
+  public InstanceCcUser(Builder builder){
+      this.userId = builder.userId;
+      this.ccId = builder.ccId;
+      this.openId = builder.openId;
   }
+
+    public static class Builder {
+        private String userId;
+        private String ccId;
+        private String openId;
+        public Builder userId(String userId) {
+             this.userId = userId;
+             return this;
+        }
+    
+        public Builder ccId(String ccId) {
+             this.ccId = ccId;
+             return this;
+        }
+    
+        public Builder openId(String openId) {
+             this.openId = openId;
+             return this;
+        }
+    
+    
+    public InstanceCcUser build(){
+        return new InstanceCcUser(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

@@ -12,50 +12,57 @@
  */
 
 package com.lark.oapi.service.calendar.v4.model;
-
+import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class P2CalendarAclDeletedV4Data {
+    @SerializedName("acl_id")
+    private String aclId;
+    @SerializedName("role")
+    private String role;
+    @SerializedName("scope")
+    private AclScopeEvent scope;
+    @SerializedName("user_id_list")
+    private UserId[] userIdList;
+    public String getAclId() {
+        return this.aclId;
+    }
 
-  @SerializedName("acl_id")
-  private String aclId;
-  @SerializedName("role")
-  private String role;
-  @SerializedName("scope")
-  private AclScopeEvent scope;
-  @SerializedName("user_id_list")
-  private UserId[] userIdList;
+    public void setAclId(String aclId) {
+        this.aclId = aclId;
+    }
 
-  public String getAclId() {
-    return this.aclId;
-  }
+    public String getRole() {
+        return this.role;
+    }
 
-  public void setAclId(String aclId) {
-    this.aclId = aclId;
-  }
+    public void setRole(String role) {
+        this.role = role;
+    }
 
-  public String getRole() {
-    return this.role;
-  }
+    public AclScopeEvent getScope() {
+        return this.scope;
+    }
 
-  public void setRole(String role) {
-    this.role = role;
-  }
+    public void setScope(AclScopeEvent scope) {
+        this.scope = scope;
+    }
 
-  public AclScopeEvent getScope() {
-    return this.scope;
-  }
+    public UserId[] getUserIdList() {
+        return this.userIdList;
+    }
 
-  public void setScope(AclScopeEvent scope) {
-    this.scope = scope;
-  }
-
-  public UserId[] getUserIdList() {
-    return this.userIdList;
-  }
-
-  public void setUserIdList(UserId[] userIdList) {
-    this.userIdList = userIdList;
-  }
+    public void setUserIdList(UserId[] userIdList) {
+        this.userIdList = userIdList;
+    }
 
 }

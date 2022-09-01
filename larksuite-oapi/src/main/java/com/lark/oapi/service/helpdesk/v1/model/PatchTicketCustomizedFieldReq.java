@@ -12,69 +12,72 @@
  */
 
 package com.lark.oapi.service.helpdesk.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.helpdesk.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class PatchTicketCustomizedFieldReq {
-
-  @Path
-  @SerializedName("ticket_customized_field_id")
-  private String ticketCustomizedFieldId;
-  @Body
-  private TicketCustomizedField body;
-
-  // builder 开始
-  public PatchTicketCustomizedFieldReq() {
-  }
-
-  public PatchTicketCustomizedFieldReq(Builder builder) {
-    this.ticketCustomizedFieldId = builder.ticketCustomizedFieldId;
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getTicketCustomizedFieldId() {
-    return this.ticketCustomizedFieldId;
-  }
-
-  public void setTicketCustomizedFieldId(String ticketCustomizedFieldId) {
-    this.ticketCustomizedFieldId = ticketCustomizedFieldId;
-  }
-
-  public TicketCustomizedField getTicketCustomizedField() {
-    return this.body;
-  }
-
-  public void setTicketCustomizedField(TicketCustomizedField body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
+    @Path
+    @SerializedName("ticket_customized_field_id")
     private String ticketCustomizedFieldId;
+    public String getTicketCustomizedFieldId() {
+        return this.ticketCustomizedFieldId;
+    }
+
+    public void setTicketCustomizedFieldId(String ticketCustomizedFieldId) {
+        this.ticketCustomizedFieldId = ticketCustomizedFieldId;
+    }
+
+    @Body
     private TicketCustomizedField body;
 
-    public Builder ticketCustomizedFieldId(String ticketCustomizedFieldId) {
-      this.ticketCustomizedFieldId = ticketCustomizedFieldId;
-      return this;
-    }
-
     public TicketCustomizedField getTicketCustomizedField() {
-      return this.body;
+        return this.body;
     }
 
-    public Builder ticketCustomizedField(TicketCustomizedField body) {
-      this.body = body;
-      return this;
+    public void setTicketCustomizedField(TicketCustomizedField body) {
+        this.body = body;
     }
 
-    public PatchTicketCustomizedFieldReq build() {
-      return new PatchTicketCustomizedFieldReq(this);
-    }
+// builder 开始
+  public PatchTicketCustomizedFieldReq(){}
+
+  public PatchTicketCustomizedFieldReq(Builder builder){
+       this.ticketCustomizedFieldId = builder.ticketCustomizedFieldId;
+        this.body = builder.body;
   }
+
+    public static class Builder {
+    
+        private String ticketCustomizedFieldId;
+          public Builder ticketCustomizedFieldId(String ticketCustomizedFieldId) {
+               this.ticketCustomizedFieldId = ticketCustomizedFieldId;
+               return this;
+          }
+    
+        private TicketCustomizedField body;
+    
+        public TicketCustomizedField getTicketCustomizedField() {
+            return this.body;
+        }
+        public Builder ticketCustomizedField(TicketCustomizedField body) {
+             this.body = body;
+             return this;
+        }
+    public PatchTicketCustomizedFieldReq build(){
+        return new PatchTicketCustomizedFieldReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

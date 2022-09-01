@@ -12,46 +12,52 @@
  */
 
 package com.lark.oapi.service.im.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.im.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class DeleteTabsChatTabReqBody {
-
-  @SerializedName("tab_ids")
-  private String[] tabIds;
-
-  // builder 开始
-  public DeleteTabsChatTabReqBody() {
-  }
-
-  public DeleteTabsChatTabReqBody(Builder builder) {
-    this.tabIds = builder.tabIds;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String[] getTabIds() {
-    return this.tabIds;
-  }
-
-  public void setTabIds(String[] tabIds) {
-    this.tabIds = tabIds;
-  }
-
-  public static class Builder {
-
+    @SerializedName("tab_ids")
     private String[] tabIds;
+    public String[] getTabIds() {
+        return this.tabIds;
+    }
 
-    public Builder tabIds(String[] tabIds) {
-      this.tabIds = tabIds;
-      return this;
+    public void setTabIds(String[] tabIds) {
+        this.tabIds = tabIds;
     }
 
 
-    public DeleteTabsChatTabReqBody build() {
-      return new DeleteTabsChatTabReqBody(this);
-    }
+// builder 开始
+  public DeleteTabsChatTabReqBody(){}
+
+  public DeleteTabsChatTabReqBody(Builder builder){
+      this.tabIds = builder.tabIds;
   }
+
+    public static class Builder {
+        private String[] tabIds;
+        public Builder tabIds(String[] tabIds) {
+             this.tabIds = tabIds;
+             return this;
+        }
+    
+    
+    public DeleteTabsChatTabReqBody build(){
+        return new DeleteTabsChatTabReqBody(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

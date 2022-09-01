@@ -12,341 +12,340 @@
  */
 
 package com.lark.oapi.service.application.v6.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.application.v6.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class ApplicationV2 {
-
-  @SerializedName("app_id")
-  private String appId;
-  @SerializedName("creator_id")
-  private String creatorId;
-  @SerializedName("status")
-  private Integer status;
-  @SerializedName("scene_type")
-  private Integer sceneType;
-  @SerializedName("payment_type")
-  private Integer paymentType;
-  @SerializedName("redirect_urls")
-  private String[] redirectUrls;
-  @SerializedName("online_version_id")
-  private String onlineVersionId;
-  @SerializedName("unaudit_version_id")
-  private String unauditVersionId;
-  @SerializedName("app_name")
-  private String appName;
-  @SerializedName("avatar_url")
-  private String avatarUrl;
-  @SerializedName("description")
-  private String description;
-  @SerializedName("scopes")
-  private AppScope[] scopes;
-  @SerializedName("back_home_url")
-  private String backHomeUrl;
-  @SerializedName("i18n")
-  private AppI18nInfo[] i18n;
-  @SerializedName("primary_language")
-  private String primaryLanguage;
-  @SerializedName("common_categories")
-  private String[] commonCategories;
-  @SerializedName("owner")
-  private ApplicationOwner owner;
-
-  // builder 开始
-  public ApplicationV2() {
-  }
-
-  public ApplicationV2(Builder builder) {
-    this.appId = builder.appId;
-    this.creatorId = builder.creatorId;
-    this.status = builder.status;
-    this.sceneType = builder.sceneType;
-    this.paymentType = builder.paymentType;
-    this.redirectUrls = builder.redirectUrls;
-    this.onlineVersionId = builder.onlineVersionId;
-    this.unauditVersionId = builder.unauditVersionId;
-    this.appName = builder.appName;
-    this.avatarUrl = builder.avatarUrl;
-    this.description = builder.description;
-    this.scopes = builder.scopes;
-    this.backHomeUrl = builder.backHomeUrl;
-    this.i18n = builder.i18n;
-    this.primaryLanguage = builder.primaryLanguage;
-    this.commonCategories = builder.commonCategories;
-    this.owner = builder.owner;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getAppId() {
-    return this.appId;
-  }
-
-  public void setAppId(String appId) {
-    this.appId = appId;
-  }
-
-  public String getCreatorId() {
-    return this.creatorId;
-  }
-
-  public void setCreatorId(String creatorId) {
-    this.creatorId = creatorId;
-  }
-
-  public Integer getStatus() {
-    return this.status;
-  }
-
-  public void setStatus(Integer status) {
-    this.status = status;
-  }
-
-  public Integer getSceneType() {
-    return this.sceneType;
-  }
-
-  public void setSceneType(Integer sceneType) {
-    this.sceneType = sceneType;
-  }
-
-  public Integer getPaymentType() {
-    return this.paymentType;
-  }
-
-  public void setPaymentType(Integer paymentType) {
-    this.paymentType = paymentType;
-  }
-
-  public String[] getRedirectUrls() {
-    return this.redirectUrls;
-  }
-
-  public void setRedirectUrls(String[] redirectUrls) {
-    this.redirectUrls = redirectUrls;
-  }
-
-  public String getOnlineVersionId() {
-    return this.onlineVersionId;
-  }
-
-  public void setOnlineVersionId(String onlineVersionId) {
-    this.onlineVersionId = onlineVersionId;
-  }
-
-  public String getUnauditVersionId() {
-    return this.unauditVersionId;
-  }
-
-  public void setUnauditVersionId(String unauditVersionId) {
-    this.unauditVersionId = unauditVersionId;
-  }
-
-  public String getAppName() {
-    return this.appName;
-  }
-
-  public void setAppName(String appName) {
-    this.appName = appName;
-  }
-
-  public String getAvatarUrl() {
-    return this.avatarUrl;
-  }
-
-  public void setAvatarUrl(String avatarUrl) {
-    this.avatarUrl = avatarUrl;
-  }
-
-  public String getDescription() {
-    return this.description;
-  }
-
-  public void setDescription(String description) {
-    this.description = description;
-  }
-
-  public AppScope[] getScopes() {
-    return this.scopes;
-  }
-
-  public void setScopes(AppScope[] scopes) {
-    this.scopes = scopes;
-  }
-
-  public String getBackHomeUrl() {
-    return this.backHomeUrl;
-  }
-
-  public void setBackHomeUrl(String backHomeUrl) {
-    this.backHomeUrl = backHomeUrl;
-  }
-
-  public AppI18nInfo[] getI18n() {
-    return this.i18n;
-  }
-
-  public void setI18n(AppI18nInfo[] i18n) {
-    this.i18n = i18n;
-  }
-
-  public String getPrimaryLanguage() {
-    return this.primaryLanguage;
-  }
-
-  public void setPrimaryLanguage(String primaryLanguage) {
-    this.primaryLanguage = primaryLanguage;
-  }
-
-  public String[] getCommonCategories() {
-    return this.commonCategories;
-  }
-
-  public void setCommonCategories(String[] commonCategories) {
-    this.commonCategories = commonCategories;
-  }
-
-  public ApplicationOwner getOwner() {
-    return this.owner;
-  }
-
-  public void setOwner(ApplicationOwner owner) {
-    this.owner = owner;
-  }
-
-  public static class Builder {
-
+    @SerializedName("app_id")
     private String appId;
+    @SerializedName("creator_id")
     private String creatorId;
+    @SerializedName("status")
     private Integer status;
+    @SerializedName("scene_type")
     private Integer sceneType;
+    @SerializedName("payment_type")
     private Integer paymentType;
+    @SerializedName("redirect_urls")
     private String[] redirectUrls;
+    @SerializedName("online_version_id")
     private String onlineVersionId;
+    @SerializedName("unaudit_version_id")
     private String unauditVersionId;
+    @SerializedName("app_name")
     private String appName;
+    @SerializedName("avatar_url")
     private String avatarUrl;
+    @SerializedName("description")
     private String description;
+    @SerializedName("scopes")
     private AppScope[] scopes;
+    @SerializedName("back_home_url")
     private String backHomeUrl;
+    @SerializedName("i18n")
     private AppI18nInfo[] i18n;
+    @SerializedName("primary_language")
     private String primaryLanguage;
+    @SerializedName("common_categories")
     private String[] commonCategories;
+    @SerializedName("owner")
     private ApplicationOwner owner;
-
-    public Builder appId(String appId) {
-      this.appId = appId;
-      return this;
+    public String getAppId() {
+        return this.appId;
     }
 
-    public Builder creatorId(String creatorId) {
-      this.creatorId = creatorId;
-      return this;
+    public void setAppId(String appId) {
+        this.appId = appId;
     }
 
-    public Builder status(Integer status) {
-      this.status = status;
-      return this;
+    public String getCreatorId() {
+        return this.creatorId;
     }
 
-    public Builder status(com.lark.oapi.service.application.v6.enums.AppStatusEnum status) {
-      this.status = status.getValue();
-      return this;
+    public void setCreatorId(String creatorId) {
+        this.creatorId = creatorId;
     }
 
-    public Builder sceneType(Integer sceneType) {
-      this.sceneType = sceneType;
-      return this;
+    public Integer getStatus() {
+        return this.status;
     }
 
-    public Builder sceneType(
-        com.lark.oapi.service.application.v6.enums.AppSceneTypeEnum sceneType) {
-      this.sceneType = sceneType.getValue();
-      return this;
+    public void setStatus(Integer status) {
+        this.status = status;
     }
 
-    public Builder paymentType(Integer paymentType) {
-      this.paymentType = paymentType;
-      return this;
+    public Integer getSceneType() {
+        return this.sceneType;
     }
 
-    public Builder paymentType(
-        com.lark.oapi.service.application.v6.enums.PaymentTypeEnum paymentType) {
-      this.paymentType = paymentType.getValue();
-      return this;
+    public void setSceneType(Integer sceneType) {
+        this.sceneType = sceneType;
     }
 
-    public Builder redirectUrls(String[] redirectUrls) {
-      this.redirectUrls = redirectUrls;
-      return this;
+    public Integer getPaymentType() {
+        return this.paymentType;
     }
 
-    public Builder onlineVersionId(String onlineVersionId) {
-      this.onlineVersionId = onlineVersionId;
-      return this;
+    public void setPaymentType(Integer paymentType) {
+        this.paymentType = paymentType;
     }
 
-    public Builder unauditVersionId(String unauditVersionId) {
-      this.unauditVersionId = unauditVersionId;
-      return this;
+    public String[] getRedirectUrls() {
+        return this.redirectUrls;
     }
 
-    public Builder appName(String appName) {
-      this.appName = appName;
-      return this;
+    public void setRedirectUrls(String[] redirectUrls) {
+        this.redirectUrls = redirectUrls;
     }
 
-    public Builder avatarUrl(String avatarUrl) {
-      this.avatarUrl = avatarUrl;
-      return this;
+    public String getOnlineVersionId() {
+        return this.onlineVersionId;
     }
 
-    public Builder description(String description) {
-      this.description = description;
-      return this;
+    public void setOnlineVersionId(String onlineVersionId) {
+        this.onlineVersionId = onlineVersionId;
     }
 
-    public Builder scopes(AppScope[] scopes) {
-      this.scopes = scopes;
-      return this;
+    public String getUnauditVersionId() {
+        return this.unauditVersionId;
     }
 
-    public Builder backHomeUrl(String backHomeUrl) {
-      this.backHomeUrl = backHomeUrl;
-      return this;
+    public void setUnauditVersionId(String unauditVersionId) {
+        this.unauditVersionId = unauditVersionId;
     }
 
-    public Builder i18n(AppI18nInfo[] i18n) {
-      this.i18n = i18n;
-      return this;
+    public String getAppName() {
+        return this.appName;
     }
 
-    public Builder primaryLanguage(String primaryLanguage) {
-      this.primaryLanguage = primaryLanguage;
-      return this;
+    public void setAppName(String appName) {
+        this.appName = appName;
     }
 
-    public Builder primaryLanguage(
-        com.lark.oapi.service.application.v6.enums.I18nKeyEnum primaryLanguage) {
-      this.primaryLanguage = primaryLanguage.getValue();
-      return this;
+    public String getAvatarUrl() {
+        return this.avatarUrl;
     }
 
-    public Builder commonCategories(String[] commonCategories) {
-      this.commonCategories = commonCategories;
-      return this;
+    public void setAvatarUrl(String avatarUrl) {
+        this.avatarUrl = avatarUrl;
     }
 
-    public Builder owner(ApplicationOwner owner) {
-      this.owner = owner;
-      return this;
+    public String getDescription() {
+        return this.description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public AppScope[] getScopes() {
+        return this.scopes;
+    }
+
+    public void setScopes(AppScope[] scopes) {
+        this.scopes = scopes;
+    }
+
+    public String getBackHomeUrl() {
+        return this.backHomeUrl;
+    }
+
+    public void setBackHomeUrl(String backHomeUrl) {
+        this.backHomeUrl = backHomeUrl;
+    }
+
+    public AppI18nInfo[] getI18n() {
+        return this.i18n;
+    }
+
+    public void setI18n(AppI18nInfo[] i18n) {
+        this.i18n = i18n;
+    }
+
+    public String getPrimaryLanguage() {
+        return this.primaryLanguage;
+    }
+
+    public void setPrimaryLanguage(String primaryLanguage) {
+        this.primaryLanguage = primaryLanguage;
+    }
+
+    public String[] getCommonCategories() {
+        return this.commonCategories;
+    }
+
+    public void setCommonCategories(String[] commonCategories) {
+        this.commonCategories = commonCategories;
+    }
+
+    public ApplicationOwner getOwner() {
+        return this.owner;
+    }
+
+    public void setOwner(ApplicationOwner owner) {
+        this.owner = owner;
     }
 
 
-    public ApplicationV2 build() {
-      return new ApplicationV2(this);
-    }
+// builder 开始
+  public ApplicationV2(){}
+
+  public ApplicationV2(Builder builder){
+      this.appId = builder.appId;
+      this.creatorId = builder.creatorId;
+      this.status = builder.status;
+      this.sceneType = builder.sceneType;
+      this.paymentType = builder.paymentType;
+      this.redirectUrls = builder.redirectUrls;
+      this.onlineVersionId = builder.onlineVersionId;
+      this.unauditVersionId = builder.unauditVersionId;
+      this.appName = builder.appName;
+      this.avatarUrl = builder.avatarUrl;
+      this.description = builder.description;
+      this.scopes = builder.scopes;
+      this.backHomeUrl = builder.backHomeUrl;
+      this.i18n = builder.i18n;
+      this.primaryLanguage = builder.primaryLanguage;
+      this.commonCategories = builder.commonCategories;
+      this.owner = builder.owner;
   }
+
+    public static class Builder {
+        private String appId;
+        private String creatorId;
+        private Integer status;
+        private Integer sceneType;
+        private Integer paymentType;
+        private String[] redirectUrls;
+        private String onlineVersionId;
+        private String unauditVersionId;
+        private String appName;
+        private String avatarUrl;
+        private String description;
+        private AppScope[] scopes;
+        private String backHomeUrl;
+        private AppI18nInfo[] i18n;
+        private String primaryLanguage;
+        private String[] commonCategories;
+        private ApplicationOwner owner;
+        public Builder appId(String appId) {
+             this.appId = appId;
+             return this;
+        }
+    
+        public Builder creatorId(String creatorId) {
+             this.creatorId = creatorId;
+             return this;
+        }
+    
+        public Builder status(Integer status) {
+             this.status = status;
+             return this;
+        }
+        public Builder status(com.lark.oapi.service.application.v6.enums.AppStatusEnum status) {
+             this.status = status.getValue();
+             return this;
+        }
+    
+        public Builder sceneType(Integer sceneType) {
+             this.sceneType = sceneType;
+             return this;
+        }
+        public Builder sceneType(com.lark.oapi.service.application.v6.enums.AppSceneTypeEnum sceneType) {
+             this.sceneType = sceneType.getValue();
+             return this;
+        }
+    
+        public Builder paymentType(Integer paymentType) {
+             this.paymentType = paymentType;
+             return this;
+        }
+        public Builder paymentType(com.lark.oapi.service.application.v6.enums.PaymentTypeEnum paymentType) {
+             this.paymentType = paymentType.getValue();
+             return this;
+        }
+    
+        public Builder redirectUrls(String[] redirectUrls) {
+             this.redirectUrls = redirectUrls;
+             return this;
+        }
+    
+        public Builder onlineVersionId(String onlineVersionId) {
+             this.onlineVersionId = onlineVersionId;
+             return this;
+        }
+    
+        public Builder unauditVersionId(String unauditVersionId) {
+             this.unauditVersionId = unauditVersionId;
+             return this;
+        }
+    
+        public Builder appName(String appName) {
+             this.appName = appName;
+             return this;
+        }
+    
+        public Builder avatarUrl(String avatarUrl) {
+             this.avatarUrl = avatarUrl;
+             return this;
+        }
+    
+        public Builder description(String description) {
+             this.description = description;
+             return this;
+        }
+    
+        public Builder scopes(AppScope[] scopes) {
+             this.scopes = scopes;
+             return this;
+        }
+    
+        public Builder backHomeUrl(String backHomeUrl) {
+             this.backHomeUrl = backHomeUrl;
+             return this;
+        }
+    
+        public Builder i18n(AppI18nInfo[] i18n) {
+             this.i18n = i18n;
+             return this;
+        }
+    
+        public Builder primaryLanguage(String primaryLanguage) {
+             this.primaryLanguage = primaryLanguage;
+             return this;
+        }
+        public Builder primaryLanguage(com.lark.oapi.service.application.v6.enums.I18nKeyEnum primaryLanguage) {
+             this.primaryLanguage = primaryLanguage.getValue();
+             return this;
+        }
+    
+        public Builder commonCategories(String[] commonCategories) {
+             this.commonCategories = commonCategories;
+             return this;
+        }
+    
+        public Builder owner(ApplicationOwner owner) {
+             this.owner = owner;
+             return this;
+        }
+    
+    
+    public ApplicationV2 build(){
+        return new ApplicationV2(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

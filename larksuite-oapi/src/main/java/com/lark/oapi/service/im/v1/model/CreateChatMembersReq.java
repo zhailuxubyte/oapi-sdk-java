@@ -12,116 +12,116 @@
  */
 
 package com.lark.oapi.service.im.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.im.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class CreateChatMembersReq {
-
-  @Query
-  @SerializedName("member_id_type")
-  private String memberIdType;
-  @Query
-  @SerializedName("succeed_type")
-  private Integer succeedType;
-  @Path
-  @SerializedName("chat_id")
-  private String chatId;
-  @Body
-  private CreateChatMembersReqBody body;
-
-  // builder 开始
-  public CreateChatMembersReq() {
-  }
-
-  public CreateChatMembersReq(Builder builder) {
-    this.memberIdType = builder.memberIdType;
-    this.succeedType = builder.succeedType;
-    this.chatId = builder.chatId;
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getMemberIdType() {
-    return this.memberIdType;
-  }
-
-  public void setMemberIdType(String memberIdType) {
-    this.memberIdType = memberIdType;
-  }
-
-  public Integer getSucceedType() {
-    return this.succeedType;
-  }
-
-  public void setSucceedType(Integer succeedType) {
-    this.succeedType = succeedType;
-  }
-
-  public String getChatId() {
-    return this.chatId;
-  }
-
-  public void setChatId(String chatId) {
-    this.chatId = chatId;
-  }
-
-  public CreateChatMembersReqBody getCreateChatMembersReqBody() {
-    return this.body;
-  }
-
-  public void setCreateChatMembersReqBody(CreateChatMembersReqBody body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
+    @Query
+    @SerializedName("member_id_type")
     private String memberIdType;
+    @Query
+    @SerializedName("succeed_type")
     private Integer succeedType;
+    public String getMemberIdType() {
+        return this.memberIdType;
+    }
+
+    public void setMemberIdType(String memberIdType) {
+        this.memberIdType = memberIdType;
+    }
+
+    public Integer getSucceedType() {
+        return this.succeedType;
+    }
+
+    public void setSucceedType(Integer succeedType) {
+        this.succeedType = succeedType;
+    }
+
+    @Path
+    @SerializedName("chat_id")
     private String chatId;
+    public String getChatId() {
+        return this.chatId;
+    }
+
+    public void setChatId(String chatId) {
+        this.chatId = chatId;
+    }
+
+    @Body
     private CreateChatMembersReqBody body;
 
-    public Builder memberIdType(String memberIdType) {
-      this.memberIdType = memberIdType;
-      return this;
-    }
-
-    public Builder memberIdType(com.lark.oapi.service.im.v1.enums.MemberIdTypeEnum memberIdType) {
-      this.memberIdType = memberIdType.getValue();
-      return this;
-    }
-
-    public Builder succeedType(Integer succeedType) {
-      this.succeedType = succeedType;
-      return this;
-    }
-
-    public Builder succeedType(com.lark.oapi.service.im.v1.enums.SucceedTypeEnum succeedType) {
-      this.succeedType = succeedType.getValue();
-      return this;
-    }
-
-    public Builder chatId(String chatId) {
-      this.chatId = chatId;
-      return this;
-    }
-
     public CreateChatMembersReqBody getCreateChatMembersReqBody() {
-      return this.body;
+        return this.body;
     }
 
-    public Builder createChatMembersReqBody(CreateChatMembersReqBody body) {
-      this.body = body;
-      return this;
+    public void setCreateChatMembersReqBody(CreateChatMembersReqBody body) {
+        this.body = body;
     }
 
-    public CreateChatMembersReq build() {
-      return new CreateChatMembersReq(this);
-    }
+// builder 开始
+  public CreateChatMembersReq(){}
+
+  public CreateChatMembersReq(Builder builder){
+       this.memberIdType = builder.memberIdType;
+       this.succeedType = builder.succeedType;
+       this.chatId = builder.chatId;
+        this.body = builder.body;
   }
+
+    public static class Builder {
+        private String memberIdType;
+        private Integer succeedType;
+    
+           public Builder memberIdType(String memberIdType) {
+                this.memberIdType = memberIdType;
+                return this;
+           }
+          public Builder memberIdType(com.lark.oapi.service.im.v1.enums.MemberIdTypeEnum memberIdType) {
+               this.memberIdType = memberIdType.getValue();
+               return this;
+          }
+    
+           public Builder succeedType(Integer succeedType) {
+                this.succeedType = succeedType;
+                return this;
+           }
+          public Builder succeedType(com.lark.oapi.service.im.v1.enums.SucceedTypeEnum succeedType) {
+               this.succeedType = succeedType.getValue();
+               return this;
+          }
+    
+        private String chatId;
+          public Builder chatId(String chatId) {
+               this.chatId = chatId;
+               return this;
+          }
+    
+        private CreateChatMembersReqBody body;
+    
+        public CreateChatMembersReqBody getCreateChatMembersReqBody() {
+            return this.body;
+        }
+        public Builder createChatMembersReqBody(CreateChatMembersReqBody body) {
+             this.body = body;
+             return this;
+        }
+    public CreateChatMembersReq build(){
+        return new CreateChatMembersReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

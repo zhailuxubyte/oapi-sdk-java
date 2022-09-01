@@ -12,50 +12,57 @@
  */
 
 package com.lark.oapi.service.mail.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class CreateMailgroupPermissionMember {
+    @SerializedName("permission_member_id")
+    private String permissionMemberId;
+    @SerializedName("user_id")
+    private String userId;
+    @SerializedName("department_id")
+    private String departmentId;
+    @SerializedName("type")
+    private String type;
+    public String getPermissionMemberId() {
+        return this.permissionMemberId;
+    }
 
-  @SerializedName("permission_member_id")
-  private String permissionMemberId;
-  @SerializedName("user_id")
-  private String userId;
-  @SerializedName("department_id")
-  private String departmentId;
-  @SerializedName("type")
-  private String type;
+    public void setPermissionMemberId(String permissionMemberId) {
+        this.permissionMemberId = permissionMemberId;
+    }
 
-  public String getPermissionMemberId() {
-    return this.permissionMemberId;
-  }
+    public String getUserId() {
+        return this.userId;
+    }
 
-  public void setPermissionMemberId(String permissionMemberId) {
-    this.permissionMemberId = permissionMemberId;
-  }
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
 
-  public String getUserId() {
-    return this.userId;
-  }
+    public String getDepartmentId() {
+        return this.departmentId;
+    }
 
-  public void setUserId(String userId) {
-    this.userId = userId;
-  }
+    public void setDepartmentId(String departmentId) {
+        this.departmentId = departmentId;
+    }
 
-  public String getDepartmentId() {
-    return this.departmentId;
-  }
+    public String getType() {
+        return this.type;
+    }
 
-  public void setDepartmentId(String departmentId) {
-    this.departmentId = departmentId;
-  }
-
-  public String getType() {
-    return this.type;
-  }
-
-  public void setType(String type) {
-    this.type = type;
-  }
+    public void setType(String type) {
+        this.type = type;
+    }
 
 }

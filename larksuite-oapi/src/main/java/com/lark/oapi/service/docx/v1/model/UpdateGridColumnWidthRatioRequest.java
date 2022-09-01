@@ -12,46 +12,52 @@
  */
 
 package com.lark.oapi.service.docx.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.docx.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class UpdateGridColumnWidthRatioRequest {
-
-  @SerializedName("width_ratios")
-  private Integer[] widthRatios;
-
-  // builder 开始
-  public UpdateGridColumnWidthRatioRequest() {
-  }
-
-  public UpdateGridColumnWidthRatioRequest(Builder builder) {
-    this.widthRatios = builder.widthRatios;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Integer[] getWidthRatios() {
-    return this.widthRatios;
-  }
-
-  public void setWidthRatios(Integer[] widthRatios) {
-    this.widthRatios = widthRatios;
-  }
-
-  public static class Builder {
-
+    @SerializedName("width_ratios")
     private Integer[] widthRatios;
+    public Integer[] getWidthRatios() {
+        return this.widthRatios;
+    }
 
-    public Builder widthRatios(Integer[] widthRatios) {
-      this.widthRatios = widthRatios;
-      return this;
+    public void setWidthRatios(Integer[] widthRatios) {
+        this.widthRatios = widthRatios;
     }
 
 
-    public UpdateGridColumnWidthRatioRequest build() {
-      return new UpdateGridColumnWidthRatioRequest(this);
-    }
+// builder 开始
+  public UpdateGridColumnWidthRatioRequest(){}
+
+  public UpdateGridColumnWidthRatioRequest(Builder builder){
+      this.widthRatios = builder.widthRatios;
   }
+
+    public static class Builder {
+        private Integer[] widthRatios;
+        public Builder widthRatios(Integer[] widthRatios) {
+             this.widthRatios = widthRatios;
+             return this;
+        }
+    
+    
+    public UpdateGridColumnWidthRatioRequest build(){
+        return new UpdateGridColumnWidthRatioRequest(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

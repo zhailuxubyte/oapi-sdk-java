@@ -12,80 +12,86 @@
  */
 
 package com.lark.oapi.service.baike.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.baike.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class Classification {
-
-  @SerializedName("id")
-  private String id;
-  @SerializedName("name")
-  private String name;
-  @SerializedName("father_id")
-  private String fatherId;
-
-  // builder 开始
-  public Classification() {
-  }
-
-  public Classification(Builder builder) {
-    this.id = builder.id;
-    this.name = builder.name;
-    this.fatherId = builder.fatherId;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getId() {
-    return this.id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public String getName() {
-    return this.name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public String getFatherId() {
-    return this.fatherId;
-  }
-
-  public void setFatherId(String fatherId) {
-    this.fatherId = fatherId;
-  }
-
-  public static class Builder {
-
+    @SerializedName("id")
     private String id;
+    @SerializedName("name")
     private String name;
+    @SerializedName("father_id")
     private String fatherId;
-
-    public Builder id(String id) {
-      this.id = id;
-      return this;
+    public String getId() {
+        return this.id;
     }
 
-    public Builder name(String name) {
-      this.name = name;
-      return this;
+    public void setId(String id) {
+        this.id = id;
     }
 
-    public Builder fatherId(String fatherId) {
-      this.fatherId = fatherId;
-      return this;
+    public String getName() {
+        return this.name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getFatherId() {
+        return this.fatherId;
+    }
+
+    public void setFatherId(String fatherId) {
+        this.fatherId = fatherId;
     }
 
 
-    public Classification build() {
-      return new Classification(this);
-    }
+// builder 开始
+  public Classification(){}
+
+  public Classification(Builder builder){
+      this.id = builder.id;
+      this.name = builder.name;
+      this.fatherId = builder.fatherId;
   }
+
+    public static class Builder {
+        private String id;
+        private String name;
+        private String fatherId;
+        public Builder id(String id) {
+             this.id = id;
+             return this;
+        }
+    
+        public Builder name(String name) {
+             this.name = name;
+             return this;
+        }
+    
+        public Builder fatherId(String fatherId) {
+             this.fatherId = fatherId;
+             return this;
+        }
+    
+    
+    public Classification build(){
+        return new Classification(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

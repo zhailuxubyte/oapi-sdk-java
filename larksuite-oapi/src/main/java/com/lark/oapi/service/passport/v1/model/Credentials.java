@@ -12,80 +12,86 @@
  */
 
 package com.lark.oapi.service.passport.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.passport.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class Credentials {
-
-  @SerializedName("email")
-  private String email;
-  @SerializedName("mobile")
-  private String mobile;
-  @SerializedName("user_id")
-  private String userId;
-
-  // builder 开始
-  public Credentials() {
-  }
-
-  public Credentials(Builder builder) {
-    this.email = builder.email;
-    this.mobile = builder.mobile;
-    this.userId = builder.userId;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getEmail() {
-    return this.email;
-  }
-
-  public void setEmail(String email) {
-    this.email = email;
-  }
-
-  public String getMobile() {
-    return this.mobile;
-  }
-
-  public void setMobile(String mobile) {
-    this.mobile = mobile;
-  }
-
-  public String getUserId() {
-    return this.userId;
-  }
-
-  public void setUserId(String userId) {
-    this.userId = userId;
-  }
-
-  public static class Builder {
-
+    @SerializedName("email")
     private String email;
+    @SerializedName("mobile")
     private String mobile;
+    @SerializedName("user_id")
     private String userId;
-
-    public Builder email(String email) {
-      this.email = email;
-      return this;
+    public String getEmail() {
+        return this.email;
     }
 
-    public Builder mobile(String mobile) {
-      this.mobile = mobile;
-      return this;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public Builder userId(String userId) {
-      this.userId = userId;
-      return this;
+    public String getMobile() {
+        return this.mobile;
+    }
+
+    public void setMobile(String mobile) {
+        this.mobile = mobile;
+    }
+
+    public String getUserId() {
+        return this.userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
 
-    public Credentials build() {
-      return new Credentials(this);
-    }
+// builder 开始
+  public Credentials(){}
+
+  public Credentials(Builder builder){
+      this.email = builder.email;
+      this.mobile = builder.mobile;
+      this.userId = builder.userId;
   }
+
+    public static class Builder {
+        private String email;
+        private String mobile;
+        private String userId;
+        public Builder email(String email) {
+             this.email = email;
+             return this;
+        }
+    
+        public Builder mobile(String mobile) {
+             this.mobile = mobile;
+             return this;
+        }
+    
+        public Builder userId(String userId) {
+             this.userId = userId;
+             return this;
+        }
+    
+    
+    public Credentials build(){
+        return new Credentials(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

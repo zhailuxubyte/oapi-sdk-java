@@ -12,72 +12,74 @@
  */
 
 package com.lark.oapi.service.contact.v3.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.contact.v3.enums.*;
 import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class DeleteDepartmentReq {
-
-  @Query
-  @SerializedName("department_id_type")
-  private String departmentIdType;
-  @Path
-  @SerializedName("department_id")
-  private String departmentId;
-
-  // builder 开始
-  public DeleteDepartmentReq() {
-  }
-
-  public DeleteDepartmentReq(Builder builder) {
-    this.departmentIdType = builder.departmentIdType;
-    this.departmentId = builder.departmentId;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getDepartmentIdType() {
-    return this.departmentIdType;
-  }
-
-  public void setDepartmentIdType(String departmentIdType) {
-    this.departmentIdType = departmentIdType;
-  }
-
-  public String getDepartmentId() {
-    return this.departmentId;
-  }
-
-  public void setDepartmentId(String departmentId) {
-    this.departmentId = departmentId;
-  }
-
-  public static class Builder {
-
+    @Query
+    @SerializedName("department_id_type")
     private String departmentIdType;
+    public String getDepartmentIdType() {
+        return this.departmentIdType;
+    }
+
+    public void setDepartmentIdType(String departmentIdType) {
+        this.departmentIdType = departmentIdType;
+    }
+
+    @Path
+    @SerializedName("department_id")
     private String departmentId;
-
-    public Builder departmentIdType(String departmentIdType) {
-      this.departmentIdType = departmentIdType;
-      return this;
+    public String getDepartmentId() {
+        return this.departmentId;
     }
 
-    public Builder departmentIdType(
-        com.lark.oapi.service.contact.v3.enums.DepartmentIdTypeEnum departmentIdType) {
-      this.departmentIdType = departmentIdType.getValue();
-      return this;
+    public void setDepartmentId(String departmentId) {
+        this.departmentId = departmentId;
     }
 
-    public Builder departmentId(String departmentId) {
-      this.departmentId = departmentId;
-      return this;
-    }
 
-    public DeleteDepartmentReq build() {
-      return new DeleteDepartmentReq(this);
-    }
+// builder 开始
+  public DeleteDepartmentReq(){}
+
+  public DeleteDepartmentReq(Builder builder){
+       this.departmentIdType = builder.departmentIdType;
+       this.departmentId = builder.departmentId;
   }
+
+    public static class Builder {
+        private String departmentIdType;
+    
+           public Builder departmentIdType(String departmentIdType) {
+                this.departmentIdType = departmentIdType;
+                return this;
+           }
+          public Builder departmentIdType(com.lark.oapi.service.contact.v3.enums.DepartmentIdTypeEnum departmentIdType) {
+               this.departmentIdType = departmentIdType.getValue();
+               return this;
+          }
+    
+        private String departmentId;
+          public Builder departmentId(String departmentId) {
+               this.departmentId = departmentId;
+               return this;
+          }
+    
+    public DeleteDepartmentReq build(){
+        return new DeleteDepartmentReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

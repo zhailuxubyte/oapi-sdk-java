@@ -12,63 +12,69 @@
  */
 
 package com.lark.oapi.service.approval.v4.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.approval.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class ApprovalSetting {
-
-  @SerializedName("revert_interval")
-  private Integer revertInterval;
-  @SerializedName("revert_option")
-  private Integer revertOption;
-
-  // builder 开始
-  public ApprovalSetting() {
-  }
-
-  public ApprovalSetting(Builder builder) {
-    this.revertInterval = builder.revertInterval;
-    this.revertOption = builder.revertOption;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Integer getRevertInterval() {
-    return this.revertInterval;
-  }
-
-  public void setRevertInterval(Integer revertInterval) {
-    this.revertInterval = revertInterval;
-  }
-
-  public Integer getRevertOption() {
-    return this.revertOption;
-  }
-
-  public void setRevertOption(Integer revertOption) {
-    this.revertOption = revertOption;
-  }
-
-  public static class Builder {
-
+    @SerializedName("revert_interval")
     private Integer revertInterval;
+    @SerializedName("revert_option")
     private Integer revertOption;
-
-    public Builder revertInterval(Integer revertInterval) {
-      this.revertInterval = revertInterval;
-      return this;
+    public Integer getRevertInterval() {
+        return this.revertInterval;
     }
 
-    public Builder revertOption(Integer revertOption) {
-      this.revertOption = revertOption;
-      return this;
+    public void setRevertInterval(Integer revertInterval) {
+        this.revertInterval = revertInterval;
+    }
+
+    public Integer getRevertOption() {
+        return this.revertOption;
+    }
+
+    public void setRevertOption(Integer revertOption) {
+        this.revertOption = revertOption;
     }
 
 
-    public ApprovalSetting build() {
-      return new ApprovalSetting(this);
-    }
+// builder 开始
+  public ApprovalSetting(){}
+
+  public ApprovalSetting(Builder builder){
+      this.revertInterval = builder.revertInterval;
+      this.revertOption = builder.revertOption;
   }
+
+    public static class Builder {
+        private Integer revertInterval;
+        private Integer revertOption;
+        public Builder revertInterval(Integer revertInterval) {
+             this.revertInterval = revertInterval;
+             return this;
+        }
+    
+        public Builder revertOption(Integer revertOption) {
+             this.revertOption = revertOption;
+             return this;
+        }
+    
+    
+    public ApprovalSetting build(){
+        return new ApprovalSetting(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

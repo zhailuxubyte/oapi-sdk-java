@@ -12,63 +12,69 @@
  */
 
 package com.lark.oapi.service.im.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.im.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class BatchSendProgress {
-
-  @SerializedName("send_count")
-  private String sendCount;
-  @SerializedName("total_send_count")
-  private String totalSendCount;
-
-  // builder 开始
-  public BatchSendProgress() {
-  }
-
-  public BatchSendProgress(Builder builder) {
-    this.sendCount = builder.sendCount;
-    this.totalSendCount = builder.totalSendCount;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getSendCount() {
-    return this.sendCount;
-  }
-
-  public void setSendCount(String sendCount) {
-    this.sendCount = sendCount;
-  }
-
-  public String getTotalSendCount() {
-    return this.totalSendCount;
-  }
-
-  public void setTotalSendCount(String totalSendCount) {
-    this.totalSendCount = totalSendCount;
-  }
-
-  public static class Builder {
-
+    @SerializedName("send_count")
     private String sendCount;
+    @SerializedName("total_send_count")
     private String totalSendCount;
-
-    public Builder sendCount(String sendCount) {
-      this.sendCount = sendCount;
-      return this;
+    public String getSendCount() {
+        return this.sendCount;
     }
 
-    public Builder totalSendCount(String totalSendCount) {
-      this.totalSendCount = totalSendCount;
-      return this;
+    public void setSendCount(String sendCount) {
+        this.sendCount = sendCount;
+    }
+
+    public String getTotalSendCount() {
+        return this.totalSendCount;
+    }
+
+    public void setTotalSendCount(String totalSendCount) {
+        this.totalSendCount = totalSendCount;
     }
 
 
-    public BatchSendProgress build() {
-      return new BatchSendProgress(this);
-    }
+// builder 开始
+  public BatchSendProgress(){}
+
+  public BatchSendProgress(Builder builder){
+      this.sendCount = builder.sendCount;
+      this.totalSendCount = builder.totalSendCount;
   }
+
+    public static class Builder {
+        private String sendCount;
+        private String totalSendCount;
+        public Builder sendCount(String sendCount) {
+             this.sendCount = sendCount;
+             return this;
+        }
+    
+        public Builder totalSendCount(String totalSendCount) {
+             this.totalSendCount = totalSendCount;
+             return this;
+        }
+    
+    
+    public BatchSendProgress build(){
+        return new BatchSendProgress(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

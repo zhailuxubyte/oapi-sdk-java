@@ -12,50 +12,57 @@
  */
 
 package com.lark.oapi.service.approval.v4.model;
-
+import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class QueryInstance {
+    @SerializedName("code")
+    private Integer code;
+    @SerializedName("instance_list")
+    private InstanceSearchItem instanceList;
+    @SerializedName("page_token")
+    private String pageToken;
+    @SerializedName("has_more")
+    private Boolean hasMore;
+    public Integer getCode() {
+        return this.code;
+    }
 
-  @SerializedName("code")
-  private Integer code;
-  @SerializedName("instance_list")
-  private InstanceSearchItem instanceList;
-  @SerializedName("page_token")
-  private String pageToken;
-  @SerializedName("has_more")
-  private Boolean hasMore;
+    public void setCode(Integer code) {
+        this.code = code;
+    }
 
-  public Integer getCode() {
-    return this.code;
-  }
+    public InstanceSearchItem getInstanceList() {
+        return this.instanceList;
+    }
 
-  public void setCode(Integer code) {
-    this.code = code;
-  }
+    public void setInstanceList(InstanceSearchItem instanceList) {
+        this.instanceList = instanceList;
+    }
 
-  public InstanceSearchItem getInstanceList() {
-    return this.instanceList;
-  }
+    public String getPageToken() {
+        return this.pageToken;
+    }
 
-  public void setInstanceList(InstanceSearchItem instanceList) {
-    this.instanceList = instanceList;
-  }
+    public void setPageToken(String pageToken) {
+        this.pageToken = pageToken;
+    }
 
-  public String getPageToken() {
-    return this.pageToken;
-  }
+    public Boolean getHasMore() {
+        return this.hasMore;
+    }
 
-  public void setPageToken(String pageToken) {
-    this.pageToken = pageToken;
-  }
-
-  public Boolean getHasMore() {
-    return this.hasMore;
-  }
-
-  public void setHasMore(Boolean hasMore) {
-    this.hasMore = hasMore;
-  }
+    public void setHasMore(Boolean hasMore) {
+        this.hasMore = hasMore;
+    }
 
 }

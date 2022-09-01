@@ -13,153 +13,156 @@
 
 package com.lark.oapi.service.gray_test_open_sg.v1;
 
-import com.lark.oapi.core.Config;
-import com.lark.oapi.core.Transport;
-import com.lark.oapi.core.request.RequestOptions;
-import com.lark.oapi.core.response.RawResponse;
 import com.lark.oapi.core.token.AccessTokenType;
-import com.lark.oapi.core.utils.Sets;
+import com.lark.oapi.core.Transport;
+import com.lark.oapi.core.response.RawResponse;
 import com.lark.oapi.core.utils.UnmarshalRespUtil;
-import com.lark.oapi.service.gray_test_open_sg.v1.model.CreateMotoReq;
-import com.lark.oapi.service.gray_test_open_sg.v1.model.CreateMotoResp;
-import com.lark.oapi.service.gray_test_open_sg.v1.model.GetMotoReq;
-import com.lark.oapi.service.gray_test_open_sg.v1.model.GetMotoResp;
-import com.lark.oapi.service.gray_test_open_sg.v1.model.ListMotoReq;
-import com.lark.oapi.service.gray_test_open_sg.v1.model.ListMotoResp;
+import com.lark.oapi.core.utils.Sets;
+
+
+
+import com.lark.oapi.core.Config;
+import com.lark.oapi.core.request.RequestOptions;
+import java.io.ByteArrayOutputStream;
+import com.lark.oapi.event.model.BaseEvent;
+import com.lark.oapi.event.model.BaseEventV2;
+import com.lark.oapi.service.gray_test_open_sg.v1.model.*;
+import java.util.Map;
+import java.util.HashMap;
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
 
 public class GrayTestOpenSgService {
+    private final Moto moto;
 
-  private final Moto moto;
-
-  public GrayTestOpenSgService(Config config) {
-    this.moto = new Moto(config);
-  }
-
-  public Moto moto() {
-    return moto;
-  }
-
-  public static class Moto {
-
-    private final Config config;
-
-    public Moto(Config config) {
-      this.config = config;
+    public GrayTestOpenSgService(Config config) {
+        this.moto = new Moto(config);
+    }
+    public Moto moto() {
+        return moto;
     }
 
-    public CreateMotoResp create(CreateMotoReq req, RequestOptions reqOptions) throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
+    public static class Moto {
+        private final Config config;
 
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          , "/open-apis/gray_test_open_sg/v1/motos"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
+        public Moto(Config config) {
+            this.config = config;
+        }
+    
+        public CreateMotoResp create(CreateMotoReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
 
-      // 反序列化
-      CreateMotoResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateMotoResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config,reqOptions, "POST"
+                       ,"/open-apis/gray_test_open_sg/v1/motos"
+                       ,Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                       ,req);
+	       
+           // 反序列化
+           CreateMotoResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateMotoResp.class);
+           resp.setRawResponse(httpResponse);
+           resp.setRequest(req);
+           
+           return resp;
+        }
 
-      return resp;
+        public CreateMotoResp create(CreateMotoReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config,reqOptions, "POST"
+                       ,"/open-apis/gray_test_open_sg/v1/motos"
+                       ,Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                       ,req);
+            
+           // 反序列化
+           CreateMotoResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateMotoResp.class);
+           resp.setRawResponse(httpResponse);
+           resp.setRequest(req);
+           
+           return resp;
+        }
+    
+        public GetMotoResp get(GetMotoReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config,reqOptions, "GET"
+                       ,"/open-apis/gray_test_open_sg/v1/motos/:moto_id"
+                       ,Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                       ,req);
+	       
+           // 反序列化
+           GetMotoResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetMotoResp.class);
+           resp.setRawResponse(httpResponse);
+           resp.setRequest(req);
+           
+           return resp;
+        }
+
+        public GetMotoResp get(GetMotoReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config,reqOptions, "GET"
+                       ,"/open-apis/gray_test_open_sg/v1/motos/:moto_id"
+                       ,Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                       ,req);
+            
+           // 反序列化
+           GetMotoResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetMotoResp.class);
+           resp.setRawResponse(httpResponse);
+           resp.setRequest(req);
+           
+           return resp;
+        }
+    
+        public ListMotoResp list(ListMotoReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config,reqOptions, "GET"
+                       ,"/open-apis/gray_test_open_sg/v1/motos"
+                       ,Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                       ,req);
+	       
+           // 反序列化
+           ListMotoResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListMotoResp.class);
+           resp.setRawResponse(httpResponse);
+           resp.setRequest(req);
+           
+           return resp;
+        }
+
+        public ListMotoResp list(ListMotoReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config,reqOptions, "GET"
+                       ,"/open-apis/gray_test_open_sg/v1/motos"
+                       ,Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
+                       ,req);
+            
+           // 反序列化
+           ListMotoResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListMotoResp.class);
+           resp.setRawResponse(httpResponse);
+           resp.setRequest(req);
+           
+           return resp;
+        }
     }
-
-    public CreateMotoResp create(CreateMotoReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          , "/open-apis/gray_test_open_sg/v1/motos"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      CreateMotoResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateMotoResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    public GetMotoResp get(GetMotoReq req, RequestOptions reqOptions) throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          , "/open-apis/gray_test_open_sg/v1/motos/:moto_id"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      GetMotoResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetMotoResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    public GetMotoResp get(GetMotoReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          , "/open-apis/gray_test_open_sg/v1/motos/:moto_id"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      GetMotoResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, GetMotoResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    public ListMotoResp list(ListMotoReq req, RequestOptions reqOptions) throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          , "/open-apis/gray_test_open_sg/v1/motos"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      ListMotoResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListMotoResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    public ListMotoResp list(ListMotoReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          , "/open-apis/gray_test_open_sg/v1/motos"
-          , Sets.newHashSet(AccessTokenType.Tenant, AccessTokenType.User)
-          , req);
-
-      // 反序列化
-      ListMotoResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListMotoResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-  }
 
 }

@@ -12,63 +12,69 @@
  */
 
 package com.lark.oapi.service.baike.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.baike.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class DisplayStatus {
-
-  @SerializedName("allow_highlight")
-  private Boolean allowHighlight;
-  @SerializedName("allow_search")
-  private Boolean allowSearch;
-
-  // builder 开始
-  public DisplayStatus() {
-  }
-
-  public DisplayStatus(Builder builder) {
-    this.allowHighlight = builder.allowHighlight;
-    this.allowSearch = builder.allowSearch;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Boolean getAllowHighlight() {
-    return this.allowHighlight;
-  }
-
-  public void setAllowHighlight(Boolean allowHighlight) {
-    this.allowHighlight = allowHighlight;
-  }
-
-  public Boolean getAllowSearch() {
-    return this.allowSearch;
-  }
-
-  public void setAllowSearch(Boolean allowSearch) {
-    this.allowSearch = allowSearch;
-  }
-
-  public static class Builder {
-
+    @SerializedName("allow_highlight")
     private Boolean allowHighlight;
+    @SerializedName("allow_search")
     private Boolean allowSearch;
-
-    public Builder allowHighlight(Boolean allowHighlight) {
-      this.allowHighlight = allowHighlight;
-      return this;
+    public Boolean getAllowHighlight() {
+        return this.allowHighlight;
     }
 
-    public Builder allowSearch(Boolean allowSearch) {
-      this.allowSearch = allowSearch;
-      return this;
+    public void setAllowHighlight(Boolean allowHighlight) {
+        this.allowHighlight = allowHighlight;
+    }
+
+    public Boolean getAllowSearch() {
+        return this.allowSearch;
+    }
+
+    public void setAllowSearch(Boolean allowSearch) {
+        this.allowSearch = allowSearch;
     }
 
 
-    public DisplayStatus build() {
-      return new DisplayStatus(this);
-    }
+// builder 开始
+  public DisplayStatus(){}
+
+  public DisplayStatus(Builder builder){
+      this.allowHighlight = builder.allowHighlight;
+      this.allowSearch = builder.allowSearch;
   }
+
+    public static class Builder {
+        private Boolean allowHighlight;
+        private Boolean allowSearch;
+        public Builder allowHighlight(Boolean allowHighlight) {
+             this.allowHighlight = allowHighlight;
+             return this;
+        }
+    
+        public Builder allowSearch(Boolean allowSearch) {
+             this.allowSearch = allowSearch;
+             return this;
+        }
+    
+    
+    public DisplayStatus build(){
+        return new DisplayStatus(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

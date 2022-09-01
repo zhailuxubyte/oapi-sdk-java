@@ -12,148 +12,154 @@
  */
 
 package com.lark.oapi.service.attendance.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.attendance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class ChildItem {
-
-  @SerializedName("code")
-  private String code;
-  @SerializedName("value")
-  private String value;
-  @SerializedName("title")
-  private String title;
-  @SerializedName("column_type")
-  private Integer columnType;
-  @SerializedName("read_only")
-  private Boolean readOnly;
-  @SerializedName("min_value")
-  private String minValue;
-  @SerializedName("max_value")
-  private String maxValue;
-
-  // builder 开始
-  public ChildItem() {
-  }
-
-  public ChildItem(Builder builder) {
-    this.code = builder.code;
-    this.value = builder.value;
-    this.title = builder.title;
-    this.columnType = builder.columnType;
-    this.readOnly = builder.readOnly;
-    this.minValue = builder.minValue;
-    this.maxValue = builder.maxValue;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getCode() {
-    return this.code;
-  }
-
-  public void setCode(String code) {
-    this.code = code;
-  }
-
-  public String getValue() {
-    return this.value;
-  }
-
-  public void setValue(String value) {
-    this.value = value;
-  }
-
-  public String getTitle() {
-    return this.title;
-  }
-
-  public void setTitle(String title) {
-    this.title = title;
-  }
-
-  public Integer getColumnType() {
-    return this.columnType;
-  }
-
-  public void setColumnType(Integer columnType) {
-    this.columnType = columnType;
-  }
-
-  public Boolean getReadOnly() {
-    return this.readOnly;
-  }
-
-  public void setReadOnly(Boolean readOnly) {
-    this.readOnly = readOnly;
-  }
-
-  public String getMinValue() {
-    return this.minValue;
-  }
-
-  public void setMinValue(String minValue) {
-    this.minValue = minValue;
-  }
-
-  public String getMaxValue() {
-    return this.maxValue;
-  }
-
-  public void setMaxValue(String maxValue) {
-    this.maxValue = maxValue;
-  }
-
-  public static class Builder {
-
+    @SerializedName("code")
     private String code;
+    @SerializedName("value")
     private String value;
+    @SerializedName("title")
     private String title;
+    @SerializedName("column_type")
     private Integer columnType;
+    @SerializedName("read_only")
     private Boolean readOnly;
+    @SerializedName("min_value")
     private String minValue;
+    @SerializedName("max_value")
     private String maxValue;
-
-    public Builder code(String code) {
-      this.code = code;
-      return this;
+    public String getCode() {
+        return this.code;
     }
 
-    public Builder value(String value) {
-      this.value = value;
-      return this;
+    public void setCode(String code) {
+        this.code = code;
     }
 
-    public Builder title(String title) {
-      this.title = title;
-      return this;
+    public String getValue() {
+        return this.value;
     }
 
-    public Builder columnType(Integer columnType) {
-      this.columnType = columnType;
-      return this;
+    public void setValue(String value) {
+        this.value = value;
     }
 
-    public Builder readOnly(Boolean readOnly) {
-      this.readOnly = readOnly;
-      return this;
+    public String getTitle() {
+        return this.title;
     }
 
-    public Builder minValue(String minValue) {
-      this.minValue = minValue;
-      return this;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-    public Builder maxValue(String maxValue) {
-      this.maxValue = maxValue;
-      return this;
+    public Integer getColumnType() {
+        return this.columnType;
+    }
+
+    public void setColumnType(Integer columnType) {
+        this.columnType = columnType;
+    }
+
+    public Boolean getReadOnly() {
+        return this.readOnly;
+    }
+
+    public void setReadOnly(Boolean readOnly) {
+        this.readOnly = readOnly;
+    }
+
+    public String getMinValue() {
+        return this.minValue;
+    }
+
+    public void setMinValue(String minValue) {
+        this.minValue = minValue;
+    }
+
+    public String getMaxValue() {
+        return this.maxValue;
+    }
+
+    public void setMaxValue(String maxValue) {
+        this.maxValue = maxValue;
     }
 
 
-    public ChildItem build() {
-      return new ChildItem(this);
-    }
+// builder 开始
+  public ChildItem(){}
+
+  public ChildItem(Builder builder){
+      this.code = builder.code;
+      this.value = builder.value;
+      this.title = builder.title;
+      this.columnType = builder.columnType;
+      this.readOnly = builder.readOnly;
+      this.minValue = builder.minValue;
+      this.maxValue = builder.maxValue;
   }
+
+    public static class Builder {
+        private String code;
+        private String value;
+        private String title;
+        private Integer columnType;
+        private Boolean readOnly;
+        private String minValue;
+        private String maxValue;
+        public Builder code(String code) {
+             this.code = code;
+             return this;
+        }
+    
+        public Builder value(String value) {
+             this.value = value;
+             return this;
+        }
+    
+        public Builder title(String title) {
+             this.title = title;
+             return this;
+        }
+    
+        public Builder columnType(Integer columnType) {
+             this.columnType = columnType;
+             return this;
+        }
+    
+        public Builder readOnly(Boolean readOnly) {
+             this.readOnly = readOnly;
+             return this;
+        }
+    
+        public Builder minValue(String minValue) {
+             this.minValue = minValue;
+             return this;
+        }
+    
+        public Builder maxValue(String maxValue) {
+             this.maxValue = maxValue;
+             return this;
+        }
+    
+    
+    public ChildItem build(){
+        return new ChildItem(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

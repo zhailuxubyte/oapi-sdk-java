@@ -12,46 +12,52 @@
  */
 
 package com.lark.oapi.service.wiki.v2.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.wiki.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class UpdateTitleSpaceNodeReqBody {
-
-  @SerializedName("title")
-  private String title;
-
-  // builder 开始
-  public UpdateTitleSpaceNodeReqBody() {
-  }
-
-  public UpdateTitleSpaceNodeReqBody(Builder builder) {
-    this.title = builder.title;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getTitle() {
-    return this.title;
-  }
-
-  public void setTitle(String title) {
-    this.title = title;
-  }
-
-  public static class Builder {
-
+    @SerializedName("title")
     private String title;
+    public String getTitle() {
+        return this.title;
+    }
 
-    public Builder title(String title) {
-      this.title = title;
-      return this;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
 
-    public UpdateTitleSpaceNodeReqBody build() {
-      return new UpdateTitleSpaceNodeReqBody(this);
-    }
+// builder 开始
+  public UpdateTitleSpaceNodeReqBody(){}
+
+  public UpdateTitleSpaceNodeReqBody(Builder builder){
+      this.title = builder.title;
   }
+
+    public static class Builder {
+        private String title;
+        public Builder title(String title) {
+             this.title = title;
+             return this;
+        }
+    
+    
+    public UpdateTitleSpaceNodeReqBody build(){
+        return new UpdateTitleSpaceNodeReqBody(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

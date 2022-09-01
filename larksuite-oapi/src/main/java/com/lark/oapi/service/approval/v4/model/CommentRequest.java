@@ -12,131 +12,137 @@
  */
 
 package com.lark.oapi.service.approval.v4.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.approval.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class CommentRequest {
-
-  @SerializedName("content")
-  private String content;
-  @SerializedName("at_info_list")
-  private CommentAtInfo[] atInfoList;
-  @SerializedName("parent_comment_id")
-  private String parentCommentId;
-  @SerializedName("comment_id")
-  private String commentId;
-  @SerializedName("disable_bot")
-  private Boolean disableBot;
-  @SerializedName("extra")
-  private String extra;
-
-  // builder 开始
-  public CommentRequest() {
-  }
-
-  public CommentRequest(Builder builder) {
-    this.content = builder.content;
-    this.atInfoList = builder.atInfoList;
-    this.parentCommentId = builder.parentCommentId;
-    this.commentId = builder.commentId;
-    this.disableBot = builder.disableBot;
-    this.extra = builder.extra;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getContent() {
-    return this.content;
-  }
-
-  public void setContent(String content) {
-    this.content = content;
-  }
-
-  public CommentAtInfo[] getAtInfoList() {
-    return this.atInfoList;
-  }
-
-  public void setAtInfoList(CommentAtInfo[] atInfoList) {
-    this.atInfoList = atInfoList;
-  }
-
-  public String getParentCommentId() {
-    return this.parentCommentId;
-  }
-
-  public void setParentCommentId(String parentCommentId) {
-    this.parentCommentId = parentCommentId;
-  }
-
-  public String getCommentId() {
-    return this.commentId;
-  }
-
-  public void setCommentId(String commentId) {
-    this.commentId = commentId;
-  }
-
-  public Boolean getDisableBot() {
-    return this.disableBot;
-  }
-
-  public void setDisableBot(Boolean disableBot) {
-    this.disableBot = disableBot;
-  }
-
-  public String getExtra() {
-    return this.extra;
-  }
-
-  public void setExtra(String extra) {
-    this.extra = extra;
-  }
-
-  public static class Builder {
-
+    @SerializedName("content")
     private String content;
+    @SerializedName("at_info_list")
     private CommentAtInfo[] atInfoList;
+    @SerializedName("parent_comment_id")
     private String parentCommentId;
+    @SerializedName("comment_id")
     private String commentId;
+    @SerializedName("disable_bot")
     private Boolean disableBot;
+    @SerializedName("extra")
     private String extra;
-
-    public Builder content(String content) {
-      this.content = content;
-      return this;
+    public String getContent() {
+        return this.content;
     }
 
-    public Builder atInfoList(CommentAtInfo[] atInfoList) {
-      this.atInfoList = atInfoList;
-      return this;
+    public void setContent(String content) {
+        this.content = content;
     }
 
-    public Builder parentCommentId(String parentCommentId) {
-      this.parentCommentId = parentCommentId;
-      return this;
+    public CommentAtInfo[] getAtInfoList() {
+        return this.atInfoList;
     }
 
-    public Builder commentId(String commentId) {
-      this.commentId = commentId;
-      return this;
+    public void setAtInfoList(CommentAtInfo[] atInfoList) {
+        this.atInfoList = atInfoList;
     }
 
-    public Builder disableBot(Boolean disableBot) {
-      this.disableBot = disableBot;
-      return this;
+    public String getParentCommentId() {
+        return this.parentCommentId;
     }
 
-    public Builder extra(String extra) {
-      this.extra = extra;
-      return this;
+    public void setParentCommentId(String parentCommentId) {
+        this.parentCommentId = parentCommentId;
+    }
+
+    public String getCommentId() {
+        return this.commentId;
+    }
+
+    public void setCommentId(String commentId) {
+        this.commentId = commentId;
+    }
+
+    public Boolean getDisableBot() {
+        return this.disableBot;
+    }
+
+    public void setDisableBot(Boolean disableBot) {
+        this.disableBot = disableBot;
+    }
+
+    public String getExtra() {
+        return this.extra;
+    }
+
+    public void setExtra(String extra) {
+        this.extra = extra;
     }
 
 
-    public CommentRequest build() {
-      return new CommentRequest(this);
-    }
+// builder 开始
+  public CommentRequest(){}
+
+  public CommentRequest(Builder builder){
+      this.content = builder.content;
+      this.atInfoList = builder.atInfoList;
+      this.parentCommentId = builder.parentCommentId;
+      this.commentId = builder.commentId;
+      this.disableBot = builder.disableBot;
+      this.extra = builder.extra;
   }
+
+    public static class Builder {
+        private String content;
+        private CommentAtInfo[] atInfoList;
+        private String parentCommentId;
+        private String commentId;
+        private Boolean disableBot;
+        private String extra;
+        public Builder content(String content) {
+             this.content = content;
+             return this;
+        }
+    
+        public Builder atInfoList(CommentAtInfo[] atInfoList) {
+             this.atInfoList = atInfoList;
+             return this;
+        }
+    
+        public Builder parentCommentId(String parentCommentId) {
+             this.parentCommentId = parentCommentId;
+             return this;
+        }
+    
+        public Builder commentId(String commentId) {
+             this.commentId = commentId;
+             return this;
+        }
+    
+        public Builder disableBot(Boolean disableBot) {
+             this.disableBot = disableBot;
+             return this;
+        }
+    
+        public Builder extra(String extra) {
+             this.extra = extra;
+             return this;
+        }
+    
+    
+    public CommentRequest build(){
+        return new CommentRequest(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

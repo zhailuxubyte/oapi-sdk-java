@@ -12,47 +12,52 @@
  */
 
 package com.lark.oapi.service.admin.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.admin.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
 import java.io.File;
-
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class FileList {
-
-  @SerializedName("files")
-  private File[] files;
-
-  // builder 开始
-  public FileList() {
-  }
-
-  public FileList(Builder builder) {
-    this.files = builder.files;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public File[] getFiles() {
-    return this.files;
-  }
-
-  public void setFiles(File[] files) {
-    this.files = files;
-  }
-
-  public static class Builder {
-
+    @SerializedName("files")
     private File[] files;
+    public File[] getFiles() {
+        return this.files;
+    }
 
-    public Builder files(File[] files) {
-      this.files = files;
-      return this;
+    public void setFiles(File[] files) {
+        this.files = files;
     }
 
 
-    public FileList build() {
-      return new FileList(this);
-    }
+// builder 开始
+  public FileList(){}
+
+  public FileList(Builder builder){
+      this.files = builder.files;
   }
+
+    public static class Builder {
+        private File[] files;
+        public Builder files(File[] files) {
+             this.files = files;
+             return this;
+        }
+    
+    
+    public FileList build(){
+        return new FileList(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

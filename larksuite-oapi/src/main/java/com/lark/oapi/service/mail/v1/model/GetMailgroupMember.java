@@ -12,60 +12,67 @@
  */
 
 package com.lark.oapi.service.mail.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class GetMailgroupMember {
+    @SerializedName("member_id")
+    private String memberId;
+    @SerializedName("email")
+    private String email;
+    @SerializedName("user_id")
+    private String userId;
+    @SerializedName("department_id")
+    private String departmentId;
+    @SerializedName("type")
+    private String type;
+    public String getMemberId() {
+        return this.memberId;
+    }
 
-  @SerializedName("member_id")
-  private String memberId;
-  @SerializedName("email")
-  private String email;
-  @SerializedName("user_id")
-  private String userId;
-  @SerializedName("department_id")
-  private String departmentId;
-  @SerializedName("type")
-  private String type;
+    public void setMemberId(String memberId) {
+        this.memberId = memberId;
+    }
 
-  public String getMemberId() {
-    return this.memberId;
-  }
+    public String getEmail() {
+        return this.email;
+    }
 
-  public void setMemberId(String memberId) {
-    this.memberId = memberId;
-  }
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
-  public String getEmail() {
-    return this.email;
-  }
+    public String getUserId() {
+        return this.userId;
+    }
 
-  public void setEmail(String email) {
-    this.email = email;
-  }
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
 
-  public String getUserId() {
-    return this.userId;
-  }
+    public String getDepartmentId() {
+        return this.departmentId;
+    }
 
-  public void setUserId(String userId) {
-    this.userId = userId;
-  }
+    public void setDepartmentId(String departmentId) {
+        this.departmentId = departmentId;
+    }
 
-  public String getDepartmentId() {
-    return this.departmentId;
-  }
+    public String getType() {
+        return this.type;
+    }
 
-  public void setDepartmentId(String departmentId) {
-    this.departmentId = departmentId;
-  }
-
-  public String getType() {
-    return this.type;
-  }
-
-  public void setType(String type) {
-    this.type = type;
-  }
+    public void setType(String type) {
+        this.type = type;
+    }
 
 }

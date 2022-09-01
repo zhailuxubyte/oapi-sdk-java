@@ -15,17 +15,16 @@ package com.lark.oapi.service.contact.v3.enums;
 
 // 生成枚举值
 public enum LanguageEnum {
-  ZH_CN("zh-CN"),
-  EN_US("en-US"),
-  JA_JP("ja-JP"),
+     ZH_CN("zh-CN"),
+     EN_US("en-US"),
+     JA_JP("ja-JP"),
   ;
-  private String value;
+   private String value;
+    LanguageEnum(String value) {
+      this.value = value;
+    }
 
-  LanguageEnum(String value) {
-    this.value = value;
-  }
-
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+      return this.value;
+    }
 }

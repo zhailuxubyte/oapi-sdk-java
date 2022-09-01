@@ -15,18 +15,17 @@ package com.lark.oapi.service.application.v6.enums;
 
 // 生成枚举值
 public enum AbilityEnum {
-  APP("app"),
-  MP("mp"),
-  H5("h5"),
-  BOT("bot"),
+     APP("app"),
+     MP("mp"),
+     H5("h5"),
+     BOT("bot"),
   ;
-  private String value;
+   private String value;
+    AbilityEnum(String value) {
+      this.value = value;
+    }
 
-  AbilityEnum(String value) {
-    this.value = value;
-  }
-
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+      return this.value;
+    }
 }

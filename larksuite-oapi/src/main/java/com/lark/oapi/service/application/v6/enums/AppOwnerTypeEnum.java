@@ -15,17 +15,16 @@ package com.lark.oapi.service.application.v6.enums;
 
 // 生成枚举值
 public enum AppOwnerTypeEnum {
-  LARKTECHNOLOGY(0),
-  LARKPARTNERS(1),
-  ENTERPRISEMEMBER(2),
+     LARKTECHNOLOGY(0),
+     LARKPARTNERS(1),
+     ENTERPRISEMEMBER(2),
   ;
-  private Integer value;
+   private Integer value;
+    AppOwnerTypeEnum(Integer value) {
+      this.value = value;
+    }
 
-  AppOwnerTypeEnum(Integer value) {
-    this.value = value;
-  }
-
-  public Integer getValue() {
-    return this.value;
-  }
+    public Integer getValue() {
+      return this.value;
+    }
 }

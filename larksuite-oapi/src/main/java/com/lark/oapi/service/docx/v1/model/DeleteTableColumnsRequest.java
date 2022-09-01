@@ -12,63 +12,69 @@
  */
 
 package com.lark.oapi.service.docx.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.docx.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class DeleteTableColumnsRequest {
-
-  @SerializedName("column_start_index")
-  private Integer columnStartIndex;
-  @SerializedName("column_end_index")
-  private Integer columnEndIndex;
-
-  // builder 开始
-  public DeleteTableColumnsRequest() {
-  }
-
-  public DeleteTableColumnsRequest(Builder builder) {
-    this.columnStartIndex = builder.columnStartIndex;
-    this.columnEndIndex = builder.columnEndIndex;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Integer getColumnStartIndex() {
-    return this.columnStartIndex;
-  }
-
-  public void setColumnStartIndex(Integer columnStartIndex) {
-    this.columnStartIndex = columnStartIndex;
-  }
-
-  public Integer getColumnEndIndex() {
-    return this.columnEndIndex;
-  }
-
-  public void setColumnEndIndex(Integer columnEndIndex) {
-    this.columnEndIndex = columnEndIndex;
-  }
-
-  public static class Builder {
-
+    @SerializedName("column_start_index")
     private Integer columnStartIndex;
+    @SerializedName("column_end_index")
     private Integer columnEndIndex;
-
-    public Builder columnStartIndex(Integer columnStartIndex) {
-      this.columnStartIndex = columnStartIndex;
-      return this;
+    public Integer getColumnStartIndex() {
+        return this.columnStartIndex;
     }
 
-    public Builder columnEndIndex(Integer columnEndIndex) {
-      this.columnEndIndex = columnEndIndex;
-      return this;
+    public void setColumnStartIndex(Integer columnStartIndex) {
+        this.columnStartIndex = columnStartIndex;
+    }
+
+    public Integer getColumnEndIndex() {
+        return this.columnEndIndex;
+    }
+
+    public void setColumnEndIndex(Integer columnEndIndex) {
+        this.columnEndIndex = columnEndIndex;
     }
 
 
-    public DeleteTableColumnsRequest build() {
-      return new DeleteTableColumnsRequest(this);
-    }
+// builder 开始
+  public DeleteTableColumnsRequest(){}
+
+  public DeleteTableColumnsRequest(Builder builder){
+      this.columnStartIndex = builder.columnStartIndex;
+      this.columnEndIndex = builder.columnEndIndex;
   }
+
+    public static class Builder {
+        private Integer columnStartIndex;
+        private Integer columnEndIndex;
+        public Builder columnStartIndex(Integer columnStartIndex) {
+             this.columnStartIndex = columnStartIndex;
+             return this;
+        }
+    
+        public Builder columnEndIndex(Integer columnEndIndex) {
+             this.columnEndIndex = columnEndIndex;
+             return this;
+        }
+    
+    
+    public DeleteTableColumnsRequest build(){
+        return new DeleteTableColumnsRequest(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

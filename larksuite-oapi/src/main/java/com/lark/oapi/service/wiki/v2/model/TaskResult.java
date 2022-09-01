@@ -12,63 +12,69 @@
  */
 
 package com.lark.oapi.service.wiki.v2.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.wiki.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class TaskResult {
-
-  @SerializedName("task_id")
-  private String taskId;
-  @SerializedName("move_result")
-  private MoveResult[] moveResult;
-
-  // builder 开始
-  public TaskResult() {
-  }
-
-  public TaskResult(Builder builder) {
-    this.taskId = builder.taskId;
-    this.moveResult = builder.moveResult;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getTaskId() {
-    return this.taskId;
-  }
-
-  public void setTaskId(String taskId) {
-    this.taskId = taskId;
-  }
-
-  public MoveResult[] getMoveResult() {
-    return this.moveResult;
-  }
-
-  public void setMoveResult(MoveResult[] moveResult) {
-    this.moveResult = moveResult;
-  }
-
-  public static class Builder {
-
+    @SerializedName("task_id")
     private String taskId;
+    @SerializedName("move_result")
     private MoveResult[] moveResult;
-
-    public Builder taskId(String taskId) {
-      this.taskId = taskId;
-      return this;
+    public String getTaskId() {
+        return this.taskId;
     }
 
-    public Builder moveResult(MoveResult[] moveResult) {
-      this.moveResult = moveResult;
-      return this;
+    public void setTaskId(String taskId) {
+        this.taskId = taskId;
+    }
+
+    public MoveResult[] getMoveResult() {
+        return this.moveResult;
+    }
+
+    public void setMoveResult(MoveResult[] moveResult) {
+        this.moveResult = moveResult;
     }
 
 
-    public TaskResult build() {
-      return new TaskResult(this);
-    }
+// builder 开始
+  public TaskResult(){}
+
+  public TaskResult(Builder builder){
+      this.taskId = builder.taskId;
+      this.moveResult = builder.moveResult;
   }
+
+    public static class Builder {
+        private String taskId;
+        private MoveResult[] moveResult;
+        public Builder taskId(String taskId) {
+             this.taskId = taskId;
+             return this;
+        }
+    
+        public Builder moveResult(MoveResult[] moveResult) {
+             this.moveResult = moveResult;
+             return this;
+        }
+    
+    
+    public TaskResult build(){
+        return new TaskResult(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

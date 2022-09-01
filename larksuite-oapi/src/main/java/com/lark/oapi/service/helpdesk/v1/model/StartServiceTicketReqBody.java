@@ -12,97 +12,103 @@
  */
 
 package com.lark.oapi.service.helpdesk.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.helpdesk.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class StartServiceTicketReqBody {
-
-  @SerializedName("human_service")
-  private Boolean humanService;
-  @SerializedName("appointed_agents")
-  private String[] appointedAgents;
-  @SerializedName("open_id")
-  private String openId;
-  @SerializedName("customized_info")
-  private String customizedInfo;
-
-  // builder 开始
-  public StartServiceTicketReqBody() {
-  }
-
-  public StartServiceTicketReqBody(Builder builder) {
-    this.humanService = builder.humanService;
-    this.appointedAgents = builder.appointedAgents;
-    this.openId = builder.openId;
-    this.customizedInfo = builder.customizedInfo;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Boolean getHumanService() {
-    return this.humanService;
-  }
-
-  public void setHumanService(Boolean humanService) {
-    this.humanService = humanService;
-  }
-
-  public String[] getAppointedAgents() {
-    return this.appointedAgents;
-  }
-
-  public void setAppointedAgents(String[] appointedAgents) {
-    this.appointedAgents = appointedAgents;
-  }
-
-  public String getOpenId() {
-    return this.openId;
-  }
-
-  public void setOpenId(String openId) {
-    this.openId = openId;
-  }
-
-  public String getCustomizedInfo() {
-    return this.customizedInfo;
-  }
-
-  public void setCustomizedInfo(String customizedInfo) {
-    this.customizedInfo = customizedInfo;
-  }
-
-  public static class Builder {
-
+    @SerializedName("human_service")
     private Boolean humanService;
+    @SerializedName("appointed_agents")
     private String[] appointedAgents;
+    @SerializedName("open_id")
     private String openId;
+    @SerializedName("customized_info")
     private String customizedInfo;
-
-    public Builder humanService(Boolean humanService) {
-      this.humanService = humanService;
-      return this;
+    public Boolean getHumanService() {
+        return this.humanService;
     }
 
-    public Builder appointedAgents(String[] appointedAgents) {
-      this.appointedAgents = appointedAgents;
-      return this;
+    public void setHumanService(Boolean humanService) {
+        this.humanService = humanService;
     }
 
-    public Builder openId(String openId) {
-      this.openId = openId;
-      return this;
+    public String[] getAppointedAgents() {
+        return this.appointedAgents;
     }
 
-    public Builder customizedInfo(String customizedInfo) {
-      this.customizedInfo = customizedInfo;
-      return this;
+    public void setAppointedAgents(String[] appointedAgents) {
+        this.appointedAgents = appointedAgents;
+    }
+
+    public String getOpenId() {
+        return this.openId;
+    }
+
+    public void setOpenId(String openId) {
+        this.openId = openId;
+    }
+
+    public String getCustomizedInfo() {
+        return this.customizedInfo;
+    }
+
+    public void setCustomizedInfo(String customizedInfo) {
+        this.customizedInfo = customizedInfo;
     }
 
 
-    public StartServiceTicketReqBody build() {
-      return new StartServiceTicketReqBody(this);
-    }
+// builder 开始
+  public StartServiceTicketReqBody(){}
+
+  public StartServiceTicketReqBody(Builder builder){
+      this.humanService = builder.humanService;
+      this.appointedAgents = builder.appointedAgents;
+      this.openId = builder.openId;
+      this.customizedInfo = builder.customizedInfo;
   }
+
+    public static class Builder {
+        private Boolean humanService;
+        private String[] appointedAgents;
+        private String openId;
+        private String customizedInfo;
+        public Builder humanService(Boolean humanService) {
+             this.humanService = humanService;
+             return this;
+        }
+    
+        public Builder appointedAgents(String[] appointedAgents) {
+             this.appointedAgents = appointedAgents;
+             return this;
+        }
+    
+        public Builder openId(String openId) {
+             this.openId = openId;
+             return this;
+        }
+    
+        public Builder customizedInfo(String customizedInfo) {
+             this.customizedInfo = customizedInfo;
+             return this;
+        }
+    
+    
+    public StartServiceTicketReqBody build(){
+        return new StartServiceTicketReqBody(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

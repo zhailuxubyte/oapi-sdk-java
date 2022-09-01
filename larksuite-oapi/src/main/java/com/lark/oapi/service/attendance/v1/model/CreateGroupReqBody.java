@@ -12,63 +12,69 @@
  */
 
 package com.lark.oapi.service.attendance.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.attendance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class CreateGroupReqBody {
-
-  @SerializedName("group")
-  private Group group;
-  @SerializedName("operator_id")
-  private String operatorId;
-
-  // builder 开始
-  public CreateGroupReqBody() {
-  }
-
-  public CreateGroupReqBody(Builder builder) {
-    this.group = builder.group;
-    this.operatorId = builder.operatorId;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Group getGroup() {
-    return this.group;
-  }
-
-  public void setGroup(Group group) {
-    this.group = group;
-  }
-
-  public String getOperatorId() {
-    return this.operatorId;
-  }
-
-  public void setOperatorId(String operatorId) {
-    this.operatorId = operatorId;
-  }
-
-  public static class Builder {
-
+    @SerializedName("group")
     private Group group;
+    @SerializedName("operator_id")
     private String operatorId;
-
-    public Builder group(Group group) {
-      this.group = group;
-      return this;
+    public Group getGroup() {
+        return this.group;
     }
 
-    public Builder operatorId(String operatorId) {
-      this.operatorId = operatorId;
-      return this;
+    public void setGroup(Group group) {
+        this.group = group;
+    }
+
+    public String getOperatorId() {
+        return this.operatorId;
+    }
+
+    public void setOperatorId(String operatorId) {
+        this.operatorId = operatorId;
     }
 
 
-    public CreateGroupReqBody build() {
-      return new CreateGroupReqBody(this);
-    }
+// builder 开始
+  public CreateGroupReqBody(){}
+
+  public CreateGroupReqBody(Builder builder){
+      this.group = builder.group;
+      this.operatorId = builder.operatorId;
   }
+
+    public static class Builder {
+        private Group group;
+        private String operatorId;
+        public Builder group(Group group) {
+             this.group = group;
+             return this;
+        }
+    
+        public Builder operatorId(String operatorId) {
+             this.operatorId = operatorId;
+             return this;
+        }
+    
+    
+    public CreateGroupReqBody build(){
+        return new CreateGroupReqBody(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

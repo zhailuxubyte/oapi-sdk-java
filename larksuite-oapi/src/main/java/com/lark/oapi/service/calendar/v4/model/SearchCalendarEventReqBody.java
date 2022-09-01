@@ -12,63 +12,69 @@
  */
 
 package com.lark.oapi.service.calendar.v4.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.calendar.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class SearchCalendarEventReqBody {
-
-  @SerializedName("query")
-  private String query;
-  @SerializedName("filter")
-  private EventSearchFilter filter;
-
-  // builder 开始
-  public SearchCalendarEventReqBody() {
-  }
-
-  public SearchCalendarEventReqBody(Builder builder) {
-    this.query = builder.query;
-    this.filter = builder.filter;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getQuery() {
-    return this.query;
-  }
-
-  public void setQuery(String query) {
-    this.query = query;
-  }
-
-  public EventSearchFilter getFilter() {
-    return this.filter;
-  }
-
-  public void setFilter(EventSearchFilter filter) {
-    this.filter = filter;
-  }
-
-  public static class Builder {
-
+    @SerializedName("query")
     private String query;
+    @SerializedName("filter")
     private EventSearchFilter filter;
-
-    public Builder query(String query) {
-      this.query = query;
-      return this;
+    public String getQuery() {
+        return this.query;
     }
 
-    public Builder filter(EventSearchFilter filter) {
-      this.filter = filter;
-      return this;
+    public void setQuery(String query) {
+        this.query = query;
+    }
+
+    public EventSearchFilter getFilter() {
+        return this.filter;
+    }
+
+    public void setFilter(EventSearchFilter filter) {
+        this.filter = filter;
     }
 
 
-    public SearchCalendarEventReqBody build() {
-      return new SearchCalendarEventReqBody(this);
-    }
+// builder 开始
+  public SearchCalendarEventReqBody(){}
+
+  public SearchCalendarEventReqBody(Builder builder){
+      this.query = builder.query;
+      this.filter = builder.filter;
   }
+
+    public static class Builder {
+        private String query;
+        private EventSearchFilter filter;
+        public Builder query(String query) {
+             this.query = query;
+             return this;
+        }
+    
+        public Builder filter(EventSearchFilter filter) {
+             this.filter = filter;
+             return this;
+        }
+    
+    
+    public SearchCalendarEventReqBody build(){
+        return new SearchCalendarEventReqBody(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

@@ -12,80 +12,86 @@
  */
 
 package com.lark.oapi.service.attendance.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.attendance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class UserStatsDataCell {
-
-  @SerializedName("code")
-  private String code;
-  @SerializedName("value")
-  private String value;
-  @SerializedName("features")
-  private UserStatsDataFeature[] features;
-
-  // builder 开始
-  public UserStatsDataCell() {
-  }
-
-  public UserStatsDataCell(Builder builder) {
-    this.code = builder.code;
-    this.value = builder.value;
-    this.features = builder.features;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getCode() {
-    return this.code;
-  }
-
-  public void setCode(String code) {
-    this.code = code;
-  }
-
-  public String getValue() {
-    return this.value;
-  }
-
-  public void setValue(String value) {
-    this.value = value;
-  }
-
-  public UserStatsDataFeature[] getFeatures() {
-    return this.features;
-  }
-
-  public void setFeatures(UserStatsDataFeature[] features) {
-    this.features = features;
-  }
-
-  public static class Builder {
-
+    @SerializedName("code")
     private String code;
+    @SerializedName("value")
     private String value;
+    @SerializedName("features")
     private UserStatsDataFeature[] features;
-
-    public Builder code(String code) {
-      this.code = code;
-      return this;
+    public String getCode() {
+        return this.code;
     }
 
-    public Builder value(String value) {
-      this.value = value;
-      return this;
+    public void setCode(String code) {
+        this.code = code;
     }
 
-    public Builder features(UserStatsDataFeature[] features) {
-      this.features = features;
-      return this;
+    public String getValue() {
+        return this.value;
+    }
+
+    public void setValue(String value) {
+        this.value = value;
+    }
+
+    public UserStatsDataFeature[] getFeatures() {
+        return this.features;
+    }
+
+    public void setFeatures(UserStatsDataFeature[] features) {
+        this.features = features;
     }
 
 
-    public UserStatsDataCell build() {
-      return new UserStatsDataCell(this);
-    }
+// builder 开始
+  public UserStatsDataCell(){}
+
+  public UserStatsDataCell(Builder builder){
+      this.code = builder.code;
+      this.value = builder.value;
+      this.features = builder.features;
   }
+
+    public static class Builder {
+        private String code;
+        private String value;
+        private UserStatsDataFeature[] features;
+        public Builder code(String code) {
+             this.code = code;
+             return this;
+        }
+    
+        public Builder value(String value) {
+             this.value = value;
+             return this;
+        }
+    
+        public Builder features(UserStatsDataFeature[] features) {
+             this.features = features;
+             return this;
+        }
+    
+    
+    public UserStatsDataCell build(){
+        return new UserStatsDataCell(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

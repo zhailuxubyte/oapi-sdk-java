@@ -12,63 +12,69 @@
  */
 
 package com.lark.oapi.service.drive.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.drive.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class TmpDownloadUrl {
-
-  @SerializedName("file_token")
-  private String fileToken;
-  @SerializedName("tmp_download_url")
-  private String tmpDownloadUrl;
-
-  // builder 开始
-  public TmpDownloadUrl() {
-  }
-
-  public TmpDownloadUrl(Builder builder) {
-    this.fileToken = builder.fileToken;
-    this.tmpDownloadUrl = builder.tmpDownloadUrl;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getFileToken() {
-    return this.fileToken;
-  }
-
-  public void setFileToken(String fileToken) {
-    this.fileToken = fileToken;
-  }
-
-  public String getTmpDownloadUrl() {
-    return this.tmpDownloadUrl;
-  }
-
-  public void setTmpDownloadUrl(String tmpDownloadUrl) {
-    this.tmpDownloadUrl = tmpDownloadUrl;
-  }
-
-  public static class Builder {
-
+    @SerializedName("file_token")
     private String fileToken;
+    @SerializedName("tmp_download_url")
     private String tmpDownloadUrl;
-
-    public Builder fileToken(String fileToken) {
-      this.fileToken = fileToken;
-      return this;
+    public String getFileToken() {
+        return this.fileToken;
     }
 
-    public Builder tmpDownloadUrl(String tmpDownloadUrl) {
-      this.tmpDownloadUrl = tmpDownloadUrl;
-      return this;
+    public void setFileToken(String fileToken) {
+        this.fileToken = fileToken;
+    }
+
+    public String getTmpDownloadUrl() {
+        return this.tmpDownloadUrl;
+    }
+
+    public void setTmpDownloadUrl(String tmpDownloadUrl) {
+        this.tmpDownloadUrl = tmpDownloadUrl;
     }
 
 
-    public TmpDownloadUrl build() {
-      return new TmpDownloadUrl(this);
-    }
+// builder 开始
+  public TmpDownloadUrl(){}
+
+  public TmpDownloadUrl(Builder builder){
+      this.fileToken = builder.fileToken;
+      this.tmpDownloadUrl = builder.tmpDownloadUrl;
   }
+
+    public static class Builder {
+        private String fileToken;
+        private String tmpDownloadUrl;
+        public Builder fileToken(String fileToken) {
+             this.fileToken = fileToken;
+             return this;
+        }
+    
+        public Builder tmpDownloadUrl(String tmpDownloadUrl) {
+             this.tmpDownloadUrl = tmpDownloadUrl;
+             return this;
+        }
+    
+    
+    public TmpDownloadUrl build(){
+        return new TmpDownloadUrl(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

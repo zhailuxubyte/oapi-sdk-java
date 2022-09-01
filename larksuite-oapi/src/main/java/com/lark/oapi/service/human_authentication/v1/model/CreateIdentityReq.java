@@ -12,93 +12,94 @@
  */
 
 package com.lark.oapi.service.human_authentication.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.human_authentication.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class CreateIdentityReq {
-
-  @Query
-  @SerializedName("user_id")
-  private String userId;
-  @Query
-  @SerializedName("user_id_type")
-  private String userIdType;
-  @Body
-  private CreateIdentityReqBody body;
-
-  // builder 开始
-  public CreateIdentityReq() {
-  }
-
-  public CreateIdentityReq(Builder builder) {
-    this.userId = builder.userId;
-    this.userIdType = builder.userIdType;
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getUserId() {
-    return this.userId;
-  }
-
-  public void setUserId(String userId) {
-    this.userId = userId;
-  }
-
-  public String getUserIdType() {
-    return this.userIdType;
-  }
-
-  public void setUserIdType(String userIdType) {
-    this.userIdType = userIdType;
-  }
-
-  public CreateIdentityReqBody getCreateIdentityReqBody() {
-    return this.body;
-  }
-
-  public void setCreateIdentityReqBody(CreateIdentityReqBody body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
+    @Query
+    @SerializedName("user_id")
     private String userId;
+    @Query
+    @SerializedName("user_id_type")
     private String userIdType;
+    public String getUserId() {
+        return this.userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    public String getUserIdType() {
+        return this.userIdType;
+    }
+
+    public void setUserIdType(String userIdType) {
+        this.userIdType = userIdType;
+    }
+
+    @Body
     private CreateIdentityReqBody body;
 
-    public Builder userId(String userId) {
-      this.userId = userId;
-      return this;
-    }
-
-    public Builder userIdType(String userIdType) {
-      this.userIdType = userIdType;
-      return this;
-    }
-
-    public Builder userIdType(
-        com.lark.oapi.service.human_authentication.v1.enums.UserIdTypeEnum userIdType) {
-      this.userIdType = userIdType.getValue();
-      return this;
-    }
-
     public CreateIdentityReqBody getCreateIdentityReqBody() {
-      return this.body;
+        return this.body;
     }
 
-    public Builder createIdentityReqBody(CreateIdentityReqBody body) {
-      this.body = body;
-      return this;
+    public void setCreateIdentityReqBody(CreateIdentityReqBody body) {
+        this.body = body;
     }
 
-    public CreateIdentityReq build() {
-      return new CreateIdentityReq(this);
-    }
+// builder 开始
+  public CreateIdentityReq(){}
+
+  public CreateIdentityReq(Builder builder){
+       this.userId = builder.userId;
+       this.userIdType = builder.userIdType;
+        this.body = builder.body;
   }
+
+    public static class Builder {
+        private String userId;
+        private String userIdType;
+    
+           public Builder userId(String userId) {
+                this.userId = userId;
+                return this;
+           }
+    
+           public Builder userIdType(String userIdType) {
+                this.userIdType = userIdType;
+                return this;
+           }
+          public Builder userIdType(com.lark.oapi.service.human_authentication.v1.enums.UserIdTypeEnum userIdType) {
+               this.userIdType = userIdType.getValue();
+               return this;
+          }
+    
+        private CreateIdentityReqBody body;
+    
+        public CreateIdentityReqBody getCreateIdentityReqBody() {
+            return this.body;
+        }
+        public Builder createIdentityReqBody(CreateIdentityReqBody body) {
+             this.body = body;
+             return this;
+        }
+    public CreateIdentityReq build(){
+        return new CreateIdentityReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

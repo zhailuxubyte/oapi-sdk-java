@@ -12,87 +12,90 @@
  */
 
 package com.lark.oapi.service.bitable.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.bitable.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class UpdateAppRoleReq {
-
-  @Path
-  @SerializedName("app_token")
-  private String appToken;
-  @Path
-  @SerializedName("role_id")
-  private String roleId;
-  @Body
-  private AppRole body;
-
-  // builder 开始
-  public UpdateAppRoleReq() {
-  }
-
-  public UpdateAppRoleReq(Builder builder) {
-    this.appToken = builder.appToken;
-    this.roleId = builder.roleId;
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getAppToken() {
-    return this.appToken;
-  }
-
-  public void setAppToken(String appToken) {
-    this.appToken = appToken;
-  }
-
-  public String getRoleId() {
-    return this.roleId;
-  }
-
-  public void setRoleId(String roleId) {
-    this.roleId = roleId;
-  }
-
-  public AppRole getAppRole() {
-    return this.body;
-  }
-
-  public void setAppRole(AppRole body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
+    @Path
+    @SerializedName("app_token")
     private String appToken;
+    @Path
+    @SerializedName("role_id")
     private String roleId;
+    public String getAppToken() {
+        return this.appToken;
+    }
+
+    public void setAppToken(String appToken) {
+        this.appToken = appToken;
+    }
+
+    public String getRoleId() {
+        return this.roleId;
+    }
+
+    public void setRoleId(String roleId) {
+        this.roleId = roleId;
+    }
+
+    @Body
     private AppRole body;
 
-    public Builder appToken(String appToken) {
-      this.appToken = appToken;
-      return this;
-    }
-
-    public Builder roleId(String roleId) {
-      this.roleId = roleId;
-      return this;
-    }
-
     public AppRole getAppRole() {
-      return this.body;
+        return this.body;
     }
 
-    public Builder appRole(AppRole body) {
-      this.body = body;
-      return this;
+    public void setAppRole(AppRole body) {
+        this.body = body;
     }
 
-    public UpdateAppRoleReq build() {
-      return new UpdateAppRoleReq(this);
-    }
+// builder 开始
+  public UpdateAppRoleReq(){}
+
+  public UpdateAppRoleReq(Builder builder){
+       this.appToken = builder.appToken;
+       this.roleId = builder.roleId;
+        this.body = builder.body;
   }
+
+    public static class Builder {
+    
+        private String appToken;
+        private String roleId;
+          public Builder appToken(String appToken) {
+               this.appToken = appToken;
+               return this;
+          }
+    
+          public Builder roleId(String roleId) {
+               this.roleId = roleId;
+               return this;
+          }
+    
+        private AppRole body;
+    
+        public AppRole getAppRole() {
+            return this.body;
+        }
+        public Builder appRole(AppRole body) {
+             this.body = body;
+             return this;
+        }
+    public UpdateAppRoleReq build(){
+        return new UpdateAppRoleReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

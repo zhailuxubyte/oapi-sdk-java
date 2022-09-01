@@ -12,114 +12,120 @@
  */
 
 package com.lark.oapi.service.docx.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.docx.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class Reminder {
-
-  @SerializedName("create_user_id")
-  private String createUserId;
-  @SerializedName("is_notify")
-  private Boolean isNotify;
-  @SerializedName("is_whole_day")
-  private Boolean isWholeDay;
-  @SerializedName("expire_time")
-  private String expireTime;
-  @SerializedName("notify_time")
-  private String notifyTime;
-
-  // builder 开始
-  public Reminder() {
-  }
-
-  public Reminder(Builder builder) {
-    this.createUserId = builder.createUserId;
-    this.isNotify = builder.isNotify;
-    this.isWholeDay = builder.isWholeDay;
-    this.expireTime = builder.expireTime;
-    this.notifyTime = builder.notifyTime;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getCreateUserId() {
-    return this.createUserId;
-  }
-
-  public void setCreateUserId(String createUserId) {
-    this.createUserId = createUserId;
-  }
-
-  public Boolean getIsNotify() {
-    return this.isNotify;
-  }
-
-  public void setIsNotify(Boolean isNotify) {
-    this.isNotify = isNotify;
-  }
-
-  public Boolean getIsWholeDay() {
-    return this.isWholeDay;
-  }
-
-  public void setIsWholeDay(Boolean isWholeDay) {
-    this.isWholeDay = isWholeDay;
-  }
-
-  public String getExpireTime() {
-    return this.expireTime;
-  }
-
-  public void setExpireTime(String expireTime) {
-    this.expireTime = expireTime;
-  }
-
-  public String getNotifyTime() {
-    return this.notifyTime;
-  }
-
-  public void setNotifyTime(String notifyTime) {
-    this.notifyTime = notifyTime;
-  }
-
-  public static class Builder {
-
+    @SerializedName("create_user_id")
     private String createUserId;
+    @SerializedName("is_notify")
     private Boolean isNotify;
+    @SerializedName("is_whole_day")
     private Boolean isWholeDay;
+    @SerializedName("expire_time")
     private String expireTime;
+    @SerializedName("notify_time")
     private String notifyTime;
-
-    public Builder createUserId(String createUserId) {
-      this.createUserId = createUserId;
-      return this;
+    public String getCreateUserId() {
+        return this.createUserId;
     }
 
-    public Builder isNotify(Boolean isNotify) {
-      this.isNotify = isNotify;
-      return this;
+    public void setCreateUserId(String createUserId) {
+        this.createUserId = createUserId;
     }
 
-    public Builder isWholeDay(Boolean isWholeDay) {
-      this.isWholeDay = isWholeDay;
-      return this;
+    public Boolean getIsNotify() {
+        return this.isNotify;
     }
 
-    public Builder expireTime(String expireTime) {
-      this.expireTime = expireTime;
-      return this;
+    public void setIsNotify(Boolean isNotify) {
+        this.isNotify = isNotify;
     }
 
-    public Builder notifyTime(String notifyTime) {
-      this.notifyTime = notifyTime;
-      return this;
+    public Boolean getIsWholeDay() {
+        return this.isWholeDay;
+    }
+
+    public void setIsWholeDay(Boolean isWholeDay) {
+        this.isWholeDay = isWholeDay;
+    }
+
+    public String getExpireTime() {
+        return this.expireTime;
+    }
+
+    public void setExpireTime(String expireTime) {
+        this.expireTime = expireTime;
+    }
+
+    public String getNotifyTime() {
+        return this.notifyTime;
+    }
+
+    public void setNotifyTime(String notifyTime) {
+        this.notifyTime = notifyTime;
     }
 
 
-    public Reminder build() {
-      return new Reminder(this);
-    }
+// builder 开始
+  public Reminder(){}
+
+  public Reminder(Builder builder){
+      this.createUserId = builder.createUserId;
+      this.isNotify = builder.isNotify;
+      this.isWholeDay = builder.isWholeDay;
+      this.expireTime = builder.expireTime;
+      this.notifyTime = builder.notifyTime;
   }
+
+    public static class Builder {
+        private String createUserId;
+        private Boolean isNotify;
+        private Boolean isWholeDay;
+        private String expireTime;
+        private String notifyTime;
+        public Builder createUserId(String createUserId) {
+             this.createUserId = createUserId;
+             return this;
+        }
+    
+        public Builder isNotify(Boolean isNotify) {
+             this.isNotify = isNotify;
+             return this;
+        }
+    
+        public Builder isWholeDay(Boolean isWholeDay) {
+             this.isWholeDay = isWholeDay;
+             return this;
+        }
+    
+        public Builder expireTime(String expireTime) {
+             this.expireTime = expireTime;
+             return this;
+        }
+    
+        public Builder notifyTime(String notifyTime) {
+             this.notifyTime = notifyTime;
+             return this;
+        }
+    
+    
+    public Reminder build(){
+        return new Reminder(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

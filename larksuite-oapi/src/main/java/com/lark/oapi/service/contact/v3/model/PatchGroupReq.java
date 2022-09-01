@@ -12,69 +12,72 @@
  */
 
 package com.lark.oapi.service.contact.v3.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.contact.v3.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class PatchGroupReq {
-
-  @Path
-  @SerializedName("group_id")
-  private String groupId;
-  @Body
-  private PatchGroupReqBody body;
-
-  // builder 开始
-  public PatchGroupReq() {
-  }
-
-  public PatchGroupReq(Builder builder) {
-    this.groupId = builder.groupId;
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getGroupId() {
-    return this.groupId;
-  }
-
-  public void setGroupId(String groupId) {
-    this.groupId = groupId;
-  }
-
-  public PatchGroupReqBody getPatchGroupReqBody() {
-    return this.body;
-  }
-
-  public void setPatchGroupReqBody(PatchGroupReqBody body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
+    @Path
+    @SerializedName("group_id")
     private String groupId;
+    public String getGroupId() {
+        return this.groupId;
+    }
+
+    public void setGroupId(String groupId) {
+        this.groupId = groupId;
+    }
+
+    @Body
     private PatchGroupReqBody body;
 
-    public Builder groupId(String groupId) {
-      this.groupId = groupId;
-      return this;
-    }
-
     public PatchGroupReqBody getPatchGroupReqBody() {
-      return this.body;
+        return this.body;
     }
 
-    public Builder patchGroupReqBody(PatchGroupReqBody body) {
-      this.body = body;
-      return this;
+    public void setPatchGroupReqBody(PatchGroupReqBody body) {
+        this.body = body;
     }
 
-    public PatchGroupReq build() {
-      return new PatchGroupReq(this);
-    }
+// builder 开始
+  public PatchGroupReq(){}
+
+  public PatchGroupReq(Builder builder){
+       this.groupId = builder.groupId;
+        this.body = builder.body;
   }
+
+    public static class Builder {
+    
+        private String groupId;
+          public Builder groupId(String groupId) {
+               this.groupId = groupId;
+               return this;
+          }
+    
+        private PatchGroupReqBody body;
+    
+        public PatchGroupReqBody getPatchGroupReqBody() {
+            return this.body;
+        }
+        public Builder patchGroupReqBody(PatchGroupReqBody body) {
+             this.body = body;
+             return this;
+        }
+    public PatchGroupReq build(){
+        return new PatchGroupReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

@@ -12,102 +12,107 @@
  */
 
 package com.lark.oapi.service.bitable.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.bitable.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class AppRoleTableRole {
-
-  @SerializedName("table_name")
-  private String tableName;
-  @SerializedName("table_perm")
-  private Integer tablePerm;
-  @SerializedName("rec_rule")
-  private AppRoleTableRoleRecRule recRule;
-  @SerializedName("field_perm")
-  private AppRoleTableRoleFieldPerm fieldPerm;
-
-  // builder 开始
-  public AppRoleTableRole() {
-  }
-
-  public AppRoleTableRole(Builder builder) {
-    this.tableName = builder.tableName;
-    this.tablePerm = builder.tablePerm;
-    this.recRule = builder.recRule;
-    this.fieldPerm = builder.fieldPerm;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getTableName() {
-    return this.tableName;
-  }
-
-  public void setTableName(String tableName) {
-    this.tableName = tableName;
-  }
-
-  public Integer getTablePerm() {
-    return this.tablePerm;
-  }
-
-  public void setTablePerm(Integer tablePerm) {
-    this.tablePerm = tablePerm;
-  }
-
-  public AppRoleTableRoleRecRule getRecRule() {
-    return this.recRule;
-  }
-
-  public void setRecRule(AppRoleTableRoleRecRule recRule) {
-    this.recRule = recRule;
-  }
-
-  public AppRoleTableRoleFieldPerm getFieldPerm() {
-    return this.fieldPerm;
-  }
-
-  public void setFieldPerm(AppRoleTableRoleFieldPerm fieldPerm) {
-    this.fieldPerm = fieldPerm;
-  }
-
-  public static class Builder {
-
+    @SerializedName("table_name")
     private String tableName;
+    @SerializedName("table_perm")
     private Integer tablePerm;
+    @SerializedName("rec_rule")
     private AppRoleTableRoleRecRule recRule;
+    @SerializedName("field_perm")
     private AppRoleTableRoleFieldPerm fieldPerm;
-
-    public Builder tableName(String tableName) {
-      this.tableName = tableName;
-      return this;
+    public String getTableName() {
+        return this.tableName;
     }
 
-    public Builder tablePerm(Integer tablePerm) {
-      this.tablePerm = tablePerm;
-      return this;
+    public void setTableName(String tableName) {
+        this.tableName = tableName;
     }
 
-    public Builder tablePerm(com.lark.oapi.service.bitable.v1.enums.TablePermEnum tablePerm) {
-      this.tablePerm = tablePerm.getValue();
-      return this;
+    public Integer getTablePerm() {
+        return this.tablePerm;
     }
 
-    public Builder recRule(AppRoleTableRoleRecRule recRule) {
-      this.recRule = recRule;
-      return this;
+    public void setTablePerm(Integer tablePerm) {
+        this.tablePerm = tablePerm;
     }
 
-    public Builder fieldPerm(AppRoleTableRoleFieldPerm fieldPerm) {
-      this.fieldPerm = fieldPerm;
-      return this;
+    public AppRoleTableRoleRecRule getRecRule() {
+        return this.recRule;
+    }
+
+    public void setRecRule(AppRoleTableRoleRecRule recRule) {
+        this.recRule = recRule;
+    }
+
+    public AppRoleTableRoleFieldPerm getFieldPerm() {
+        return this.fieldPerm;
+    }
+
+    public void setFieldPerm(AppRoleTableRoleFieldPerm fieldPerm) {
+        this.fieldPerm = fieldPerm;
     }
 
 
-    public AppRoleTableRole build() {
-      return new AppRoleTableRole(this);
-    }
+// builder 开始
+  public AppRoleTableRole(){}
+
+  public AppRoleTableRole(Builder builder){
+      this.tableName = builder.tableName;
+      this.tablePerm = builder.tablePerm;
+      this.recRule = builder.recRule;
+      this.fieldPerm = builder.fieldPerm;
   }
+
+    public static class Builder {
+        private String tableName;
+        private Integer tablePerm;
+        private AppRoleTableRoleRecRule recRule;
+        private AppRoleTableRoleFieldPerm fieldPerm;
+        public Builder tableName(String tableName) {
+             this.tableName = tableName;
+             return this;
+        }
+    
+        public Builder tablePerm(Integer tablePerm) {
+             this.tablePerm = tablePerm;
+             return this;
+        }
+        public Builder tablePerm(com.lark.oapi.service.bitable.v1.enums.TablePermEnum tablePerm) {
+             this.tablePerm = tablePerm.getValue();
+             return this;
+        }
+    
+        public Builder recRule(AppRoleTableRoleRecRule recRule) {
+             this.recRule = recRule;
+             return this;
+        }
+    
+        public Builder fieldPerm(AppRoleTableRoleFieldPerm fieldPerm) {
+             this.fieldPerm = fieldPerm;
+             return this;
+        }
+    
+    
+    public AppRoleTableRole build(){
+        return new AppRoleTableRole(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

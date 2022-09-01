@@ -12,63 +12,69 @@
  */
 
 package com.lark.oapi.service.attendance.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.attendance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class QueryUserAllowedRemedysUserTaskRemedyReqBody {
-
-  @SerializedName("user_id")
-  private String userId;
-  @SerializedName("remedy_date")
-  private Integer remedyDate;
-
-  // builder 开始
-  public QueryUserAllowedRemedysUserTaskRemedyReqBody() {
-  }
-
-  public QueryUserAllowedRemedysUserTaskRemedyReqBody(Builder builder) {
-    this.userId = builder.userId;
-    this.remedyDate = builder.remedyDate;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getUserId() {
-    return this.userId;
-  }
-
-  public void setUserId(String userId) {
-    this.userId = userId;
-  }
-
-  public Integer getRemedyDate() {
-    return this.remedyDate;
-  }
-
-  public void setRemedyDate(Integer remedyDate) {
-    this.remedyDate = remedyDate;
-  }
-
-  public static class Builder {
-
+    @SerializedName("user_id")
     private String userId;
+    @SerializedName("remedy_date")
     private Integer remedyDate;
-
-    public Builder userId(String userId) {
-      this.userId = userId;
-      return this;
+    public String getUserId() {
+        return this.userId;
     }
 
-    public Builder remedyDate(Integer remedyDate) {
-      this.remedyDate = remedyDate;
-      return this;
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    public Integer getRemedyDate() {
+        return this.remedyDate;
+    }
+
+    public void setRemedyDate(Integer remedyDate) {
+        this.remedyDate = remedyDate;
     }
 
 
-    public QueryUserAllowedRemedysUserTaskRemedyReqBody build() {
-      return new QueryUserAllowedRemedysUserTaskRemedyReqBody(this);
-    }
+// builder 开始
+  public QueryUserAllowedRemedysUserTaskRemedyReqBody(){}
+
+  public QueryUserAllowedRemedysUserTaskRemedyReqBody(Builder builder){
+      this.userId = builder.userId;
+      this.remedyDate = builder.remedyDate;
   }
+
+    public static class Builder {
+        private String userId;
+        private Integer remedyDate;
+        public Builder userId(String userId) {
+             this.userId = userId;
+             return this;
+        }
+    
+        public Builder remedyDate(Integer remedyDate) {
+             this.remedyDate = remedyDate;
+             return this;
+        }
+    
+    
+    public QueryUserAllowedRemedysUserTaskRemedyReqBody build(){
+        return new QueryUserAllowedRemedysUserTaskRemedyReqBody(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

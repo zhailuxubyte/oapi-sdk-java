@@ -12,114 +12,120 @@
  */
 
 package com.lark.oapi.service.helpdesk.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.helpdesk.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class FaqUpdateInfo {
-
-  @SerializedName("category_id")
-  private String categoryId;
-  @SerializedName("question")
-  private String question;
-  @SerializedName("answer")
-  private String answer;
-  @SerializedName("answer_richtext")
-  private String answerRichtext;
-  @SerializedName("tags")
-  private String[] tags;
-
-  // builder 开始
-  public FaqUpdateInfo() {
-  }
-
-  public FaqUpdateInfo(Builder builder) {
-    this.categoryId = builder.categoryId;
-    this.question = builder.question;
-    this.answer = builder.answer;
-    this.answerRichtext = builder.answerRichtext;
-    this.tags = builder.tags;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getCategoryId() {
-    return this.categoryId;
-  }
-
-  public void setCategoryId(String categoryId) {
-    this.categoryId = categoryId;
-  }
-
-  public String getQuestion() {
-    return this.question;
-  }
-
-  public void setQuestion(String question) {
-    this.question = question;
-  }
-
-  public String getAnswer() {
-    return this.answer;
-  }
-
-  public void setAnswer(String answer) {
-    this.answer = answer;
-  }
-
-  public String getAnswerRichtext() {
-    return this.answerRichtext;
-  }
-
-  public void setAnswerRichtext(String answerRichtext) {
-    this.answerRichtext = answerRichtext;
-  }
-
-  public String[] getTags() {
-    return this.tags;
-  }
-
-  public void setTags(String[] tags) {
-    this.tags = tags;
-  }
-
-  public static class Builder {
-
+    @SerializedName("category_id")
     private String categoryId;
+    @SerializedName("question")
     private String question;
+    @SerializedName("answer")
     private String answer;
+    @SerializedName("answer_richtext")
     private String answerRichtext;
+    @SerializedName("tags")
     private String[] tags;
-
-    public Builder categoryId(String categoryId) {
-      this.categoryId = categoryId;
-      return this;
+    public String getCategoryId() {
+        return this.categoryId;
     }
 
-    public Builder question(String question) {
-      this.question = question;
-      return this;
+    public void setCategoryId(String categoryId) {
+        this.categoryId = categoryId;
     }
 
-    public Builder answer(String answer) {
-      this.answer = answer;
-      return this;
+    public String getQuestion() {
+        return this.question;
     }
 
-    public Builder answerRichtext(String answerRichtext) {
-      this.answerRichtext = answerRichtext;
-      return this;
+    public void setQuestion(String question) {
+        this.question = question;
     }
 
-    public Builder tags(String[] tags) {
-      this.tags = tags;
-      return this;
+    public String getAnswer() {
+        return this.answer;
+    }
+
+    public void setAnswer(String answer) {
+        this.answer = answer;
+    }
+
+    public String getAnswerRichtext() {
+        return this.answerRichtext;
+    }
+
+    public void setAnswerRichtext(String answerRichtext) {
+        this.answerRichtext = answerRichtext;
+    }
+
+    public String[] getTags() {
+        return this.tags;
+    }
+
+    public void setTags(String[] tags) {
+        this.tags = tags;
     }
 
 
-    public FaqUpdateInfo build() {
-      return new FaqUpdateInfo(this);
-    }
+// builder 开始
+  public FaqUpdateInfo(){}
+
+  public FaqUpdateInfo(Builder builder){
+      this.categoryId = builder.categoryId;
+      this.question = builder.question;
+      this.answer = builder.answer;
+      this.answerRichtext = builder.answerRichtext;
+      this.tags = builder.tags;
   }
+
+    public static class Builder {
+        private String categoryId;
+        private String question;
+        private String answer;
+        private String answerRichtext;
+        private String[] tags;
+        public Builder categoryId(String categoryId) {
+             this.categoryId = categoryId;
+             return this;
+        }
+    
+        public Builder question(String question) {
+             this.question = question;
+             return this;
+        }
+    
+        public Builder answer(String answer) {
+             this.answer = answer;
+             return this;
+        }
+    
+        public Builder answerRichtext(String answerRichtext) {
+             this.answerRichtext = answerRichtext;
+             return this;
+        }
+    
+        public Builder tags(String[] tags) {
+             this.tags = tags;
+             return this;
+        }
+    
+    
+    public FaqUpdateInfo build(){
+        return new FaqUpdateInfo(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

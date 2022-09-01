@@ -12,63 +12,69 @@
  */
 
 package com.lark.oapi.service.application.v6.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.application.v6.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class PlusMenu {
-
-  @SerializedName("pc_app_link")
-  private String pcAppLink;
-  @SerializedName("mobile_app_link")
-  private String mobileAppLink;
-
-  // builder 开始
-  public PlusMenu() {
-  }
-
-  public PlusMenu(Builder builder) {
-    this.pcAppLink = builder.pcAppLink;
-    this.mobileAppLink = builder.mobileAppLink;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getPcAppLink() {
-    return this.pcAppLink;
-  }
-
-  public void setPcAppLink(String pcAppLink) {
-    this.pcAppLink = pcAppLink;
-  }
-
-  public String getMobileAppLink() {
-    return this.mobileAppLink;
-  }
-
-  public void setMobileAppLink(String mobileAppLink) {
-    this.mobileAppLink = mobileAppLink;
-  }
-
-  public static class Builder {
-
+    @SerializedName("pc_app_link")
     private String pcAppLink;
+    @SerializedName("mobile_app_link")
     private String mobileAppLink;
-
-    public Builder pcAppLink(String pcAppLink) {
-      this.pcAppLink = pcAppLink;
-      return this;
+    public String getPcAppLink() {
+        return this.pcAppLink;
     }
 
-    public Builder mobileAppLink(String mobileAppLink) {
-      this.mobileAppLink = mobileAppLink;
-      return this;
+    public void setPcAppLink(String pcAppLink) {
+        this.pcAppLink = pcAppLink;
+    }
+
+    public String getMobileAppLink() {
+        return this.mobileAppLink;
+    }
+
+    public void setMobileAppLink(String mobileAppLink) {
+        this.mobileAppLink = mobileAppLink;
     }
 
 
-    public PlusMenu build() {
-      return new PlusMenu(this);
-    }
+// builder 开始
+  public PlusMenu(){}
+
+  public PlusMenu(Builder builder){
+      this.pcAppLink = builder.pcAppLink;
+      this.mobileAppLink = builder.mobileAppLink;
   }
+
+    public static class Builder {
+        private String pcAppLink;
+        private String mobileAppLink;
+        public Builder pcAppLink(String pcAppLink) {
+             this.pcAppLink = pcAppLink;
+             return this;
+        }
+    
+        public Builder mobileAppLink(String mobileAppLink) {
+             this.mobileAppLink = mobileAppLink;
+             return this;
+        }
+    
+    
+    public PlusMenu build(){
+        return new PlusMenu(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

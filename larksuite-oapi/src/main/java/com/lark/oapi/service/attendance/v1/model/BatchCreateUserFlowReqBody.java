@@ -12,46 +12,52 @@
  */
 
 package com.lark.oapi.service.attendance.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.attendance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class BatchCreateUserFlowReqBody {
-
-  @SerializedName("flow_records")
-  private UserFlow[] flowRecords;
-
-  // builder 开始
-  public BatchCreateUserFlowReqBody() {
-  }
-
-  public BatchCreateUserFlowReqBody(Builder builder) {
-    this.flowRecords = builder.flowRecords;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public UserFlow[] getFlowRecords() {
-    return this.flowRecords;
-  }
-
-  public void setFlowRecords(UserFlow[] flowRecords) {
-    this.flowRecords = flowRecords;
-  }
-
-  public static class Builder {
-
+    @SerializedName("flow_records")
     private UserFlow[] flowRecords;
+    public UserFlow[] getFlowRecords() {
+        return this.flowRecords;
+    }
 
-    public Builder flowRecords(UserFlow[] flowRecords) {
-      this.flowRecords = flowRecords;
-      return this;
+    public void setFlowRecords(UserFlow[] flowRecords) {
+        this.flowRecords = flowRecords;
     }
 
 
-    public BatchCreateUserFlowReqBody build() {
-      return new BatchCreateUserFlowReqBody(this);
-    }
+// builder 开始
+  public BatchCreateUserFlowReqBody(){}
+
+  public BatchCreateUserFlowReqBody(Builder builder){
+      this.flowRecords = builder.flowRecords;
   }
+
+    public static class Builder {
+        private UserFlow[] flowRecords;
+        public Builder flowRecords(UserFlow[] flowRecords) {
+             this.flowRecords = flowRecords;
+             return this;
+        }
+    
+    
+    public BatchCreateUserFlowReqBody build(){
+        return new BatchCreateUserFlowReqBody(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

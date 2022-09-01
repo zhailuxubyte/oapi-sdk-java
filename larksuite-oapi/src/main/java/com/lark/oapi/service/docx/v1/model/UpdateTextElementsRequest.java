@@ -12,46 +12,52 @@
  */
 
 package com.lark.oapi.service.docx.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.docx.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class UpdateTextElementsRequest {
-
-  @SerializedName("elements")
-  private TextElement[] elements;
-
-  // builder 开始
-  public UpdateTextElementsRequest() {
-  }
-
-  public UpdateTextElementsRequest(Builder builder) {
-    this.elements = builder.elements;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public TextElement[] getElements() {
-    return this.elements;
-  }
-
-  public void setElements(TextElement[] elements) {
-    this.elements = elements;
-  }
-
-  public static class Builder {
-
+    @SerializedName("elements")
     private TextElement[] elements;
+    public TextElement[] getElements() {
+        return this.elements;
+    }
 
-    public Builder elements(TextElement[] elements) {
-      this.elements = elements;
-      return this;
+    public void setElements(TextElement[] elements) {
+        this.elements = elements;
     }
 
 
-    public UpdateTextElementsRequest build() {
-      return new UpdateTextElementsRequest(this);
-    }
+// builder 开始
+  public UpdateTextElementsRequest(){}
+
+  public UpdateTextElementsRequest(Builder builder){
+      this.elements = builder.elements;
   }
+
+    public static class Builder {
+        private TextElement[] elements;
+        public Builder elements(TextElement[] elements) {
+             this.elements = elements;
+             return this;
+        }
+    
+    
+    public UpdateTextElementsRequest build(){
+        return new UpdateTextElementsRequest(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

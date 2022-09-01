@@ -12,63 +12,68 @@
  */
 
 package com.lark.oapi.service.face_detection.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class Point {
-
-  @SerializedName("x")
-  private Double x;
-  @SerializedName("y")
-  private Double y;
-
-  // builder 开始
-  public Point() {
-  }
-
-  public Point(Builder builder) {
-    this.x = builder.x;
-    this.y = builder.y;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Double getX() {
-    return this.x;
-  }
-
-  public void setX(Double x) {
-    this.x = x;
-  }
-
-  public Double getY() {
-    return this.y;
-  }
-
-  public void setY(Double y) {
-    this.y = y;
-  }
-
-  public static class Builder {
-
+    @SerializedName("x")
     private Double x;
+    @SerializedName("y")
     private Double y;
-
-    public Builder x(Double x) {
-      this.x = x;
-      return this;
+    public Double getX() {
+        return this.x;
     }
 
-    public Builder y(Double y) {
-      this.y = y;
-      return this;
+    public void setX(Double x) {
+        this.x = x;
+    }
+
+    public Double getY() {
+        return this.y;
+    }
+
+    public void setY(Double y) {
+        this.y = y;
     }
 
 
-    public Point build() {
-      return new Point(this);
-    }
+// builder 开始
+  public Point(){}
+
+  public Point(Builder builder){
+      this.x = builder.x;
+      this.y = builder.y;
   }
+
+    public static class Builder {
+        private Double x;
+        private Double y;
+        public Builder x(Double x) {
+             this.x = x;
+             return this;
+        }
+    
+        public Builder y(Double y) {
+             this.y = y;
+             return this;
+        }
+    
+    
+    public Point build(){
+        return new Point(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

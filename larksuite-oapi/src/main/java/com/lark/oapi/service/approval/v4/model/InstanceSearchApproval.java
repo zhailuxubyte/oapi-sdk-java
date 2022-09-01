@@ -12,97 +12,103 @@
  */
 
 package com.lark.oapi.service.approval.v4.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.approval.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class InstanceSearchApproval {
-
-  @SerializedName("code")
-  private String code;
-  @SerializedName("name")
-  private String name;
-  @SerializedName("is_external")
-  private Boolean isExternal;
-  @SerializedName("external")
-  private InstanceSearchApprovalExternal external;
-
-  // builder 开始
-  public InstanceSearchApproval() {
-  }
-
-  public InstanceSearchApproval(Builder builder) {
-    this.code = builder.code;
-    this.name = builder.name;
-    this.isExternal = builder.isExternal;
-    this.external = builder.external;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getCode() {
-    return this.code;
-  }
-
-  public void setCode(String code) {
-    this.code = code;
-  }
-
-  public String getName() {
-    return this.name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public Boolean getIsExternal() {
-    return this.isExternal;
-  }
-
-  public void setIsExternal(Boolean isExternal) {
-    this.isExternal = isExternal;
-  }
-
-  public InstanceSearchApprovalExternal getExternal() {
-    return this.external;
-  }
-
-  public void setExternal(InstanceSearchApprovalExternal external) {
-    this.external = external;
-  }
-
-  public static class Builder {
-
+    @SerializedName("code")
     private String code;
+    @SerializedName("name")
     private String name;
+    @SerializedName("is_external")
     private Boolean isExternal;
+    @SerializedName("external")
     private InstanceSearchApprovalExternal external;
-
-    public Builder code(String code) {
-      this.code = code;
-      return this;
+    public String getCode() {
+        return this.code;
     }
 
-    public Builder name(String name) {
-      this.name = name;
-      return this;
+    public void setCode(String code) {
+        this.code = code;
     }
 
-    public Builder isExternal(Boolean isExternal) {
-      this.isExternal = isExternal;
-      return this;
+    public String getName() {
+        return this.name;
     }
 
-    public Builder external(InstanceSearchApprovalExternal external) {
-      this.external = external;
-      return this;
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Boolean getIsExternal() {
+        return this.isExternal;
+    }
+
+    public void setIsExternal(Boolean isExternal) {
+        this.isExternal = isExternal;
+    }
+
+    public InstanceSearchApprovalExternal getExternal() {
+        return this.external;
+    }
+
+    public void setExternal(InstanceSearchApprovalExternal external) {
+        this.external = external;
     }
 
 
-    public InstanceSearchApproval build() {
-      return new InstanceSearchApproval(this);
-    }
+// builder 开始
+  public InstanceSearchApproval(){}
+
+  public InstanceSearchApproval(Builder builder){
+      this.code = builder.code;
+      this.name = builder.name;
+      this.isExternal = builder.isExternal;
+      this.external = builder.external;
   }
+
+    public static class Builder {
+        private String code;
+        private String name;
+        private Boolean isExternal;
+        private InstanceSearchApprovalExternal external;
+        public Builder code(String code) {
+             this.code = code;
+             return this;
+        }
+    
+        public Builder name(String name) {
+             this.name = name;
+             return this;
+        }
+    
+        public Builder isExternal(Boolean isExternal) {
+             this.isExternal = isExternal;
+             return this;
+        }
+    
+        public Builder external(InstanceSearchApprovalExternal external) {
+             this.external = external;
+             return this;
+        }
+    
+    
+    public InstanceSearchApproval build(){
+        return new InstanceSearchApproval(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

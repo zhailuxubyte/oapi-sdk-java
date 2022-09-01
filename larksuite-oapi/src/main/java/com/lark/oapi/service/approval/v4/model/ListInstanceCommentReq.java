@@ -12,125 +12,128 @@
  */
 
 package com.lark.oapi.service.approval.v4.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.approval.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class ListInstanceCommentReq {
-
-  @Query
-  @SerializedName("user_id_type")
-  private String userIdType;
-  @Query
-  @SerializedName("user_id")
-  private String userId;
-  @Query
-  @SerializedName("page_token")
-  private String pageToken;
-  @Query
-  @SerializedName("page_size")
-  private Integer pageSize;
-  @Path
-  @SerializedName("instance_id")
-  private String instanceId;
-
-  // builder 开始
-  public ListInstanceCommentReq() {
-  }
-
-  public ListInstanceCommentReq(Builder builder) {
-    this.userIdType = builder.userIdType;
-    this.userId = builder.userId;
-    this.pageToken = builder.pageToken;
-    this.pageSize = builder.pageSize;
-    this.instanceId = builder.instanceId;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getUserIdType() {
-    return this.userIdType;
-  }
-
-  public void setUserIdType(String userIdType) {
-    this.userIdType = userIdType;
-  }
-
-  public String getUserId() {
-    return this.userId;
-  }
-
-  public void setUserId(String userId) {
-    this.userId = userId;
-  }
-
-  public String getPageToken() {
-    return this.pageToken;
-  }
-
-  public void setPageToken(String pageToken) {
-    this.pageToken = pageToken;
-  }
-
-  public Integer getPageSize() {
-    return this.pageSize;
-  }
-
-  public void setPageSize(Integer pageSize) {
-    this.pageSize = pageSize;
-  }
-
-  public String getInstanceId() {
-    return this.instanceId;
-  }
-
-  public void setInstanceId(String instanceId) {
-    this.instanceId = instanceId;
-  }
-
-  public static class Builder {
-
+    @Query
+    @SerializedName("user_id_type")
     private String userIdType;
+    @Query
+    @SerializedName("user_id")
     private String userId;
+    @Query
+    @SerializedName("page_token")
     private String pageToken;
+    @Query
+    @SerializedName("page_size")
     private Integer pageSize;
+    public String getUserIdType() {
+        return this.userIdType;
+    }
+
+    public void setUserIdType(String userIdType) {
+        this.userIdType = userIdType;
+    }
+
+    public String getUserId() {
+        return this.userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    public String getPageToken() {
+        return this.pageToken;
+    }
+
+    public void setPageToken(String pageToken) {
+        this.pageToken = pageToken;
+    }
+
+    public Integer getPageSize() {
+        return this.pageSize;
+    }
+
+    public void setPageSize(Integer pageSize) {
+        this.pageSize = pageSize;
+    }
+
+    @Path
+    @SerializedName("instance_id")
     private String instanceId;
-
-    public Builder userIdType(String userIdType) {
-      this.userIdType = userIdType;
-      return this;
+    public String getInstanceId() {
+        return this.instanceId;
     }
 
-    public Builder userIdType(com.lark.oapi.service.approval.v4.enums.UserIdTypeEnum userIdType) {
-      this.userIdType = userIdType.getValue();
-      return this;
+    public void setInstanceId(String instanceId) {
+        this.instanceId = instanceId;
     }
 
-    public Builder userId(String userId) {
-      this.userId = userId;
-      return this;
-    }
 
-    public Builder pageToken(String pageToken) {
-      this.pageToken = pageToken;
-      return this;
-    }
+// builder 开始
+  public ListInstanceCommentReq(){}
 
-    public Builder pageSize(Integer pageSize) {
-      this.pageSize = pageSize;
-      return this;
-    }
-
-    public Builder instanceId(String instanceId) {
-      this.instanceId = instanceId;
-      return this;
-    }
-
-    public ListInstanceCommentReq build() {
-      return new ListInstanceCommentReq(this);
-    }
+  public ListInstanceCommentReq(Builder builder){
+       this.userIdType = builder.userIdType;
+       this.userId = builder.userId;
+       this.pageToken = builder.pageToken;
+       this.pageSize = builder.pageSize;
+       this.instanceId = builder.instanceId;
   }
+
+    public static class Builder {
+        private String userIdType;
+        private String userId;
+        private String pageToken;
+        private Integer pageSize;
+    
+           public Builder userIdType(String userIdType) {
+                this.userIdType = userIdType;
+                return this;
+           }
+          public Builder userIdType(com.lark.oapi.service.approval.v4.enums.UserIdTypeEnum userIdType) {
+               this.userIdType = userIdType.getValue();
+               return this;
+          }
+    
+           public Builder userId(String userId) {
+                this.userId = userId;
+                return this;
+           }
+    
+           public Builder pageToken(String pageToken) {
+                this.pageToken = pageToken;
+                return this;
+           }
+    
+           public Builder pageSize(Integer pageSize) {
+                this.pageSize = pageSize;
+                return this;
+           }
+    
+        private String instanceId;
+          public Builder instanceId(String instanceId) {
+               this.instanceId = instanceId;
+               return this;
+          }
+    
+    public ListInstanceCommentReq build(){
+        return new ListInstanceCommentReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

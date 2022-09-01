@@ -12,131 +12,137 @@
  */
 
 package com.lark.oapi.service.approval.v4.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.approval.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class ExternalTaskList {
-
-  @SerializedName("instance_id")
-  private String instanceId;
-  @SerializedName("approval_id")
-  private String approvalId;
-  @SerializedName("approval_code")
-  private String approvalCode;
-  @SerializedName("status")
-  private String status;
-  @SerializedName("update_time")
-  private String updateTime;
-  @SerializedName("tasks")
-  private ExternalTaskItem[] tasks;
-
-  // builder 开始
-  public ExternalTaskList() {
-  }
-
-  public ExternalTaskList(Builder builder) {
-    this.instanceId = builder.instanceId;
-    this.approvalId = builder.approvalId;
-    this.approvalCode = builder.approvalCode;
-    this.status = builder.status;
-    this.updateTime = builder.updateTime;
-    this.tasks = builder.tasks;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getInstanceId() {
-    return this.instanceId;
-  }
-
-  public void setInstanceId(String instanceId) {
-    this.instanceId = instanceId;
-  }
-
-  public String getApprovalId() {
-    return this.approvalId;
-  }
-
-  public void setApprovalId(String approvalId) {
-    this.approvalId = approvalId;
-  }
-
-  public String getApprovalCode() {
-    return this.approvalCode;
-  }
-
-  public void setApprovalCode(String approvalCode) {
-    this.approvalCode = approvalCode;
-  }
-
-  public String getStatus() {
-    return this.status;
-  }
-
-  public void setStatus(String status) {
-    this.status = status;
-  }
-
-  public String getUpdateTime() {
-    return this.updateTime;
-  }
-
-  public void setUpdateTime(String updateTime) {
-    this.updateTime = updateTime;
-  }
-
-  public ExternalTaskItem[] getTasks() {
-    return this.tasks;
-  }
-
-  public void setTasks(ExternalTaskItem[] tasks) {
-    this.tasks = tasks;
-  }
-
-  public static class Builder {
-
+    @SerializedName("instance_id")
     private String instanceId;
+    @SerializedName("approval_id")
     private String approvalId;
+    @SerializedName("approval_code")
     private String approvalCode;
+    @SerializedName("status")
     private String status;
+    @SerializedName("update_time")
     private String updateTime;
+    @SerializedName("tasks")
     private ExternalTaskItem[] tasks;
-
-    public Builder instanceId(String instanceId) {
-      this.instanceId = instanceId;
-      return this;
+    public String getInstanceId() {
+        return this.instanceId;
     }
 
-    public Builder approvalId(String approvalId) {
-      this.approvalId = approvalId;
-      return this;
+    public void setInstanceId(String instanceId) {
+        this.instanceId = instanceId;
     }
 
-    public Builder approvalCode(String approvalCode) {
-      this.approvalCode = approvalCode;
-      return this;
+    public String getApprovalId() {
+        return this.approvalId;
     }
 
-    public Builder status(String status) {
-      this.status = status;
-      return this;
+    public void setApprovalId(String approvalId) {
+        this.approvalId = approvalId;
     }
 
-    public Builder updateTime(String updateTime) {
-      this.updateTime = updateTime;
-      return this;
+    public String getApprovalCode() {
+        return this.approvalCode;
     }
 
-    public Builder tasks(ExternalTaskItem[] tasks) {
-      this.tasks = tasks;
-      return this;
+    public void setApprovalCode(String approvalCode) {
+        this.approvalCode = approvalCode;
+    }
+
+    public String getStatus() {
+        return this.status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getUpdateTime() {
+        return this.updateTime;
+    }
+
+    public void setUpdateTime(String updateTime) {
+        this.updateTime = updateTime;
+    }
+
+    public ExternalTaskItem[] getTasks() {
+        return this.tasks;
+    }
+
+    public void setTasks(ExternalTaskItem[] tasks) {
+        this.tasks = tasks;
     }
 
 
-    public ExternalTaskList build() {
-      return new ExternalTaskList(this);
-    }
+// builder 开始
+  public ExternalTaskList(){}
+
+  public ExternalTaskList(Builder builder){
+      this.instanceId = builder.instanceId;
+      this.approvalId = builder.approvalId;
+      this.approvalCode = builder.approvalCode;
+      this.status = builder.status;
+      this.updateTime = builder.updateTime;
+      this.tasks = builder.tasks;
   }
+
+    public static class Builder {
+        private String instanceId;
+        private String approvalId;
+        private String approvalCode;
+        private String status;
+        private String updateTime;
+        private ExternalTaskItem[] tasks;
+        public Builder instanceId(String instanceId) {
+             this.instanceId = instanceId;
+             return this;
+        }
+    
+        public Builder approvalId(String approvalId) {
+             this.approvalId = approvalId;
+             return this;
+        }
+    
+        public Builder approvalCode(String approvalCode) {
+             this.approvalCode = approvalCode;
+             return this;
+        }
+    
+        public Builder status(String status) {
+             this.status = status;
+             return this;
+        }
+    
+        public Builder updateTime(String updateTime) {
+             this.updateTime = updateTime;
+             return this;
+        }
+    
+        public Builder tasks(ExternalTaskItem[] tasks) {
+             this.tasks = tasks;
+             return this;
+        }
+    
+    
+    public ExternalTaskList build(){
+        return new ExternalTaskList(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

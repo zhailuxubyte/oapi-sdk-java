@@ -12,119 +12,124 @@
  */
 
 package com.lark.oapi.service.drive.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.drive.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class MediaUploadInfo {
-
-  @SerializedName("file_name")
-  private String fileName;
-  @SerializedName("parent_type")
-  private String parentType;
-  @SerializedName("parent_node")
-  private String parentNode;
-  @SerializedName("size")
-  private Integer size;
-  @SerializedName("extra")
-  private String extra;
-
-  // builder 开始
-  public MediaUploadInfo() {
-  }
-
-  public MediaUploadInfo(Builder builder) {
-    this.fileName = builder.fileName;
-    this.parentType = builder.parentType;
-    this.parentNode = builder.parentNode;
-    this.size = builder.size;
-    this.extra = builder.extra;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getFileName() {
-    return this.fileName;
-  }
-
-  public void setFileName(String fileName) {
-    this.fileName = fileName;
-  }
-
-  public String getParentType() {
-    return this.parentType;
-  }
-
-  public void setParentType(String parentType) {
-    this.parentType = parentType;
-  }
-
-  public String getParentNode() {
-    return this.parentNode;
-  }
-
-  public void setParentNode(String parentNode) {
-    this.parentNode = parentNode;
-  }
-
-  public Integer getSize() {
-    return this.size;
-  }
-
-  public void setSize(Integer size) {
-    this.size = size;
-  }
-
-  public String getExtra() {
-    return this.extra;
-  }
-
-  public void setExtra(String extra) {
-    this.extra = extra;
-  }
-
-  public static class Builder {
-
+    @SerializedName("file_name")
     private String fileName;
+    @SerializedName("parent_type")
     private String parentType;
+    @SerializedName("parent_node")
     private String parentNode;
+    @SerializedName("size")
     private Integer size;
+    @SerializedName("extra")
     private String extra;
-
-    public Builder fileName(String fileName) {
-      this.fileName = fileName;
-      return this;
+    public String getFileName() {
+        return this.fileName;
     }
 
-    public Builder parentType(String parentType) {
-      this.parentType = parentType;
-      return this;
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
     }
 
-    public Builder parentType(com.lark.oapi.service.drive.v1.enums.ParentTypeEnum parentType) {
-      this.parentType = parentType.getValue();
-      return this;
+    public String getParentType() {
+        return this.parentType;
     }
 
-    public Builder parentNode(String parentNode) {
-      this.parentNode = parentNode;
-      return this;
+    public void setParentType(String parentType) {
+        this.parentType = parentType;
     }
 
-    public Builder size(Integer size) {
-      this.size = size;
-      return this;
+    public String getParentNode() {
+        return this.parentNode;
     }
 
-    public Builder extra(String extra) {
-      this.extra = extra;
-      return this;
+    public void setParentNode(String parentNode) {
+        this.parentNode = parentNode;
+    }
+
+    public Integer getSize() {
+        return this.size;
+    }
+
+    public void setSize(Integer size) {
+        this.size = size;
+    }
+
+    public String getExtra() {
+        return this.extra;
+    }
+
+    public void setExtra(String extra) {
+        this.extra = extra;
     }
 
 
-    public MediaUploadInfo build() {
-      return new MediaUploadInfo(this);
-    }
+// builder 开始
+  public MediaUploadInfo(){}
+
+  public MediaUploadInfo(Builder builder){
+      this.fileName = builder.fileName;
+      this.parentType = builder.parentType;
+      this.parentNode = builder.parentNode;
+      this.size = builder.size;
+      this.extra = builder.extra;
   }
+
+    public static class Builder {
+        private String fileName;
+        private String parentType;
+        private String parentNode;
+        private Integer size;
+        private String extra;
+        public Builder fileName(String fileName) {
+             this.fileName = fileName;
+             return this;
+        }
+    
+        public Builder parentType(String parentType) {
+             this.parentType = parentType;
+             return this;
+        }
+        public Builder parentType(com.lark.oapi.service.drive.v1.enums.ParentTypeEnum parentType) {
+             this.parentType = parentType.getValue();
+             return this;
+        }
+    
+        public Builder parentNode(String parentNode) {
+             this.parentNode = parentNode;
+             return this;
+        }
+    
+        public Builder size(Integer size) {
+             this.size = size;
+             return this;
+        }
+    
+        public Builder extra(String extra) {
+             this.extra = extra;
+             return this;
+        }
+    
+    
+    public MediaUploadInfo build(){
+        return new MediaUploadInfo(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

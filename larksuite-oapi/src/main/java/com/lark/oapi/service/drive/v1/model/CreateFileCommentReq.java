@@ -12,116 +12,116 @@
  */
 
 package com.lark.oapi.service.drive.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.drive.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class CreateFileCommentReq {
-
-  @Query
-  @SerializedName("file_type")
-  private String fileType;
-  @Query
-  @SerializedName("user_id_type")
-  private String userIdType;
-  @Path
-  @SerializedName("file_token")
-  private String fileToken;
-  @Body
-  private FileComment body;
-
-  // builder 开始
-  public CreateFileCommentReq() {
-  }
-
-  public CreateFileCommentReq(Builder builder) {
-    this.fileType = builder.fileType;
-    this.userIdType = builder.userIdType;
-    this.fileToken = builder.fileToken;
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getFileType() {
-    return this.fileType;
-  }
-
-  public void setFileType(String fileType) {
-    this.fileType = fileType;
-  }
-
-  public String getUserIdType() {
-    return this.userIdType;
-  }
-
-  public void setUserIdType(String userIdType) {
-    this.userIdType = userIdType;
-  }
-
-  public String getFileToken() {
-    return this.fileToken;
-  }
-
-  public void setFileToken(String fileToken) {
-    this.fileToken = fileToken;
-  }
-
-  public FileComment getFileComment() {
-    return this.body;
-  }
-
-  public void setFileComment(FileComment body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
+    @Query
+    @SerializedName("file_type")
     private String fileType;
+    @Query
+    @SerializedName("user_id_type")
     private String userIdType;
+    public String getFileType() {
+        return this.fileType;
+    }
+
+    public void setFileType(String fileType) {
+        this.fileType = fileType;
+    }
+
+    public String getUserIdType() {
+        return this.userIdType;
+    }
+
+    public void setUserIdType(String userIdType) {
+        this.userIdType = userIdType;
+    }
+
+    @Path
+    @SerializedName("file_token")
     private String fileToken;
+    public String getFileToken() {
+        return this.fileToken;
+    }
+
+    public void setFileToken(String fileToken) {
+        this.fileToken = fileToken;
+    }
+
+    @Body
     private FileComment body;
 
-    public Builder fileType(String fileType) {
-      this.fileType = fileType;
-      return this;
-    }
-
-    public Builder fileType(com.lark.oapi.service.drive.v1.enums.FileTypeEnum fileType) {
-      this.fileType = fileType.getValue();
-      return this;
-    }
-
-    public Builder userIdType(String userIdType) {
-      this.userIdType = userIdType;
-      return this;
-    }
-
-    public Builder userIdType(com.lark.oapi.service.drive.v1.enums.UserIdTypeEnum userIdType) {
-      this.userIdType = userIdType.getValue();
-      return this;
-    }
-
-    public Builder fileToken(String fileToken) {
-      this.fileToken = fileToken;
-      return this;
-    }
-
     public FileComment getFileComment() {
-      return this.body;
+        return this.body;
     }
 
-    public Builder fileComment(FileComment body) {
-      this.body = body;
-      return this;
+    public void setFileComment(FileComment body) {
+        this.body = body;
     }
 
-    public CreateFileCommentReq build() {
-      return new CreateFileCommentReq(this);
-    }
+// builder 开始
+  public CreateFileCommentReq(){}
+
+  public CreateFileCommentReq(Builder builder){
+       this.fileType = builder.fileType;
+       this.userIdType = builder.userIdType;
+       this.fileToken = builder.fileToken;
+        this.body = builder.body;
   }
+
+    public static class Builder {
+        private String fileType;
+        private String userIdType;
+    
+           public Builder fileType(String fileType) {
+                this.fileType = fileType;
+                return this;
+           }
+          public Builder fileType(com.lark.oapi.service.drive.v1.enums.FileTypeEnum fileType) {
+               this.fileType = fileType.getValue();
+               return this;
+          }
+    
+           public Builder userIdType(String userIdType) {
+                this.userIdType = userIdType;
+                return this;
+           }
+          public Builder userIdType(com.lark.oapi.service.drive.v1.enums.UserIdTypeEnum userIdType) {
+               this.userIdType = userIdType.getValue();
+               return this;
+          }
+    
+        private String fileToken;
+          public Builder fileToken(String fileToken) {
+               this.fileToken = fileToken;
+               return this;
+          }
+    
+        private FileComment body;
+    
+        public FileComment getFileComment() {
+            return this.body;
+        }
+        public Builder fileComment(FileComment body) {
+             this.body = body;
+             return this;
+        }
+    public CreateFileCommentReq build(){
+        return new CreateFileCommentReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

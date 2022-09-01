@@ -12,106 +12,110 @@
  */
 
 package com.lark.oapi.service.mail.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.mail.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class ListMailgroupReq {
-
-  @Query
-  @SerializedName("manager_user_id")
-  private String managerUserId;
-  @Query
-  @SerializedName("user_id_type")
-  private String userIdType;
-  @Query
-  @SerializedName("page_token")
-  private String pageToken;
-  @Query
-  @SerializedName("page_size")
-  private Integer pageSize;
-
-  // builder 开始
-  public ListMailgroupReq() {
-  }
-
-  public ListMailgroupReq(Builder builder) {
-    this.managerUserId = builder.managerUserId;
-    this.userIdType = builder.userIdType;
-    this.pageToken = builder.pageToken;
-    this.pageSize = builder.pageSize;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getManagerUserId() {
-    return this.managerUserId;
-  }
-
-  public void setManagerUserId(String managerUserId) {
-    this.managerUserId = managerUserId;
-  }
-
-  public String getUserIdType() {
-    return this.userIdType;
-  }
-
-  public void setUserIdType(String userIdType) {
-    this.userIdType = userIdType;
-  }
-
-  public String getPageToken() {
-    return this.pageToken;
-  }
-
-  public void setPageToken(String pageToken) {
-    this.pageToken = pageToken;
-  }
-
-  public Integer getPageSize() {
-    return this.pageSize;
-  }
-
-  public void setPageSize(Integer pageSize) {
-    this.pageSize = pageSize;
-  }
-
-  public static class Builder {
-
+    @Query
+    @SerializedName("manager_user_id")
     private String managerUserId;
+    @Query
+    @SerializedName("user_id_type")
     private String userIdType;
+    @Query
+    @SerializedName("page_token")
     private String pageToken;
+    @Query
+    @SerializedName("page_size")
     private Integer pageSize;
-
-    public Builder managerUserId(String managerUserId) {
-      this.managerUserId = managerUserId;
-      return this;
+    public String getManagerUserId() {
+        return this.managerUserId;
     }
 
-    public Builder userIdType(String userIdType) {
-      this.userIdType = userIdType;
-      return this;
+    public void setManagerUserId(String managerUserId) {
+        this.managerUserId = managerUserId;
     }
 
-    public Builder userIdType(com.lark.oapi.service.mail.v1.enums.UserIdTypeEnum userIdType) {
-      this.userIdType = userIdType.getValue();
-      return this;
+    public String getUserIdType() {
+        return this.userIdType;
     }
 
-    public Builder pageToken(String pageToken) {
-      this.pageToken = pageToken;
-      return this;
+    public void setUserIdType(String userIdType) {
+        this.userIdType = userIdType;
     }
 
-    public Builder pageSize(Integer pageSize) {
-      this.pageSize = pageSize;
-      return this;
+    public String getPageToken() {
+        return this.pageToken;
     }
 
-    public ListMailgroupReq build() {
-      return new ListMailgroupReq(this);
+    public void setPageToken(String pageToken) {
+        this.pageToken = pageToken;
     }
+
+    public Integer getPageSize() {
+        return this.pageSize;
+    }
+
+    public void setPageSize(Integer pageSize) {
+        this.pageSize = pageSize;
+    }
+
+
+// builder 开始
+  public ListMailgroupReq(){}
+
+  public ListMailgroupReq(Builder builder){
+       this.managerUserId = builder.managerUserId;
+       this.userIdType = builder.userIdType;
+       this.pageToken = builder.pageToken;
+       this.pageSize = builder.pageSize;
   }
+
+    public static class Builder {
+        private String managerUserId;
+        private String userIdType;
+        private String pageToken;
+        private Integer pageSize;
+    
+           public Builder managerUserId(String managerUserId) {
+                this.managerUserId = managerUserId;
+                return this;
+           }
+    
+           public Builder userIdType(String userIdType) {
+                this.userIdType = userIdType;
+                return this;
+           }
+          public Builder userIdType(com.lark.oapi.service.mail.v1.enums.UserIdTypeEnum userIdType) {
+               this.userIdType = userIdType.getValue();
+               return this;
+          }
+    
+           public Builder pageToken(String pageToken) {
+                this.pageToken = pageToken;
+                return this;
+           }
+    
+           public Builder pageSize(Integer pageSize) {
+                this.pageSize = pageSize;
+                return this;
+           }
+    
+    public ListMailgroupReq build(){
+        return new ListMailgroupReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

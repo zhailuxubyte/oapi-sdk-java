@@ -12,107 +12,111 @@
  */
 
 package com.lark.oapi.service.application.v6.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.application.v6.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class OverviewApplicationAppUsageReqBody {
-
-  @SerializedName("date")
-  private String date;
-  @SerializedName("cycle_type")
-  private Integer cycleType;
-  @SerializedName("department_id")
-  private String departmentId;
-  @SerializedName("ability")
-  private String ability;
-
-  // builder 开始
-  public OverviewApplicationAppUsageReqBody() {
-  }
-
-  public OverviewApplicationAppUsageReqBody(Builder builder) {
-    this.date = builder.date;
-    this.cycleType = builder.cycleType;
-    this.departmentId = builder.departmentId;
-    this.ability = builder.ability;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getDate() {
-    return this.date;
-  }
-
-  public void setDate(String date) {
-    this.date = date;
-  }
-
-  public Integer getCycleType() {
-    return this.cycleType;
-  }
-
-  public void setCycleType(Integer cycleType) {
-    this.cycleType = cycleType;
-  }
-
-  public String getDepartmentId() {
-    return this.departmentId;
-  }
-
-  public void setDepartmentId(String departmentId) {
-    this.departmentId = departmentId;
-  }
-
-  public String getAbility() {
-    return this.ability;
-  }
-
-  public void setAbility(String ability) {
-    this.ability = ability;
-  }
-
-  public static class Builder {
-
+    @SerializedName("date")
     private String date;
+    @SerializedName("cycle_type")
     private Integer cycleType;
+    @SerializedName("department_id")
     private String departmentId;
+    @SerializedName("ability")
     private String ability;
-
-    public Builder date(String date) {
-      this.date = date;
-      return this;
+    public String getDate() {
+        return this.date;
     }
 
-    public Builder cycleType(Integer cycleType) {
-      this.cycleType = cycleType;
-      return this;
+    public void setDate(String date) {
+        this.date = date;
     }
 
-    public Builder cycleType(com.lark.oapi.service.application.v6.enums.CycleTypeEnum cycleType) {
-      this.cycleType = cycleType.getValue();
-      return this;
+    public Integer getCycleType() {
+        return this.cycleType;
     }
 
-    public Builder departmentId(String departmentId) {
-      this.departmentId = departmentId;
-      return this;
+    public void setCycleType(Integer cycleType) {
+        this.cycleType = cycleType;
     }
 
-    public Builder ability(String ability) {
-      this.ability = ability;
-      return this;
+    public String getDepartmentId() {
+        return this.departmentId;
     }
 
-    public Builder ability(com.lark.oapi.service.application.v6.enums.AbilityEnum ability) {
-      this.ability = ability.getValue();
-      return this;
+    public void setDepartmentId(String departmentId) {
+        this.departmentId = departmentId;
+    }
+
+    public String getAbility() {
+        return this.ability;
+    }
+
+    public void setAbility(String ability) {
+        this.ability = ability;
     }
 
 
-    public OverviewApplicationAppUsageReqBody build() {
-      return new OverviewApplicationAppUsageReqBody(this);
-    }
+// builder 开始
+  public OverviewApplicationAppUsageReqBody(){}
+
+  public OverviewApplicationAppUsageReqBody(Builder builder){
+      this.date = builder.date;
+      this.cycleType = builder.cycleType;
+      this.departmentId = builder.departmentId;
+      this.ability = builder.ability;
   }
+
+    public static class Builder {
+        private String date;
+        private Integer cycleType;
+        private String departmentId;
+        private String ability;
+        public Builder date(String date) {
+             this.date = date;
+             return this;
+        }
+    
+        public Builder cycleType(Integer cycleType) {
+             this.cycleType = cycleType;
+             return this;
+        }
+        public Builder cycleType(com.lark.oapi.service.application.v6.enums.CycleTypeEnum cycleType) {
+             this.cycleType = cycleType.getValue();
+             return this;
+        }
+    
+        public Builder departmentId(String departmentId) {
+             this.departmentId = departmentId;
+             return this;
+        }
+    
+        public Builder ability(String ability) {
+             this.ability = ability;
+             return this;
+        }
+        public Builder ability(com.lark.oapi.service.application.v6.enums.AbilityEnum ability) {
+             this.ability = ability.getValue();
+             return this;
+        }
+    
+    
+    public OverviewApplicationAppUsageReqBody build(){
+        return new OverviewApplicationAppUsageReqBody(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

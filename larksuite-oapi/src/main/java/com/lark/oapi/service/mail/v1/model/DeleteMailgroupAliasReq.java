@@ -12,65 +12,70 @@
  */
 
 package com.lark.oapi.service.mail.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.mail.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class DeleteMailgroupAliasReq {
-
-  @Path
-  @SerializedName("mailgroup_id")
-  private String mailgroupId;
-  @Path
-  @SerializedName("alias_id")
-  private String aliasId;
-
-  // builder 开始
-  public DeleteMailgroupAliasReq() {
-  }
-
-  public DeleteMailgroupAliasReq(Builder builder) {
-    this.mailgroupId = builder.mailgroupId;
-    this.aliasId = builder.aliasId;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getMailgroupId() {
-    return this.mailgroupId;
-  }
-
-  public void setMailgroupId(String mailgroupId) {
-    this.mailgroupId = mailgroupId;
-  }
-
-  public String getAliasId() {
-    return this.aliasId;
-  }
-
-  public void setAliasId(String aliasId) {
-    this.aliasId = aliasId;
-  }
-
-  public static class Builder {
-
+    @Path
+    @SerializedName("mailgroup_id")
     private String mailgroupId;
+    @Path
+    @SerializedName("alias_id")
     private String aliasId;
-
-    public Builder mailgroupId(String mailgroupId) {
-      this.mailgroupId = mailgroupId;
-      return this;
+    public String getMailgroupId() {
+        return this.mailgroupId;
     }
 
-    public Builder aliasId(String aliasId) {
-      this.aliasId = aliasId;
-      return this;
+    public void setMailgroupId(String mailgroupId) {
+        this.mailgroupId = mailgroupId;
     }
 
-    public DeleteMailgroupAliasReq build() {
-      return new DeleteMailgroupAliasReq(this);
+    public String getAliasId() {
+        return this.aliasId;
     }
+
+    public void setAliasId(String aliasId) {
+        this.aliasId = aliasId;
+    }
+
+
+// builder 开始
+  public DeleteMailgroupAliasReq(){}
+
+  public DeleteMailgroupAliasReq(Builder builder){
+       this.mailgroupId = builder.mailgroupId;
+       this.aliasId = builder.aliasId;
   }
+
+    public static class Builder {
+    
+        private String mailgroupId;
+        private String aliasId;
+          public Builder mailgroupId(String mailgroupId) {
+               this.mailgroupId = mailgroupId;
+               return this;
+          }
+    
+          public Builder aliasId(String aliasId) {
+               this.aliasId = aliasId;
+               return this;
+          }
+    
+    public DeleteMailgroupAliasReq build(){
+        return new DeleteMailgroupAliasReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

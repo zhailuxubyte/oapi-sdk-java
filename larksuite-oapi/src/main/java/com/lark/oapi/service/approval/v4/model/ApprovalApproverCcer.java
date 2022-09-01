@@ -12,85 +12,90 @@
  */
 
 package com.lark.oapi.service.approval.v4.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.approval.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class ApprovalApproverCcer {
-
-  @SerializedName("type")
-  private String type;
-  @SerializedName("user_id")
-  private String userId;
-  @SerializedName("level")
-  private String level;
-
-  // builder 开始
-  public ApprovalApproverCcer() {
-  }
-
-  public ApprovalApproverCcer(Builder builder) {
-    this.type = builder.type;
-    this.userId = builder.userId;
-    this.level = builder.level;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getType() {
-    return this.type;
-  }
-
-  public void setType(String type) {
-    this.type = type;
-  }
-
-  public String getUserId() {
-    return this.userId;
-  }
-
-  public void setUserId(String userId) {
-    this.userId = userId;
-  }
-
-  public String getLevel() {
-    return this.level;
-  }
-
-  public void setLevel(String level) {
-    this.level = level;
-  }
-
-  public static class Builder {
-
+    @SerializedName("type")
     private String type;
+    @SerializedName("user_id")
     private String userId;
+    @SerializedName("level")
     private String level;
-
-    public Builder type(String type) {
-      this.type = type;
-      return this;
+    public String getType() {
+        return this.type;
     }
 
-    public Builder type(com.lark.oapi.service.approval.v4.enums.TypeEnum type) {
-      this.type = type.getValue();
-      return this;
+    public void setType(String type) {
+        this.type = type;
     }
 
-    public Builder userId(String userId) {
-      this.userId = userId;
-      return this;
+    public String getUserId() {
+        return this.userId;
     }
 
-    public Builder level(String level) {
-      this.level = level;
-      return this;
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    public String getLevel() {
+        return this.level;
+    }
+
+    public void setLevel(String level) {
+        this.level = level;
     }
 
 
-    public ApprovalApproverCcer build() {
-      return new ApprovalApproverCcer(this);
-    }
+// builder 开始
+  public ApprovalApproverCcer(){}
+
+  public ApprovalApproverCcer(Builder builder){
+      this.type = builder.type;
+      this.userId = builder.userId;
+      this.level = builder.level;
   }
+
+    public static class Builder {
+        private String type;
+        private String userId;
+        private String level;
+        public Builder type(String type) {
+             this.type = type;
+             return this;
+        }
+        public Builder type(com.lark.oapi.service.approval.v4.enums.TypeEnum type) {
+             this.type = type.getValue();
+             return this;
+        }
+    
+        public Builder userId(String userId) {
+             this.userId = userId;
+             return this;
+        }
+    
+        public Builder level(String level) {
+             this.level = level;
+             return this;
+        }
+    
+    
+    public ApprovalApproverCcer build(){
+        return new ApprovalApproverCcer(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

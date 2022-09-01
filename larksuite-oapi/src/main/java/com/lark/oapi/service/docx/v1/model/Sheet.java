@@ -12,80 +12,86 @@
  */
 
 package com.lark.oapi.service.docx.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.docx.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class Sheet {
-
-  @SerializedName("token")
-  private String token;
-  @SerializedName("row_size")
-  private Integer rowSize;
-  @SerializedName("column_size")
-  private Integer columnSize;
-
-  // builder 开始
-  public Sheet() {
-  }
-
-  public Sheet(Builder builder) {
-    this.token = builder.token;
-    this.rowSize = builder.rowSize;
-    this.columnSize = builder.columnSize;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getToken() {
-    return this.token;
-  }
-
-  public void setToken(String token) {
-    this.token = token;
-  }
-
-  public Integer getRowSize() {
-    return this.rowSize;
-  }
-
-  public void setRowSize(Integer rowSize) {
-    this.rowSize = rowSize;
-  }
-
-  public Integer getColumnSize() {
-    return this.columnSize;
-  }
-
-  public void setColumnSize(Integer columnSize) {
-    this.columnSize = columnSize;
-  }
-
-  public static class Builder {
-
+    @SerializedName("token")
     private String token;
+    @SerializedName("row_size")
     private Integer rowSize;
+    @SerializedName("column_size")
     private Integer columnSize;
-
-    public Builder token(String token) {
-      this.token = token;
-      return this;
+    public String getToken() {
+        return this.token;
     }
 
-    public Builder rowSize(Integer rowSize) {
-      this.rowSize = rowSize;
-      return this;
+    public void setToken(String token) {
+        this.token = token;
     }
 
-    public Builder columnSize(Integer columnSize) {
-      this.columnSize = columnSize;
-      return this;
+    public Integer getRowSize() {
+        return this.rowSize;
+    }
+
+    public void setRowSize(Integer rowSize) {
+        this.rowSize = rowSize;
+    }
+
+    public Integer getColumnSize() {
+        return this.columnSize;
+    }
+
+    public void setColumnSize(Integer columnSize) {
+        this.columnSize = columnSize;
     }
 
 
-    public Sheet build() {
-      return new Sheet(this);
-    }
+// builder 开始
+  public Sheet(){}
+
+  public Sheet(Builder builder){
+      this.token = builder.token;
+      this.rowSize = builder.rowSize;
+      this.columnSize = builder.columnSize;
   }
+
+    public static class Builder {
+        private String token;
+        private Integer rowSize;
+        private Integer columnSize;
+        public Builder token(String token) {
+             this.token = token;
+             return this;
+        }
+    
+        public Builder rowSize(Integer rowSize) {
+             this.rowSize = rowSize;
+             return this;
+        }
+    
+        public Builder columnSize(Integer columnSize) {
+             this.columnSize = columnSize;
+             return this;
+        }
+    
+    
+    public Sheet build(){
+        return new Sheet(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

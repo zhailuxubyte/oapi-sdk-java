@@ -12,131 +12,137 @@
  */
 
 package com.lark.oapi.service.bitable.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.bitable.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class Attachment {
-
-  @SerializedName("file_token")
-  private String fileToken;
-  @SerializedName("name")
-  private String name;
-  @SerializedName("type")
-  private String type;
-  @SerializedName("size")
-  private Integer size;
-  @SerializedName("url")
-  private String url;
-  @SerializedName("tmp_url")
-  private String tmpUrl;
-
-  // builder 开始
-  public Attachment() {
-  }
-
-  public Attachment(Builder builder) {
-    this.fileToken = builder.fileToken;
-    this.name = builder.name;
-    this.type = builder.type;
-    this.size = builder.size;
-    this.url = builder.url;
-    this.tmpUrl = builder.tmpUrl;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getFileToken() {
-    return this.fileToken;
-  }
-
-  public void setFileToken(String fileToken) {
-    this.fileToken = fileToken;
-  }
-
-  public String getName() {
-    return this.name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public String getType() {
-    return this.type;
-  }
-
-  public void setType(String type) {
-    this.type = type;
-  }
-
-  public Integer getSize() {
-    return this.size;
-  }
-
-  public void setSize(Integer size) {
-    this.size = size;
-  }
-
-  public String getUrl() {
-    return this.url;
-  }
-
-  public void setUrl(String url) {
-    this.url = url;
-  }
-
-  public String getTmpUrl() {
-    return this.tmpUrl;
-  }
-
-  public void setTmpUrl(String tmpUrl) {
-    this.tmpUrl = tmpUrl;
-  }
-
-  public static class Builder {
-
+    @SerializedName("file_token")
     private String fileToken;
+    @SerializedName("name")
     private String name;
+    @SerializedName("type")
     private String type;
+    @SerializedName("size")
     private Integer size;
+    @SerializedName("url")
     private String url;
+    @SerializedName("tmp_url")
     private String tmpUrl;
-
-    public Builder fileToken(String fileToken) {
-      this.fileToken = fileToken;
-      return this;
+    public String getFileToken() {
+        return this.fileToken;
     }
 
-    public Builder name(String name) {
-      this.name = name;
-      return this;
+    public void setFileToken(String fileToken) {
+        this.fileToken = fileToken;
     }
 
-    public Builder type(String type) {
-      this.type = type;
-      return this;
+    public String getName() {
+        return this.name;
     }
 
-    public Builder size(Integer size) {
-      this.size = size;
-      return this;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public Builder url(String url) {
-      this.url = url;
-      return this;
+    public String getType() {
+        return this.type;
     }
 
-    public Builder tmpUrl(String tmpUrl) {
-      this.tmpUrl = tmpUrl;
-      return this;
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public Integer getSize() {
+        return this.size;
+    }
+
+    public void setSize(Integer size) {
+        this.size = size;
+    }
+
+    public String getUrl() {
+        return this.url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public String getTmpUrl() {
+        return this.tmpUrl;
+    }
+
+    public void setTmpUrl(String tmpUrl) {
+        this.tmpUrl = tmpUrl;
     }
 
 
-    public Attachment build() {
-      return new Attachment(this);
-    }
+// builder 开始
+  public Attachment(){}
+
+  public Attachment(Builder builder){
+      this.fileToken = builder.fileToken;
+      this.name = builder.name;
+      this.type = builder.type;
+      this.size = builder.size;
+      this.url = builder.url;
+      this.tmpUrl = builder.tmpUrl;
   }
+
+    public static class Builder {
+        private String fileToken;
+        private String name;
+        private String type;
+        private Integer size;
+        private String url;
+        private String tmpUrl;
+        public Builder fileToken(String fileToken) {
+             this.fileToken = fileToken;
+             return this;
+        }
+    
+        public Builder name(String name) {
+             this.name = name;
+             return this;
+        }
+    
+        public Builder type(String type) {
+             this.type = type;
+             return this;
+        }
+    
+        public Builder size(Integer size) {
+             this.size = size;
+             return this;
+        }
+    
+        public Builder url(String url) {
+             this.url = url;
+             return this;
+        }
+    
+        public Builder tmpUrl(String tmpUrl) {
+             this.tmpUrl = tmpUrl;
+             return this;
+        }
+    
+    
+    public Attachment build(){
+        return new Attachment(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

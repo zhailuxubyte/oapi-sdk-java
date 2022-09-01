@@ -13,76 +13,80 @@
 
 package com.lark.oapi.service.event.v1;
 
-import com.lark.oapi.core.Config;
-import com.lark.oapi.core.Transport;
-import com.lark.oapi.core.request.RequestOptions;
-import com.lark.oapi.core.response.RawResponse;
 import com.lark.oapi.core.token.AccessTokenType;
-import com.lark.oapi.core.utils.Sets;
+import com.lark.oapi.core.Transport;
+import com.lark.oapi.core.response.RawResponse;
 import com.lark.oapi.core.utils.UnmarshalRespUtil;
-import com.lark.oapi.service.event.v1.model.ListOutboundIpReq;
-import com.lark.oapi.service.event.v1.model.ListOutboundIpResp;
+import com.lark.oapi.core.utils.Sets;
+
+
+
+import com.lark.oapi.core.Config;
+import com.lark.oapi.core.request.RequestOptions;
+import java.io.ByteArrayOutputStream;
+import com.lark.oapi.event.model.BaseEvent;
+import com.lark.oapi.event.model.BaseEventV2;
+import com.lark.oapi.service.event.v1.model.*;
+import java.util.Map;
+import java.util.HashMap;
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
 
 public class EventService {
+    private final OutboundIp outboundIp;
 
-  private final OutboundIp outboundIp;
-
-  public EventService(Config config) {
-    this.outboundIp = new OutboundIp(config);
-  }
-
-  public OutboundIp outboundIp() {
-    return outboundIp;
-  }
-
-  public static class OutboundIp {
-
-    private final Config config;
-
-    public OutboundIp(Config config) {
-      this.config = config;
+    public EventService(Config config) {
+        this.outboundIp = new OutboundIp(config);
+    }
+    public OutboundIp outboundIp() {
+        return outboundIp;
     }
 
-    public ListOutboundIpResp list(ListOutboundIpReq req, RequestOptions reqOptions)
-        throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
+    public static class OutboundIp {
+        private final Config config;
 
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          , "/open-apis/event/v1/outbound_ip"
-          , Sets.newHashSet(AccessTokenType.Tenant)
-          , req);
+        public OutboundIp(Config config) {
+            this.config = config;
+        }
+    
+        public ListOutboundIpResp list(ListOutboundIpReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
 
-      // 反序列化
-      ListOutboundIpResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          ListOutboundIpResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config,reqOptions, "GET"
+                       ,"/open-apis/event/v1/outbound_ip"
+                       ,Sets.newHashSet(AccessTokenType.Tenant)
+                       ,req);
+	       
+           // 反序列化
+           ListOutboundIpResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListOutboundIpResp.class);
+           resp.setRawResponse(httpResponse);
+           resp.setRequest(req);
+           
+           return resp;
+        }
 
-      return resp;
+        public ListOutboundIpResp list(ListOutboundIpReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config,reqOptions, "GET"
+                       ,"/open-apis/event/v1/outbound_ip"
+                       ,Sets.newHashSet(AccessTokenType.Tenant)
+                       ,req);
+            
+           // 反序列化
+           ListOutboundIpResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, ListOutboundIpResp.class);
+           resp.setRawResponse(httpResponse);
+           resp.setRequest(req);
+           
+           return resp;
+        }
     }
-
-    public ListOutboundIpResp list(ListOutboundIpReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          , "/open-apis/event/v1/outbound_ip"
-          , Sets.newHashSet(AccessTokenType.Tenant)
-          , req);
-
-      // 反序列化
-      ListOutboundIpResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          ListOutboundIpResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-  }
 
 }

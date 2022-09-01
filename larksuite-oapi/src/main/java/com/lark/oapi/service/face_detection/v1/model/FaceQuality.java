@@ -12,80 +12,85 @@
  */
 
 package com.lark.oapi.service.face_detection.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class FaceQuality {
-
-  @SerializedName("sharpness")
-  private Double sharpness;
-  @SerializedName("brightness")
-  private Double brightness;
-  @SerializedName("occlude")
-  private FaceOcclude occlude;
-
-  // builder 开始
-  public FaceQuality() {
-  }
-
-  public FaceQuality(Builder builder) {
-    this.sharpness = builder.sharpness;
-    this.brightness = builder.brightness;
-    this.occlude = builder.occlude;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Double getSharpness() {
-    return this.sharpness;
-  }
-
-  public void setSharpness(Double sharpness) {
-    this.sharpness = sharpness;
-  }
-
-  public Double getBrightness() {
-    return this.brightness;
-  }
-
-  public void setBrightness(Double brightness) {
-    this.brightness = brightness;
-  }
-
-  public FaceOcclude getOcclude() {
-    return this.occlude;
-  }
-
-  public void setOcclude(FaceOcclude occlude) {
-    this.occlude = occlude;
-  }
-
-  public static class Builder {
-
+    @SerializedName("sharpness")
     private Double sharpness;
+    @SerializedName("brightness")
     private Double brightness;
+    @SerializedName("occlude")
     private FaceOcclude occlude;
-
-    public Builder sharpness(Double sharpness) {
-      this.sharpness = sharpness;
-      return this;
+    public Double getSharpness() {
+        return this.sharpness;
     }
 
-    public Builder brightness(Double brightness) {
-      this.brightness = brightness;
-      return this;
+    public void setSharpness(Double sharpness) {
+        this.sharpness = sharpness;
     }
 
-    public Builder occlude(FaceOcclude occlude) {
-      this.occlude = occlude;
-      return this;
+    public Double getBrightness() {
+        return this.brightness;
+    }
+
+    public void setBrightness(Double brightness) {
+        this.brightness = brightness;
+    }
+
+    public FaceOcclude getOcclude() {
+        return this.occlude;
+    }
+
+    public void setOcclude(FaceOcclude occlude) {
+        this.occlude = occlude;
     }
 
 
-    public FaceQuality build() {
-      return new FaceQuality(this);
-    }
+// builder 开始
+  public FaceQuality(){}
+
+  public FaceQuality(Builder builder){
+      this.sharpness = builder.sharpness;
+      this.brightness = builder.brightness;
+      this.occlude = builder.occlude;
   }
+
+    public static class Builder {
+        private Double sharpness;
+        private Double brightness;
+        private FaceOcclude occlude;
+        public Builder sharpness(Double sharpness) {
+             this.sharpness = sharpness;
+             return this;
+        }
+    
+        public Builder brightness(Double brightness) {
+             this.brightness = brightness;
+             return this;
+        }
+    
+        public Builder occlude(FaceOcclude occlude) {
+             this.occlude = occlude;
+             return this;
+        }
+    
+    
+    public FaceQuality build(){
+        return new FaceQuality(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

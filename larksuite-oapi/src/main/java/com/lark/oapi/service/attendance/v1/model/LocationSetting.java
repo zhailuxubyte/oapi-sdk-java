@@ -12,80 +12,86 @@
  */
 
 package com.lark.oapi.service.attendance.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.attendance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class LocationSetting {
-
-  @SerializedName("location")
-  private LocationInfo location;
-  @SerializedName("wifi")
-  private WifiInfo wifi;
-  @SerializedName("user_id")
-  private String userId;
-
-  // builder 开始
-  public LocationSetting() {
-  }
-
-  public LocationSetting(Builder builder) {
-    this.location = builder.location;
-    this.wifi = builder.wifi;
-    this.userId = builder.userId;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public LocationInfo getLocation() {
-    return this.location;
-  }
-
-  public void setLocation(LocationInfo location) {
-    this.location = location;
-  }
-
-  public WifiInfo getWifi() {
-    return this.wifi;
-  }
-
-  public void setWifi(WifiInfo wifi) {
-    this.wifi = wifi;
-  }
-
-  public String getUserId() {
-    return this.userId;
-  }
-
-  public void setUserId(String userId) {
-    this.userId = userId;
-  }
-
-  public static class Builder {
-
+    @SerializedName("location")
     private LocationInfo location;
+    @SerializedName("wifi")
     private WifiInfo wifi;
+    @SerializedName("user_id")
     private String userId;
-
-    public Builder location(LocationInfo location) {
-      this.location = location;
-      return this;
+    public LocationInfo getLocation() {
+        return this.location;
     }
 
-    public Builder wifi(WifiInfo wifi) {
-      this.wifi = wifi;
-      return this;
+    public void setLocation(LocationInfo location) {
+        this.location = location;
     }
 
-    public Builder userId(String userId) {
-      this.userId = userId;
-      return this;
+    public WifiInfo getWifi() {
+        return this.wifi;
+    }
+
+    public void setWifi(WifiInfo wifi) {
+        this.wifi = wifi;
+    }
+
+    public String getUserId() {
+        return this.userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
 
-    public LocationSetting build() {
-      return new LocationSetting(this);
-    }
+// builder 开始
+  public LocationSetting(){}
+
+  public LocationSetting(Builder builder){
+      this.location = builder.location;
+      this.wifi = builder.wifi;
+      this.userId = builder.userId;
   }
+
+    public static class Builder {
+        private LocationInfo location;
+        private WifiInfo wifi;
+        private String userId;
+        public Builder location(LocationInfo location) {
+             this.location = location;
+             return this;
+        }
+    
+        public Builder wifi(WifiInfo wifi) {
+             this.wifi = wifi;
+             return this;
+        }
+    
+        public Builder userId(String userId) {
+             this.userId = userId;
+             return this;
+        }
+    
+    
+    public LocationSetting build(){
+        return new LocationSetting(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

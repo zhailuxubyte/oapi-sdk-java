@@ -12,63 +12,69 @@
  */
 
 package com.lark.oapi.service.attendance.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.attendance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class RestRule {
-
-  @SerializedName("rest_begin_time")
-  private String restBeginTime;
-  @SerializedName("rest_end_time")
-  private String restEndTime;
-
-  // builder 开始
-  public RestRule() {
-  }
-
-  public RestRule(Builder builder) {
-    this.restBeginTime = builder.restBeginTime;
-    this.restEndTime = builder.restEndTime;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getRestBeginTime() {
-    return this.restBeginTime;
-  }
-
-  public void setRestBeginTime(String restBeginTime) {
-    this.restBeginTime = restBeginTime;
-  }
-
-  public String getRestEndTime() {
-    return this.restEndTime;
-  }
-
-  public void setRestEndTime(String restEndTime) {
-    this.restEndTime = restEndTime;
-  }
-
-  public static class Builder {
-
+    @SerializedName("rest_begin_time")
     private String restBeginTime;
+    @SerializedName("rest_end_time")
     private String restEndTime;
-
-    public Builder restBeginTime(String restBeginTime) {
-      this.restBeginTime = restBeginTime;
-      return this;
+    public String getRestBeginTime() {
+        return this.restBeginTime;
     }
 
-    public Builder restEndTime(String restEndTime) {
-      this.restEndTime = restEndTime;
-      return this;
+    public void setRestBeginTime(String restBeginTime) {
+        this.restBeginTime = restBeginTime;
+    }
+
+    public String getRestEndTime() {
+        return this.restEndTime;
+    }
+
+    public void setRestEndTime(String restEndTime) {
+        this.restEndTime = restEndTime;
     }
 
 
-    public RestRule build() {
-      return new RestRule(this);
-    }
+// builder 开始
+  public RestRule(){}
+
+  public RestRule(Builder builder){
+      this.restBeginTime = builder.restBeginTime;
+      this.restEndTime = builder.restEndTime;
   }
+
+    public static class Builder {
+        private String restBeginTime;
+        private String restEndTime;
+        public Builder restBeginTime(String restBeginTime) {
+             this.restBeginTime = restBeginTime;
+             return this;
+        }
+    
+        public Builder restEndTime(String restEndTime) {
+             this.restEndTime = restEndTime;
+             return this;
+        }
+    
+    
+    public RestRule build(){
+        return new RestRule(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

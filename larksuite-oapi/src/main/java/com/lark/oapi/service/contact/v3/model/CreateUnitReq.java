@@ -12,49 +12,54 @@
  */
 
 package com.lark.oapi.service.contact.v3.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.contact.v3.enums.*;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
-
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class CreateUnitReq {
-
-  @Body
-  private CreateUnitReqBody body;
-
-  // builder 开始
-  public CreateUnitReq() {
-  }
-
-  public CreateUnitReq(Builder builder) {
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public CreateUnitReqBody getCreateUnitReqBody() {
-    return this.body;
-  }
-
-  public void setCreateUnitReqBody(CreateUnitReqBody body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
+    @Body
     private CreateUnitReqBody body;
 
     public CreateUnitReqBody getCreateUnitReqBody() {
-      return this.body;
+        return this.body;
     }
 
-    public Builder createUnitReqBody(CreateUnitReqBody body) {
-      this.body = body;
-      return this;
+    public void setCreateUnitReqBody(CreateUnitReqBody body) {
+        this.body = body;
     }
 
-    public CreateUnitReq build() {
-      return new CreateUnitReq(this);
-    }
+// builder 开始
+  public CreateUnitReq(){}
+
+  public CreateUnitReq(Builder builder){
+        this.body = builder.body;
   }
+
+    public static class Builder {
+    
+        private CreateUnitReqBody body;
+    
+        public CreateUnitReqBody getCreateUnitReqBody() {
+            return this.body;
+        }
+        public Builder createUnitReqBody(CreateUnitReqBody body) {
+             this.body = body;
+             return this;
+        }
+    public CreateUnitReq build(){
+        return new CreateUnitReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

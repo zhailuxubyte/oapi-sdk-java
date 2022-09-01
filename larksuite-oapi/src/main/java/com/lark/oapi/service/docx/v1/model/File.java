@@ -12,63 +12,68 @@
  */
 
 package com.lark.oapi.service.docx.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.docx.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class File {
-
-  @SerializedName("token")
-  private String token;
-  @SerializedName("name")
-  private String name;
-
-  // builder 开始
-  public File() {
-  }
-
-  public File(Builder builder) {
-    this.token = builder.token;
-    this.name = builder.name;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getToken() {
-    return this.token;
-  }
-
-  public void setToken(String token) {
-    this.token = token;
-  }
-
-  public String getName() {
-    return this.name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public static class Builder {
-
+    @SerializedName("token")
     private String token;
+    @SerializedName("name")
     private String name;
-
-    public Builder token(String token) {
-      this.token = token;
-      return this;
+    public String getToken() {
+        return this.token;
     }
 
-    public Builder name(String name) {
-      this.name = name;
-      return this;
+    public void setToken(String token) {
+        this.token = token;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
 
-    public File build() {
-      return new File(this);
-    }
+// builder 开始
+  public File(){}
+
+  public File(Builder builder){
+      this.token = builder.token;
+      this.name = builder.name;
   }
+
+    public static class Builder {
+        private String token;
+        private String name;
+        public Builder token(String token) {
+             this.token = token;
+             return this;
+        }
+    
+        public Builder name(String name) {
+             this.name = name;
+             return this;
+        }
+    
+    
+    public File build(){
+        return new File(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

@@ -12,80 +12,86 @@
  */
 
 package com.lark.oapi.service.contact.v3.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.contact.v3.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class DepartmentI18nName {
-
-  @SerializedName("zh_cn")
-  private String zhCn;
-  @SerializedName("ja_jp")
-  private String jaJp;
-  @SerializedName("en_us")
-  private String enUs;
-
-  // builder 开始
-  public DepartmentI18nName() {
-  }
-
-  public DepartmentI18nName(Builder builder) {
-    this.zhCn = builder.zhCn;
-    this.jaJp = builder.jaJp;
-    this.enUs = builder.enUs;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getZhCn() {
-    return this.zhCn;
-  }
-
-  public void setZhCn(String zhCn) {
-    this.zhCn = zhCn;
-  }
-
-  public String getJaJp() {
-    return this.jaJp;
-  }
-
-  public void setJaJp(String jaJp) {
-    this.jaJp = jaJp;
-  }
-
-  public String getEnUs() {
-    return this.enUs;
-  }
-
-  public void setEnUs(String enUs) {
-    this.enUs = enUs;
-  }
-
-  public static class Builder {
-
+    @SerializedName("zh_cn")
     private String zhCn;
+    @SerializedName("ja_jp")
     private String jaJp;
+    @SerializedName("en_us")
     private String enUs;
-
-    public Builder zhCn(String zhCn) {
-      this.zhCn = zhCn;
-      return this;
+    public String getZhCn() {
+        return this.zhCn;
     }
 
-    public Builder jaJp(String jaJp) {
-      this.jaJp = jaJp;
-      return this;
+    public void setZhCn(String zhCn) {
+        this.zhCn = zhCn;
     }
 
-    public Builder enUs(String enUs) {
-      this.enUs = enUs;
-      return this;
+    public String getJaJp() {
+        return this.jaJp;
+    }
+
+    public void setJaJp(String jaJp) {
+        this.jaJp = jaJp;
+    }
+
+    public String getEnUs() {
+        return this.enUs;
+    }
+
+    public void setEnUs(String enUs) {
+        this.enUs = enUs;
     }
 
 
-    public DepartmentI18nName build() {
-      return new DepartmentI18nName(this);
-    }
+// builder 开始
+  public DepartmentI18nName(){}
+
+  public DepartmentI18nName(Builder builder){
+      this.zhCn = builder.zhCn;
+      this.jaJp = builder.jaJp;
+      this.enUs = builder.enUs;
   }
+
+    public static class Builder {
+        private String zhCn;
+        private String jaJp;
+        private String enUs;
+        public Builder zhCn(String zhCn) {
+             this.zhCn = zhCn;
+             return this;
+        }
+    
+        public Builder jaJp(String jaJp) {
+             this.jaJp = jaJp;
+             return this;
+        }
+    
+        public Builder enUs(String enUs) {
+             this.enUs = enUs;
+             return this;
+        }
+    
+    
+    public DepartmentI18nName build(){
+        return new DepartmentI18nName(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

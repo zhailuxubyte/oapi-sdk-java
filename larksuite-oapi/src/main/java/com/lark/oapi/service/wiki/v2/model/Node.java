@@ -12,294 +12,298 @@
  */
 
 package com.lark.oapi.service.wiki.v2.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.wiki.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class Node {
-
-  @SerializedName("space_id")
-  private String spaceId;
-  @SerializedName("node_token")
-  private String nodeToken;
-  @SerializedName("obj_token")
-  private String objToken;
-  @SerializedName("obj_type")
-  private String objType;
-  @SerializedName("parent_node_token")
-  private String parentNodeToken;
-  @SerializedName("node_type")
-  private String nodeType;
-  @SerializedName("origin_node_token")
-  private String originNodeToken;
-  @SerializedName("origin_space_id")
-  private String originSpaceId;
-  @SerializedName("has_child")
-  private Boolean hasChild;
-  @SerializedName("title")
-  private String title;
-  @SerializedName("obj_create_time")
-  private String objCreateTime;
-  @SerializedName("obj_edit_time")
-  private String objEditTime;
-  @SerializedName("node_create_time")
-  private String nodeCreateTime;
-  @SerializedName("creator")
-  private String creator;
-  @SerializedName("owner")
-  private String owner;
-
-  // builder 开始
-  public Node() {
-  }
-
-  public Node(Builder builder) {
-    this.spaceId = builder.spaceId;
-    this.nodeToken = builder.nodeToken;
-    this.objToken = builder.objToken;
-    this.objType = builder.objType;
-    this.parentNodeToken = builder.parentNodeToken;
-    this.nodeType = builder.nodeType;
-    this.originNodeToken = builder.originNodeToken;
-    this.originSpaceId = builder.originSpaceId;
-    this.hasChild = builder.hasChild;
-    this.title = builder.title;
-    this.objCreateTime = builder.objCreateTime;
-    this.objEditTime = builder.objEditTime;
-    this.nodeCreateTime = builder.nodeCreateTime;
-    this.creator = builder.creator;
-    this.owner = builder.owner;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getSpaceId() {
-    return this.spaceId;
-  }
-
-  public void setSpaceId(String spaceId) {
-    this.spaceId = spaceId;
-  }
-
-  public String getNodeToken() {
-    return this.nodeToken;
-  }
-
-  public void setNodeToken(String nodeToken) {
-    this.nodeToken = nodeToken;
-  }
-
-  public String getObjToken() {
-    return this.objToken;
-  }
-
-  public void setObjToken(String objToken) {
-    this.objToken = objToken;
-  }
-
-  public String getObjType() {
-    return this.objType;
-  }
-
-  public void setObjType(String objType) {
-    this.objType = objType;
-  }
-
-  public String getParentNodeToken() {
-    return this.parentNodeToken;
-  }
-
-  public void setParentNodeToken(String parentNodeToken) {
-    this.parentNodeToken = parentNodeToken;
-  }
-
-  public String getNodeType() {
-    return this.nodeType;
-  }
-
-  public void setNodeType(String nodeType) {
-    this.nodeType = nodeType;
-  }
-
-  public String getOriginNodeToken() {
-    return this.originNodeToken;
-  }
-
-  public void setOriginNodeToken(String originNodeToken) {
-    this.originNodeToken = originNodeToken;
-  }
-
-  public String getOriginSpaceId() {
-    return this.originSpaceId;
-  }
-
-  public void setOriginSpaceId(String originSpaceId) {
-    this.originSpaceId = originSpaceId;
-  }
-
-  public Boolean getHasChild() {
-    return this.hasChild;
-  }
-
-  public void setHasChild(Boolean hasChild) {
-    this.hasChild = hasChild;
-  }
-
-  public String getTitle() {
-    return this.title;
-  }
-
-  public void setTitle(String title) {
-    this.title = title;
-  }
-
-  public String getObjCreateTime() {
-    return this.objCreateTime;
-  }
-
-  public void setObjCreateTime(String objCreateTime) {
-    this.objCreateTime = objCreateTime;
-  }
-
-  public String getObjEditTime() {
-    return this.objEditTime;
-  }
-
-  public void setObjEditTime(String objEditTime) {
-    this.objEditTime = objEditTime;
-  }
-
-  public String getNodeCreateTime() {
-    return this.nodeCreateTime;
-  }
-
-  public void setNodeCreateTime(String nodeCreateTime) {
-    this.nodeCreateTime = nodeCreateTime;
-  }
-
-  public String getCreator() {
-    return this.creator;
-  }
-
-  public void setCreator(String creator) {
-    this.creator = creator;
-  }
-
-  public String getOwner() {
-    return this.owner;
-  }
-
-  public void setOwner(String owner) {
-    this.owner = owner;
-  }
-
-  public static class Builder {
-
+    @SerializedName("space_id")
     private String spaceId;
+    @SerializedName("node_token")
     private String nodeToken;
+    @SerializedName("obj_token")
     private String objToken;
+    @SerializedName("obj_type")
     private String objType;
+    @SerializedName("parent_node_token")
     private String parentNodeToken;
+    @SerializedName("node_type")
     private String nodeType;
+    @SerializedName("origin_node_token")
     private String originNodeToken;
+    @SerializedName("origin_space_id")
     private String originSpaceId;
+    @SerializedName("has_child")
     private Boolean hasChild;
+    @SerializedName("title")
     private String title;
+    @SerializedName("obj_create_time")
     private String objCreateTime;
+    @SerializedName("obj_edit_time")
     private String objEditTime;
+    @SerializedName("node_create_time")
     private String nodeCreateTime;
+    @SerializedName("creator")
     private String creator;
+    @SerializedName("owner")
     private String owner;
-
-    public Builder spaceId(String spaceId) {
-      this.spaceId = spaceId;
-      return this;
+    public String getSpaceId() {
+        return this.spaceId;
     }
 
-    public Builder nodeToken(String nodeToken) {
-      this.nodeToken = nodeToken;
-      return this;
+    public void setSpaceId(String spaceId) {
+        this.spaceId = spaceId;
     }
 
-    public Builder objToken(String objToken) {
-      this.objToken = objToken;
-      return this;
+    public String getNodeToken() {
+        return this.nodeToken;
     }
 
-    public Builder objType(String objType) {
-      this.objType = objType;
-      return this;
+    public void setNodeToken(String nodeToken) {
+        this.nodeToken = nodeToken;
     }
 
-    public Builder objType(com.lark.oapi.service.wiki.v2.enums.ObjTypeEnum objType) {
-      this.objType = objType.getValue();
-      return this;
+    public String getObjToken() {
+        return this.objToken;
     }
 
-    public Builder parentNodeToken(String parentNodeToken) {
-      this.parentNodeToken = parentNodeToken;
-      return this;
+    public void setObjToken(String objToken) {
+        this.objToken = objToken;
     }
 
-    public Builder nodeType(String nodeType) {
-      this.nodeType = nodeType;
-      return this;
+    public String getObjType() {
+        return this.objType;
     }
 
-    public Builder nodeType(com.lark.oapi.service.wiki.v2.enums.NodeTypeEnum nodeType) {
-      this.nodeType = nodeType.getValue();
-      return this;
+    public void setObjType(String objType) {
+        this.objType = objType;
     }
 
-    public Builder originNodeToken(String originNodeToken) {
-      this.originNodeToken = originNodeToken;
-      return this;
+    public String getParentNodeToken() {
+        return this.parentNodeToken;
     }
 
-    public Builder originSpaceId(String originSpaceId) {
-      this.originSpaceId = originSpaceId;
-      return this;
+    public void setParentNodeToken(String parentNodeToken) {
+        this.parentNodeToken = parentNodeToken;
     }
 
-    public Builder hasChild(Boolean hasChild) {
-      this.hasChild = hasChild;
-      return this;
+    public String getNodeType() {
+        return this.nodeType;
     }
 
-    public Builder title(String title) {
-      this.title = title;
-      return this;
+    public void setNodeType(String nodeType) {
+        this.nodeType = nodeType;
     }
 
-    public Builder objCreateTime(String objCreateTime) {
-      this.objCreateTime = objCreateTime;
-      return this;
+    public String getOriginNodeToken() {
+        return this.originNodeToken;
     }
 
-    public Builder objEditTime(String objEditTime) {
-      this.objEditTime = objEditTime;
-      return this;
+    public void setOriginNodeToken(String originNodeToken) {
+        this.originNodeToken = originNodeToken;
     }
 
-    public Builder nodeCreateTime(String nodeCreateTime) {
-      this.nodeCreateTime = nodeCreateTime;
-      return this;
+    public String getOriginSpaceId() {
+        return this.originSpaceId;
     }
 
-    public Builder creator(String creator) {
-      this.creator = creator;
-      return this;
+    public void setOriginSpaceId(String originSpaceId) {
+        this.originSpaceId = originSpaceId;
     }
 
-    public Builder owner(String owner) {
-      this.owner = owner;
-      return this;
+    public Boolean getHasChild() {
+        return this.hasChild;
+    }
+
+    public void setHasChild(Boolean hasChild) {
+        this.hasChild = hasChild;
+    }
+
+    public String getTitle() {
+        return this.title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getObjCreateTime() {
+        return this.objCreateTime;
+    }
+
+    public void setObjCreateTime(String objCreateTime) {
+        this.objCreateTime = objCreateTime;
+    }
+
+    public String getObjEditTime() {
+        return this.objEditTime;
+    }
+
+    public void setObjEditTime(String objEditTime) {
+        this.objEditTime = objEditTime;
+    }
+
+    public String getNodeCreateTime() {
+        return this.nodeCreateTime;
+    }
+
+    public void setNodeCreateTime(String nodeCreateTime) {
+        this.nodeCreateTime = nodeCreateTime;
+    }
+
+    public String getCreator() {
+        return this.creator;
+    }
+
+    public void setCreator(String creator) {
+        this.creator = creator;
+    }
+
+    public String getOwner() {
+        return this.owner;
+    }
+
+    public void setOwner(String owner) {
+        this.owner = owner;
     }
 
 
-    public Node build() {
-      return new Node(this);
-    }
+// builder 开始
+  public Node(){}
+
+  public Node(Builder builder){
+      this.spaceId = builder.spaceId;
+      this.nodeToken = builder.nodeToken;
+      this.objToken = builder.objToken;
+      this.objType = builder.objType;
+      this.parentNodeToken = builder.parentNodeToken;
+      this.nodeType = builder.nodeType;
+      this.originNodeToken = builder.originNodeToken;
+      this.originSpaceId = builder.originSpaceId;
+      this.hasChild = builder.hasChild;
+      this.title = builder.title;
+      this.objCreateTime = builder.objCreateTime;
+      this.objEditTime = builder.objEditTime;
+      this.nodeCreateTime = builder.nodeCreateTime;
+      this.creator = builder.creator;
+      this.owner = builder.owner;
   }
+
+    public static class Builder {
+        private String spaceId;
+        private String nodeToken;
+        private String objToken;
+        private String objType;
+        private String parentNodeToken;
+        private String nodeType;
+        private String originNodeToken;
+        private String originSpaceId;
+        private Boolean hasChild;
+        private String title;
+        private String objCreateTime;
+        private String objEditTime;
+        private String nodeCreateTime;
+        private String creator;
+        private String owner;
+        public Builder spaceId(String spaceId) {
+             this.spaceId = spaceId;
+             return this;
+        }
+    
+        public Builder nodeToken(String nodeToken) {
+             this.nodeToken = nodeToken;
+             return this;
+        }
+    
+        public Builder objToken(String objToken) {
+             this.objToken = objToken;
+             return this;
+        }
+    
+        public Builder objType(String objType) {
+             this.objType = objType;
+             return this;
+        }
+        public Builder objType(com.lark.oapi.service.wiki.v2.enums.ObjTypeEnum objType) {
+             this.objType = objType.getValue();
+             return this;
+        }
+    
+        public Builder parentNodeToken(String parentNodeToken) {
+             this.parentNodeToken = parentNodeToken;
+             return this;
+        }
+    
+        public Builder nodeType(String nodeType) {
+             this.nodeType = nodeType;
+             return this;
+        }
+        public Builder nodeType(com.lark.oapi.service.wiki.v2.enums.NodeTypeEnum nodeType) {
+             this.nodeType = nodeType.getValue();
+             return this;
+        }
+    
+        public Builder originNodeToken(String originNodeToken) {
+             this.originNodeToken = originNodeToken;
+             return this;
+        }
+    
+        public Builder originSpaceId(String originSpaceId) {
+             this.originSpaceId = originSpaceId;
+             return this;
+        }
+    
+        public Builder hasChild(Boolean hasChild) {
+             this.hasChild = hasChild;
+             return this;
+        }
+    
+        public Builder title(String title) {
+             this.title = title;
+             return this;
+        }
+    
+        public Builder objCreateTime(String objCreateTime) {
+             this.objCreateTime = objCreateTime;
+             return this;
+        }
+    
+        public Builder objEditTime(String objEditTime) {
+             this.objEditTime = objEditTime;
+             return this;
+        }
+    
+        public Builder nodeCreateTime(String nodeCreateTime) {
+             this.nodeCreateTime = nodeCreateTime;
+             return this;
+        }
+    
+        public Builder creator(String creator) {
+             this.creator = creator;
+             return this;
+        }
+    
+        public Builder owner(String owner) {
+             this.owner = owner;
+             return this;
+        }
+    
+    
+    public Node build(){
+        return new Node(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

@@ -12,119 +12,124 @@
  */
 
 package com.lark.oapi.service.helpdesk.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.helpdesk.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class ListFaqReq {
-
-  @Query
-  @SerializedName("category_id")
-  private String categoryId;
-  @Query
-  @SerializedName("status")
-  private String status;
-  @Query
-  @SerializedName("search")
-  private String search;
-  @Query
-  @SerializedName("page_token")
-  private String pageToken;
-  @Query
-  @SerializedName("page_size")
-  private Integer pageSize;
-
-  // builder 开始
-  public ListFaqReq() {
-  }
-
-  public ListFaqReq(Builder builder) {
-    this.categoryId = builder.categoryId;
-    this.status = builder.status;
-    this.search = builder.search;
-    this.pageToken = builder.pageToken;
-    this.pageSize = builder.pageSize;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getCategoryId() {
-    return this.categoryId;
-  }
-
-  public void setCategoryId(String categoryId) {
-    this.categoryId = categoryId;
-  }
-
-  public String getStatus() {
-    return this.status;
-  }
-
-  public void setStatus(String status) {
-    this.status = status;
-  }
-
-  public String getSearch() {
-    return this.search;
-  }
-
-  public void setSearch(String search) {
-    this.search = search;
-  }
-
-  public String getPageToken() {
-    return this.pageToken;
-  }
-
-  public void setPageToken(String pageToken) {
-    this.pageToken = pageToken;
-  }
-
-  public Integer getPageSize() {
-    return this.pageSize;
-  }
-
-  public void setPageSize(Integer pageSize) {
-    this.pageSize = pageSize;
-  }
-
-  public static class Builder {
-
+    @Query
+    @SerializedName("category_id")
     private String categoryId;
+    @Query
+    @SerializedName("status")
     private String status;
+    @Query
+    @SerializedName("search")
     private String search;
+    @Query
+    @SerializedName("page_token")
     private String pageToken;
+    @Query
+    @SerializedName("page_size")
     private Integer pageSize;
-
-    public Builder categoryId(String categoryId) {
-      this.categoryId = categoryId;
-      return this;
+    public String getCategoryId() {
+        return this.categoryId;
     }
 
-    public Builder status(String status) {
-      this.status = status;
-      return this;
+    public void setCategoryId(String categoryId) {
+        this.categoryId = categoryId;
     }
 
-    public Builder search(String search) {
-      this.search = search;
-      return this;
+    public String getStatus() {
+        return this.status;
     }
 
-    public Builder pageToken(String pageToken) {
-      this.pageToken = pageToken;
-      return this;
+    public void setStatus(String status) {
+        this.status = status;
     }
 
-    public Builder pageSize(Integer pageSize) {
-      this.pageSize = pageSize;
-      return this;
+    public String getSearch() {
+        return this.search;
     }
 
-    public ListFaqReq build() {
-      return new ListFaqReq(this);
+    public void setSearch(String search) {
+        this.search = search;
     }
+
+    public String getPageToken() {
+        return this.pageToken;
+    }
+
+    public void setPageToken(String pageToken) {
+        this.pageToken = pageToken;
+    }
+
+    public Integer getPageSize() {
+        return this.pageSize;
+    }
+
+    public void setPageSize(Integer pageSize) {
+        this.pageSize = pageSize;
+    }
+
+
+// builder 开始
+  public ListFaqReq(){}
+
+  public ListFaqReq(Builder builder){
+       this.categoryId = builder.categoryId;
+       this.status = builder.status;
+       this.search = builder.search;
+       this.pageToken = builder.pageToken;
+       this.pageSize = builder.pageSize;
   }
+
+    public static class Builder {
+        private String categoryId;
+        private String status;
+        private String search;
+        private String pageToken;
+        private Integer pageSize;
+    
+           public Builder categoryId(String categoryId) {
+                this.categoryId = categoryId;
+                return this;
+           }
+    
+           public Builder status(String status) {
+                this.status = status;
+                return this;
+           }
+    
+           public Builder search(String search) {
+                this.search = search;
+                return this;
+           }
+    
+           public Builder pageToken(String pageToken) {
+                this.pageToken = pageToken;
+                return this;
+           }
+    
+           public Builder pageSize(Integer pageSize) {
+                this.pageSize = pageSize;
+                return this;
+           }
+    
+    public ListFaqReq build(){
+        return new ListFaqReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

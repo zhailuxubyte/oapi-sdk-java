@@ -12,80 +12,86 @@
  */
 
 package com.lark.oapi.service.wiki.v2.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.wiki.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class CopySpaceNodeReqBody {
-
-  @SerializedName("target_parent_token")
-  private String targetParentToken;
-  @SerializedName("target_space_id")
-  private String targetSpaceId;
-  @SerializedName("title")
-  private String title;
-
-  // builder 开始
-  public CopySpaceNodeReqBody() {
-  }
-
-  public CopySpaceNodeReqBody(Builder builder) {
-    this.targetParentToken = builder.targetParentToken;
-    this.targetSpaceId = builder.targetSpaceId;
-    this.title = builder.title;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getTargetParentToken() {
-    return this.targetParentToken;
-  }
-
-  public void setTargetParentToken(String targetParentToken) {
-    this.targetParentToken = targetParentToken;
-  }
-
-  public String getTargetSpaceId() {
-    return this.targetSpaceId;
-  }
-
-  public void setTargetSpaceId(String targetSpaceId) {
-    this.targetSpaceId = targetSpaceId;
-  }
-
-  public String getTitle() {
-    return this.title;
-  }
-
-  public void setTitle(String title) {
-    this.title = title;
-  }
-
-  public static class Builder {
-
+    @SerializedName("target_parent_token")
     private String targetParentToken;
+    @SerializedName("target_space_id")
     private String targetSpaceId;
+    @SerializedName("title")
     private String title;
-
-    public Builder targetParentToken(String targetParentToken) {
-      this.targetParentToken = targetParentToken;
-      return this;
+    public String getTargetParentToken() {
+        return this.targetParentToken;
     }
 
-    public Builder targetSpaceId(String targetSpaceId) {
-      this.targetSpaceId = targetSpaceId;
-      return this;
+    public void setTargetParentToken(String targetParentToken) {
+        this.targetParentToken = targetParentToken;
     }
 
-    public Builder title(String title) {
-      this.title = title;
-      return this;
+    public String getTargetSpaceId() {
+        return this.targetSpaceId;
+    }
+
+    public void setTargetSpaceId(String targetSpaceId) {
+        this.targetSpaceId = targetSpaceId;
+    }
+
+    public String getTitle() {
+        return this.title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 
 
-    public CopySpaceNodeReqBody build() {
-      return new CopySpaceNodeReqBody(this);
-    }
+// builder 开始
+  public CopySpaceNodeReqBody(){}
+
+  public CopySpaceNodeReqBody(Builder builder){
+      this.targetParentToken = builder.targetParentToken;
+      this.targetSpaceId = builder.targetSpaceId;
+      this.title = builder.title;
   }
+
+    public static class Builder {
+        private String targetParentToken;
+        private String targetSpaceId;
+        private String title;
+        public Builder targetParentToken(String targetParentToken) {
+             this.targetParentToken = targetParentToken;
+             return this;
+        }
+    
+        public Builder targetSpaceId(String targetSpaceId) {
+             this.targetSpaceId = targetSpaceId;
+             return this;
+        }
+    
+        public Builder title(String title) {
+             this.title = title;
+             return this;
+        }
+    
+    
+    public CopySpaceNodeReqBody build(){
+        return new CopySpaceNodeReqBody(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

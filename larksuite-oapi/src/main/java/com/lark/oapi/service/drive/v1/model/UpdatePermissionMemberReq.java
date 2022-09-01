@@ -12,129 +12,130 @@
  */
 
 package com.lark.oapi.service.drive.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.drive.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class UpdatePermissionMemberReq {
-
-  @Query
-  @SerializedName("need_notification")
-  private Boolean needNotification;
-  @Query
-  @SerializedName("type")
-  private String type;
-  @Path
-  @SerializedName("token")
-  private String token;
-  @Path
-  @SerializedName("member_id")
-  private String memberId;
-  @Body
-  private Member body;
-
-  // builder 开始
-  public UpdatePermissionMemberReq() {
-  }
-
-  public UpdatePermissionMemberReq(Builder builder) {
-    this.needNotification = builder.needNotification;
-    this.type = builder.type;
-    this.token = builder.token;
-    this.memberId = builder.memberId;
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Boolean getNeedNotification() {
-    return this.needNotification;
-  }
-
-  public void setNeedNotification(Boolean needNotification) {
-    this.needNotification = needNotification;
-  }
-
-  public String getType() {
-    return this.type;
-  }
-
-  public void setType(String type) {
-    this.type = type;
-  }
-
-  public String getToken() {
-    return this.token;
-  }
-
-  public void setToken(String token) {
-    this.token = token;
-  }
-
-  public String getMemberId() {
-    return this.memberId;
-  }
-
-  public void setMemberId(String memberId) {
-    this.memberId = memberId;
-  }
-
-  public Member getMember() {
-    return this.body;
-  }
-
-  public void setMember(Member body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
+    @Query
+    @SerializedName("need_notification")
     private Boolean needNotification;
+    @Query
+    @SerializedName("type")
     private String type;
+    public Boolean getNeedNotification() {
+        return this.needNotification;
+    }
+
+    public void setNeedNotification(Boolean needNotification) {
+        this.needNotification = needNotification;
+    }
+
+    public String getType() {
+        return this.type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    @Path
+    @SerializedName("token")
     private String token;
+    @Path
+    @SerializedName("member_id")
     private String memberId;
+    public String getToken() {
+        return this.token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
+
+    public String getMemberId() {
+        return this.memberId;
+    }
+
+    public void setMemberId(String memberId) {
+        this.memberId = memberId;
+    }
+
+    @Body
     private Member body;
 
-    public Builder needNotification(Boolean needNotification) {
-      this.needNotification = needNotification;
-      return this;
-    }
-
-    public Builder type(String type) {
-      this.type = type;
-      return this;
-    }
-
-    public Builder type(com.lark.oapi.service.drive.v1.enums.TokenTypeEnum type) {
-      this.type = type.getValue();
-      return this;
-    }
-
-    public Builder token(String token) {
-      this.token = token;
-      return this;
-    }
-
-    public Builder memberId(String memberId) {
-      this.memberId = memberId;
-      return this;
-    }
-
     public Member getMember() {
-      return this.body;
+        return this.body;
     }
 
-    public Builder member(Member body) {
-      this.body = body;
-      return this;
+    public void setMember(Member body) {
+        this.body = body;
     }
 
-    public UpdatePermissionMemberReq build() {
-      return new UpdatePermissionMemberReq(this);
-    }
+// builder 开始
+  public UpdatePermissionMemberReq(){}
+
+  public UpdatePermissionMemberReq(Builder builder){
+       this.needNotification = builder.needNotification;
+       this.type = builder.type;
+       this.token = builder.token;
+       this.memberId = builder.memberId;
+        this.body = builder.body;
   }
+
+    public static class Builder {
+        private Boolean needNotification;
+        private String type;
+    
+           public Builder needNotification(Boolean needNotification) {
+                this.needNotification = needNotification;
+                return this;
+           }
+    
+           public Builder type(String type) {
+                this.type = type;
+                return this;
+           }
+          public Builder type(com.lark.oapi.service.drive.v1.enums.TokenTypeEnum type) {
+               this.type = type.getValue();
+               return this;
+          }
+    
+        private String token;
+        private String memberId;
+          public Builder token(String token) {
+               this.token = token;
+               return this;
+          }
+    
+          public Builder memberId(String memberId) {
+               this.memberId = memberId;
+               return this;
+          }
+    
+        private Member body;
+    
+        public Member getMember() {
+            return this.body;
+        }
+        public Builder member(Member body) {
+             this.body = body;
+             return this;
+        }
+    public UpdatePermissionMemberReq build(){
+        return new UpdatePermissionMemberReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

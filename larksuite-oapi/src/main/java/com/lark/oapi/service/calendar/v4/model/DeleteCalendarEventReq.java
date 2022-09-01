@@ -12,90 +12,92 @@
  */
 
 package com.lark.oapi.service.calendar.v4.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.calendar.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class DeleteCalendarEventReq {
-
-  @Query
-  @SerializedName("need_notification")
-  private Boolean needNotification;
-  @Path
-  @SerializedName("calendar_id")
-  private String calendarId;
-  @Path
-  @SerializedName("event_id")
-  private String eventId;
-
-  // builder 开始
-  public DeleteCalendarEventReq() {
-  }
-
-  public DeleteCalendarEventReq(Builder builder) {
-    this.needNotification = builder.needNotification;
-    this.calendarId = builder.calendarId;
-    this.eventId = builder.eventId;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Boolean getNeedNotification() {
-    return this.needNotification;
-  }
-
-  public void setNeedNotification(Boolean needNotification) {
-    this.needNotification = needNotification;
-  }
-
-  public String getCalendarId() {
-    return this.calendarId;
-  }
-
-  public void setCalendarId(String calendarId) {
-    this.calendarId = calendarId;
-  }
-
-  public String getEventId() {
-    return this.eventId;
-  }
-
-  public void setEventId(String eventId) {
-    this.eventId = eventId;
-  }
-
-  public static class Builder {
-
+    @Query
+    @SerializedName("need_notification")
     private Boolean needNotification;
+    public Boolean getNeedNotification() {
+        return this.needNotification;
+    }
+
+    public void setNeedNotification(Boolean needNotification) {
+        this.needNotification = needNotification;
+    }
+
+    @Path
+    @SerializedName("calendar_id")
     private String calendarId;
+    @Path
+    @SerializedName("event_id")
     private String eventId;
-
-    public Builder needNotification(Boolean needNotification) {
-      this.needNotification = needNotification;
-      return this;
+    public String getCalendarId() {
+        return this.calendarId;
     }
 
-    public Builder needNotification(
-        com.lark.oapi.service.calendar.v4.enums.NeedNotificationEnum needNotification) {
-      this.needNotification = needNotification.getValue();
-      return this;
+    public void setCalendarId(String calendarId) {
+        this.calendarId = calendarId;
     }
 
-    public Builder calendarId(String calendarId) {
-      this.calendarId = calendarId;
-      return this;
+    public String getEventId() {
+        return this.eventId;
     }
 
-    public Builder eventId(String eventId) {
-      this.eventId = eventId;
-      return this;
+    public void setEventId(String eventId) {
+        this.eventId = eventId;
     }
 
-    public DeleteCalendarEventReq build() {
-      return new DeleteCalendarEventReq(this);
-    }
+
+// builder 开始
+  public DeleteCalendarEventReq(){}
+
+  public DeleteCalendarEventReq(Builder builder){
+       this.needNotification = builder.needNotification;
+       this.calendarId = builder.calendarId;
+       this.eventId = builder.eventId;
   }
+
+    public static class Builder {
+        private Boolean needNotification;
+    
+           public Builder needNotification(Boolean needNotification) {
+                this.needNotification = needNotification;
+                return this;
+           }
+          public Builder needNotification(com.lark.oapi.service.calendar.v4.enums.NeedNotificationEnum needNotification) {
+               this.needNotification = needNotification.getValue();
+               return this;
+          }
+    
+        private String calendarId;
+        private String eventId;
+          public Builder calendarId(String calendarId) {
+               this.calendarId = calendarId;
+               return this;
+          }
+    
+          public Builder eventId(String eventId) {
+               this.eventId = eventId;
+               return this;
+          }
+    
+    public DeleteCalendarEventReq build(){
+        return new DeleteCalendarEventReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

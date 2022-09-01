@@ -12,80 +12,86 @@
  */
 
 package com.lark.oapi.service.bitable.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.bitable.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class DisplayAppV2 {
-
-  @SerializedName("app_token")
-  private String appToken;
-  @SerializedName("name")
-  private String name;
-  @SerializedName("is_advanced")
-  private Boolean isAdvanced;
-
-  // builder 开始
-  public DisplayAppV2() {
-  }
-
-  public DisplayAppV2(Builder builder) {
-    this.appToken = builder.appToken;
-    this.name = builder.name;
-    this.isAdvanced = builder.isAdvanced;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getAppToken() {
-    return this.appToken;
-  }
-
-  public void setAppToken(String appToken) {
-    this.appToken = appToken;
-  }
-
-  public String getName() {
-    return this.name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public Boolean getIsAdvanced() {
-    return this.isAdvanced;
-  }
-
-  public void setIsAdvanced(Boolean isAdvanced) {
-    this.isAdvanced = isAdvanced;
-  }
-
-  public static class Builder {
-
+    @SerializedName("app_token")
     private String appToken;
+    @SerializedName("name")
     private String name;
+    @SerializedName("is_advanced")
     private Boolean isAdvanced;
-
-    public Builder appToken(String appToken) {
-      this.appToken = appToken;
-      return this;
+    public String getAppToken() {
+        return this.appToken;
     }
 
-    public Builder name(String name) {
-      this.name = name;
-      return this;
+    public void setAppToken(String appToken) {
+        this.appToken = appToken;
     }
 
-    public Builder isAdvanced(Boolean isAdvanced) {
-      this.isAdvanced = isAdvanced;
-      return this;
+    public String getName() {
+        return this.name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Boolean getIsAdvanced() {
+        return this.isAdvanced;
+    }
+
+    public void setIsAdvanced(Boolean isAdvanced) {
+        this.isAdvanced = isAdvanced;
     }
 
 
-    public DisplayAppV2 build() {
-      return new DisplayAppV2(this);
-    }
+// builder 开始
+  public DisplayAppV2(){}
+
+  public DisplayAppV2(Builder builder){
+      this.appToken = builder.appToken;
+      this.name = builder.name;
+      this.isAdvanced = builder.isAdvanced;
   }
+
+    public static class Builder {
+        private String appToken;
+        private String name;
+        private Boolean isAdvanced;
+        public Builder appToken(String appToken) {
+             this.appToken = appToken;
+             return this;
+        }
+    
+        public Builder name(String name) {
+             this.name = name;
+             return this;
+        }
+    
+        public Builder isAdvanced(Boolean isAdvanced) {
+             this.isAdvanced = isAdvanced;
+             return this;
+        }
+    
+    
+    public DisplayAppV2 build(){
+        return new DisplayAppV2(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

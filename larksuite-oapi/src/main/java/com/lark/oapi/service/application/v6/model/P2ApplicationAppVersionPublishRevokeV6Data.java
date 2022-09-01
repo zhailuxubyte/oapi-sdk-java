@@ -12,50 +12,57 @@
  */
 
 package com.lark.oapi.service.application.v6.model;
-
+import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class P2ApplicationAppVersionPublishRevokeV6Data {
+    @SerializedName("operator_id")
+    private UserId operatorId;
+    @SerializedName("creator_id")
+    private UserId creatorId;
+    @SerializedName("app_id")
+    private String appId;
+    @SerializedName("version_id")
+    private String versionId;
+    public UserId getOperatorId() {
+        return this.operatorId;
+    }
 
-  @SerializedName("operator_id")
-  private UserId operatorId;
-  @SerializedName("creator_id")
-  private UserId creatorId;
-  @SerializedName("app_id")
-  private String appId;
-  @SerializedName("version_id")
-  private String versionId;
+    public void setOperatorId(UserId operatorId) {
+        this.operatorId = operatorId;
+    }
 
-  public UserId getOperatorId() {
-    return this.operatorId;
-  }
+    public UserId getCreatorId() {
+        return this.creatorId;
+    }
 
-  public void setOperatorId(UserId operatorId) {
-    this.operatorId = operatorId;
-  }
+    public void setCreatorId(UserId creatorId) {
+        this.creatorId = creatorId;
+    }
 
-  public UserId getCreatorId() {
-    return this.creatorId;
-  }
+    public String getAppId() {
+        return this.appId;
+    }
 
-  public void setCreatorId(UserId creatorId) {
-    this.creatorId = creatorId;
-  }
+    public void setAppId(String appId) {
+        this.appId = appId;
+    }
 
-  public String getAppId() {
-    return this.appId;
-  }
+    public String getVersionId() {
+        return this.versionId;
+    }
 
-  public void setAppId(String appId) {
-    this.appId = appId;
-  }
-
-  public String getVersionId() {
-    return this.versionId;
-  }
-
-  public void setVersionId(String versionId) {
-    this.versionId = versionId;
-  }
+    public void setVersionId(String versionId) {
+        this.versionId = versionId;
+    }
 
 }

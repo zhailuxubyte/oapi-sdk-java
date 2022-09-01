@@ -12,71 +12,74 @@
  */
 
 package com.lark.oapi.service.drive.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.drive.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class SubscribeFileReq {
-
-  @Query
-  @SerializedName("file_type")
-  private String fileType;
-  @Path
-  @SerializedName("file_token")
-  private String fileToken;
-
-  // builder 开始
-  public SubscribeFileReq() {
-  }
-
-  public SubscribeFileReq(Builder builder) {
-    this.fileType = builder.fileType;
-    this.fileToken = builder.fileToken;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getFileType() {
-    return this.fileType;
-  }
-
-  public void setFileType(String fileType) {
-    this.fileType = fileType;
-  }
-
-  public String getFileToken() {
-    return this.fileToken;
-  }
-
-  public void setFileToken(String fileToken) {
-    this.fileToken = fileToken;
-  }
-
-  public static class Builder {
-
+    @Query
+    @SerializedName("file_type")
     private String fileType;
+    public String getFileType() {
+        return this.fileType;
+    }
+
+    public void setFileType(String fileType) {
+        this.fileType = fileType;
+    }
+
+    @Path
+    @SerializedName("file_token")
     private String fileToken;
-
-    public Builder fileType(String fileType) {
-      this.fileType = fileType;
-      return this;
+    public String getFileToken() {
+        return this.fileToken;
     }
 
-    public Builder fileType(com.lark.oapi.service.drive.v1.enums.FileTypeEnum fileType) {
-      this.fileType = fileType.getValue();
-      return this;
+    public void setFileToken(String fileToken) {
+        this.fileToken = fileToken;
     }
 
-    public Builder fileToken(String fileToken) {
-      this.fileToken = fileToken;
-      return this;
-    }
 
-    public SubscribeFileReq build() {
-      return new SubscribeFileReq(this);
-    }
+// builder 开始
+  public SubscribeFileReq(){}
+
+  public SubscribeFileReq(Builder builder){
+       this.fileType = builder.fileType;
+       this.fileToken = builder.fileToken;
   }
+
+    public static class Builder {
+        private String fileType;
+    
+           public Builder fileType(String fileType) {
+                this.fileType = fileType;
+                return this;
+           }
+          public Builder fileType(com.lark.oapi.service.drive.v1.enums.FileTypeEnum fileType) {
+               this.fileType = fileType.getValue();
+               return this;
+          }
+    
+        private String fileToken;
+          public Builder fileToken(String fileToken) {
+               this.fileToken = fileToken;
+               return this;
+          }
+    
+    public SubscribeFileReq build(){
+        return new SubscribeFileReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

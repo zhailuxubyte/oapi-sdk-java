@@ -12,86 +12,90 @@
  */
 
 package com.lark.oapi.service.contact.v3.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.contact.v3.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class UnbindDepartmentUnitReqBody {
-
-  @SerializedName("unit_id")
-  private String unitId;
-  @SerializedName("department_id")
-  private String departmentId;
-  @SerializedName("department_id_type")
-  private String departmentIdType;
-
-  // builder 开始
-  public UnbindDepartmentUnitReqBody() {
-  }
-
-  public UnbindDepartmentUnitReqBody(Builder builder) {
-    this.unitId = builder.unitId;
-    this.departmentId = builder.departmentId;
-    this.departmentIdType = builder.departmentIdType;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getUnitId() {
-    return this.unitId;
-  }
-
-  public void setUnitId(String unitId) {
-    this.unitId = unitId;
-  }
-
-  public String getDepartmentId() {
-    return this.departmentId;
-  }
-
-  public void setDepartmentId(String departmentId) {
-    this.departmentId = departmentId;
-  }
-
-  public String getDepartmentIdType() {
-    return this.departmentIdType;
-  }
-
-  public void setDepartmentIdType(String departmentIdType) {
-    this.departmentIdType = departmentIdType;
-  }
-
-  public static class Builder {
-
+    @SerializedName("unit_id")
     private String unitId;
+    @SerializedName("department_id")
     private String departmentId;
+    @SerializedName("department_id_type")
     private String departmentIdType;
-
-    public Builder unitId(String unitId) {
-      this.unitId = unitId;
-      return this;
+    public String getUnitId() {
+        return this.unitId;
     }
 
-    public Builder departmentId(String departmentId) {
-      this.departmentId = departmentId;
-      return this;
+    public void setUnitId(String unitId) {
+        this.unitId = unitId;
     }
 
-    public Builder departmentIdType(String departmentIdType) {
-      this.departmentIdType = departmentIdType;
-      return this;
+    public String getDepartmentId() {
+        return this.departmentId;
     }
 
-    public Builder departmentIdType(
-        com.lark.oapi.service.contact.v3.enums.DepartmentIdTypeEnum departmentIdType) {
-      this.departmentIdType = departmentIdType.getValue();
-      return this;
+    public void setDepartmentId(String departmentId) {
+        this.departmentId = departmentId;
+    }
+
+    public String getDepartmentIdType() {
+        return this.departmentIdType;
+    }
+
+    public void setDepartmentIdType(String departmentIdType) {
+        this.departmentIdType = departmentIdType;
     }
 
 
-    public UnbindDepartmentUnitReqBody build() {
-      return new UnbindDepartmentUnitReqBody(this);
-    }
+// builder 开始
+  public UnbindDepartmentUnitReqBody(){}
+
+  public UnbindDepartmentUnitReqBody(Builder builder){
+      this.unitId = builder.unitId;
+      this.departmentId = builder.departmentId;
+      this.departmentIdType = builder.departmentIdType;
   }
+
+    public static class Builder {
+        private String unitId;
+        private String departmentId;
+        private String departmentIdType;
+        public Builder unitId(String unitId) {
+             this.unitId = unitId;
+             return this;
+        }
+    
+        public Builder departmentId(String departmentId) {
+             this.departmentId = departmentId;
+             return this;
+        }
+    
+        public Builder departmentIdType(String departmentIdType) {
+             this.departmentIdType = departmentIdType;
+             return this;
+        }
+        public Builder departmentIdType(com.lark.oapi.service.contact.v3.enums.DepartmentIdTypeEnum departmentIdType) {
+             this.departmentIdType = departmentIdType.getValue();
+             return this;
+        }
+    
+    
+    public UnbindDepartmentUnitReqBody build(){
+        return new UnbindDepartmentUnitReqBody(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

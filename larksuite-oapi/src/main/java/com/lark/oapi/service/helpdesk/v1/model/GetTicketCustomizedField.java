@@ -12,160 +12,167 @@
  */
 
 package com.lark.oapi.service.helpdesk.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class GetTicketCustomizedField {
+    @SerializedName("ticket_customized_field_id")
+    private String ticketCustomizedFieldId;
+    @SerializedName("helpdesk_id")
+    private String helpdeskId;
+    @SerializedName("key_name")
+    private String keyName;
+    @SerializedName("display_name")
+    private String displayName;
+    @SerializedName("position")
+    private String position;
+    @SerializedName("field_type")
+    private String fieldType;
+    @SerializedName("description")
+    private String description;
+    @SerializedName("visible")
+    private Boolean visible;
+    @SerializedName("editable")
+    private Boolean editable;
+    @SerializedName("required")
+    private Boolean required;
+    @SerializedName("created_at")
+    private String createdAt;
+    @SerializedName("updated_at")
+    private String updatedAt;
+    @SerializedName("created_by")
+    private TicketUser createdBy;
+    @SerializedName("updated_by")
+    private TicketUser updatedBy;
+    @SerializedName("dropdown_allow_multiple")
+    private Boolean dropdownAllowMultiple;
+    public String getTicketCustomizedFieldId() {
+        return this.ticketCustomizedFieldId;
+    }
 
-  @SerializedName("ticket_customized_field_id")
-  private String ticketCustomizedFieldId;
-  @SerializedName("helpdesk_id")
-  private String helpdeskId;
-  @SerializedName("key_name")
-  private String keyName;
-  @SerializedName("display_name")
-  private String displayName;
-  @SerializedName("position")
-  private String position;
-  @SerializedName("field_type")
-  private String fieldType;
-  @SerializedName("description")
-  private String description;
-  @SerializedName("visible")
-  private Boolean visible;
-  @SerializedName("editable")
-  private Boolean editable;
-  @SerializedName("required")
-  private Boolean required;
-  @SerializedName("created_at")
-  private String createdAt;
-  @SerializedName("updated_at")
-  private String updatedAt;
-  @SerializedName("created_by")
-  private TicketUser createdBy;
-  @SerializedName("updated_by")
-  private TicketUser updatedBy;
-  @SerializedName("dropdown_allow_multiple")
-  private Boolean dropdownAllowMultiple;
+    public void setTicketCustomizedFieldId(String ticketCustomizedFieldId) {
+        this.ticketCustomizedFieldId = ticketCustomizedFieldId;
+    }
 
-  public String getTicketCustomizedFieldId() {
-    return this.ticketCustomizedFieldId;
-  }
+    public String getHelpdeskId() {
+        return this.helpdeskId;
+    }
 
-  public void setTicketCustomizedFieldId(String ticketCustomizedFieldId) {
-    this.ticketCustomizedFieldId = ticketCustomizedFieldId;
-  }
+    public void setHelpdeskId(String helpdeskId) {
+        this.helpdeskId = helpdeskId;
+    }
 
-  public String getHelpdeskId() {
-    return this.helpdeskId;
-  }
+    public String getKeyName() {
+        return this.keyName;
+    }
 
-  public void setHelpdeskId(String helpdeskId) {
-    this.helpdeskId = helpdeskId;
-  }
+    public void setKeyName(String keyName) {
+        this.keyName = keyName;
+    }
 
-  public String getKeyName() {
-    return this.keyName;
-  }
+    public String getDisplayName() {
+        return this.displayName;
+    }
 
-  public void setKeyName(String keyName) {
-    this.keyName = keyName;
-  }
+    public void setDisplayName(String displayName) {
+        this.displayName = displayName;
+    }
 
-  public String getDisplayName() {
-    return this.displayName;
-  }
+    public String getPosition() {
+        return this.position;
+    }
 
-  public void setDisplayName(String displayName) {
-    this.displayName = displayName;
-  }
+    public void setPosition(String position) {
+        this.position = position;
+    }
 
-  public String getPosition() {
-    return this.position;
-  }
+    public String getFieldType() {
+        return this.fieldType;
+    }
 
-  public void setPosition(String position) {
-    this.position = position;
-  }
+    public void setFieldType(String fieldType) {
+        this.fieldType = fieldType;
+    }
 
-  public String getFieldType() {
-    return this.fieldType;
-  }
+    public String getDescription() {
+        return this.description;
+    }
 
-  public void setFieldType(String fieldType) {
-    this.fieldType = fieldType;
-  }
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
-  public String getDescription() {
-    return this.description;
-  }
+    public Boolean getVisible() {
+        return this.visible;
+    }
 
-  public void setDescription(String description) {
-    this.description = description;
-  }
+    public void setVisible(Boolean visible) {
+        this.visible = visible;
+    }
 
-  public Boolean getVisible() {
-    return this.visible;
-  }
+    public Boolean getEditable() {
+        return this.editable;
+    }
 
-  public void setVisible(Boolean visible) {
-    this.visible = visible;
-  }
+    public void setEditable(Boolean editable) {
+        this.editable = editable;
+    }
 
-  public Boolean getEditable() {
-    return this.editable;
-  }
+    public Boolean getRequired() {
+        return this.required;
+    }
 
-  public void setEditable(Boolean editable) {
-    this.editable = editable;
-  }
+    public void setRequired(Boolean required) {
+        this.required = required;
+    }
 
-  public Boolean getRequired() {
-    return this.required;
-  }
+    public String getCreatedAt() {
+        return this.createdAt;
+    }
 
-  public void setRequired(Boolean required) {
-    this.required = required;
-  }
+    public void setCreatedAt(String createdAt) {
+        this.createdAt = createdAt;
+    }
 
-  public String getCreatedAt() {
-    return this.createdAt;
-  }
+    public String getUpdatedAt() {
+        return this.updatedAt;
+    }
 
-  public void setCreatedAt(String createdAt) {
-    this.createdAt = createdAt;
-  }
+    public void setUpdatedAt(String updatedAt) {
+        this.updatedAt = updatedAt;
+    }
 
-  public String getUpdatedAt() {
-    return this.updatedAt;
-  }
+    public TicketUser getCreatedBy() {
+        return this.createdBy;
+    }
 
-  public void setUpdatedAt(String updatedAt) {
-    this.updatedAt = updatedAt;
-  }
+    public void setCreatedBy(TicketUser createdBy) {
+        this.createdBy = createdBy;
+    }
 
-  public TicketUser getCreatedBy() {
-    return this.createdBy;
-  }
+    public TicketUser getUpdatedBy() {
+        return this.updatedBy;
+    }
 
-  public void setCreatedBy(TicketUser createdBy) {
-    this.createdBy = createdBy;
-  }
+    public void setUpdatedBy(TicketUser updatedBy) {
+        this.updatedBy = updatedBy;
+    }
 
-  public TicketUser getUpdatedBy() {
-    return this.updatedBy;
-  }
+    public Boolean getDropdownAllowMultiple() {
+        return this.dropdownAllowMultiple;
+    }
 
-  public void setUpdatedBy(TicketUser updatedBy) {
-    this.updatedBy = updatedBy;
-  }
-
-  public Boolean getDropdownAllowMultiple() {
-    return this.dropdownAllowMultiple;
-  }
-
-  public void setDropdownAllowMultiple(Boolean dropdownAllowMultiple) {
-    this.dropdownAllowMultiple = dropdownAllowMultiple;
-  }
+    public void setDropdownAllowMultiple(Boolean dropdownAllowMultiple) {
+        this.dropdownAllowMultiple = dropdownAllowMultiple;
+    }
 
 }

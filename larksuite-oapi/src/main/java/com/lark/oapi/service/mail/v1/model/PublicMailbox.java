@@ -12,80 +12,86 @@
  */
 
 package com.lark.oapi.service.mail.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.mail.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class PublicMailbox {
-
-  @SerializedName("public_mailbox_id")
-  private String publicMailboxId;
-  @SerializedName("email")
-  private String email;
-  @SerializedName("name")
-  private String name;
-
-  // builder 开始
-  public PublicMailbox() {
-  }
-
-  public PublicMailbox(Builder builder) {
-    this.publicMailboxId = builder.publicMailboxId;
-    this.email = builder.email;
-    this.name = builder.name;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getPublicMailboxId() {
-    return this.publicMailboxId;
-  }
-
-  public void setPublicMailboxId(String publicMailboxId) {
-    this.publicMailboxId = publicMailboxId;
-  }
-
-  public String getEmail() {
-    return this.email;
-  }
-
-  public void setEmail(String email) {
-    this.email = email;
-  }
-
-  public String getName() {
-    return this.name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public static class Builder {
-
+    @SerializedName("public_mailbox_id")
     private String publicMailboxId;
+    @SerializedName("email")
     private String email;
+    @SerializedName("name")
     private String name;
-
-    public Builder publicMailboxId(String publicMailboxId) {
-      this.publicMailboxId = publicMailboxId;
-      return this;
+    public String getPublicMailboxId() {
+        return this.publicMailboxId;
     }
 
-    public Builder email(String email) {
-      this.email = email;
-      return this;
+    public void setPublicMailboxId(String publicMailboxId) {
+        this.publicMailboxId = publicMailboxId;
     }
 
-    public Builder name(String name) {
-      this.name = name;
-      return this;
+    public String getEmail() {
+        return this.email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
 
-    public PublicMailbox build() {
-      return new PublicMailbox(this);
-    }
+// builder 开始
+  public PublicMailbox(){}
+
+  public PublicMailbox(Builder builder){
+      this.publicMailboxId = builder.publicMailboxId;
+      this.email = builder.email;
+      this.name = builder.name;
   }
+
+    public static class Builder {
+        private String publicMailboxId;
+        private String email;
+        private String name;
+        public Builder publicMailboxId(String publicMailboxId) {
+             this.publicMailboxId = publicMailboxId;
+             return this;
+        }
+    
+        public Builder email(String email) {
+             this.email = email;
+             return this;
+        }
+    
+        public Builder name(String name) {
+             this.name = name;
+             return this;
+        }
+    
+    
+    public PublicMailbox build(){
+        return new PublicMailbox(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

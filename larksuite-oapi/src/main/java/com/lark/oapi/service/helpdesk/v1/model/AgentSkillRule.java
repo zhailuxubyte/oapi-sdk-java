@@ -12,131 +12,137 @@
  */
 
 package com.lark.oapi.service.helpdesk.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.helpdesk.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class AgentSkillRule {
-
-  @SerializedName("id")
-  private String id;
-  @SerializedName("selected_operator")
-  private Integer selectedOperator;
-  @SerializedName("operator_options")
-  private Integer[] operatorOptions;
-  @SerializedName("operand")
-  private String operand;
-  @SerializedName("category")
-  private Integer category;
-  @SerializedName("display_name")
-  private String displayName;
-
-  // builder 开始
-  public AgentSkillRule() {
-  }
-
-  public AgentSkillRule(Builder builder) {
-    this.id = builder.id;
-    this.selectedOperator = builder.selectedOperator;
-    this.operatorOptions = builder.operatorOptions;
-    this.operand = builder.operand;
-    this.category = builder.category;
-    this.displayName = builder.displayName;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getId() {
-    return this.id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public Integer getSelectedOperator() {
-    return this.selectedOperator;
-  }
-
-  public void setSelectedOperator(Integer selectedOperator) {
-    this.selectedOperator = selectedOperator;
-  }
-
-  public Integer[] getOperatorOptions() {
-    return this.operatorOptions;
-  }
-
-  public void setOperatorOptions(Integer[] operatorOptions) {
-    this.operatorOptions = operatorOptions;
-  }
-
-  public String getOperand() {
-    return this.operand;
-  }
-
-  public void setOperand(String operand) {
-    this.operand = operand;
-  }
-
-  public Integer getCategory() {
-    return this.category;
-  }
-
-  public void setCategory(Integer category) {
-    this.category = category;
-  }
-
-  public String getDisplayName() {
-    return this.displayName;
-  }
-
-  public void setDisplayName(String displayName) {
-    this.displayName = displayName;
-  }
-
-  public static class Builder {
-
+    @SerializedName("id")
     private String id;
+    @SerializedName("selected_operator")
     private Integer selectedOperator;
+    @SerializedName("operator_options")
     private Integer[] operatorOptions;
+    @SerializedName("operand")
     private String operand;
+    @SerializedName("category")
     private Integer category;
+    @SerializedName("display_name")
     private String displayName;
-
-    public Builder id(String id) {
-      this.id = id;
-      return this;
+    public String getId() {
+        return this.id;
     }
 
-    public Builder selectedOperator(Integer selectedOperator) {
-      this.selectedOperator = selectedOperator;
-      return this;
+    public void setId(String id) {
+        this.id = id;
     }
 
-    public Builder operatorOptions(Integer[] operatorOptions) {
-      this.operatorOptions = operatorOptions;
-      return this;
+    public Integer getSelectedOperator() {
+        return this.selectedOperator;
     }
 
-    public Builder operand(String operand) {
-      this.operand = operand;
-      return this;
+    public void setSelectedOperator(Integer selectedOperator) {
+        this.selectedOperator = selectedOperator;
     }
 
-    public Builder category(Integer category) {
-      this.category = category;
-      return this;
+    public Integer[] getOperatorOptions() {
+        return this.operatorOptions;
     }
 
-    public Builder displayName(String displayName) {
-      this.displayName = displayName;
-      return this;
+    public void setOperatorOptions(Integer[] operatorOptions) {
+        this.operatorOptions = operatorOptions;
+    }
+
+    public String getOperand() {
+        return this.operand;
+    }
+
+    public void setOperand(String operand) {
+        this.operand = operand;
+    }
+
+    public Integer getCategory() {
+        return this.category;
+    }
+
+    public void setCategory(Integer category) {
+        this.category = category;
+    }
+
+    public String getDisplayName() {
+        return this.displayName;
+    }
+
+    public void setDisplayName(String displayName) {
+        this.displayName = displayName;
     }
 
 
-    public AgentSkillRule build() {
-      return new AgentSkillRule(this);
-    }
+// builder 开始
+  public AgentSkillRule(){}
+
+  public AgentSkillRule(Builder builder){
+      this.id = builder.id;
+      this.selectedOperator = builder.selectedOperator;
+      this.operatorOptions = builder.operatorOptions;
+      this.operand = builder.operand;
+      this.category = builder.category;
+      this.displayName = builder.displayName;
   }
+
+    public static class Builder {
+        private String id;
+        private Integer selectedOperator;
+        private Integer[] operatorOptions;
+        private String operand;
+        private Integer category;
+        private String displayName;
+        public Builder id(String id) {
+             this.id = id;
+             return this;
+        }
+    
+        public Builder selectedOperator(Integer selectedOperator) {
+             this.selectedOperator = selectedOperator;
+             return this;
+        }
+    
+        public Builder operatorOptions(Integer[] operatorOptions) {
+             this.operatorOptions = operatorOptions;
+             return this;
+        }
+    
+        public Builder operand(String operand) {
+             this.operand = operand;
+             return this;
+        }
+    
+        public Builder category(Integer category) {
+             this.category = category;
+             return this;
+        }
+    
+        public Builder displayName(String displayName) {
+             this.displayName = displayName;
+             return this;
+        }
+    
+    
+    public AgentSkillRule build(){
+        return new AgentSkillRule(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

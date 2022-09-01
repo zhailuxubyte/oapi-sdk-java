@@ -13,73 +13,80 @@
 
 package com.lark.oapi.service.passport.v1;
 
-import com.lark.oapi.core.Config;
-import com.lark.oapi.core.Transport;
-import com.lark.oapi.core.request.RequestOptions;
-import com.lark.oapi.core.response.RawResponse;
 import com.lark.oapi.core.token.AccessTokenType;
-import com.lark.oapi.core.utils.Sets;
+import com.lark.oapi.core.Transport;
+import com.lark.oapi.core.response.RawResponse;
 import com.lark.oapi.core.utils.UnmarshalRespUtil;
-import com.lark.oapi.service.passport.v1.model.QuerySessionReq;
-import com.lark.oapi.service.passport.v1.model.QuerySessionResp;
+import com.lark.oapi.core.utils.Sets;
+
+
+
+import com.lark.oapi.core.Config;
+import com.lark.oapi.core.request.RequestOptions;
+import java.io.ByteArrayOutputStream;
+import com.lark.oapi.event.model.BaseEvent;
+import com.lark.oapi.event.model.BaseEventV2;
+import com.lark.oapi.service.passport.v1.model.*;
+import java.util.Map;
+import java.util.HashMap;
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
 
 public class PassportService {
+    private final Session session;
 
-  private final Session session;
-
-  public PassportService(Config config) {
-    this.session = new Session(config);
-  }
-
-  public Session session() {
-    return session;
-  }
-
-  public static class Session {
-
-    private final Config config;
-
-    public Session(Config config) {
-      this.config = config;
+    public PassportService(Config config) {
+        this.session = new Session(config);
+    }
+    public Session session() {
+        return session;
     }
 
-    public QuerySessionResp query(QuerySessionReq req, RequestOptions reqOptions) throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
+    public static class Session {
+        private final Config config;
 
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          , "/open-apis/passport/v1/sessions/query"
-          , Sets.newHashSet(AccessTokenType.Tenant)
-          , req);
+        public Session(Config config) {
+            this.config = config;
+        }
+    
+        public QuerySessionResp query(QuerySessionReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
 
-      // 反序列化
-      QuerySessionResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, QuerySessionResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config,reqOptions, "POST"
+                       ,"/open-apis/passport/v1/sessions/query"
+                       ,Sets.newHashSet(AccessTokenType.Tenant)
+                       ,req);
+	       
+           // 反序列化
+           QuerySessionResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, QuerySessionResp.class);
+           resp.setRawResponse(httpResponse);
+           resp.setRequest(req);
+           
+           return resp;
+        }
 
-      return resp;
+        public QuerySessionResp query(QuerySessionReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config,reqOptions, "POST"
+                       ,"/open-apis/passport/v1/sessions/query"
+                       ,Sets.newHashSet(AccessTokenType.Tenant)
+                       ,req);
+            
+           // 反序列化
+           QuerySessionResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, QuerySessionResp.class);
+           resp.setRawResponse(httpResponse);
+           resp.setRequest(req);
+           
+           return resp;
+        }
     }
-
-    public QuerySessionResp query(QuerySessionReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          , "/open-apis/passport/v1/sessions/query"
-          , Sets.newHashSet(AccessTokenType.Tenant)
-          , req);
-
-      // 反序列化
-      QuerySessionResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, QuerySessionResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-  }
 
 }

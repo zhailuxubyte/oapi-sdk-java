@@ -12,114 +12,120 @@
  */
 
 package com.lark.oapi.service.drive.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.drive.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class FileCommentReply {
-
-  @SerializedName("reply_id")
-  private String replyId;
-  @SerializedName("user_id")
-  private String userId;
-  @SerializedName("create_time")
-  private Integer createTime;
-  @SerializedName("update_time")
-  private Integer updateTime;
-  @SerializedName("content")
-  private ReplyContent content;
-
-  // builder 开始
-  public FileCommentReply() {
-  }
-
-  public FileCommentReply(Builder builder) {
-    this.replyId = builder.replyId;
-    this.userId = builder.userId;
-    this.createTime = builder.createTime;
-    this.updateTime = builder.updateTime;
-    this.content = builder.content;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getReplyId() {
-    return this.replyId;
-  }
-
-  public void setReplyId(String replyId) {
-    this.replyId = replyId;
-  }
-
-  public String getUserId() {
-    return this.userId;
-  }
-
-  public void setUserId(String userId) {
-    this.userId = userId;
-  }
-
-  public Integer getCreateTime() {
-    return this.createTime;
-  }
-
-  public void setCreateTime(Integer createTime) {
-    this.createTime = createTime;
-  }
-
-  public Integer getUpdateTime() {
-    return this.updateTime;
-  }
-
-  public void setUpdateTime(Integer updateTime) {
-    this.updateTime = updateTime;
-  }
-
-  public ReplyContent getContent() {
-    return this.content;
-  }
-
-  public void setContent(ReplyContent content) {
-    this.content = content;
-  }
-
-  public static class Builder {
-
+    @SerializedName("reply_id")
     private String replyId;
+    @SerializedName("user_id")
     private String userId;
+    @SerializedName("create_time")
     private Integer createTime;
+    @SerializedName("update_time")
     private Integer updateTime;
+    @SerializedName("content")
     private ReplyContent content;
-
-    public Builder replyId(String replyId) {
-      this.replyId = replyId;
-      return this;
+    public String getReplyId() {
+        return this.replyId;
     }
 
-    public Builder userId(String userId) {
-      this.userId = userId;
-      return this;
+    public void setReplyId(String replyId) {
+        this.replyId = replyId;
     }
 
-    public Builder createTime(Integer createTime) {
-      this.createTime = createTime;
-      return this;
+    public String getUserId() {
+        return this.userId;
     }
 
-    public Builder updateTime(Integer updateTime) {
-      this.updateTime = updateTime;
-      return this;
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
-    public Builder content(ReplyContent content) {
-      this.content = content;
-      return this;
+    public Integer getCreateTime() {
+        return this.createTime;
+    }
+
+    public void setCreateTime(Integer createTime) {
+        this.createTime = createTime;
+    }
+
+    public Integer getUpdateTime() {
+        return this.updateTime;
+    }
+
+    public void setUpdateTime(Integer updateTime) {
+        this.updateTime = updateTime;
+    }
+
+    public ReplyContent getContent() {
+        return this.content;
+    }
+
+    public void setContent(ReplyContent content) {
+        this.content = content;
     }
 
 
-    public FileCommentReply build() {
-      return new FileCommentReply(this);
-    }
+// builder 开始
+  public FileCommentReply(){}
+
+  public FileCommentReply(Builder builder){
+      this.replyId = builder.replyId;
+      this.userId = builder.userId;
+      this.createTime = builder.createTime;
+      this.updateTime = builder.updateTime;
+      this.content = builder.content;
   }
+
+    public static class Builder {
+        private String replyId;
+        private String userId;
+        private Integer createTime;
+        private Integer updateTime;
+        private ReplyContent content;
+        public Builder replyId(String replyId) {
+             this.replyId = replyId;
+             return this;
+        }
+    
+        public Builder userId(String userId) {
+             this.userId = userId;
+             return this;
+        }
+    
+        public Builder createTime(Integer createTime) {
+             this.createTime = createTime;
+             return this;
+        }
+    
+        public Builder updateTime(Integer updateTime) {
+             this.updateTime = updateTime;
+             return this;
+        }
+    
+        public Builder content(ReplyContent content) {
+             this.content = content;
+             return this;
+        }
+    
+    
+    public FileCommentReply build(){
+        return new FileCommentReply(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

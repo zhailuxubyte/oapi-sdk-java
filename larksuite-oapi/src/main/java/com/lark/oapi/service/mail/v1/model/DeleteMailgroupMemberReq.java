@@ -12,65 +12,70 @@
  */
 
 package com.lark.oapi.service.mail.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.mail.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class DeleteMailgroupMemberReq {
-
-  @Path
-  @SerializedName("mailgroup_id")
-  private String mailgroupId;
-  @Path
-  @SerializedName("member_id")
-  private String memberId;
-
-  // builder 开始
-  public DeleteMailgroupMemberReq() {
-  }
-
-  public DeleteMailgroupMemberReq(Builder builder) {
-    this.mailgroupId = builder.mailgroupId;
-    this.memberId = builder.memberId;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getMailgroupId() {
-    return this.mailgroupId;
-  }
-
-  public void setMailgroupId(String mailgroupId) {
-    this.mailgroupId = mailgroupId;
-  }
-
-  public String getMemberId() {
-    return this.memberId;
-  }
-
-  public void setMemberId(String memberId) {
-    this.memberId = memberId;
-  }
-
-  public static class Builder {
-
+    @Path
+    @SerializedName("mailgroup_id")
     private String mailgroupId;
+    @Path
+    @SerializedName("member_id")
     private String memberId;
-
-    public Builder mailgroupId(String mailgroupId) {
-      this.mailgroupId = mailgroupId;
-      return this;
+    public String getMailgroupId() {
+        return this.mailgroupId;
     }
 
-    public Builder memberId(String memberId) {
-      this.memberId = memberId;
-      return this;
+    public void setMailgroupId(String mailgroupId) {
+        this.mailgroupId = mailgroupId;
     }
 
-    public DeleteMailgroupMemberReq build() {
-      return new DeleteMailgroupMemberReq(this);
+    public String getMemberId() {
+        return this.memberId;
     }
+
+    public void setMemberId(String memberId) {
+        this.memberId = memberId;
+    }
+
+
+// builder 开始
+  public DeleteMailgroupMemberReq(){}
+
+  public DeleteMailgroupMemberReq(Builder builder){
+       this.mailgroupId = builder.mailgroupId;
+       this.memberId = builder.memberId;
   }
+
+    public static class Builder {
+    
+        private String mailgroupId;
+        private String memberId;
+          public Builder mailgroupId(String mailgroupId) {
+               this.mailgroupId = mailgroupId;
+               return this;
+          }
+    
+          public Builder memberId(String memberId) {
+               this.memberId = memberId;
+               return this;
+          }
+    
+    public DeleteMailgroupMemberReq build(){
+        return new DeleteMailgroupMemberReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

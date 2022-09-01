@@ -12,80 +12,86 @@
  */
 
 package com.lark.oapi.service.baike.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.baike.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class Referer {
-
-  @SerializedName("id")
-  private String id;
-  @SerializedName("title")
-  private String title;
-  @SerializedName("url")
-  private String url;
-
-  // builder 开始
-  public Referer() {
-  }
-
-  public Referer(Builder builder) {
-    this.id = builder.id;
-    this.title = builder.title;
-    this.url = builder.url;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getId() {
-    return this.id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public String getTitle() {
-    return this.title;
-  }
-
-  public void setTitle(String title) {
-    this.title = title;
-  }
-
-  public String getUrl() {
-    return this.url;
-  }
-
-  public void setUrl(String url) {
-    this.url = url;
-  }
-
-  public static class Builder {
-
+    @SerializedName("id")
     private String id;
+    @SerializedName("title")
     private String title;
+    @SerializedName("url")
     private String url;
-
-    public Builder id(String id) {
-      this.id = id;
-      return this;
+    public String getId() {
+        return this.id;
     }
 
-    public Builder title(String title) {
-      this.title = title;
-      return this;
+    public void setId(String id) {
+        this.id = id;
     }
 
-    public Builder url(String url) {
-      this.url = url;
-      return this;
+    public String getTitle() {
+        return this.title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getUrl() {
+        return this.url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 
 
-    public Referer build() {
-      return new Referer(this);
-    }
+// builder 开始
+  public Referer(){}
+
+  public Referer(Builder builder){
+      this.id = builder.id;
+      this.title = builder.title;
+      this.url = builder.url;
   }
+
+    public static class Builder {
+        private String id;
+        private String title;
+        private String url;
+        public Builder id(String id) {
+             this.id = id;
+             return this;
+        }
+    
+        public Builder title(String title) {
+             this.title = title;
+             return this;
+        }
+    
+        public Builder url(String url) {
+             this.url = url;
+             return this;
+        }
+    
+    
+    public Referer build(){
+        return new Referer(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

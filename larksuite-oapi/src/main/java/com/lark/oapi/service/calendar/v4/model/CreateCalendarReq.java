@@ -12,49 +12,54 @@
  */
 
 package com.lark.oapi.service.calendar.v4.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.calendar.v4.enums.*;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
-
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class CreateCalendarReq {
-
-  @Body
-  private Calendar body;
-
-  // builder 开始
-  public CreateCalendarReq() {
-  }
-
-  public CreateCalendarReq(Builder builder) {
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Calendar getCalendar() {
-    return this.body;
-  }
-
-  public void setCalendar(Calendar body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
+    @Body
     private Calendar body;
 
     public Calendar getCalendar() {
-      return this.body;
+        return this.body;
     }
 
-    public Builder calendar(Calendar body) {
-      this.body = body;
-      return this;
+    public void setCalendar(Calendar body) {
+        this.body = body;
     }
 
-    public CreateCalendarReq build() {
-      return new CreateCalendarReq(this);
-    }
+// builder 开始
+  public CreateCalendarReq(){}
+
+  public CreateCalendarReq(Builder builder){
+        this.body = builder.body;
   }
+
+    public static class Builder {
+    
+        private Calendar body;
+    
+        public Calendar getCalendar() {
+            return this.body;
+        }
+        public Builder calendar(Calendar body) {
+             this.body = body;
+             return this;
+        }
+    public CreateCalendarReq build(){
+        return new CreateCalendarReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

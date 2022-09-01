@@ -12,63 +12,69 @@
  */
 
 package com.lark.oapi.service.acs.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.acs.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class User {
-
-  @SerializedName("feature")
-  private Feature feature;
-  @SerializedName("user_id")
-  private String userId;
-
-  // builder 开始
-  public User() {
-  }
-
-  public User(Builder builder) {
-    this.feature = builder.feature;
-    this.userId = builder.userId;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Feature getFeature() {
-    return this.feature;
-  }
-
-  public void setFeature(Feature feature) {
-    this.feature = feature;
-  }
-
-  public String getUserId() {
-    return this.userId;
-  }
-
-  public void setUserId(String userId) {
-    this.userId = userId;
-  }
-
-  public static class Builder {
-
+    @SerializedName("feature")
     private Feature feature;
+    @SerializedName("user_id")
     private String userId;
-
-    public Builder feature(Feature feature) {
-      this.feature = feature;
-      return this;
+    public Feature getFeature() {
+        return this.feature;
     }
 
-    public Builder userId(String userId) {
-      this.userId = userId;
-      return this;
+    public void setFeature(Feature feature) {
+        this.feature = feature;
+    }
+
+    public String getUserId() {
+        return this.userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
 
-    public User build() {
-      return new User(this);
-    }
+// builder 开始
+  public User(){}
+
+  public User(Builder builder){
+      this.feature = builder.feature;
+      this.userId = builder.userId;
   }
+
+    public static class Builder {
+        private Feature feature;
+        private String userId;
+        public Builder feature(Feature feature) {
+             this.feature = feature;
+             return this;
+        }
+    
+        public Builder userId(String userId) {
+             this.userId = userId;
+             return this;
+        }
+    
+    
+    public User build(){
+        return new User(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

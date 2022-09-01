@@ -12,63 +12,69 @@
  */
 
 package com.lark.oapi.service.approval.v4.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.approval.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class Approval {
-
-  @SerializedName("approval_code")
-  private String approvalCode;
-  @SerializedName("approval_name")
-  private String approvalName;
-
-  // builder 开始
-  public Approval() {
-  }
-
-  public Approval(Builder builder) {
-    this.approvalCode = builder.approvalCode;
-    this.approvalName = builder.approvalName;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getApprovalCode() {
-    return this.approvalCode;
-  }
-
-  public void setApprovalCode(String approvalCode) {
-    this.approvalCode = approvalCode;
-  }
-
-  public String getApprovalName() {
-    return this.approvalName;
-  }
-
-  public void setApprovalName(String approvalName) {
-    this.approvalName = approvalName;
-  }
-
-  public static class Builder {
-
+    @SerializedName("approval_code")
     private String approvalCode;
+    @SerializedName("approval_name")
     private String approvalName;
-
-    public Builder approvalCode(String approvalCode) {
-      this.approvalCode = approvalCode;
-      return this;
+    public String getApprovalCode() {
+        return this.approvalCode;
     }
 
-    public Builder approvalName(String approvalName) {
-      this.approvalName = approvalName;
-      return this;
+    public void setApprovalCode(String approvalCode) {
+        this.approvalCode = approvalCode;
+    }
+
+    public String getApprovalName() {
+        return this.approvalName;
+    }
+
+    public void setApprovalName(String approvalName) {
+        this.approvalName = approvalName;
     }
 
 
-    public Approval build() {
-      return new Approval(this);
-    }
+// builder 开始
+  public Approval(){}
+
+  public Approval(Builder builder){
+      this.approvalCode = builder.approvalCode;
+      this.approvalName = builder.approvalName;
   }
+
+    public static class Builder {
+        private String approvalCode;
+        private String approvalName;
+        public Builder approvalCode(String approvalCode) {
+             this.approvalCode = approvalCode;
+             return this;
+        }
+    
+        public Builder approvalName(String approvalName) {
+             this.approvalName = approvalName;
+             return this;
+        }
+    
+    
+    public Approval build(){
+        return new Approval(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

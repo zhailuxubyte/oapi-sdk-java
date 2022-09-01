@@ -12,93 +12,94 @@
  */
 
 package com.lark.oapi.service.task.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.task.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class CreateTaskFollowerReq {
-
-  @Query
-  @SerializedName("user_id_type")
-  private String userIdType;
-  @Path
-  @SerializedName("task_id")
-  private String taskId;
-  @Body
-  private Follower body;
-
-  // builder 开始
-  public CreateTaskFollowerReq() {
-  }
-
-  public CreateTaskFollowerReq(Builder builder) {
-    this.userIdType = builder.userIdType;
-    this.taskId = builder.taskId;
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getUserIdType() {
-    return this.userIdType;
-  }
-
-  public void setUserIdType(String userIdType) {
-    this.userIdType = userIdType;
-  }
-
-  public String getTaskId() {
-    return this.taskId;
-  }
-
-  public void setTaskId(String taskId) {
-    this.taskId = taskId;
-  }
-
-  public Follower getFollower() {
-    return this.body;
-  }
-
-  public void setFollower(Follower body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
+    @Query
+    @SerializedName("user_id_type")
     private String userIdType;
+    public String getUserIdType() {
+        return this.userIdType;
+    }
+
+    public void setUserIdType(String userIdType) {
+        this.userIdType = userIdType;
+    }
+
+    @Path
+    @SerializedName("task_id")
     private String taskId;
+    public String getTaskId() {
+        return this.taskId;
+    }
+
+    public void setTaskId(String taskId) {
+        this.taskId = taskId;
+    }
+
+    @Body
     private Follower body;
 
-    public Builder userIdType(String userIdType) {
-      this.userIdType = userIdType;
-      return this;
-    }
-
-    public Builder userIdType(com.lark.oapi.service.task.v1.enums.UserIdTypeEnum userIdType) {
-      this.userIdType = userIdType.getValue();
-      return this;
-    }
-
-    public Builder taskId(String taskId) {
-      this.taskId = taskId;
-      return this;
-    }
-
     public Follower getFollower() {
-      return this.body;
+        return this.body;
     }
 
-    public Builder follower(Follower body) {
-      this.body = body;
-      return this;
+    public void setFollower(Follower body) {
+        this.body = body;
     }
 
-    public CreateTaskFollowerReq build() {
-      return new CreateTaskFollowerReq(this);
-    }
+// builder 开始
+  public CreateTaskFollowerReq(){}
+
+  public CreateTaskFollowerReq(Builder builder){
+       this.userIdType = builder.userIdType;
+       this.taskId = builder.taskId;
+        this.body = builder.body;
   }
+
+    public static class Builder {
+        private String userIdType;
+    
+           public Builder userIdType(String userIdType) {
+                this.userIdType = userIdType;
+                return this;
+           }
+          public Builder userIdType(com.lark.oapi.service.task.v1.enums.UserIdTypeEnum userIdType) {
+               this.userIdType = userIdType.getValue();
+               return this;
+          }
+    
+        private String taskId;
+          public Builder taskId(String taskId) {
+               this.taskId = taskId;
+               return this;
+          }
+    
+        private Follower body;
+    
+        public Follower getFollower() {
+            return this.body;
+        }
+        public Builder follower(Follower body) {
+             this.body = body;
+             return this;
+        }
+    public CreateTaskFollowerReq build(){
+        return new CreateTaskFollowerReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

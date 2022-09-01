@@ -12,102 +12,107 @@
  */
 
 package com.lark.oapi.service.drive.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.drive.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class FileSearch {
-
-  @SerializedName("docs_token")
-  private String docsToken;
-  @SerializedName("docs_type")
-  private String docsType;
-  @SerializedName("title")
-  private String title;
-  @SerializedName("owner_id")
-  private String ownerId;
-
-  // builder 开始
-  public FileSearch() {
-  }
-
-  public FileSearch(Builder builder) {
-    this.docsToken = builder.docsToken;
-    this.docsType = builder.docsType;
-    this.title = builder.title;
-    this.ownerId = builder.ownerId;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getDocsToken() {
-    return this.docsToken;
-  }
-
-  public void setDocsToken(String docsToken) {
-    this.docsToken = docsToken;
-  }
-
-  public String getDocsType() {
-    return this.docsType;
-  }
-
-  public void setDocsType(String docsType) {
-    this.docsType = docsType;
-  }
-
-  public String getTitle() {
-    return this.title;
-  }
-
-  public void setTitle(String title) {
-    this.title = title;
-  }
-
-  public String getOwnerId() {
-    return this.ownerId;
-  }
-
-  public void setOwnerId(String ownerId) {
-    this.ownerId = ownerId;
-  }
-
-  public static class Builder {
-
+    @SerializedName("docs_token")
     private String docsToken;
+    @SerializedName("docs_type")
     private String docsType;
+    @SerializedName("title")
     private String title;
+    @SerializedName("owner_id")
     private String ownerId;
-
-    public Builder docsToken(String docsToken) {
-      this.docsToken = docsToken;
-      return this;
+    public String getDocsToken() {
+        return this.docsToken;
     }
 
-    public Builder docsType(String docsType) {
-      this.docsType = docsType;
-      return this;
+    public void setDocsToken(String docsToken) {
+        this.docsToken = docsToken;
     }
 
-    public Builder docsType(com.lark.oapi.service.drive.v1.enums.DocsTypeEnum docsType) {
-      this.docsType = docsType.getValue();
-      return this;
+    public String getDocsType() {
+        return this.docsType;
     }
 
-    public Builder title(String title) {
-      this.title = title;
-      return this;
+    public void setDocsType(String docsType) {
+        this.docsType = docsType;
     }
 
-    public Builder ownerId(String ownerId) {
-      this.ownerId = ownerId;
-      return this;
+    public String getTitle() {
+        return this.title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getOwnerId() {
+        return this.ownerId;
+    }
+
+    public void setOwnerId(String ownerId) {
+        this.ownerId = ownerId;
     }
 
 
-    public FileSearch build() {
-      return new FileSearch(this);
-    }
+// builder 开始
+  public FileSearch(){}
+
+  public FileSearch(Builder builder){
+      this.docsToken = builder.docsToken;
+      this.docsType = builder.docsType;
+      this.title = builder.title;
+      this.ownerId = builder.ownerId;
   }
+
+    public static class Builder {
+        private String docsToken;
+        private String docsType;
+        private String title;
+        private String ownerId;
+        public Builder docsToken(String docsToken) {
+             this.docsToken = docsToken;
+             return this;
+        }
+    
+        public Builder docsType(String docsType) {
+             this.docsType = docsType;
+             return this;
+        }
+        public Builder docsType(com.lark.oapi.service.drive.v1.enums.DocsTypeEnum docsType) {
+             this.docsType = docsType.getValue();
+             return this;
+        }
+    
+        public Builder title(String title) {
+             this.title = title;
+             return this;
+        }
+    
+        public Builder ownerId(String ownerId) {
+             this.ownerId = ownerId;
+             return this;
+        }
+    
+    
+    public FileSearch build(){
+        return new FileSearch(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

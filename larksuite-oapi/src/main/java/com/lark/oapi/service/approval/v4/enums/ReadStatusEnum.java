@@ -15,16 +15,15 @@ package com.lark.oapi.service.approval.v4.enums;
 
 // 生成枚举值
 public enum ReadStatusEnum {
-  READ("READ"),
-  UNREAD("UNREAD"),
+     READ("READ"),
+     UNREAD("UNREAD"),
   ;
-  private String value;
+   private String value;
+    ReadStatusEnum(String value) {
+      this.value = value;
+    }
 
-  ReadStatusEnum(String value) {
-    this.value = value;
-  }
-
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+      return this.value;
+    }
 }

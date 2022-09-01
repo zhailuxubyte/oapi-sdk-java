@@ -12,105 +12,108 @@
  */
 
 package com.lark.oapi.service.bitable.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.bitable.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class UpdateAppTableFieldReq {
-
-  @Path
-  @SerializedName("app_token")
-  private String appToken;
-  @Path
-  @SerializedName("table_id")
-  private String tableId;
-  @Path
-  @SerializedName("field_id")
-  private String fieldId;
-  @Body
-  private AppTableField body;
-
-  // builder 开始
-  public UpdateAppTableFieldReq() {
-  }
-
-  public UpdateAppTableFieldReq(Builder builder) {
-    this.appToken = builder.appToken;
-    this.tableId = builder.tableId;
-    this.fieldId = builder.fieldId;
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getAppToken() {
-    return this.appToken;
-  }
-
-  public void setAppToken(String appToken) {
-    this.appToken = appToken;
-  }
-
-  public String getTableId() {
-    return this.tableId;
-  }
-
-  public void setTableId(String tableId) {
-    this.tableId = tableId;
-  }
-
-  public String getFieldId() {
-    return this.fieldId;
-  }
-
-  public void setFieldId(String fieldId) {
-    this.fieldId = fieldId;
-  }
-
-  public AppTableField getAppTableField() {
-    return this.body;
-  }
-
-  public void setAppTableField(AppTableField body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
+    @Path
+    @SerializedName("app_token")
     private String appToken;
+    @Path
+    @SerializedName("table_id")
     private String tableId;
+    @Path
+    @SerializedName("field_id")
     private String fieldId;
+    public String getAppToken() {
+        return this.appToken;
+    }
+
+    public void setAppToken(String appToken) {
+        this.appToken = appToken;
+    }
+
+    public String getTableId() {
+        return this.tableId;
+    }
+
+    public void setTableId(String tableId) {
+        this.tableId = tableId;
+    }
+
+    public String getFieldId() {
+        return this.fieldId;
+    }
+
+    public void setFieldId(String fieldId) {
+        this.fieldId = fieldId;
+    }
+
+    @Body
     private AppTableField body;
 
-    public Builder appToken(String appToken) {
-      this.appToken = appToken;
-      return this;
-    }
-
-    public Builder tableId(String tableId) {
-      this.tableId = tableId;
-      return this;
-    }
-
-    public Builder fieldId(String fieldId) {
-      this.fieldId = fieldId;
-      return this;
-    }
-
     public AppTableField getAppTableField() {
-      return this.body;
+        return this.body;
     }
 
-    public Builder appTableField(AppTableField body) {
-      this.body = body;
-      return this;
+    public void setAppTableField(AppTableField body) {
+        this.body = body;
     }
 
-    public UpdateAppTableFieldReq build() {
-      return new UpdateAppTableFieldReq(this);
-    }
+// builder 开始
+  public UpdateAppTableFieldReq(){}
+
+  public UpdateAppTableFieldReq(Builder builder){
+       this.appToken = builder.appToken;
+       this.tableId = builder.tableId;
+       this.fieldId = builder.fieldId;
+        this.body = builder.body;
   }
+
+    public static class Builder {
+    
+        private String appToken;
+        private String tableId;
+        private String fieldId;
+          public Builder appToken(String appToken) {
+               this.appToken = appToken;
+               return this;
+          }
+    
+          public Builder tableId(String tableId) {
+               this.tableId = tableId;
+               return this;
+          }
+    
+          public Builder fieldId(String fieldId) {
+               this.fieldId = fieldId;
+               return this;
+          }
+    
+        private AppTableField body;
+    
+        public AppTableField getAppTableField() {
+            return this.body;
+        }
+        public Builder appTableField(AppTableField body) {
+             this.body = body;
+             return this;
+        }
+    public UpdateAppTableFieldReq build(){
+        return new UpdateAppTableFieldReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

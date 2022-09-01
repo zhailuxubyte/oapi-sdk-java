@@ -12,68 +12,73 @@
  */
 
 package com.lark.oapi.service.baike.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.baike.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class MatchInfo {
-
-  @SerializedName("entity_id")
-  private String entityId;
-  @SerializedName("type")
-  private Integer type;
-
-  // builder 开始
-  public MatchInfo() {
-  }
-
-  public MatchInfo(Builder builder) {
-    this.entityId = builder.entityId;
-    this.type = builder.type;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getEntityId() {
-    return this.entityId;
-  }
-
-  public void setEntityId(String entityId) {
-    this.entityId = entityId;
-  }
-
-  public Integer getType() {
-    return this.type;
-  }
-
-  public void setType(Integer type) {
-    this.type = type;
-  }
-
-  public static class Builder {
-
+    @SerializedName("entity_id")
     private String entityId;
+    @SerializedName("type")
     private Integer type;
-
-    public Builder entityId(String entityId) {
-      this.entityId = entityId;
-      return this;
+    public String getEntityId() {
+        return this.entityId;
     }
 
-    public Builder type(Integer type) {
-      this.type = type;
-      return this;
+    public void setEntityId(String entityId) {
+        this.entityId = entityId;
     }
 
-    public Builder type(com.lark.oapi.service.baike.v1.enums.TermTypeEnum type) {
-      this.type = type.getValue();
-      return this;
+    public Integer getType() {
+        return this.type;
+    }
+
+    public void setType(Integer type) {
+        this.type = type;
     }
 
 
-    public MatchInfo build() {
-      return new MatchInfo(this);
-    }
+// builder 开始
+  public MatchInfo(){}
+
+  public MatchInfo(Builder builder){
+      this.entityId = builder.entityId;
+      this.type = builder.type;
   }
+
+    public static class Builder {
+        private String entityId;
+        private Integer type;
+        public Builder entityId(String entityId) {
+             this.entityId = entityId;
+             return this;
+        }
+    
+        public Builder type(Integer type) {
+             this.type = type;
+             return this;
+        }
+        public Builder type(com.lark.oapi.service.baike.v1.enums.TermTypeEnum type) {
+             this.type = type.getValue();
+             return this;
+        }
+    
+    
+    public MatchInfo build(){
+        return new MatchInfo(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

@@ -12,46 +12,52 @@
  */
 
 package com.lark.oapi.service.docx.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.docx.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class Grid {
-
-  @SerializedName("column_size")
-  private Integer columnSize;
-
-  // builder 开始
-  public Grid() {
-  }
-
-  public Grid(Builder builder) {
-    this.columnSize = builder.columnSize;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Integer getColumnSize() {
-    return this.columnSize;
-  }
-
-  public void setColumnSize(Integer columnSize) {
-    this.columnSize = columnSize;
-  }
-
-  public static class Builder {
-
+    @SerializedName("column_size")
     private Integer columnSize;
+    public Integer getColumnSize() {
+        return this.columnSize;
+    }
 
-    public Builder columnSize(Integer columnSize) {
-      this.columnSize = columnSize;
-      return this;
+    public void setColumnSize(Integer columnSize) {
+        this.columnSize = columnSize;
     }
 
 
-    public Grid build() {
-      return new Grid(this);
-    }
+// builder 开始
+  public Grid(){}
+
+  public Grid(Builder builder){
+      this.columnSize = builder.columnSize;
   }
+
+    public static class Builder {
+        private Integer columnSize;
+        public Builder columnSize(Integer columnSize) {
+             this.columnSize = columnSize;
+             return this;
+        }
+    
+    
+    public Grid build(){
+        return new Grid(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

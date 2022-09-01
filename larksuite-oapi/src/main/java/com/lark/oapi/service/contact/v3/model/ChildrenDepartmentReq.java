@@ -12,149 +12,150 @@
  */
 
 package com.lark.oapi.service.contact.v3.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.contact.v3.enums.*;
 import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class ChildrenDepartmentReq {
-
-  @Query
-  @SerializedName("user_id_type")
-  private String userIdType;
-  @Query
-  @SerializedName("department_id_type")
-  private String departmentIdType;
-  @Query
-  @SerializedName("fetch_child")
-  private Boolean fetchChild;
-  @Query
-  @SerializedName("page_size")
-  private Integer pageSize;
-  @Query
-  @SerializedName("page_token")
-  private String pageToken;
-  @Path
-  @SerializedName("department_id")
-  private String departmentId;
-
-  // builder 开始
-  public ChildrenDepartmentReq() {
-  }
-
-  public ChildrenDepartmentReq(Builder builder) {
-    this.userIdType = builder.userIdType;
-    this.departmentIdType = builder.departmentIdType;
-    this.fetchChild = builder.fetchChild;
-    this.pageSize = builder.pageSize;
-    this.pageToken = builder.pageToken;
-    this.departmentId = builder.departmentId;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getUserIdType() {
-    return this.userIdType;
-  }
-
-  public void setUserIdType(String userIdType) {
-    this.userIdType = userIdType;
-  }
-
-  public String getDepartmentIdType() {
-    return this.departmentIdType;
-  }
-
-  public void setDepartmentIdType(String departmentIdType) {
-    this.departmentIdType = departmentIdType;
-  }
-
-  public Boolean getFetchChild() {
-    return this.fetchChild;
-  }
-
-  public void setFetchChild(Boolean fetchChild) {
-    this.fetchChild = fetchChild;
-  }
-
-  public Integer getPageSize() {
-    return this.pageSize;
-  }
-
-  public void setPageSize(Integer pageSize) {
-    this.pageSize = pageSize;
-  }
-
-  public String getPageToken() {
-    return this.pageToken;
-  }
-
-  public void setPageToken(String pageToken) {
-    this.pageToken = pageToken;
-  }
-
-  public String getDepartmentId() {
-    return this.departmentId;
-  }
-
-  public void setDepartmentId(String departmentId) {
-    this.departmentId = departmentId;
-  }
-
-  public static class Builder {
-
+    @Query
+    @SerializedName("user_id_type")
     private String userIdType;
+    @Query
+    @SerializedName("department_id_type")
     private String departmentIdType;
+    @Query
+    @SerializedName("fetch_child")
     private Boolean fetchChild;
+    @Query
+    @SerializedName("page_size")
     private Integer pageSize;
+    @Query
+    @SerializedName("page_token")
     private String pageToken;
+    public String getUserIdType() {
+        return this.userIdType;
+    }
+
+    public void setUserIdType(String userIdType) {
+        this.userIdType = userIdType;
+    }
+
+    public String getDepartmentIdType() {
+        return this.departmentIdType;
+    }
+
+    public void setDepartmentIdType(String departmentIdType) {
+        this.departmentIdType = departmentIdType;
+    }
+
+    public Boolean getFetchChild() {
+        return this.fetchChild;
+    }
+
+    public void setFetchChild(Boolean fetchChild) {
+        this.fetchChild = fetchChild;
+    }
+
+    public Integer getPageSize() {
+        return this.pageSize;
+    }
+
+    public void setPageSize(Integer pageSize) {
+        this.pageSize = pageSize;
+    }
+
+    public String getPageToken() {
+        return this.pageToken;
+    }
+
+    public void setPageToken(String pageToken) {
+        this.pageToken = pageToken;
+    }
+
+    @Path
+    @SerializedName("department_id")
     private String departmentId;
-
-    public Builder userIdType(String userIdType) {
-      this.userIdType = userIdType;
-      return this;
+    public String getDepartmentId() {
+        return this.departmentId;
     }
 
-    public Builder userIdType(com.lark.oapi.service.contact.v3.enums.UserIdTypeEnum userIdType) {
-      this.userIdType = userIdType.getValue();
-      return this;
+    public void setDepartmentId(String departmentId) {
+        this.departmentId = departmentId;
     }
 
-    public Builder departmentIdType(String departmentIdType) {
-      this.departmentIdType = departmentIdType;
-      return this;
-    }
 
-    public Builder departmentIdType(
-        com.lark.oapi.service.contact.v3.enums.DepartmentIdTypeEnum departmentIdType) {
-      this.departmentIdType = departmentIdType.getValue();
-      return this;
-    }
+// builder 开始
+  public ChildrenDepartmentReq(){}
 
-    public Builder fetchChild(Boolean fetchChild) {
-      this.fetchChild = fetchChild;
-      return this;
-    }
-
-    public Builder pageSize(Integer pageSize) {
-      this.pageSize = pageSize;
-      return this;
-    }
-
-    public Builder pageToken(String pageToken) {
-      this.pageToken = pageToken;
-      return this;
-    }
-
-    public Builder departmentId(String departmentId) {
-      this.departmentId = departmentId;
-      return this;
-    }
-
-    public ChildrenDepartmentReq build() {
-      return new ChildrenDepartmentReq(this);
-    }
+  public ChildrenDepartmentReq(Builder builder){
+       this.userIdType = builder.userIdType;
+       this.departmentIdType = builder.departmentIdType;
+       this.fetchChild = builder.fetchChild;
+       this.pageSize = builder.pageSize;
+       this.pageToken = builder.pageToken;
+       this.departmentId = builder.departmentId;
   }
+
+    public static class Builder {
+        private String userIdType;
+        private String departmentIdType;
+        private Boolean fetchChild;
+        private Integer pageSize;
+        private String pageToken;
+    
+           public Builder userIdType(String userIdType) {
+                this.userIdType = userIdType;
+                return this;
+           }
+          public Builder userIdType(com.lark.oapi.service.contact.v3.enums.UserIdTypeEnum userIdType) {
+               this.userIdType = userIdType.getValue();
+               return this;
+          }
+    
+           public Builder departmentIdType(String departmentIdType) {
+                this.departmentIdType = departmentIdType;
+                return this;
+           }
+          public Builder departmentIdType(com.lark.oapi.service.contact.v3.enums.DepartmentIdTypeEnum departmentIdType) {
+               this.departmentIdType = departmentIdType.getValue();
+               return this;
+          }
+    
+           public Builder fetchChild(Boolean fetchChild) {
+                this.fetchChild = fetchChild;
+                return this;
+           }
+    
+           public Builder pageSize(Integer pageSize) {
+                this.pageSize = pageSize;
+                return this;
+           }
+    
+           public Builder pageToken(String pageToken) {
+                this.pageToken = pageToken;
+                return this;
+           }
+    
+        private String departmentId;
+          public Builder departmentId(String departmentId) {
+               this.departmentId = departmentId;
+               return this;
+          }
+    
+    public ChildrenDepartmentReq build(){
+        return new ChildrenDepartmentReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

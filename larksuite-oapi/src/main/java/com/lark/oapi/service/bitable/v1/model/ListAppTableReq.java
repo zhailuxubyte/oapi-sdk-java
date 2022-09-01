@@ -12,84 +12,88 @@
  */
 
 package com.lark.oapi.service.bitable.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.bitable.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class ListAppTableReq {
-
-  @Query
-  @SerializedName("page_token")
-  private String pageToken;
-  @Query
-  @SerializedName("page_size")
-  private Integer pageSize;
-  @Path
-  @SerializedName("app_token")
-  private String appToken;
-
-  // builder 开始
-  public ListAppTableReq() {
-  }
-
-  public ListAppTableReq(Builder builder) {
-    this.pageToken = builder.pageToken;
-    this.pageSize = builder.pageSize;
-    this.appToken = builder.appToken;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getPageToken() {
-    return this.pageToken;
-  }
-
-  public void setPageToken(String pageToken) {
-    this.pageToken = pageToken;
-  }
-
-  public Integer getPageSize() {
-    return this.pageSize;
-  }
-
-  public void setPageSize(Integer pageSize) {
-    this.pageSize = pageSize;
-  }
-
-  public String getAppToken() {
-    return this.appToken;
-  }
-
-  public void setAppToken(String appToken) {
-    this.appToken = appToken;
-  }
-
-  public static class Builder {
-
+    @Query
+    @SerializedName("page_token")
     private String pageToken;
+    @Query
+    @SerializedName("page_size")
     private Integer pageSize;
+    public String getPageToken() {
+        return this.pageToken;
+    }
+
+    public void setPageToken(String pageToken) {
+        this.pageToken = pageToken;
+    }
+
+    public Integer getPageSize() {
+        return this.pageSize;
+    }
+
+    public void setPageSize(Integer pageSize) {
+        this.pageSize = pageSize;
+    }
+
+    @Path
+    @SerializedName("app_token")
     private String appToken;
-
-    public Builder pageToken(String pageToken) {
-      this.pageToken = pageToken;
-      return this;
+    public String getAppToken() {
+        return this.appToken;
     }
 
-    public Builder pageSize(Integer pageSize) {
-      this.pageSize = pageSize;
-      return this;
+    public void setAppToken(String appToken) {
+        this.appToken = appToken;
     }
 
-    public Builder appToken(String appToken) {
-      this.appToken = appToken;
-      return this;
-    }
 
-    public ListAppTableReq build() {
-      return new ListAppTableReq(this);
-    }
+// builder 开始
+  public ListAppTableReq(){}
+
+  public ListAppTableReq(Builder builder){
+       this.pageToken = builder.pageToken;
+       this.pageSize = builder.pageSize;
+       this.appToken = builder.appToken;
   }
+
+    public static class Builder {
+        private String pageToken;
+        private Integer pageSize;
+    
+           public Builder pageToken(String pageToken) {
+                this.pageToken = pageToken;
+                return this;
+           }
+    
+           public Builder pageSize(Integer pageSize) {
+                this.pageSize = pageSize;
+                return this;
+           }
+    
+        private String appToken;
+          public Builder appToken(String appToken) {
+               this.appToken = appToken;
+               return this;
+          }
+    
+    public ListAppTableReq build(){
+        return new ListAppTableReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

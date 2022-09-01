@@ -12,114 +12,120 @@
  */
 
 package com.lark.oapi.service.search.v2.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.search.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class SchemaSearchOptions {
-
-  @SerializedName("enable_semantic_match")
-  private Boolean enableSemanticMatch;
-  @SerializedName("enable_exact_match")
-  private Boolean enableExactMatch;
-  @SerializedName("enable_prefix_match")
-  private Boolean enablePrefixMatch;
-  @SerializedName("enable_number_suffix_match")
-  private Boolean enableNumberSuffixMatch;
-  @SerializedName("enable_camel_match")
-  private Boolean enableCamelMatch;
-
-  // builder 开始
-  public SchemaSearchOptions() {
-  }
-
-  public SchemaSearchOptions(Builder builder) {
-    this.enableSemanticMatch = builder.enableSemanticMatch;
-    this.enableExactMatch = builder.enableExactMatch;
-    this.enablePrefixMatch = builder.enablePrefixMatch;
-    this.enableNumberSuffixMatch = builder.enableNumberSuffixMatch;
-    this.enableCamelMatch = builder.enableCamelMatch;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Boolean getEnableSemanticMatch() {
-    return this.enableSemanticMatch;
-  }
-
-  public void setEnableSemanticMatch(Boolean enableSemanticMatch) {
-    this.enableSemanticMatch = enableSemanticMatch;
-  }
-
-  public Boolean getEnableExactMatch() {
-    return this.enableExactMatch;
-  }
-
-  public void setEnableExactMatch(Boolean enableExactMatch) {
-    this.enableExactMatch = enableExactMatch;
-  }
-
-  public Boolean getEnablePrefixMatch() {
-    return this.enablePrefixMatch;
-  }
-
-  public void setEnablePrefixMatch(Boolean enablePrefixMatch) {
-    this.enablePrefixMatch = enablePrefixMatch;
-  }
-
-  public Boolean getEnableNumberSuffixMatch() {
-    return this.enableNumberSuffixMatch;
-  }
-
-  public void setEnableNumberSuffixMatch(Boolean enableNumberSuffixMatch) {
-    this.enableNumberSuffixMatch = enableNumberSuffixMatch;
-  }
-
-  public Boolean getEnableCamelMatch() {
-    return this.enableCamelMatch;
-  }
-
-  public void setEnableCamelMatch(Boolean enableCamelMatch) {
-    this.enableCamelMatch = enableCamelMatch;
-  }
-
-  public static class Builder {
-
+    @SerializedName("enable_semantic_match")
     private Boolean enableSemanticMatch;
+    @SerializedName("enable_exact_match")
     private Boolean enableExactMatch;
+    @SerializedName("enable_prefix_match")
     private Boolean enablePrefixMatch;
+    @SerializedName("enable_number_suffix_match")
     private Boolean enableNumberSuffixMatch;
+    @SerializedName("enable_camel_match")
     private Boolean enableCamelMatch;
-
-    public Builder enableSemanticMatch(Boolean enableSemanticMatch) {
-      this.enableSemanticMatch = enableSemanticMatch;
-      return this;
+    public Boolean getEnableSemanticMatch() {
+        return this.enableSemanticMatch;
     }
 
-    public Builder enableExactMatch(Boolean enableExactMatch) {
-      this.enableExactMatch = enableExactMatch;
-      return this;
+    public void setEnableSemanticMatch(Boolean enableSemanticMatch) {
+        this.enableSemanticMatch = enableSemanticMatch;
     }
 
-    public Builder enablePrefixMatch(Boolean enablePrefixMatch) {
-      this.enablePrefixMatch = enablePrefixMatch;
-      return this;
+    public Boolean getEnableExactMatch() {
+        return this.enableExactMatch;
     }
 
-    public Builder enableNumberSuffixMatch(Boolean enableNumberSuffixMatch) {
-      this.enableNumberSuffixMatch = enableNumberSuffixMatch;
-      return this;
+    public void setEnableExactMatch(Boolean enableExactMatch) {
+        this.enableExactMatch = enableExactMatch;
     }
 
-    public Builder enableCamelMatch(Boolean enableCamelMatch) {
-      this.enableCamelMatch = enableCamelMatch;
-      return this;
+    public Boolean getEnablePrefixMatch() {
+        return this.enablePrefixMatch;
+    }
+
+    public void setEnablePrefixMatch(Boolean enablePrefixMatch) {
+        this.enablePrefixMatch = enablePrefixMatch;
+    }
+
+    public Boolean getEnableNumberSuffixMatch() {
+        return this.enableNumberSuffixMatch;
+    }
+
+    public void setEnableNumberSuffixMatch(Boolean enableNumberSuffixMatch) {
+        this.enableNumberSuffixMatch = enableNumberSuffixMatch;
+    }
+
+    public Boolean getEnableCamelMatch() {
+        return this.enableCamelMatch;
+    }
+
+    public void setEnableCamelMatch(Boolean enableCamelMatch) {
+        this.enableCamelMatch = enableCamelMatch;
     }
 
 
-    public SchemaSearchOptions build() {
-      return new SchemaSearchOptions(this);
-    }
+// builder 开始
+  public SchemaSearchOptions(){}
+
+  public SchemaSearchOptions(Builder builder){
+      this.enableSemanticMatch = builder.enableSemanticMatch;
+      this.enableExactMatch = builder.enableExactMatch;
+      this.enablePrefixMatch = builder.enablePrefixMatch;
+      this.enableNumberSuffixMatch = builder.enableNumberSuffixMatch;
+      this.enableCamelMatch = builder.enableCamelMatch;
   }
+
+    public static class Builder {
+        private Boolean enableSemanticMatch;
+        private Boolean enableExactMatch;
+        private Boolean enablePrefixMatch;
+        private Boolean enableNumberSuffixMatch;
+        private Boolean enableCamelMatch;
+        public Builder enableSemanticMatch(Boolean enableSemanticMatch) {
+             this.enableSemanticMatch = enableSemanticMatch;
+             return this;
+        }
+    
+        public Builder enableExactMatch(Boolean enableExactMatch) {
+             this.enableExactMatch = enableExactMatch;
+             return this;
+        }
+    
+        public Builder enablePrefixMatch(Boolean enablePrefixMatch) {
+             this.enablePrefixMatch = enablePrefixMatch;
+             return this;
+        }
+    
+        public Builder enableNumberSuffixMatch(Boolean enableNumberSuffixMatch) {
+             this.enableNumberSuffixMatch = enableNumberSuffixMatch;
+             return this;
+        }
+    
+        public Builder enableCamelMatch(Boolean enableCamelMatch) {
+             this.enableCamelMatch = enableCamelMatch;
+             return this;
+        }
+    
+    
+    public SchemaSearchOptions build(){
+        return new SchemaSearchOptions(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

@@ -12,116 +12,116 @@
  */
 
 package com.lark.oapi.service.contact.v3.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.contact.v3.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class CreateUserReq {
-
-  @Query
-  @SerializedName("user_id_type")
-  private String userIdType;
-  @Query
-  @SerializedName("department_id_type")
-  private String departmentIdType;
-  @Query
-  @SerializedName("client_token")
-  private String clientToken;
-  @Body
-  private User body;
-
-  // builder 开始
-  public CreateUserReq() {
-  }
-
-  public CreateUserReq(Builder builder) {
-    this.userIdType = builder.userIdType;
-    this.departmentIdType = builder.departmentIdType;
-    this.clientToken = builder.clientToken;
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getUserIdType() {
-    return this.userIdType;
-  }
-
-  public void setUserIdType(String userIdType) {
-    this.userIdType = userIdType;
-  }
-
-  public String getDepartmentIdType() {
-    return this.departmentIdType;
-  }
-
-  public void setDepartmentIdType(String departmentIdType) {
-    this.departmentIdType = departmentIdType;
-  }
-
-  public String getClientToken() {
-    return this.clientToken;
-  }
-
-  public void setClientToken(String clientToken) {
-    this.clientToken = clientToken;
-  }
-
-  public User getUser() {
-    return this.body;
-  }
-
-  public void setUser(User body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
+    @Query
+    @SerializedName("user_id_type")
     private String userIdType;
+    @Query
+    @SerializedName("department_id_type")
     private String departmentIdType;
+    @Query
+    @SerializedName("client_token")
     private String clientToken;
+    public String getUserIdType() {
+        return this.userIdType;
+    }
+
+    public void setUserIdType(String userIdType) {
+        this.userIdType = userIdType;
+    }
+
+    public String getDepartmentIdType() {
+        return this.departmentIdType;
+    }
+
+    public void setDepartmentIdType(String departmentIdType) {
+        this.departmentIdType = departmentIdType;
+    }
+
+    public String getClientToken() {
+        return this.clientToken;
+    }
+
+    public void setClientToken(String clientToken) {
+        this.clientToken = clientToken;
+    }
+
+    @Body
     private User body;
 
-    public Builder userIdType(String userIdType) {
-      this.userIdType = userIdType;
-      return this;
-    }
-
-    public Builder userIdType(com.lark.oapi.service.contact.v3.enums.UserIdTypeEnum userIdType) {
-      this.userIdType = userIdType.getValue();
-      return this;
-    }
-
-    public Builder departmentIdType(String departmentIdType) {
-      this.departmentIdType = departmentIdType;
-      return this;
-    }
-
-    public Builder departmentIdType(
-        com.lark.oapi.service.contact.v3.enums.DepartmentIdTypeEnum departmentIdType) {
-      this.departmentIdType = departmentIdType.getValue();
-      return this;
-    }
-
-    public Builder clientToken(String clientToken) {
-      this.clientToken = clientToken;
-      return this;
-    }
-
     public User getUser() {
-      return this.body;
+        return this.body;
     }
 
-    public Builder user(User body) {
-      this.body = body;
-      return this;
+    public void setUser(User body) {
+        this.body = body;
     }
 
-    public CreateUserReq build() {
-      return new CreateUserReq(this);
-    }
+// builder 开始
+  public CreateUserReq(){}
+
+  public CreateUserReq(Builder builder){
+       this.userIdType = builder.userIdType;
+       this.departmentIdType = builder.departmentIdType;
+       this.clientToken = builder.clientToken;
+        this.body = builder.body;
   }
+
+    public static class Builder {
+        private String userIdType;
+        private String departmentIdType;
+        private String clientToken;
+    
+           public Builder userIdType(String userIdType) {
+                this.userIdType = userIdType;
+                return this;
+           }
+          public Builder userIdType(com.lark.oapi.service.contact.v3.enums.UserIdTypeEnum userIdType) {
+               this.userIdType = userIdType.getValue();
+               return this;
+          }
+    
+           public Builder departmentIdType(String departmentIdType) {
+                this.departmentIdType = departmentIdType;
+                return this;
+           }
+          public Builder departmentIdType(com.lark.oapi.service.contact.v3.enums.DepartmentIdTypeEnum departmentIdType) {
+               this.departmentIdType = departmentIdType.getValue();
+               return this;
+          }
+    
+           public Builder clientToken(String clientToken) {
+                this.clientToken = clientToken;
+                return this;
+           }
+    
+        private User body;
+    
+        public User getUser() {
+            return this.body;
+        }
+        public Builder user(User body) {
+             this.body = body;
+             return this;
+        }
+    public CreateUserReq build(){
+        return new CreateUserReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

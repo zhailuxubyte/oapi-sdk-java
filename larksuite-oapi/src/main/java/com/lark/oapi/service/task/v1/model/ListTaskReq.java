@@ -12,142 +12,146 @@
  */
 
 package com.lark.oapi.service.task.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.task.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class ListTaskReq {
-
-  @Query
-  @SerializedName("page_size")
-  private Integer pageSize;
-  @Query
-  @SerializedName("page_token")
-  private String pageToken;
-  @Query
-  @SerializedName("start_create_time")
-  private String startCreateTime;
-  @Query
-  @SerializedName("end_create_time")
-  private String endCreateTime;
-  @Query
-  @SerializedName("task_completed")
-  private Boolean taskCompleted;
-  @Query
-  @SerializedName("user_id_type")
-  private String userIdType;
-
-  // builder 开始
-  public ListTaskReq() {
-  }
-
-  public ListTaskReq(Builder builder) {
-    this.pageSize = builder.pageSize;
-    this.pageToken = builder.pageToken;
-    this.startCreateTime = builder.startCreateTime;
-    this.endCreateTime = builder.endCreateTime;
-    this.taskCompleted = builder.taskCompleted;
-    this.userIdType = builder.userIdType;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Integer getPageSize() {
-    return this.pageSize;
-  }
-
-  public void setPageSize(Integer pageSize) {
-    this.pageSize = pageSize;
-  }
-
-  public String getPageToken() {
-    return this.pageToken;
-  }
-
-  public void setPageToken(String pageToken) {
-    this.pageToken = pageToken;
-  }
-
-  public String getStartCreateTime() {
-    return this.startCreateTime;
-  }
-
-  public void setStartCreateTime(String startCreateTime) {
-    this.startCreateTime = startCreateTime;
-  }
-
-  public String getEndCreateTime() {
-    return this.endCreateTime;
-  }
-
-  public void setEndCreateTime(String endCreateTime) {
-    this.endCreateTime = endCreateTime;
-  }
-
-  public Boolean getTaskCompleted() {
-    return this.taskCompleted;
-  }
-
-  public void setTaskCompleted(Boolean taskCompleted) {
-    this.taskCompleted = taskCompleted;
-  }
-
-  public String getUserIdType() {
-    return this.userIdType;
-  }
-
-  public void setUserIdType(String userIdType) {
-    this.userIdType = userIdType;
-  }
-
-  public static class Builder {
-
+    @Query
+    @SerializedName("page_size")
     private Integer pageSize;
+    @Query
+    @SerializedName("page_token")
     private String pageToken;
+    @Query
+    @SerializedName("start_create_time")
     private String startCreateTime;
+    @Query
+    @SerializedName("end_create_time")
     private String endCreateTime;
+    @Query
+    @SerializedName("task_completed")
     private Boolean taskCompleted;
+    @Query
+    @SerializedName("user_id_type")
     private String userIdType;
-
-    public Builder pageSize(Integer pageSize) {
-      this.pageSize = pageSize;
-      return this;
+    public Integer getPageSize() {
+        return this.pageSize;
     }
 
-    public Builder pageToken(String pageToken) {
-      this.pageToken = pageToken;
-      return this;
+    public void setPageSize(Integer pageSize) {
+        this.pageSize = pageSize;
     }
 
-    public Builder startCreateTime(String startCreateTime) {
-      this.startCreateTime = startCreateTime;
-      return this;
+    public String getPageToken() {
+        return this.pageToken;
     }
 
-    public Builder endCreateTime(String endCreateTime) {
-      this.endCreateTime = endCreateTime;
-      return this;
+    public void setPageToken(String pageToken) {
+        this.pageToken = pageToken;
     }
 
-    public Builder taskCompleted(Boolean taskCompleted) {
-      this.taskCompleted = taskCompleted;
-      return this;
+    public String getStartCreateTime() {
+        return this.startCreateTime;
     }
 
-    public Builder userIdType(String userIdType) {
-      this.userIdType = userIdType;
-      return this;
+    public void setStartCreateTime(String startCreateTime) {
+        this.startCreateTime = startCreateTime;
     }
 
-    public Builder userIdType(com.lark.oapi.service.task.v1.enums.UserIdTypeEnum userIdType) {
-      this.userIdType = userIdType.getValue();
-      return this;
+    public String getEndCreateTime() {
+        return this.endCreateTime;
     }
 
-    public ListTaskReq build() {
-      return new ListTaskReq(this);
+    public void setEndCreateTime(String endCreateTime) {
+        this.endCreateTime = endCreateTime;
     }
+
+    public Boolean getTaskCompleted() {
+        return this.taskCompleted;
+    }
+
+    public void setTaskCompleted(Boolean taskCompleted) {
+        this.taskCompleted = taskCompleted;
+    }
+
+    public String getUserIdType() {
+        return this.userIdType;
+    }
+
+    public void setUserIdType(String userIdType) {
+        this.userIdType = userIdType;
+    }
+
+
+// builder 开始
+  public ListTaskReq(){}
+
+  public ListTaskReq(Builder builder){
+       this.pageSize = builder.pageSize;
+       this.pageToken = builder.pageToken;
+       this.startCreateTime = builder.startCreateTime;
+       this.endCreateTime = builder.endCreateTime;
+       this.taskCompleted = builder.taskCompleted;
+       this.userIdType = builder.userIdType;
   }
+
+    public static class Builder {
+        private Integer pageSize;
+        private String pageToken;
+        private String startCreateTime;
+        private String endCreateTime;
+        private Boolean taskCompleted;
+        private String userIdType;
+    
+           public Builder pageSize(Integer pageSize) {
+                this.pageSize = pageSize;
+                return this;
+           }
+    
+           public Builder pageToken(String pageToken) {
+                this.pageToken = pageToken;
+                return this;
+           }
+    
+           public Builder startCreateTime(String startCreateTime) {
+                this.startCreateTime = startCreateTime;
+                return this;
+           }
+    
+           public Builder endCreateTime(String endCreateTime) {
+                this.endCreateTime = endCreateTime;
+                return this;
+           }
+    
+           public Builder taskCompleted(Boolean taskCompleted) {
+                this.taskCompleted = taskCompleted;
+                return this;
+           }
+    
+           public Builder userIdType(String userIdType) {
+                this.userIdType = userIdType;
+                return this;
+           }
+          public Builder userIdType(com.lark.oapi.service.task.v1.enums.UserIdTypeEnum userIdType) {
+               this.userIdType = userIdType.getValue();
+               return this;
+          }
+    
+    public ListTaskReq build(){
+        return new ListTaskReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

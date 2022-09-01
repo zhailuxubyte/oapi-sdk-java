@@ -12,46 +12,52 @@
  */
 
 package com.lark.oapi.service.search.v2.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.search.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class PatchSchemaReqBody {
-
-  @SerializedName("display")
-  private SchemaDisplay display;
-
-  // builder 开始
-  public PatchSchemaReqBody() {
-  }
-
-  public PatchSchemaReqBody(Builder builder) {
-    this.display = builder.display;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public SchemaDisplay getDisplay() {
-    return this.display;
-  }
-
-  public void setDisplay(SchemaDisplay display) {
-    this.display = display;
-  }
-
-  public static class Builder {
-
+    @SerializedName("display")
     private SchemaDisplay display;
+    public SchemaDisplay getDisplay() {
+        return this.display;
+    }
 
-    public Builder display(SchemaDisplay display) {
-      this.display = display;
-      return this;
+    public void setDisplay(SchemaDisplay display) {
+        this.display = display;
     }
 
 
-    public PatchSchemaReqBody build() {
-      return new PatchSchemaReqBody(this);
-    }
+// builder 开始
+  public PatchSchemaReqBody(){}
+
+  public PatchSchemaReqBody(Builder builder){
+      this.display = builder.display;
   }
+
+    public static class Builder {
+        private SchemaDisplay display;
+        public Builder display(SchemaDisplay display) {
+             this.display = display;
+             return this;
+        }
+    
+    
+    public PatchSchemaReqBody build(){
+        return new PatchSchemaReqBody(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

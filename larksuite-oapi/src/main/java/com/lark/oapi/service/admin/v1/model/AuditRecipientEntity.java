@@ -12,80 +12,86 @@
  */
 
 package com.lark.oapi.service.admin.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.admin.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class AuditRecipientEntity {
-
-  @SerializedName("recipient_type")
-  private String recipientType;
-  @SerializedName("recipient_value")
-  private String recipientValue;
-  @SerializedName("recipient_detail")
-  private AuditRecipientDetail recipientDetail;
-
-  // builder 开始
-  public AuditRecipientEntity() {
-  }
-
-  public AuditRecipientEntity(Builder builder) {
-    this.recipientType = builder.recipientType;
-    this.recipientValue = builder.recipientValue;
-    this.recipientDetail = builder.recipientDetail;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getRecipientType() {
-    return this.recipientType;
-  }
-
-  public void setRecipientType(String recipientType) {
-    this.recipientType = recipientType;
-  }
-
-  public String getRecipientValue() {
-    return this.recipientValue;
-  }
-
-  public void setRecipientValue(String recipientValue) {
-    this.recipientValue = recipientValue;
-  }
-
-  public AuditRecipientDetail getRecipientDetail() {
-    return this.recipientDetail;
-  }
-
-  public void setRecipientDetail(AuditRecipientDetail recipientDetail) {
-    this.recipientDetail = recipientDetail;
-  }
-
-  public static class Builder {
-
+    @SerializedName("recipient_type")
     private String recipientType;
+    @SerializedName("recipient_value")
     private String recipientValue;
+    @SerializedName("recipient_detail")
     private AuditRecipientDetail recipientDetail;
-
-    public Builder recipientType(String recipientType) {
-      this.recipientType = recipientType;
-      return this;
+    public String getRecipientType() {
+        return this.recipientType;
     }
 
-    public Builder recipientValue(String recipientValue) {
-      this.recipientValue = recipientValue;
-      return this;
+    public void setRecipientType(String recipientType) {
+        this.recipientType = recipientType;
     }
 
-    public Builder recipientDetail(AuditRecipientDetail recipientDetail) {
-      this.recipientDetail = recipientDetail;
-      return this;
+    public String getRecipientValue() {
+        return this.recipientValue;
+    }
+
+    public void setRecipientValue(String recipientValue) {
+        this.recipientValue = recipientValue;
+    }
+
+    public AuditRecipientDetail getRecipientDetail() {
+        return this.recipientDetail;
+    }
+
+    public void setRecipientDetail(AuditRecipientDetail recipientDetail) {
+        this.recipientDetail = recipientDetail;
     }
 
 
-    public AuditRecipientEntity build() {
-      return new AuditRecipientEntity(this);
-    }
+// builder 开始
+  public AuditRecipientEntity(){}
+
+  public AuditRecipientEntity(Builder builder){
+      this.recipientType = builder.recipientType;
+      this.recipientValue = builder.recipientValue;
+      this.recipientDetail = builder.recipientDetail;
   }
+
+    public static class Builder {
+        private String recipientType;
+        private String recipientValue;
+        private AuditRecipientDetail recipientDetail;
+        public Builder recipientType(String recipientType) {
+             this.recipientType = recipientType;
+             return this;
+        }
+    
+        public Builder recipientValue(String recipientValue) {
+             this.recipientValue = recipientValue;
+             return this;
+        }
+    
+        public Builder recipientDetail(AuditRecipientDetail recipientDetail) {
+             this.recipientDetail = recipientDetail;
+             return this;
+        }
+    
+    
+    public AuditRecipientEntity build(){
+        return new AuditRecipientEntity(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

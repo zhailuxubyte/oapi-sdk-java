@@ -12,63 +12,69 @@
  */
 
 package com.lark.oapi.service.contact.v3.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.contact.v3.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class BatchGetIdUserReqBody {
-
-  @SerializedName("emails")
-  private String[] emails;
-  @SerializedName("mobiles")
-  private String[] mobiles;
-
-  // builder 开始
-  public BatchGetIdUserReqBody() {
-  }
-
-  public BatchGetIdUserReqBody(Builder builder) {
-    this.emails = builder.emails;
-    this.mobiles = builder.mobiles;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String[] getEmails() {
-    return this.emails;
-  }
-
-  public void setEmails(String[] emails) {
-    this.emails = emails;
-  }
-
-  public String[] getMobiles() {
-    return this.mobiles;
-  }
-
-  public void setMobiles(String[] mobiles) {
-    this.mobiles = mobiles;
-  }
-
-  public static class Builder {
-
+    @SerializedName("emails")
     private String[] emails;
+    @SerializedName("mobiles")
     private String[] mobiles;
-
-    public Builder emails(String[] emails) {
-      this.emails = emails;
-      return this;
+    public String[] getEmails() {
+        return this.emails;
     }
 
-    public Builder mobiles(String[] mobiles) {
-      this.mobiles = mobiles;
-      return this;
+    public void setEmails(String[] emails) {
+        this.emails = emails;
+    }
+
+    public String[] getMobiles() {
+        return this.mobiles;
+    }
+
+    public void setMobiles(String[] mobiles) {
+        this.mobiles = mobiles;
     }
 
 
-    public BatchGetIdUserReqBody build() {
-      return new BatchGetIdUserReqBody(this);
-    }
+// builder 开始
+  public BatchGetIdUserReqBody(){}
+
+  public BatchGetIdUserReqBody(Builder builder){
+      this.emails = builder.emails;
+      this.mobiles = builder.mobiles;
   }
+
+    public static class Builder {
+        private String[] emails;
+        private String[] mobiles;
+        public Builder emails(String[] emails) {
+             this.emails = emails;
+             return this;
+        }
+    
+        public Builder mobiles(String[] mobiles) {
+             this.mobiles = mobiles;
+             return this;
+        }
+    
+    
+    public BatchGetIdUserReqBody build(){
+        return new BatchGetIdUserReqBody(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

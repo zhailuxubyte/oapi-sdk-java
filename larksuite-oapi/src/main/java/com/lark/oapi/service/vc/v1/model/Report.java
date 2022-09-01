@@ -12,97 +12,103 @@
  */
 
 package com.lark.oapi.service.vc.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.vc.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class Report {
-
-  @SerializedName("total_meeting_count")
-  private String totalMeetingCount;
-  @SerializedName("total_meeting_duration")
-  private String totalMeetingDuration;
-  @SerializedName("total_participant_count")
-  private String totalParticipantCount;
-  @SerializedName("daily_report")
-  private ReportMeetingDaily[] dailyReport;
-
-  // builder 开始
-  public Report() {
-  }
-
-  public Report(Builder builder) {
-    this.totalMeetingCount = builder.totalMeetingCount;
-    this.totalMeetingDuration = builder.totalMeetingDuration;
-    this.totalParticipantCount = builder.totalParticipantCount;
-    this.dailyReport = builder.dailyReport;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getTotalMeetingCount() {
-    return this.totalMeetingCount;
-  }
-
-  public void setTotalMeetingCount(String totalMeetingCount) {
-    this.totalMeetingCount = totalMeetingCount;
-  }
-
-  public String getTotalMeetingDuration() {
-    return this.totalMeetingDuration;
-  }
-
-  public void setTotalMeetingDuration(String totalMeetingDuration) {
-    this.totalMeetingDuration = totalMeetingDuration;
-  }
-
-  public String getTotalParticipantCount() {
-    return this.totalParticipantCount;
-  }
-
-  public void setTotalParticipantCount(String totalParticipantCount) {
-    this.totalParticipantCount = totalParticipantCount;
-  }
-
-  public ReportMeetingDaily[] getDailyReport() {
-    return this.dailyReport;
-  }
-
-  public void setDailyReport(ReportMeetingDaily[] dailyReport) {
-    this.dailyReport = dailyReport;
-  }
-
-  public static class Builder {
-
+    @SerializedName("total_meeting_count")
     private String totalMeetingCount;
+    @SerializedName("total_meeting_duration")
     private String totalMeetingDuration;
+    @SerializedName("total_participant_count")
     private String totalParticipantCount;
+    @SerializedName("daily_report")
     private ReportMeetingDaily[] dailyReport;
-
-    public Builder totalMeetingCount(String totalMeetingCount) {
-      this.totalMeetingCount = totalMeetingCount;
-      return this;
+    public String getTotalMeetingCount() {
+        return this.totalMeetingCount;
     }
 
-    public Builder totalMeetingDuration(String totalMeetingDuration) {
-      this.totalMeetingDuration = totalMeetingDuration;
-      return this;
+    public void setTotalMeetingCount(String totalMeetingCount) {
+        this.totalMeetingCount = totalMeetingCount;
     }
 
-    public Builder totalParticipantCount(String totalParticipantCount) {
-      this.totalParticipantCount = totalParticipantCount;
-      return this;
+    public String getTotalMeetingDuration() {
+        return this.totalMeetingDuration;
     }
 
-    public Builder dailyReport(ReportMeetingDaily[] dailyReport) {
-      this.dailyReport = dailyReport;
-      return this;
+    public void setTotalMeetingDuration(String totalMeetingDuration) {
+        this.totalMeetingDuration = totalMeetingDuration;
+    }
+
+    public String getTotalParticipantCount() {
+        return this.totalParticipantCount;
+    }
+
+    public void setTotalParticipantCount(String totalParticipantCount) {
+        this.totalParticipantCount = totalParticipantCount;
+    }
+
+    public ReportMeetingDaily[] getDailyReport() {
+        return this.dailyReport;
+    }
+
+    public void setDailyReport(ReportMeetingDaily[] dailyReport) {
+        this.dailyReport = dailyReport;
     }
 
 
-    public Report build() {
-      return new Report(this);
-    }
+// builder 开始
+  public Report(){}
+
+  public Report(Builder builder){
+      this.totalMeetingCount = builder.totalMeetingCount;
+      this.totalMeetingDuration = builder.totalMeetingDuration;
+      this.totalParticipantCount = builder.totalParticipantCount;
+      this.dailyReport = builder.dailyReport;
   }
+
+    public static class Builder {
+        private String totalMeetingCount;
+        private String totalMeetingDuration;
+        private String totalParticipantCount;
+        private ReportMeetingDaily[] dailyReport;
+        public Builder totalMeetingCount(String totalMeetingCount) {
+             this.totalMeetingCount = totalMeetingCount;
+             return this;
+        }
+    
+        public Builder totalMeetingDuration(String totalMeetingDuration) {
+             this.totalMeetingDuration = totalMeetingDuration;
+             return this;
+        }
+    
+        public Builder totalParticipantCount(String totalParticipantCount) {
+             this.totalParticipantCount = totalParticipantCount;
+             return this;
+        }
+    
+        public Builder dailyReport(ReportMeetingDaily[] dailyReport) {
+             this.dailyReport = dailyReport;
+             return this;
+        }
+    
+    
+    public Report build(){
+        return new Report(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

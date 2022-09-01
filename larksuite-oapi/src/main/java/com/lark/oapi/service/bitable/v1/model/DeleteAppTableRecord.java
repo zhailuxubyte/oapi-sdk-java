@@ -12,30 +12,37 @@
  */
 
 package com.lark.oapi.service.bitable.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class DeleteAppTableRecord {
+    @SerializedName("deleted")
+    private Boolean deleted;
+    @SerializedName("record_id")
+    private String recordId;
+    public Boolean getDeleted() {
+        return this.deleted;
+    }
 
-  @SerializedName("deleted")
-  private Boolean deleted;
-  @SerializedName("record_id")
-  private String recordId;
+    public void setDeleted(Boolean deleted) {
+        this.deleted = deleted;
+    }
 
-  public Boolean getDeleted() {
-    return this.deleted;
-  }
+    public String getRecordId() {
+        return this.recordId;
+    }
 
-  public void setDeleted(Boolean deleted) {
-    this.deleted = deleted;
-  }
-
-  public String getRecordId() {
-    return this.recordId;
-  }
-
-  public void setRecordId(String recordId) {
-    this.recordId = recordId;
-  }
+    public void setRecordId(String recordId) {
+        this.recordId = recordId;
+    }
 
 }

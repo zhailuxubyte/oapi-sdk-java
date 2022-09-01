@@ -12,80 +12,86 @@
  */
 
 package com.lark.oapi.service.docx.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.docx.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class Document {
-
-  @SerializedName("document_id")
-  private String documentId;
-  @SerializedName("revision_id")
-  private Integer revisionId;
-  @SerializedName("title")
-  private String title;
-
-  // builder 开始
-  public Document() {
-  }
-
-  public Document(Builder builder) {
-    this.documentId = builder.documentId;
-    this.revisionId = builder.revisionId;
-    this.title = builder.title;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getDocumentId() {
-    return this.documentId;
-  }
-
-  public void setDocumentId(String documentId) {
-    this.documentId = documentId;
-  }
-
-  public Integer getRevisionId() {
-    return this.revisionId;
-  }
-
-  public void setRevisionId(Integer revisionId) {
-    this.revisionId = revisionId;
-  }
-
-  public String getTitle() {
-    return this.title;
-  }
-
-  public void setTitle(String title) {
-    this.title = title;
-  }
-
-  public static class Builder {
-
+    @SerializedName("document_id")
     private String documentId;
+    @SerializedName("revision_id")
     private Integer revisionId;
+    @SerializedName("title")
     private String title;
-
-    public Builder documentId(String documentId) {
-      this.documentId = documentId;
-      return this;
+    public String getDocumentId() {
+        return this.documentId;
     }
 
-    public Builder revisionId(Integer revisionId) {
-      this.revisionId = revisionId;
-      return this;
+    public void setDocumentId(String documentId) {
+        this.documentId = documentId;
     }
 
-    public Builder title(String title) {
-      this.title = title;
-      return this;
+    public Integer getRevisionId() {
+        return this.revisionId;
+    }
+
+    public void setRevisionId(Integer revisionId) {
+        this.revisionId = revisionId;
+    }
+
+    public String getTitle() {
+        return this.title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 
 
-    public Document build() {
-      return new Document(this);
-    }
+// builder 开始
+  public Document(){}
+
+  public Document(Builder builder){
+      this.documentId = builder.documentId;
+      this.revisionId = builder.revisionId;
+      this.title = builder.title;
   }
+
+    public static class Builder {
+        private String documentId;
+        private Integer revisionId;
+        private String title;
+        public Builder documentId(String documentId) {
+             this.documentId = documentId;
+             return this;
+        }
+    
+        public Builder revisionId(Integer revisionId) {
+             this.revisionId = revisionId;
+             return this;
+        }
+    
+        public Builder title(String title) {
+             this.title = title;
+             return this;
+        }
+    
+    
+    public Document build(){
+        return new Document(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

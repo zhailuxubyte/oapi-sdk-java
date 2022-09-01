@@ -12,46 +12,52 @@
  */
 
 package com.lark.oapi.service.drive.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.drive.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class ReplyList {
-
-  @SerializedName("replies")
-  private FileCommentReply[] replies;
-
-  // builder 开始
-  public ReplyList() {
-  }
-
-  public ReplyList(Builder builder) {
-    this.replies = builder.replies;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public FileCommentReply[] getReplies() {
-    return this.replies;
-  }
-
-  public void setReplies(FileCommentReply[] replies) {
-    this.replies = replies;
-  }
-
-  public static class Builder {
-
+    @SerializedName("replies")
     private FileCommentReply[] replies;
+    public FileCommentReply[] getReplies() {
+        return this.replies;
+    }
 
-    public Builder replies(FileCommentReply[] replies) {
-      this.replies = replies;
-      return this;
+    public void setReplies(FileCommentReply[] replies) {
+        this.replies = replies;
     }
 
 
-    public ReplyList build() {
-      return new ReplyList(this);
-    }
+// builder 开始
+  public ReplyList(){}
+
+  public ReplyList(Builder builder){
+      this.replies = builder.replies;
   }
+
+    public static class Builder {
+        private FileCommentReply[] replies;
+        public Builder replies(FileCommentReply[] replies) {
+             this.replies = replies;
+             return this;
+        }
+    
+    
+    public ReplyList build(){
+        return new ReplyList(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

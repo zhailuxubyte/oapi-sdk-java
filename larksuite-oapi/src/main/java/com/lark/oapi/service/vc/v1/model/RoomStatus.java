@@ -12,165 +12,171 @@
  */
 
 package com.lark.oapi.service.vc.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.vc.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class RoomStatus {
-
-  @SerializedName("status")
-  private Boolean status;
-  @SerializedName("schedule_status")
-  private Boolean scheduleStatus;
-  @SerializedName("disable_start_time")
-  private String disableStartTime;
-  @SerializedName("disable_end_time")
-  private String disableEndTime;
-  @SerializedName("disable_reason")
-  private String disableReason;
-  @SerializedName("contact_ids")
-  private String[] contactIds;
-  @SerializedName("disable_notice")
-  private Boolean disableNotice;
-  @SerializedName("resume_notice")
-  private Boolean resumeNotice;
-
-  // builder 开始
-  public RoomStatus() {
-  }
-
-  public RoomStatus(Builder builder) {
-    this.status = builder.status;
-    this.scheduleStatus = builder.scheduleStatus;
-    this.disableStartTime = builder.disableStartTime;
-    this.disableEndTime = builder.disableEndTime;
-    this.disableReason = builder.disableReason;
-    this.contactIds = builder.contactIds;
-    this.disableNotice = builder.disableNotice;
-    this.resumeNotice = builder.resumeNotice;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Boolean getStatus() {
-    return this.status;
-  }
-
-  public void setStatus(Boolean status) {
-    this.status = status;
-  }
-
-  public Boolean getScheduleStatus() {
-    return this.scheduleStatus;
-  }
-
-  public void setScheduleStatus(Boolean scheduleStatus) {
-    this.scheduleStatus = scheduleStatus;
-  }
-
-  public String getDisableStartTime() {
-    return this.disableStartTime;
-  }
-
-  public void setDisableStartTime(String disableStartTime) {
-    this.disableStartTime = disableStartTime;
-  }
-
-  public String getDisableEndTime() {
-    return this.disableEndTime;
-  }
-
-  public void setDisableEndTime(String disableEndTime) {
-    this.disableEndTime = disableEndTime;
-  }
-
-  public String getDisableReason() {
-    return this.disableReason;
-  }
-
-  public void setDisableReason(String disableReason) {
-    this.disableReason = disableReason;
-  }
-
-  public String[] getContactIds() {
-    return this.contactIds;
-  }
-
-  public void setContactIds(String[] contactIds) {
-    this.contactIds = contactIds;
-  }
-
-  public Boolean getDisableNotice() {
-    return this.disableNotice;
-  }
-
-  public void setDisableNotice(Boolean disableNotice) {
-    this.disableNotice = disableNotice;
-  }
-
-  public Boolean getResumeNotice() {
-    return this.resumeNotice;
-  }
-
-  public void setResumeNotice(Boolean resumeNotice) {
-    this.resumeNotice = resumeNotice;
-  }
-
-  public static class Builder {
-
+    @SerializedName("status")
     private Boolean status;
+    @SerializedName("schedule_status")
     private Boolean scheduleStatus;
+    @SerializedName("disable_start_time")
     private String disableStartTime;
+    @SerializedName("disable_end_time")
     private String disableEndTime;
+    @SerializedName("disable_reason")
     private String disableReason;
+    @SerializedName("contact_ids")
     private String[] contactIds;
+    @SerializedName("disable_notice")
     private Boolean disableNotice;
+    @SerializedName("resume_notice")
     private Boolean resumeNotice;
-
-    public Builder status(Boolean status) {
-      this.status = status;
-      return this;
+    public Boolean getStatus() {
+        return this.status;
     }
 
-    public Builder scheduleStatus(Boolean scheduleStatus) {
-      this.scheduleStatus = scheduleStatus;
-      return this;
+    public void setStatus(Boolean status) {
+        this.status = status;
     }
 
-    public Builder disableStartTime(String disableStartTime) {
-      this.disableStartTime = disableStartTime;
-      return this;
+    public Boolean getScheduleStatus() {
+        return this.scheduleStatus;
     }
 
-    public Builder disableEndTime(String disableEndTime) {
-      this.disableEndTime = disableEndTime;
-      return this;
+    public void setScheduleStatus(Boolean scheduleStatus) {
+        this.scheduleStatus = scheduleStatus;
     }
 
-    public Builder disableReason(String disableReason) {
-      this.disableReason = disableReason;
-      return this;
+    public String getDisableStartTime() {
+        return this.disableStartTime;
     }
 
-    public Builder contactIds(String[] contactIds) {
-      this.contactIds = contactIds;
-      return this;
+    public void setDisableStartTime(String disableStartTime) {
+        this.disableStartTime = disableStartTime;
     }
 
-    public Builder disableNotice(Boolean disableNotice) {
-      this.disableNotice = disableNotice;
-      return this;
+    public String getDisableEndTime() {
+        return this.disableEndTime;
     }
 
-    public Builder resumeNotice(Boolean resumeNotice) {
-      this.resumeNotice = resumeNotice;
-      return this;
+    public void setDisableEndTime(String disableEndTime) {
+        this.disableEndTime = disableEndTime;
+    }
+
+    public String getDisableReason() {
+        return this.disableReason;
+    }
+
+    public void setDisableReason(String disableReason) {
+        this.disableReason = disableReason;
+    }
+
+    public String[] getContactIds() {
+        return this.contactIds;
+    }
+
+    public void setContactIds(String[] contactIds) {
+        this.contactIds = contactIds;
+    }
+
+    public Boolean getDisableNotice() {
+        return this.disableNotice;
+    }
+
+    public void setDisableNotice(Boolean disableNotice) {
+        this.disableNotice = disableNotice;
+    }
+
+    public Boolean getResumeNotice() {
+        return this.resumeNotice;
+    }
+
+    public void setResumeNotice(Boolean resumeNotice) {
+        this.resumeNotice = resumeNotice;
     }
 
 
-    public RoomStatus build() {
-      return new RoomStatus(this);
-    }
+// builder 开始
+  public RoomStatus(){}
+
+  public RoomStatus(Builder builder){
+      this.status = builder.status;
+      this.scheduleStatus = builder.scheduleStatus;
+      this.disableStartTime = builder.disableStartTime;
+      this.disableEndTime = builder.disableEndTime;
+      this.disableReason = builder.disableReason;
+      this.contactIds = builder.contactIds;
+      this.disableNotice = builder.disableNotice;
+      this.resumeNotice = builder.resumeNotice;
   }
+
+    public static class Builder {
+        private Boolean status;
+        private Boolean scheduleStatus;
+        private String disableStartTime;
+        private String disableEndTime;
+        private String disableReason;
+        private String[] contactIds;
+        private Boolean disableNotice;
+        private Boolean resumeNotice;
+        public Builder status(Boolean status) {
+             this.status = status;
+             return this;
+        }
+    
+        public Builder scheduleStatus(Boolean scheduleStatus) {
+             this.scheduleStatus = scheduleStatus;
+             return this;
+        }
+    
+        public Builder disableStartTime(String disableStartTime) {
+             this.disableStartTime = disableStartTime;
+             return this;
+        }
+    
+        public Builder disableEndTime(String disableEndTime) {
+             this.disableEndTime = disableEndTime;
+             return this;
+        }
+    
+        public Builder disableReason(String disableReason) {
+             this.disableReason = disableReason;
+             return this;
+        }
+    
+        public Builder contactIds(String[] contactIds) {
+             this.contactIds = contactIds;
+             return this;
+        }
+    
+        public Builder disableNotice(Boolean disableNotice) {
+             this.disableNotice = disableNotice;
+             return this;
+        }
+    
+        public Builder resumeNotice(Boolean resumeNotice) {
+             this.resumeNotice = resumeNotice;
+             return this;
+        }
+    
+    
+    public RoomStatus build(){
+        return new RoomStatus(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

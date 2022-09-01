@@ -12,129 +12,130 @@
  */
 
 package com.lark.oapi.service.bitable.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.bitable.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class UpdateAppTableRecordReq {
-
-  @Query
-  @SerializedName("user_id_type")
-  private String userIdType;
-  @Path
-  @SerializedName("app_token")
-  private String appToken;
-  @Path
-  @SerializedName("table_id")
-  private String tableId;
-  @Path
-  @SerializedName("record_id")
-  private String recordId;
-  @Body
-  private AppTableRecord body;
-
-  // builder 开始
-  public UpdateAppTableRecordReq() {
-  }
-
-  public UpdateAppTableRecordReq(Builder builder) {
-    this.userIdType = builder.userIdType;
-    this.appToken = builder.appToken;
-    this.tableId = builder.tableId;
-    this.recordId = builder.recordId;
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getUserIdType() {
-    return this.userIdType;
-  }
-
-  public void setUserIdType(String userIdType) {
-    this.userIdType = userIdType;
-  }
-
-  public String getAppToken() {
-    return this.appToken;
-  }
-
-  public void setAppToken(String appToken) {
-    this.appToken = appToken;
-  }
-
-  public String getTableId() {
-    return this.tableId;
-  }
-
-  public void setTableId(String tableId) {
-    this.tableId = tableId;
-  }
-
-  public String getRecordId() {
-    return this.recordId;
-  }
-
-  public void setRecordId(String recordId) {
-    this.recordId = recordId;
-  }
-
-  public AppTableRecord getAppTableRecord() {
-    return this.body;
-  }
-
-  public void setAppTableRecord(AppTableRecord body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
+    @Query
+    @SerializedName("user_id_type")
     private String userIdType;
+    public String getUserIdType() {
+        return this.userIdType;
+    }
+
+    public void setUserIdType(String userIdType) {
+        this.userIdType = userIdType;
+    }
+
+    @Path
+    @SerializedName("app_token")
     private String appToken;
+    @Path
+    @SerializedName("table_id")
     private String tableId;
+    @Path
+    @SerializedName("record_id")
     private String recordId;
+    public String getAppToken() {
+        return this.appToken;
+    }
+
+    public void setAppToken(String appToken) {
+        this.appToken = appToken;
+    }
+
+    public String getTableId() {
+        return this.tableId;
+    }
+
+    public void setTableId(String tableId) {
+        this.tableId = tableId;
+    }
+
+    public String getRecordId() {
+        return this.recordId;
+    }
+
+    public void setRecordId(String recordId) {
+        this.recordId = recordId;
+    }
+
+    @Body
     private AppTableRecord body;
 
-    public Builder userIdType(String userIdType) {
-      this.userIdType = userIdType;
-      return this;
-    }
-
-    public Builder userIdType(com.lark.oapi.service.bitable.v1.enums.UserIdTypeEnum userIdType) {
-      this.userIdType = userIdType.getValue();
-      return this;
-    }
-
-    public Builder appToken(String appToken) {
-      this.appToken = appToken;
-      return this;
-    }
-
-    public Builder tableId(String tableId) {
-      this.tableId = tableId;
-      return this;
-    }
-
-    public Builder recordId(String recordId) {
-      this.recordId = recordId;
-      return this;
-    }
-
     public AppTableRecord getAppTableRecord() {
-      return this.body;
+        return this.body;
     }
 
-    public Builder appTableRecord(AppTableRecord body) {
-      this.body = body;
-      return this;
+    public void setAppTableRecord(AppTableRecord body) {
+        this.body = body;
     }
 
-    public UpdateAppTableRecordReq build() {
-      return new UpdateAppTableRecordReq(this);
-    }
+// builder 开始
+  public UpdateAppTableRecordReq(){}
+
+  public UpdateAppTableRecordReq(Builder builder){
+       this.userIdType = builder.userIdType;
+       this.appToken = builder.appToken;
+       this.tableId = builder.tableId;
+       this.recordId = builder.recordId;
+        this.body = builder.body;
   }
+
+    public static class Builder {
+        private String userIdType;
+    
+           public Builder userIdType(String userIdType) {
+                this.userIdType = userIdType;
+                return this;
+           }
+          public Builder userIdType(com.lark.oapi.service.bitable.v1.enums.UserIdTypeEnum userIdType) {
+               this.userIdType = userIdType.getValue();
+               return this;
+          }
+    
+        private String appToken;
+        private String tableId;
+        private String recordId;
+          public Builder appToken(String appToken) {
+               this.appToken = appToken;
+               return this;
+          }
+    
+          public Builder tableId(String tableId) {
+               this.tableId = tableId;
+               return this;
+          }
+    
+          public Builder recordId(String recordId) {
+               this.recordId = recordId;
+               return this;
+          }
+    
+        private AppTableRecord body;
+    
+        public AppTableRecord getAppTableRecord() {
+            return this.body;
+        }
+        public Builder appTableRecord(AppTableRecord body) {
+             this.body = body;
+             return this;
+        }
+    public UpdateAppTableRecordReq build(){
+        return new UpdateAppTableRecordReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

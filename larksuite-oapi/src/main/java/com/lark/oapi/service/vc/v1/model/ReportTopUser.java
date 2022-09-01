@@ -12,119 +12,124 @@
  */
 
 package com.lark.oapi.service.vc.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.vc.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class ReportTopUser {
-
-  @SerializedName("id")
-  private String id;
-  @SerializedName("name")
-  private String name;
-  @SerializedName("user_type")
-  private Integer userType;
-  @SerializedName("meeting_count")
-  private String meetingCount;
-  @SerializedName("meeting_duration")
-  private String meetingDuration;
-
-  // builder 开始
-  public ReportTopUser() {
-  }
-
-  public ReportTopUser(Builder builder) {
-    this.id = builder.id;
-    this.name = builder.name;
-    this.userType = builder.userType;
-    this.meetingCount = builder.meetingCount;
-    this.meetingDuration = builder.meetingDuration;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getId() {
-    return this.id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public String getName() {
-    return this.name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public Integer getUserType() {
-    return this.userType;
-  }
-
-  public void setUserType(Integer userType) {
-    this.userType = userType;
-  }
-
-  public String getMeetingCount() {
-    return this.meetingCount;
-  }
-
-  public void setMeetingCount(String meetingCount) {
-    this.meetingCount = meetingCount;
-  }
-
-  public String getMeetingDuration() {
-    return this.meetingDuration;
-  }
-
-  public void setMeetingDuration(String meetingDuration) {
-    this.meetingDuration = meetingDuration;
-  }
-
-  public static class Builder {
-
+    @SerializedName("id")
     private String id;
+    @SerializedName("name")
     private String name;
+    @SerializedName("user_type")
     private Integer userType;
+    @SerializedName("meeting_count")
     private String meetingCount;
+    @SerializedName("meeting_duration")
     private String meetingDuration;
-
-    public Builder id(String id) {
-      this.id = id;
-      return this;
+    public String getId() {
+        return this.id;
     }
 
-    public Builder name(String name) {
-      this.name = name;
-      return this;
+    public void setId(String id) {
+        this.id = id;
     }
 
-    public Builder userType(Integer userType) {
-      this.userType = userType;
-      return this;
+    public String getName() {
+        return this.name;
     }
 
-    public Builder userType(com.lark.oapi.service.vc.v1.enums.UserTypeEnum userType) {
-      this.userType = userType.getValue();
-      return this;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public Builder meetingCount(String meetingCount) {
-      this.meetingCount = meetingCount;
-      return this;
+    public Integer getUserType() {
+        return this.userType;
     }
 
-    public Builder meetingDuration(String meetingDuration) {
-      this.meetingDuration = meetingDuration;
-      return this;
+    public void setUserType(Integer userType) {
+        this.userType = userType;
+    }
+
+    public String getMeetingCount() {
+        return this.meetingCount;
+    }
+
+    public void setMeetingCount(String meetingCount) {
+        this.meetingCount = meetingCount;
+    }
+
+    public String getMeetingDuration() {
+        return this.meetingDuration;
+    }
+
+    public void setMeetingDuration(String meetingDuration) {
+        this.meetingDuration = meetingDuration;
     }
 
 
-    public ReportTopUser build() {
-      return new ReportTopUser(this);
-    }
+// builder 开始
+  public ReportTopUser(){}
+
+  public ReportTopUser(Builder builder){
+      this.id = builder.id;
+      this.name = builder.name;
+      this.userType = builder.userType;
+      this.meetingCount = builder.meetingCount;
+      this.meetingDuration = builder.meetingDuration;
   }
+
+    public static class Builder {
+        private String id;
+        private String name;
+        private Integer userType;
+        private String meetingCount;
+        private String meetingDuration;
+        public Builder id(String id) {
+             this.id = id;
+             return this;
+        }
+    
+        public Builder name(String name) {
+             this.name = name;
+             return this;
+        }
+    
+        public Builder userType(Integer userType) {
+             this.userType = userType;
+             return this;
+        }
+        public Builder userType(com.lark.oapi.service.vc.v1.enums.UserTypeEnum userType) {
+             this.userType = userType.getValue();
+             return this;
+        }
+    
+        public Builder meetingCount(String meetingCount) {
+             this.meetingCount = meetingCount;
+             return this;
+        }
+    
+        public Builder meetingDuration(String meetingDuration) {
+             this.meetingDuration = meetingDuration;
+             return this;
+        }
+    
+    
+    public ReportTopUser build(){
+        return new ReportTopUser(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

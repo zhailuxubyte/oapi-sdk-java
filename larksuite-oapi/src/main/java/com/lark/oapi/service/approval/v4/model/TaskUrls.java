@@ -12,80 +12,86 @@
  */
 
 package com.lark.oapi.service.approval.v4.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.approval.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class TaskUrls {
-
-  @SerializedName("helpdesk")
-  private String helpdesk;
-  @SerializedName("mobile")
-  private String mobile;
-  @SerializedName("pc")
-  private String pc;
-
-  // builder 开始
-  public TaskUrls() {
-  }
-
-  public TaskUrls(Builder builder) {
-    this.helpdesk = builder.helpdesk;
-    this.mobile = builder.mobile;
-    this.pc = builder.pc;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getHelpdesk() {
-    return this.helpdesk;
-  }
-
-  public void setHelpdesk(String helpdesk) {
-    this.helpdesk = helpdesk;
-  }
-
-  public String getMobile() {
-    return this.mobile;
-  }
-
-  public void setMobile(String mobile) {
-    this.mobile = mobile;
-  }
-
-  public String getPc() {
-    return this.pc;
-  }
-
-  public void setPc(String pc) {
-    this.pc = pc;
-  }
-
-  public static class Builder {
-
+    @SerializedName("helpdesk")
     private String helpdesk;
+    @SerializedName("mobile")
     private String mobile;
+    @SerializedName("pc")
     private String pc;
-
-    public Builder helpdesk(String helpdesk) {
-      this.helpdesk = helpdesk;
-      return this;
+    public String getHelpdesk() {
+        return this.helpdesk;
     }
 
-    public Builder mobile(String mobile) {
-      this.mobile = mobile;
-      return this;
+    public void setHelpdesk(String helpdesk) {
+        this.helpdesk = helpdesk;
     }
 
-    public Builder pc(String pc) {
-      this.pc = pc;
-      return this;
+    public String getMobile() {
+        return this.mobile;
+    }
+
+    public void setMobile(String mobile) {
+        this.mobile = mobile;
+    }
+
+    public String getPc() {
+        return this.pc;
+    }
+
+    public void setPc(String pc) {
+        this.pc = pc;
     }
 
 
-    public TaskUrls build() {
-      return new TaskUrls(this);
-    }
+// builder 开始
+  public TaskUrls(){}
+
+  public TaskUrls(Builder builder){
+      this.helpdesk = builder.helpdesk;
+      this.mobile = builder.mobile;
+      this.pc = builder.pc;
   }
+
+    public static class Builder {
+        private String helpdesk;
+        private String mobile;
+        private String pc;
+        public Builder helpdesk(String helpdesk) {
+             this.helpdesk = helpdesk;
+             return this;
+        }
+    
+        public Builder mobile(String mobile) {
+             this.mobile = mobile;
+             return this;
+        }
+    
+        public Builder pc(String pc) {
+             this.pc = pc;
+             return this;
+        }
+    
+    
+    public TaskUrls build(){
+        return new TaskUrls(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

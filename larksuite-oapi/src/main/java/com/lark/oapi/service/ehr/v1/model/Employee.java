@@ -12,80 +12,86 @@
  */
 
 package com.lark.oapi.service.ehr.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.ehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class Employee {
-
-  @SerializedName("user_id")
-  private String userId;
-  @SerializedName("system_fields")
-  private SystemFields systemFields;
-  @SerializedName("custom_fields")
-  private CustomFields[] customFields;
-
-  // builder 开始
-  public Employee() {
-  }
-
-  public Employee(Builder builder) {
-    this.userId = builder.userId;
-    this.systemFields = builder.systemFields;
-    this.customFields = builder.customFields;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getUserId() {
-    return this.userId;
-  }
-
-  public void setUserId(String userId) {
-    this.userId = userId;
-  }
-
-  public SystemFields getSystemFields() {
-    return this.systemFields;
-  }
-
-  public void setSystemFields(SystemFields systemFields) {
-    this.systemFields = systemFields;
-  }
-
-  public CustomFields[] getCustomFields() {
-    return this.customFields;
-  }
-
-  public void setCustomFields(CustomFields[] customFields) {
-    this.customFields = customFields;
-  }
-
-  public static class Builder {
-
+    @SerializedName("user_id")
     private String userId;
+    @SerializedName("system_fields")
     private SystemFields systemFields;
+    @SerializedName("custom_fields")
     private CustomFields[] customFields;
-
-    public Builder userId(String userId) {
-      this.userId = userId;
-      return this;
+    public String getUserId() {
+        return this.userId;
     }
 
-    public Builder systemFields(SystemFields systemFields) {
-      this.systemFields = systemFields;
-      return this;
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
-    public Builder customFields(CustomFields[] customFields) {
-      this.customFields = customFields;
-      return this;
+    public SystemFields getSystemFields() {
+        return this.systemFields;
+    }
+
+    public void setSystemFields(SystemFields systemFields) {
+        this.systemFields = systemFields;
+    }
+
+    public CustomFields[] getCustomFields() {
+        return this.customFields;
+    }
+
+    public void setCustomFields(CustomFields[] customFields) {
+        this.customFields = customFields;
     }
 
 
-    public Employee build() {
-      return new Employee(this);
-    }
+// builder 开始
+  public Employee(){}
+
+  public Employee(Builder builder){
+      this.userId = builder.userId;
+      this.systemFields = builder.systemFields;
+      this.customFields = builder.customFields;
   }
+
+    public static class Builder {
+        private String userId;
+        private SystemFields systemFields;
+        private CustomFields[] customFields;
+        public Builder userId(String userId) {
+             this.userId = userId;
+             return this;
+        }
+    
+        public Builder systemFields(SystemFields systemFields) {
+             this.systemFields = systemFields;
+             return this;
+        }
+    
+        public Builder customFields(CustomFields[] customFields) {
+             this.customFields = customFields;
+             return this;
+        }
+    
+    
+    public Employee build(){
+        return new Employee(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

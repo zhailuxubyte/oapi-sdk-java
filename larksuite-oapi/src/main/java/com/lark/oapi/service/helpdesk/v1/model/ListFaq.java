@@ -12,60 +12,67 @@
  */
 
 package com.lark.oapi.service.helpdesk.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class ListFaq {
+    @SerializedName("has_more")
+    private Boolean hasMore;
+    @SerializedName("page_token")
+    private String pageToken;
+    @SerializedName("page_size")
+    private Integer pageSize;
+    @SerializedName("total")
+    private Integer total;
+    @SerializedName("items")
+    private Faq[] items;
+    public Boolean getHasMore() {
+        return this.hasMore;
+    }
 
-  @SerializedName("has_more")
-  private Boolean hasMore;
-  @SerializedName("page_token")
-  private String pageToken;
-  @SerializedName("page_size")
-  private Integer pageSize;
-  @SerializedName("total")
-  private Integer total;
-  @SerializedName("items")
-  private Faq[] items;
+    public void setHasMore(Boolean hasMore) {
+        this.hasMore = hasMore;
+    }
 
-  public Boolean getHasMore() {
-    return this.hasMore;
-  }
+    public String getPageToken() {
+        return this.pageToken;
+    }
 
-  public void setHasMore(Boolean hasMore) {
-    this.hasMore = hasMore;
-  }
+    public void setPageToken(String pageToken) {
+        this.pageToken = pageToken;
+    }
 
-  public String getPageToken() {
-    return this.pageToken;
-  }
+    public Integer getPageSize() {
+        return this.pageSize;
+    }
 
-  public void setPageToken(String pageToken) {
-    this.pageToken = pageToken;
-  }
+    public void setPageSize(Integer pageSize) {
+        this.pageSize = pageSize;
+    }
 
-  public Integer getPageSize() {
-    return this.pageSize;
-  }
+    public Integer getTotal() {
+        return this.total;
+    }
 
-  public void setPageSize(Integer pageSize) {
-    this.pageSize = pageSize;
-  }
+    public void setTotal(Integer total) {
+        this.total = total;
+    }
 
-  public Integer getTotal() {
-    return this.total;
-  }
+    public Faq[] getItems() {
+        return this.items;
+    }
 
-  public void setTotal(Integer total) {
-    this.total = total;
-  }
-
-  public Faq[] getItems() {
-    return this.items;
-  }
-
-  public void setItems(Faq[] items) {
-    this.items = items;
-  }
+    public void setItems(Faq[] items) {
+        this.items = items;
+    }
 
 }

@@ -12,130 +12,132 @@
  */
 
 package com.lark.oapi.service.contact.v3.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.contact.v3.enums.*;
 import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class FindByDepartmentUserReq {
-
-  @Query
-  @SerializedName("user_id_type")
-  private String userIdType;
-  @Query
-  @SerializedName("department_id_type")
-  private String departmentIdType;
-  @Query
-  @SerializedName("department_id")
-  private String departmentId;
-  @Query
-  @SerializedName("page_size")
-  private Integer pageSize;
-  @Query
-  @SerializedName("page_token")
-  private String pageToken;
-
-  // builder 开始
-  public FindByDepartmentUserReq() {
-  }
-
-  public FindByDepartmentUserReq(Builder builder) {
-    this.userIdType = builder.userIdType;
-    this.departmentIdType = builder.departmentIdType;
-    this.departmentId = builder.departmentId;
-    this.pageSize = builder.pageSize;
-    this.pageToken = builder.pageToken;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getUserIdType() {
-    return this.userIdType;
-  }
-
-  public void setUserIdType(String userIdType) {
-    this.userIdType = userIdType;
-  }
-
-  public String getDepartmentIdType() {
-    return this.departmentIdType;
-  }
-
-  public void setDepartmentIdType(String departmentIdType) {
-    this.departmentIdType = departmentIdType;
-  }
-
-  public String getDepartmentId() {
-    return this.departmentId;
-  }
-
-  public void setDepartmentId(String departmentId) {
-    this.departmentId = departmentId;
-  }
-
-  public Integer getPageSize() {
-    return this.pageSize;
-  }
-
-  public void setPageSize(Integer pageSize) {
-    this.pageSize = pageSize;
-  }
-
-  public String getPageToken() {
-    return this.pageToken;
-  }
-
-  public void setPageToken(String pageToken) {
-    this.pageToken = pageToken;
-  }
-
-  public static class Builder {
-
+    @Query
+    @SerializedName("user_id_type")
     private String userIdType;
+    @Query
+    @SerializedName("department_id_type")
     private String departmentIdType;
+    @Query
+    @SerializedName("department_id")
     private String departmentId;
+    @Query
+    @SerializedName("page_size")
     private Integer pageSize;
+    @Query
+    @SerializedName("page_token")
     private String pageToken;
-
-    public Builder userIdType(String userIdType) {
-      this.userIdType = userIdType;
-      return this;
+    public String getUserIdType() {
+        return this.userIdType;
     }
 
-    public Builder userIdType(com.lark.oapi.service.contact.v3.enums.UserIdTypeEnum userIdType) {
-      this.userIdType = userIdType.getValue();
-      return this;
+    public void setUserIdType(String userIdType) {
+        this.userIdType = userIdType;
     }
 
-    public Builder departmentIdType(String departmentIdType) {
-      this.departmentIdType = departmentIdType;
-      return this;
+    public String getDepartmentIdType() {
+        return this.departmentIdType;
     }
 
-    public Builder departmentIdType(
-        com.lark.oapi.service.contact.v3.enums.DepartmentIdTypeEnum departmentIdType) {
-      this.departmentIdType = departmentIdType.getValue();
-      return this;
+    public void setDepartmentIdType(String departmentIdType) {
+        this.departmentIdType = departmentIdType;
     }
 
-    public Builder departmentId(String departmentId) {
-      this.departmentId = departmentId;
-      return this;
+    public String getDepartmentId() {
+        return this.departmentId;
     }
 
-    public Builder pageSize(Integer pageSize) {
-      this.pageSize = pageSize;
-      return this;
+    public void setDepartmentId(String departmentId) {
+        this.departmentId = departmentId;
     }
 
-    public Builder pageToken(String pageToken) {
-      this.pageToken = pageToken;
-      return this;
+    public Integer getPageSize() {
+        return this.pageSize;
     }
 
-    public FindByDepartmentUserReq build() {
-      return new FindByDepartmentUserReq(this);
+    public void setPageSize(Integer pageSize) {
+        this.pageSize = pageSize;
     }
+
+    public String getPageToken() {
+        return this.pageToken;
+    }
+
+    public void setPageToken(String pageToken) {
+        this.pageToken = pageToken;
+    }
+
+
+// builder 开始
+  public FindByDepartmentUserReq(){}
+
+  public FindByDepartmentUserReq(Builder builder){
+       this.userIdType = builder.userIdType;
+       this.departmentIdType = builder.departmentIdType;
+       this.departmentId = builder.departmentId;
+       this.pageSize = builder.pageSize;
+       this.pageToken = builder.pageToken;
   }
+
+    public static class Builder {
+        private String userIdType;
+        private String departmentIdType;
+        private String departmentId;
+        private Integer pageSize;
+        private String pageToken;
+    
+           public Builder userIdType(String userIdType) {
+                this.userIdType = userIdType;
+                return this;
+           }
+          public Builder userIdType(com.lark.oapi.service.contact.v3.enums.UserIdTypeEnum userIdType) {
+               this.userIdType = userIdType.getValue();
+               return this;
+          }
+    
+           public Builder departmentIdType(String departmentIdType) {
+                this.departmentIdType = departmentIdType;
+                return this;
+           }
+          public Builder departmentIdType(com.lark.oapi.service.contact.v3.enums.DepartmentIdTypeEnum departmentIdType) {
+               this.departmentIdType = departmentIdType.getValue();
+               return this;
+          }
+    
+           public Builder departmentId(String departmentId) {
+                this.departmentId = departmentId;
+                return this;
+           }
+    
+           public Builder pageSize(Integer pageSize) {
+                this.pageSize = pageSize;
+                return this;
+           }
+    
+           public Builder pageToken(String pageToken) {
+                this.pageToken = pageToken;
+                return this;
+           }
+    
+    public FindByDepartmentUserReq build(){
+        return new FindByDepartmentUserReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

@@ -12,112 +12,114 @@
  */
 
 package com.lark.oapi.service.approval.v4.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.approval.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class GetInstanceReq {
-
-  @Query
-  @SerializedName("locale")
-  private String locale;
-  @Query
-  @SerializedName("user_id")
-  private String userId;
-  @Query
-  @SerializedName("user_id_type")
-  private String userIdType;
-  @Path
-  @SerializedName("instance_id")
-  private String instanceId;
-
-  // builder 开始
-  public GetInstanceReq() {
-  }
-
-  public GetInstanceReq(Builder builder) {
-    this.locale = builder.locale;
-    this.userId = builder.userId;
-    this.userIdType = builder.userIdType;
-    this.instanceId = builder.instanceId;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getLocale() {
-    return this.locale;
-  }
-
-  public void setLocale(String locale) {
-    this.locale = locale;
-  }
-
-  public String getUserId() {
-    return this.userId;
-  }
-
-  public void setUserId(String userId) {
-    this.userId = userId;
-  }
-
-  public String getUserIdType() {
-    return this.userIdType;
-  }
-
-  public void setUserIdType(String userIdType) {
-    this.userIdType = userIdType;
-  }
-
-  public String getInstanceId() {
-    return this.instanceId;
-  }
-
-  public void setInstanceId(String instanceId) {
-    this.instanceId = instanceId;
-  }
-
-  public static class Builder {
-
+    @Query
+    @SerializedName("locale")
     private String locale;
+    @Query
+    @SerializedName("user_id")
     private String userId;
+    @Query
+    @SerializedName("user_id_type")
     private String userIdType;
+    public String getLocale() {
+        return this.locale;
+    }
+
+    public void setLocale(String locale) {
+        this.locale = locale;
+    }
+
+    public String getUserId() {
+        return this.userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    public String getUserIdType() {
+        return this.userIdType;
+    }
+
+    public void setUserIdType(String userIdType) {
+        this.userIdType = userIdType;
+    }
+
+    @Path
+    @SerializedName("instance_id")
     private String instanceId;
-
-    public Builder locale(String locale) {
-      this.locale = locale;
-      return this;
+    public String getInstanceId() {
+        return this.instanceId;
     }
 
-    public Builder locale(com.lark.oapi.service.approval.v4.enums.LocaleEnum locale) {
-      this.locale = locale.getValue();
-      return this;
+    public void setInstanceId(String instanceId) {
+        this.instanceId = instanceId;
     }
 
-    public Builder userId(String userId) {
-      this.userId = userId;
-      return this;
-    }
 
-    public Builder userIdType(String userIdType) {
-      this.userIdType = userIdType;
-      return this;
-    }
+// builder 开始
+  public GetInstanceReq(){}
 
-    public Builder userIdType(com.lark.oapi.service.approval.v4.enums.UserIdTypeEnum userIdType) {
-      this.userIdType = userIdType.getValue();
-      return this;
-    }
-
-    public Builder instanceId(String instanceId) {
-      this.instanceId = instanceId;
-      return this;
-    }
-
-    public GetInstanceReq build() {
-      return new GetInstanceReq(this);
-    }
+  public GetInstanceReq(Builder builder){
+       this.locale = builder.locale;
+       this.userId = builder.userId;
+       this.userIdType = builder.userIdType;
+       this.instanceId = builder.instanceId;
   }
+
+    public static class Builder {
+        private String locale;
+        private String userId;
+        private String userIdType;
+    
+           public Builder locale(String locale) {
+                this.locale = locale;
+                return this;
+           }
+          public Builder locale(com.lark.oapi.service.approval.v4.enums.LocaleEnum locale) {
+               this.locale = locale.getValue();
+               return this;
+          }
+    
+           public Builder userId(String userId) {
+                this.userId = userId;
+                return this;
+           }
+    
+           public Builder userIdType(String userIdType) {
+                this.userIdType = userIdType;
+                return this;
+           }
+          public Builder userIdType(com.lark.oapi.service.approval.v4.enums.UserIdTypeEnum userIdType) {
+               this.userIdType = userIdType.getValue();
+               return this;
+          }
+    
+        private String instanceId;
+          public Builder instanceId(String instanceId) {
+               this.instanceId = instanceId;
+               return this;
+          }
+    
+    public GetInstanceReq build(){
+        return new GetInstanceReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

@@ -12,85 +12,90 @@
  */
 
 package com.lark.oapi.service.approval.v4.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.approval.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class ExternalTaskItem {
-
-  @SerializedName("id")
-  private String id;
-  @SerializedName("status")
-  private String status;
-  @SerializedName("update_time")
-  private String updateTime;
-
-  // builder 开始
-  public ExternalTaskItem() {
-  }
-
-  public ExternalTaskItem(Builder builder) {
-    this.id = builder.id;
-    this.status = builder.status;
-    this.updateTime = builder.updateTime;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getId() {
-    return this.id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public String getStatus() {
-    return this.status;
-  }
-
-  public void setStatus(String status) {
-    this.status = status;
-  }
-
-  public String getUpdateTime() {
-    return this.updateTime;
-  }
-
-  public void setUpdateTime(String updateTime) {
-    this.updateTime = updateTime;
-  }
-
-  public static class Builder {
-
+    @SerializedName("id")
     private String id;
+    @SerializedName("status")
     private String status;
+    @SerializedName("update_time")
     private String updateTime;
-
-    public Builder id(String id) {
-      this.id = id;
-      return this;
+    public String getId() {
+        return this.id;
     }
 
-    public Builder status(String status) {
-      this.status = status;
-      return this;
+    public void setId(String id) {
+        this.id = id;
     }
 
-    public Builder status(com.lark.oapi.service.approval.v4.enums.StatusEnum status) {
-      this.status = status.getValue();
-      return this;
+    public String getStatus() {
+        return this.status;
     }
 
-    public Builder updateTime(String updateTime) {
-      this.updateTime = updateTime;
-      return this;
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getUpdateTime() {
+        return this.updateTime;
+    }
+
+    public void setUpdateTime(String updateTime) {
+        this.updateTime = updateTime;
     }
 
 
-    public ExternalTaskItem build() {
-      return new ExternalTaskItem(this);
-    }
+// builder 开始
+  public ExternalTaskItem(){}
+
+  public ExternalTaskItem(Builder builder){
+      this.id = builder.id;
+      this.status = builder.status;
+      this.updateTime = builder.updateTime;
   }
+
+    public static class Builder {
+        private String id;
+        private String status;
+        private String updateTime;
+        public Builder id(String id) {
+             this.id = id;
+             return this;
+        }
+    
+        public Builder status(String status) {
+             this.status = status;
+             return this;
+        }
+        public Builder status(com.lark.oapi.service.approval.v4.enums.StatusEnum status) {
+             this.status = status.getValue();
+             return this;
+        }
+    
+        public Builder updateTime(String updateTime) {
+             this.updateTime = updateTime;
+             return this;
+        }
+    
+    
+    public ExternalTaskItem build(){
+        return new ExternalTaskItem(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

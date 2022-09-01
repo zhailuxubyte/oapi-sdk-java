@@ -12,63 +12,68 @@
  */
 
 package com.lark.oapi.service.sheets.v3.model;
-
+import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class UpdateSheetFilter {
-
-  @SerializedName("col")
-  private String col;
-  @SerializedName("condition")
-  private Condition condition;
-
-  // builder 开始
-  public UpdateSheetFilter() {
-  }
-
-  public UpdateSheetFilter(Builder builder) {
-    this.col = builder.col;
-    this.condition = builder.condition;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getCol() {
-    return this.col;
-  }
-
-  public void setCol(String col) {
-    this.col = col;
-  }
-
-  public Condition getCondition() {
-    return this.condition;
-  }
-
-  public void setCondition(Condition condition) {
-    this.condition = condition;
-  }
-
-  public static class Builder {
-
+    @SerializedName("col")
     private String col;
+    @SerializedName("condition")
     private Condition condition;
-
-    public Builder col(String col) {
-      this.col = col;
-      return this;
+    public String getCol() {
+        return this.col;
     }
 
-    public Builder condition(Condition condition) {
-      this.condition = condition;
-      return this;
+    public void setCol(String col) {
+        this.col = col;
+    }
+
+    public Condition getCondition() {
+        return this.condition;
+    }
+
+    public void setCondition(Condition condition) {
+        this.condition = condition;
     }
 
 
-    public UpdateSheetFilter build() {
-      return new UpdateSheetFilter(this);
-    }
+// builder 开始
+  public UpdateSheetFilter(){}
+
+  public UpdateSheetFilter(Builder builder){
+      this.col = builder.col;
+      this.condition = builder.condition;
   }
+
+    public static class Builder {
+        private String col;
+        private Condition condition;
+        public Builder col(String col) {
+             this.col = col;
+             return this;
+        }
+    
+        public Builder condition(Condition condition) {
+             this.condition = condition;
+             return this;
+        }
+    
+    
+    public UpdateSheetFilter build(){
+        return new UpdateSheetFilter(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

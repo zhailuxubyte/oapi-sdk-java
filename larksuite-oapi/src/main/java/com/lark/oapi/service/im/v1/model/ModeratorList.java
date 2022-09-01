@@ -12,63 +12,69 @@
  */
 
 package com.lark.oapi.service.im.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.im.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class ModeratorList {
-
-  @SerializedName("added_member_list")
-  private ListEventModerator[] addedMemberList;
-  @SerializedName("removed_member_list")
-  private ListEventModerator[] removedMemberList;
-
-  // builder 开始
-  public ModeratorList() {
-  }
-
-  public ModeratorList(Builder builder) {
-    this.addedMemberList = builder.addedMemberList;
-    this.removedMemberList = builder.removedMemberList;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public ListEventModerator[] getAddedMemberList() {
-    return this.addedMemberList;
-  }
-
-  public void setAddedMemberList(ListEventModerator[] addedMemberList) {
-    this.addedMemberList = addedMemberList;
-  }
-
-  public ListEventModerator[] getRemovedMemberList() {
-    return this.removedMemberList;
-  }
-
-  public void setRemovedMemberList(ListEventModerator[] removedMemberList) {
-    this.removedMemberList = removedMemberList;
-  }
-
-  public static class Builder {
-
+    @SerializedName("added_member_list")
     private ListEventModerator[] addedMemberList;
+    @SerializedName("removed_member_list")
     private ListEventModerator[] removedMemberList;
-
-    public Builder addedMemberList(ListEventModerator[] addedMemberList) {
-      this.addedMemberList = addedMemberList;
-      return this;
+    public ListEventModerator[] getAddedMemberList() {
+        return this.addedMemberList;
     }
 
-    public Builder removedMemberList(ListEventModerator[] removedMemberList) {
-      this.removedMemberList = removedMemberList;
-      return this;
+    public void setAddedMemberList(ListEventModerator[] addedMemberList) {
+        this.addedMemberList = addedMemberList;
+    }
+
+    public ListEventModerator[] getRemovedMemberList() {
+        return this.removedMemberList;
+    }
+
+    public void setRemovedMemberList(ListEventModerator[] removedMemberList) {
+        this.removedMemberList = removedMemberList;
     }
 
 
-    public ModeratorList build() {
-      return new ModeratorList(this);
-    }
+// builder 开始
+  public ModeratorList(){}
+
+  public ModeratorList(Builder builder){
+      this.addedMemberList = builder.addedMemberList;
+      this.removedMemberList = builder.removedMemberList;
   }
+
+    public static class Builder {
+        private ListEventModerator[] addedMemberList;
+        private ListEventModerator[] removedMemberList;
+        public Builder addedMemberList(ListEventModerator[] addedMemberList) {
+             this.addedMemberList = addedMemberList;
+             return this;
+        }
+    
+        public Builder removedMemberList(ListEventModerator[] removedMemberList) {
+             this.removedMemberList = removedMemberList;
+             return this;
+        }
+    
+    
+    public ModeratorList build(){
+        return new ModeratorList(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

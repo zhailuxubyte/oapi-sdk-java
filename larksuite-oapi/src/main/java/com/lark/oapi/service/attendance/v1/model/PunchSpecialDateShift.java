@@ -12,63 +12,69 @@
  */
 
 package com.lark.oapi.service.attendance.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.attendance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class PunchSpecialDateShift {
-
-  @SerializedName("punch_day")
-  private Integer punchDay;
-  @SerializedName("shift_id")
-  private String shiftId;
-
-  // builder 开始
-  public PunchSpecialDateShift() {
-  }
-
-  public PunchSpecialDateShift(Builder builder) {
-    this.punchDay = builder.punchDay;
-    this.shiftId = builder.shiftId;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Integer getPunchDay() {
-    return this.punchDay;
-  }
-
-  public void setPunchDay(Integer punchDay) {
-    this.punchDay = punchDay;
-  }
-
-  public String getShiftId() {
-    return this.shiftId;
-  }
-
-  public void setShiftId(String shiftId) {
-    this.shiftId = shiftId;
-  }
-
-  public static class Builder {
-
+    @SerializedName("punch_day")
     private Integer punchDay;
+    @SerializedName("shift_id")
     private String shiftId;
-
-    public Builder punchDay(Integer punchDay) {
-      this.punchDay = punchDay;
-      return this;
+    public Integer getPunchDay() {
+        return this.punchDay;
     }
 
-    public Builder shiftId(String shiftId) {
-      this.shiftId = shiftId;
-      return this;
+    public void setPunchDay(Integer punchDay) {
+        this.punchDay = punchDay;
+    }
+
+    public String getShiftId() {
+        return this.shiftId;
+    }
+
+    public void setShiftId(String shiftId) {
+        this.shiftId = shiftId;
     }
 
 
-    public PunchSpecialDateShift build() {
-      return new PunchSpecialDateShift(this);
-    }
+// builder 开始
+  public PunchSpecialDateShift(){}
+
+  public PunchSpecialDateShift(Builder builder){
+      this.punchDay = builder.punchDay;
+      this.shiftId = builder.shiftId;
   }
+
+    public static class Builder {
+        private Integer punchDay;
+        private String shiftId;
+        public Builder punchDay(Integer punchDay) {
+             this.punchDay = punchDay;
+             return this;
+        }
+    
+        public Builder shiftId(String shiftId) {
+             this.shiftId = shiftId;
+             return this;
+        }
+    
+    
+    public PunchSpecialDateShift build(){
+        return new PunchSpecialDateShift(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

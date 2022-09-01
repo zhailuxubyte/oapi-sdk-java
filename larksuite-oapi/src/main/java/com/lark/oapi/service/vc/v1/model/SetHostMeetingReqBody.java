@@ -12,63 +12,69 @@
  */
 
 package com.lark.oapi.service.vc.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.vc.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class SetHostMeetingReqBody {
-
-  @SerializedName("host_user")
-  private MeetingUser hostUser;
-  @SerializedName("old_host_user")
-  private MeetingUser oldHostUser;
-
-  // builder 开始
-  public SetHostMeetingReqBody() {
-  }
-
-  public SetHostMeetingReqBody(Builder builder) {
-    this.hostUser = builder.hostUser;
-    this.oldHostUser = builder.oldHostUser;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public MeetingUser getHostUser() {
-    return this.hostUser;
-  }
-
-  public void setHostUser(MeetingUser hostUser) {
-    this.hostUser = hostUser;
-  }
-
-  public MeetingUser getOldHostUser() {
-    return this.oldHostUser;
-  }
-
-  public void setOldHostUser(MeetingUser oldHostUser) {
-    this.oldHostUser = oldHostUser;
-  }
-
-  public static class Builder {
-
+    @SerializedName("host_user")
     private MeetingUser hostUser;
+    @SerializedName("old_host_user")
     private MeetingUser oldHostUser;
-
-    public Builder hostUser(MeetingUser hostUser) {
-      this.hostUser = hostUser;
-      return this;
+    public MeetingUser getHostUser() {
+        return this.hostUser;
     }
 
-    public Builder oldHostUser(MeetingUser oldHostUser) {
-      this.oldHostUser = oldHostUser;
-      return this;
+    public void setHostUser(MeetingUser hostUser) {
+        this.hostUser = hostUser;
+    }
+
+    public MeetingUser getOldHostUser() {
+        return this.oldHostUser;
+    }
+
+    public void setOldHostUser(MeetingUser oldHostUser) {
+        this.oldHostUser = oldHostUser;
     }
 
 
-    public SetHostMeetingReqBody build() {
-      return new SetHostMeetingReqBody(this);
-    }
+// builder 开始
+  public SetHostMeetingReqBody(){}
+
+  public SetHostMeetingReqBody(Builder builder){
+      this.hostUser = builder.hostUser;
+      this.oldHostUser = builder.oldHostUser;
   }
+
+    public static class Builder {
+        private MeetingUser hostUser;
+        private MeetingUser oldHostUser;
+        public Builder hostUser(MeetingUser hostUser) {
+             this.hostUser = hostUser;
+             return this;
+        }
+    
+        public Builder oldHostUser(MeetingUser oldHostUser) {
+             this.oldHostUser = oldHostUser;
+             return this;
+        }
+    
+    
+    public SetHostMeetingReqBody build(){
+        return new SetHostMeetingReqBody(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

@@ -12,68 +12,73 @@
  */
 
 package com.lark.oapi.service.vc.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.vc.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class MaterialReviewResult {
-
-  @SerializedName("file_token")
-  private String fileToken;
-  @SerializedName("result")
-  private Integer result;
-
-  // builder 开始
-  public MaterialReviewResult() {
-  }
-
-  public MaterialReviewResult(Builder builder) {
-    this.fileToken = builder.fileToken;
-    this.result = builder.result;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getFileToken() {
-    return this.fileToken;
-  }
-
-  public void setFileToken(String fileToken) {
-    this.fileToken = fileToken;
-  }
-
-  public Integer getResult() {
-    return this.result;
-  }
-
-  public void setResult(Integer result) {
-    this.result = result;
-  }
-
-  public static class Builder {
-
+    @SerializedName("file_token")
     private String fileToken;
+    @SerializedName("result")
     private Integer result;
-
-    public Builder fileToken(String fileToken) {
-      this.fileToken = fileToken;
-      return this;
+    public String getFileToken() {
+        return this.fileToken;
     }
 
-    public Builder result(Integer result) {
-      this.result = result;
-      return this;
+    public void setFileToken(String fileToken) {
+        this.fileToken = fileToken;
     }
 
-    public Builder result(com.lark.oapi.service.vc.v1.enums.ReviewResultEnum result) {
-      this.result = result.getValue();
-      return this;
+    public Integer getResult() {
+        return this.result;
+    }
+
+    public void setResult(Integer result) {
+        this.result = result;
     }
 
 
-    public MaterialReviewResult build() {
-      return new MaterialReviewResult(this);
-    }
+// builder 开始
+  public MaterialReviewResult(){}
+
+  public MaterialReviewResult(Builder builder){
+      this.fileToken = builder.fileToken;
+      this.result = builder.result;
   }
+
+    public static class Builder {
+        private String fileToken;
+        private Integer result;
+        public Builder fileToken(String fileToken) {
+             this.fileToken = fileToken;
+             return this;
+        }
+    
+        public Builder result(Integer result) {
+             this.result = result;
+             return this;
+        }
+        public Builder result(com.lark.oapi.service.vc.v1.enums.ReviewResultEnum result) {
+             this.result = result.getValue();
+             return this;
+        }
+    
+    
+    public MaterialReviewResult build(){
+        return new MaterialReviewResult(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

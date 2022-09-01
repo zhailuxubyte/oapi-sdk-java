@@ -12,63 +12,69 @@
  */
 
 package com.lark.oapi.service.helpdesk.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.helpdesk.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class UserQueryFaqInfo {
-
-  @SerializedName("id")
-  private String id;
-  @SerializedName("score")
-  private Double score;
-
-  // builder 开始
-  public UserQueryFaqInfo() {
-  }
-
-  public UserQueryFaqInfo(Builder builder) {
-    this.id = builder.id;
-    this.score = builder.score;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getId() {
-    return this.id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public Double getScore() {
-    return this.score;
-  }
-
-  public void setScore(Double score) {
-    this.score = score;
-  }
-
-  public static class Builder {
-
+    @SerializedName("id")
     private String id;
+    @SerializedName("score")
     private Double score;
-
-    public Builder id(String id) {
-      this.id = id;
-      return this;
+    public String getId() {
+        return this.id;
     }
 
-    public Builder score(Double score) {
-      this.score = score;
-      return this;
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public Double getScore() {
+        return this.score;
+    }
+
+    public void setScore(Double score) {
+        this.score = score;
     }
 
 
-    public UserQueryFaqInfo build() {
-      return new UserQueryFaqInfo(this);
-    }
+// builder 开始
+  public UserQueryFaqInfo(){}
+
+  public UserQueryFaqInfo(Builder builder){
+      this.id = builder.id;
+      this.score = builder.score;
   }
+
+    public static class Builder {
+        private String id;
+        private Double score;
+        public Builder id(String id) {
+             this.id = id;
+             return this;
+        }
+    
+        public Builder score(Double score) {
+             this.score = score;
+             return this;
+        }
+    
+    
+    public UserQueryFaqInfo build(){
+        return new UserQueryFaqInfo(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

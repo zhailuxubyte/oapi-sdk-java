@@ -12,83 +12,88 @@
  */
 
 package com.lark.oapi.service.helpdesk.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.helpdesk.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class TicketImageTicketReq {
-
-  @Query
-  @SerializedName("ticket_id")
-  private String ticketId;
-  @Query
-  @SerializedName("msg_id")
-  private String msgId;
-  @Query
-  @SerializedName("index")
-  private Integer index;
-
-  // builder 开始
-  public TicketImageTicketReq() {
-  }
-
-  public TicketImageTicketReq(Builder builder) {
-    this.ticketId = builder.ticketId;
-    this.msgId = builder.msgId;
-    this.index = builder.index;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getTicketId() {
-    return this.ticketId;
-  }
-
-  public void setTicketId(String ticketId) {
-    this.ticketId = ticketId;
-  }
-
-  public String getMsgId() {
-    return this.msgId;
-  }
-
-  public void setMsgId(String msgId) {
-    this.msgId = msgId;
-  }
-
-  public Integer getIndex() {
-    return this.index;
-  }
-
-  public void setIndex(Integer index) {
-    this.index = index;
-  }
-
-  public static class Builder {
-
+    @Query
+    @SerializedName("ticket_id")
     private String ticketId;
+    @Query
+    @SerializedName("msg_id")
     private String msgId;
+    @Query
+    @SerializedName("index")
     private Integer index;
-
-    public Builder ticketId(String ticketId) {
-      this.ticketId = ticketId;
-      return this;
+    public String getTicketId() {
+        return this.ticketId;
     }
 
-    public Builder msgId(String msgId) {
-      this.msgId = msgId;
-      return this;
+    public void setTicketId(String ticketId) {
+        this.ticketId = ticketId;
     }
 
-    public Builder index(Integer index) {
-      this.index = index;
-      return this;
+    public String getMsgId() {
+        return this.msgId;
     }
 
-    public TicketImageTicketReq build() {
-      return new TicketImageTicketReq(this);
+    public void setMsgId(String msgId) {
+        this.msgId = msgId;
     }
+
+    public Integer getIndex() {
+        return this.index;
+    }
+
+    public void setIndex(Integer index) {
+        this.index = index;
+    }
+
+
+// builder 开始
+  public TicketImageTicketReq(){}
+
+  public TicketImageTicketReq(Builder builder){
+       this.ticketId = builder.ticketId;
+       this.msgId = builder.msgId;
+       this.index = builder.index;
   }
+
+    public static class Builder {
+        private String ticketId;
+        private String msgId;
+        private Integer index;
+    
+           public Builder ticketId(String ticketId) {
+                this.ticketId = ticketId;
+                return this;
+           }
+    
+           public Builder msgId(String msgId) {
+                this.msgId = msgId;
+                return this;
+           }
+    
+           public Builder index(Integer index) {
+                this.index = index;
+                return this;
+           }
+    
+    public TicketImageTicketReq build(){
+        return new TicketImageTicketReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

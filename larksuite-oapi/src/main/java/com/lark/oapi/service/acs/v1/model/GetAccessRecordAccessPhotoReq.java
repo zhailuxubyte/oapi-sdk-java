@@ -12,47 +12,52 @@
  */
 
 package com.lark.oapi.service.acs.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.acs.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class GetAccessRecordAccessPhotoReq {
-
-  @Path
-  @SerializedName("access_record_id")
-  private String accessRecordId;
-
-  // builder 开始
-  public GetAccessRecordAccessPhotoReq() {
-  }
-
-  public GetAccessRecordAccessPhotoReq(Builder builder) {
-    this.accessRecordId = builder.accessRecordId;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getAccessRecordId() {
-    return this.accessRecordId;
-  }
-
-  public void setAccessRecordId(String accessRecordId) {
-    this.accessRecordId = accessRecordId;
-  }
-
-  public static class Builder {
-
+    @Path
+    @SerializedName("access_record_id")
     private String accessRecordId;
-
-    public Builder accessRecordId(String accessRecordId) {
-      this.accessRecordId = accessRecordId;
-      return this;
+    public String getAccessRecordId() {
+        return this.accessRecordId;
     }
 
-    public GetAccessRecordAccessPhotoReq build() {
-      return new GetAccessRecordAccessPhotoReq(this);
+    public void setAccessRecordId(String accessRecordId) {
+        this.accessRecordId = accessRecordId;
     }
+
+
+// builder 开始
+  public GetAccessRecordAccessPhotoReq(){}
+
+  public GetAccessRecordAccessPhotoReq(Builder builder){
+       this.accessRecordId = builder.accessRecordId;
   }
+
+    public static class Builder {
+    
+        private String accessRecordId;
+          public Builder accessRecordId(String accessRecordId) {
+               this.accessRecordId = accessRecordId;
+               return this;
+          }
+    
+    public GetAccessRecordAccessPhotoReq build(){
+        return new GetAccessRecordAccessPhotoReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

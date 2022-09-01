@@ -12,93 +12,94 @@
  */
 
 package com.lark.oapi.service.attendance.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.attendance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class QueryUserFlowReq {
-
-  @Query
-  @SerializedName("employee_type")
-  private String employeeType;
-  @Query
-  @SerializedName("include_terminated_user")
-  private Boolean includeTerminatedUser;
-  @Body
-  private QueryUserFlowReqBody body;
-
-  // builder 开始
-  public QueryUserFlowReq() {
-  }
-
-  public QueryUserFlowReq(Builder builder) {
-    this.employeeType = builder.employeeType;
-    this.includeTerminatedUser = builder.includeTerminatedUser;
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getEmployeeType() {
-    return this.employeeType;
-  }
-
-  public void setEmployeeType(String employeeType) {
-    this.employeeType = employeeType;
-  }
-
-  public Boolean getIncludeTerminatedUser() {
-    return this.includeTerminatedUser;
-  }
-
-  public void setIncludeTerminatedUser(Boolean includeTerminatedUser) {
-    this.includeTerminatedUser = includeTerminatedUser;
-  }
-
-  public QueryUserFlowReqBody getQueryUserFlowReqBody() {
-    return this.body;
-  }
-
-  public void setQueryUserFlowReqBody(QueryUserFlowReqBody body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
+    @Query
+    @SerializedName("employee_type")
     private String employeeType;
+    @Query
+    @SerializedName("include_terminated_user")
     private Boolean includeTerminatedUser;
+    public String getEmployeeType() {
+        return this.employeeType;
+    }
+
+    public void setEmployeeType(String employeeType) {
+        this.employeeType = employeeType;
+    }
+
+    public Boolean getIncludeTerminatedUser() {
+        return this.includeTerminatedUser;
+    }
+
+    public void setIncludeTerminatedUser(Boolean includeTerminatedUser) {
+        this.includeTerminatedUser = includeTerminatedUser;
+    }
+
+    @Body
     private QueryUserFlowReqBody body;
 
-    public Builder employeeType(String employeeType) {
-      this.employeeType = employeeType;
-      return this;
-    }
-
-    public Builder employeeType(
-        com.lark.oapi.service.attendance.v1.enums.EmployeeTypeEnum employeeType) {
-      this.employeeType = employeeType.getValue();
-      return this;
-    }
-
-    public Builder includeTerminatedUser(Boolean includeTerminatedUser) {
-      this.includeTerminatedUser = includeTerminatedUser;
-      return this;
-    }
-
     public QueryUserFlowReqBody getQueryUserFlowReqBody() {
-      return this.body;
+        return this.body;
     }
 
-    public Builder queryUserFlowReqBody(QueryUserFlowReqBody body) {
-      this.body = body;
-      return this;
+    public void setQueryUserFlowReqBody(QueryUserFlowReqBody body) {
+        this.body = body;
     }
 
-    public QueryUserFlowReq build() {
-      return new QueryUserFlowReq(this);
-    }
+// builder 开始
+  public QueryUserFlowReq(){}
+
+  public QueryUserFlowReq(Builder builder){
+       this.employeeType = builder.employeeType;
+       this.includeTerminatedUser = builder.includeTerminatedUser;
+        this.body = builder.body;
   }
+
+    public static class Builder {
+        private String employeeType;
+        private Boolean includeTerminatedUser;
+    
+           public Builder employeeType(String employeeType) {
+                this.employeeType = employeeType;
+                return this;
+           }
+          public Builder employeeType(com.lark.oapi.service.attendance.v1.enums.EmployeeTypeEnum employeeType) {
+               this.employeeType = employeeType.getValue();
+               return this;
+          }
+    
+           public Builder includeTerminatedUser(Boolean includeTerminatedUser) {
+                this.includeTerminatedUser = includeTerminatedUser;
+                return this;
+           }
+    
+        private QueryUserFlowReqBody body;
+    
+        public QueryUserFlowReqBody getQueryUserFlowReqBody() {
+            return this.body;
+        }
+        public Builder queryUserFlowReqBody(QueryUserFlowReqBody body) {
+             this.body = body;
+             return this;
+        }
+    public QueryUserFlowReq build(){
+        return new QueryUserFlowReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

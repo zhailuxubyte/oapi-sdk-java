@@ -12,30 +12,37 @@
  */
 
 package com.lark.oapi.service.im.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class AddManagersChatManagers {
+    @SerializedName("chat_managers")
+    private String[] chatManagers;
+    @SerializedName("chat_bot_managers")
+    private String[] chatBotManagers;
+    public String[] getChatManagers() {
+        return this.chatManagers;
+    }
 
-  @SerializedName("chat_managers")
-  private String[] chatManagers;
-  @SerializedName("chat_bot_managers")
-  private String[] chatBotManagers;
+    public void setChatManagers(String[] chatManagers) {
+        this.chatManagers = chatManagers;
+    }
 
-  public String[] getChatManagers() {
-    return this.chatManagers;
-  }
+    public String[] getChatBotManagers() {
+        return this.chatBotManagers;
+    }
 
-  public void setChatManagers(String[] chatManagers) {
-    this.chatManagers = chatManagers;
-  }
-
-  public String[] getChatBotManagers() {
-    return this.chatBotManagers;
-  }
-
-  public void setChatBotManagers(String[] chatBotManagers) {
-    this.chatBotManagers = chatBotManagers;
-  }
+    public void setChatBotManagers(String[] chatBotManagers) {
+        this.chatBotManagers = chatBotManagers;
+    }
 
 }

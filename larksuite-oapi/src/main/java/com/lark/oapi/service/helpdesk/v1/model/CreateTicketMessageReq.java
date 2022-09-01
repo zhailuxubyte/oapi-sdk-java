@@ -12,69 +12,72 @@
  */
 
 package com.lark.oapi.service.helpdesk.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.helpdesk.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class CreateTicketMessageReq {
-
-  @Path
-  @SerializedName("ticket_id")
-  private String ticketId;
-  @Body
-  private CreateTicketMessageReqBody body;
-
-  // builder 开始
-  public CreateTicketMessageReq() {
-  }
-
-  public CreateTicketMessageReq(Builder builder) {
-    this.ticketId = builder.ticketId;
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getTicketId() {
-    return this.ticketId;
-  }
-
-  public void setTicketId(String ticketId) {
-    this.ticketId = ticketId;
-  }
-
-  public CreateTicketMessageReqBody getCreateTicketMessageReqBody() {
-    return this.body;
-  }
-
-  public void setCreateTicketMessageReqBody(CreateTicketMessageReqBody body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
+    @Path
+    @SerializedName("ticket_id")
     private String ticketId;
+    public String getTicketId() {
+        return this.ticketId;
+    }
+
+    public void setTicketId(String ticketId) {
+        this.ticketId = ticketId;
+    }
+
+    @Body
     private CreateTicketMessageReqBody body;
 
-    public Builder ticketId(String ticketId) {
-      this.ticketId = ticketId;
-      return this;
-    }
-
     public CreateTicketMessageReqBody getCreateTicketMessageReqBody() {
-      return this.body;
+        return this.body;
     }
 
-    public Builder createTicketMessageReqBody(CreateTicketMessageReqBody body) {
-      this.body = body;
-      return this;
+    public void setCreateTicketMessageReqBody(CreateTicketMessageReqBody body) {
+        this.body = body;
     }
 
-    public CreateTicketMessageReq build() {
-      return new CreateTicketMessageReq(this);
-    }
+// builder 开始
+  public CreateTicketMessageReq(){}
+
+  public CreateTicketMessageReq(Builder builder){
+       this.ticketId = builder.ticketId;
+        this.body = builder.body;
   }
+
+    public static class Builder {
+    
+        private String ticketId;
+          public Builder ticketId(String ticketId) {
+               this.ticketId = ticketId;
+               return this;
+          }
+    
+        private CreateTicketMessageReqBody body;
+    
+        public CreateTicketMessageReqBody getCreateTicketMessageReqBody() {
+            return this.body;
+        }
+        public Builder createTicketMessageReqBody(CreateTicketMessageReqBody body) {
+             this.body = body;
+             return this;
+        }
+    public CreateTicketMessageReq build(){
+        return new CreateTicketMessageReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

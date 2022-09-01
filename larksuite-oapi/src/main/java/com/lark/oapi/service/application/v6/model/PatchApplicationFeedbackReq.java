@@ -12,131 +12,132 @@
  */
 
 package com.lark.oapi.service.application.v6.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.application.v6.enums.*;
 import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class PatchApplicationFeedbackReq {
-
-  @Query
-  @SerializedName("user_id_type")
-  private String userIdType;
-  @Query
-  @SerializedName("status")
-  private Integer status;
-  @Query
-  @SerializedName("operator_id")
-  private String operatorId;
-  @Path
-  @SerializedName("app_id")
-  private String appId;
-  @Path
-  @SerializedName("feedback_id")
-  private String feedbackId;
-
-  // builder 开始
-  public PatchApplicationFeedbackReq() {
-  }
-
-  public PatchApplicationFeedbackReq(Builder builder) {
-    this.userIdType = builder.userIdType;
-    this.status = builder.status;
-    this.operatorId = builder.operatorId;
-    this.appId = builder.appId;
-    this.feedbackId = builder.feedbackId;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getUserIdType() {
-    return this.userIdType;
-  }
-
-  public void setUserIdType(String userIdType) {
-    this.userIdType = userIdType;
-  }
-
-  public Integer getStatus() {
-    return this.status;
-  }
-
-  public void setStatus(Integer status) {
-    this.status = status;
-  }
-
-  public String getOperatorId() {
-    return this.operatorId;
-  }
-
-  public void setOperatorId(String operatorId) {
-    this.operatorId = operatorId;
-  }
-
-  public String getAppId() {
-    return this.appId;
-  }
-
-  public void setAppId(String appId) {
-    this.appId = appId;
-  }
-
-  public String getFeedbackId() {
-    return this.feedbackId;
-  }
-
-  public void setFeedbackId(String feedbackId) {
-    this.feedbackId = feedbackId;
-  }
-
-  public static class Builder {
-
+    @Query
+    @SerializedName("user_id_type")
     private String userIdType;
+    @Query
+    @SerializedName("status")
     private Integer status;
+    @Query
+    @SerializedName("operator_id")
     private String operatorId;
+    public String getUserIdType() {
+        return this.userIdType;
+    }
+
+    public void setUserIdType(String userIdType) {
+        this.userIdType = userIdType;
+    }
+
+    public Integer getStatus() {
+        return this.status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
+    }
+
+    public String getOperatorId() {
+        return this.operatorId;
+    }
+
+    public void setOperatorId(String operatorId) {
+        this.operatorId = operatorId;
+    }
+
+    @Path
+    @SerializedName("app_id")
     private String appId;
+    @Path
+    @SerializedName("feedback_id")
     private String feedbackId;
-
-    public Builder userIdType(String userIdType) {
-      this.userIdType = userIdType;
-      return this;
+    public String getAppId() {
+        return this.appId;
     }
 
-    public Builder userIdType(
-        com.lark.oapi.service.application.v6.enums.UserIdTypeEnum userIdType) {
-      this.userIdType = userIdType.getValue();
-      return this;
+    public void setAppId(String appId) {
+        this.appId = appId;
     }
 
-    public Builder status(Integer status) {
-      this.status = status;
-      return this;
+    public String getFeedbackId() {
+        return this.feedbackId;
     }
 
-    public Builder status(com.lark.oapi.service.application.v6.enums.OpenMarkStatusEnum status) {
-      this.status = status.getValue();
-      return this;
+    public void setFeedbackId(String feedbackId) {
+        this.feedbackId = feedbackId;
     }
 
-    public Builder operatorId(String operatorId) {
-      this.operatorId = operatorId;
-      return this;
-    }
 
-    public Builder appId(String appId) {
-      this.appId = appId;
-      return this;
-    }
+// builder 开始
+  public PatchApplicationFeedbackReq(){}
 
-    public Builder feedbackId(String feedbackId) {
-      this.feedbackId = feedbackId;
-      return this;
-    }
-
-    public PatchApplicationFeedbackReq build() {
-      return new PatchApplicationFeedbackReq(this);
-    }
+  public PatchApplicationFeedbackReq(Builder builder){
+       this.userIdType = builder.userIdType;
+       this.status = builder.status;
+       this.operatorId = builder.operatorId;
+       this.appId = builder.appId;
+       this.feedbackId = builder.feedbackId;
   }
+
+    public static class Builder {
+        private String userIdType;
+        private Integer status;
+        private String operatorId;
+    
+           public Builder userIdType(String userIdType) {
+                this.userIdType = userIdType;
+                return this;
+           }
+          public Builder userIdType(com.lark.oapi.service.application.v6.enums.UserIdTypeEnum userIdType) {
+               this.userIdType = userIdType.getValue();
+               return this;
+          }
+    
+           public Builder status(Integer status) {
+                this.status = status;
+                return this;
+           }
+          public Builder status(com.lark.oapi.service.application.v6.enums.OpenMarkStatusEnum status) {
+               this.status = status.getValue();
+               return this;
+          }
+    
+           public Builder operatorId(String operatorId) {
+                this.operatorId = operatorId;
+                return this;
+           }
+    
+        private String appId;
+        private String feedbackId;
+          public Builder appId(String appId) {
+               this.appId = appId;
+               return this;
+          }
+    
+          public Builder feedbackId(String feedbackId) {
+               this.feedbackId = feedbackId;
+               return this;
+          }
+    
+    public PatchApplicationFeedbackReq build(){
+        return new PatchApplicationFeedbackReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

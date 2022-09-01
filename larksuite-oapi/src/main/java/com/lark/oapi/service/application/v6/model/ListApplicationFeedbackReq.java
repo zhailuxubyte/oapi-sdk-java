@@ -12,191 +12,190 @@
  */
 
 package com.lark.oapi.service.application.v6.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.application.v6.enums.*;
 import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class ListApplicationFeedbackReq {
-
-  @Query
-  @SerializedName("from_date")
-  private String fromDate;
-  @Query
-  @SerializedName("to_date")
-  private String toDate;
-  @Query
-  @SerializedName("feedback_type")
-  private Integer feedbackType;
-  @Query
-  @SerializedName("status")
-  private Integer status;
-  @Query
-  @SerializedName("user_id_type")
-  private String userIdType;
-  @Query
-  @SerializedName("page_token")
-  private String pageToken;
-  @Query
-  @SerializedName("page_size")
-  private Integer pageSize;
-  @Path
-  @SerializedName("app_id")
-  private String appId;
-
-  // builder 开始
-  public ListApplicationFeedbackReq() {
-  }
-
-  public ListApplicationFeedbackReq(Builder builder) {
-    this.fromDate = builder.fromDate;
-    this.toDate = builder.toDate;
-    this.feedbackType = builder.feedbackType;
-    this.status = builder.status;
-    this.userIdType = builder.userIdType;
-    this.pageToken = builder.pageToken;
-    this.pageSize = builder.pageSize;
-    this.appId = builder.appId;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getFromDate() {
-    return this.fromDate;
-  }
-
-  public void setFromDate(String fromDate) {
-    this.fromDate = fromDate;
-  }
-
-  public String getToDate() {
-    return this.toDate;
-  }
-
-  public void setToDate(String toDate) {
-    this.toDate = toDate;
-  }
-
-  public Integer getFeedbackType() {
-    return this.feedbackType;
-  }
-
-  public void setFeedbackType(Integer feedbackType) {
-    this.feedbackType = feedbackType;
-  }
-
-  public Integer getStatus() {
-    return this.status;
-  }
-
-  public void setStatus(Integer status) {
-    this.status = status;
-  }
-
-  public String getUserIdType() {
-    return this.userIdType;
-  }
-
-  public void setUserIdType(String userIdType) {
-    this.userIdType = userIdType;
-  }
-
-  public String getPageToken() {
-    return this.pageToken;
-  }
-
-  public void setPageToken(String pageToken) {
-    this.pageToken = pageToken;
-  }
-
-  public Integer getPageSize() {
-    return this.pageSize;
-  }
-
-  public void setPageSize(Integer pageSize) {
-    this.pageSize = pageSize;
-  }
-
-  public String getAppId() {
-    return this.appId;
-  }
-
-  public void setAppId(String appId) {
-    this.appId = appId;
-  }
-
-  public static class Builder {
-
+    @Query
+    @SerializedName("from_date")
     private String fromDate;
+    @Query
+    @SerializedName("to_date")
     private String toDate;
+    @Query
+    @SerializedName("feedback_type")
     private Integer feedbackType;
+    @Query
+    @SerializedName("status")
     private Integer status;
+    @Query
+    @SerializedName("user_id_type")
     private String userIdType;
+    @Query
+    @SerializedName("page_token")
     private String pageToken;
+    @Query
+    @SerializedName("page_size")
     private Integer pageSize;
+    public String getFromDate() {
+        return this.fromDate;
+    }
+
+    public void setFromDate(String fromDate) {
+        this.fromDate = fromDate;
+    }
+
+    public String getToDate() {
+        return this.toDate;
+    }
+
+    public void setToDate(String toDate) {
+        this.toDate = toDate;
+    }
+
+    public Integer getFeedbackType() {
+        return this.feedbackType;
+    }
+
+    public void setFeedbackType(Integer feedbackType) {
+        this.feedbackType = feedbackType;
+    }
+
+    public Integer getStatus() {
+        return this.status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
+    }
+
+    public String getUserIdType() {
+        return this.userIdType;
+    }
+
+    public void setUserIdType(String userIdType) {
+        this.userIdType = userIdType;
+    }
+
+    public String getPageToken() {
+        return this.pageToken;
+    }
+
+    public void setPageToken(String pageToken) {
+        this.pageToken = pageToken;
+    }
+
+    public Integer getPageSize() {
+        return this.pageSize;
+    }
+
+    public void setPageSize(Integer pageSize) {
+        this.pageSize = pageSize;
+    }
+
+    @Path
+    @SerializedName("app_id")
     private String appId;
-
-    public Builder fromDate(String fromDate) {
-      this.fromDate = fromDate;
-      return this;
+    public String getAppId() {
+        return this.appId;
     }
 
-    public Builder toDate(String toDate) {
-      this.toDate = toDate;
-      return this;
+    public void setAppId(String appId) {
+        this.appId = appId;
     }
 
-    public Builder feedbackType(Integer feedbackType) {
-      this.feedbackType = feedbackType;
-      return this;
-    }
 
-    public Builder feedbackType(
-        com.lark.oapi.service.application.v6.enums.OpenFeedbackTypeEnum feedbackType) {
-      this.feedbackType = feedbackType.getValue();
-      return this;
-    }
+// builder 开始
+  public ListApplicationFeedbackReq(){}
 
-    public Builder status(Integer status) {
-      this.status = status;
-      return this;
-    }
-
-    public Builder status(com.lark.oapi.service.application.v6.enums.OpenMarkStatusEnum status) {
-      this.status = status.getValue();
-      return this;
-    }
-
-    public Builder userIdType(String userIdType) {
-      this.userIdType = userIdType;
-      return this;
-    }
-
-    public Builder userIdType(
-        com.lark.oapi.service.application.v6.enums.UserIdTypeEnum userIdType) {
-      this.userIdType = userIdType.getValue();
-      return this;
-    }
-
-    public Builder pageToken(String pageToken) {
-      this.pageToken = pageToken;
-      return this;
-    }
-
-    public Builder pageSize(Integer pageSize) {
-      this.pageSize = pageSize;
-      return this;
-    }
-
-    public Builder appId(String appId) {
-      this.appId = appId;
-      return this;
-    }
-
-    public ListApplicationFeedbackReq build() {
-      return new ListApplicationFeedbackReq(this);
-    }
+  public ListApplicationFeedbackReq(Builder builder){
+       this.fromDate = builder.fromDate;
+       this.toDate = builder.toDate;
+       this.feedbackType = builder.feedbackType;
+       this.status = builder.status;
+       this.userIdType = builder.userIdType;
+       this.pageToken = builder.pageToken;
+       this.pageSize = builder.pageSize;
+       this.appId = builder.appId;
   }
+
+    public static class Builder {
+        private String fromDate;
+        private String toDate;
+        private Integer feedbackType;
+        private Integer status;
+        private String userIdType;
+        private String pageToken;
+        private Integer pageSize;
+    
+           public Builder fromDate(String fromDate) {
+                this.fromDate = fromDate;
+                return this;
+           }
+    
+           public Builder toDate(String toDate) {
+                this.toDate = toDate;
+                return this;
+           }
+    
+           public Builder feedbackType(Integer feedbackType) {
+                this.feedbackType = feedbackType;
+                return this;
+           }
+          public Builder feedbackType(com.lark.oapi.service.application.v6.enums.OpenFeedbackTypeEnum feedbackType) {
+               this.feedbackType = feedbackType.getValue();
+               return this;
+          }
+    
+           public Builder status(Integer status) {
+                this.status = status;
+                return this;
+           }
+          public Builder status(com.lark.oapi.service.application.v6.enums.OpenMarkStatusEnum status) {
+               this.status = status.getValue();
+               return this;
+          }
+    
+           public Builder userIdType(String userIdType) {
+                this.userIdType = userIdType;
+                return this;
+           }
+          public Builder userIdType(com.lark.oapi.service.application.v6.enums.UserIdTypeEnum userIdType) {
+               this.userIdType = userIdType.getValue();
+               return this;
+          }
+    
+           public Builder pageToken(String pageToken) {
+                this.pageToken = pageToken;
+                return this;
+           }
+    
+           public Builder pageSize(Integer pageSize) {
+                this.pageSize = pageSize;
+                return this;
+           }
+    
+        private String appId;
+          public Builder appId(String appId) {
+               this.appId = appId;
+               return this;
+          }
+    
+    public ListApplicationFeedbackReq build(){
+        return new ListApplicationFeedbackReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

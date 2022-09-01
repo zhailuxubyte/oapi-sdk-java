@@ -12,97 +12,103 @@
  */
 
 package com.lark.oapi.service.docx.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.docx.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class TableProperty {
-
-  @SerializedName("row_size")
-  private Integer rowSize;
-  @SerializedName("column_size")
-  private Integer columnSize;
-  @SerializedName("column_width")
-  private Integer[] columnWidth;
-  @SerializedName("merge_info")
-  private TableMergeInfo[] mergeInfo;
-
-  // builder 开始
-  public TableProperty() {
-  }
-
-  public TableProperty(Builder builder) {
-    this.rowSize = builder.rowSize;
-    this.columnSize = builder.columnSize;
-    this.columnWidth = builder.columnWidth;
-    this.mergeInfo = builder.mergeInfo;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Integer getRowSize() {
-    return this.rowSize;
-  }
-
-  public void setRowSize(Integer rowSize) {
-    this.rowSize = rowSize;
-  }
-
-  public Integer getColumnSize() {
-    return this.columnSize;
-  }
-
-  public void setColumnSize(Integer columnSize) {
-    this.columnSize = columnSize;
-  }
-
-  public Integer[] getColumnWidth() {
-    return this.columnWidth;
-  }
-
-  public void setColumnWidth(Integer[] columnWidth) {
-    this.columnWidth = columnWidth;
-  }
-
-  public TableMergeInfo[] getMergeInfo() {
-    return this.mergeInfo;
-  }
-
-  public void setMergeInfo(TableMergeInfo[] mergeInfo) {
-    this.mergeInfo = mergeInfo;
-  }
-
-  public static class Builder {
-
+    @SerializedName("row_size")
     private Integer rowSize;
+    @SerializedName("column_size")
     private Integer columnSize;
+    @SerializedName("column_width")
     private Integer[] columnWidth;
+    @SerializedName("merge_info")
     private TableMergeInfo[] mergeInfo;
-
-    public Builder rowSize(Integer rowSize) {
-      this.rowSize = rowSize;
-      return this;
+    public Integer getRowSize() {
+        return this.rowSize;
     }
 
-    public Builder columnSize(Integer columnSize) {
-      this.columnSize = columnSize;
-      return this;
+    public void setRowSize(Integer rowSize) {
+        this.rowSize = rowSize;
     }
 
-    public Builder columnWidth(Integer[] columnWidth) {
-      this.columnWidth = columnWidth;
-      return this;
+    public Integer getColumnSize() {
+        return this.columnSize;
     }
 
-    public Builder mergeInfo(TableMergeInfo[] mergeInfo) {
-      this.mergeInfo = mergeInfo;
-      return this;
+    public void setColumnSize(Integer columnSize) {
+        this.columnSize = columnSize;
+    }
+
+    public Integer[] getColumnWidth() {
+        return this.columnWidth;
+    }
+
+    public void setColumnWidth(Integer[] columnWidth) {
+        this.columnWidth = columnWidth;
+    }
+
+    public TableMergeInfo[] getMergeInfo() {
+        return this.mergeInfo;
+    }
+
+    public void setMergeInfo(TableMergeInfo[] mergeInfo) {
+        this.mergeInfo = mergeInfo;
     }
 
 
-    public TableProperty build() {
-      return new TableProperty(this);
-    }
+// builder 开始
+  public TableProperty(){}
+
+  public TableProperty(Builder builder){
+      this.rowSize = builder.rowSize;
+      this.columnSize = builder.columnSize;
+      this.columnWidth = builder.columnWidth;
+      this.mergeInfo = builder.mergeInfo;
   }
+
+    public static class Builder {
+        private Integer rowSize;
+        private Integer columnSize;
+        private Integer[] columnWidth;
+        private TableMergeInfo[] mergeInfo;
+        public Builder rowSize(Integer rowSize) {
+             this.rowSize = rowSize;
+             return this;
+        }
+    
+        public Builder columnSize(Integer columnSize) {
+             this.columnSize = columnSize;
+             return this;
+        }
+    
+        public Builder columnWidth(Integer[] columnWidth) {
+             this.columnWidth = columnWidth;
+             return this;
+        }
+    
+        public Builder mergeInfo(TableMergeInfo[] mergeInfo) {
+             this.mergeInfo = mergeInfo;
+             return this;
+        }
+    
+    
+    public TableProperty build(){
+        return new TableProperty(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

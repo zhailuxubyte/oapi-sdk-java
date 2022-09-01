@@ -12,47 +12,52 @@
  */
 
 package com.lark.oapi.service.calendar.v4.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.calendar.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class DeleteExchangeBindingReq {
-
-  @Path
-  @SerializedName("exchange_binding_id")
-  private String exchangeBindingId;
-
-  // builder 开始
-  public DeleteExchangeBindingReq() {
-  }
-
-  public DeleteExchangeBindingReq(Builder builder) {
-    this.exchangeBindingId = builder.exchangeBindingId;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getExchangeBindingId() {
-    return this.exchangeBindingId;
-  }
-
-  public void setExchangeBindingId(String exchangeBindingId) {
-    this.exchangeBindingId = exchangeBindingId;
-  }
-
-  public static class Builder {
-
+    @Path
+    @SerializedName("exchange_binding_id")
     private String exchangeBindingId;
-
-    public Builder exchangeBindingId(String exchangeBindingId) {
-      this.exchangeBindingId = exchangeBindingId;
-      return this;
+    public String getExchangeBindingId() {
+        return this.exchangeBindingId;
     }
 
-    public DeleteExchangeBindingReq build() {
-      return new DeleteExchangeBindingReq(this);
+    public void setExchangeBindingId(String exchangeBindingId) {
+        this.exchangeBindingId = exchangeBindingId;
     }
+
+
+// builder 开始
+  public DeleteExchangeBindingReq(){}
+
+  public DeleteExchangeBindingReq(Builder builder){
+       this.exchangeBindingId = builder.exchangeBindingId;
   }
+
+    public static class Builder {
+    
+        private String exchangeBindingId;
+          public Builder exchangeBindingId(String exchangeBindingId) {
+               this.exchangeBindingId = exchangeBindingId;
+               return this;
+          }
+    
+    public DeleteExchangeBindingReq build(){
+        return new DeleteExchangeBindingReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

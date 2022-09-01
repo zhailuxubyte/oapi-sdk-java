@@ -12,119 +12,124 @@
  */
 
 package com.lark.oapi.service.approval.v4.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.approval.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class ApprovalNodeInfo {
-
-  @SerializedName("name")
-  private String name;
-  @SerializedName("need_approver")
-  private Boolean needApprover;
-  @SerializedName("node_id")
-  private String nodeId;
-  @SerializedName("custom_node_id")
-  private String customNodeId;
-  @SerializedName("node_type")
-  private String nodeType;
-
-  // builder 开始
-  public ApprovalNodeInfo() {
-  }
-
-  public ApprovalNodeInfo(Builder builder) {
-    this.name = builder.name;
-    this.needApprover = builder.needApprover;
-    this.nodeId = builder.nodeId;
-    this.customNodeId = builder.customNodeId;
-    this.nodeType = builder.nodeType;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getName() {
-    return this.name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public Boolean getNeedApprover() {
-    return this.needApprover;
-  }
-
-  public void setNeedApprover(Boolean needApprover) {
-    this.needApprover = needApprover;
-  }
-
-  public String getNodeId() {
-    return this.nodeId;
-  }
-
-  public void setNodeId(String nodeId) {
-    this.nodeId = nodeId;
-  }
-
-  public String getCustomNodeId() {
-    return this.customNodeId;
-  }
-
-  public void setCustomNodeId(String customNodeId) {
-    this.customNodeId = customNodeId;
-  }
-
-  public String getNodeType() {
-    return this.nodeType;
-  }
-
-  public void setNodeType(String nodeType) {
-    this.nodeType = nodeType;
-  }
-
-  public static class Builder {
-
+    @SerializedName("name")
     private String name;
+    @SerializedName("need_approver")
     private Boolean needApprover;
+    @SerializedName("node_id")
     private String nodeId;
+    @SerializedName("custom_node_id")
     private String customNodeId;
+    @SerializedName("node_type")
     private String nodeType;
-
-    public Builder name(String name) {
-      this.name = name;
-      return this;
+    public String getName() {
+        return this.name;
     }
 
-    public Builder needApprover(Boolean needApprover) {
-      this.needApprover = needApprover;
-      return this;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public Builder nodeId(String nodeId) {
-      this.nodeId = nodeId;
-      return this;
+    public Boolean getNeedApprover() {
+        return this.needApprover;
     }
 
-    public Builder customNodeId(String customNodeId) {
-      this.customNodeId = customNodeId;
-      return this;
+    public void setNeedApprover(Boolean needApprover) {
+        this.needApprover = needApprover;
     }
 
-    public Builder nodeType(String nodeType) {
-      this.nodeType = nodeType;
-      return this;
+    public String getNodeId() {
+        return this.nodeId;
     }
 
-    public Builder nodeType(com.lark.oapi.service.approval.v4.enums.NodeTypeEnum nodeType) {
-      this.nodeType = nodeType.getValue();
-      return this;
+    public void setNodeId(String nodeId) {
+        this.nodeId = nodeId;
+    }
+
+    public String getCustomNodeId() {
+        return this.customNodeId;
+    }
+
+    public void setCustomNodeId(String customNodeId) {
+        this.customNodeId = customNodeId;
+    }
+
+    public String getNodeType() {
+        return this.nodeType;
+    }
+
+    public void setNodeType(String nodeType) {
+        this.nodeType = nodeType;
     }
 
 
-    public ApprovalNodeInfo build() {
-      return new ApprovalNodeInfo(this);
-    }
+// builder 开始
+  public ApprovalNodeInfo(){}
+
+  public ApprovalNodeInfo(Builder builder){
+      this.name = builder.name;
+      this.needApprover = builder.needApprover;
+      this.nodeId = builder.nodeId;
+      this.customNodeId = builder.customNodeId;
+      this.nodeType = builder.nodeType;
   }
+
+    public static class Builder {
+        private String name;
+        private Boolean needApprover;
+        private String nodeId;
+        private String customNodeId;
+        private String nodeType;
+        public Builder name(String name) {
+             this.name = name;
+             return this;
+        }
+    
+        public Builder needApprover(Boolean needApprover) {
+             this.needApprover = needApprover;
+             return this;
+        }
+    
+        public Builder nodeId(String nodeId) {
+             this.nodeId = nodeId;
+             return this;
+        }
+    
+        public Builder customNodeId(String customNodeId) {
+             this.customNodeId = customNodeId;
+             return this;
+        }
+    
+        public Builder nodeType(String nodeType) {
+             this.nodeType = nodeType;
+             return this;
+        }
+        public Builder nodeType(com.lark.oapi.service.approval.v4.enums.NodeTypeEnum nodeType) {
+             this.nodeType = nodeType.getValue();
+             return this;
+        }
+    
+    
+    public ApprovalNodeInfo build(){
+        return new ApprovalNodeInfo(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

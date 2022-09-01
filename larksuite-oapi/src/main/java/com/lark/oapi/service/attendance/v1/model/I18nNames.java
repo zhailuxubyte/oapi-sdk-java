@@ -12,80 +12,86 @@
  */
 
 package com.lark.oapi.service.attendance.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.attendance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class I18nNames {
-
-  @SerializedName("ch")
-  private String ch;
-  @SerializedName("en")
-  private String en;
-  @SerializedName("ja")
-  private String ja;
-
-  // builder 开始
-  public I18nNames() {
-  }
-
-  public I18nNames(Builder builder) {
-    this.ch = builder.ch;
-    this.en = builder.en;
-    this.ja = builder.ja;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getCh() {
-    return this.ch;
-  }
-
-  public void setCh(String ch) {
-    this.ch = ch;
-  }
-
-  public String getEn() {
-    return this.en;
-  }
-
-  public void setEn(String en) {
-    this.en = en;
-  }
-
-  public String getJa() {
-    return this.ja;
-  }
-
-  public void setJa(String ja) {
-    this.ja = ja;
-  }
-
-  public static class Builder {
-
+    @SerializedName("ch")
     private String ch;
+    @SerializedName("en")
     private String en;
+    @SerializedName("ja")
     private String ja;
-
-    public Builder ch(String ch) {
-      this.ch = ch;
-      return this;
+    public String getCh() {
+        return this.ch;
     }
 
-    public Builder en(String en) {
-      this.en = en;
-      return this;
+    public void setCh(String ch) {
+        this.ch = ch;
     }
 
-    public Builder ja(String ja) {
-      this.ja = ja;
-      return this;
+    public String getEn() {
+        return this.en;
+    }
+
+    public void setEn(String en) {
+        this.en = en;
+    }
+
+    public String getJa() {
+        return this.ja;
+    }
+
+    public void setJa(String ja) {
+        this.ja = ja;
     }
 
 
-    public I18nNames build() {
-      return new I18nNames(this);
-    }
+// builder 开始
+  public I18nNames(){}
+
+  public I18nNames(Builder builder){
+      this.ch = builder.ch;
+      this.en = builder.en;
+      this.ja = builder.ja;
   }
+
+    public static class Builder {
+        private String ch;
+        private String en;
+        private String ja;
+        public Builder ch(String ch) {
+             this.ch = ch;
+             return this;
+        }
+    
+        public Builder en(String en) {
+             this.en = en;
+             return this;
+        }
+    
+        public Builder ja(String ja) {
+             this.ja = ja;
+             return this;
+        }
+    
+    
+    public I18nNames build(){
+        return new I18nNames(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

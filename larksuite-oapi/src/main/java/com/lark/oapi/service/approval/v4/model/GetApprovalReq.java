@@ -12,71 +12,74 @@
  */
 
 package com.lark.oapi.service.approval.v4.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.approval.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class GetApprovalReq {
-
-  @Query
-  @SerializedName("locale")
-  private String locale;
-  @Path
-  @SerializedName("approval_code")
-  private String approvalCode;
-
-  // builder 开始
-  public GetApprovalReq() {
-  }
-
-  public GetApprovalReq(Builder builder) {
-    this.locale = builder.locale;
-    this.approvalCode = builder.approvalCode;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getLocale() {
-    return this.locale;
-  }
-
-  public void setLocale(String locale) {
-    this.locale = locale;
-  }
-
-  public String getApprovalCode() {
-    return this.approvalCode;
-  }
-
-  public void setApprovalCode(String approvalCode) {
-    this.approvalCode = approvalCode;
-  }
-
-  public static class Builder {
-
+    @Query
+    @SerializedName("locale")
     private String locale;
+    public String getLocale() {
+        return this.locale;
+    }
+
+    public void setLocale(String locale) {
+        this.locale = locale;
+    }
+
+    @Path
+    @SerializedName("approval_code")
     private String approvalCode;
-
-    public Builder locale(String locale) {
-      this.locale = locale;
-      return this;
+    public String getApprovalCode() {
+        return this.approvalCode;
     }
 
-    public Builder locale(com.lark.oapi.service.approval.v4.enums.LocaleEnum locale) {
-      this.locale = locale.getValue();
-      return this;
+    public void setApprovalCode(String approvalCode) {
+        this.approvalCode = approvalCode;
     }
 
-    public Builder approvalCode(String approvalCode) {
-      this.approvalCode = approvalCode;
-      return this;
-    }
 
-    public GetApprovalReq build() {
-      return new GetApprovalReq(this);
-    }
+// builder 开始
+  public GetApprovalReq(){}
+
+  public GetApprovalReq(Builder builder){
+       this.locale = builder.locale;
+       this.approvalCode = builder.approvalCode;
   }
+
+    public static class Builder {
+        private String locale;
+    
+           public Builder locale(String locale) {
+                this.locale = locale;
+                return this;
+           }
+          public Builder locale(com.lark.oapi.service.approval.v4.enums.LocaleEnum locale) {
+               this.locale = locale.getValue();
+               return this;
+          }
+    
+        private String approvalCode;
+          public Builder approvalCode(String approvalCode) {
+               this.approvalCode = approvalCode;
+               return this;
+          }
+    
+    public GetApprovalReq build(){
+        return new GetApprovalReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

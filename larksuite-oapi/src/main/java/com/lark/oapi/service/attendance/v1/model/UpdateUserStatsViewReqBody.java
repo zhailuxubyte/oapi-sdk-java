@@ -12,46 +12,52 @@
  */
 
 package com.lark.oapi.service.attendance.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.attendance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class UpdateUserStatsViewReqBody {
-
-  @SerializedName("view")
-  private UserStatsView view;
-
-  // builder 开始
-  public UpdateUserStatsViewReqBody() {
-  }
-
-  public UpdateUserStatsViewReqBody(Builder builder) {
-    this.view = builder.view;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public UserStatsView getView() {
-    return this.view;
-  }
-
-  public void setView(UserStatsView view) {
-    this.view = view;
-  }
-
-  public static class Builder {
-
+    @SerializedName("view")
     private UserStatsView view;
+    public UserStatsView getView() {
+        return this.view;
+    }
 
-    public Builder view(UserStatsView view) {
-      this.view = view;
-      return this;
+    public void setView(UserStatsView view) {
+        this.view = view;
     }
 
 
-    public UpdateUserStatsViewReqBody build() {
-      return new UpdateUserStatsViewReqBody(this);
-    }
+// builder 开始
+  public UpdateUserStatsViewReqBody(){}
+
+  public UpdateUserStatsViewReqBody(Builder builder){
+      this.view = builder.view;
   }
+
+    public static class Builder {
+        private UserStatsView view;
+        public Builder view(UserStatsView view) {
+             this.view = view;
+             return this;
+        }
+    
+    
+    public UpdateUserStatsViewReqBody build(){
+        return new UpdateUserStatsViewReqBody(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

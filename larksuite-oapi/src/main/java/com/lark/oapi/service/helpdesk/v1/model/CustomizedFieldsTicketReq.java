@@ -12,47 +12,52 @@
  */
 
 package com.lark.oapi.service.helpdesk.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.helpdesk.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class CustomizedFieldsTicketReq {
-
-  @Query
-  @SerializedName("visible_only")
-  private Boolean visibleOnly;
-
-  // builder 开始
-  public CustomizedFieldsTicketReq() {
-  }
-
-  public CustomizedFieldsTicketReq(Builder builder) {
-    this.visibleOnly = builder.visibleOnly;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Boolean getVisibleOnly() {
-    return this.visibleOnly;
-  }
-
-  public void setVisibleOnly(Boolean visibleOnly) {
-    this.visibleOnly = visibleOnly;
-  }
-
-  public static class Builder {
-
+    @Query
+    @SerializedName("visible_only")
     private Boolean visibleOnly;
-
-    public Builder visibleOnly(Boolean visibleOnly) {
-      this.visibleOnly = visibleOnly;
-      return this;
+    public Boolean getVisibleOnly() {
+        return this.visibleOnly;
     }
 
-    public CustomizedFieldsTicketReq build() {
-      return new CustomizedFieldsTicketReq(this);
+    public void setVisibleOnly(Boolean visibleOnly) {
+        this.visibleOnly = visibleOnly;
     }
+
+
+// builder 开始
+  public CustomizedFieldsTicketReq(){}
+
+  public CustomizedFieldsTicketReq(Builder builder){
+       this.visibleOnly = builder.visibleOnly;
   }
+
+    public static class Builder {
+        private Boolean visibleOnly;
+    
+           public Builder visibleOnly(Boolean visibleOnly) {
+                this.visibleOnly = visibleOnly;
+                return this;
+           }
+    
+    public CustomizedFieldsTicketReq build(){
+        return new CustomizedFieldsTicketReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

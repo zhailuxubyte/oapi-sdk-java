@@ -12,131 +12,132 @@
  */
 
 package com.lark.oapi.service.contact.v3.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.contact.v3.enums.*;
 import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class SimplelistGroupMemberReq {
-
-  @Query
-  @SerializedName("page_size")
-  private Integer pageSize;
-  @Query
-  @SerializedName("page_token")
-  private String pageToken;
-  @Query
-  @SerializedName("member_id_type")
-  private String memberIdType;
-  @Query
-  @SerializedName("member_type")
-  private String memberType;
-  @Path
-  @SerializedName("group_id")
-  private String groupId;
-
-  // builder 开始
-  public SimplelistGroupMemberReq() {
-  }
-
-  public SimplelistGroupMemberReq(Builder builder) {
-    this.pageSize = builder.pageSize;
-    this.pageToken = builder.pageToken;
-    this.memberIdType = builder.memberIdType;
-    this.memberType = builder.memberType;
-    this.groupId = builder.groupId;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Integer getPageSize() {
-    return this.pageSize;
-  }
-
-  public void setPageSize(Integer pageSize) {
-    this.pageSize = pageSize;
-  }
-
-  public String getPageToken() {
-    return this.pageToken;
-  }
-
-  public void setPageToken(String pageToken) {
-    this.pageToken = pageToken;
-  }
-
-  public String getMemberIdType() {
-    return this.memberIdType;
-  }
-
-  public void setMemberIdType(String memberIdType) {
-    this.memberIdType = memberIdType;
-  }
-
-  public String getMemberType() {
-    return this.memberType;
-  }
-
-  public void setMemberType(String memberType) {
-    this.memberType = memberType;
-  }
-
-  public String getGroupId() {
-    return this.groupId;
-  }
-
-  public void setGroupId(String groupId) {
-    this.groupId = groupId;
-  }
-
-  public static class Builder {
-
+    @Query
+    @SerializedName("page_size")
     private Integer pageSize;
+    @Query
+    @SerializedName("page_token")
     private String pageToken;
+    @Query
+    @SerializedName("member_id_type")
     private String memberIdType;
+    @Query
+    @SerializedName("member_type")
     private String memberType;
+    public Integer getPageSize() {
+        return this.pageSize;
+    }
+
+    public void setPageSize(Integer pageSize) {
+        this.pageSize = pageSize;
+    }
+
+    public String getPageToken() {
+        return this.pageToken;
+    }
+
+    public void setPageToken(String pageToken) {
+        this.pageToken = pageToken;
+    }
+
+    public String getMemberIdType() {
+        return this.memberIdType;
+    }
+
+    public void setMemberIdType(String memberIdType) {
+        this.memberIdType = memberIdType;
+    }
+
+    public String getMemberType() {
+        return this.memberType;
+    }
+
+    public void setMemberType(String memberType) {
+        this.memberType = memberType;
+    }
+
+    @Path
+    @SerializedName("group_id")
     private String groupId;
-
-    public Builder pageSize(Integer pageSize) {
-      this.pageSize = pageSize;
-      return this;
+    public String getGroupId() {
+        return this.groupId;
     }
 
-    public Builder pageToken(String pageToken) {
-      this.pageToken = pageToken;
-      return this;
+    public void setGroupId(String groupId) {
+        this.groupId = groupId;
     }
 
-    public Builder memberIdType(String memberIdType) {
-      this.memberIdType = memberIdType;
-      return this;
-    }
 
-    public Builder memberIdType(
-        com.lark.oapi.service.contact.v3.enums.MemberIdTypeEnum memberIdType) {
-      this.memberIdType = memberIdType.getValue();
-      return this;
-    }
+// builder 开始
+  public SimplelistGroupMemberReq(){}
 
-    public Builder memberType(String memberType) {
-      this.memberType = memberType;
-      return this;
-    }
-
-    public Builder memberType(com.lark.oapi.service.contact.v3.enums.MemberTypeEnum memberType) {
-      this.memberType = memberType.getValue();
-      return this;
-    }
-
-    public Builder groupId(String groupId) {
-      this.groupId = groupId;
-      return this;
-    }
-
-    public SimplelistGroupMemberReq build() {
-      return new SimplelistGroupMemberReq(this);
-    }
+  public SimplelistGroupMemberReq(Builder builder){
+       this.pageSize = builder.pageSize;
+       this.pageToken = builder.pageToken;
+       this.memberIdType = builder.memberIdType;
+       this.memberType = builder.memberType;
+       this.groupId = builder.groupId;
   }
+
+    public static class Builder {
+        private Integer pageSize;
+        private String pageToken;
+        private String memberIdType;
+        private String memberType;
+    
+           public Builder pageSize(Integer pageSize) {
+                this.pageSize = pageSize;
+                return this;
+           }
+    
+           public Builder pageToken(String pageToken) {
+                this.pageToken = pageToken;
+                return this;
+           }
+    
+           public Builder memberIdType(String memberIdType) {
+                this.memberIdType = memberIdType;
+                return this;
+           }
+          public Builder memberIdType(com.lark.oapi.service.contact.v3.enums.MemberIdTypeEnum memberIdType) {
+               this.memberIdType = memberIdType.getValue();
+               return this;
+          }
+    
+           public Builder memberType(String memberType) {
+                this.memberType = memberType;
+                return this;
+           }
+          public Builder memberType(com.lark.oapi.service.contact.v3.enums.MemberTypeEnum memberType) {
+               this.memberType = memberType.getValue();
+               return this;
+          }
+    
+        private String groupId;
+          public Builder groupId(String groupId) {
+               this.groupId = groupId;
+               return this;
+          }
+    
+    public SimplelistGroupMemberReq build(){
+        return new SimplelistGroupMemberReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

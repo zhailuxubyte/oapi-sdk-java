@@ -12,204 +12,209 @@
  */
 
 package com.lark.oapi.service.approval.v4.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.approval.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class InstanceSearchNode {
-
-  @SerializedName("code")
-  private String code;
-  @SerializedName("external_id")
-  private String externalId;
-  @SerializedName("user_id")
-  private String userId;
-  @SerializedName("start_time")
-  private String startTime;
-  @SerializedName("end_time")
-  private String endTime;
-  @SerializedName("status")
-  private String status;
-  @SerializedName("title")
-  private String title;
-  @SerializedName("extra")
-  private String extra;
-  @SerializedName("serial_id")
-  private String serialId;
-  @SerializedName("link")
-  private InstanceSearchLink link;
-
-  // builder 开始
-  public InstanceSearchNode() {
-  }
-
-  public InstanceSearchNode(Builder builder) {
-    this.code = builder.code;
-    this.externalId = builder.externalId;
-    this.userId = builder.userId;
-    this.startTime = builder.startTime;
-    this.endTime = builder.endTime;
-    this.status = builder.status;
-    this.title = builder.title;
-    this.extra = builder.extra;
-    this.serialId = builder.serialId;
-    this.link = builder.link;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getCode() {
-    return this.code;
-  }
-
-  public void setCode(String code) {
-    this.code = code;
-  }
-
-  public String getExternalId() {
-    return this.externalId;
-  }
-
-  public void setExternalId(String externalId) {
-    this.externalId = externalId;
-  }
-
-  public String getUserId() {
-    return this.userId;
-  }
-
-  public void setUserId(String userId) {
-    this.userId = userId;
-  }
-
-  public String getStartTime() {
-    return this.startTime;
-  }
-
-  public void setStartTime(String startTime) {
-    this.startTime = startTime;
-  }
-
-  public String getEndTime() {
-    return this.endTime;
-  }
-
-  public void setEndTime(String endTime) {
-    this.endTime = endTime;
-  }
-
-  public String getStatus() {
-    return this.status;
-  }
-
-  public void setStatus(String status) {
-    this.status = status;
-  }
-
-  public String getTitle() {
-    return this.title;
-  }
-
-  public void setTitle(String title) {
-    this.title = title;
-  }
-
-  public String getExtra() {
-    return this.extra;
-  }
-
-  public void setExtra(String extra) {
-    this.extra = extra;
-  }
-
-  public String getSerialId() {
-    return this.serialId;
-  }
-
-  public void setSerialId(String serialId) {
-    this.serialId = serialId;
-  }
-
-  public InstanceSearchLink getLink() {
-    return this.link;
-  }
-
-  public void setLink(InstanceSearchLink link) {
-    this.link = link;
-  }
-
-  public static class Builder {
-
+    @SerializedName("code")
     private String code;
+    @SerializedName("external_id")
     private String externalId;
+    @SerializedName("user_id")
     private String userId;
+    @SerializedName("start_time")
     private String startTime;
+    @SerializedName("end_time")
     private String endTime;
+    @SerializedName("status")
     private String status;
+    @SerializedName("title")
     private String title;
+    @SerializedName("extra")
     private String extra;
+    @SerializedName("serial_id")
     private String serialId;
+    @SerializedName("link")
     private InstanceSearchLink link;
-
-    public Builder code(String code) {
-      this.code = code;
-      return this;
+    public String getCode() {
+        return this.code;
     }
 
-    public Builder externalId(String externalId) {
-      this.externalId = externalId;
-      return this;
+    public void setCode(String code) {
+        this.code = code;
     }
 
-    public Builder userId(String userId) {
-      this.userId = userId;
-      return this;
+    public String getExternalId() {
+        return this.externalId;
     }
 
-    public Builder startTime(String startTime) {
-      this.startTime = startTime;
-      return this;
+    public void setExternalId(String externalId) {
+        this.externalId = externalId;
     }
 
-    public Builder endTime(String endTime) {
-      this.endTime = endTime;
-      return this;
+    public String getUserId() {
+        return this.userId;
     }
 
-    public Builder status(String status) {
-      this.status = status;
-      return this;
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
-    public Builder status(com.lark.oapi.service.approval.v4.enums.StatusEnum status) {
-      this.status = status.getValue();
-      return this;
+    public String getStartTime() {
+        return this.startTime;
     }
 
-    public Builder title(String title) {
-      this.title = title;
-      return this;
+    public void setStartTime(String startTime) {
+        this.startTime = startTime;
     }
 
-    public Builder extra(String extra) {
-      this.extra = extra;
-      return this;
+    public String getEndTime() {
+        return this.endTime;
     }
 
-    public Builder serialId(String serialId) {
-      this.serialId = serialId;
-      return this;
+    public void setEndTime(String endTime) {
+        this.endTime = endTime;
     }
 
-    public Builder link(InstanceSearchLink link) {
-      this.link = link;
-      return this;
+    public String getStatus() {
+        return this.status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getTitle() {
+        return this.title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getExtra() {
+        return this.extra;
+    }
+
+    public void setExtra(String extra) {
+        this.extra = extra;
+    }
+
+    public String getSerialId() {
+        return this.serialId;
+    }
+
+    public void setSerialId(String serialId) {
+        this.serialId = serialId;
+    }
+
+    public InstanceSearchLink getLink() {
+        return this.link;
+    }
+
+    public void setLink(InstanceSearchLink link) {
+        this.link = link;
     }
 
 
-    public InstanceSearchNode build() {
-      return new InstanceSearchNode(this);
-    }
+// builder 开始
+  public InstanceSearchNode(){}
+
+  public InstanceSearchNode(Builder builder){
+      this.code = builder.code;
+      this.externalId = builder.externalId;
+      this.userId = builder.userId;
+      this.startTime = builder.startTime;
+      this.endTime = builder.endTime;
+      this.status = builder.status;
+      this.title = builder.title;
+      this.extra = builder.extra;
+      this.serialId = builder.serialId;
+      this.link = builder.link;
   }
+
+    public static class Builder {
+        private String code;
+        private String externalId;
+        private String userId;
+        private String startTime;
+        private String endTime;
+        private String status;
+        private String title;
+        private String extra;
+        private String serialId;
+        private InstanceSearchLink link;
+        public Builder code(String code) {
+             this.code = code;
+             return this;
+        }
+    
+        public Builder externalId(String externalId) {
+             this.externalId = externalId;
+             return this;
+        }
+    
+        public Builder userId(String userId) {
+             this.userId = userId;
+             return this;
+        }
+    
+        public Builder startTime(String startTime) {
+             this.startTime = startTime;
+             return this;
+        }
+    
+        public Builder endTime(String endTime) {
+             this.endTime = endTime;
+             return this;
+        }
+    
+        public Builder status(String status) {
+             this.status = status;
+             return this;
+        }
+        public Builder status(com.lark.oapi.service.approval.v4.enums.StatusEnum status) {
+             this.status = status.getValue();
+             return this;
+        }
+    
+        public Builder title(String title) {
+             this.title = title;
+             return this;
+        }
+    
+        public Builder extra(String extra) {
+             this.extra = extra;
+             return this;
+        }
+    
+        public Builder serialId(String serialId) {
+             this.serialId = serialId;
+             return this;
+        }
+    
+        public Builder link(InstanceSearchLink link) {
+             this.link = link;
+             return this;
+        }
+    
+    
+    public InstanceSearchNode build(){
+        return new InstanceSearchNode(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

@@ -15,16 +15,15 @@ package com.lark.oapi.service.admin.v1.enums;
 
 // 生成枚举值
 public enum OperatorTypeEnum {
-  USER(0),
-  BOT(1),
+     USER(0),
+     BOT(1),
   ;
-  private Integer value;
+   private Integer value;
+    OperatorTypeEnum(Integer value) {
+      this.value = value;
+    }
 
-  OperatorTypeEnum(Integer value) {
-    this.value = value;
-  }
-
-  public Integer getValue() {
-    return this.value;
-  }
+    public Integer getValue() {
+      return this.value;
+    }
 }

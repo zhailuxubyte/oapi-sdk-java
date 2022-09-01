@@ -12,80 +12,85 @@
  */
 
 package com.lark.oapi.service.sheets.v3.model;
-
+import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class Condition {
-
-  @SerializedName("filter_type")
-  private String filterType;
-  @SerializedName("compare_type")
-  private String compareType;
-  @SerializedName("expected")
-  private String[] expected;
-
-  // builder 开始
-  public Condition() {
-  }
-
-  public Condition(Builder builder) {
-    this.filterType = builder.filterType;
-    this.compareType = builder.compareType;
-    this.expected = builder.expected;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getFilterType() {
-    return this.filterType;
-  }
-
-  public void setFilterType(String filterType) {
-    this.filterType = filterType;
-  }
-
-  public String getCompareType() {
-    return this.compareType;
-  }
-
-  public void setCompareType(String compareType) {
-    this.compareType = compareType;
-  }
-
-  public String[] getExpected() {
-    return this.expected;
-  }
-
-  public void setExpected(String[] expected) {
-    this.expected = expected;
-  }
-
-  public static class Builder {
-
+    @SerializedName("filter_type")
     private String filterType;
+    @SerializedName("compare_type")
     private String compareType;
+    @SerializedName("expected")
     private String[] expected;
-
-    public Builder filterType(String filterType) {
-      this.filterType = filterType;
-      return this;
+    public String getFilterType() {
+        return this.filterType;
     }
 
-    public Builder compareType(String compareType) {
-      this.compareType = compareType;
-      return this;
+    public void setFilterType(String filterType) {
+        this.filterType = filterType;
     }
 
-    public Builder expected(String[] expected) {
-      this.expected = expected;
-      return this;
+    public String getCompareType() {
+        return this.compareType;
+    }
+
+    public void setCompareType(String compareType) {
+        this.compareType = compareType;
+    }
+
+    public String[] getExpected() {
+        return this.expected;
+    }
+
+    public void setExpected(String[] expected) {
+        this.expected = expected;
     }
 
 
-    public Condition build() {
-      return new Condition(this);
-    }
+// builder 开始
+  public Condition(){}
+
+  public Condition(Builder builder){
+      this.filterType = builder.filterType;
+      this.compareType = builder.compareType;
+      this.expected = builder.expected;
   }
+
+    public static class Builder {
+        private String filterType;
+        private String compareType;
+        private String[] expected;
+        public Builder filterType(String filterType) {
+             this.filterType = filterType;
+             return this;
+        }
+    
+        public Builder compareType(String compareType) {
+             this.compareType = compareType;
+             return this;
+        }
+    
+        public Builder expected(String[] expected) {
+             this.expected = expected;
+             return this;
+        }
+    
+    
+    public Condition build(){
+        return new Condition(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

@@ -12,63 +12,69 @@
  */
 
 package com.lark.oapi.service.attendance.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.attendance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class Machine {
-
-  @SerializedName("machine_sn")
-  private String machineSn;
-  @SerializedName("machine_name")
-  private String machineName;
-
-  // builder 开始
-  public Machine() {
-  }
-
-  public Machine(Builder builder) {
-    this.machineSn = builder.machineSn;
-    this.machineName = builder.machineName;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getMachineSn() {
-    return this.machineSn;
-  }
-
-  public void setMachineSn(String machineSn) {
-    this.machineSn = machineSn;
-  }
-
-  public String getMachineName() {
-    return this.machineName;
-  }
-
-  public void setMachineName(String machineName) {
-    this.machineName = machineName;
-  }
-
-  public static class Builder {
-
+    @SerializedName("machine_sn")
     private String machineSn;
+    @SerializedName("machine_name")
     private String machineName;
-
-    public Builder machineSn(String machineSn) {
-      this.machineSn = machineSn;
-      return this;
+    public String getMachineSn() {
+        return this.machineSn;
     }
 
-    public Builder machineName(String machineName) {
-      this.machineName = machineName;
-      return this;
+    public void setMachineSn(String machineSn) {
+        this.machineSn = machineSn;
+    }
+
+    public String getMachineName() {
+        return this.machineName;
+    }
+
+    public void setMachineName(String machineName) {
+        this.machineName = machineName;
     }
 
 
-    public Machine build() {
-      return new Machine(this);
-    }
+// builder 开始
+  public Machine(){}
+
+  public Machine(Builder builder){
+      this.machineSn = builder.machineSn;
+      this.machineName = builder.machineName;
   }
+
+    public static class Builder {
+        private String machineSn;
+        private String machineName;
+        public Builder machineSn(String machineSn) {
+             this.machineSn = machineSn;
+             return this;
+        }
+    
+        public Builder machineName(String machineName) {
+             this.machineName = machineName;
+             return this;
+        }
+    
+    
+    public Machine build(){
+        return new Machine(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

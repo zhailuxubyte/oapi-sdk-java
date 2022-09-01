@@ -12,63 +12,69 @@
  */
 
 package com.lark.oapi.service.im.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.im.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class BatchMessageReadUser {
-
-  @SerializedName("read_count")
-  private String readCount;
-  @SerializedName("total_count")
-  private String totalCount;
-
-  // builder 开始
-  public BatchMessageReadUser() {
-  }
-
-  public BatchMessageReadUser(Builder builder) {
-    this.readCount = builder.readCount;
-    this.totalCount = builder.totalCount;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getReadCount() {
-    return this.readCount;
-  }
-
-  public void setReadCount(String readCount) {
-    this.readCount = readCount;
-  }
-
-  public String getTotalCount() {
-    return this.totalCount;
-  }
-
-  public void setTotalCount(String totalCount) {
-    this.totalCount = totalCount;
-  }
-
-  public static class Builder {
-
+    @SerializedName("read_count")
     private String readCount;
+    @SerializedName("total_count")
     private String totalCount;
-
-    public Builder readCount(String readCount) {
-      this.readCount = readCount;
-      return this;
+    public String getReadCount() {
+        return this.readCount;
     }
 
-    public Builder totalCount(String totalCount) {
-      this.totalCount = totalCount;
-      return this;
+    public void setReadCount(String readCount) {
+        this.readCount = readCount;
+    }
+
+    public String getTotalCount() {
+        return this.totalCount;
+    }
+
+    public void setTotalCount(String totalCount) {
+        this.totalCount = totalCount;
     }
 
 
-    public BatchMessageReadUser build() {
-      return new BatchMessageReadUser(this);
-    }
+// builder 开始
+  public BatchMessageReadUser(){}
+
+  public BatchMessageReadUser(Builder builder){
+      this.readCount = builder.readCount;
+      this.totalCount = builder.totalCount;
   }
+
+    public static class Builder {
+        private String readCount;
+        private String totalCount;
+        public Builder readCount(String readCount) {
+             this.readCount = readCount;
+             return this;
+        }
+    
+        public Builder totalCount(String totalCount) {
+             this.totalCount = totalCount;
+             return this;
+        }
+    
+    
+    public BatchMessageReadUser build(){
+        return new BatchMessageReadUser(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

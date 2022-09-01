@@ -15,16 +15,15 @@ package com.lark.oapi.service.admin.v1.enums;
 
 // 生成枚举值
 public enum DepartmentIdTypeEnum {
-  DEPARTMENT_ID("department_id"),
-  OPEN_DEPARTMENT_ID("open_department_id"),
+     DEPARTMENT_ID("department_id"),
+     OPEN_DEPARTMENT_ID("open_department_id"),
   ;
-  private String value;
+   private String value;
+    DepartmentIdTypeEnum(String value) {
+      this.value = value;
+    }
 
-  DepartmentIdTypeEnum(String value) {
-    this.value = value;
-  }
-
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+      return this.value;
+    }
 }

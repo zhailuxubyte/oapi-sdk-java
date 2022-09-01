@@ -12,63 +12,68 @@
  */
 
 package com.lark.oapi.service.face_detection.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class AttributeItem {
-
-  @SerializedName("type")
-  private Integer type;
-  @SerializedName("probability")
-  private Double probability;
-
-  // builder 开始
-  public AttributeItem() {
-  }
-
-  public AttributeItem(Builder builder) {
-    this.type = builder.type;
-    this.probability = builder.probability;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Integer getType() {
-    return this.type;
-  }
-
-  public void setType(Integer type) {
-    this.type = type;
-  }
-
-  public Double getProbability() {
-    return this.probability;
-  }
-
-  public void setProbability(Double probability) {
-    this.probability = probability;
-  }
-
-  public static class Builder {
-
+    @SerializedName("type")
     private Integer type;
+    @SerializedName("probability")
     private Double probability;
-
-    public Builder type(Integer type) {
-      this.type = type;
-      return this;
+    public Integer getType() {
+        return this.type;
     }
 
-    public Builder probability(Double probability) {
-      this.probability = probability;
-      return this;
+    public void setType(Integer type) {
+        this.type = type;
+    }
+
+    public Double getProbability() {
+        return this.probability;
+    }
+
+    public void setProbability(Double probability) {
+        this.probability = probability;
     }
 
 
-    public AttributeItem build() {
-      return new AttributeItem(this);
-    }
+// builder 开始
+  public AttributeItem(){}
+
+  public AttributeItem(Builder builder){
+      this.type = builder.type;
+      this.probability = builder.probability;
   }
+
+    public static class Builder {
+        private Integer type;
+        private Double probability;
+        public Builder type(Integer type) {
+             this.type = type;
+             return this;
+        }
+    
+        public Builder probability(Double probability) {
+             this.probability = probability;
+             return this;
+        }
+    
+    
+    public AttributeItem build(){
+        return new AttributeItem(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

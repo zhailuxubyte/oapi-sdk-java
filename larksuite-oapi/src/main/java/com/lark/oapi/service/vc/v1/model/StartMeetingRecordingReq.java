@@ -12,69 +12,72 @@
  */
 
 package com.lark.oapi.service.vc.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.vc.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class StartMeetingRecordingReq {
-
-  @Path
-  @SerializedName("meeting_id")
-  private String meetingId;
-  @Body
-  private StartMeetingRecordingReqBody body;
-
-  // builder 开始
-  public StartMeetingRecordingReq() {
-  }
-
-  public StartMeetingRecordingReq(Builder builder) {
-    this.meetingId = builder.meetingId;
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getMeetingId() {
-    return this.meetingId;
-  }
-
-  public void setMeetingId(String meetingId) {
-    this.meetingId = meetingId;
-  }
-
-  public StartMeetingRecordingReqBody getStartMeetingRecordingReqBody() {
-    return this.body;
-  }
-
-  public void setStartMeetingRecordingReqBody(StartMeetingRecordingReqBody body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
+    @Path
+    @SerializedName("meeting_id")
     private String meetingId;
+    public String getMeetingId() {
+        return this.meetingId;
+    }
+
+    public void setMeetingId(String meetingId) {
+        this.meetingId = meetingId;
+    }
+
+    @Body
     private StartMeetingRecordingReqBody body;
 
-    public Builder meetingId(String meetingId) {
-      this.meetingId = meetingId;
-      return this;
-    }
-
     public StartMeetingRecordingReqBody getStartMeetingRecordingReqBody() {
-      return this.body;
+        return this.body;
     }
 
-    public Builder startMeetingRecordingReqBody(StartMeetingRecordingReqBody body) {
-      this.body = body;
-      return this;
+    public void setStartMeetingRecordingReqBody(StartMeetingRecordingReqBody body) {
+        this.body = body;
     }
 
-    public StartMeetingRecordingReq build() {
-      return new StartMeetingRecordingReq(this);
-    }
+// builder 开始
+  public StartMeetingRecordingReq(){}
+
+  public StartMeetingRecordingReq(Builder builder){
+       this.meetingId = builder.meetingId;
+        this.body = builder.body;
   }
+
+    public static class Builder {
+    
+        private String meetingId;
+          public Builder meetingId(String meetingId) {
+               this.meetingId = meetingId;
+               return this;
+          }
+    
+        private StartMeetingRecordingReqBody body;
+    
+        public StartMeetingRecordingReqBody getStartMeetingRecordingReqBody() {
+            return this.body;
+        }
+        public Builder startMeetingRecordingReqBody(StartMeetingRecordingReqBody body) {
+             this.body = body;
+             return this;
+        }
+    public StartMeetingRecordingReq build(){
+        return new StartMeetingRecordingReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

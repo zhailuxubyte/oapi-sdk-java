@@ -12,63 +12,69 @@
  */
 
 package com.lark.oapi.service.docx.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.docx.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class TextRun {
-
-  @SerializedName("content")
-  private String content;
-  @SerializedName("text_element_style")
-  private TextElementStyle textElementStyle;
-
-  // builder 开始
-  public TextRun() {
-  }
-
-  public TextRun(Builder builder) {
-    this.content = builder.content;
-    this.textElementStyle = builder.textElementStyle;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getContent() {
-    return this.content;
-  }
-
-  public void setContent(String content) {
-    this.content = content;
-  }
-
-  public TextElementStyle getTextElementStyle() {
-    return this.textElementStyle;
-  }
-
-  public void setTextElementStyle(TextElementStyle textElementStyle) {
-    this.textElementStyle = textElementStyle;
-  }
-
-  public static class Builder {
-
+    @SerializedName("content")
     private String content;
+    @SerializedName("text_element_style")
     private TextElementStyle textElementStyle;
-
-    public Builder content(String content) {
-      this.content = content;
-      return this;
+    public String getContent() {
+        return this.content;
     }
 
-    public Builder textElementStyle(TextElementStyle textElementStyle) {
-      this.textElementStyle = textElementStyle;
-      return this;
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public TextElementStyle getTextElementStyle() {
+        return this.textElementStyle;
+    }
+
+    public void setTextElementStyle(TextElementStyle textElementStyle) {
+        this.textElementStyle = textElementStyle;
     }
 
 
-    public TextRun build() {
-      return new TextRun(this);
-    }
+// builder 开始
+  public TextRun(){}
+
+  public TextRun(Builder builder){
+      this.content = builder.content;
+      this.textElementStyle = builder.textElementStyle;
   }
+
+    public static class Builder {
+        private String content;
+        private TextElementStyle textElementStyle;
+        public Builder content(String content) {
+             this.content = content;
+             return this;
+        }
+    
+        public Builder textElementStyle(TextElementStyle textElementStyle) {
+             this.textElementStyle = textElementStyle;
+             return this;
+        }
+    
+    
+    public TextRun build(){
+        return new TextRun(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

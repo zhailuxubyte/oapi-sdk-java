@@ -12,111 +12,112 @@
  */
 
 package com.lark.oapi.service.drive.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.drive.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class PatchFileCommentReq {
-
-  @Query
-  @SerializedName("file_type")
-  private String fileType;
-  @Path
-  @SerializedName("file_token")
-  private String fileToken;
-  @Path
-  @SerializedName("comment_id")
-  private String commentId;
-  @Body
-  private PatchFileCommentReqBody body;
-
-  // builder 开始
-  public PatchFileCommentReq() {
-  }
-
-  public PatchFileCommentReq(Builder builder) {
-    this.fileType = builder.fileType;
-    this.fileToken = builder.fileToken;
-    this.commentId = builder.commentId;
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getFileType() {
-    return this.fileType;
-  }
-
-  public void setFileType(String fileType) {
-    this.fileType = fileType;
-  }
-
-  public String getFileToken() {
-    return this.fileToken;
-  }
-
-  public void setFileToken(String fileToken) {
-    this.fileToken = fileToken;
-  }
-
-  public String getCommentId() {
-    return this.commentId;
-  }
-
-  public void setCommentId(String commentId) {
-    this.commentId = commentId;
-  }
-
-  public PatchFileCommentReqBody getPatchFileCommentReqBody() {
-    return this.body;
-  }
-
-  public void setPatchFileCommentReqBody(PatchFileCommentReqBody body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
+    @Query
+    @SerializedName("file_type")
     private String fileType;
+    public String getFileType() {
+        return this.fileType;
+    }
+
+    public void setFileType(String fileType) {
+        this.fileType = fileType;
+    }
+
+    @Path
+    @SerializedName("file_token")
     private String fileToken;
+    @Path
+    @SerializedName("comment_id")
     private String commentId;
+    public String getFileToken() {
+        return this.fileToken;
+    }
+
+    public void setFileToken(String fileToken) {
+        this.fileToken = fileToken;
+    }
+
+    public String getCommentId() {
+        return this.commentId;
+    }
+
+    public void setCommentId(String commentId) {
+        this.commentId = commentId;
+    }
+
+    @Body
     private PatchFileCommentReqBody body;
 
-    public Builder fileType(String fileType) {
-      this.fileType = fileType;
-      return this;
-    }
-
-    public Builder fileType(com.lark.oapi.service.drive.v1.enums.FileTypeEnum fileType) {
-      this.fileType = fileType.getValue();
-      return this;
-    }
-
-    public Builder fileToken(String fileToken) {
-      this.fileToken = fileToken;
-      return this;
-    }
-
-    public Builder commentId(String commentId) {
-      this.commentId = commentId;
-      return this;
-    }
-
     public PatchFileCommentReqBody getPatchFileCommentReqBody() {
-      return this.body;
+        return this.body;
     }
 
-    public Builder patchFileCommentReqBody(PatchFileCommentReqBody body) {
-      this.body = body;
-      return this;
+    public void setPatchFileCommentReqBody(PatchFileCommentReqBody body) {
+        this.body = body;
     }
 
-    public PatchFileCommentReq build() {
-      return new PatchFileCommentReq(this);
-    }
+// builder 开始
+  public PatchFileCommentReq(){}
+
+  public PatchFileCommentReq(Builder builder){
+       this.fileType = builder.fileType;
+       this.fileToken = builder.fileToken;
+       this.commentId = builder.commentId;
+        this.body = builder.body;
   }
+
+    public static class Builder {
+        private String fileType;
+    
+           public Builder fileType(String fileType) {
+                this.fileType = fileType;
+                return this;
+           }
+          public Builder fileType(com.lark.oapi.service.drive.v1.enums.FileTypeEnum fileType) {
+               this.fileType = fileType.getValue();
+               return this;
+          }
+    
+        private String fileToken;
+        private String commentId;
+          public Builder fileToken(String fileToken) {
+               this.fileToken = fileToken;
+               return this;
+          }
+    
+          public Builder commentId(String commentId) {
+               this.commentId = commentId;
+               return this;
+          }
+    
+        private PatchFileCommentReqBody body;
+    
+        public PatchFileCommentReqBody getPatchFileCommentReqBody() {
+            return this.body;
+        }
+        public Builder patchFileCommentReqBody(PatchFileCommentReqBody body) {
+             this.body = body;
+             return this;
+        }
+    public PatchFileCommentReq build(){
+        return new PatchFileCommentReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

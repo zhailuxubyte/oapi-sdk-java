@@ -12,69 +12,72 @@
  */
 
 package com.lark.oapi.service.im.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.im.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class PatchChatAnnouncementReq {
-
-  @Path
-  @SerializedName("chat_id")
-  private String chatId;
-  @Body
-  private PatchChatAnnouncementReqBody body;
-
-  // builder 开始
-  public PatchChatAnnouncementReq() {
-  }
-
-  public PatchChatAnnouncementReq(Builder builder) {
-    this.chatId = builder.chatId;
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getChatId() {
-    return this.chatId;
-  }
-
-  public void setChatId(String chatId) {
-    this.chatId = chatId;
-  }
-
-  public PatchChatAnnouncementReqBody getPatchChatAnnouncementReqBody() {
-    return this.body;
-  }
-
-  public void setPatchChatAnnouncementReqBody(PatchChatAnnouncementReqBody body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
+    @Path
+    @SerializedName("chat_id")
     private String chatId;
+    public String getChatId() {
+        return this.chatId;
+    }
+
+    public void setChatId(String chatId) {
+        this.chatId = chatId;
+    }
+
+    @Body
     private PatchChatAnnouncementReqBody body;
 
-    public Builder chatId(String chatId) {
-      this.chatId = chatId;
-      return this;
-    }
-
     public PatchChatAnnouncementReqBody getPatchChatAnnouncementReqBody() {
-      return this.body;
+        return this.body;
     }
 
-    public Builder patchChatAnnouncementReqBody(PatchChatAnnouncementReqBody body) {
-      this.body = body;
-      return this;
+    public void setPatchChatAnnouncementReqBody(PatchChatAnnouncementReqBody body) {
+        this.body = body;
     }
 
-    public PatchChatAnnouncementReq build() {
-      return new PatchChatAnnouncementReq(this);
-    }
+// builder 开始
+  public PatchChatAnnouncementReq(){}
+
+  public PatchChatAnnouncementReq(Builder builder){
+       this.chatId = builder.chatId;
+        this.body = builder.body;
   }
+
+    public static class Builder {
+    
+        private String chatId;
+          public Builder chatId(String chatId) {
+               this.chatId = chatId;
+               return this;
+          }
+    
+        private PatchChatAnnouncementReqBody body;
+    
+        public PatchChatAnnouncementReqBody getPatchChatAnnouncementReqBody() {
+            return this.body;
+        }
+        public Builder patchChatAnnouncementReqBody(PatchChatAnnouncementReqBody body) {
+             this.body = body;
+             return this;
+        }
+    public PatchChatAnnouncementReq build(){
+        return new PatchChatAnnouncementReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

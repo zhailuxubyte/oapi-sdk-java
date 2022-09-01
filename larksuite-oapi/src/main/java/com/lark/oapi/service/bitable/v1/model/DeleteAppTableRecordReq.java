@@ -12,83 +12,88 @@
  */
 
 package com.lark.oapi.service.bitable.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.bitable.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class DeleteAppTableRecordReq {
-
-  @Path
-  @SerializedName("app_token")
-  private String appToken;
-  @Path
-  @SerializedName("table_id")
-  private String tableId;
-  @Path
-  @SerializedName("record_id")
-  private String recordId;
-
-  // builder 开始
-  public DeleteAppTableRecordReq() {
-  }
-
-  public DeleteAppTableRecordReq(Builder builder) {
-    this.appToken = builder.appToken;
-    this.tableId = builder.tableId;
-    this.recordId = builder.recordId;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getAppToken() {
-    return this.appToken;
-  }
-
-  public void setAppToken(String appToken) {
-    this.appToken = appToken;
-  }
-
-  public String getTableId() {
-    return this.tableId;
-  }
-
-  public void setTableId(String tableId) {
-    this.tableId = tableId;
-  }
-
-  public String getRecordId() {
-    return this.recordId;
-  }
-
-  public void setRecordId(String recordId) {
-    this.recordId = recordId;
-  }
-
-  public static class Builder {
-
+    @Path
+    @SerializedName("app_token")
     private String appToken;
+    @Path
+    @SerializedName("table_id")
     private String tableId;
+    @Path
+    @SerializedName("record_id")
     private String recordId;
-
-    public Builder appToken(String appToken) {
-      this.appToken = appToken;
-      return this;
+    public String getAppToken() {
+        return this.appToken;
     }
 
-    public Builder tableId(String tableId) {
-      this.tableId = tableId;
-      return this;
+    public void setAppToken(String appToken) {
+        this.appToken = appToken;
     }
 
-    public Builder recordId(String recordId) {
-      this.recordId = recordId;
-      return this;
+    public String getTableId() {
+        return this.tableId;
     }
 
-    public DeleteAppTableRecordReq build() {
-      return new DeleteAppTableRecordReq(this);
+    public void setTableId(String tableId) {
+        this.tableId = tableId;
     }
+
+    public String getRecordId() {
+        return this.recordId;
+    }
+
+    public void setRecordId(String recordId) {
+        this.recordId = recordId;
+    }
+
+
+// builder 开始
+  public DeleteAppTableRecordReq(){}
+
+  public DeleteAppTableRecordReq(Builder builder){
+       this.appToken = builder.appToken;
+       this.tableId = builder.tableId;
+       this.recordId = builder.recordId;
   }
+
+    public static class Builder {
+    
+        private String appToken;
+        private String tableId;
+        private String recordId;
+          public Builder appToken(String appToken) {
+               this.appToken = appToken;
+               return this;
+          }
+    
+          public Builder tableId(String tableId) {
+               this.tableId = tableId;
+               return this;
+          }
+    
+          public Builder recordId(String recordId) {
+               this.recordId = recordId;
+               return this;
+          }
+    
+    public DeleteAppTableRecordReq build(){
+        return new DeleteAppTableRecordReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

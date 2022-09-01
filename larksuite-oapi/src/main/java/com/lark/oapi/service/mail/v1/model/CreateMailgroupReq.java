@@ -12,49 +12,54 @@
  */
 
 package com.lark.oapi.service.mail.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.mail.v1.enums.*;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
-
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class CreateMailgroupReq {
-
-  @Body
-  private Mailgroup body;
-
-  // builder 开始
-  public CreateMailgroupReq() {
-  }
-
-  public CreateMailgroupReq(Builder builder) {
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Mailgroup getMailgroup() {
-    return this.body;
-  }
-
-  public void setMailgroup(Mailgroup body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
+    @Body
     private Mailgroup body;
 
     public Mailgroup getMailgroup() {
-      return this.body;
+        return this.body;
     }
 
-    public Builder mailgroup(Mailgroup body) {
-      this.body = body;
-      return this;
+    public void setMailgroup(Mailgroup body) {
+        this.body = body;
     }
 
-    public CreateMailgroupReq build() {
-      return new CreateMailgroupReq(this);
-    }
+// builder 开始
+  public CreateMailgroupReq(){}
+
+  public CreateMailgroupReq(Builder builder){
+        this.body = builder.body;
   }
+
+    public static class Builder {
+    
+        private Mailgroup body;
+    
+        public Mailgroup getMailgroup() {
+            return this.body;
+        }
+        public Builder mailgroup(Mailgroup body) {
+             this.body = body;
+             return this;
+        }
+    public CreateMailgroupReq build(){
+        return new CreateMailgroupReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

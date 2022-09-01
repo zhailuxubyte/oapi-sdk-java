@@ -12,20 +12,27 @@
  */
 
 package com.lark.oapi.service.bitable.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class BatchCreateAppTable {
+    @SerializedName("table_ids")
+    private String[] tableIds;
+    public String[] getTableIds() {
+        return this.tableIds;
+    }
 
-  @SerializedName("table_ids")
-  private String[] tableIds;
-
-  public String[] getTableIds() {
-    return this.tableIds;
-  }
-
-  public void setTableIds(String[] tableIds) {
-    this.tableIds = tableIds;
-  }
+    public void setTableIds(String[] tableIds) {
+        this.tableIds = tableIds;
+    }
 
 }

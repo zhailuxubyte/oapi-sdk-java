@@ -12,119 +12,124 @@
  */
 
 package com.lark.oapi.service.approval.v4.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.approval.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class ActionConfig {
-
-  @SerializedName("action_type")
-  private String actionType;
-  @SerializedName("action_name")
-  private String actionName;
-  @SerializedName("is_need_reason")
-  private Boolean isNeedReason;
-  @SerializedName("is_reason_required")
-  private Boolean isReasonRequired;
-  @SerializedName("is_need_attachment")
-  private Boolean isNeedAttachment;
-
-  // builder 开始
-  public ActionConfig() {
-  }
-
-  public ActionConfig(Builder builder) {
-    this.actionType = builder.actionType;
-    this.actionName = builder.actionName;
-    this.isNeedReason = builder.isNeedReason;
-    this.isReasonRequired = builder.isReasonRequired;
-    this.isNeedAttachment = builder.isNeedAttachment;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getActionType() {
-    return this.actionType;
-  }
-
-  public void setActionType(String actionType) {
-    this.actionType = actionType;
-  }
-
-  public String getActionName() {
-    return this.actionName;
-  }
-
-  public void setActionName(String actionName) {
-    this.actionName = actionName;
-  }
-
-  public Boolean getIsNeedReason() {
-    return this.isNeedReason;
-  }
-
-  public void setIsNeedReason(Boolean isNeedReason) {
-    this.isNeedReason = isNeedReason;
-  }
-
-  public Boolean getIsReasonRequired() {
-    return this.isReasonRequired;
-  }
-
-  public void setIsReasonRequired(Boolean isReasonRequired) {
-    this.isReasonRequired = isReasonRequired;
-  }
-
-  public Boolean getIsNeedAttachment() {
-    return this.isNeedAttachment;
-  }
-
-  public void setIsNeedAttachment(Boolean isNeedAttachment) {
-    this.isNeedAttachment = isNeedAttachment;
-  }
-
-  public static class Builder {
-
+    @SerializedName("action_type")
     private String actionType;
+    @SerializedName("action_name")
     private String actionName;
+    @SerializedName("is_need_reason")
     private Boolean isNeedReason;
+    @SerializedName("is_reason_required")
     private Boolean isReasonRequired;
+    @SerializedName("is_need_attachment")
     private Boolean isNeedAttachment;
-
-    public Builder actionType(String actionType) {
-      this.actionType = actionType;
-      return this;
+    public String getActionType() {
+        return this.actionType;
     }
 
-    public Builder actionType(com.lark.oapi.service.approval.v4.enums.ActionTypeEnum actionType) {
-      this.actionType = actionType.getValue();
-      return this;
+    public void setActionType(String actionType) {
+        this.actionType = actionType;
     }
 
-    public Builder actionName(String actionName) {
-      this.actionName = actionName;
-      return this;
+    public String getActionName() {
+        return this.actionName;
     }
 
-    public Builder isNeedReason(Boolean isNeedReason) {
-      this.isNeedReason = isNeedReason;
-      return this;
+    public void setActionName(String actionName) {
+        this.actionName = actionName;
     }
 
-    public Builder isReasonRequired(Boolean isReasonRequired) {
-      this.isReasonRequired = isReasonRequired;
-      return this;
+    public Boolean getIsNeedReason() {
+        return this.isNeedReason;
     }
 
-    public Builder isNeedAttachment(Boolean isNeedAttachment) {
-      this.isNeedAttachment = isNeedAttachment;
-      return this;
+    public void setIsNeedReason(Boolean isNeedReason) {
+        this.isNeedReason = isNeedReason;
+    }
+
+    public Boolean getIsReasonRequired() {
+        return this.isReasonRequired;
+    }
+
+    public void setIsReasonRequired(Boolean isReasonRequired) {
+        this.isReasonRequired = isReasonRequired;
+    }
+
+    public Boolean getIsNeedAttachment() {
+        return this.isNeedAttachment;
+    }
+
+    public void setIsNeedAttachment(Boolean isNeedAttachment) {
+        this.isNeedAttachment = isNeedAttachment;
     }
 
 
-    public ActionConfig build() {
-      return new ActionConfig(this);
-    }
+// builder 开始
+  public ActionConfig(){}
+
+  public ActionConfig(Builder builder){
+      this.actionType = builder.actionType;
+      this.actionName = builder.actionName;
+      this.isNeedReason = builder.isNeedReason;
+      this.isReasonRequired = builder.isReasonRequired;
+      this.isNeedAttachment = builder.isNeedAttachment;
   }
+
+    public static class Builder {
+        private String actionType;
+        private String actionName;
+        private Boolean isNeedReason;
+        private Boolean isReasonRequired;
+        private Boolean isNeedAttachment;
+        public Builder actionType(String actionType) {
+             this.actionType = actionType;
+             return this;
+        }
+        public Builder actionType(com.lark.oapi.service.approval.v4.enums.ActionTypeEnum actionType) {
+             this.actionType = actionType.getValue();
+             return this;
+        }
+    
+        public Builder actionName(String actionName) {
+             this.actionName = actionName;
+             return this;
+        }
+    
+        public Builder isNeedReason(Boolean isNeedReason) {
+             this.isNeedReason = isNeedReason;
+             return this;
+        }
+    
+        public Builder isReasonRequired(Boolean isReasonRequired) {
+             this.isReasonRequired = isReasonRequired;
+             return this;
+        }
+    
+        public Builder isNeedAttachment(Boolean isNeedAttachment) {
+             this.isNeedAttachment = isNeedAttachment;
+             return this;
+        }
+    
+    
+    public ActionConfig build(){
+        return new ActionConfig(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

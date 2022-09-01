@@ -12,46 +12,51 @@
  */
 
 package com.lark.oapi.service.face_detection.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class DetectFaceAttributesImageReqBody {
-
-  @SerializedName("image")
-  private String image;
-
-  // builder 开始
-  public DetectFaceAttributesImageReqBody() {
-  }
-
-  public DetectFaceAttributesImageReqBody(Builder builder) {
-    this.image = builder.image;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getImage() {
-    return this.image;
-  }
-
-  public void setImage(String image) {
-    this.image = image;
-  }
-
-  public static class Builder {
-
+    @SerializedName("image")
     private String image;
+    public String getImage() {
+        return this.image;
+    }
 
-    public Builder image(String image) {
-      this.image = image;
-      return this;
+    public void setImage(String image) {
+        this.image = image;
     }
 
 
-    public DetectFaceAttributesImageReqBody build() {
-      return new DetectFaceAttributesImageReqBody(this);
-    }
+// builder 开始
+  public DetectFaceAttributesImageReqBody(){}
+
+  public DetectFaceAttributesImageReqBody(Builder builder){
+      this.image = builder.image;
   }
+
+    public static class Builder {
+        private String image;
+        public Builder image(String image) {
+             this.image = image;
+             return this;
+        }
+    
+    
+    public DetectFaceAttributesImageReqBody build(){
+        return new DetectFaceAttributesImageReqBody(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

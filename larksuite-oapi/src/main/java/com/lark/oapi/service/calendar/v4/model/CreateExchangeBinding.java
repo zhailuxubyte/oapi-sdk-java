@@ -12,60 +12,67 @@
  */
 
 package com.lark.oapi.service.calendar.v4.model;
-
+import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class CreateExchangeBinding {
+    @SerializedName("admin_account")
+    private String adminAccount;
+    @SerializedName("exchange_account")
+    private String exchangeAccount;
+    @SerializedName("user_id")
+    private String userId;
+    @SerializedName("status")
+    private String status;
+    @SerializedName("exchange_binding_id")
+    private String exchangeBindingId;
+    public String getAdminAccount() {
+        return this.adminAccount;
+    }
 
-  @SerializedName("admin_account")
-  private String adminAccount;
-  @SerializedName("exchange_account")
-  private String exchangeAccount;
-  @SerializedName("user_id")
-  private String userId;
-  @SerializedName("status")
-  private String status;
-  @SerializedName("exchange_binding_id")
-  private String exchangeBindingId;
+    public void setAdminAccount(String adminAccount) {
+        this.adminAccount = adminAccount;
+    }
 
-  public String getAdminAccount() {
-    return this.adminAccount;
-  }
+    public String getExchangeAccount() {
+        return this.exchangeAccount;
+    }
 
-  public void setAdminAccount(String adminAccount) {
-    this.adminAccount = adminAccount;
-  }
+    public void setExchangeAccount(String exchangeAccount) {
+        this.exchangeAccount = exchangeAccount;
+    }
 
-  public String getExchangeAccount() {
-    return this.exchangeAccount;
-  }
+    public String getUserId() {
+        return this.userId;
+    }
 
-  public void setExchangeAccount(String exchangeAccount) {
-    this.exchangeAccount = exchangeAccount;
-  }
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
 
-  public String getUserId() {
-    return this.userId;
-  }
+    public String getStatus() {
+        return this.status;
+    }
 
-  public void setUserId(String userId) {
-    this.userId = userId;
-  }
+    public void setStatus(String status) {
+        this.status = status;
+    }
 
-  public String getStatus() {
-    return this.status;
-  }
+    public String getExchangeBindingId() {
+        return this.exchangeBindingId;
+    }
 
-  public void setStatus(String status) {
-    this.status = status;
-  }
-
-  public String getExchangeBindingId() {
-    return this.exchangeBindingId;
-  }
-
-  public void setExchangeBindingId(String exchangeBindingId) {
-    this.exchangeBindingId = exchangeBindingId;
-  }
+    public void setExchangeBindingId(String exchangeBindingId) {
+        this.exchangeBindingId = exchangeBindingId;
+    }
 
 }

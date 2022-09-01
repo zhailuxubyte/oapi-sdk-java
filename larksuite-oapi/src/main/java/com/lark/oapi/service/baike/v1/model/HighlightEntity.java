@@ -12,20 +12,27 @@
  */
 
 package com.lark.oapi.service.baike.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class HighlightEntity {
+    @SerializedName("phrases")
+    private Phrase[] phrases;
+    public Phrase[] getPhrases() {
+        return this.phrases;
+    }
 
-  @SerializedName("phrases")
-  private Phrase[] phrases;
-
-  public Phrase[] getPhrases() {
-    return this.phrases;
-  }
-
-  public void setPhrases(Phrase[] phrases) {
-    this.phrases = phrases;
-  }
+    public void setPhrases(Phrase[] phrases) {
+        this.phrases = phrases;
+    }
 
 }

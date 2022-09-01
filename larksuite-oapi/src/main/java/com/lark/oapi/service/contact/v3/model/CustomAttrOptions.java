@@ -12,85 +12,90 @@
  */
 
 package com.lark.oapi.service.contact.v3.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.contact.v3.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class CustomAttrOptions {
-
-  @SerializedName("default_option_id")
-  private String defaultOptionId;
-  @SerializedName("option_type")
-  private String optionType;
-  @SerializedName("options")
-  private CustomAttrOption[] options;
-
-  // builder 开始
-  public CustomAttrOptions() {
-  }
-
-  public CustomAttrOptions(Builder builder) {
-    this.defaultOptionId = builder.defaultOptionId;
-    this.optionType = builder.optionType;
-    this.options = builder.options;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getDefaultOptionId() {
-    return this.defaultOptionId;
-  }
-
-  public void setDefaultOptionId(String defaultOptionId) {
-    this.defaultOptionId = defaultOptionId;
-  }
-
-  public String getOptionType() {
-    return this.optionType;
-  }
-
-  public void setOptionType(String optionType) {
-    this.optionType = optionType;
-  }
-
-  public CustomAttrOption[] getOptions() {
-    return this.options;
-  }
-
-  public void setOptions(CustomAttrOption[] options) {
-    this.options = options;
-  }
-
-  public static class Builder {
-
+    @SerializedName("default_option_id")
     private String defaultOptionId;
+    @SerializedName("option_type")
     private String optionType;
+    @SerializedName("options")
     private CustomAttrOption[] options;
-
-    public Builder defaultOptionId(String defaultOptionId) {
-      this.defaultOptionId = defaultOptionId;
-      return this;
+    public String getDefaultOptionId() {
+        return this.defaultOptionId;
     }
 
-    public Builder optionType(String optionType) {
-      this.optionType = optionType;
-      return this;
+    public void setDefaultOptionId(String defaultOptionId) {
+        this.defaultOptionId = defaultOptionId;
     }
 
-    public Builder optionType(com.lark.oapi.service.contact.v3.enums.OptionTypeEnum optionType) {
-      this.optionType = optionType.getValue();
-      return this;
+    public String getOptionType() {
+        return this.optionType;
     }
 
-    public Builder options(CustomAttrOption[] options) {
-      this.options = options;
-      return this;
+    public void setOptionType(String optionType) {
+        this.optionType = optionType;
+    }
+
+    public CustomAttrOption[] getOptions() {
+        return this.options;
+    }
+
+    public void setOptions(CustomAttrOption[] options) {
+        this.options = options;
     }
 
 
-    public CustomAttrOptions build() {
-      return new CustomAttrOptions(this);
-    }
+// builder 开始
+  public CustomAttrOptions(){}
+
+  public CustomAttrOptions(Builder builder){
+      this.defaultOptionId = builder.defaultOptionId;
+      this.optionType = builder.optionType;
+      this.options = builder.options;
   }
+
+    public static class Builder {
+        private String defaultOptionId;
+        private String optionType;
+        private CustomAttrOption[] options;
+        public Builder defaultOptionId(String defaultOptionId) {
+             this.defaultOptionId = defaultOptionId;
+             return this;
+        }
+    
+        public Builder optionType(String optionType) {
+             this.optionType = optionType;
+             return this;
+        }
+        public Builder optionType(com.lark.oapi.service.contact.v3.enums.OptionTypeEnum optionType) {
+             this.optionType = optionType.getValue();
+             return this;
+        }
+    
+        public Builder options(CustomAttrOption[] options) {
+             this.options = options;
+             return this;
+        }
+    
+    
+    public CustomAttrOptions build(){
+        return new CustomAttrOptions(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

@@ -12,113 +12,114 @@
  */
 
 package com.lark.oapi.service.application.v6.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.application.v6.enums.*;
 import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class GetApplicationAppVersionReq {
-
-  @Query
-  @SerializedName("lang")
-  private String lang;
-  @Query
-  @SerializedName("user_id_type")
-  private String userIdType;
-  @Path
-  @SerializedName("app_id")
-  private String appId;
-  @Path
-  @SerializedName("version_id")
-  private String versionId;
-
-  // builder 开始
-  public GetApplicationAppVersionReq() {
-  }
-
-  public GetApplicationAppVersionReq(Builder builder) {
-    this.lang = builder.lang;
-    this.userIdType = builder.userIdType;
-    this.appId = builder.appId;
-    this.versionId = builder.versionId;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getLang() {
-    return this.lang;
-  }
-
-  public void setLang(String lang) {
-    this.lang = lang;
-  }
-
-  public String getUserIdType() {
-    return this.userIdType;
-  }
-
-  public void setUserIdType(String userIdType) {
-    this.userIdType = userIdType;
-  }
-
-  public String getAppId() {
-    return this.appId;
-  }
-
-  public void setAppId(String appId) {
-    this.appId = appId;
-  }
-
-  public String getVersionId() {
-    return this.versionId;
-  }
-
-  public void setVersionId(String versionId) {
-    this.versionId = versionId;
-  }
-
-  public static class Builder {
-
+    @Query
+    @SerializedName("lang")
     private String lang;
+    @Query
+    @SerializedName("user_id_type")
     private String userIdType;
+    public String getLang() {
+        return this.lang;
+    }
+
+    public void setLang(String lang) {
+        this.lang = lang;
+    }
+
+    public String getUserIdType() {
+        return this.userIdType;
+    }
+
+    public void setUserIdType(String userIdType) {
+        this.userIdType = userIdType;
+    }
+
+    @Path
+    @SerializedName("app_id")
     private String appId;
+    @Path
+    @SerializedName("version_id")
     private String versionId;
-
-    public Builder lang(String lang) {
-      this.lang = lang;
-      return this;
+    public String getAppId() {
+        return this.appId;
     }
 
-    public Builder lang(com.lark.oapi.service.application.v6.enums.I18nKeyEnum lang) {
-      this.lang = lang.getValue();
-      return this;
+    public void setAppId(String appId) {
+        this.appId = appId;
     }
 
-    public Builder userIdType(String userIdType) {
-      this.userIdType = userIdType;
-      return this;
+    public String getVersionId() {
+        return this.versionId;
     }
 
-    public Builder userIdType(
-        com.lark.oapi.service.application.v6.enums.UserIdTypeEnum userIdType) {
-      this.userIdType = userIdType.getValue();
-      return this;
+    public void setVersionId(String versionId) {
+        this.versionId = versionId;
     }
 
-    public Builder appId(String appId) {
-      this.appId = appId;
-      return this;
-    }
 
-    public Builder versionId(String versionId) {
-      this.versionId = versionId;
-      return this;
-    }
+// builder 开始
+  public GetApplicationAppVersionReq(){}
 
-    public GetApplicationAppVersionReq build() {
-      return new GetApplicationAppVersionReq(this);
-    }
+  public GetApplicationAppVersionReq(Builder builder){
+       this.lang = builder.lang;
+       this.userIdType = builder.userIdType;
+       this.appId = builder.appId;
+       this.versionId = builder.versionId;
   }
+
+    public static class Builder {
+        private String lang;
+        private String userIdType;
+    
+           public Builder lang(String lang) {
+                this.lang = lang;
+                return this;
+           }
+          public Builder lang(com.lark.oapi.service.application.v6.enums.I18nKeyEnum lang) {
+               this.lang = lang.getValue();
+               return this;
+          }
+    
+           public Builder userIdType(String userIdType) {
+                this.userIdType = userIdType;
+                return this;
+           }
+          public Builder userIdType(com.lark.oapi.service.application.v6.enums.UserIdTypeEnum userIdType) {
+               this.userIdType = userIdType.getValue();
+               return this;
+          }
+    
+        private String appId;
+        private String versionId;
+          public Builder appId(String appId) {
+               this.appId = appId;
+               return this;
+          }
+    
+          public Builder versionId(String versionId) {
+               this.versionId = versionId;
+               return this;
+          }
+    
+    public GetApplicationAppVersionReq build(){
+        return new GetApplicationAppVersionReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

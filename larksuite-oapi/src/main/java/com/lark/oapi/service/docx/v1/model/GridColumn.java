@@ -12,46 +12,52 @@
  */
 
 package com.lark.oapi.service.docx.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.docx.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class GridColumn {
-
-  @SerializedName("width_ratio")
-  private Integer widthRatio;
-
-  // builder 开始
-  public GridColumn() {
-  }
-
-  public GridColumn(Builder builder) {
-    this.widthRatio = builder.widthRatio;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Integer getWidthRatio() {
-    return this.widthRatio;
-  }
-
-  public void setWidthRatio(Integer widthRatio) {
-    this.widthRatio = widthRatio;
-  }
-
-  public static class Builder {
-
+    @SerializedName("width_ratio")
     private Integer widthRatio;
+    public Integer getWidthRatio() {
+        return this.widthRatio;
+    }
 
-    public Builder widthRatio(Integer widthRatio) {
-      this.widthRatio = widthRatio;
-      return this;
+    public void setWidthRatio(Integer widthRatio) {
+        this.widthRatio = widthRatio;
     }
 
 
-    public GridColumn build() {
-      return new GridColumn(this);
-    }
+// builder 开始
+  public GridColumn(){}
+
+  public GridColumn(Builder builder){
+      this.widthRatio = builder.widthRatio;
   }
+
+    public static class Builder {
+        private Integer widthRatio;
+        public Builder widthRatio(Integer widthRatio) {
+             this.widthRatio = widthRatio;
+             return this;
+        }
+    
+    
+    public GridColumn build(){
+        return new GridColumn(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

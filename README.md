@@ -255,7 +255,7 @@ public interface IHttpTransport {
 
 创建完毕 API Client，我们可以使用 ``Client.业务域.资源.方法名称`` 来定位具体的 API 方法，然后对具体的 API 发起调用。
 
-![](doc/find_method.jpg)
+![](docs/find_method.jpg)
 
 飞书开放平台开放的所有 API
 列表，可点击[这里查看](https://open.feishu.cn/document/ukTMukTMukTM/uYTM5UjL2ETO14iNxkTN/server-api-list)
@@ -625,7 +625,7 @@ public class EventController {
 方法的参数用于签名验证和消息解密使用，默认可以传递为空串；但是如果开发者的应用在 [控制台](https://open.feishu.cn/app?lang=zh-CN)
 的【事件订阅】里面开启了加密，则必须传递控制台上提供的值。
 
-![Console](doc/console.jpeg)
+![Console](docs/console.jpeg)
 
 需要注意的是注册处理器时，比如使用 onP2MessageReceiveV1
 注册接受消息事件回调时，其中的P2为消息协议版本，当前飞书开放平台存在 [两种消息协议](https://open.feishu.cn/document/ukTMukTMukTM/uUTNz4SN1MjL1UzM#8f960a4b)
@@ -634,7 +634,7 @@ public class EventController {
 如下图开发者在注册消息处理器时，需从 [事件列表](https://open.feishu.cn/document/ukTMukTMukTM/uYDNxYjL2QTM24iN0EjN/event-list)
 中查看自己需要的是哪种协议的事件。 如果是1.0的消息协议，则注册处理器时，需要找以onP1xxxx开头的。如果是2.0的消息协议，则注册处理器时，需要找以OnP2xxxx开头的。
 
-![Console](doc/event_protocol.jpeg)
+![Console](docs/event_protocol.jpeg)
 
 更多事件订阅示例：[event.java](./sample/src/main/java/com/lark/oapi/sample/event/EventController.java)
 

@@ -12,108 +12,111 @@
  */
 
 package com.lark.oapi.service.helpdesk.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.helpdesk.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class BotMessage {
-
-  @SerializedName("msg_type")
-  private String msgType;
-  @SerializedName("content")
-  private String content;
-  @SerializedName("receiver_id")
-  private String receiverId;
-  @SerializedName("receive_type")
-  private String receiveType;
-
-  // builder 开始
-  public BotMessage() {
-  }
-
-  public BotMessage(Builder builder) {
-    this.msgType = builder.msgType;
-    this.content = builder.content;
-    this.receiverId = builder.receiverId;
-    this.receiveType = builder.receiveType;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getMsgType() {
-    return this.msgType;
-  }
-
-  public void setMsgType(String msgType) {
-    this.msgType = msgType;
-  }
-
-  public String getContent() {
-    return this.content;
-  }
-
-  public void setContent(String content) {
-    this.content = content;
-  }
-
-  public String getReceiverId() {
-    return this.receiverId;
-  }
-
-  public void setReceiverId(String receiverId) {
-    this.receiverId = receiverId;
-  }
-
-  public String getReceiveType() {
-    return this.receiveType;
-  }
-
-  public void setReceiveType(String receiveType) {
-    this.receiveType = receiveType;
-  }
-
-  public static class Builder {
-
+    @SerializedName("msg_type")
     private String msgType;
+    @SerializedName("content")
     private String content;
+    @SerializedName("receiver_id")
     private String receiverId;
+    @SerializedName("receive_type")
     private String receiveType;
-
-    public Builder msgType(String msgType) {
-      this.msgType = msgType;
-      return this;
+    public String getMsgType() {
+        return this.msgType;
     }
 
-    public Builder msgType(com.lark.oapi.service.helpdesk.v1.enums.MsgTypeEnum msgType) {
-      this.msgType = msgType.getValue();
-      return this;
+    public void setMsgType(String msgType) {
+        this.msgType = msgType;
     }
 
-    public Builder content(String content) {
-      this.content = content;
-      return this;
+    public String getContent() {
+        return this.content;
     }
 
-    public Builder receiverId(String receiverId) {
-      this.receiverId = receiverId;
-      return this;
+    public void setContent(String content) {
+        this.content = content;
     }
 
-    public Builder receiveType(String receiveType) {
-      this.receiveType = receiveType;
-      return this;
+    public String getReceiverId() {
+        return this.receiverId;
     }
 
-    public Builder receiveType(
-        com.lark.oapi.service.helpdesk.v1.enums.ReceiveTypeEnum receiveType) {
-      this.receiveType = receiveType.getValue();
-      return this;
+    public void setReceiverId(String receiverId) {
+        this.receiverId = receiverId;
+    }
+
+    public String getReceiveType() {
+        return this.receiveType;
+    }
+
+    public void setReceiveType(String receiveType) {
+        this.receiveType = receiveType;
     }
 
 
-    public BotMessage build() {
-      return new BotMessage(this);
-    }
+// builder 开始
+  public BotMessage(){}
+
+  public BotMessage(Builder builder){
+      this.msgType = builder.msgType;
+      this.content = builder.content;
+      this.receiverId = builder.receiverId;
+      this.receiveType = builder.receiveType;
   }
+
+    public static class Builder {
+        private String msgType;
+        private String content;
+        private String receiverId;
+        private String receiveType;
+        public Builder msgType(String msgType) {
+             this.msgType = msgType;
+             return this;
+        }
+        public Builder msgType(com.lark.oapi.service.helpdesk.v1.enums.MsgTypeEnum msgType) {
+             this.msgType = msgType.getValue();
+             return this;
+        }
+    
+        public Builder content(String content) {
+             this.content = content;
+             return this;
+        }
+    
+        public Builder receiverId(String receiverId) {
+             this.receiverId = receiverId;
+             return this;
+        }
+    
+        public Builder receiveType(String receiveType) {
+             this.receiveType = receiveType;
+             return this;
+        }
+        public Builder receiveType(com.lark.oapi.service.helpdesk.v1.enums.ReceiveTypeEnum receiveType) {
+             this.receiveType = receiveType.getValue();
+             return this;
+        }
+    
+    
+    public BotMessage build(){
+        return new BotMessage(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

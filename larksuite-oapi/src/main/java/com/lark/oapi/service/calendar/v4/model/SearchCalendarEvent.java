@@ -12,30 +12,37 @@
  */
 
 package com.lark.oapi.service.calendar.v4.model;
-
+import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class SearchCalendarEvent {
+    @SerializedName("items")
+    private CalendarEvent[] items;
+    @SerializedName("page_token")
+    private String pageToken;
+    public CalendarEvent[] getItems() {
+        return this.items;
+    }
 
-  @SerializedName("items")
-  private CalendarEvent[] items;
-  @SerializedName("page_token")
-  private String pageToken;
+    public void setItems(CalendarEvent[] items) {
+        this.items = items;
+    }
 
-  public CalendarEvent[] getItems() {
-    return this.items;
-  }
+    public String getPageToken() {
+        return this.pageToken;
+    }
 
-  public void setItems(CalendarEvent[] items) {
-    this.items = items;
-  }
-
-  public String getPageToken() {
-    return this.pageToken;
-  }
-
-  public void setPageToken(String pageToken) {
-    this.pageToken = pageToken;
-  }
+    public void setPageToken(String pageToken) {
+        this.pageToken = pageToken;
+    }
 
 }

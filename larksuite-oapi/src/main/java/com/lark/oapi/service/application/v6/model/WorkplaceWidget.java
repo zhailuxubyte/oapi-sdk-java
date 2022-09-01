@@ -12,46 +12,52 @@
  */
 
 package com.lark.oapi.service.application.v6.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.application.v6.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class WorkplaceWidget {
-
-  @SerializedName("min_lark_version")
-  private String minLarkVersion;
-
-  // builder 开始
-  public WorkplaceWidget() {
-  }
-
-  public WorkplaceWidget(Builder builder) {
-    this.minLarkVersion = builder.minLarkVersion;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getMinLarkVersion() {
-    return this.minLarkVersion;
-  }
-
-  public void setMinLarkVersion(String minLarkVersion) {
-    this.minLarkVersion = minLarkVersion;
-  }
-
-  public static class Builder {
-
+    @SerializedName("min_lark_version")
     private String minLarkVersion;
+    public String getMinLarkVersion() {
+        return this.minLarkVersion;
+    }
 
-    public Builder minLarkVersion(String minLarkVersion) {
-      this.minLarkVersion = minLarkVersion;
-      return this;
+    public void setMinLarkVersion(String minLarkVersion) {
+        this.minLarkVersion = minLarkVersion;
     }
 
 
-    public WorkplaceWidget build() {
-      return new WorkplaceWidget(this);
-    }
+// builder 开始
+  public WorkplaceWidget(){}
+
+  public WorkplaceWidget(Builder builder){
+      this.minLarkVersion = builder.minLarkVersion;
   }
+
+    public static class Builder {
+        private String minLarkVersion;
+        public Builder minLarkVersion(String minLarkVersion) {
+             this.minLarkVersion = minLarkVersion;
+             return this;
+        }
+    
+    
+    public WorkplaceWidget build(){
+        return new WorkplaceWidget(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

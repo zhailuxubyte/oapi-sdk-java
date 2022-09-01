@@ -12,98 +12,98 @@
  */
 
 package com.lark.oapi.service.approval.v4.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.approval.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class CreateExternalApprovalReq {
-
-  @Query
-  @SerializedName("department_id_type")
-  private String departmentIdType;
-  @Query
-  @SerializedName("user_id_type")
-  private String userIdType;
-  @Body
-  private ExternalApproval body;
-
-  // builder 开始
-  public CreateExternalApprovalReq() {
-  }
-
-  public CreateExternalApprovalReq(Builder builder) {
-    this.departmentIdType = builder.departmentIdType;
-    this.userIdType = builder.userIdType;
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getDepartmentIdType() {
-    return this.departmentIdType;
-  }
-
-  public void setDepartmentIdType(String departmentIdType) {
-    this.departmentIdType = departmentIdType;
-  }
-
-  public String getUserIdType() {
-    return this.userIdType;
-  }
-
-  public void setUserIdType(String userIdType) {
-    this.userIdType = userIdType;
-  }
-
-  public ExternalApproval getExternalApproval() {
-    return this.body;
-  }
-
-  public void setExternalApproval(ExternalApproval body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
+    @Query
+    @SerializedName("department_id_type")
     private String departmentIdType;
+    @Query
+    @SerializedName("user_id_type")
     private String userIdType;
+    public String getDepartmentIdType() {
+        return this.departmentIdType;
+    }
+
+    public void setDepartmentIdType(String departmentIdType) {
+        this.departmentIdType = departmentIdType;
+    }
+
+    public String getUserIdType() {
+        return this.userIdType;
+    }
+
+    public void setUserIdType(String userIdType) {
+        this.userIdType = userIdType;
+    }
+
+    @Body
     private ExternalApproval body;
 
-    public Builder departmentIdType(String departmentIdType) {
-      this.departmentIdType = departmentIdType;
-      return this;
-    }
-
-    public Builder departmentIdType(
-        com.lark.oapi.service.approval.v4.enums.DepartmentIdTypeEnum departmentIdType) {
-      this.departmentIdType = departmentIdType.getValue();
-      return this;
-    }
-
-    public Builder userIdType(String userIdType) {
-      this.userIdType = userIdType;
-      return this;
-    }
-
-    public Builder userIdType(com.lark.oapi.service.approval.v4.enums.UserIdTypeEnum userIdType) {
-      this.userIdType = userIdType.getValue();
-      return this;
-    }
-
     public ExternalApproval getExternalApproval() {
-      return this.body;
+        return this.body;
     }
 
-    public Builder externalApproval(ExternalApproval body) {
-      this.body = body;
-      return this;
+    public void setExternalApproval(ExternalApproval body) {
+        this.body = body;
     }
 
-    public CreateExternalApprovalReq build() {
-      return new CreateExternalApprovalReq(this);
-    }
+// builder 开始
+  public CreateExternalApprovalReq(){}
+
+  public CreateExternalApprovalReq(Builder builder){
+       this.departmentIdType = builder.departmentIdType;
+       this.userIdType = builder.userIdType;
+        this.body = builder.body;
   }
+
+    public static class Builder {
+        private String departmentIdType;
+        private String userIdType;
+    
+           public Builder departmentIdType(String departmentIdType) {
+                this.departmentIdType = departmentIdType;
+                return this;
+           }
+          public Builder departmentIdType(com.lark.oapi.service.approval.v4.enums.DepartmentIdTypeEnum departmentIdType) {
+               this.departmentIdType = departmentIdType.getValue();
+               return this;
+          }
+    
+           public Builder userIdType(String userIdType) {
+                this.userIdType = userIdType;
+                return this;
+           }
+          public Builder userIdType(com.lark.oapi.service.approval.v4.enums.UserIdTypeEnum userIdType) {
+               this.userIdType = userIdType.getValue();
+               return this;
+          }
+    
+        private ExternalApproval body;
+    
+        public ExternalApproval getExternalApproval() {
+            return this.body;
+        }
+        public Builder externalApproval(ExternalApproval body) {
+             this.body = body;
+             return this;
+        }
+    public CreateExternalApprovalReq build(){
+        return new CreateExternalApprovalReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

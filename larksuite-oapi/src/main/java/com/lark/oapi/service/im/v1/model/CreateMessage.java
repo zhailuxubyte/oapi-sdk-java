@@ -12,140 +12,147 @@
  */
 
 package com.lark.oapi.service.im.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class CreateMessage {
+    @SerializedName("message_id")
+    private String messageId;
+    @SerializedName("root_id")
+    private String rootId;
+    @SerializedName("parent_id")
+    private String parentId;
+    @SerializedName("msg_type")
+    private String msgType;
+    @SerializedName("create_time")
+    private String createTime;
+    @SerializedName("update_time")
+    private String updateTime;
+    @SerializedName("deleted")
+    private Boolean deleted;
+    @SerializedName("updated")
+    private Boolean updated;
+    @SerializedName("chat_id")
+    private String chatId;
+    @SerializedName("sender")
+    private Sender sender;
+    @SerializedName("body")
+    private MessageBody body;
+    @SerializedName("mentions")
+    private Mention[] mentions;
+    @SerializedName("upper_message_id")
+    private String upperMessageId;
+    public String getMessageId() {
+        return this.messageId;
+    }
 
-  @SerializedName("message_id")
-  private String messageId;
-  @SerializedName("root_id")
-  private String rootId;
-  @SerializedName("parent_id")
-  private String parentId;
-  @SerializedName("msg_type")
-  private String msgType;
-  @SerializedName("create_time")
-  private String createTime;
-  @SerializedName("update_time")
-  private String updateTime;
-  @SerializedName("deleted")
-  private Boolean deleted;
-  @SerializedName("updated")
-  private Boolean updated;
-  @SerializedName("chat_id")
-  private String chatId;
-  @SerializedName("sender")
-  private Sender sender;
-  @SerializedName("body")
-  private MessageBody body;
-  @SerializedName("mentions")
-  private Mention[] mentions;
-  @SerializedName("upper_message_id")
-  private String upperMessageId;
+    public void setMessageId(String messageId) {
+        this.messageId = messageId;
+    }
 
-  public String getMessageId() {
-    return this.messageId;
-  }
+    public String getRootId() {
+        return this.rootId;
+    }
 
-  public void setMessageId(String messageId) {
-    this.messageId = messageId;
-  }
+    public void setRootId(String rootId) {
+        this.rootId = rootId;
+    }
 
-  public String getRootId() {
-    return this.rootId;
-  }
+    public String getParentId() {
+        return this.parentId;
+    }
 
-  public void setRootId(String rootId) {
-    this.rootId = rootId;
-  }
+    public void setParentId(String parentId) {
+        this.parentId = parentId;
+    }
 
-  public String getParentId() {
-    return this.parentId;
-  }
+    public String getMsgType() {
+        return this.msgType;
+    }
 
-  public void setParentId(String parentId) {
-    this.parentId = parentId;
-  }
+    public void setMsgType(String msgType) {
+        this.msgType = msgType;
+    }
 
-  public String getMsgType() {
-    return this.msgType;
-  }
+    public String getCreateTime() {
+        return this.createTime;
+    }
 
-  public void setMsgType(String msgType) {
-    this.msgType = msgType;
-  }
+    public void setCreateTime(String createTime) {
+        this.createTime = createTime;
+    }
 
-  public String getCreateTime() {
-    return this.createTime;
-  }
+    public String getUpdateTime() {
+        return this.updateTime;
+    }
 
-  public void setCreateTime(String createTime) {
-    this.createTime = createTime;
-  }
+    public void setUpdateTime(String updateTime) {
+        this.updateTime = updateTime;
+    }
 
-  public String getUpdateTime() {
-    return this.updateTime;
-  }
+    public Boolean getDeleted() {
+        return this.deleted;
+    }
 
-  public void setUpdateTime(String updateTime) {
-    this.updateTime = updateTime;
-  }
+    public void setDeleted(Boolean deleted) {
+        this.deleted = deleted;
+    }
 
-  public Boolean getDeleted() {
-    return this.deleted;
-  }
+    public Boolean getUpdated() {
+        return this.updated;
+    }
 
-  public void setDeleted(Boolean deleted) {
-    this.deleted = deleted;
-  }
+    public void setUpdated(Boolean updated) {
+        this.updated = updated;
+    }
 
-  public Boolean getUpdated() {
-    return this.updated;
-  }
+    public String getChatId() {
+        return this.chatId;
+    }
 
-  public void setUpdated(Boolean updated) {
-    this.updated = updated;
-  }
+    public void setChatId(String chatId) {
+        this.chatId = chatId;
+    }
 
-  public String getChatId() {
-    return this.chatId;
-  }
+    public Sender getSender() {
+        return this.sender;
+    }
 
-  public void setChatId(String chatId) {
-    this.chatId = chatId;
-  }
+    public void setSender(Sender sender) {
+        this.sender = sender;
+    }
 
-  public Sender getSender() {
-    return this.sender;
-  }
+    public MessageBody getBody() {
+        return this.body;
+    }
 
-  public void setSender(Sender sender) {
-    this.sender = sender;
-  }
+    public void setBody(MessageBody body) {
+        this.body = body;
+    }
 
-  public MessageBody getBody() {
-    return this.body;
-  }
+    public Mention[] getMentions() {
+        return this.mentions;
+    }
 
-  public void setBody(MessageBody body) {
-    this.body = body;
-  }
+    public void setMentions(Mention[] mentions) {
+        this.mentions = mentions;
+    }
 
-  public Mention[] getMentions() {
-    return this.mentions;
-  }
+    public String getUpperMessageId() {
+        return this.upperMessageId;
+    }
 
-  public void setMentions(Mention[] mentions) {
-    this.mentions = mentions;
-  }
-
-  public String getUpperMessageId() {
-    return this.upperMessageId;
-  }
-
-  public void setUpperMessageId(String upperMessageId) {
-    this.upperMessageId = upperMessageId;
-  }
+    public void setUpperMessageId(String upperMessageId) {
+        this.upperMessageId = upperMessageId;
+    }
 
 }

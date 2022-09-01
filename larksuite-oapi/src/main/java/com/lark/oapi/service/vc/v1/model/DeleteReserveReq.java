@@ -12,47 +12,52 @@
  */
 
 package com.lark.oapi.service.vc.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.vc.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class DeleteReserveReq {
-
-  @Path
-  @SerializedName("reserve_id")
-  private String reserveId;
-
-  // builder 开始
-  public DeleteReserveReq() {
-  }
-
-  public DeleteReserveReq(Builder builder) {
-    this.reserveId = builder.reserveId;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getReserveId() {
-    return this.reserveId;
-  }
-
-  public void setReserveId(String reserveId) {
-    this.reserveId = reserveId;
-  }
-
-  public static class Builder {
-
+    @Path
+    @SerializedName("reserve_id")
     private String reserveId;
-
-    public Builder reserveId(String reserveId) {
-      this.reserveId = reserveId;
-      return this;
+    public String getReserveId() {
+        return this.reserveId;
     }
 
-    public DeleteReserveReq build() {
-      return new DeleteReserveReq(this);
+    public void setReserveId(String reserveId) {
+        this.reserveId = reserveId;
     }
+
+
+// builder 开始
+  public DeleteReserveReq(){}
+
+  public DeleteReserveReq(Builder builder){
+       this.reserveId = builder.reserveId;
   }
+
+    public static class Builder {
+    
+        private String reserveId;
+          public Builder reserveId(String reserveId) {
+               this.reserveId = reserveId;
+               return this;
+          }
+    
+    public DeleteReserveReq build(){
+        return new DeleteReserveReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

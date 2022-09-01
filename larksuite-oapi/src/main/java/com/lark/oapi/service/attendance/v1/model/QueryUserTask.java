@@ -12,40 +12,47 @@
  */
 
 package com.lark.oapi.service.attendance.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class QueryUserTask {
+    @SerializedName("user_task_results")
+    private UserTask[] userTaskResults;
+    @SerializedName("invalid_user_ids")
+    private String[] invalidUserIds;
+    @SerializedName("unauthorized_user_ids")
+    private String[] unauthorizedUserIds;
+    public UserTask[] getUserTaskResults() {
+        return this.userTaskResults;
+    }
 
-  @SerializedName("user_task_results")
-  private UserTask[] userTaskResults;
-  @SerializedName("invalid_user_ids")
-  private String[] invalidUserIds;
-  @SerializedName("unauthorized_user_ids")
-  private String[] unauthorizedUserIds;
+    public void setUserTaskResults(UserTask[] userTaskResults) {
+        this.userTaskResults = userTaskResults;
+    }
 
-  public UserTask[] getUserTaskResults() {
-    return this.userTaskResults;
-  }
+    public String[] getInvalidUserIds() {
+        return this.invalidUserIds;
+    }
 
-  public void setUserTaskResults(UserTask[] userTaskResults) {
-    this.userTaskResults = userTaskResults;
-  }
+    public void setInvalidUserIds(String[] invalidUserIds) {
+        this.invalidUserIds = invalidUserIds;
+    }
 
-  public String[] getInvalidUserIds() {
-    return this.invalidUserIds;
-  }
+    public String[] getUnauthorizedUserIds() {
+        return this.unauthorizedUserIds;
+    }
 
-  public void setInvalidUserIds(String[] invalidUserIds) {
-    this.invalidUserIds = invalidUserIds;
-  }
-
-  public String[] getUnauthorizedUserIds() {
-    return this.unauthorizedUserIds;
-  }
-
-  public void setUnauthorizedUserIds(String[] unauthorizedUserIds) {
-    this.unauthorizedUserIds = unauthorizedUserIds;
-  }
+    public void setUnauthorizedUserIds(String[] unauthorizedUserIds) {
+        this.unauthorizedUserIds = unauthorizedUserIds;
+    }
 
 }

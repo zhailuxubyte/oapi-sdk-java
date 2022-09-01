@@ -12,165 +12,171 @@
  */
 
 package com.lark.oapi.service.search.v2.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.search.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class ConnectDataSource {
-
-  @SerializedName("service_url")
-  private String serviceUrl;
-  @SerializedName("project_name")
-  private String projectName;
-  @SerializedName("display_name")
-  private String displayName;
-  @SerializedName("description")
-  private String description;
-  @SerializedName("icon_url")
-  private String iconUrl;
-  @SerializedName("project_description")
-  private String projectDescription;
-  @SerializedName("contact_email")
-  private String contactEmail;
-  @SerializedName("tenant_name")
-  private String tenantName;
-
-  // builder 开始
-  public ConnectDataSource() {
-  }
-
-  public ConnectDataSource(Builder builder) {
-    this.serviceUrl = builder.serviceUrl;
-    this.projectName = builder.projectName;
-    this.displayName = builder.displayName;
-    this.description = builder.description;
-    this.iconUrl = builder.iconUrl;
-    this.projectDescription = builder.projectDescription;
-    this.contactEmail = builder.contactEmail;
-    this.tenantName = builder.tenantName;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getServiceUrl() {
-    return this.serviceUrl;
-  }
-
-  public void setServiceUrl(String serviceUrl) {
-    this.serviceUrl = serviceUrl;
-  }
-
-  public String getProjectName() {
-    return this.projectName;
-  }
-
-  public void setProjectName(String projectName) {
-    this.projectName = projectName;
-  }
-
-  public String getDisplayName() {
-    return this.displayName;
-  }
-
-  public void setDisplayName(String displayName) {
-    this.displayName = displayName;
-  }
-
-  public String getDescription() {
-    return this.description;
-  }
-
-  public void setDescription(String description) {
-    this.description = description;
-  }
-
-  public String getIconUrl() {
-    return this.iconUrl;
-  }
-
-  public void setIconUrl(String iconUrl) {
-    this.iconUrl = iconUrl;
-  }
-
-  public String getProjectDescription() {
-    return this.projectDescription;
-  }
-
-  public void setProjectDescription(String projectDescription) {
-    this.projectDescription = projectDescription;
-  }
-
-  public String getContactEmail() {
-    return this.contactEmail;
-  }
-
-  public void setContactEmail(String contactEmail) {
-    this.contactEmail = contactEmail;
-  }
-
-  public String getTenantName() {
-    return this.tenantName;
-  }
-
-  public void setTenantName(String tenantName) {
-    this.tenantName = tenantName;
-  }
-
-  public static class Builder {
-
+    @SerializedName("service_url")
     private String serviceUrl;
+    @SerializedName("project_name")
     private String projectName;
+    @SerializedName("display_name")
     private String displayName;
+    @SerializedName("description")
     private String description;
+    @SerializedName("icon_url")
     private String iconUrl;
+    @SerializedName("project_description")
     private String projectDescription;
+    @SerializedName("contact_email")
     private String contactEmail;
+    @SerializedName("tenant_name")
     private String tenantName;
-
-    public Builder serviceUrl(String serviceUrl) {
-      this.serviceUrl = serviceUrl;
-      return this;
+    public String getServiceUrl() {
+        return this.serviceUrl;
     }
 
-    public Builder projectName(String projectName) {
-      this.projectName = projectName;
-      return this;
+    public void setServiceUrl(String serviceUrl) {
+        this.serviceUrl = serviceUrl;
     }
 
-    public Builder displayName(String displayName) {
-      this.displayName = displayName;
-      return this;
+    public String getProjectName() {
+        return this.projectName;
     }
 
-    public Builder description(String description) {
-      this.description = description;
-      return this;
+    public void setProjectName(String projectName) {
+        this.projectName = projectName;
     }
 
-    public Builder iconUrl(String iconUrl) {
-      this.iconUrl = iconUrl;
-      return this;
+    public String getDisplayName() {
+        return this.displayName;
     }
 
-    public Builder projectDescription(String projectDescription) {
-      this.projectDescription = projectDescription;
-      return this;
+    public void setDisplayName(String displayName) {
+        this.displayName = displayName;
     }
 
-    public Builder contactEmail(String contactEmail) {
-      this.contactEmail = contactEmail;
-      return this;
+    public String getDescription() {
+        return this.description;
     }
 
-    public Builder tenantName(String tenantName) {
-      this.tenantName = tenantName;
-      return this;
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getIconUrl() {
+        return this.iconUrl;
+    }
+
+    public void setIconUrl(String iconUrl) {
+        this.iconUrl = iconUrl;
+    }
+
+    public String getProjectDescription() {
+        return this.projectDescription;
+    }
+
+    public void setProjectDescription(String projectDescription) {
+        this.projectDescription = projectDescription;
+    }
+
+    public String getContactEmail() {
+        return this.contactEmail;
+    }
+
+    public void setContactEmail(String contactEmail) {
+        this.contactEmail = contactEmail;
+    }
+
+    public String getTenantName() {
+        return this.tenantName;
+    }
+
+    public void setTenantName(String tenantName) {
+        this.tenantName = tenantName;
     }
 
 
-    public ConnectDataSource build() {
-      return new ConnectDataSource(this);
-    }
+// builder 开始
+  public ConnectDataSource(){}
+
+  public ConnectDataSource(Builder builder){
+      this.serviceUrl = builder.serviceUrl;
+      this.projectName = builder.projectName;
+      this.displayName = builder.displayName;
+      this.description = builder.description;
+      this.iconUrl = builder.iconUrl;
+      this.projectDescription = builder.projectDescription;
+      this.contactEmail = builder.contactEmail;
+      this.tenantName = builder.tenantName;
   }
+
+    public static class Builder {
+        private String serviceUrl;
+        private String projectName;
+        private String displayName;
+        private String description;
+        private String iconUrl;
+        private String projectDescription;
+        private String contactEmail;
+        private String tenantName;
+        public Builder serviceUrl(String serviceUrl) {
+             this.serviceUrl = serviceUrl;
+             return this;
+        }
+    
+        public Builder projectName(String projectName) {
+             this.projectName = projectName;
+             return this;
+        }
+    
+        public Builder displayName(String displayName) {
+             this.displayName = displayName;
+             return this;
+        }
+    
+        public Builder description(String description) {
+             this.description = description;
+             return this;
+        }
+    
+        public Builder iconUrl(String iconUrl) {
+             this.iconUrl = iconUrl;
+             return this;
+        }
+    
+        public Builder projectDescription(String projectDescription) {
+             this.projectDescription = projectDescription;
+             return this;
+        }
+    
+        public Builder contactEmail(String contactEmail) {
+             this.contactEmail = contactEmail;
+             return this;
+        }
+    
+        public Builder tenantName(String tenantName) {
+             this.tenantName = tenantName;
+             return this;
+        }
+    
+    
+    public ConnectDataSource build(){
+        return new ConnectDataSource(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

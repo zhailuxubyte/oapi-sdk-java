@@ -15,20 +15,19 @@ package com.lark.oapi.service.mail.v1.enums;
 
 // 生成枚举值
 public enum UserStatusEnum {
-  INVALID(1),
-  DOMAINNOTEXIST(2),
-  ADDRESSNOTEXIST(3),
-  ONBOARD(4),
-  DELETED(5),
-  FORBIDDEN(6),
+     INVALID(1),
+     DOMAINNOTEXIST(2),
+     ADDRESSNOTEXIST(3),
+     ONBOARD(4),
+     DELETED(5),
+     FORBIDDEN(6),
   ;
-  private Integer value;
+   private Integer value;
+    UserStatusEnum(Integer value) {
+      this.value = value;
+    }
 
-  UserStatusEnum(Integer value) {
-    this.value = value;
-  }
-
-  public Integer getValue() {
-    return this.value;
-  }
+    public Integer getValue() {
+      return this.value;
+    }
 }

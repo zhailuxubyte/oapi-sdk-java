@@ -12,85 +12,90 @@
  */
 
 package com.lark.oapi.service.vc.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.vc.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class ReserveCallee {
-
-  @SerializedName("id")
-  private String id;
-  @SerializedName("user_type")
-  private Integer userType;
-  @SerializedName("pstn_sip_info")
-  private PstnSipInfo pstnSipInfo;
-
-  // builder 开始
-  public ReserveCallee() {
-  }
-
-  public ReserveCallee(Builder builder) {
-    this.id = builder.id;
-    this.userType = builder.userType;
-    this.pstnSipInfo = builder.pstnSipInfo;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getId() {
-    return this.id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public Integer getUserType() {
-    return this.userType;
-  }
-
-  public void setUserType(Integer userType) {
-    this.userType = userType;
-  }
-
-  public PstnSipInfo getPstnSipInfo() {
-    return this.pstnSipInfo;
-  }
-
-  public void setPstnSipInfo(PstnSipInfo pstnSipInfo) {
-    this.pstnSipInfo = pstnSipInfo;
-  }
-
-  public static class Builder {
-
+    @SerializedName("id")
     private String id;
+    @SerializedName("user_type")
     private Integer userType;
+    @SerializedName("pstn_sip_info")
     private PstnSipInfo pstnSipInfo;
-
-    public Builder id(String id) {
-      this.id = id;
-      return this;
+    public String getId() {
+        return this.id;
     }
 
-    public Builder userType(Integer userType) {
-      this.userType = userType;
-      return this;
+    public void setId(String id) {
+        this.id = id;
     }
 
-    public Builder userType(com.lark.oapi.service.vc.v1.enums.UserTypeEnum userType) {
-      this.userType = userType.getValue();
-      return this;
+    public Integer getUserType() {
+        return this.userType;
     }
 
-    public Builder pstnSipInfo(PstnSipInfo pstnSipInfo) {
-      this.pstnSipInfo = pstnSipInfo;
-      return this;
+    public void setUserType(Integer userType) {
+        this.userType = userType;
+    }
+
+    public PstnSipInfo getPstnSipInfo() {
+        return this.pstnSipInfo;
+    }
+
+    public void setPstnSipInfo(PstnSipInfo pstnSipInfo) {
+        this.pstnSipInfo = pstnSipInfo;
     }
 
 
-    public ReserveCallee build() {
-      return new ReserveCallee(this);
-    }
+// builder 开始
+  public ReserveCallee(){}
+
+  public ReserveCallee(Builder builder){
+      this.id = builder.id;
+      this.userType = builder.userType;
+      this.pstnSipInfo = builder.pstnSipInfo;
   }
+
+    public static class Builder {
+        private String id;
+        private Integer userType;
+        private PstnSipInfo pstnSipInfo;
+        public Builder id(String id) {
+             this.id = id;
+             return this;
+        }
+    
+        public Builder userType(Integer userType) {
+             this.userType = userType;
+             return this;
+        }
+        public Builder userType(com.lark.oapi.service.vc.v1.enums.UserTypeEnum userType) {
+             this.userType = userType.getValue();
+             return this;
+        }
+    
+        public Builder pstnSipInfo(PstnSipInfo pstnSipInfo) {
+             this.pstnSipInfo = pstnSipInfo;
+             return this;
+        }
+    
+    
+    public ReserveCallee build(){
+        return new ReserveCallee(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

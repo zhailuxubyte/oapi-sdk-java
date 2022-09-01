@@ -12,46 +12,52 @@
  */
 
 package com.lark.oapi.service.docx.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.docx.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class Link {
-
-  @SerializedName("url")
-  private String url;
-
-  // builder 开始
-  public Link() {
-  }
-
-  public Link(Builder builder) {
-    this.url = builder.url;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getUrl() {
-    return this.url;
-  }
-
-  public void setUrl(String url) {
-    this.url = url;
-  }
-
-  public static class Builder {
-
+    @SerializedName("url")
     private String url;
+    public String getUrl() {
+        return this.url;
+    }
 
-    public Builder url(String url) {
-      this.url = url;
-      return this;
+    public void setUrl(String url) {
+        this.url = url;
     }
 
 
-    public Link build() {
-      return new Link(this);
-    }
+// builder 开始
+  public Link(){}
+
+  public Link(Builder builder){
+      this.url = builder.url;
   }
+
+    public static class Builder {
+        private String url;
+        public Builder url(String url) {
+             this.url = url;
+             return this;
+        }
+    
+    
+    public Link build(){
+        return new Link(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

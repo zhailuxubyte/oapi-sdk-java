@@ -12,63 +12,69 @@
  */
 
 package com.lark.oapi.service.approval.v4.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.approval.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class ExternalInstanceForm {
-
-  @SerializedName("name")
-  private String name;
-  @SerializedName("value")
-  private String value;
-
-  // builder 开始
-  public ExternalInstanceForm() {
-  }
-
-  public ExternalInstanceForm(Builder builder) {
-    this.name = builder.name;
-    this.value = builder.value;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getName() {
-    return this.name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public String getValue() {
-    return this.value;
-  }
-
-  public void setValue(String value) {
-    this.value = value;
-  }
-
-  public static class Builder {
-
+    @SerializedName("name")
     private String name;
+    @SerializedName("value")
     private String value;
-
-    public Builder name(String name) {
-      this.name = name;
-      return this;
+    public String getName() {
+        return this.name;
     }
 
-    public Builder value(String value) {
-      this.value = value;
-      return this;
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getValue() {
+        return this.value;
+    }
+
+    public void setValue(String value) {
+        this.value = value;
     }
 
 
-    public ExternalInstanceForm build() {
-      return new ExternalInstanceForm(this);
-    }
+// builder 开始
+  public ExternalInstanceForm(){}
+
+  public ExternalInstanceForm(Builder builder){
+      this.name = builder.name;
+      this.value = builder.value;
   }
+
+    public static class Builder {
+        private String name;
+        private String value;
+        public Builder name(String name) {
+             this.name = name;
+             return this;
+        }
+    
+        public Builder value(String value) {
+             this.value = value;
+             return this;
+        }
+    
+    
+    public ExternalInstanceForm build(){
+        return new ExternalInstanceForm(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

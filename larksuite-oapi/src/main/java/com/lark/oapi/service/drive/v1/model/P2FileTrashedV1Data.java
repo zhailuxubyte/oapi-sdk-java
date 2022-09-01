@@ -12,50 +12,57 @@
  */
 
 package com.lark.oapi.service.drive.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class P2FileTrashedV1Data {
+    @SerializedName("file_type")
+    private String fileType;
+    @SerializedName("file_token")
+    private String fileToken;
+    @SerializedName("operator_id")
+    private UserId operatorId;
+    @SerializedName("subscriber_id_list")
+    private UserId[] subscriberIdList;
+    public String getFileType() {
+        return this.fileType;
+    }
 
-  @SerializedName("file_type")
-  private String fileType;
-  @SerializedName("file_token")
-  private String fileToken;
-  @SerializedName("operator_id")
-  private UserId operatorId;
-  @SerializedName("subscriber_id_list")
-  private UserId[] subscriberIdList;
+    public void setFileType(String fileType) {
+        this.fileType = fileType;
+    }
 
-  public String getFileType() {
-    return this.fileType;
-  }
+    public String getFileToken() {
+        return this.fileToken;
+    }
 
-  public void setFileType(String fileType) {
-    this.fileType = fileType;
-  }
+    public void setFileToken(String fileToken) {
+        this.fileToken = fileToken;
+    }
 
-  public String getFileToken() {
-    return this.fileToken;
-  }
+    public UserId getOperatorId() {
+        return this.operatorId;
+    }
 
-  public void setFileToken(String fileToken) {
-    this.fileToken = fileToken;
-  }
+    public void setOperatorId(UserId operatorId) {
+        this.operatorId = operatorId;
+    }
 
-  public UserId getOperatorId() {
-    return this.operatorId;
-  }
+    public UserId[] getSubscriberIdList() {
+        return this.subscriberIdList;
+    }
 
-  public void setOperatorId(UserId operatorId) {
-    this.operatorId = operatorId;
-  }
-
-  public UserId[] getSubscriberIdList() {
-    return this.subscriberIdList;
-  }
-
-  public void setSubscriberIdList(UserId[] subscriberIdList) {
-    this.subscriberIdList = subscriberIdList;
-  }
+    public void setSubscriberIdList(UserId[] subscriberIdList) {
+        this.subscriberIdList = subscriberIdList;
+    }
 
 }

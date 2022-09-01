@@ -12,102 +12,107 @@
  */
 
 package com.lark.oapi.service.application.v6.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.application.v6.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class CloudDocI18nInfo {
-
-  @SerializedName("i18n_key")
-  private String i18nKey;
-  @SerializedName("name")
-  private String name;
-  @SerializedName("read_description")
-  private String readDescription;
-  @SerializedName("write_description")
-  private String writeDescription;
-
-  // builder 开始
-  public CloudDocI18nInfo() {
-  }
-
-  public CloudDocI18nInfo(Builder builder) {
-    this.i18nKey = builder.i18nKey;
-    this.name = builder.name;
-    this.readDescription = builder.readDescription;
-    this.writeDescription = builder.writeDescription;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getI18nKey() {
-    return this.i18nKey;
-  }
-
-  public void setI18nKey(String i18nKey) {
-    this.i18nKey = i18nKey;
-  }
-
-  public String getName() {
-    return this.name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public String getReadDescription() {
-    return this.readDescription;
-  }
-
-  public void setReadDescription(String readDescription) {
-    this.readDescription = readDescription;
-  }
-
-  public String getWriteDescription() {
-    return this.writeDescription;
-  }
-
-  public void setWriteDescription(String writeDescription) {
-    this.writeDescription = writeDescription;
-  }
-
-  public static class Builder {
-
+    @SerializedName("i18n_key")
     private String i18nKey;
+    @SerializedName("name")
     private String name;
+    @SerializedName("read_description")
     private String readDescription;
+    @SerializedName("write_description")
     private String writeDescription;
-
-    public Builder i18nKey(String i18nKey) {
-      this.i18nKey = i18nKey;
-      return this;
+    public String getI18nKey() {
+        return this.i18nKey;
     }
 
-    public Builder i18nKey(com.lark.oapi.service.application.v6.enums.I18nKeyEnum i18nKey) {
-      this.i18nKey = i18nKey.getValue();
-      return this;
+    public void setI18nKey(String i18nKey) {
+        this.i18nKey = i18nKey;
     }
 
-    public Builder name(String name) {
-      this.name = name;
-      return this;
+    public String getName() {
+        return this.name;
     }
 
-    public Builder readDescription(String readDescription) {
-      this.readDescription = readDescription;
-      return this;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public Builder writeDescription(String writeDescription) {
-      this.writeDescription = writeDescription;
-      return this;
+    public String getReadDescription() {
+        return this.readDescription;
+    }
+
+    public void setReadDescription(String readDescription) {
+        this.readDescription = readDescription;
+    }
+
+    public String getWriteDescription() {
+        return this.writeDescription;
+    }
+
+    public void setWriteDescription(String writeDescription) {
+        this.writeDescription = writeDescription;
     }
 
 
-    public CloudDocI18nInfo build() {
-      return new CloudDocI18nInfo(this);
-    }
+// builder 开始
+  public CloudDocI18nInfo(){}
+
+  public CloudDocI18nInfo(Builder builder){
+      this.i18nKey = builder.i18nKey;
+      this.name = builder.name;
+      this.readDescription = builder.readDescription;
+      this.writeDescription = builder.writeDescription;
   }
+
+    public static class Builder {
+        private String i18nKey;
+        private String name;
+        private String readDescription;
+        private String writeDescription;
+        public Builder i18nKey(String i18nKey) {
+             this.i18nKey = i18nKey;
+             return this;
+        }
+        public Builder i18nKey(com.lark.oapi.service.application.v6.enums.I18nKeyEnum i18nKey) {
+             this.i18nKey = i18nKey.getValue();
+             return this;
+        }
+    
+        public Builder name(String name) {
+             this.name = name;
+             return this;
+        }
+    
+        public Builder readDescription(String readDescription) {
+             this.readDescription = readDescription;
+             return this;
+        }
+    
+        public Builder writeDescription(String writeDescription) {
+             this.writeDescription = writeDescription;
+             return this;
+        }
+    
+    
+    public CloudDocI18nInfo build(){
+        return new CloudDocI18nInfo(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

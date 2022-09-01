@@ -12,63 +12,69 @@
  */
 
 package com.lark.oapi.service.contact.v3.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.contact.v3.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class OldUserObject {
-
-  @SerializedName("department_ids")
-  private String[] departmentIds;
-  @SerializedName("open_id")
-  private String openId;
-
-  // builder 开始
-  public OldUserObject() {
-  }
-
-  public OldUserObject(Builder builder) {
-    this.departmentIds = builder.departmentIds;
-    this.openId = builder.openId;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String[] getDepartmentIds() {
-    return this.departmentIds;
-  }
-
-  public void setDepartmentIds(String[] departmentIds) {
-    this.departmentIds = departmentIds;
-  }
-
-  public String getOpenId() {
-    return this.openId;
-  }
-
-  public void setOpenId(String openId) {
-    this.openId = openId;
-  }
-
-  public static class Builder {
-
+    @SerializedName("department_ids")
     private String[] departmentIds;
+    @SerializedName("open_id")
     private String openId;
-
-    public Builder departmentIds(String[] departmentIds) {
-      this.departmentIds = departmentIds;
-      return this;
+    public String[] getDepartmentIds() {
+        return this.departmentIds;
     }
 
-    public Builder openId(String openId) {
-      this.openId = openId;
-      return this;
+    public void setDepartmentIds(String[] departmentIds) {
+        this.departmentIds = departmentIds;
+    }
+
+    public String getOpenId() {
+        return this.openId;
+    }
+
+    public void setOpenId(String openId) {
+        this.openId = openId;
     }
 
 
-    public OldUserObject build() {
-      return new OldUserObject(this);
-    }
+// builder 开始
+  public OldUserObject(){}
+
+  public OldUserObject(Builder builder){
+      this.departmentIds = builder.departmentIds;
+      this.openId = builder.openId;
   }
+
+    public static class Builder {
+        private String[] departmentIds;
+        private String openId;
+        public Builder departmentIds(String[] departmentIds) {
+             this.departmentIds = departmentIds;
+             return this;
+        }
+    
+        public Builder openId(String openId) {
+             this.openId = openId;
+             return this;
+        }
+    
+    
+    public OldUserObject build(){
+        return new OldUserObject(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

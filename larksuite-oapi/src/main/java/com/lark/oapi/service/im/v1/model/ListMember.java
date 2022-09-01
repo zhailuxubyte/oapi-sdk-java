@@ -12,97 +12,103 @@
  */
 
 package com.lark.oapi.service.im.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.im.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class ListMember {
-
-  @SerializedName("member_id_type")
-  private String memberIdType;
-  @SerializedName("member_id")
-  private String memberId;
-  @SerializedName("name")
-  private String name;
-  @SerializedName("tenant_key")
-  private String tenantKey;
-
-  // builder 开始
-  public ListMember() {
-  }
-
-  public ListMember(Builder builder) {
-    this.memberIdType = builder.memberIdType;
-    this.memberId = builder.memberId;
-    this.name = builder.name;
-    this.tenantKey = builder.tenantKey;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getMemberIdType() {
-    return this.memberIdType;
-  }
-
-  public void setMemberIdType(String memberIdType) {
-    this.memberIdType = memberIdType;
-  }
-
-  public String getMemberId() {
-    return this.memberId;
-  }
-
-  public void setMemberId(String memberId) {
-    this.memberId = memberId;
-  }
-
-  public String getName() {
-    return this.name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public String getTenantKey() {
-    return this.tenantKey;
-  }
-
-  public void setTenantKey(String tenantKey) {
-    this.tenantKey = tenantKey;
-  }
-
-  public static class Builder {
-
+    @SerializedName("member_id_type")
     private String memberIdType;
+    @SerializedName("member_id")
     private String memberId;
+    @SerializedName("name")
     private String name;
+    @SerializedName("tenant_key")
     private String tenantKey;
-
-    public Builder memberIdType(String memberIdType) {
-      this.memberIdType = memberIdType;
-      return this;
+    public String getMemberIdType() {
+        return this.memberIdType;
     }
 
-    public Builder memberId(String memberId) {
-      this.memberId = memberId;
-      return this;
+    public void setMemberIdType(String memberIdType) {
+        this.memberIdType = memberIdType;
     }
 
-    public Builder name(String name) {
-      this.name = name;
-      return this;
+    public String getMemberId() {
+        return this.memberId;
     }
 
-    public Builder tenantKey(String tenantKey) {
-      this.tenantKey = tenantKey;
-      return this;
+    public void setMemberId(String memberId) {
+        this.memberId = memberId;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getTenantKey() {
+        return this.tenantKey;
+    }
+
+    public void setTenantKey(String tenantKey) {
+        this.tenantKey = tenantKey;
     }
 
 
-    public ListMember build() {
-      return new ListMember(this);
-    }
+// builder 开始
+  public ListMember(){}
+
+  public ListMember(Builder builder){
+      this.memberIdType = builder.memberIdType;
+      this.memberId = builder.memberId;
+      this.name = builder.name;
+      this.tenantKey = builder.tenantKey;
   }
+
+    public static class Builder {
+        private String memberIdType;
+        private String memberId;
+        private String name;
+        private String tenantKey;
+        public Builder memberIdType(String memberIdType) {
+             this.memberIdType = memberIdType;
+             return this;
+        }
+    
+        public Builder memberId(String memberId) {
+             this.memberId = memberId;
+             return this;
+        }
+    
+        public Builder name(String name) {
+             this.name = name;
+             return this;
+        }
+    
+        public Builder tenantKey(String tenantKey) {
+             this.tenantKey = tenantKey;
+             return this;
+        }
+    
+    
+    public ListMember build(){
+        return new ListMember(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

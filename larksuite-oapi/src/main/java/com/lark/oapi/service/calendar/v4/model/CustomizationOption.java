@@ -12,63 +12,69 @@
  */
 
 package com.lark.oapi.service.calendar.v4.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.calendar.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class CustomizationOption {
-
-  @SerializedName("option_key")
-  private String optionKey;
-  @SerializedName("others_content")
-  private String othersContent;
-
-  // builder 开始
-  public CustomizationOption() {
-  }
-
-  public CustomizationOption(Builder builder) {
-    this.optionKey = builder.optionKey;
-    this.othersContent = builder.othersContent;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getOptionKey() {
-    return this.optionKey;
-  }
-
-  public void setOptionKey(String optionKey) {
-    this.optionKey = optionKey;
-  }
-
-  public String getOthersContent() {
-    return this.othersContent;
-  }
-
-  public void setOthersContent(String othersContent) {
-    this.othersContent = othersContent;
-  }
-
-  public static class Builder {
-
+    @SerializedName("option_key")
     private String optionKey;
+    @SerializedName("others_content")
     private String othersContent;
-
-    public Builder optionKey(String optionKey) {
-      this.optionKey = optionKey;
-      return this;
+    public String getOptionKey() {
+        return this.optionKey;
     }
 
-    public Builder othersContent(String othersContent) {
-      this.othersContent = othersContent;
-      return this;
+    public void setOptionKey(String optionKey) {
+        this.optionKey = optionKey;
+    }
+
+    public String getOthersContent() {
+        return this.othersContent;
+    }
+
+    public void setOthersContent(String othersContent) {
+        this.othersContent = othersContent;
     }
 
 
-    public CustomizationOption build() {
-      return new CustomizationOption(this);
-    }
+// builder 开始
+  public CustomizationOption(){}
+
+  public CustomizationOption(Builder builder){
+      this.optionKey = builder.optionKey;
+      this.othersContent = builder.othersContent;
   }
+
+    public static class Builder {
+        private String optionKey;
+        private String othersContent;
+        public Builder optionKey(String optionKey) {
+             this.optionKey = optionKey;
+             return this;
+        }
+    
+        public Builder othersContent(String othersContent) {
+             this.othersContent = othersContent;
+             return this;
+        }
+    
+    
+    public CustomizationOption build(){
+        return new CustomizationOption(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

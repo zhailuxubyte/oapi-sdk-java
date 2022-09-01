@@ -12,63 +12,69 @@
  */
 
 package com.lark.oapi.service.docx.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.docx.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class Table {
-
-  @SerializedName("cells")
-  private String[] cells;
-  @SerializedName("property")
-  private TableProperty property;
-
-  // builder 开始
-  public Table() {
-  }
-
-  public Table(Builder builder) {
-    this.cells = builder.cells;
-    this.property = builder.property;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String[] getCells() {
-    return this.cells;
-  }
-
-  public void setCells(String[] cells) {
-    this.cells = cells;
-  }
-
-  public TableProperty getProperty() {
-    return this.property;
-  }
-
-  public void setProperty(TableProperty property) {
-    this.property = property;
-  }
-
-  public static class Builder {
-
+    @SerializedName("cells")
     private String[] cells;
+    @SerializedName("property")
     private TableProperty property;
-
-    public Builder cells(String[] cells) {
-      this.cells = cells;
-      return this;
+    public String[] getCells() {
+        return this.cells;
     }
 
-    public Builder property(TableProperty property) {
-      this.property = property;
-      return this;
+    public void setCells(String[] cells) {
+        this.cells = cells;
+    }
+
+    public TableProperty getProperty() {
+        return this.property;
+    }
+
+    public void setProperty(TableProperty property) {
+        this.property = property;
     }
 
 
-    public Table build() {
-      return new Table(this);
-    }
+// builder 开始
+  public Table(){}
+
+  public Table(Builder builder){
+      this.cells = builder.cells;
+      this.property = builder.property;
   }
+
+    public static class Builder {
+        private String[] cells;
+        private TableProperty property;
+        public Builder cells(String[] cells) {
+             this.cells = cells;
+             return this;
+        }
+    
+        public Builder property(TableProperty property) {
+             this.property = property;
+             return this;
+        }
+    
+    
+    public Table build(){
+        return new Table(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

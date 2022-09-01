@@ -12,30 +12,37 @@
  */
 
 package com.lark.oapi.service.face_detection.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class DetectFaceAttributesImage {
+    @SerializedName("image_info")
+    private Image imageInfo;
+    @SerializedName("face_infos")
+    private FaceInfo[] faceInfos;
+    public Image getImageInfo() {
+        return this.imageInfo;
+    }
 
-  @SerializedName("image_info")
-  private Image imageInfo;
-  @SerializedName("face_infos")
-  private FaceInfo[] faceInfos;
+    public void setImageInfo(Image imageInfo) {
+        this.imageInfo = imageInfo;
+    }
 
-  public Image getImageInfo() {
-    return this.imageInfo;
-  }
+    public FaceInfo[] getFaceInfos() {
+        return this.faceInfos;
+    }
 
-  public void setImageInfo(Image imageInfo) {
-    this.imageInfo = imageInfo;
-  }
-
-  public FaceInfo[] getFaceInfos() {
-    return this.faceInfos;
-  }
-
-  public void setFaceInfos(FaceInfo[] faceInfos) {
-    this.faceInfos = faceInfos;
-  }
+    public void setFaceInfos(FaceInfo[] faceInfos) {
+        this.faceInfos = faceInfos;
+    }
 
 }

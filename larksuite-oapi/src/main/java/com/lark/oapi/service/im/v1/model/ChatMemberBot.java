@@ -12,46 +12,52 @@
  */
 
 package com.lark.oapi.service.im.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.im.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class ChatMemberBot {
-
-  @SerializedName("bot_id")
-  private String botId;
-
-  // builder 开始
-  public ChatMemberBot() {
-  }
-
-  public ChatMemberBot(Builder builder) {
-    this.botId = builder.botId;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getBotId() {
-    return this.botId;
-  }
-
-  public void setBotId(String botId) {
-    this.botId = botId;
-  }
-
-  public static class Builder {
-
+    @SerializedName("bot_id")
     private String botId;
+    public String getBotId() {
+        return this.botId;
+    }
 
-    public Builder botId(String botId) {
-      this.botId = botId;
-      return this;
+    public void setBotId(String botId) {
+        this.botId = botId;
     }
 
 
-    public ChatMemberBot build() {
-      return new ChatMemberBot(this);
-    }
+// builder 开始
+  public ChatMemberBot(){}
+
+  public ChatMemberBot(Builder builder){
+      this.botId = builder.botId;
   }
+
+    public static class Builder {
+        private String botId;
+        public Builder botId(String botId) {
+             this.botId = botId;
+             return this;
+        }
+    
+    
+    public ChatMemberBot build(){
+        return new ChatMemberBot(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

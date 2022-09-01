@@ -12,51 +12,56 @@
  */
 
 package com.lark.oapi.service.docx.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.docx.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class Diagram {
-
-  @SerializedName("diagram_type")
-  private Integer diagramType;
-
-  // builder 开始
-  public Diagram() {
-  }
-
-  public Diagram(Builder builder) {
-    this.diagramType = builder.diagramType;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Integer getDiagramType() {
-    return this.diagramType;
-  }
-
-  public void setDiagramType(Integer diagramType) {
-    this.diagramType = diagramType;
-  }
-
-  public static class Builder {
-
+    @SerializedName("diagram_type")
     private Integer diagramType;
-
-    public Builder diagramType(Integer diagramType) {
-      this.diagramType = diagramType;
-      return this;
+    public Integer getDiagramType() {
+        return this.diagramType;
     }
 
-    public Builder diagramType(com.lark.oapi.service.docx.v1.enums.DiagramTypeEnum diagramType) {
-      this.diagramType = diagramType.getValue();
-      return this;
+    public void setDiagramType(Integer diagramType) {
+        this.diagramType = diagramType;
     }
 
 
-    public Diagram build() {
-      return new Diagram(this);
-    }
+// builder 开始
+  public Diagram(){}
+
+  public Diagram(Builder builder){
+      this.diagramType = builder.diagramType;
   }
+
+    public static class Builder {
+        private Integer diagramType;
+        public Builder diagramType(Integer diagramType) {
+             this.diagramType = diagramType;
+             return this;
+        }
+        public Builder diagramType(com.lark.oapi.service.docx.v1.enums.DiagramTypeEnum diagramType) {
+             this.diagramType = diagramType.getValue();
+             return this;
+        }
+    
+    
+    public Diagram build(){
+        return new Diagram(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

@@ -12,170 +12,175 @@
  */
 
 package com.lark.oapi.service.acs.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.acs.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class AccessRecord {
-
-  @SerializedName("access_record_id")
-  private String accessRecordId;
-  @SerializedName("user_id")
-  private String userId;
-  @SerializedName("device_id")
-  private String deviceId;
-  @SerializedName("is_clock_in")
-  private Boolean isClockIn;
-  @SerializedName("access_time")
-  private String accessTime;
-  @SerializedName("access_type")
-  private String accessType;
-  @SerializedName("access_data")
-  private String accessData;
-  @SerializedName("is_door_open")
-  private Boolean isDoorOpen;
-
-  // builder 开始
-  public AccessRecord() {
-  }
-
-  public AccessRecord(Builder builder) {
-    this.accessRecordId = builder.accessRecordId;
-    this.userId = builder.userId;
-    this.deviceId = builder.deviceId;
-    this.isClockIn = builder.isClockIn;
-    this.accessTime = builder.accessTime;
-    this.accessType = builder.accessType;
-    this.accessData = builder.accessData;
-    this.isDoorOpen = builder.isDoorOpen;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getAccessRecordId() {
-    return this.accessRecordId;
-  }
-
-  public void setAccessRecordId(String accessRecordId) {
-    this.accessRecordId = accessRecordId;
-  }
-
-  public String getUserId() {
-    return this.userId;
-  }
-
-  public void setUserId(String userId) {
-    this.userId = userId;
-  }
-
-  public String getDeviceId() {
-    return this.deviceId;
-  }
-
-  public void setDeviceId(String deviceId) {
-    this.deviceId = deviceId;
-  }
-
-  public Boolean getIsClockIn() {
-    return this.isClockIn;
-  }
-
-  public void setIsClockIn(Boolean isClockIn) {
-    this.isClockIn = isClockIn;
-  }
-
-  public String getAccessTime() {
-    return this.accessTime;
-  }
-
-  public void setAccessTime(String accessTime) {
-    this.accessTime = accessTime;
-  }
-
-  public String getAccessType() {
-    return this.accessType;
-  }
-
-  public void setAccessType(String accessType) {
-    this.accessType = accessType;
-  }
-
-  public String getAccessData() {
-    return this.accessData;
-  }
-
-  public void setAccessData(String accessData) {
-    this.accessData = accessData;
-  }
-
-  public Boolean getIsDoorOpen() {
-    return this.isDoorOpen;
-  }
-
-  public void setIsDoorOpen(Boolean isDoorOpen) {
-    this.isDoorOpen = isDoorOpen;
-  }
-
-  public static class Builder {
-
+    @SerializedName("access_record_id")
     private String accessRecordId;
+    @SerializedName("user_id")
     private String userId;
+    @SerializedName("device_id")
     private String deviceId;
+    @SerializedName("is_clock_in")
     private Boolean isClockIn;
+    @SerializedName("access_time")
     private String accessTime;
+    @SerializedName("access_type")
     private String accessType;
+    @SerializedName("access_data")
     private String accessData;
+    @SerializedName("is_door_open")
     private Boolean isDoorOpen;
-
-    public Builder accessRecordId(String accessRecordId) {
-      this.accessRecordId = accessRecordId;
-      return this;
+    public String getAccessRecordId() {
+        return this.accessRecordId;
     }
 
-    public Builder userId(String userId) {
-      this.userId = userId;
-      return this;
+    public void setAccessRecordId(String accessRecordId) {
+        this.accessRecordId = accessRecordId;
     }
 
-    public Builder deviceId(String deviceId) {
-      this.deviceId = deviceId;
-      return this;
+    public String getUserId() {
+        return this.userId;
     }
 
-    public Builder isClockIn(Boolean isClockIn) {
-      this.isClockIn = isClockIn;
-      return this;
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
-    public Builder accessTime(String accessTime) {
-      this.accessTime = accessTime;
-      return this;
+    public String getDeviceId() {
+        return this.deviceId;
     }
 
-    public Builder accessType(String accessType) {
-      this.accessType = accessType;
-      return this;
+    public void setDeviceId(String deviceId) {
+        this.deviceId = deviceId;
     }
 
-    public Builder accessType(com.lark.oapi.service.acs.v1.enums.AccessTypeEnum accessType) {
-      this.accessType = accessType.getValue();
-      return this;
+    public Boolean getIsClockIn() {
+        return this.isClockIn;
     }
 
-    public Builder accessData(String accessData) {
-      this.accessData = accessData;
-      return this;
+    public void setIsClockIn(Boolean isClockIn) {
+        this.isClockIn = isClockIn;
     }
 
-    public Builder isDoorOpen(Boolean isDoorOpen) {
-      this.isDoorOpen = isDoorOpen;
-      return this;
+    public String getAccessTime() {
+        return this.accessTime;
+    }
+
+    public void setAccessTime(String accessTime) {
+        this.accessTime = accessTime;
+    }
+
+    public String getAccessType() {
+        return this.accessType;
+    }
+
+    public void setAccessType(String accessType) {
+        this.accessType = accessType;
+    }
+
+    public String getAccessData() {
+        return this.accessData;
+    }
+
+    public void setAccessData(String accessData) {
+        this.accessData = accessData;
+    }
+
+    public Boolean getIsDoorOpen() {
+        return this.isDoorOpen;
+    }
+
+    public void setIsDoorOpen(Boolean isDoorOpen) {
+        this.isDoorOpen = isDoorOpen;
     }
 
 
-    public AccessRecord build() {
-      return new AccessRecord(this);
-    }
+// builder 开始
+  public AccessRecord(){}
+
+  public AccessRecord(Builder builder){
+      this.accessRecordId = builder.accessRecordId;
+      this.userId = builder.userId;
+      this.deviceId = builder.deviceId;
+      this.isClockIn = builder.isClockIn;
+      this.accessTime = builder.accessTime;
+      this.accessType = builder.accessType;
+      this.accessData = builder.accessData;
+      this.isDoorOpen = builder.isDoorOpen;
   }
+
+    public static class Builder {
+        private String accessRecordId;
+        private String userId;
+        private String deviceId;
+        private Boolean isClockIn;
+        private String accessTime;
+        private String accessType;
+        private String accessData;
+        private Boolean isDoorOpen;
+        public Builder accessRecordId(String accessRecordId) {
+             this.accessRecordId = accessRecordId;
+             return this;
+        }
+    
+        public Builder userId(String userId) {
+             this.userId = userId;
+             return this;
+        }
+    
+        public Builder deviceId(String deviceId) {
+             this.deviceId = deviceId;
+             return this;
+        }
+    
+        public Builder isClockIn(Boolean isClockIn) {
+             this.isClockIn = isClockIn;
+             return this;
+        }
+    
+        public Builder accessTime(String accessTime) {
+             this.accessTime = accessTime;
+             return this;
+        }
+    
+        public Builder accessType(String accessType) {
+             this.accessType = accessType;
+             return this;
+        }
+        public Builder accessType(com.lark.oapi.service.acs.v1.enums.AccessTypeEnum accessType) {
+             this.accessType = accessType.getValue();
+             return this;
+        }
+    
+        public Builder accessData(String accessData) {
+             this.accessData = accessData;
+             return this;
+        }
+    
+        public Builder isDoorOpen(Boolean isDoorOpen) {
+             this.isDoorOpen = isDoorOpen;
+             return this;
+        }
+    
+    
+    public AccessRecord build(){
+        return new AccessRecord(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

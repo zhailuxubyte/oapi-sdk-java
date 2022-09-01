@@ -12,63 +12,68 @@
  */
 
 package com.lark.oapi.service.meeting_room.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class UserInfo {
-
-  @SerializedName("open_id")
-  private String openId;
-  @SerializedName("user_id")
-  private String userId;
-
-  // builder 开始
-  public UserInfo() {
-  }
-
-  public UserInfo(Builder builder) {
-    this.openId = builder.openId;
-    this.userId = builder.userId;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getOpenId() {
-    return this.openId;
-  }
-
-  public void setOpenId(String openId) {
-    this.openId = openId;
-  }
-
-  public String getUserId() {
-    return this.userId;
-  }
-
-  public void setUserId(String userId) {
-    this.userId = userId;
-  }
-
-  public static class Builder {
-
+    @SerializedName("open_id")
     private String openId;
+    @SerializedName("user_id")
     private String userId;
-
-    public Builder openId(String openId) {
-      this.openId = openId;
-      return this;
+    public String getOpenId() {
+        return this.openId;
     }
 
-    public Builder userId(String userId) {
-      this.userId = userId;
-      return this;
+    public void setOpenId(String openId) {
+        this.openId = openId;
+    }
+
+    public String getUserId() {
+        return this.userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
 
-    public UserInfo build() {
-      return new UserInfo(this);
-    }
+// builder 开始
+  public UserInfo(){}
+
+  public UserInfo(Builder builder){
+      this.openId = builder.openId;
+      this.userId = builder.userId;
   }
+
+    public static class Builder {
+        private String openId;
+        private String userId;
+        public Builder openId(String openId) {
+             this.openId = openId;
+             return this;
+        }
+    
+        public Builder userId(String userId) {
+             this.userId = userId;
+             return this;
+        }
+    
+    
+    public UserInfo build(){
+        return new UserInfo(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

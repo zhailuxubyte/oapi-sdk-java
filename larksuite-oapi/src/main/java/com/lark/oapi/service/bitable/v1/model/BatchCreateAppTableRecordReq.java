@@ -12,111 +12,112 @@
  */
 
 package com.lark.oapi.service.bitable.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.bitable.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class BatchCreateAppTableRecordReq {
-
-  @Query
-  @SerializedName("user_id_type")
-  private String userIdType;
-  @Path
-  @SerializedName("app_token")
-  private String appToken;
-  @Path
-  @SerializedName("table_id")
-  private String tableId;
-  @Body
-  private BatchCreateAppTableRecordReqBody body;
-
-  // builder 开始
-  public BatchCreateAppTableRecordReq() {
-  }
-
-  public BatchCreateAppTableRecordReq(Builder builder) {
-    this.userIdType = builder.userIdType;
-    this.appToken = builder.appToken;
-    this.tableId = builder.tableId;
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getUserIdType() {
-    return this.userIdType;
-  }
-
-  public void setUserIdType(String userIdType) {
-    this.userIdType = userIdType;
-  }
-
-  public String getAppToken() {
-    return this.appToken;
-  }
-
-  public void setAppToken(String appToken) {
-    this.appToken = appToken;
-  }
-
-  public String getTableId() {
-    return this.tableId;
-  }
-
-  public void setTableId(String tableId) {
-    this.tableId = tableId;
-  }
-
-  public BatchCreateAppTableRecordReqBody getBatchCreateAppTableRecordReqBody() {
-    return this.body;
-  }
-
-  public void setBatchCreateAppTableRecordReqBody(BatchCreateAppTableRecordReqBody body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
+    @Query
+    @SerializedName("user_id_type")
     private String userIdType;
+    public String getUserIdType() {
+        return this.userIdType;
+    }
+
+    public void setUserIdType(String userIdType) {
+        this.userIdType = userIdType;
+    }
+
+    @Path
+    @SerializedName("app_token")
     private String appToken;
+    @Path
+    @SerializedName("table_id")
     private String tableId;
+    public String getAppToken() {
+        return this.appToken;
+    }
+
+    public void setAppToken(String appToken) {
+        this.appToken = appToken;
+    }
+
+    public String getTableId() {
+        return this.tableId;
+    }
+
+    public void setTableId(String tableId) {
+        this.tableId = tableId;
+    }
+
+    @Body
     private BatchCreateAppTableRecordReqBody body;
 
-    public Builder userIdType(String userIdType) {
-      this.userIdType = userIdType;
-      return this;
-    }
-
-    public Builder userIdType(com.lark.oapi.service.bitable.v1.enums.UserIdTypeEnum userIdType) {
-      this.userIdType = userIdType.getValue();
-      return this;
-    }
-
-    public Builder appToken(String appToken) {
-      this.appToken = appToken;
-      return this;
-    }
-
-    public Builder tableId(String tableId) {
-      this.tableId = tableId;
-      return this;
-    }
-
     public BatchCreateAppTableRecordReqBody getBatchCreateAppTableRecordReqBody() {
-      return this.body;
+        return this.body;
     }
 
-    public Builder batchCreateAppTableRecordReqBody(BatchCreateAppTableRecordReqBody body) {
-      this.body = body;
-      return this;
+    public void setBatchCreateAppTableRecordReqBody(BatchCreateAppTableRecordReqBody body) {
+        this.body = body;
     }
 
-    public BatchCreateAppTableRecordReq build() {
-      return new BatchCreateAppTableRecordReq(this);
-    }
+// builder 开始
+  public BatchCreateAppTableRecordReq(){}
+
+  public BatchCreateAppTableRecordReq(Builder builder){
+       this.userIdType = builder.userIdType;
+       this.appToken = builder.appToken;
+       this.tableId = builder.tableId;
+        this.body = builder.body;
   }
+
+    public static class Builder {
+        private String userIdType;
+    
+           public Builder userIdType(String userIdType) {
+                this.userIdType = userIdType;
+                return this;
+           }
+          public Builder userIdType(com.lark.oapi.service.bitable.v1.enums.UserIdTypeEnum userIdType) {
+               this.userIdType = userIdType.getValue();
+               return this;
+          }
+    
+        private String appToken;
+        private String tableId;
+          public Builder appToken(String appToken) {
+               this.appToken = appToken;
+               return this;
+          }
+    
+          public Builder tableId(String tableId) {
+               this.tableId = tableId;
+               return this;
+          }
+    
+        private BatchCreateAppTableRecordReqBody body;
+    
+        public BatchCreateAppTableRecordReqBody getBatchCreateAppTableRecordReqBody() {
+            return this.body;
+        }
+        public Builder batchCreateAppTableRecordReqBody(BatchCreateAppTableRecordReqBody body) {
+             this.body = body;
+             return this;
+        }
+    public BatchCreateAppTableRecordReq build(){
+        return new BatchCreateAppTableRecordReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

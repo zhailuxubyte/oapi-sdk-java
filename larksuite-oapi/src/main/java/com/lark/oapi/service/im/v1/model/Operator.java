@@ -12,68 +12,73 @@
  */
 
 package com.lark.oapi.service.im.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.im.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class Operator {
-
-  @SerializedName("operator_id")
-  private String operatorId;
-  @SerializedName("operator_type")
-  private String operatorType;
-
-  // builder 开始
-  public Operator() {
-  }
-
-  public Operator(Builder builder) {
-    this.operatorId = builder.operatorId;
-    this.operatorType = builder.operatorType;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getOperatorId() {
-    return this.operatorId;
-  }
-
-  public void setOperatorId(String operatorId) {
-    this.operatorId = operatorId;
-  }
-
-  public String getOperatorType() {
-    return this.operatorType;
-  }
-
-  public void setOperatorType(String operatorType) {
-    this.operatorType = operatorType;
-  }
-
-  public static class Builder {
-
+    @SerializedName("operator_id")
     private String operatorId;
+    @SerializedName("operator_type")
     private String operatorType;
-
-    public Builder operatorId(String operatorId) {
-      this.operatorId = operatorId;
-      return this;
+    public String getOperatorId() {
+        return this.operatorId;
     }
 
-    public Builder operatorType(String operatorType) {
-      this.operatorType = operatorType;
-      return this;
+    public void setOperatorId(String operatorId) {
+        this.operatorId = operatorId;
     }
 
-    public Builder operatorType(com.lark.oapi.service.im.v1.enums.OperatorTypeEnum operatorType) {
-      this.operatorType = operatorType.getValue();
-      return this;
+    public String getOperatorType() {
+        return this.operatorType;
+    }
+
+    public void setOperatorType(String operatorType) {
+        this.operatorType = operatorType;
     }
 
 
-    public Operator build() {
-      return new Operator(this);
-    }
+// builder 开始
+  public Operator(){}
+
+  public Operator(Builder builder){
+      this.operatorId = builder.operatorId;
+      this.operatorType = builder.operatorType;
   }
+
+    public static class Builder {
+        private String operatorId;
+        private String operatorType;
+        public Builder operatorId(String operatorId) {
+             this.operatorId = operatorId;
+             return this;
+        }
+    
+        public Builder operatorType(String operatorType) {
+             this.operatorType = operatorType;
+             return this;
+        }
+        public Builder operatorType(com.lark.oapi.service.im.v1.enums.OperatorTypeEnum operatorType) {
+             this.operatorType = operatorType.getValue();
+             return this;
+        }
+    
+    
+    public Operator build(){
+        return new Operator(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

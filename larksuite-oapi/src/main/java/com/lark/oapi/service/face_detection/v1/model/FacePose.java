@@ -12,80 +12,85 @@
  */
 
 package com.lark.oapi.service.face_detection.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class FacePose {
-
-  @SerializedName("pitch")
-  private Integer pitch;
-  @SerializedName("yaw")
-  private Integer yaw;
-  @SerializedName("roll")
-  private Integer roll;
-
-  // builder 开始
-  public FacePose() {
-  }
-
-  public FacePose(Builder builder) {
-    this.pitch = builder.pitch;
-    this.yaw = builder.yaw;
-    this.roll = builder.roll;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Integer getPitch() {
-    return this.pitch;
-  }
-
-  public void setPitch(Integer pitch) {
-    this.pitch = pitch;
-  }
-
-  public Integer getYaw() {
-    return this.yaw;
-  }
-
-  public void setYaw(Integer yaw) {
-    this.yaw = yaw;
-  }
-
-  public Integer getRoll() {
-    return this.roll;
-  }
-
-  public void setRoll(Integer roll) {
-    this.roll = roll;
-  }
-
-  public static class Builder {
-
+    @SerializedName("pitch")
     private Integer pitch;
+    @SerializedName("yaw")
     private Integer yaw;
+    @SerializedName("roll")
     private Integer roll;
-
-    public Builder pitch(Integer pitch) {
-      this.pitch = pitch;
-      return this;
+    public Integer getPitch() {
+        return this.pitch;
     }
 
-    public Builder yaw(Integer yaw) {
-      this.yaw = yaw;
-      return this;
+    public void setPitch(Integer pitch) {
+        this.pitch = pitch;
     }
 
-    public Builder roll(Integer roll) {
-      this.roll = roll;
-      return this;
+    public Integer getYaw() {
+        return this.yaw;
+    }
+
+    public void setYaw(Integer yaw) {
+        this.yaw = yaw;
+    }
+
+    public Integer getRoll() {
+        return this.roll;
+    }
+
+    public void setRoll(Integer roll) {
+        this.roll = roll;
     }
 
 
-    public FacePose build() {
-      return new FacePose(this);
-    }
+// builder 开始
+  public FacePose(){}
+
+  public FacePose(Builder builder){
+      this.pitch = builder.pitch;
+      this.yaw = builder.yaw;
+      this.roll = builder.roll;
   }
+
+    public static class Builder {
+        private Integer pitch;
+        private Integer yaw;
+        private Integer roll;
+        public Builder pitch(Integer pitch) {
+             this.pitch = pitch;
+             return this;
+        }
+    
+        public Builder yaw(Integer yaw) {
+             this.yaw = yaw;
+             return this;
+        }
+    
+        public Builder roll(Integer roll) {
+             this.roll = roll;
+             return this;
+        }
+    
+    
+    public FacePose build(){
+        return new FacePose(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

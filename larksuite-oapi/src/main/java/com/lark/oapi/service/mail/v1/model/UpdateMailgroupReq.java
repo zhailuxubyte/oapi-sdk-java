@@ -12,69 +12,72 @@
  */
 
 package com.lark.oapi.service.mail.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.mail.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class UpdateMailgroupReq {
-
-  @Path
-  @SerializedName("mailgroup_id")
-  private String mailgroupId;
-  @Body
-  private Mailgroup body;
-
-  // builder 开始
-  public UpdateMailgroupReq() {
-  }
-
-  public UpdateMailgroupReq(Builder builder) {
-    this.mailgroupId = builder.mailgroupId;
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getMailgroupId() {
-    return this.mailgroupId;
-  }
-
-  public void setMailgroupId(String mailgroupId) {
-    this.mailgroupId = mailgroupId;
-  }
-
-  public Mailgroup getMailgroup() {
-    return this.body;
-  }
-
-  public void setMailgroup(Mailgroup body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
+    @Path
+    @SerializedName("mailgroup_id")
     private String mailgroupId;
+    public String getMailgroupId() {
+        return this.mailgroupId;
+    }
+
+    public void setMailgroupId(String mailgroupId) {
+        this.mailgroupId = mailgroupId;
+    }
+
+    @Body
     private Mailgroup body;
 
-    public Builder mailgroupId(String mailgroupId) {
-      this.mailgroupId = mailgroupId;
-      return this;
-    }
-
     public Mailgroup getMailgroup() {
-      return this.body;
+        return this.body;
     }
 
-    public Builder mailgroup(Mailgroup body) {
-      this.body = body;
-      return this;
+    public void setMailgroup(Mailgroup body) {
+        this.body = body;
     }
 
-    public UpdateMailgroupReq build() {
-      return new UpdateMailgroupReq(this);
-    }
+// builder 开始
+  public UpdateMailgroupReq(){}
+
+  public UpdateMailgroupReq(Builder builder){
+       this.mailgroupId = builder.mailgroupId;
+        this.body = builder.body;
   }
+
+    public static class Builder {
+    
+        private String mailgroupId;
+          public Builder mailgroupId(String mailgroupId) {
+               this.mailgroupId = mailgroupId;
+               return this;
+          }
+    
+        private Mailgroup body;
+    
+        public Mailgroup getMailgroup() {
+            return this.body;
+        }
+        public Builder mailgroup(Mailgroup body) {
+             this.body = body;
+             return this;
+        }
+    public UpdateMailgroupReq build(){
+        return new UpdateMailgroupReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

@@ -12,63 +12,69 @@
  */
 
 package com.lark.oapi.service.approval.v4.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.approval.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class FieldGroup {
-
-  @SerializedName("writable")
-  private String[] writable;
-  @SerializedName("readable")
-  private String[] readable;
-
-  // builder 开始
-  public FieldGroup() {
-  }
-
-  public FieldGroup(Builder builder) {
-    this.writable = builder.writable;
-    this.readable = builder.readable;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String[] getWritable() {
-    return this.writable;
-  }
-
-  public void setWritable(String[] writable) {
-    this.writable = writable;
-  }
-
-  public String[] getReadable() {
-    return this.readable;
-  }
-
-  public void setReadable(String[] readable) {
-    this.readable = readable;
-  }
-
-  public static class Builder {
-
+    @SerializedName("writable")
     private String[] writable;
+    @SerializedName("readable")
     private String[] readable;
-
-    public Builder writable(String[] writable) {
-      this.writable = writable;
-      return this;
+    public String[] getWritable() {
+        return this.writable;
     }
 
-    public Builder readable(String[] readable) {
-      this.readable = readable;
-      return this;
+    public void setWritable(String[] writable) {
+        this.writable = writable;
+    }
+
+    public String[] getReadable() {
+        return this.readable;
+    }
+
+    public void setReadable(String[] readable) {
+        this.readable = readable;
     }
 
 
-    public FieldGroup build() {
-      return new FieldGroup(this);
-    }
+// builder 开始
+  public FieldGroup(){}
+
+  public FieldGroup(Builder builder){
+      this.writable = builder.writable;
+      this.readable = builder.readable;
   }
+
+    public static class Builder {
+        private String[] writable;
+        private String[] readable;
+        public Builder writable(String[] writable) {
+             this.writable = writable;
+             return this;
+        }
+    
+        public Builder readable(String[] readable) {
+             this.readable = readable;
+             return this;
+        }
+    
+    
+    public FieldGroup build(){
+        return new FieldGroup(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

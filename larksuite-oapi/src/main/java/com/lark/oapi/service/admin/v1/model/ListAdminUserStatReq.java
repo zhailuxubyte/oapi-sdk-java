@@ -12,184 +12,186 @@
  */
 
 package com.lark.oapi.service.admin.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.admin.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class ListAdminUserStatReq {
-
-  @Query
-  @SerializedName("user_id_type")
-  private String userIdType;
-  @Query
-  @SerializedName("department_id_type")
-  private String departmentIdType;
-  @Query
-  @SerializedName("start_date")
-  private String startDate;
-  @Query
-  @SerializedName("end_date")
-  private String endDate;
-  @Query
-  @SerializedName("department_id")
-  private String departmentId;
-  @Query
-  @SerializedName("user_id")
-  private String userId;
-  @Query
-  @SerializedName("page_size")
-  private Integer pageSize;
-  @Query
-  @SerializedName("page_token")
-  private String pageToken;
-
-  // builder 开始
-  public ListAdminUserStatReq() {
-  }
-
-  public ListAdminUserStatReq(Builder builder) {
-    this.userIdType = builder.userIdType;
-    this.departmentIdType = builder.departmentIdType;
-    this.startDate = builder.startDate;
-    this.endDate = builder.endDate;
-    this.departmentId = builder.departmentId;
-    this.userId = builder.userId;
-    this.pageSize = builder.pageSize;
-    this.pageToken = builder.pageToken;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getUserIdType() {
-    return this.userIdType;
-  }
-
-  public void setUserIdType(String userIdType) {
-    this.userIdType = userIdType;
-  }
-
-  public String getDepartmentIdType() {
-    return this.departmentIdType;
-  }
-
-  public void setDepartmentIdType(String departmentIdType) {
-    this.departmentIdType = departmentIdType;
-  }
-
-  public String getStartDate() {
-    return this.startDate;
-  }
-
-  public void setStartDate(String startDate) {
-    this.startDate = startDate;
-  }
-
-  public String getEndDate() {
-    return this.endDate;
-  }
-
-  public void setEndDate(String endDate) {
-    this.endDate = endDate;
-  }
-
-  public String getDepartmentId() {
-    return this.departmentId;
-  }
-
-  public void setDepartmentId(String departmentId) {
-    this.departmentId = departmentId;
-  }
-
-  public String getUserId() {
-    return this.userId;
-  }
-
-  public void setUserId(String userId) {
-    this.userId = userId;
-  }
-
-  public Integer getPageSize() {
-    return this.pageSize;
-  }
-
-  public void setPageSize(Integer pageSize) {
-    this.pageSize = pageSize;
-  }
-
-  public String getPageToken() {
-    return this.pageToken;
-  }
-
-  public void setPageToken(String pageToken) {
-    this.pageToken = pageToken;
-  }
-
-  public static class Builder {
-
+    @Query
+    @SerializedName("user_id_type")
     private String userIdType;
+    @Query
+    @SerializedName("department_id_type")
     private String departmentIdType;
+    @Query
+    @SerializedName("start_date")
     private String startDate;
+    @Query
+    @SerializedName("end_date")
     private String endDate;
+    @Query
+    @SerializedName("department_id")
     private String departmentId;
+    @Query
+    @SerializedName("user_id")
     private String userId;
+    @Query
+    @SerializedName("page_size")
     private Integer pageSize;
+    @Query
+    @SerializedName("page_token")
     private String pageToken;
-
-    public Builder userIdType(String userIdType) {
-      this.userIdType = userIdType;
-      return this;
+    public String getUserIdType() {
+        return this.userIdType;
     }
 
-    public Builder userIdType(com.lark.oapi.service.admin.v1.enums.UserIdTypeEnum userIdType) {
-      this.userIdType = userIdType.getValue();
-      return this;
+    public void setUserIdType(String userIdType) {
+        this.userIdType = userIdType;
     }
 
-    public Builder departmentIdType(String departmentIdType) {
-      this.departmentIdType = departmentIdType;
-      return this;
+    public String getDepartmentIdType() {
+        return this.departmentIdType;
     }
 
-    public Builder departmentIdType(
-        com.lark.oapi.service.admin.v1.enums.DepartmentIdTypeEnum departmentIdType) {
-      this.departmentIdType = departmentIdType.getValue();
-      return this;
+    public void setDepartmentIdType(String departmentIdType) {
+        this.departmentIdType = departmentIdType;
     }
 
-    public Builder startDate(String startDate) {
-      this.startDate = startDate;
-      return this;
+    public String getStartDate() {
+        return this.startDate;
     }
 
-    public Builder endDate(String endDate) {
-      this.endDate = endDate;
-      return this;
+    public void setStartDate(String startDate) {
+        this.startDate = startDate;
     }
 
-    public Builder departmentId(String departmentId) {
-      this.departmentId = departmentId;
-      return this;
+    public String getEndDate() {
+        return this.endDate;
     }
 
-    public Builder userId(String userId) {
-      this.userId = userId;
-      return this;
+    public void setEndDate(String endDate) {
+        this.endDate = endDate;
     }
 
-    public Builder pageSize(Integer pageSize) {
-      this.pageSize = pageSize;
-      return this;
+    public String getDepartmentId() {
+        return this.departmentId;
     }
 
-    public Builder pageToken(String pageToken) {
-      this.pageToken = pageToken;
-      return this;
+    public void setDepartmentId(String departmentId) {
+        this.departmentId = departmentId;
     }
 
-    public ListAdminUserStatReq build() {
-      return new ListAdminUserStatReq(this);
+    public String getUserId() {
+        return this.userId;
     }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    public Integer getPageSize() {
+        return this.pageSize;
+    }
+
+    public void setPageSize(Integer pageSize) {
+        this.pageSize = pageSize;
+    }
+
+    public String getPageToken() {
+        return this.pageToken;
+    }
+
+    public void setPageToken(String pageToken) {
+        this.pageToken = pageToken;
+    }
+
+
+// builder 开始
+  public ListAdminUserStatReq(){}
+
+  public ListAdminUserStatReq(Builder builder){
+       this.userIdType = builder.userIdType;
+       this.departmentIdType = builder.departmentIdType;
+       this.startDate = builder.startDate;
+       this.endDate = builder.endDate;
+       this.departmentId = builder.departmentId;
+       this.userId = builder.userId;
+       this.pageSize = builder.pageSize;
+       this.pageToken = builder.pageToken;
   }
+
+    public static class Builder {
+        private String userIdType;
+        private String departmentIdType;
+        private String startDate;
+        private String endDate;
+        private String departmentId;
+        private String userId;
+        private Integer pageSize;
+        private String pageToken;
+    
+           public Builder userIdType(String userIdType) {
+                this.userIdType = userIdType;
+                return this;
+           }
+          public Builder userIdType(com.lark.oapi.service.admin.v1.enums.UserIdTypeEnum userIdType) {
+               this.userIdType = userIdType.getValue();
+               return this;
+          }
+    
+           public Builder departmentIdType(String departmentIdType) {
+                this.departmentIdType = departmentIdType;
+                return this;
+           }
+          public Builder departmentIdType(com.lark.oapi.service.admin.v1.enums.DepartmentIdTypeEnum departmentIdType) {
+               this.departmentIdType = departmentIdType.getValue();
+               return this;
+          }
+    
+           public Builder startDate(String startDate) {
+                this.startDate = startDate;
+                return this;
+           }
+    
+           public Builder endDate(String endDate) {
+                this.endDate = endDate;
+                return this;
+           }
+    
+           public Builder departmentId(String departmentId) {
+                this.departmentId = departmentId;
+                return this;
+           }
+    
+           public Builder userId(String userId) {
+                this.userId = userId;
+                return this;
+           }
+    
+           public Builder pageSize(Integer pageSize) {
+                this.pageSize = pageSize;
+                return this;
+           }
+    
+           public Builder pageToken(String pageToken) {
+                this.pageToken = pageToken;
+                return this;
+           }
+    
+    public ListAdminUserStatReq build(){
+        return new ListAdminUserStatReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

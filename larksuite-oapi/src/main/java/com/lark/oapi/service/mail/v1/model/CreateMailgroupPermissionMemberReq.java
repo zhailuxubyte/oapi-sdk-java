@@ -12,117 +12,116 @@
  */
 
 package com.lark.oapi.service.mail.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.mail.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class CreateMailgroupPermissionMemberReq {
-
-  @Query
-  @SerializedName("user_id_type")
-  private String userIdType;
-  @Query
-  @SerializedName("department_id_type")
-  private String departmentIdType;
-  @Path
-  @SerializedName("mailgroup_id")
-  private String mailgroupId;
-  @Body
-  private MailgroupPermissionMember body;
-
-  // builder 开始
-  public CreateMailgroupPermissionMemberReq() {
-  }
-
-  public CreateMailgroupPermissionMemberReq(Builder builder) {
-    this.userIdType = builder.userIdType;
-    this.departmentIdType = builder.departmentIdType;
-    this.mailgroupId = builder.mailgroupId;
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getUserIdType() {
-    return this.userIdType;
-  }
-
-  public void setUserIdType(String userIdType) {
-    this.userIdType = userIdType;
-  }
-
-  public String getDepartmentIdType() {
-    return this.departmentIdType;
-  }
-
-  public void setDepartmentIdType(String departmentIdType) {
-    this.departmentIdType = departmentIdType;
-  }
-
-  public String getMailgroupId() {
-    return this.mailgroupId;
-  }
-
-  public void setMailgroupId(String mailgroupId) {
-    this.mailgroupId = mailgroupId;
-  }
-
-  public MailgroupPermissionMember getMailgroupPermissionMember() {
-    return this.body;
-  }
-
-  public void setMailgroupPermissionMember(MailgroupPermissionMember body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
+    @Query
+    @SerializedName("user_id_type")
     private String userIdType;
+    @Query
+    @SerializedName("department_id_type")
     private String departmentIdType;
+    public String getUserIdType() {
+        return this.userIdType;
+    }
+
+    public void setUserIdType(String userIdType) {
+        this.userIdType = userIdType;
+    }
+
+    public String getDepartmentIdType() {
+        return this.departmentIdType;
+    }
+
+    public void setDepartmentIdType(String departmentIdType) {
+        this.departmentIdType = departmentIdType;
+    }
+
+    @Path
+    @SerializedName("mailgroup_id")
     private String mailgroupId;
+    public String getMailgroupId() {
+        return this.mailgroupId;
+    }
+
+    public void setMailgroupId(String mailgroupId) {
+        this.mailgroupId = mailgroupId;
+    }
+
+    @Body
     private MailgroupPermissionMember body;
 
-    public Builder userIdType(String userIdType) {
-      this.userIdType = userIdType;
-      return this;
-    }
-
-    public Builder userIdType(com.lark.oapi.service.mail.v1.enums.UserIdTypeEnum userIdType) {
-      this.userIdType = userIdType.getValue();
-      return this;
-    }
-
-    public Builder departmentIdType(String departmentIdType) {
-      this.departmentIdType = departmentIdType;
-      return this;
-    }
-
-    public Builder departmentIdType(
-        com.lark.oapi.service.mail.v1.enums.DepartmentIdTypeEnum departmentIdType) {
-      this.departmentIdType = departmentIdType.getValue();
-      return this;
-    }
-
-    public Builder mailgroupId(String mailgroupId) {
-      this.mailgroupId = mailgroupId;
-      return this;
-    }
-
     public MailgroupPermissionMember getMailgroupPermissionMember() {
-      return this.body;
+        return this.body;
     }
 
-    public Builder mailgroupPermissionMember(MailgroupPermissionMember body) {
-      this.body = body;
-      return this;
+    public void setMailgroupPermissionMember(MailgroupPermissionMember body) {
+        this.body = body;
     }
 
-    public CreateMailgroupPermissionMemberReq build() {
-      return new CreateMailgroupPermissionMemberReq(this);
-    }
+// builder 开始
+  public CreateMailgroupPermissionMemberReq(){}
+
+  public CreateMailgroupPermissionMemberReq(Builder builder){
+       this.userIdType = builder.userIdType;
+       this.departmentIdType = builder.departmentIdType;
+       this.mailgroupId = builder.mailgroupId;
+        this.body = builder.body;
   }
+
+    public static class Builder {
+        private String userIdType;
+        private String departmentIdType;
+    
+           public Builder userIdType(String userIdType) {
+                this.userIdType = userIdType;
+                return this;
+           }
+          public Builder userIdType(com.lark.oapi.service.mail.v1.enums.UserIdTypeEnum userIdType) {
+               this.userIdType = userIdType.getValue();
+               return this;
+          }
+    
+           public Builder departmentIdType(String departmentIdType) {
+                this.departmentIdType = departmentIdType;
+                return this;
+           }
+          public Builder departmentIdType(com.lark.oapi.service.mail.v1.enums.DepartmentIdTypeEnum departmentIdType) {
+               this.departmentIdType = departmentIdType.getValue();
+               return this;
+          }
+    
+        private String mailgroupId;
+          public Builder mailgroupId(String mailgroupId) {
+               this.mailgroupId = mailgroupId;
+               return this;
+          }
+    
+        private MailgroupPermissionMember body;
+    
+        public MailgroupPermissionMember getMailgroupPermissionMember() {
+            return this.body;
+        }
+        public Builder mailgroupPermissionMember(MailgroupPermissionMember body) {
+             this.body = body;
+             return this;
+        }
+    public CreateMailgroupPermissionMemberReq build(){
+        return new CreateMailgroupPermissionMemberReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

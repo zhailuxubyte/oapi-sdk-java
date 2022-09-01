@@ -15,15 +15,14 @@ package com.lark.oapi.service.contact.v3.enums;
 
 // 生成枚举值
 public enum MemberTypeEnum {
-  USER("user"),
+     USER("user"),
   ;
-  private String value;
+   private String value;
+    MemberTypeEnum(String value) {
+      this.value = value;
+    }
 
-  MemberTypeEnum(String value) {
-    this.value = value;
-  }
-
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+      return this.value;
+    }
 }

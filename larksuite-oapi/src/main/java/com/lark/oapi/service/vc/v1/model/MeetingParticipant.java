@@ -12,192 +12,196 @@
  */
 
 package com.lark.oapi.service.vc.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.vc.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class MeetingParticipant {
-
-  @SerializedName("id")
-  private String id;
-  @SerializedName("first_join_time")
-  private String firstJoinTime;
-  @SerializedName("final_leave_time")
-  private String finalLeaveTime;
-  @SerializedName("in_meeting_duration")
-  private String inMeetingDuration;
-  @SerializedName("user_type")
-  private Integer userType;
-  @SerializedName("is_host")
-  private Boolean isHost;
-  @SerializedName("is_cohost")
-  private Boolean isCohost;
-  @SerializedName("is_external")
-  private Boolean isExternal;
-  @SerializedName("status")
-  private Integer status;
-
-  // builder 开始
-  public MeetingParticipant() {
-  }
-
-  public MeetingParticipant(Builder builder) {
-    this.id = builder.id;
-    this.firstJoinTime = builder.firstJoinTime;
-    this.finalLeaveTime = builder.finalLeaveTime;
-    this.inMeetingDuration = builder.inMeetingDuration;
-    this.userType = builder.userType;
-    this.isHost = builder.isHost;
-    this.isCohost = builder.isCohost;
-    this.isExternal = builder.isExternal;
-    this.status = builder.status;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getId() {
-    return this.id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public String getFirstJoinTime() {
-    return this.firstJoinTime;
-  }
-
-  public void setFirstJoinTime(String firstJoinTime) {
-    this.firstJoinTime = firstJoinTime;
-  }
-
-  public String getFinalLeaveTime() {
-    return this.finalLeaveTime;
-  }
-
-  public void setFinalLeaveTime(String finalLeaveTime) {
-    this.finalLeaveTime = finalLeaveTime;
-  }
-
-  public String getInMeetingDuration() {
-    return this.inMeetingDuration;
-  }
-
-  public void setInMeetingDuration(String inMeetingDuration) {
-    this.inMeetingDuration = inMeetingDuration;
-  }
-
-  public Integer getUserType() {
-    return this.userType;
-  }
-
-  public void setUserType(Integer userType) {
-    this.userType = userType;
-  }
-
-  public Boolean getIsHost() {
-    return this.isHost;
-  }
-
-  public void setIsHost(Boolean isHost) {
-    this.isHost = isHost;
-  }
-
-  public Boolean getIsCohost() {
-    return this.isCohost;
-  }
-
-  public void setIsCohost(Boolean isCohost) {
-    this.isCohost = isCohost;
-  }
-
-  public Boolean getIsExternal() {
-    return this.isExternal;
-  }
-
-  public void setIsExternal(Boolean isExternal) {
-    this.isExternal = isExternal;
-  }
-
-  public Integer getStatus() {
-    return this.status;
-  }
-
-  public void setStatus(Integer status) {
-    this.status = status;
-  }
-
-  public static class Builder {
-
+    @SerializedName("id")
     private String id;
+    @SerializedName("first_join_time")
     private String firstJoinTime;
+    @SerializedName("final_leave_time")
     private String finalLeaveTime;
+    @SerializedName("in_meeting_duration")
     private String inMeetingDuration;
+    @SerializedName("user_type")
     private Integer userType;
+    @SerializedName("is_host")
     private Boolean isHost;
+    @SerializedName("is_cohost")
     private Boolean isCohost;
+    @SerializedName("is_external")
     private Boolean isExternal;
+    @SerializedName("status")
     private Integer status;
-
-    public Builder id(String id) {
-      this.id = id;
-      return this;
+    public String getId() {
+        return this.id;
     }
 
-    public Builder firstJoinTime(String firstJoinTime) {
-      this.firstJoinTime = firstJoinTime;
-      return this;
+    public void setId(String id) {
+        this.id = id;
     }
 
-    public Builder finalLeaveTime(String finalLeaveTime) {
-      this.finalLeaveTime = finalLeaveTime;
-      return this;
+    public String getFirstJoinTime() {
+        return this.firstJoinTime;
     }
 
-    public Builder inMeetingDuration(String inMeetingDuration) {
-      this.inMeetingDuration = inMeetingDuration;
-      return this;
+    public void setFirstJoinTime(String firstJoinTime) {
+        this.firstJoinTime = firstJoinTime;
     }
 
-    public Builder userType(Integer userType) {
-      this.userType = userType;
-      return this;
+    public String getFinalLeaveTime() {
+        return this.finalLeaveTime;
     }
 
-    public Builder userType(com.lark.oapi.service.vc.v1.enums.UserTypeEnum userType) {
-      this.userType = userType.getValue();
-      return this;
+    public void setFinalLeaveTime(String finalLeaveTime) {
+        this.finalLeaveTime = finalLeaveTime;
     }
 
-    public Builder isHost(Boolean isHost) {
-      this.isHost = isHost;
-      return this;
+    public String getInMeetingDuration() {
+        return this.inMeetingDuration;
     }
 
-    public Builder isCohost(Boolean isCohost) {
-      this.isCohost = isCohost;
-      return this;
+    public void setInMeetingDuration(String inMeetingDuration) {
+        this.inMeetingDuration = inMeetingDuration;
     }
 
-    public Builder isExternal(Boolean isExternal) {
-      this.isExternal = isExternal;
-      return this;
+    public Integer getUserType() {
+        return this.userType;
     }
 
-    public Builder status(Integer status) {
-      this.status = status;
-      return this;
+    public void setUserType(Integer userType) {
+        this.userType = userType;
     }
 
-    public Builder status(com.lark.oapi.service.vc.v1.enums.ParticipantStatusEnum status) {
-      this.status = status.getValue();
-      return this;
+    public Boolean getIsHost() {
+        return this.isHost;
+    }
+
+    public void setIsHost(Boolean isHost) {
+        this.isHost = isHost;
+    }
+
+    public Boolean getIsCohost() {
+        return this.isCohost;
+    }
+
+    public void setIsCohost(Boolean isCohost) {
+        this.isCohost = isCohost;
+    }
+
+    public Boolean getIsExternal() {
+        return this.isExternal;
+    }
+
+    public void setIsExternal(Boolean isExternal) {
+        this.isExternal = isExternal;
+    }
+
+    public Integer getStatus() {
+        return this.status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
     }
 
 
-    public MeetingParticipant build() {
-      return new MeetingParticipant(this);
-    }
+// builder 开始
+  public MeetingParticipant(){}
+
+  public MeetingParticipant(Builder builder){
+      this.id = builder.id;
+      this.firstJoinTime = builder.firstJoinTime;
+      this.finalLeaveTime = builder.finalLeaveTime;
+      this.inMeetingDuration = builder.inMeetingDuration;
+      this.userType = builder.userType;
+      this.isHost = builder.isHost;
+      this.isCohost = builder.isCohost;
+      this.isExternal = builder.isExternal;
+      this.status = builder.status;
   }
+
+    public static class Builder {
+        private String id;
+        private String firstJoinTime;
+        private String finalLeaveTime;
+        private String inMeetingDuration;
+        private Integer userType;
+        private Boolean isHost;
+        private Boolean isCohost;
+        private Boolean isExternal;
+        private Integer status;
+        public Builder id(String id) {
+             this.id = id;
+             return this;
+        }
+    
+        public Builder firstJoinTime(String firstJoinTime) {
+             this.firstJoinTime = firstJoinTime;
+             return this;
+        }
+    
+        public Builder finalLeaveTime(String finalLeaveTime) {
+             this.finalLeaveTime = finalLeaveTime;
+             return this;
+        }
+    
+        public Builder inMeetingDuration(String inMeetingDuration) {
+             this.inMeetingDuration = inMeetingDuration;
+             return this;
+        }
+    
+        public Builder userType(Integer userType) {
+             this.userType = userType;
+             return this;
+        }
+        public Builder userType(com.lark.oapi.service.vc.v1.enums.UserTypeEnum userType) {
+             this.userType = userType.getValue();
+             return this;
+        }
+    
+        public Builder isHost(Boolean isHost) {
+             this.isHost = isHost;
+             return this;
+        }
+    
+        public Builder isCohost(Boolean isCohost) {
+             this.isCohost = isCohost;
+             return this;
+        }
+    
+        public Builder isExternal(Boolean isExternal) {
+             this.isExternal = isExternal;
+             return this;
+        }
+    
+        public Builder status(Integer status) {
+             this.status = status;
+             return this;
+        }
+        public Builder status(com.lark.oapi.service.vc.v1.enums.ParticipantStatusEnum status) {
+             this.status = status.getValue();
+             return this;
+        }
+    
+    
+    public MeetingParticipant build(){
+        return new MeetingParticipant(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

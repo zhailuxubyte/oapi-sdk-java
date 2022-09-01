@@ -12,97 +12,103 @@
  */
 
 package com.lark.oapi.service.docx.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.docx.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class MergeTableCellsRequest {
-
-  @SerializedName("row_start_index")
-  private Integer rowStartIndex;
-  @SerializedName("row_end_index")
-  private Integer rowEndIndex;
-  @SerializedName("column_start_index")
-  private Integer columnStartIndex;
-  @SerializedName("column_end_index")
-  private Integer columnEndIndex;
-
-  // builder 开始
-  public MergeTableCellsRequest() {
-  }
-
-  public MergeTableCellsRequest(Builder builder) {
-    this.rowStartIndex = builder.rowStartIndex;
-    this.rowEndIndex = builder.rowEndIndex;
-    this.columnStartIndex = builder.columnStartIndex;
-    this.columnEndIndex = builder.columnEndIndex;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Integer getRowStartIndex() {
-    return this.rowStartIndex;
-  }
-
-  public void setRowStartIndex(Integer rowStartIndex) {
-    this.rowStartIndex = rowStartIndex;
-  }
-
-  public Integer getRowEndIndex() {
-    return this.rowEndIndex;
-  }
-
-  public void setRowEndIndex(Integer rowEndIndex) {
-    this.rowEndIndex = rowEndIndex;
-  }
-
-  public Integer getColumnStartIndex() {
-    return this.columnStartIndex;
-  }
-
-  public void setColumnStartIndex(Integer columnStartIndex) {
-    this.columnStartIndex = columnStartIndex;
-  }
-
-  public Integer getColumnEndIndex() {
-    return this.columnEndIndex;
-  }
-
-  public void setColumnEndIndex(Integer columnEndIndex) {
-    this.columnEndIndex = columnEndIndex;
-  }
-
-  public static class Builder {
-
+    @SerializedName("row_start_index")
     private Integer rowStartIndex;
+    @SerializedName("row_end_index")
     private Integer rowEndIndex;
+    @SerializedName("column_start_index")
     private Integer columnStartIndex;
+    @SerializedName("column_end_index")
     private Integer columnEndIndex;
-
-    public Builder rowStartIndex(Integer rowStartIndex) {
-      this.rowStartIndex = rowStartIndex;
-      return this;
+    public Integer getRowStartIndex() {
+        return this.rowStartIndex;
     }
 
-    public Builder rowEndIndex(Integer rowEndIndex) {
-      this.rowEndIndex = rowEndIndex;
-      return this;
+    public void setRowStartIndex(Integer rowStartIndex) {
+        this.rowStartIndex = rowStartIndex;
     }
 
-    public Builder columnStartIndex(Integer columnStartIndex) {
-      this.columnStartIndex = columnStartIndex;
-      return this;
+    public Integer getRowEndIndex() {
+        return this.rowEndIndex;
     }
 
-    public Builder columnEndIndex(Integer columnEndIndex) {
-      this.columnEndIndex = columnEndIndex;
-      return this;
+    public void setRowEndIndex(Integer rowEndIndex) {
+        this.rowEndIndex = rowEndIndex;
+    }
+
+    public Integer getColumnStartIndex() {
+        return this.columnStartIndex;
+    }
+
+    public void setColumnStartIndex(Integer columnStartIndex) {
+        this.columnStartIndex = columnStartIndex;
+    }
+
+    public Integer getColumnEndIndex() {
+        return this.columnEndIndex;
+    }
+
+    public void setColumnEndIndex(Integer columnEndIndex) {
+        this.columnEndIndex = columnEndIndex;
     }
 
 
-    public MergeTableCellsRequest build() {
-      return new MergeTableCellsRequest(this);
-    }
+// builder 开始
+  public MergeTableCellsRequest(){}
+
+  public MergeTableCellsRequest(Builder builder){
+      this.rowStartIndex = builder.rowStartIndex;
+      this.rowEndIndex = builder.rowEndIndex;
+      this.columnStartIndex = builder.columnStartIndex;
+      this.columnEndIndex = builder.columnEndIndex;
   }
+
+    public static class Builder {
+        private Integer rowStartIndex;
+        private Integer rowEndIndex;
+        private Integer columnStartIndex;
+        private Integer columnEndIndex;
+        public Builder rowStartIndex(Integer rowStartIndex) {
+             this.rowStartIndex = rowStartIndex;
+             return this;
+        }
+    
+        public Builder rowEndIndex(Integer rowEndIndex) {
+             this.rowEndIndex = rowEndIndex;
+             return this;
+        }
+    
+        public Builder columnStartIndex(Integer columnStartIndex) {
+             this.columnStartIndex = columnStartIndex;
+             return this;
+        }
+    
+        public Builder columnEndIndex(Integer columnEndIndex) {
+             this.columnEndIndex = columnEndIndex;
+             return this;
+        }
+    
+    
+    public MergeTableCellsRequest build(){
+        return new MergeTableCellsRequest(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

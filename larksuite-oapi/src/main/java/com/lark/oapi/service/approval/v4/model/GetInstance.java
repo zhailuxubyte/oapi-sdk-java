@@ -12,180 +12,187 @@
  */
 
 package com.lark.oapi.service.approval.v4.model;
-
+import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class GetInstance {
+    @SerializedName("approval_name")
+    private String approvalName;
+    @SerializedName("start_time")
+    private String startTime;
+    @SerializedName("end_time")
+    private String endTime;
+    @SerializedName("user_id")
+    private String userId;
+    @SerializedName("open_id")
+    private String openId;
+    @SerializedName("serial_number")
+    private String serialNumber;
+    @SerializedName("department_id")
+    private String departmentId;
+    @SerializedName("status")
+    private String status;
+    @SerializedName("uuid")
+    private String uuid;
+    @SerializedName("form")
+    private String form;
+    @SerializedName("task_list")
+    private InstanceTask[] taskList;
+    @SerializedName("comment_list")
+    private InstanceComment[] commentList;
+    @SerializedName("timeline")
+    private InstanceTimeline[] timeline;
+    @SerializedName("modified_instance_code")
+    private String modifiedInstanceCode;
+    @SerializedName("reverted_instance_code")
+    private String revertedInstanceCode;
+    @SerializedName("approval_code")
+    private String approvalCode;
+    @SerializedName("reverted")
+    private Boolean reverted;
+    public String getApprovalName() {
+        return this.approvalName;
+    }
 
-  @SerializedName("approval_name")
-  private String approvalName;
-  @SerializedName("start_time")
-  private String startTime;
-  @SerializedName("end_time")
-  private String endTime;
-  @SerializedName("user_id")
-  private String userId;
-  @SerializedName("open_id")
-  private String openId;
-  @SerializedName("serial_number")
-  private String serialNumber;
-  @SerializedName("department_id")
-  private String departmentId;
-  @SerializedName("status")
-  private String status;
-  @SerializedName("uuid")
-  private String uuid;
-  @SerializedName("form")
-  private String form;
-  @SerializedName("task_list")
-  private InstanceTask[] taskList;
-  @SerializedName("comment_list")
-  private InstanceComment[] commentList;
-  @SerializedName("timeline")
-  private InstanceTimeline[] timeline;
-  @SerializedName("modified_instance_code")
-  private String modifiedInstanceCode;
-  @SerializedName("reverted_instance_code")
-  private String revertedInstanceCode;
-  @SerializedName("approval_code")
-  private String approvalCode;
-  @SerializedName("reverted")
-  private Boolean reverted;
+    public void setApprovalName(String approvalName) {
+        this.approvalName = approvalName;
+    }
 
-  public String getApprovalName() {
-    return this.approvalName;
-  }
+    public String getStartTime() {
+        return this.startTime;
+    }
 
-  public void setApprovalName(String approvalName) {
-    this.approvalName = approvalName;
-  }
+    public void setStartTime(String startTime) {
+        this.startTime = startTime;
+    }
 
-  public String getStartTime() {
-    return this.startTime;
-  }
+    public String getEndTime() {
+        return this.endTime;
+    }
 
-  public void setStartTime(String startTime) {
-    this.startTime = startTime;
-  }
+    public void setEndTime(String endTime) {
+        this.endTime = endTime;
+    }
 
-  public String getEndTime() {
-    return this.endTime;
-  }
+    public String getUserId() {
+        return this.userId;
+    }
 
-  public void setEndTime(String endTime) {
-    this.endTime = endTime;
-  }
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
 
-  public String getUserId() {
-    return this.userId;
-  }
+    public String getOpenId() {
+        return this.openId;
+    }
 
-  public void setUserId(String userId) {
-    this.userId = userId;
-  }
+    public void setOpenId(String openId) {
+        this.openId = openId;
+    }
 
-  public String getOpenId() {
-    return this.openId;
-  }
+    public String getSerialNumber() {
+        return this.serialNumber;
+    }
 
-  public void setOpenId(String openId) {
-    this.openId = openId;
-  }
+    public void setSerialNumber(String serialNumber) {
+        this.serialNumber = serialNumber;
+    }
 
-  public String getSerialNumber() {
-    return this.serialNumber;
-  }
+    public String getDepartmentId() {
+        return this.departmentId;
+    }
 
-  public void setSerialNumber(String serialNumber) {
-    this.serialNumber = serialNumber;
-  }
+    public void setDepartmentId(String departmentId) {
+        this.departmentId = departmentId;
+    }
 
-  public String getDepartmentId() {
-    return this.departmentId;
-  }
+    public String getStatus() {
+        return this.status;
+    }
 
-  public void setDepartmentId(String departmentId) {
-    this.departmentId = departmentId;
-  }
+    public void setStatus(String status) {
+        this.status = status;
+    }
 
-  public String getStatus() {
-    return this.status;
-  }
+    public String getUuid() {
+        return this.uuid;
+    }
 
-  public void setStatus(String status) {
-    this.status = status;
-  }
+    public void setUuid(String uuid) {
+        this.uuid = uuid;
+    }
 
-  public String getUuid() {
-    return this.uuid;
-  }
+    public String getForm() {
+        return this.form;
+    }
 
-  public void setUuid(String uuid) {
-    this.uuid = uuid;
-  }
+    public void setForm(String form) {
+        this.form = form;
+    }
 
-  public String getForm() {
-    return this.form;
-  }
+    public InstanceTask[] getTaskList() {
+        return this.taskList;
+    }
 
-  public void setForm(String form) {
-    this.form = form;
-  }
+    public void setTaskList(InstanceTask[] taskList) {
+        this.taskList = taskList;
+    }
 
-  public InstanceTask[] getTaskList() {
-    return this.taskList;
-  }
+    public InstanceComment[] getCommentList() {
+        return this.commentList;
+    }
 
-  public void setTaskList(InstanceTask[] taskList) {
-    this.taskList = taskList;
-  }
+    public void setCommentList(InstanceComment[] commentList) {
+        this.commentList = commentList;
+    }
 
-  public InstanceComment[] getCommentList() {
-    return this.commentList;
-  }
+    public InstanceTimeline[] getTimeline() {
+        return this.timeline;
+    }
 
-  public void setCommentList(InstanceComment[] commentList) {
-    this.commentList = commentList;
-  }
+    public void setTimeline(InstanceTimeline[] timeline) {
+        this.timeline = timeline;
+    }
 
-  public InstanceTimeline[] getTimeline() {
-    return this.timeline;
-  }
+    public String getModifiedInstanceCode() {
+        return this.modifiedInstanceCode;
+    }
 
-  public void setTimeline(InstanceTimeline[] timeline) {
-    this.timeline = timeline;
-  }
+    public void setModifiedInstanceCode(String modifiedInstanceCode) {
+        this.modifiedInstanceCode = modifiedInstanceCode;
+    }
 
-  public String getModifiedInstanceCode() {
-    return this.modifiedInstanceCode;
-  }
+    public String getRevertedInstanceCode() {
+        return this.revertedInstanceCode;
+    }
 
-  public void setModifiedInstanceCode(String modifiedInstanceCode) {
-    this.modifiedInstanceCode = modifiedInstanceCode;
-  }
+    public void setRevertedInstanceCode(String revertedInstanceCode) {
+        this.revertedInstanceCode = revertedInstanceCode;
+    }
 
-  public String getRevertedInstanceCode() {
-    return this.revertedInstanceCode;
-  }
+    public String getApprovalCode() {
+        return this.approvalCode;
+    }
 
-  public void setRevertedInstanceCode(String revertedInstanceCode) {
-    this.revertedInstanceCode = revertedInstanceCode;
-  }
+    public void setApprovalCode(String approvalCode) {
+        this.approvalCode = approvalCode;
+    }
 
-  public String getApprovalCode() {
-    return this.approvalCode;
-  }
+    public Boolean getReverted() {
+        return this.reverted;
+    }
 
-  public void setApprovalCode(String approvalCode) {
-    this.approvalCode = approvalCode;
-  }
-
-  public Boolean getReverted() {
-    return this.reverted;
-  }
-
-  public void setReverted(Boolean reverted) {
-    this.reverted = reverted;
-  }
+    public void setReverted(Boolean reverted) {
+        this.reverted = reverted;
+    }
 
 }

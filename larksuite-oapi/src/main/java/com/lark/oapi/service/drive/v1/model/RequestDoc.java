@@ -12,68 +12,73 @@
  */
 
 package com.lark.oapi.service.drive.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.drive.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class RequestDoc {
-
-  @SerializedName("doc_token")
-  private String docToken;
-  @SerializedName("doc_type")
-  private String docType;
-
-  // builder 开始
-  public RequestDoc() {
-  }
-
-  public RequestDoc(Builder builder) {
-    this.docToken = builder.docToken;
-    this.docType = builder.docType;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getDocToken() {
-    return this.docToken;
-  }
-
-  public void setDocToken(String docToken) {
-    this.docToken = docToken;
-  }
-
-  public String getDocType() {
-    return this.docType;
-  }
-
-  public void setDocType(String docType) {
-    this.docType = docType;
-  }
-
-  public static class Builder {
-
+    @SerializedName("doc_token")
     private String docToken;
+    @SerializedName("doc_type")
     private String docType;
-
-    public Builder docToken(String docToken) {
-      this.docToken = docToken;
-      return this;
+    public String getDocToken() {
+        return this.docToken;
     }
 
-    public Builder docType(String docType) {
-      this.docType = docType;
-      return this;
+    public void setDocToken(String docToken) {
+        this.docToken = docToken;
     }
 
-    public Builder docType(com.lark.oapi.service.drive.v1.enums.DocTypeEnum docType) {
-      this.docType = docType.getValue();
-      return this;
+    public String getDocType() {
+        return this.docType;
+    }
+
+    public void setDocType(String docType) {
+        this.docType = docType;
     }
 
 
-    public RequestDoc build() {
-      return new RequestDoc(this);
-    }
+// builder 开始
+  public RequestDoc(){}
+
+  public RequestDoc(Builder builder){
+      this.docToken = builder.docToken;
+      this.docType = builder.docType;
   }
+
+    public static class Builder {
+        private String docToken;
+        private String docType;
+        public Builder docToken(String docToken) {
+             this.docToken = docToken;
+             return this;
+        }
+    
+        public Builder docType(String docType) {
+             this.docType = docType;
+             return this;
+        }
+        public Builder docType(com.lark.oapi.service.drive.v1.enums.DocTypeEnum docType) {
+             this.docType = docType.getValue();
+             return this;
+        }
+    
+    
+    public RequestDoc build(){
+        return new RequestDoc(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

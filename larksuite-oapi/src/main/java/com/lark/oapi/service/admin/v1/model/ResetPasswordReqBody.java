@@ -12,63 +12,69 @@
  */
 
 package com.lark.oapi.service.admin.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.admin.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class ResetPasswordReqBody {
-
-  @SerializedName("password")
-  private Password password;
-  @SerializedName("user_id")
-  private String userId;
-
-  // builder 开始
-  public ResetPasswordReqBody() {
-  }
-
-  public ResetPasswordReqBody(Builder builder) {
-    this.password = builder.password;
-    this.userId = builder.userId;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Password getPassword() {
-    return this.password;
-  }
-
-  public void setPassword(Password password) {
-    this.password = password;
-  }
-
-  public String getUserId() {
-    return this.userId;
-  }
-
-  public void setUserId(String userId) {
-    this.userId = userId;
-  }
-
-  public static class Builder {
-
+    @SerializedName("password")
     private Password password;
+    @SerializedName("user_id")
     private String userId;
-
-    public Builder password(Password password) {
-      this.password = password;
-      return this;
+    public Password getPassword() {
+        return this.password;
     }
 
-    public Builder userId(String userId) {
-      this.userId = userId;
-      return this;
+    public void setPassword(Password password) {
+        this.password = password;
+    }
+
+    public String getUserId() {
+        return this.userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
 
-    public ResetPasswordReqBody build() {
-      return new ResetPasswordReqBody(this);
-    }
+// builder 开始
+  public ResetPasswordReqBody(){}
+
+  public ResetPasswordReqBody(Builder builder){
+      this.password = builder.password;
+      this.userId = builder.userId;
   }
+
+    public static class Builder {
+        private Password password;
+        private String userId;
+        public Builder password(Password password) {
+             this.password = password;
+             return this;
+        }
+    
+        public Builder userId(String userId) {
+             this.userId = userId;
+             return this;
+        }
+    
+    
+    public ResetPasswordReqBody build(){
+        return new ResetPasswordReqBody(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

@@ -12,93 +12,94 @@
  */
 
 package com.lark.oapi.service.helpdesk.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.helpdesk.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class PatchNotificationReq {
-
-  @Query
-  @SerializedName("user_id_type")
-  private String userIdType;
-  @Path
-  @SerializedName("notification_id")
-  private String notificationId;
-  @Body
-  private Notification body;
-
-  // builder 开始
-  public PatchNotificationReq() {
-  }
-
-  public PatchNotificationReq(Builder builder) {
-    this.userIdType = builder.userIdType;
-    this.notificationId = builder.notificationId;
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getUserIdType() {
-    return this.userIdType;
-  }
-
-  public void setUserIdType(String userIdType) {
-    this.userIdType = userIdType;
-  }
-
-  public String getNotificationId() {
-    return this.notificationId;
-  }
-
-  public void setNotificationId(String notificationId) {
-    this.notificationId = notificationId;
-  }
-
-  public Notification getNotification() {
-    return this.body;
-  }
-
-  public void setNotification(Notification body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
+    @Query
+    @SerializedName("user_id_type")
     private String userIdType;
+    public String getUserIdType() {
+        return this.userIdType;
+    }
+
+    public void setUserIdType(String userIdType) {
+        this.userIdType = userIdType;
+    }
+
+    @Path
+    @SerializedName("notification_id")
     private String notificationId;
+    public String getNotificationId() {
+        return this.notificationId;
+    }
+
+    public void setNotificationId(String notificationId) {
+        this.notificationId = notificationId;
+    }
+
+    @Body
     private Notification body;
 
-    public Builder userIdType(String userIdType) {
-      this.userIdType = userIdType;
-      return this;
-    }
-
-    public Builder userIdType(com.lark.oapi.service.helpdesk.v1.enums.UserIdTypeEnum userIdType) {
-      this.userIdType = userIdType.getValue();
-      return this;
-    }
-
-    public Builder notificationId(String notificationId) {
-      this.notificationId = notificationId;
-      return this;
-    }
-
     public Notification getNotification() {
-      return this.body;
+        return this.body;
     }
 
-    public Builder notification(Notification body) {
-      this.body = body;
-      return this;
+    public void setNotification(Notification body) {
+        this.body = body;
     }
 
-    public PatchNotificationReq build() {
-      return new PatchNotificationReq(this);
-    }
+// builder 开始
+  public PatchNotificationReq(){}
+
+  public PatchNotificationReq(Builder builder){
+       this.userIdType = builder.userIdType;
+       this.notificationId = builder.notificationId;
+        this.body = builder.body;
   }
+
+    public static class Builder {
+        private String userIdType;
+    
+           public Builder userIdType(String userIdType) {
+                this.userIdType = userIdType;
+                return this;
+           }
+          public Builder userIdType(com.lark.oapi.service.helpdesk.v1.enums.UserIdTypeEnum userIdType) {
+               this.userIdType = userIdType.getValue();
+               return this;
+          }
+    
+        private String notificationId;
+          public Builder notificationId(String notificationId) {
+               this.notificationId = notificationId;
+               return this;
+          }
+    
+        private Notification body;
+    
+        public Notification getNotification() {
+            return this.body;
+        }
+        public Builder notification(Notification body) {
+             this.body = body;
+             return this;
+        }
+    public PatchNotificationReq build(){
+        return new PatchNotificationReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

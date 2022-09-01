@@ -12,80 +12,85 @@
  */
 
 package com.lark.oapi.service.gray_test_open_sg.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class Level {
-
-  @SerializedName("level")
-  private String level;
-  @SerializedName("body")
-  private String body;
-  @SerializedName("type")
-  private String type;
-
-  // builder 开始
-  public Level() {
-  }
-
-  public Level(Builder builder) {
-    this.level = builder.level;
-    this.body = builder.body;
-    this.type = builder.type;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getLevel() {
-    return this.level;
-  }
-
-  public void setLevel(String level) {
-    this.level = level;
-  }
-
-  public String getBody() {
-    return this.body;
-  }
-
-  public void setBody(String body) {
-    this.body = body;
-  }
-
-  public String getType() {
-    return this.type;
-  }
-
-  public void setType(String type) {
-    this.type = type;
-  }
-
-  public static class Builder {
-
+    @SerializedName("level")
     private String level;
+    @SerializedName("body")
     private String body;
+    @SerializedName("type")
     private String type;
-
-    public Builder level(String level) {
-      this.level = level;
-      return this;
+    public String getLevel() {
+        return this.level;
     }
 
-    public Builder body(String body) {
-      this.body = body;
-      return this;
+    public void setLevel(String level) {
+        this.level = level;
     }
 
-    public Builder type(String type) {
-      this.type = type;
-      return this;
+    public String getBody() {
+        return this.body;
+    }
+
+    public void setBody(String body) {
+        this.body = body;
+    }
+
+    public String getType() {
+        return this.type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 
 
-    public Level build() {
-      return new Level(this);
-    }
+// builder 开始
+  public Level(){}
+
+  public Level(Builder builder){
+      this.level = builder.level;
+      this.body = builder.body;
+      this.type = builder.type;
   }
+
+    public static class Builder {
+        private String level;
+        private String body;
+        private String type;
+        public Builder level(String level) {
+             this.level = level;
+             return this;
+        }
+    
+        public Builder body(String body) {
+             this.body = body;
+             return this;
+        }
+    
+        public Builder type(String type) {
+             this.type = type;
+             return this;
+        }
+    
+    
+    public Level build(){
+        return new Level(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

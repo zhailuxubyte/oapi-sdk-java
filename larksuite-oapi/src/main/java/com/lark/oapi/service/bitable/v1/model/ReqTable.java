@@ -12,46 +12,52 @@
  */
 
 package com.lark.oapi.service.bitable.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.bitable.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class ReqTable {
-
-  @SerializedName("name")
-  private String name;
-
-  // builder 开始
-  public ReqTable() {
-  }
-
-  public ReqTable(Builder builder) {
-    this.name = builder.name;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getName() {
-    return this.name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public static class Builder {
-
+    @SerializedName("name")
     private String name;
+    public String getName() {
+        return this.name;
+    }
 
-    public Builder name(String name) {
-      this.name = name;
-      return this;
+    public void setName(String name) {
+        this.name = name;
     }
 
 
-    public ReqTable build() {
-      return new ReqTable(this);
-    }
+// builder 开始
+  public ReqTable(){}
+
+  public ReqTable(Builder builder){
+      this.name = builder.name;
   }
+
+    public static class Builder {
+        private String name;
+        public Builder name(String name) {
+             this.name = name;
+             return this;
+        }
+    
+    
+    public ReqTable build(){
+        return new ReqTable(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

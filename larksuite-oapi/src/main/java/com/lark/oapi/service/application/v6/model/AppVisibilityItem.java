@@ -12,80 +12,86 @@
  */
 
 package com.lark.oapi.service.application.v6.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.application.v6.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class AppVisibilityItem {
-
-  @SerializedName("user_id")
-  private String userId;
-  @SerializedName("department_id")
-  private String departmentId;
-  @SerializedName("group_id")
-  private String groupId;
-
-  // builder 开始
-  public AppVisibilityItem() {
-  }
-
-  public AppVisibilityItem(Builder builder) {
-    this.userId = builder.userId;
-    this.departmentId = builder.departmentId;
-    this.groupId = builder.groupId;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getUserId() {
-    return this.userId;
-  }
-
-  public void setUserId(String userId) {
-    this.userId = userId;
-  }
-
-  public String getDepartmentId() {
-    return this.departmentId;
-  }
-
-  public void setDepartmentId(String departmentId) {
-    this.departmentId = departmentId;
-  }
-
-  public String getGroupId() {
-    return this.groupId;
-  }
-
-  public void setGroupId(String groupId) {
-    this.groupId = groupId;
-  }
-
-  public static class Builder {
-
+    @SerializedName("user_id")
     private String userId;
+    @SerializedName("department_id")
     private String departmentId;
+    @SerializedName("group_id")
     private String groupId;
-
-    public Builder userId(String userId) {
-      this.userId = userId;
-      return this;
+    public String getUserId() {
+        return this.userId;
     }
 
-    public Builder departmentId(String departmentId) {
-      this.departmentId = departmentId;
-      return this;
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
-    public Builder groupId(String groupId) {
-      this.groupId = groupId;
-      return this;
+    public String getDepartmentId() {
+        return this.departmentId;
+    }
+
+    public void setDepartmentId(String departmentId) {
+        this.departmentId = departmentId;
+    }
+
+    public String getGroupId() {
+        return this.groupId;
+    }
+
+    public void setGroupId(String groupId) {
+        this.groupId = groupId;
     }
 
 
-    public AppVisibilityItem build() {
-      return new AppVisibilityItem(this);
-    }
+// builder 开始
+  public AppVisibilityItem(){}
+
+  public AppVisibilityItem(Builder builder){
+      this.userId = builder.userId;
+      this.departmentId = builder.departmentId;
+      this.groupId = builder.groupId;
   }
+
+    public static class Builder {
+        private String userId;
+        private String departmentId;
+        private String groupId;
+        public Builder userId(String userId) {
+             this.userId = userId;
+             return this;
+        }
+    
+        public Builder departmentId(String departmentId) {
+             this.departmentId = departmentId;
+             return this;
+        }
+    
+        public Builder groupId(String groupId) {
+             this.groupId = groupId;
+             return this;
+        }
+    
+    
+    public AppVisibilityItem build(){
+        return new AppVisibilityItem(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

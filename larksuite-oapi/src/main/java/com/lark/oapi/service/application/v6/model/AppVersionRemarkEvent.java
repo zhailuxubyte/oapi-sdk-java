@@ -12,80 +12,86 @@
  */
 
 package com.lark.oapi.service.application.v6.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.application.v6.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class AppVersionRemarkEvent {
-
-  @SerializedName("remark")
-  private String remark;
-  @SerializedName("update_remark")
-  private String updateRemark;
-  @SerializedName("visibility")
-  private AppVisibilityEvent visibility;
-
-  // builder 开始
-  public AppVersionRemarkEvent() {
-  }
-
-  public AppVersionRemarkEvent(Builder builder) {
-    this.remark = builder.remark;
-    this.updateRemark = builder.updateRemark;
-    this.visibility = builder.visibility;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getRemark() {
-    return this.remark;
-  }
-
-  public void setRemark(String remark) {
-    this.remark = remark;
-  }
-
-  public String getUpdateRemark() {
-    return this.updateRemark;
-  }
-
-  public void setUpdateRemark(String updateRemark) {
-    this.updateRemark = updateRemark;
-  }
-
-  public AppVisibilityEvent getVisibility() {
-    return this.visibility;
-  }
-
-  public void setVisibility(AppVisibilityEvent visibility) {
-    this.visibility = visibility;
-  }
-
-  public static class Builder {
-
+    @SerializedName("remark")
     private String remark;
+    @SerializedName("update_remark")
     private String updateRemark;
+    @SerializedName("visibility")
     private AppVisibilityEvent visibility;
-
-    public Builder remark(String remark) {
-      this.remark = remark;
-      return this;
+    public String getRemark() {
+        return this.remark;
     }
 
-    public Builder updateRemark(String updateRemark) {
-      this.updateRemark = updateRemark;
-      return this;
+    public void setRemark(String remark) {
+        this.remark = remark;
     }
 
-    public Builder visibility(AppVisibilityEvent visibility) {
-      this.visibility = visibility;
-      return this;
+    public String getUpdateRemark() {
+        return this.updateRemark;
+    }
+
+    public void setUpdateRemark(String updateRemark) {
+        this.updateRemark = updateRemark;
+    }
+
+    public AppVisibilityEvent getVisibility() {
+        return this.visibility;
+    }
+
+    public void setVisibility(AppVisibilityEvent visibility) {
+        this.visibility = visibility;
     }
 
 
-    public AppVersionRemarkEvent build() {
-      return new AppVersionRemarkEvent(this);
-    }
+// builder 开始
+  public AppVersionRemarkEvent(){}
+
+  public AppVersionRemarkEvent(Builder builder){
+      this.remark = builder.remark;
+      this.updateRemark = builder.updateRemark;
+      this.visibility = builder.visibility;
   }
+
+    public static class Builder {
+        private String remark;
+        private String updateRemark;
+        private AppVisibilityEvent visibility;
+        public Builder remark(String remark) {
+             this.remark = remark;
+             return this;
+        }
+    
+        public Builder updateRemark(String updateRemark) {
+             this.updateRemark = updateRemark;
+             return this;
+        }
+    
+        public Builder visibility(AppVisibilityEvent visibility) {
+             this.visibility = visibility;
+             return this;
+        }
+    
+    
+    public AppVersionRemarkEvent build(){
+        return new AppVersionRemarkEvent(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

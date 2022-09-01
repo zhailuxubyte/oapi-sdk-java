@@ -12,80 +12,86 @@
  */
 
 package com.lark.oapi.service.docx.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.docx.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class UpdateTextRequest {
-
-  @SerializedName("elements")
-  private TextElement[] elements;
-  @SerializedName("style")
-  private TextStyle style;
-  @SerializedName("fields")
-  private Integer[] fields;
-
-  // builder 开始
-  public UpdateTextRequest() {
-  }
-
-  public UpdateTextRequest(Builder builder) {
-    this.elements = builder.elements;
-    this.style = builder.style;
-    this.fields = builder.fields;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public TextElement[] getElements() {
-    return this.elements;
-  }
-
-  public void setElements(TextElement[] elements) {
-    this.elements = elements;
-  }
-
-  public TextStyle getStyle() {
-    return this.style;
-  }
-
-  public void setStyle(TextStyle style) {
-    this.style = style;
-  }
-
-  public Integer[] getFields() {
-    return this.fields;
-  }
-
-  public void setFields(Integer[] fields) {
-    this.fields = fields;
-  }
-
-  public static class Builder {
-
+    @SerializedName("elements")
     private TextElement[] elements;
+    @SerializedName("style")
     private TextStyle style;
+    @SerializedName("fields")
     private Integer[] fields;
-
-    public Builder elements(TextElement[] elements) {
-      this.elements = elements;
-      return this;
+    public TextElement[] getElements() {
+        return this.elements;
     }
 
-    public Builder style(TextStyle style) {
-      this.style = style;
-      return this;
+    public void setElements(TextElement[] elements) {
+        this.elements = elements;
     }
 
-    public Builder fields(Integer[] fields) {
-      this.fields = fields;
-      return this;
+    public TextStyle getStyle() {
+        return this.style;
+    }
+
+    public void setStyle(TextStyle style) {
+        this.style = style;
+    }
+
+    public Integer[] getFields() {
+        return this.fields;
+    }
+
+    public void setFields(Integer[] fields) {
+        this.fields = fields;
     }
 
 
-    public UpdateTextRequest build() {
-      return new UpdateTextRequest(this);
-    }
+// builder 开始
+  public UpdateTextRequest(){}
+
+  public UpdateTextRequest(Builder builder){
+      this.elements = builder.elements;
+      this.style = builder.style;
+      this.fields = builder.fields;
   }
+
+    public static class Builder {
+        private TextElement[] elements;
+        private TextStyle style;
+        private Integer[] fields;
+        public Builder elements(TextElement[] elements) {
+             this.elements = elements;
+             return this;
+        }
+    
+        public Builder style(TextStyle style) {
+             this.style = style;
+             return this;
+        }
+    
+        public Builder fields(Integer[] fields) {
+             this.fields = fields;
+             return this;
+        }
+    
+    
+    public UpdateTextRequest build(){
+        return new UpdateTextRequest(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

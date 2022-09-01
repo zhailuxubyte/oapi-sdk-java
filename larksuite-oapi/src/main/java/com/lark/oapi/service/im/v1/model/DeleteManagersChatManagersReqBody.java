@@ -12,46 +12,52 @@
  */
 
 package com.lark.oapi.service.im.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.im.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class DeleteManagersChatManagersReqBody {
-
-  @SerializedName("manager_ids")
-  private String[] managerIds;
-
-  // builder 开始
-  public DeleteManagersChatManagersReqBody() {
-  }
-
-  public DeleteManagersChatManagersReqBody(Builder builder) {
-    this.managerIds = builder.managerIds;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String[] getManagerIds() {
-    return this.managerIds;
-  }
-
-  public void setManagerIds(String[] managerIds) {
-    this.managerIds = managerIds;
-  }
-
-  public static class Builder {
-
+    @SerializedName("manager_ids")
     private String[] managerIds;
+    public String[] getManagerIds() {
+        return this.managerIds;
+    }
 
-    public Builder managerIds(String[] managerIds) {
-      this.managerIds = managerIds;
-      return this;
+    public void setManagerIds(String[] managerIds) {
+        this.managerIds = managerIds;
     }
 
 
-    public DeleteManagersChatManagersReqBody build() {
-      return new DeleteManagersChatManagersReqBody(this);
-    }
+// builder 开始
+  public DeleteManagersChatManagersReqBody(){}
+
+  public DeleteManagersChatManagersReqBody(Builder builder){
+      this.managerIds = builder.managerIds;
   }
+
+    public static class Builder {
+        private String[] managerIds;
+        public Builder managerIds(String[] managerIds) {
+             this.managerIds = managerIds;
+             return this;
+        }
+    
+    
+    public DeleteManagersChatManagersReqBody build(){
+        return new DeleteManagersChatManagersReqBody(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

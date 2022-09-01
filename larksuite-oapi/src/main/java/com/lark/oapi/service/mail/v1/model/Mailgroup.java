@@ -12,171 +12,175 @@
  */
 
 package com.lark.oapi.service.mail.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.mail.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class Mailgroup {
-
-  @SerializedName("mailgroup_id")
-  private String mailgroupId;
-  @SerializedName("email")
-  private String email;
-  @SerializedName("name")
-  private String name;
-  @SerializedName("description")
-  private String description;
-  @SerializedName("direct_members_count")
-  private String directMembersCount;
-  @SerializedName("include_external_member")
-  private Boolean includeExternalMember;
-  @SerializedName("include_all_company_member")
-  private Boolean includeAllCompanyMember;
-  @SerializedName("who_can_send_mail")
-  private String whoCanSendMail;
-
-  // builder 开始
-  public Mailgroup() {
-  }
-
-  public Mailgroup(Builder builder) {
-    this.mailgroupId = builder.mailgroupId;
-    this.email = builder.email;
-    this.name = builder.name;
-    this.description = builder.description;
-    this.directMembersCount = builder.directMembersCount;
-    this.includeExternalMember = builder.includeExternalMember;
-    this.includeAllCompanyMember = builder.includeAllCompanyMember;
-    this.whoCanSendMail = builder.whoCanSendMail;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getMailgroupId() {
-    return this.mailgroupId;
-  }
-
-  public void setMailgroupId(String mailgroupId) {
-    this.mailgroupId = mailgroupId;
-  }
-
-  public String getEmail() {
-    return this.email;
-  }
-
-  public void setEmail(String email) {
-    this.email = email;
-  }
-
-  public String getName() {
-    return this.name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public String getDescription() {
-    return this.description;
-  }
-
-  public void setDescription(String description) {
-    this.description = description;
-  }
-
-  public String getDirectMembersCount() {
-    return this.directMembersCount;
-  }
-
-  public void setDirectMembersCount(String directMembersCount) {
-    this.directMembersCount = directMembersCount;
-  }
-
-  public Boolean getIncludeExternalMember() {
-    return this.includeExternalMember;
-  }
-
-  public void setIncludeExternalMember(Boolean includeExternalMember) {
-    this.includeExternalMember = includeExternalMember;
-  }
-
-  public Boolean getIncludeAllCompanyMember() {
-    return this.includeAllCompanyMember;
-  }
-
-  public void setIncludeAllCompanyMember(Boolean includeAllCompanyMember) {
-    this.includeAllCompanyMember = includeAllCompanyMember;
-  }
-
-  public String getWhoCanSendMail() {
-    return this.whoCanSendMail;
-  }
-
-  public void setWhoCanSendMail(String whoCanSendMail) {
-    this.whoCanSendMail = whoCanSendMail;
-  }
-
-  public static class Builder {
-
+    @SerializedName("mailgroup_id")
     private String mailgroupId;
+    @SerializedName("email")
     private String email;
+    @SerializedName("name")
     private String name;
+    @SerializedName("description")
     private String description;
+    @SerializedName("direct_members_count")
     private String directMembersCount;
+    @SerializedName("include_external_member")
     private Boolean includeExternalMember;
+    @SerializedName("include_all_company_member")
     private Boolean includeAllCompanyMember;
+    @SerializedName("who_can_send_mail")
     private String whoCanSendMail;
-
-    public Builder mailgroupId(String mailgroupId) {
-      this.mailgroupId = mailgroupId;
-      return this;
+    public String getMailgroupId() {
+        return this.mailgroupId;
     }
 
-    public Builder email(String email) {
-      this.email = email;
-      return this;
+    public void setMailgroupId(String mailgroupId) {
+        this.mailgroupId = mailgroupId;
     }
 
-    public Builder name(String name) {
-      this.name = name;
-      return this;
+    public String getEmail() {
+        return this.email;
     }
 
-    public Builder description(String description) {
-      this.description = description;
-      return this;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public Builder directMembersCount(String directMembersCount) {
-      this.directMembersCount = directMembersCount;
-      return this;
+    public String getName() {
+        return this.name;
     }
 
-    public Builder includeExternalMember(Boolean includeExternalMember) {
-      this.includeExternalMember = includeExternalMember;
-      return this;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public Builder includeAllCompanyMember(Boolean includeAllCompanyMember) {
-      this.includeAllCompanyMember = includeAllCompanyMember;
-      return this;
+    public String getDescription() {
+        return this.description;
     }
 
-    public Builder whoCanSendMail(String whoCanSendMail) {
-      this.whoCanSendMail = whoCanSendMail;
-      return this;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    public Builder whoCanSendMail(
-        com.lark.oapi.service.mail.v1.enums.WhoCanSendMailEnum whoCanSendMail) {
-      this.whoCanSendMail = whoCanSendMail.getValue();
-      return this;
+    public String getDirectMembersCount() {
+        return this.directMembersCount;
+    }
+
+    public void setDirectMembersCount(String directMembersCount) {
+        this.directMembersCount = directMembersCount;
+    }
+
+    public Boolean getIncludeExternalMember() {
+        return this.includeExternalMember;
+    }
+
+    public void setIncludeExternalMember(Boolean includeExternalMember) {
+        this.includeExternalMember = includeExternalMember;
+    }
+
+    public Boolean getIncludeAllCompanyMember() {
+        return this.includeAllCompanyMember;
+    }
+
+    public void setIncludeAllCompanyMember(Boolean includeAllCompanyMember) {
+        this.includeAllCompanyMember = includeAllCompanyMember;
+    }
+
+    public String getWhoCanSendMail() {
+        return this.whoCanSendMail;
+    }
+
+    public void setWhoCanSendMail(String whoCanSendMail) {
+        this.whoCanSendMail = whoCanSendMail;
     }
 
 
-    public Mailgroup build() {
-      return new Mailgroup(this);
-    }
+// builder 开始
+  public Mailgroup(){}
+
+  public Mailgroup(Builder builder){
+      this.mailgroupId = builder.mailgroupId;
+      this.email = builder.email;
+      this.name = builder.name;
+      this.description = builder.description;
+      this.directMembersCount = builder.directMembersCount;
+      this.includeExternalMember = builder.includeExternalMember;
+      this.includeAllCompanyMember = builder.includeAllCompanyMember;
+      this.whoCanSendMail = builder.whoCanSendMail;
   }
+
+    public static class Builder {
+        private String mailgroupId;
+        private String email;
+        private String name;
+        private String description;
+        private String directMembersCount;
+        private Boolean includeExternalMember;
+        private Boolean includeAllCompanyMember;
+        private String whoCanSendMail;
+        public Builder mailgroupId(String mailgroupId) {
+             this.mailgroupId = mailgroupId;
+             return this;
+        }
+    
+        public Builder email(String email) {
+             this.email = email;
+             return this;
+        }
+    
+        public Builder name(String name) {
+             this.name = name;
+             return this;
+        }
+    
+        public Builder description(String description) {
+             this.description = description;
+             return this;
+        }
+    
+        public Builder directMembersCount(String directMembersCount) {
+             this.directMembersCount = directMembersCount;
+             return this;
+        }
+    
+        public Builder includeExternalMember(Boolean includeExternalMember) {
+             this.includeExternalMember = includeExternalMember;
+             return this;
+        }
+    
+        public Builder includeAllCompanyMember(Boolean includeAllCompanyMember) {
+             this.includeAllCompanyMember = includeAllCompanyMember;
+             return this;
+        }
+    
+        public Builder whoCanSendMail(String whoCanSendMail) {
+             this.whoCanSendMail = whoCanSendMail;
+             return this;
+        }
+        public Builder whoCanSendMail(com.lark.oapi.service.mail.v1.enums.WhoCanSendMailEnum whoCanSendMail) {
+             this.whoCanSendMail = whoCanSendMail.getValue();
+             return this;
+        }
+    
+    
+    public Mailgroup build(){
+        return new Mailgroup(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

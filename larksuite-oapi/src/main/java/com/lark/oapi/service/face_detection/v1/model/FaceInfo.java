@@ -12,80 +12,85 @@
  */
 
 package com.lark.oapi.service.face_detection.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class FaceInfo {
-
-  @SerializedName("position")
-  private FacePosition position;
-  @SerializedName("attribute")
-  private FaceAttribute attribute;
-  @SerializedName("quality")
-  private FaceQuality quality;
-
-  // builder 开始
-  public FaceInfo() {
-  }
-
-  public FaceInfo(Builder builder) {
-    this.position = builder.position;
-    this.attribute = builder.attribute;
-    this.quality = builder.quality;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public FacePosition getPosition() {
-    return this.position;
-  }
-
-  public void setPosition(FacePosition position) {
-    this.position = position;
-  }
-
-  public FaceAttribute getAttribute() {
-    return this.attribute;
-  }
-
-  public void setAttribute(FaceAttribute attribute) {
-    this.attribute = attribute;
-  }
-
-  public FaceQuality getQuality() {
-    return this.quality;
-  }
-
-  public void setQuality(FaceQuality quality) {
-    this.quality = quality;
-  }
-
-  public static class Builder {
-
+    @SerializedName("position")
     private FacePosition position;
+    @SerializedName("attribute")
     private FaceAttribute attribute;
+    @SerializedName("quality")
     private FaceQuality quality;
-
-    public Builder position(FacePosition position) {
-      this.position = position;
-      return this;
+    public FacePosition getPosition() {
+        return this.position;
     }
 
-    public Builder attribute(FaceAttribute attribute) {
-      this.attribute = attribute;
-      return this;
+    public void setPosition(FacePosition position) {
+        this.position = position;
     }
 
-    public Builder quality(FaceQuality quality) {
-      this.quality = quality;
-      return this;
+    public FaceAttribute getAttribute() {
+        return this.attribute;
+    }
+
+    public void setAttribute(FaceAttribute attribute) {
+        this.attribute = attribute;
+    }
+
+    public FaceQuality getQuality() {
+        return this.quality;
+    }
+
+    public void setQuality(FaceQuality quality) {
+        this.quality = quality;
     }
 
 
-    public FaceInfo build() {
-      return new FaceInfo(this);
-    }
+// builder 开始
+  public FaceInfo(){}
+
+  public FaceInfo(Builder builder){
+      this.position = builder.position;
+      this.attribute = builder.attribute;
+      this.quality = builder.quality;
   }
+
+    public static class Builder {
+        private FacePosition position;
+        private FaceAttribute attribute;
+        private FaceQuality quality;
+        public Builder position(FacePosition position) {
+             this.position = position;
+             return this;
+        }
+    
+        public Builder attribute(FaceAttribute attribute) {
+             this.attribute = attribute;
+             return this;
+        }
+    
+        public Builder quality(FaceQuality quality) {
+             this.quality = quality;
+             return this;
+        }
+    
+    
+    public FaceInfo build(){
+        return new FaceInfo(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

@@ -12,68 +12,73 @@
  */
 
 package com.lark.oapi.service.bitable.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.bitable.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class ReqView {
-
-  @SerializedName("view_name")
-  private String viewName;
-  @SerializedName("view_type")
-  private String viewType;
-
-  // builder 开始
-  public ReqView() {
-  }
-
-  public ReqView(Builder builder) {
-    this.viewName = builder.viewName;
-    this.viewType = builder.viewType;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getViewName() {
-    return this.viewName;
-  }
-
-  public void setViewName(String viewName) {
-    this.viewName = viewName;
-  }
-
-  public String getViewType() {
-    return this.viewType;
-  }
-
-  public void setViewType(String viewType) {
-    this.viewType = viewType;
-  }
-
-  public static class Builder {
-
+    @SerializedName("view_name")
     private String viewName;
+    @SerializedName("view_type")
     private String viewType;
-
-    public Builder viewName(String viewName) {
-      this.viewName = viewName;
-      return this;
+    public String getViewName() {
+        return this.viewName;
     }
 
-    public Builder viewType(String viewType) {
-      this.viewType = viewType;
-      return this;
+    public void setViewName(String viewName) {
+        this.viewName = viewName;
     }
 
-    public Builder viewType(com.lark.oapi.service.bitable.v1.enums.ViewTypeEnum viewType) {
-      this.viewType = viewType.getValue();
-      return this;
+    public String getViewType() {
+        return this.viewType;
+    }
+
+    public void setViewType(String viewType) {
+        this.viewType = viewType;
     }
 
 
-    public ReqView build() {
-      return new ReqView(this);
-    }
+// builder 开始
+  public ReqView(){}
+
+  public ReqView(Builder builder){
+      this.viewName = builder.viewName;
+      this.viewType = builder.viewType;
   }
+
+    public static class Builder {
+        private String viewName;
+        private String viewType;
+        public Builder viewName(String viewName) {
+             this.viewName = viewName;
+             return this;
+        }
+    
+        public Builder viewType(String viewType) {
+             this.viewType = viewType;
+             return this;
+        }
+        public Builder viewType(com.lark.oapi.service.bitable.v1.enums.ViewTypeEnum viewType) {
+             this.viewType = viewType.getValue();
+             return this;
+        }
+    
+    
+    public ReqView build(){
+        return new ReqView(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

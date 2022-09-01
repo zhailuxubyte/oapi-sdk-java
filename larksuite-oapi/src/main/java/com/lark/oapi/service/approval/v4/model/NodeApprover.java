@@ -12,63 +12,69 @@
  */
 
 package com.lark.oapi.service.approval.v4.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.approval.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class NodeApprover {
-
-  @SerializedName("key")
-  private String key;
-  @SerializedName("value")
-  private String[] value;
-
-  // builder 开始
-  public NodeApprover() {
-  }
-
-  public NodeApprover(Builder builder) {
-    this.key = builder.key;
-    this.value = builder.value;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getKey() {
-    return this.key;
-  }
-
-  public void setKey(String key) {
-    this.key = key;
-  }
-
-  public String[] getValue() {
-    return this.value;
-  }
-
-  public void setValue(String[] value) {
-    this.value = value;
-  }
-
-  public static class Builder {
-
+    @SerializedName("key")
     private String key;
+    @SerializedName("value")
     private String[] value;
-
-    public Builder key(String key) {
-      this.key = key;
-      return this;
+    public String getKey() {
+        return this.key;
     }
 
-    public Builder value(String[] value) {
-      this.value = value;
-      return this;
+    public void setKey(String key) {
+        this.key = key;
+    }
+
+    public String[] getValue() {
+        return this.value;
+    }
+
+    public void setValue(String[] value) {
+        this.value = value;
     }
 
 
-    public NodeApprover build() {
-      return new NodeApprover(this);
-    }
+// builder 开始
+  public NodeApprover(){}
+
+  public NodeApprover(Builder builder){
+      this.key = builder.key;
+      this.value = builder.value;
   }
+
+    public static class Builder {
+        private String key;
+        private String[] value;
+        public Builder key(String key) {
+             this.key = key;
+             return this;
+        }
+    
+        public Builder value(String[] value) {
+             this.value = value;
+             return this;
+        }
+    
+    
+    public NodeApprover build(){
+        return new NodeApprover(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

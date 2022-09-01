@@ -12,74 +12,76 @@
  */
 
 package com.lark.oapi.service.calendar.v4.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.calendar.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class CreateTimeoffEventReq {
-
-  @Query
-  @SerializedName("user_id_type")
-  private String userIdType;
-  @Body
-  private TimeoffEvent body;
-
-  // builder 开始
-  public CreateTimeoffEventReq() {
-  }
-
-  public CreateTimeoffEventReq(Builder builder) {
-    this.userIdType = builder.userIdType;
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getUserIdType() {
-    return this.userIdType;
-  }
-
-  public void setUserIdType(String userIdType) {
-    this.userIdType = userIdType;
-  }
-
-  public TimeoffEvent getTimeoffEvent() {
-    return this.body;
-  }
-
-  public void setTimeoffEvent(TimeoffEvent body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
+    @Query
+    @SerializedName("user_id_type")
     private String userIdType;
+    public String getUserIdType() {
+        return this.userIdType;
+    }
+
+    public void setUserIdType(String userIdType) {
+        this.userIdType = userIdType;
+    }
+
+    @Body
     private TimeoffEvent body;
 
-    public Builder userIdType(String userIdType) {
-      this.userIdType = userIdType;
-      return this;
-    }
-
-    public Builder userIdType(com.lark.oapi.service.calendar.v4.enums.UserIdTypeEnum userIdType) {
-      this.userIdType = userIdType.getValue();
-      return this;
-    }
-
     public TimeoffEvent getTimeoffEvent() {
-      return this.body;
+        return this.body;
     }
 
-    public Builder timeoffEvent(TimeoffEvent body) {
-      this.body = body;
-      return this;
+    public void setTimeoffEvent(TimeoffEvent body) {
+        this.body = body;
     }
 
-    public CreateTimeoffEventReq build() {
-      return new CreateTimeoffEventReq(this);
-    }
+// builder 开始
+  public CreateTimeoffEventReq(){}
+
+  public CreateTimeoffEventReq(Builder builder){
+       this.userIdType = builder.userIdType;
+        this.body = builder.body;
   }
+
+    public static class Builder {
+        private String userIdType;
+    
+           public Builder userIdType(String userIdType) {
+                this.userIdType = userIdType;
+                return this;
+           }
+          public Builder userIdType(com.lark.oapi.service.calendar.v4.enums.UserIdTypeEnum userIdType) {
+               this.userIdType = userIdType.getValue();
+               return this;
+          }
+    
+        private TimeoffEvent body;
+    
+        public TimeoffEvent getTimeoffEvent() {
+            return this.body;
+        }
+        public Builder timeoffEvent(TimeoffEvent body) {
+             this.body = body;
+             return this;
+        }
+    public CreateTimeoffEventReq build(){
+        return new CreateTimeoffEventReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

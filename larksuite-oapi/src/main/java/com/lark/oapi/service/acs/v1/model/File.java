@@ -12,80 +12,85 @@
  */
 
 package com.lark.oapi.service.acs.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.acs.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class File {
-
-  @SerializedName("files")
-  private File files;
-  @SerializedName("file_type")
-  private String fileType;
-  @SerializedName("file_name")
-  private String fileName;
-
-  // builder 开始
-  public File() {
-  }
-
-  public File(Builder builder) {
-    this.files = builder.files;
-    this.fileType = builder.fileType;
-    this.fileName = builder.fileName;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public File getFiles() {
-    return this.files;
-  }
-
-  public void setFiles(File files) {
-    this.files = files;
-  }
-
-  public String getFileType() {
-    return this.fileType;
-  }
-
-  public void setFileType(String fileType) {
-    this.fileType = fileType;
-  }
-
-  public String getFileName() {
-    return this.fileName;
-  }
-
-  public void setFileName(String fileName) {
-    this.fileName = fileName;
-  }
-
-  public static class Builder {
-
-    private File files;
+    @SerializedName("files")
+    private java.io.File files;
+    @SerializedName("file_type")
     private String fileType;
+    @SerializedName("file_name")
     private String fileName;
-
-    public Builder files(File files) {
-      this.files = files;
-      return this;
+    public java.io.File getFiles() {
+        return this.files;
     }
 
-    public Builder fileType(String fileType) {
-      this.fileType = fileType;
-      return this;
+    public void setFiles(java.io.File files) {
+        this.files = files;
     }
 
-    public Builder fileName(String fileName) {
-      this.fileName = fileName;
-      return this;
+    public String getFileType() {
+        return this.fileType;
+    }
+
+    public void setFileType(String fileType) {
+        this.fileType = fileType;
+    }
+
+    public String getFileName() {
+        return this.fileName;
+    }
+
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
     }
 
 
-    public File build() {
-      return new File(this);
-    }
+// builder 开始
+  public File(){}
+
+  public File(Builder builder){
+      this.files = builder.files;
+      this.fileType = builder.fileType;
+      this.fileName = builder.fileName;
   }
+
+    public static class Builder {
+        private java.io.File files;
+        private String fileType;
+        private String fileName;
+        public Builder files(java.io.File files) {
+             this.files = files;
+             return this;
+        }
+    
+        public Builder fileType(String fileType) {
+             this.fileType = fileType;
+             return this;
+        }
+    
+        public Builder fileName(String fileName) {
+             this.fileName = fileName;
+             return this;
+        }
+    
+    
+    public File build(){
+        return new File(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

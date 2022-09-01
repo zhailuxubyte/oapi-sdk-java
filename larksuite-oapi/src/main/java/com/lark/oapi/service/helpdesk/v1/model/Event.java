@@ -12,63 +12,69 @@
  */
 
 package com.lark.oapi.service.helpdesk.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.helpdesk.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class Event {
-
-  @SerializedName("type")
-  private String type;
-  @SerializedName("subtype")
-  private String subtype;
-
-  // builder 开始
-  public Event() {
-  }
-
-  public Event(Builder builder) {
-    this.type = builder.type;
-    this.subtype = builder.subtype;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getType() {
-    return this.type;
-  }
-
-  public void setType(String type) {
-    this.type = type;
-  }
-
-  public String getSubtype() {
-    return this.subtype;
-  }
-
-  public void setSubtype(String subtype) {
-    this.subtype = subtype;
-  }
-
-  public static class Builder {
-
+    @SerializedName("type")
     private String type;
+    @SerializedName("subtype")
     private String subtype;
-
-    public Builder type(String type) {
-      this.type = type;
-      return this;
+    public String getType() {
+        return this.type;
     }
 
-    public Builder subtype(String subtype) {
-      this.subtype = subtype;
-      return this;
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public String getSubtype() {
+        return this.subtype;
+    }
+
+    public void setSubtype(String subtype) {
+        this.subtype = subtype;
     }
 
 
-    public Event build() {
-      return new Event(this);
-    }
+// builder 开始
+  public Event(){}
+
+  public Event(Builder builder){
+      this.type = builder.type;
+      this.subtype = builder.subtype;
   }
+
+    public static class Builder {
+        private String type;
+        private String subtype;
+        public Builder type(String type) {
+             this.type = type;
+             return this;
+        }
+    
+        public Builder subtype(String subtype) {
+             this.subtype = subtype;
+             return this;
+        }
+    
+    
+    public Event build(){
+        return new Event(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

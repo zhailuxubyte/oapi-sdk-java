@@ -12,49 +12,54 @@
  */
 
 package com.lark.oapi.service.helpdesk.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.helpdesk.v1.enums.*;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
-
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class CreateFaqReq {
-
-  @Body
-  private CreateFaqReqBody body;
-
-  // builder 开始
-  public CreateFaqReq() {
-  }
-
-  public CreateFaqReq(Builder builder) {
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public CreateFaqReqBody getCreateFaqReqBody() {
-    return this.body;
-  }
-
-  public void setCreateFaqReqBody(CreateFaqReqBody body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
+    @Body
     private CreateFaqReqBody body;
 
     public CreateFaqReqBody getCreateFaqReqBody() {
-      return this.body;
+        return this.body;
     }
 
-    public Builder createFaqReqBody(CreateFaqReqBody body) {
-      this.body = body;
-      return this;
+    public void setCreateFaqReqBody(CreateFaqReqBody body) {
+        this.body = body;
     }
 
-    public CreateFaqReq build() {
-      return new CreateFaqReq(this);
-    }
+// builder 开始
+  public CreateFaqReq(){}
+
+  public CreateFaqReq(Builder builder){
+        this.body = builder.body;
   }
+
+    public static class Builder {
+    
+        private CreateFaqReqBody body;
+    
+        public CreateFaqReqBody getCreateFaqReqBody() {
+            return this.body;
+        }
+        public Builder createFaqReqBody(CreateFaqReqBody body) {
+             this.body = body;
+             return this;
+        }
+    public CreateFaqReq build(){
+        return new CreateFaqReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

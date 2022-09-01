@@ -12,65 +12,70 @@
  */
 
 package com.lark.oapi.service.drive.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.drive.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class BatchGetTmpDownloadUrlMediaReq {
-
-  @Query
-  @SerializedName("file_tokens")
-  private String[] fileTokens;
-  @Query
-  @SerializedName("extra")
-  private String extra;
-
-  // builder 开始
-  public BatchGetTmpDownloadUrlMediaReq() {
-  }
-
-  public BatchGetTmpDownloadUrlMediaReq(Builder builder) {
-    this.fileTokens = builder.fileTokens;
-    this.extra = builder.extra;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String[] getFileTokens() {
-    return this.fileTokens;
-  }
-
-  public void setFileTokens(String[] fileTokens) {
-    this.fileTokens = fileTokens;
-  }
-
-  public String getExtra() {
-    return this.extra;
-  }
-
-  public void setExtra(String extra) {
-    this.extra = extra;
-  }
-
-  public static class Builder {
-
+    @Query
+    @SerializedName("file_tokens")
     private String[] fileTokens;
+    @Query
+    @SerializedName("extra")
     private String extra;
-
-    public Builder fileTokens(String[] fileTokens) {
-      this.fileTokens = fileTokens;
-      return this;
+    public String[] getFileTokens() {
+        return this.fileTokens;
     }
 
-    public Builder extra(String extra) {
-      this.extra = extra;
-      return this;
+    public void setFileTokens(String[] fileTokens) {
+        this.fileTokens = fileTokens;
     }
 
-    public BatchGetTmpDownloadUrlMediaReq build() {
-      return new BatchGetTmpDownloadUrlMediaReq(this);
+    public String getExtra() {
+        return this.extra;
     }
+
+    public void setExtra(String extra) {
+        this.extra = extra;
+    }
+
+
+// builder 开始
+  public BatchGetTmpDownloadUrlMediaReq(){}
+
+  public BatchGetTmpDownloadUrlMediaReq(Builder builder){
+       this.fileTokens = builder.fileTokens;
+       this.extra = builder.extra;
   }
+
+    public static class Builder {
+        private String[] fileTokens;
+        private String extra;
+    
+           public Builder fileTokens(String[] fileTokens) {
+                this.fileTokens = fileTokens;
+                return this;
+           }
+    
+           public Builder extra(String extra) {
+                this.extra = extra;
+                return this;
+           }
+    
+    public BatchGetTmpDownloadUrlMediaReq build(){
+        return new BatchGetTmpDownloadUrlMediaReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

@@ -12,46 +12,52 @@
  */
 
 package com.lark.oapi.service.application.v6.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.application.v6.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class User {
-
-  @SerializedName("user_id")
-  private UserId userId;
-
-  // builder 开始
-  public User() {
-  }
-
-  public User(Builder builder) {
-    this.userId = builder.userId;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public UserId getUserId() {
-    return this.userId;
-  }
-
-  public void setUserId(UserId userId) {
-    this.userId = userId;
-  }
-
-  public static class Builder {
-
+    @SerializedName("user_id")
     private UserId userId;
+    public UserId getUserId() {
+        return this.userId;
+    }
 
-    public Builder userId(UserId userId) {
-      this.userId = userId;
-      return this;
+    public void setUserId(UserId userId) {
+        this.userId = userId;
     }
 
 
-    public User build() {
-      return new User(this);
-    }
+// builder 开始
+  public User(){}
+
+  public User(Builder builder){
+      this.userId = builder.userId;
   }
+
+    public static class Builder {
+        private UserId userId;
+        public Builder userId(UserId userId) {
+             this.userId = userId;
+             return this;
+        }
+    
+    
+    public User build(){
+        return new User(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

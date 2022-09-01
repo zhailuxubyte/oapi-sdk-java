@@ -12,85 +12,90 @@
  */
 
 package com.lark.oapi.service.attendance.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.attendance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class UserStatsField {
-
-  @SerializedName("stats_type")
-  private String statsType;
-  @SerializedName("user_id")
-  private String userId;
-  @SerializedName("fields")
-  private Field[] fields;
-
-  // builder 开始
-  public UserStatsField() {
-  }
-
-  public UserStatsField(Builder builder) {
-    this.statsType = builder.statsType;
-    this.userId = builder.userId;
-    this.fields = builder.fields;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getStatsType() {
-    return this.statsType;
-  }
-
-  public void setStatsType(String statsType) {
-    this.statsType = statsType;
-  }
-
-  public String getUserId() {
-    return this.userId;
-  }
-
-  public void setUserId(String userId) {
-    this.userId = userId;
-  }
-
-  public Field[] getFields() {
-    return this.fields;
-  }
-
-  public void setFields(Field[] fields) {
-    this.fields = fields;
-  }
-
-  public static class Builder {
-
+    @SerializedName("stats_type")
     private String statsType;
+    @SerializedName("user_id")
     private String userId;
+    @SerializedName("fields")
     private Field[] fields;
-
-    public Builder statsType(String statsType) {
-      this.statsType = statsType;
-      return this;
+    public String getStatsType() {
+        return this.statsType;
     }
 
-    public Builder statsType(com.lark.oapi.service.attendance.v1.enums.StatsTypeEnum statsType) {
-      this.statsType = statsType.getValue();
-      return this;
+    public void setStatsType(String statsType) {
+        this.statsType = statsType;
     }
 
-    public Builder userId(String userId) {
-      this.userId = userId;
-      return this;
+    public String getUserId() {
+        return this.userId;
     }
 
-    public Builder fields(Field[] fields) {
-      this.fields = fields;
-      return this;
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    public Field[] getFields() {
+        return this.fields;
+    }
+
+    public void setFields(Field[] fields) {
+        this.fields = fields;
     }
 
 
-    public UserStatsField build() {
-      return new UserStatsField(this);
-    }
+// builder 开始
+  public UserStatsField(){}
+
+  public UserStatsField(Builder builder){
+      this.statsType = builder.statsType;
+      this.userId = builder.userId;
+      this.fields = builder.fields;
   }
+
+    public static class Builder {
+        private String statsType;
+        private String userId;
+        private Field[] fields;
+        public Builder statsType(String statsType) {
+             this.statsType = statsType;
+             return this;
+        }
+        public Builder statsType(com.lark.oapi.service.attendance.v1.enums.StatsTypeEnum statsType) {
+             this.statsType = statsType.getValue();
+             return this;
+        }
+    
+        public Builder userId(String userId) {
+             this.userId = userId;
+             return this;
+        }
+    
+        public Builder fields(Field[] fields) {
+             this.fields = fields;
+             return this;
+        }
+    
+    
+    public UserStatsField build(){
+        return new UserStatsField(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

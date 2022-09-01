@@ -12,216 +12,222 @@
  */
 
 package com.lark.oapi.service.helpdesk.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.helpdesk.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class TicketMessageEvent {
-
-  @SerializedName("ticket_message_id")
-  private String ticketMessageId;
-  @SerializedName("message_id")
-  private String messageId;
-  @SerializedName("msg_type")
-  private String msgType;
-  @SerializedName("position")
-  private String position;
-  @SerializedName("sender_id")
-  private UserId senderId;
-  @SerializedName("sender_type")
-  private Integer senderType;
-  @SerializedName("text")
-  private String text;
-  @SerializedName("ticket")
-  private Ticket ticket;
-  @SerializedName("event_id")
-  private String eventId;
-  @SerializedName("chat_id")
-  private String chatId;
-  @SerializedName("content")
-  private TicketMessageContent content;
-
-  // builder 开始
-  public TicketMessageEvent() {
-  }
-
-  public TicketMessageEvent(Builder builder) {
-    this.ticketMessageId = builder.ticketMessageId;
-    this.messageId = builder.messageId;
-    this.msgType = builder.msgType;
-    this.position = builder.position;
-    this.senderId = builder.senderId;
-    this.senderType = builder.senderType;
-    this.text = builder.text;
-    this.ticket = builder.ticket;
-    this.eventId = builder.eventId;
-    this.chatId = builder.chatId;
-    this.content = builder.content;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getTicketMessageId() {
-    return this.ticketMessageId;
-  }
-
-  public void setTicketMessageId(String ticketMessageId) {
-    this.ticketMessageId = ticketMessageId;
-  }
-
-  public String getMessageId() {
-    return this.messageId;
-  }
-
-  public void setMessageId(String messageId) {
-    this.messageId = messageId;
-  }
-
-  public String getMsgType() {
-    return this.msgType;
-  }
-
-  public void setMsgType(String msgType) {
-    this.msgType = msgType;
-  }
-
-  public String getPosition() {
-    return this.position;
-  }
-
-  public void setPosition(String position) {
-    this.position = position;
-  }
-
-  public UserId getSenderId() {
-    return this.senderId;
-  }
-
-  public void setSenderId(UserId senderId) {
-    this.senderId = senderId;
-  }
-
-  public Integer getSenderType() {
-    return this.senderType;
-  }
-
-  public void setSenderType(Integer senderType) {
-    this.senderType = senderType;
-  }
-
-  public String getText() {
-    return this.text;
-  }
-
-  public void setText(String text) {
-    this.text = text;
-  }
-
-  public Ticket getTicket() {
-    return this.ticket;
-  }
-
-  public void setTicket(Ticket ticket) {
-    this.ticket = ticket;
-  }
-
-  public String getEventId() {
-    return this.eventId;
-  }
-
-  public void setEventId(String eventId) {
-    this.eventId = eventId;
-  }
-
-  public String getChatId() {
-    return this.chatId;
-  }
-
-  public void setChatId(String chatId) {
-    this.chatId = chatId;
-  }
-
-  public TicketMessageContent getContent() {
-    return this.content;
-  }
-
-  public void setContent(TicketMessageContent content) {
-    this.content = content;
-  }
-
-  public static class Builder {
-
+    @SerializedName("ticket_message_id")
     private String ticketMessageId;
+    @SerializedName("message_id")
     private String messageId;
+    @SerializedName("msg_type")
     private String msgType;
+    @SerializedName("position")
     private String position;
+    @SerializedName("sender_id")
     private UserId senderId;
+    @SerializedName("sender_type")
     private Integer senderType;
+    @SerializedName("text")
     private String text;
+    @SerializedName("ticket")
     private Ticket ticket;
+    @SerializedName("event_id")
     private String eventId;
+    @SerializedName("chat_id")
     private String chatId;
+    @SerializedName("content")
     private TicketMessageContent content;
-
-    public Builder ticketMessageId(String ticketMessageId) {
-      this.ticketMessageId = ticketMessageId;
-      return this;
+    public String getTicketMessageId() {
+        return this.ticketMessageId;
     }
 
-    public Builder messageId(String messageId) {
-      this.messageId = messageId;
-      return this;
+    public void setTicketMessageId(String ticketMessageId) {
+        this.ticketMessageId = ticketMessageId;
     }
 
-    public Builder msgType(String msgType) {
-      this.msgType = msgType;
-      return this;
+    public String getMessageId() {
+        return this.messageId;
     }
 
-    public Builder position(String position) {
-      this.position = position;
-      return this;
+    public void setMessageId(String messageId) {
+        this.messageId = messageId;
     }
 
-    public Builder senderId(UserId senderId) {
-      this.senderId = senderId;
-      return this;
+    public String getMsgType() {
+        return this.msgType;
     }
 
-    public Builder senderType(Integer senderType) {
-      this.senderType = senderType;
-      return this;
+    public void setMsgType(String msgType) {
+        this.msgType = msgType;
     }
 
-    public Builder text(String text) {
-      this.text = text;
-      return this;
+    public String getPosition() {
+        return this.position;
     }
 
-    public Builder ticket(Ticket ticket) {
-      this.ticket = ticket;
-      return this;
+    public void setPosition(String position) {
+        this.position = position;
     }
 
-    public Builder eventId(String eventId) {
-      this.eventId = eventId;
-      return this;
+    public UserId getSenderId() {
+        return this.senderId;
     }
 
-    public Builder chatId(String chatId) {
-      this.chatId = chatId;
-      return this;
+    public void setSenderId(UserId senderId) {
+        this.senderId = senderId;
     }
 
-    public Builder content(TicketMessageContent content) {
-      this.content = content;
-      return this;
+    public Integer getSenderType() {
+        return this.senderType;
+    }
+
+    public void setSenderType(Integer senderType) {
+        this.senderType = senderType;
+    }
+
+    public String getText() {
+        return this.text;
+    }
+
+    public void setText(String text) {
+        this.text = text;
+    }
+
+    public Ticket getTicket() {
+        return this.ticket;
+    }
+
+    public void setTicket(Ticket ticket) {
+        this.ticket = ticket;
+    }
+
+    public String getEventId() {
+        return this.eventId;
+    }
+
+    public void setEventId(String eventId) {
+        this.eventId = eventId;
+    }
+
+    public String getChatId() {
+        return this.chatId;
+    }
+
+    public void setChatId(String chatId) {
+        this.chatId = chatId;
+    }
+
+    public TicketMessageContent getContent() {
+        return this.content;
+    }
+
+    public void setContent(TicketMessageContent content) {
+        this.content = content;
     }
 
 
-    public TicketMessageEvent build() {
-      return new TicketMessageEvent(this);
-    }
+// builder 开始
+  public TicketMessageEvent(){}
+
+  public TicketMessageEvent(Builder builder){
+      this.ticketMessageId = builder.ticketMessageId;
+      this.messageId = builder.messageId;
+      this.msgType = builder.msgType;
+      this.position = builder.position;
+      this.senderId = builder.senderId;
+      this.senderType = builder.senderType;
+      this.text = builder.text;
+      this.ticket = builder.ticket;
+      this.eventId = builder.eventId;
+      this.chatId = builder.chatId;
+      this.content = builder.content;
   }
+
+    public static class Builder {
+        private String ticketMessageId;
+        private String messageId;
+        private String msgType;
+        private String position;
+        private UserId senderId;
+        private Integer senderType;
+        private String text;
+        private Ticket ticket;
+        private String eventId;
+        private String chatId;
+        private TicketMessageContent content;
+        public Builder ticketMessageId(String ticketMessageId) {
+             this.ticketMessageId = ticketMessageId;
+             return this;
+        }
+    
+        public Builder messageId(String messageId) {
+             this.messageId = messageId;
+             return this;
+        }
+    
+        public Builder msgType(String msgType) {
+             this.msgType = msgType;
+             return this;
+        }
+    
+        public Builder position(String position) {
+             this.position = position;
+             return this;
+        }
+    
+        public Builder senderId(UserId senderId) {
+             this.senderId = senderId;
+             return this;
+        }
+    
+        public Builder senderType(Integer senderType) {
+             this.senderType = senderType;
+             return this;
+        }
+    
+        public Builder text(String text) {
+             this.text = text;
+             return this;
+        }
+    
+        public Builder ticket(Ticket ticket) {
+             this.ticket = ticket;
+             return this;
+        }
+    
+        public Builder eventId(String eventId) {
+             this.eventId = eventId;
+             return this;
+        }
+    
+        public Builder chatId(String chatId) {
+             this.chatId = chatId;
+             return this;
+        }
+    
+        public Builder content(TicketMessageContent content) {
+             this.content = content;
+             return this;
+        }
+    
+    
+    public TicketMessageEvent build(){
+        return new TicketMessageEvent(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

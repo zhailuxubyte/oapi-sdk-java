@@ -12,46 +12,52 @@
  */
 
 package com.lark.oapi.service.drive.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.drive.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class PatchFileCommentReqBody {
-
-  @SerializedName("is_solved")
-  private Boolean isSolved;
-
-  // builder 开始
-  public PatchFileCommentReqBody() {
-  }
-
-  public PatchFileCommentReqBody(Builder builder) {
-    this.isSolved = builder.isSolved;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Boolean getIsSolved() {
-    return this.isSolved;
-  }
-
-  public void setIsSolved(Boolean isSolved) {
-    this.isSolved = isSolved;
-  }
-
-  public static class Builder {
-
+    @SerializedName("is_solved")
     private Boolean isSolved;
+    public Boolean getIsSolved() {
+        return this.isSolved;
+    }
 
-    public Builder isSolved(Boolean isSolved) {
-      this.isSolved = isSolved;
-      return this;
+    public void setIsSolved(Boolean isSolved) {
+        this.isSolved = isSolved;
     }
 
 
-    public PatchFileCommentReqBody build() {
-      return new PatchFileCommentReqBody(this);
-    }
+// builder 开始
+  public PatchFileCommentReqBody(){}
+
+  public PatchFileCommentReqBody(Builder builder){
+      this.isSolved = builder.isSolved;
   }
+
+    public static class Builder {
+        private Boolean isSolved;
+        public Builder isSolved(Boolean isSolved) {
+             this.isSolved = isSolved;
+             return this;
+        }
+    
+    
+    public PatchFileCommentReqBody build(){
+        return new PatchFileCommentReqBody(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

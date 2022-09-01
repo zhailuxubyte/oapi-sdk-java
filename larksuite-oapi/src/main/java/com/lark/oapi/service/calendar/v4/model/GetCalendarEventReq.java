@@ -12,65 +12,70 @@
  */
 
 package com.lark.oapi.service.calendar.v4.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.calendar.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class GetCalendarEventReq {
-
-  @Path
-  @SerializedName("calendar_id")
-  private String calendarId;
-  @Path
-  @SerializedName("event_id")
-  private String eventId;
-
-  // builder 开始
-  public GetCalendarEventReq() {
-  }
-
-  public GetCalendarEventReq(Builder builder) {
-    this.calendarId = builder.calendarId;
-    this.eventId = builder.eventId;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getCalendarId() {
-    return this.calendarId;
-  }
-
-  public void setCalendarId(String calendarId) {
-    this.calendarId = calendarId;
-  }
-
-  public String getEventId() {
-    return this.eventId;
-  }
-
-  public void setEventId(String eventId) {
-    this.eventId = eventId;
-  }
-
-  public static class Builder {
-
+    @Path
+    @SerializedName("calendar_id")
     private String calendarId;
+    @Path
+    @SerializedName("event_id")
     private String eventId;
-
-    public Builder calendarId(String calendarId) {
-      this.calendarId = calendarId;
-      return this;
+    public String getCalendarId() {
+        return this.calendarId;
     }
 
-    public Builder eventId(String eventId) {
-      this.eventId = eventId;
-      return this;
+    public void setCalendarId(String calendarId) {
+        this.calendarId = calendarId;
     }
 
-    public GetCalendarEventReq build() {
-      return new GetCalendarEventReq(this);
+    public String getEventId() {
+        return this.eventId;
     }
+
+    public void setEventId(String eventId) {
+        this.eventId = eventId;
+    }
+
+
+// builder 开始
+  public GetCalendarEventReq(){}
+
+  public GetCalendarEventReq(Builder builder){
+       this.calendarId = builder.calendarId;
+       this.eventId = builder.eventId;
   }
+
+    public static class Builder {
+    
+        private String calendarId;
+        private String eventId;
+          public Builder calendarId(String calendarId) {
+               this.calendarId = calendarId;
+               return this;
+          }
+    
+          public Builder eventId(String eventId) {
+               this.eventId = eventId;
+               return this;
+          }
+    
+    public GetCalendarEventReq build(){
+        return new GetCalendarEventReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

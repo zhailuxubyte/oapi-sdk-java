@@ -12,63 +12,69 @@
  */
 
 package com.lark.oapi.service.docx.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.docx.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class TableMergeInfo {
-
-  @SerializedName("row_span")
-  private Integer rowSpan;
-  @SerializedName("col_span")
-  private Integer colSpan;
-
-  // builder 开始
-  public TableMergeInfo() {
-  }
-
-  public TableMergeInfo(Builder builder) {
-    this.rowSpan = builder.rowSpan;
-    this.colSpan = builder.colSpan;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Integer getRowSpan() {
-    return this.rowSpan;
-  }
-
-  public void setRowSpan(Integer rowSpan) {
-    this.rowSpan = rowSpan;
-  }
-
-  public Integer getColSpan() {
-    return this.colSpan;
-  }
-
-  public void setColSpan(Integer colSpan) {
-    this.colSpan = colSpan;
-  }
-
-  public static class Builder {
-
+    @SerializedName("row_span")
     private Integer rowSpan;
+    @SerializedName("col_span")
     private Integer colSpan;
-
-    public Builder rowSpan(Integer rowSpan) {
-      this.rowSpan = rowSpan;
-      return this;
+    public Integer getRowSpan() {
+        return this.rowSpan;
     }
 
-    public Builder colSpan(Integer colSpan) {
-      this.colSpan = colSpan;
-      return this;
+    public void setRowSpan(Integer rowSpan) {
+        this.rowSpan = rowSpan;
+    }
+
+    public Integer getColSpan() {
+        return this.colSpan;
+    }
+
+    public void setColSpan(Integer colSpan) {
+        this.colSpan = colSpan;
     }
 
 
-    public TableMergeInfo build() {
-      return new TableMergeInfo(this);
-    }
+// builder 开始
+  public TableMergeInfo(){}
+
+  public TableMergeInfo(Builder builder){
+      this.rowSpan = builder.rowSpan;
+      this.colSpan = builder.colSpan;
   }
+
+    public static class Builder {
+        private Integer rowSpan;
+        private Integer colSpan;
+        public Builder rowSpan(Integer rowSpan) {
+             this.rowSpan = rowSpan;
+             return this;
+        }
+    
+        public Builder colSpan(Integer colSpan) {
+             this.colSpan = colSpan;
+             return this;
+        }
+    
+    
+    public TableMergeInfo build(){
+        return new TableMergeInfo(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

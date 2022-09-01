@@ -12,211 +12,218 @@
  */
 
 package com.lark.oapi.service.im.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class CreateChat {
+    @SerializedName("chat_id")
+    private String chatId;
+    @SerializedName("avatar")
+    private String avatar;
+    @SerializedName("name")
+    private String name;
+    @SerializedName("description")
+    private String description;
+    @SerializedName("i18n_names")
+    private I18nNames i18nNames;
+    @SerializedName("owner_id")
+    private String ownerId;
+    @SerializedName("owner_id_type")
+    private String ownerIdType;
+    @SerializedName("add_member_permission")
+    private String addMemberPermission;
+    @SerializedName("share_card_permission")
+    private String shareCardPermission;
+    @SerializedName("at_all_permission")
+    private String atAllPermission;
+    @SerializedName("edit_permission")
+    private String editPermission;
+    @SerializedName("chat_mode")
+    private String chatMode;
+    @SerializedName("chat_type")
+    private String chatType;
+    @SerializedName("chat_tag")
+    private String chatTag;
+    @SerializedName("external")
+    private Boolean external;
+    @SerializedName("tenant_key")
+    private String tenantKey;
+    @SerializedName("join_message_visibility")
+    private String joinMessageVisibility;
+    @SerializedName("leave_message_visibility")
+    private String leaveMessageVisibility;
+    @SerializedName("membership_approval")
+    private String membershipApproval;
+    @SerializedName("moderation_permission")
+    private String moderationPermission;
+    public String getChatId() {
+        return this.chatId;
+    }
 
-  @SerializedName("chat_id")
-  private String chatId;
-  @SerializedName("avatar")
-  private String avatar;
-  @SerializedName("name")
-  private String name;
-  @SerializedName("description")
-  private String description;
-  @SerializedName("i18n_names")
-  private I18nNames i18nNames;
-  @SerializedName("owner_id")
-  private String ownerId;
-  @SerializedName("owner_id_type")
-  private String ownerIdType;
-  @SerializedName("add_member_permission")
-  private String addMemberPermission;
-  @SerializedName("share_card_permission")
-  private String shareCardPermission;
-  @SerializedName("at_all_permission")
-  private String atAllPermission;
-  @SerializedName("edit_permission")
-  private String editPermission;
-  @SerializedName("chat_mode")
-  private String chatMode;
-  @SerializedName("chat_type")
-  private String chatType;
-  @SerializedName("chat_tag")
-  private String chatTag;
-  @SerializedName("external")
-  private Boolean external;
-  @SerializedName("tenant_key")
-  private String tenantKey;
-  @SerializedName("join_message_visibility")
-  private String joinMessageVisibility;
-  @SerializedName("leave_message_visibility")
-  private String leaveMessageVisibility;
-  @SerializedName("membership_approval")
-  private String membershipApproval;
-  @SerializedName("moderation_permission")
-  private String moderationPermission;
+    public void setChatId(String chatId) {
+        this.chatId = chatId;
+    }
 
-  public String getChatId() {
-    return this.chatId;
-  }
+    public String getAvatar() {
+        return this.avatar;
+    }
 
-  public void setChatId(String chatId) {
-    this.chatId = chatId;
-  }
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
+    }
 
-  public String getAvatar() {
-    return this.avatar;
-  }
+    public String getName() {
+        return this.name;
+    }
 
-  public void setAvatar(String avatar) {
-    this.avatar = avatar;
-  }
+    public void setName(String name) {
+        this.name = name;
+    }
 
-  public String getName() {
-    return this.name;
-  }
+    public String getDescription() {
+        return this.description;
+    }
 
-  public void setName(String name) {
-    this.name = name;
-  }
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
-  public String getDescription() {
-    return this.description;
-  }
+    public I18nNames getI18nNames() {
+        return this.i18nNames;
+    }
 
-  public void setDescription(String description) {
-    this.description = description;
-  }
+    public void setI18nNames(I18nNames i18nNames) {
+        this.i18nNames = i18nNames;
+    }
 
-  public I18nNames getI18nNames() {
-    return this.i18nNames;
-  }
+    public String getOwnerId() {
+        return this.ownerId;
+    }
 
-  public void setI18nNames(I18nNames i18nNames) {
-    this.i18nNames = i18nNames;
-  }
+    public void setOwnerId(String ownerId) {
+        this.ownerId = ownerId;
+    }
 
-  public String getOwnerId() {
-    return this.ownerId;
-  }
+    public String getOwnerIdType() {
+        return this.ownerIdType;
+    }
 
-  public void setOwnerId(String ownerId) {
-    this.ownerId = ownerId;
-  }
+    public void setOwnerIdType(String ownerIdType) {
+        this.ownerIdType = ownerIdType;
+    }
 
-  public String getOwnerIdType() {
-    return this.ownerIdType;
-  }
+    public String getAddMemberPermission() {
+        return this.addMemberPermission;
+    }
 
-  public void setOwnerIdType(String ownerIdType) {
-    this.ownerIdType = ownerIdType;
-  }
+    public void setAddMemberPermission(String addMemberPermission) {
+        this.addMemberPermission = addMemberPermission;
+    }
 
-  public String getAddMemberPermission() {
-    return this.addMemberPermission;
-  }
+    public String getShareCardPermission() {
+        return this.shareCardPermission;
+    }
 
-  public void setAddMemberPermission(String addMemberPermission) {
-    this.addMemberPermission = addMemberPermission;
-  }
+    public void setShareCardPermission(String shareCardPermission) {
+        this.shareCardPermission = shareCardPermission;
+    }
 
-  public String getShareCardPermission() {
-    return this.shareCardPermission;
-  }
+    public String getAtAllPermission() {
+        return this.atAllPermission;
+    }
 
-  public void setShareCardPermission(String shareCardPermission) {
-    this.shareCardPermission = shareCardPermission;
-  }
+    public void setAtAllPermission(String atAllPermission) {
+        this.atAllPermission = atAllPermission;
+    }
 
-  public String getAtAllPermission() {
-    return this.atAllPermission;
-  }
+    public String getEditPermission() {
+        return this.editPermission;
+    }
 
-  public void setAtAllPermission(String atAllPermission) {
-    this.atAllPermission = atAllPermission;
-  }
+    public void setEditPermission(String editPermission) {
+        this.editPermission = editPermission;
+    }
 
-  public String getEditPermission() {
-    return this.editPermission;
-  }
+    public String getChatMode() {
+        return this.chatMode;
+    }
 
-  public void setEditPermission(String editPermission) {
-    this.editPermission = editPermission;
-  }
+    public void setChatMode(String chatMode) {
+        this.chatMode = chatMode;
+    }
 
-  public String getChatMode() {
-    return this.chatMode;
-  }
+    public String getChatType() {
+        return this.chatType;
+    }
 
-  public void setChatMode(String chatMode) {
-    this.chatMode = chatMode;
-  }
+    public void setChatType(String chatType) {
+        this.chatType = chatType;
+    }
 
-  public String getChatType() {
-    return this.chatType;
-  }
+    public String getChatTag() {
+        return this.chatTag;
+    }
 
-  public void setChatType(String chatType) {
-    this.chatType = chatType;
-  }
+    public void setChatTag(String chatTag) {
+        this.chatTag = chatTag;
+    }
 
-  public String getChatTag() {
-    return this.chatTag;
-  }
+    public Boolean getExternal() {
+        return this.external;
+    }
 
-  public void setChatTag(String chatTag) {
-    this.chatTag = chatTag;
-  }
+    public void setExternal(Boolean external) {
+        this.external = external;
+    }
 
-  public Boolean getExternal() {
-    return this.external;
-  }
+    public String getTenantKey() {
+        return this.tenantKey;
+    }
 
-  public void setExternal(Boolean external) {
-    this.external = external;
-  }
+    public void setTenantKey(String tenantKey) {
+        this.tenantKey = tenantKey;
+    }
 
-  public String getTenantKey() {
-    return this.tenantKey;
-  }
+    public String getJoinMessageVisibility() {
+        return this.joinMessageVisibility;
+    }
 
-  public void setTenantKey(String tenantKey) {
-    this.tenantKey = tenantKey;
-  }
+    public void setJoinMessageVisibility(String joinMessageVisibility) {
+        this.joinMessageVisibility = joinMessageVisibility;
+    }
 
-  public String getJoinMessageVisibility() {
-    return this.joinMessageVisibility;
-  }
+    public String getLeaveMessageVisibility() {
+        return this.leaveMessageVisibility;
+    }
 
-  public void setJoinMessageVisibility(String joinMessageVisibility) {
-    this.joinMessageVisibility = joinMessageVisibility;
-  }
+    public void setLeaveMessageVisibility(String leaveMessageVisibility) {
+        this.leaveMessageVisibility = leaveMessageVisibility;
+    }
 
-  public String getLeaveMessageVisibility() {
-    return this.leaveMessageVisibility;
-  }
+    public String getMembershipApproval() {
+        return this.membershipApproval;
+    }
 
-  public void setLeaveMessageVisibility(String leaveMessageVisibility) {
-    this.leaveMessageVisibility = leaveMessageVisibility;
-  }
+    public void setMembershipApproval(String membershipApproval) {
+        this.membershipApproval = membershipApproval;
+    }
 
-  public String getMembershipApproval() {
-    return this.membershipApproval;
-  }
+    public String getModerationPermission() {
+        return this.moderationPermission;
+    }
 
-  public void setMembershipApproval(String membershipApproval) {
-    this.membershipApproval = membershipApproval;
-  }
-
-  public String getModerationPermission() {
-    return this.moderationPermission;
-  }
-
-  public void setModerationPermission(String moderationPermission) {
-    this.moderationPermission = moderationPermission;
-  }
+    public void setModerationPermission(String moderationPermission) {
+        this.moderationPermission = moderationPermission;
+    }
 
 
 }

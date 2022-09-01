@@ -12,141 +12,145 @@
  */
 
 package com.lark.oapi.service.contact.v3.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.contact.v3.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class EmployeeTypeEnum {
-
-  @SerializedName("enum_id")
-  private String enumId;
-  @SerializedName("enum_value")
-  private String enumValue;
-  @SerializedName("content")
-  private String content;
-  @SerializedName("enum_type")
-  private Integer enumType;
-  @SerializedName("enum_status")
-  private Integer enumStatus;
-  @SerializedName("i18n_content")
-  private I18nContent[] i18nContent;
-
-  // builder 开始
-  public EmployeeTypeEnum() {
-  }
-
-  public EmployeeTypeEnum(Builder builder) {
-    this.enumId = builder.enumId;
-    this.enumValue = builder.enumValue;
-    this.content = builder.content;
-    this.enumType = builder.enumType;
-    this.enumStatus = builder.enumStatus;
-    this.i18nContent = builder.i18nContent;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getEnumId() {
-    return this.enumId;
-  }
-
-  public void setEnumId(String enumId) {
-    this.enumId = enumId;
-  }
-
-  public String getEnumValue() {
-    return this.enumValue;
-  }
-
-  public void setEnumValue(String enumValue) {
-    this.enumValue = enumValue;
-  }
-
-  public String getContent() {
-    return this.content;
-  }
-
-  public void setContent(String content) {
-    this.content = content;
-  }
-
-  public Integer getEnumType() {
-    return this.enumType;
-  }
-
-  public void setEnumType(Integer enumType) {
-    this.enumType = enumType;
-  }
-
-  public Integer getEnumStatus() {
-    return this.enumStatus;
-  }
-
-  public void setEnumStatus(Integer enumStatus) {
-    this.enumStatus = enumStatus;
-  }
-
-  public I18nContent[] getI18nContent() {
-    return this.i18nContent;
-  }
-
-  public void setI18nContent(I18nContent[] i18nContent) {
-    this.i18nContent = i18nContent;
-  }
-
-  public static class Builder {
-
+    @SerializedName("enum_id")
     private String enumId;
+    @SerializedName("enum_value")
     private String enumValue;
+    @SerializedName("content")
     private String content;
+    @SerializedName("enum_type")
     private Integer enumType;
+    @SerializedName("enum_status")
     private Integer enumStatus;
+    @SerializedName("i18n_content")
     private I18nContent[] i18nContent;
-
-    public Builder enumId(String enumId) {
-      this.enumId = enumId;
-      return this;
+    public String getEnumId() {
+        return this.enumId;
     }
 
-    public Builder enumValue(String enumValue) {
-      this.enumValue = enumValue;
-      return this;
+    public void setEnumId(String enumId) {
+        this.enumId = enumId;
     }
 
-    public Builder content(String content) {
-      this.content = content;
-      return this;
+    public String getEnumValue() {
+        return this.enumValue;
     }
 
-    public Builder enumType(Integer enumType) {
-      this.enumType = enumType;
-      return this;
+    public void setEnumValue(String enumValue) {
+        this.enumValue = enumValue;
     }
 
-    public Builder enumType(com.lark.oapi.service.contact.v3.enums.EnumTypeEnum enumType) {
-      this.enumType = enumType.getValue();
-      return this;
+    public String getContent() {
+        return this.content;
     }
 
-    public Builder enumStatus(Integer enumStatus) {
-      this.enumStatus = enumStatus;
-      return this;
+    public void setContent(String content) {
+        this.content = content;
     }
 
-    public Builder enumStatus(com.lark.oapi.service.contact.v3.enums.EnumStatusEnum enumStatus) {
-      this.enumStatus = enumStatus.getValue();
-      return this;
+    public Integer getEnumType() {
+        return this.enumType;
     }
 
-    public Builder i18nContent(I18nContent[] i18nContent) {
-      this.i18nContent = i18nContent;
-      return this;
+    public void setEnumType(Integer enumType) {
+        this.enumType = enumType;
+    }
+
+    public Integer getEnumStatus() {
+        return this.enumStatus;
+    }
+
+    public void setEnumStatus(Integer enumStatus) {
+        this.enumStatus = enumStatus;
+    }
+
+    public I18nContent[] getI18nContent() {
+        return this.i18nContent;
+    }
+
+    public void setI18nContent(I18nContent[] i18nContent) {
+        this.i18nContent = i18nContent;
     }
 
 
-    public EmployeeTypeEnum build() {
-      return new EmployeeTypeEnum(this);
-    }
+// builder 开始
+  public EmployeeTypeEnum(){}
+
+  public EmployeeTypeEnum(Builder builder){
+      this.enumId = builder.enumId;
+      this.enumValue = builder.enumValue;
+      this.content = builder.content;
+      this.enumType = builder.enumType;
+      this.enumStatus = builder.enumStatus;
+      this.i18nContent = builder.i18nContent;
   }
+
+    public static class Builder {
+        private String enumId;
+        private String enumValue;
+        private String content;
+        private Integer enumType;
+        private Integer enumStatus;
+        private I18nContent[] i18nContent;
+        public Builder enumId(String enumId) {
+             this.enumId = enumId;
+             return this;
+        }
+    
+        public Builder enumValue(String enumValue) {
+             this.enumValue = enumValue;
+             return this;
+        }
+    
+        public Builder content(String content) {
+             this.content = content;
+             return this;
+        }
+    
+        public Builder enumType(Integer enumType) {
+             this.enumType = enumType;
+             return this;
+        }
+        public Builder enumType(com.lark.oapi.service.contact.v3.enums.EnumTypeEnum enumType) {
+             this.enumType = enumType.getValue();
+             return this;
+        }
+    
+        public Builder enumStatus(Integer enumStatus) {
+             this.enumStatus = enumStatus;
+             return this;
+        }
+        public Builder enumStatus(com.lark.oapi.service.contact.v3.enums.EnumStatusEnum enumStatus) {
+             this.enumStatus = enumStatus.getValue();
+             return this;
+        }
+    
+        public Builder i18nContent(I18nContent[] i18nContent) {
+             this.i18nContent = i18nContent;
+             return this;
+        }
+    
+    
+    public EmployeeTypeEnum build(){
+        return new EmployeeTypeEnum(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

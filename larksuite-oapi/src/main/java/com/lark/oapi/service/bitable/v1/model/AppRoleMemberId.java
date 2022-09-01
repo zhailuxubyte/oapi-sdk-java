@@ -12,68 +12,73 @@
  */
 
 package com.lark.oapi.service.bitable.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.bitable.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class AppRoleMemberId {
-
-  @SerializedName("type")
-  private String type;
-  @SerializedName("id")
-  private String id;
-
-  // builder 开始
-  public AppRoleMemberId() {
-  }
-
-  public AppRoleMemberId(Builder builder) {
-    this.type = builder.type;
-    this.id = builder.id;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getType() {
-    return this.type;
-  }
-
-  public void setType(String type) {
-    this.type = type;
-  }
-
-  public String getId() {
-    return this.id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public static class Builder {
-
+    @SerializedName("type")
     private String type;
+    @SerializedName("id")
     private String id;
-
-    public Builder type(String type) {
-      this.type = type;
-      return this;
+    public String getType() {
+        return this.type;
     }
 
-    public Builder type(com.lark.oapi.service.bitable.v1.enums.RoleMemberIdTypeEnum type) {
-      this.type = type.getValue();
-      return this;
+    public void setType(String type) {
+        this.type = type;
     }
 
-    public Builder id(String id) {
-      this.id = id;
-      return this;
+    public String getId() {
+        return this.id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
 
-    public AppRoleMemberId build() {
-      return new AppRoleMemberId(this);
-    }
+// builder 开始
+  public AppRoleMemberId(){}
+
+  public AppRoleMemberId(Builder builder){
+      this.type = builder.type;
+      this.id = builder.id;
   }
+
+    public static class Builder {
+        private String type;
+        private String id;
+        public Builder type(String type) {
+             this.type = type;
+             return this;
+        }
+        public Builder type(com.lark.oapi.service.bitable.v1.enums.RoleMemberIdTypeEnum type) {
+             this.type = type.getValue();
+             return this;
+        }
+    
+        public Builder id(String id) {
+             this.id = id;
+             return this;
+        }
+    
+    
+    public AppRoleMemberId build(){
+        return new AppRoleMemberId(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

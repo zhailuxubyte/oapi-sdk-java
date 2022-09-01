@@ -12,63 +12,69 @@
  */
 
 package com.lark.oapi.service.task.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.task.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class PatchTaskReqBody {
-
-  @SerializedName("task")
-  private Task task;
-  @SerializedName("update_fields")
-  private String[] updateFields;
-
-  // builder 开始
-  public PatchTaskReqBody() {
-  }
-
-  public PatchTaskReqBody(Builder builder) {
-    this.task = builder.task;
-    this.updateFields = builder.updateFields;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Task getTask() {
-    return this.task;
-  }
-
-  public void setTask(Task task) {
-    this.task = task;
-  }
-
-  public String[] getUpdateFields() {
-    return this.updateFields;
-  }
-
-  public void setUpdateFields(String[] updateFields) {
-    this.updateFields = updateFields;
-  }
-
-  public static class Builder {
-
+    @SerializedName("task")
     private Task task;
+    @SerializedName("update_fields")
     private String[] updateFields;
-
-    public Builder task(Task task) {
-      this.task = task;
-      return this;
+    public Task getTask() {
+        return this.task;
     }
 
-    public Builder updateFields(String[] updateFields) {
-      this.updateFields = updateFields;
-      return this;
+    public void setTask(Task task) {
+        this.task = task;
+    }
+
+    public String[] getUpdateFields() {
+        return this.updateFields;
+    }
+
+    public void setUpdateFields(String[] updateFields) {
+        this.updateFields = updateFields;
     }
 
 
-    public PatchTaskReqBody build() {
-      return new PatchTaskReqBody(this);
-    }
+// builder 开始
+  public PatchTaskReqBody(){}
+
+  public PatchTaskReqBody(Builder builder){
+      this.task = builder.task;
+      this.updateFields = builder.updateFields;
   }
+
+    public static class Builder {
+        private Task task;
+        private String[] updateFields;
+        public Builder task(Task task) {
+             this.task = task;
+             return this;
+        }
+    
+        public Builder updateFields(String[] updateFields) {
+             this.updateFields = updateFields;
+             return this;
+        }
+    
+    
+    public PatchTaskReqBody build(){
+        return new PatchTaskReqBody(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

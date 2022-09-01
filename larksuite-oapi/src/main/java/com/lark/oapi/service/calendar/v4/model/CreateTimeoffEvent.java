@@ -12,80 +12,87 @@
  */
 
 package com.lark.oapi.service.calendar.v4.model;
-
+import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class CreateTimeoffEvent {
+    @SerializedName("timeoff_event_id")
+    private String timeoffEventId;
+    @SerializedName("user_id")
+    private String userId;
+    @SerializedName("timezone")
+    private String timezone;
+    @SerializedName("start_time")
+    private String startTime;
+    @SerializedName("end_time")
+    private String endTime;
+    @SerializedName("title")
+    private String title;
+    @SerializedName("description")
+    private String description;
+    public String getTimeoffEventId() {
+        return this.timeoffEventId;
+    }
 
-  @SerializedName("timeoff_event_id")
-  private String timeoffEventId;
-  @SerializedName("user_id")
-  private String userId;
-  @SerializedName("timezone")
-  private String timezone;
-  @SerializedName("start_time")
-  private String startTime;
-  @SerializedName("end_time")
-  private String endTime;
-  @SerializedName("title")
-  private String title;
-  @SerializedName("description")
-  private String description;
+    public void setTimeoffEventId(String timeoffEventId) {
+        this.timeoffEventId = timeoffEventId;
+    }
 
-  public String getTimeoffEventId() {
-    return this.timeoffEventId;
-  }
+    public String getUserId() {
+        return this.userId;
+    }
 
-  public void setTimeoffEventId(String timeoffEventId) {
-    this.timeoffEventId = timeoffEventId;
-  }
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
 
-  public String getUserId() {
-    return this.userId;
-  }
+    public String getTimezone() {
+        return this.timezone;
+    }
 
-  public void setUserId(String userId) {
-    this.userId = userId;
-  }
+    public void setTimezone(String timezone) {
+        this.timezone = timezone;
+    }
 
-  public String getTimezone() {
-    return this.timezone;
-  }
+    public String getStartTime() {
+        return this.startTime;
+    }
 
-  public void setTimezone(String timezone) {
-    this.timezone = timezone;
-  }
+    public void setStartTime(String startTime) {
+        this.startTime = startTime;
+    }
 
-  public String getStartTime() {
-    return this.startTime;
-  }
+    public String getEndTime() {
+        return this.endTime;
+    }
 
-  public void setStartTime(String startTime) {
-    this.startTime = startTime;
-  }
+    public void setEndTime(String endTime) {
+        this.endTime = endTime;
+    }
 
-  public String getEndTime() {
-    return this.endTime;
-  }
+    public String getTitle() {
+        return this.title;
+    }
 
-  public void setEndTime(String endTime) {
-    this.endTime = endTime;
-  }
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
-  public String getTitle() {
-    return this.title;
-  }
+    public String getDescription() {
+        return this.description;
+    }
 
-  public void setTitle(String title) {
-    this.title = title;
-  }
-
-  public String getDescription() {
-    return this.description;
-  }
-
-  public void setDescription(String description) {
-    this.description = description;
-  }
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
 }

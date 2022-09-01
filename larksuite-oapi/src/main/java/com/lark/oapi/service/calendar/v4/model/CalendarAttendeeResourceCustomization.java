@@ -12,80 +12,86 @@
  */
 
 package com.lark.oapi.service.calendar.v4.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.calendar.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class CalendarAttendeeResourceCustomization {
-
-  @SerializedName("index_key")
-  private String indexKey;
-  @SerializedName("input_content")
-  private String inputContent;
-  @SerializedName("options")
-  private CustomizationOption[] options;
-
-  // builder 开始
-  public CalendarAttendeeResourceCustomization() {
-  }
-
-  public CalendarAttendeeResourceCustomization(Builder builder) {
-    this.indexKey = builder.indexKey;
-    this.inputContent = builder.inputContent;
-    this.options = builder.options;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getIndexKey() {
-    return this.indexKey;
-  }
-
-  public void setIndexKey(String indexKey) {
-    this.indexKey = indexKey;
-  }
-
-  public String getInputContent() {
-    return this.inputContent;
-  }
-
-  public void setInputContent(String inputContent) {
-    this.inputContent = inputContent;
-  }
-
-  public CustomizationOption[] getOptions() {
-    return this.options;
-  }
-
-  public void setOptions(CustomizationOption[] options) {
-    this.options = options;
-  }
-
-  public static class Builder {
-
+    @SerializedName("index_key")
     private String indexKey;
+    @SerializedName("input_content")
     private String inputContent;
+    @SerializedName("options")
     private CustomizationOption[] options;
-
-    public Builder indexKey(String indexKey) {
-      this.indexKey = indexKey;
-      return this;
+    public String getIndexKey() {
+        return this.indexKey;
     }
 
-    public Builder inputContent(String inputContent) {
-      this.inputContent = inputContent;
-      return this;
+    public void setIndexKey(String indexKey) {
+        this.indexKey = indexKey;
     }
 
-    public Builder options(CustomizationOption[] options) {
-      this.options = options;
-      return this;
+    public String getInputContent() {
+        return this.inputContent;
+    }
+
+    public void setInputContent(String inputContent) {
+        this.inputContent = inputContent;
+    }
+
+    public CustomizationOption[] getOptions() {
+        return this.options;
+    }
+
+    public void setOptions(CustomizationOption[] options) {
+        this.options = options;
     }
 
 
-    public CalendarAttendeeResourceCustomization build() {
-      return new CalendarAttendeeResourceCustomization(this);
-    }
+// builder 开始
+  public CalendarAttendeeResourceCustomization(){}
+
+  public CalendarAttendeeResourceCustomization(Builder builder){
+      this.indexKey = builder.indexKey;
+      this.inputContent = builder.inputContent;
+      this.options = builder.options;
   }
+
+    public static class Builder {
+        private String indexKey;
+        private String inputContent;
+        private CustomizationOption[] options;
+        public Builder indexKey(String indexKey) {
+             this.indexKey = indexKey;
+             return this;
+        }
+    
+        public Builder inputContent(String inputContent) {
+             this.inputContent = inputContent;
+             return this;
+        }
+    
+        public Builder options(CustomizationOption[] options) {
+             this.options = options;
+             return this;
+        }
+    
+    
+    public CalendarAttendeeResourceCustomization build(){
+        return new CalendarAttendeeResourceCustomization(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

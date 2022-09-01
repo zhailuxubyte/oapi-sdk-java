@@ -12,47 +12,52 @@
  */
 
 package com.lark.oapi.service.helpdesk.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.helpdesk.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class GetAgentSchedulesReq {
-
-  @Path
-  @SerializedName("agent_id")
-  private String agentId;
-
-  // builder 开始
-  public GetAgentSchedulesReq() {
-  }
-
-  public GetAgentSchedulesReq(Builder builder) {
-    this.agentId = builder.agentId;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getAgentId() {
-    return this.agentId;
-  }
-
-  public void setAgentId(String agentId) {
-    this.agentId = agentId;
-  }
-
-  public static class Builder {
-
+    @Path
+    @SerializedName("agent_id")
     private String agentId;
-
-    public Builder agentId(String agentId) {
-      this.agentId = agentId;
-      return this;
+    public String getAgentId() {
+        return this.agentId;
     }
 
-    public GetAgentSchedulesReq build() {
-      return new GetAgentSchedulesReq(this);
+    public void setAgentId(String agentId) {
+        this.agentId = agentId;
     }
+
+
+// builder 开始
+  public GetAgentSchedulesReq(){}
+
+  public GetAgentSchedulesReq(Builder builder){
+       this.agentId = builder.agentId;
   }
+
+    public static class Builder {
+    
+        private String agentId;
+          public Builder agentId(String agentId) {
+               this.agentId = agentId;
+               return this;
+          }
+    
+    public GetAgentSchedulesReq build(){
+        return new GetAgentSchedulesReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

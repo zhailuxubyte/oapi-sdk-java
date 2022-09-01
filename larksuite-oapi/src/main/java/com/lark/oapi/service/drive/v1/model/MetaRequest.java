@@ -12,63 +12,69 @@
  */
 
 package com.lark.oapi.service.drive.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.drive.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class MetaRequest {
-
-  @SerializedName("request_docs")
-  private RequestDoc[] requestDocs;
-  @SerializedName("with_url")
-  private Boolean withUrl;
-
-  // builder 开始
-  public MetaRequest() {
-  }
-
-  public MetaRequest(Builder builder) {
-    this.requestDocs = builder.requestDocs;
-    this.withUrl = builder.withUrl;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public RequestDoc[] getRequestDocs() {
-    return this.requestDocs;
-  }
-
-  public void setRequestDocs(RequestDoc[] requestDocs) {
-    this.requestDocs = requestDocs;
-  }
-
-  public Boolean getWithUrl() {
-    return this.withUrl;
-  }
-
-  public void setWithUrl(Boolean withUrl) {
-    this.withUrl = withUrl;
-  }
-
-  public static class Builder {
-
+    @SerializedName("request_docs")
     private RequestDoc[] requestDocs;
+    @SerializedName("with_url")
     private Boolean withUrl;
-
-    public Builder requestDocs(RequestDoc[] requestDocs) {
-      this.requestDocs = requestDocs;
-      return this;
+    public RequestDoc[] getRequestDocs() {
+        return this.requestDocs;
     }
 
-    public Builder withUrl(Boolean withUrl) {
-      this.withUrl = withUrl;
-      return this;
+    public void setRequestDocs(RequestDoc[] requestDocs) {
+        this.requestDocs = requestDocs;
+    }
+
+    public Boolean getWithUrl() {
+        return this.withUrl;
+    }
+
+    public void setWithUrl(Boolean withUrl) {
+        this.withUrl = withUrl;
     }
 
 
-    public MetaRequest build() {
-      return new MetaRequest(this);
-    }
+// builder 开始
+  public MetaRequest(){}
+
+  public MetaRequest(Builder builder){
+      this.requestDocs = builder.requestDocs;
+      this.withUrl = builder.withUrl;
   }
+
+    public static class Builder {
+        private RequestDoc[] requestDocs;
+        private Boolean withUrl;
+        public Builder requestDocs(RequestDoc[] requestDocs) {
+             this.requestDocs = requestDocs;
+             return this;
+        }
+    
+        public Builder withUrl(Boolean withUrl) {
+             this.withUrl = withUrl;
+             return this;
+        }
+    
+    
+    public MetaRequest build(){
+        return new MetaRequest(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

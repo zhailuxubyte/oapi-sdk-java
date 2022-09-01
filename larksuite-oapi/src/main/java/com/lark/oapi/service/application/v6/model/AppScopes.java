@@ -12,63 +12,69 @@
  */
 
 package com.lark.oapi.service.application.v6.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.application.v6.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class AppScopes {
-
-  @SerializedName("high_level_scopes")
-  private String[] highLevelScopes;
-  @SerializedName("low_level_scopes")
-  private String[] lowLevelScopes;
-
-  // builder 开始
-  public AppScopes() {
-  }
-
-  public AppScopes(Builder builder) {
-    this.highLevelScopes = builder.highLevelScopes;
-    this.lowLevelScopes = builder.lowLevelScopes;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String[] getHighLevelScopes() {
-    return this.highLevelScopes;
-  }
-
-  public void setHighLevelScopes(String[] highLevelScopes) {
-    this.highLevelScopes = highLevelScopes;
-  }
-
-  public String[] getLowLevelScopes() {
-    return this.lowLevelScopes;
-  }
-
-  public void setLowLevelScopes(String[] lowLevelScopes) {
-    this.lowLevelScopes = lowLevelScopes;
-  }
-
-  public static class Builder {
-
+    @SerializedName("high_level_scopes")
     private String[] highLevelScopes;
+    @SerializedName("low_level_scopes")
     private String[] lowLevelScopes;
-
-    public Builder highLevelScopes(String[] highLevelScopes) {
-      this.highLevelScopes = highLevelScopes;
-      return this;
+    public String[] getHighLevelScopes() {
+        return this.highLevelScopes;
     }
 
-    public Builder lowLevelScopes(String[] lowLevelScopes) {
-      this.lowLevelScopes = lowLevelScopes;
-      return this;
+    public void setHighLevelScopes(String[] highLevelScopes) {
+        this.highLevelScopes = highLevelScopes;
+    }
+
+    public String[] getLowLevelScopes() {
+        return this.lowLevelScopes;
+    }
+
+    public void setLowLevelScopes(String[] lowLevelScopes) {
+        this.lowLevelScopes = lowLevelScopes;
     }
 
 
-    public AppScopes build() {
-      return new AppScopes(this);
-    }
+// builder 开始
+  public AppScopes(){}
+
+  public AppScopes(Builder builder){
+      this.highLevelScopes = builder.highLevelScopes;
+      this.lowLevelScopes = builder.lowLevelScopes;
   }
+
+    public static class Builder {
+        private String[] highLevelScopes;
+        private String[] lowLevelScopes;
+        public Builder highLevelScopes(String[] highLevelScopes) {
+             this.highLevelScopes = highLevelScopes;
+             return this;
+        }
+    
+        public Builder lowLevelScopes(String[] lowLevelScopes) {
+             this.lowLevelScopes = lowLevelScopes;
+             return this;
+        }
+    
+    
+    public AppScopes build(){
+        return new AppScopes(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

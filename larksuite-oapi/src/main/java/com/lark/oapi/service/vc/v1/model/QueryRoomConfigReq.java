@@ -12,165 +12,168 @@
  */
 
 package com.lark.oapi.service.vc.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.vc.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class QueryRoomConfigReq {
-
-  @Query
-  @SerializedName("scope")
-  private Integer scope;
-  @Query
-  @SerializedName("country_id")
-  private String countryId;
-  @Query
-  @SerializedName("district_id")
-  private String districtId;
-  @Query
-  @SerializedName("building_id")
-  private String buildingId;
-  @Query
-  @SerializedName("floor_name")
-  private String floorName;
-  @Query
-  @SerializedName("room_id")
-  private String roomId;
-  @Query
-  @SerializedName("user_id_type")
-  private String userIdType;
-
-  // builder 开始
-  public QueryRoomConfigReq() {
-  }
-
-  public QueryRoomConfigReq(Builder builder) {
-    this.scope = builder.scope;
-    this.countryId = builder.countryId;
-    this.districtId = builder.districtId;
-    this.buildingId = builder.buildingId;
-    this.floorName = builder.floorName;
-    this.roomId = builder.roomId;
-    this.userIdType = builder.userIdType;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Integer getScope() {
-    return this.scope;
-  }
-
-  public void setScope(Integer scope) {
-    this.scope = scope;
-  }
-
-  public String getCountryId() {
-    return this.countryId;
-  }
-
-  public void setCountryId(String countryId) {
-    this.countryId = countryId;
-  }
-
-  public String getDistrictId() {
-    return this.districtId;
-  }
-
-  public void setDistrictId(String districtId) {
-    this.districtId = districtId;
-  }
-
-  public String getBuildingId() {
-    return this.buildingId;
-  }
-
-  public void setBuildingId(String buildingId) {
-    this.buildingId = buildingId;
-  }
-
-  public String getFloorName() {
-    return this.floorName;
-  }
-
-  public void setFloorName(String floorName) {
-    this.floorName = floorName;
-  }
-
-  public String getRoomId() {
-    return this.roomId;
-  }
-
-  public void setRoomId(String roomId) {
-    this.roomId = roomId;
-  }
-
-  public String getUserIdType() {
-    return this.userIdType;
-  }
-
-  public void setUserIdType(String userIdType) {
-    this.userIdType = userIdType;
-  }
-
-  public static class Builder {
-
+    @Query
+    @SerializedName("scope")
     private Integer scope;
+    @Query
+    @SerializedName("country_id")
     private String countryId;
+    @Query
+    @SerializedName("district_id")
     private String districtId;
+    @Query
+    @SerializedName("building_id")
     private String buildingId;
+    @Query
+    @SerializedName("floor_name")
     private String floorName;
+    @Query
+    @SerializedName("room_id")
     private String roomId;
+    @Query
+    @SerializedName("user_id_type")
     private String userIdType;
-
-    public Builder scope(Integer scope) {
-      this.scope = scope;
-      return this;
+    public Integer getScope() {
+        return this.scope;
     }
 
-    public Builder scope(com.lark.oapi.service.vc.v1.enums.NodeScopeEnum scope) {
-      this.scope = scope.getValue();
-      return this;
+    public void setScope(Integer scope) {
+        this.scope = scope;
     }
 
-    public Builder countryId(String countryId) {
-      this.countryId = countryId;
-      return this;
+    public String getCountryId() {
+        return this.countryId;
     }
 
-    public Builder districtId(String districtId) {
-      this.districtId = districtId;
-      return this;
+    public void setCountryId(String countryId) {
+        this.countryId = countryId;
     }
 
-    public Builder buildingId(String buildingId) {
-      this.buildingId = buildingId;
-      return this;
+    public String getDistrictId() {
+        return this.districtId;
     }
 
-    public Builder floorName(String floorName) {
-      this.floorName = floorName;
-      return this;
+    public void setDistrictId(String districtId) {
+        this.districtId = districtId;
     }
 
-    public Builder roomId(String roomId) {
-      this.roomId = roomId;
-      return this;
+    public String getBuildingId() {
+        return this.buildingId;
     }
 
-    public Builder userIdType(String userIdType) {
-      this.userIdType = userIdType;
-      return this;
+    public void setBuildingId(String buildingId) {
+        this.buildingId = buildingId;
     }
 
-    public Builder userIdType(com.lark.oapi.service.vc.v1.enums.UserIdTypeEnum userIdType) {
-      this.userIdType = userIdType.getValue();
-      return this;
+    public String getFloorName() {
+        return this.floorName;
     }
 
-    public QueryRoomConfigReq build() {
-      return new QueryRoomConfigReq(this);
+    public void setFloorName(String floorName) {
+        this.floorName = floorName;
     }
+
+    public String getRoomId() {
+        return this.roomId;
+    }
+
+    public void setRoomId(String roomId) {
+        this.roomId = roomId;
+    }
+
+    public String getUserIdType() {
+        return this.userIdType;
+    }
+
+    public void setUserIdType(String userIdType) {
+        this.userIdType = userIdType;
+    }
+
+
+// builder 开始
+  public QueryRoomConfigReq(){}
+
+  public QueryRoomConfigReq(Builder builder){
+       this.scope = builder.scope;
+       this.countryId = builder.countryId;
+       this.districtId = builder.districtId;
+       this.buildingId = builder.buildingId;
+       this.floorName = builder.floorName;
+       this.roomId = builder.roomId;
+       this.userIdType = builder.userIdType;
   }
+
+    public static class Builder {
+        private Integer scope;
+        private String countryId;
+        private String districtId;
+        private String buildingId;
+        private String floorName;
+        private String roomId;
+        private String userIdType;
+    
+           public Builder scope(Integer scope) {
+                this.scope = scope;
+                return this;
+           }
+          public Builder scope(com.lark.oapi.service.vc.v1.enums.NodeScopeEnum scope) {
+               this.scope = scope.getValue();
+               return this;
+          }
+    
+           public Builder countryId(String countryId) {
+                this.countryId = countryId;
+                return this;
+           }
+    
+           public Builder districtId(String districtId) {
+                this.districtId = districtId;
+                return this;
+           }
+    
+           public Builder buildingId(String buildingId) {
+                this.buildingId = buildingId;
+                return this;
+           }
+    
+           public Builder floorName(String floorName) {
+                this.floorName = floorName;
+                return this;
+           }
+    
+           public Builder roomId(String roomId) {
+                this.roomId = roomId;
+                return this;
+           }
+    
+           public Builder userIdType(String userIdType) {
+                this.userIdType = userIdType;
+                return this;
+           }
+          public Builder userIdType(com.lark.oapi.service.vc.v1.enums.UserIdTypeEnum userIdType) {
+               this.userIdType = userIdType.getValue();
+               return this;
+          }
+    
+    public QueryRoomConfigReq build(){
+        return new QueryRoomConfigReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

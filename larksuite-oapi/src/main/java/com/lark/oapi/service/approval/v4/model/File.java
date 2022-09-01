@@ -12,97 +12,102 @@
  */
 
 package com.lark.oapi.service.approval.v4.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.approval.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class File {
-
-  @SerializedName("url")
-  private String url;
-  @SerializedName("file_size")
-  private Integer fileSize;
-  @SerializedName("title")
-  private String title;
-  @SerializedName("type")
-  private String type;
-
-  // builder 开始
-  public File() {
-  }
-
-  public File(Builder builder) {
-    this.url = builder.url;
-    this.fileSize = builder.fileSize;
-    this.title = builder.title;
-    this.type = builder.type;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getUrl() {
-    return this.url;
-  }
-
-  public void setUrl(String url) {
-    this.url = url;
-  }
-
-  public Integer getFileSize() {
-    return this.fileSize;
-  }
-
-  public void setFileSize(Integer fileSize) {
-    this.fileSize = fileSize;
-  }
-
-  public String getTitle() {
-    return this.title;
-  }
-
-  public void setTitle(String title) {
-    this.title = title;
-  }
-
-  public String getType() {
-    return this.type;
-  }
-
-  public void setType(String type) {
-    this.type = type;
-  }
-
-  public static class Builder {
-
+    @SerializedName("url")
     private String url;
+    @SerializedName("file_size")
     private Integer fileSize;
+    @SerializedName("title")
     private String title;
+    @SerializedName("type")
     private String type;
-
-    public Builder url(String url) {
-      this.url = url;
-      return this;
+    public String getUrl() {
+        return this.url;
     }
 
-    public Builder fileSize(Integer fileSize) {
-      this.fileSize = fileSize;
-      return this;
+    public void setUrl(String url) {
+        this.url = url;
     }
 
-    public Builder title(String title) {
-      this.title = title;
-      return this;
+    public Integer getFileSize() {
+        return this.fileSize;
     }
 
-    public Builder type(String type) {
-      this.type = type;
-      return this;
+    public void setFileSize(Integer fileSize) {
+        this.fileSize = fileSize;
+    }
+
+    public String getTitle() {
+        return this.title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getType() {
+        return this.type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 
 
-    public File build() {
-      return new File(this);
-    }
+// builder 开始
+  public File(){}
+
+  public File(Builder builder){
+      this.url = builder.url;
+      this.fileSize = builder.fileSize;
+      this.title = builder.title;
+      this.type = builder.type;
   }
+
+    public static class Builder {
+        private String url;
+        private Integer fileSize;
+        private String title;
+        private String type;
+        public Builder url(String url) {
+             this.url = url;
+             return this;
+        }
+    
+        public Builder fileSize(Integer fileSize) {
+             this.fileSize = fileSize;
+             return this;
+        }
+    
+        public Builder title(String title) {
+             this.title = title;
+             return this;
+        }
+    
+        public Builder type(String type) {
+             this.type = type;
+             return this;
+        }
+    
+    
+    public File build(){
+        return new File(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

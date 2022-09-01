@@ -12,88 +12,92 @@
  */
 
 package com.lark.oapi.service.contact.v3.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.contact.v3.enums.*;
 import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class SimplelistGroupReq {
-
-  @Query
-  @SerializedName("page_size")
-  private Integer pageSize;
-  @Query
-  @SerializedName("page_token")
-  private String pageToken;
-  @Query
-  @SerializedName("type")
-  private Integer type;
-
-  // builder 开始
-  public SimplelistGroupReq() {
-  }
-
-  public SimplelistGroupReq(Builder builder) {
-    this.pageSize = builder.pageSize;
-    this.pageToken = builder.pageToken;
-    this.type = builder.type;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Integer getPageSize() {
-    return this.pageSize;
-  }
-
-  public void setPageSize(Integer pageSize) {
-    this.pageSize = pageSize;
-  }
-
-  public String getPageToken() {
-    return this.pageToken;
-  }
-
-  public void setPageToken(String pageToken) {
-    this.pageToken = pageToken;
-  }
-
-  public Integer getType() {
-    return this.type;
-  }
-
-  public void setType(Integer type) {
-    this.type = type;
-  }
-
-  public static class Builder {
-
+    @Query
+    @SerializedName("page_size")
     private Integer pageSize;
+    @Query
+    @SerializedName("page_token")
     private String pageToken;
+    @Query
+    @SerializedName("type")
     private Integer type;
-
-    public Builder pageSize(Integer pageSize) {
-      this.pageSize = pageSize;
-      return this;
+    public Integer getPageSize() {
+        return this.pageSize;
     }
 
-    public Builder pageToken(String pageToken) {
-      this.pageToken = pageToken;
-      return this;
+    public void setPageSize(Integer pageSize) {
+        this.pageSize = pageSize;
     }
 
-    public Builder type(Integer type) {
-      this.type = type;
-      return this;
+    public String getPageToken() {
+        return this.pageToken;
     }
 
-    public Builder type(com.lark.oapi.service.contact.v3.enums.GroupTypeEnum type) {
-      this.type = type.getValue();
-      return this;
+    public void setPageToken(String pageToken) {
+        this.pageToken = pageToken;
     }
 
-    public SimplelistGroupReq build() {
-      return new SimplelistGroupReq(this);
+    public Integer getType() {
+        return this.type;
     }
+
+    public void setType(Integer type) {
+        this.type = type;
+    }
+
+
+// builder 开始
+  public SimplelistGroupReq(){}
+
+  public SimplelistGroupReq(Builder builder){
+       this.pageSize = builder.pageSize;
+       this.pageToken = builder.pageToken;
+       this.type = builder.type;
   }
+
+    public static class Builder {
+        private Integer pageSize;
+        private String pageToken;
+        private Integer type;
+    
+           public Builder pageSize(Integer pageSize) {
+                this.pageSize = pageSize;
+                return this;
+           }
+    
+           public Builder pageToken(String pageToken) {
+                this.pageToken = pageToken;
+                return this;
+           }
+    
+           public Builder type(Integer type) {
+                this.type = type;
+                return this;
+           }
+          public Builder type(com.lark.oapi.service.contact.v3.enums.GroupTypeEnum type) {
+               this.type = type.getValue();
+               return this;
+          }
+    
+    public SimplelistGroupReq build(){
+        return new SimplelistGroupReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

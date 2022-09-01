@@ -12,148 +12,153 @@
  */
 
 package com.lark.oapi.service.face_detection.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class FaceOcclude {
-
-  @SerializedName("eyebrow")
-  private Double eyebrow;
-  @SerializedName("nose")
-  private Double nose;
-  @SerializedName("cheek")
-  private Double cheek;
-  @SerializedName("mouth")
-  private Double mouth;
-  @SerializedName("chin")
-  private Double chin;
-  @SerializedName("left_eye")
-  private Double leftEye;
-  @SerializedName("right_eye")
-  private Double rightEye;
-
-  // builder 开始
-  public FaceOcclude() {
-  }
-
-  public FaceOcclude(Builder builder) {
-    this.eyebrow = builder.eyebrow;
-    this.nose = builder.nose;
-    this.cheek = builder.cheek;
-    this.mouth = builder.mouth;
-    this.chin = builder.chin;
-    this.leftEye = builder.leftEye;
-    this.rightEye = builder.rightEye;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Double getEyebrow() {
-    return this.eyebrow;
-  }
-
-  public void setEyebrow(Double eyebrow) {
-    this.eyebrow = eyebrow;
-  }
-
-  public Double getNose() {
-    return this.nose;
-  }
-
-  public void setNose(Double nose) {
-    this.nose = nose;
-  }
-
-  public Double getCheek() {
-    return this.cheek;
-  }
-
-  public void setCheek(Double cheek) {
-    this.cheek = cheek;
-  }
-
-  public Double getMouth() {
-    return this.mouth;
-  }
-
-  public void setMouth(Double mouth) {
-    this.mouth = mouth;
-  }
-
-  public Double getChin() {
-    return this.chin;
-  }
-
-  public void setChin(Double chin) {
-    this.chin = chin;
-  }
-
-  public Double getLeftEye() {
-    return this.leftEye;
-  }
-
-  public void setLeftEye(Double leftEye) {
-    this.leftEye = leftEye;
-  }
-
-  public Double getRightEye() {
-    return this.rightEye;
-  }
-
-  public void setRightEye(Double rightEye) {
-    this.rightEye = rightEye;
-  }
-
-  public static class Builder {
-
+    @SerializedName("eyebrow")
     private Double eyebrow;
+    @SerializedName("nose")
     private Double nose;
+    @SerializedName("cheek")
     private Double cheek;
+    @SerializedName("mouth")
     private Double mouth;
+    @SerializedName("chin")
     private Double chin;
+    @SerializedName("left_eye")
     private Double leftEye;
+    @SerializedName("right_eye")
     private Double rightEye;
-
-    public Builder eyebrow(Double eyebrow) {
-      this.eyebrow = eyebrow;
-      return this;
+    public Double getEyebrow() {
+        return this.eyebrow;
     }
 
-    public Builder nose(Double nose) {
-      this.nose = nose;
-      return this;
+    public void setEyebrow(Double eyebrow) {
+        this.eyebrow = eyebrow;
     }
 
-    public Builder cheek(Double cheek) {
-      this.cheek = cheek;
-      return this;
+    public Double getNose() {
+        return this.nose;
     }
 
-    public Builder mouth(Double mouth) {
-      this.mouth = mouth;
-      return this;
+    public void setNose(Double nose) {
+        this.nose = nose;
     }
 
-    public Builder chin(Double chin) {
-      this.chin = chin;
-      return this;
+    public Double getCheek() {
+        return this.cheek;
     }
 
-    public Builder leftEye(Double leftEye) {
-      this.leftEye = leftEye;
-      return this;
+    public void setCheek(Double cheek) {
+        this.cheek = cheek;
     }
 
-    public Builder rightEye(Double rightEye) {
-      this.rightEye = rightEye;
-      return this;
+    public Double getMouth() {
+        return this.mouth;
+    }
+
+    public void setMouth(Double mouth) {
+        this.mouth = mouth;
+    }
+
+    public Double getChin() {
+        return this.chin;
+    }
+
+    public void setChin(Double chin) {
+        this.chin = chin;
+    }
+
+    public Double getLeftEye() {
+        return this.leftEye;
+    }
+
+    public void setLeftEye(Double leftEye) {
+        this.leftEye = leftEye;
+    }
+
+    public Double getRightEye() {
+        return this.rightEye;
+    }
+
+    public void setRightEye(Double rightEye) {
+        this.rightEye = rightEye;
     }
 
 
-    public FaceOcclude build() {
-      return new FaceOcclude(this);
-    }
+// builder 开始
+  public FaceOcclude(){}
+
+  public FaceOcclude(Builder builder){
+      this.eyebrow = builder.eyebrow;
+      this.nose = builder.nose;
+      this.cheek = builder.cheek;
+      this.mouth = builder.mouth;
+      this.chin = builder.chin;
+      this.leftEye = builder.leftEye;
+      this.rightEye = builder.rightEye;
   }
+
+    public static class Builder {
+        private Double eyebrow;
+        private Double nose;
+        private Double cheek;
+        private Double mouth;
+        private Double chin;
+        private Double leftEye;
+        private Double rightEye;
+        public Builder eyebrow(Double eyebrow) {
+             this.eyebrow = eyebrow;
+             return this;
+        }
+    
+        public Builder nose(Double nose) {
+             this.nose = nose;
+             return this;
+        }
+    
+        public Builder cheek(Double cheek) {
+             this.cheek = cheek;
+             return this;
+        }
+    
+        public Builder mouth(Double mouth) {
+             this.mouth = mouth;
+             return this;
+        }
+    
+        public Builder chin(Double chin) {
+             this.chin = chin;
+             return this;
+        }
+    
+        public Builder leftEye(Double leftEye) {
+             this.leftEye = leftEye;
+             return this;
+        }
+    
+        public Builder rightEye(Double rightEye) {
+             this.rightEye = rightEye;
+             return this;
+        }
+    
+    
+    public FaceOcclude build(){
+        return new FaceOcclude(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

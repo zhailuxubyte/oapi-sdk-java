@@ -12,47 +12,52 @@
  */
 
 package com.lark.oapi.service.attendance.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.attendance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
 import java.io.File;
-
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class UploadFileReqBody {
+    @SerializedName("file")
+    private java.io.File file;
+    public java.io.File getFile() {
+        return this.file;
+    }
 
-  @SerializedName("file")
-  private File file;
-
-  // builder 开始
-  public UploadFileReqBody() {
-  }
-
-  public UploadFileReqBody(Builder builder) {
-    this.file = builder.file;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public File getFile() {
-    return this.file;
-  }
-
-  public void setFile(File file) {
-    this.file = file;
-  }
-
-  public static class Builder {
-
-    private File file;
-
-    public Builder file(File file) {
-      this.file = file;
-      return this;
+    public void setFile(java.io.File file) {
+        this.file = file;
     }
 
 
-    public UploadFileReqBody build() {
-      return new UploadFileReqBody(this);
-    }
+// builder 开始
+  public UploadFileReqBody(){}
+
+  public UploadFileReqBody(Builder builder){
+      this.file = builder.file;
   }
+
+    public static class Builder {
+        private java.io.File file;
+        public Builder file(java.io.File file) {
+             this.file = file;
+             return this;
+        }
+    
+    
+    public UploadFileReqBody build(){
+        return new UploadFileReqBody(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

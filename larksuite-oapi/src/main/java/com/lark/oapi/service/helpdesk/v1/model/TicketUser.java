@@ -12,148 +12,154 @@
  */
 
 package com.lark.oapi.service.helpdesk.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.helpdesk.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class TicketUser {
-
-  @SerializedName("id")
-  private String id;
-  @SerializedName("avatar_url")
-  private String avatarUrl;
-  @SerializedName("name")
-  private String name;
-  @SerializedName("email")
-  private String email;
-  @SerializedName("department")
-  private String department;
-  @SerializedName("city")
-  private String city;
-  @SerializedName("country")
-  private String country;
-
-  // builder 开始
-  public TicketUser() {
-  }
-
-  public TicketUser(Builder builder) {
-    this.id = builder.id;
-    this.avatarUrl = builder.avatarUrl;
-    this.name = builder.name;
-    this.email = builder.email;
-    this.department = builder.department;
-    this.city = builder.city;
-    this.country = builder.country;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getId() {
-    return this.id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public String getAvatarUrl() {
-    return this.avatarUrl;
-  }
-
-  public void setAvatarUrl(String avatarUrl) {
-    this.avatarUrl = avatarUrl;
-  }
-
-  public String getName() {
-    return this.name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public String getEmail() {
-    return this.email;
-  }
-
-  public void setEmail(String email) {
-    this.email = email;
-  }
-
-  public String getDepartment() {
-    return this.department;
-  }
-
-  public void setDepartment(String department) {
-    this.department = department;
-  }
-
-  public String getCity() {
-    return this.city;
-  }
-
-  public void setCity(String city) {
-    this.city = city;
-  }
-
-  public String getCountry() {
-    return this.country;
-  }
-
-  public void setCountry(String country) {
-    this.country = country;
-  }
-
-  public static class Builder {
-
+    @SerializedName("id")
     private String id;
+    @SerializedName("avatar_url")
     private String avatarUrl;
+    @SerializedName("name")
     private String name;
+    @SerializedName("email")
     private String email;
+    @SerializedName("department")
     private String department;
+    @SerializedName("city")
     private String city;
+    @SerializedName("country")
     private String country;
-
-    public Builder id(String id) {
-      this.id = id;
-      return this;
+    public String getId() {
+        return this.id;
     }
 
-    public Builder avatarUrl(String avatarUrl) {
-      this.avatarUrl = avatarUrl;
-      return this;
+    public void setId(String id) {
+        this.id = id;
     }
 
-    public Builder name(String name) {
-      this.name = name;
-      return this;
+    public String getAvatarUrl() {
+        return this.avatarUrl;
     }
 
-    public Builder email(String email) {
-      this.email = email;
-      return this;
+    public void setAvatarUrl(String avatarUrl) {
+        this.avatarUrl = avatarUrl;
     }
 
-    public Builder department(String department) {
-      this.department = department;
-      return this;
+    public String getName() {
+        return this.name;
     }
 
-    public Builder city(String city) {
-      this.city = city;
-      return this;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public Builder country(String country) {
-      this.country = country;
-      return this;
+    public String getEmail() {
+        return this.email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getDepartment() {
+        return this.department;
+    }
+
+    public void setDepartment(String department) {
+        this.department = department;
+    }
+
+    public String getCity() {
+        return this.city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getCountry() {
+        return this.country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
     }
 
 
-    public TicketUser build() {
-      return new TicketUser(this);
-    }
+// builder 开始
+  public TicketUser(){}
+
+  public TicketUser(Builder builder){
+      this.id = builder.id;
+      this.avatarUrl = builder.avatarUrl;
+      this.name = builder.name;
+      this.email = builder.email;
+      this.department = builder.department;
+      this.city = builder.city;
+      this.country = builder.country;
   }
+
+    public static class Builder {
+        private String id;
+        private String avatarUrl;
+        private String name;
+        private String email;
+        private String department;
+        private String city;
+        private String country;
+        public Builder id(String id) {
+             this.id = id;
+             return this;
+        }
+    
+        public Builder avatarUrl(String avatarUrl) {
+             this.avatarUrl = avatarUrl;
+             return this;
+        }
+    
+        public Builder name(String name) {
+             this.name = name;
+             return this;
+        }
+    
+        public Builder email(String email) {
+             this.email = email;
+             return this;
+        }
+    
+        public Builder department(String department) {
+             this.department = department;
+             return this;
+        }
+    
+        public Builder city(String city) {
+             this.city = city;
+             return this;
+        }
+    
+        public Builder country(String country) {
+             this.country = country;
+             return this;
+        }
+    
+    
+    public TicketUser build(){
+        return new TicketUser(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

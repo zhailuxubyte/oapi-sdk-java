@@ -12,46 +12,52 @@
  */
 
 package com.lark.oapi.service.bitable.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.bitable.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class CreateAppTableReqBody {
-
-  @SerializedName("table")
-  private ReqTable table;
-
-  // builder 开始
-  public CreateAppTableReqBody() {
-  }
-
-  public CreateAppTableReqBody(Builder builder) {
-    this.table = builder.table;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public ReqTable getTable() {
-    return this.table;
-  }
-
-  public void setTable(ReqTable table) {
-    this.table = table;
-  }
-
-  public static class Builder {
-
+    @SerializedName("table")
     private ReqTable table;
+    public ReqTable getTable() {
+        return this.table;
+    }
 
-    public Builder table(ReqTable table) {
-      this.table = table;
-      return this;
+    public void setTable(ReqTable table) {
+        this.table = table;
     }
 
 
-    public CreateAppTableReqBody build() {
-      return new CreateAppTableReqBody(this);
-    }
+// builder 开始
+  public CreateAppTableReqBody(){}
+
+  public CreateAppTableReqBody(Builder builder){
+      this.table = builder.table;
   }
+
+    public static class Builder {
+        private ReqTable table;
+        public Builder table(ReqTable table) {
+             this.table = table;
+             return this;
+        }
+    
+    
+    public CreateAppTableReqBody build(){
+        return new CreateAppTableReqBody(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

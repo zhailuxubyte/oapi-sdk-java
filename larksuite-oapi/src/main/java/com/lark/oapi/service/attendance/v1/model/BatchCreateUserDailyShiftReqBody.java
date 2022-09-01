@@ -12,63 +12,69 @@
  */
 
 package com.lark.oapi.service.attendance.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.attendance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class BatchCreateUserDailyShiftReqBody {
-
-  @SerializedName("user_daily_shifts")
-  private UserDailyShift[] userDailyShifts;
-  @SerializedName("operator_id")
-  private String operatorId;
-
-  // builder 开始
-  public BatchCreateUserDailyShiftReqBody() {
-  }
-
-  public BatchCreateUserDailyShiftReqBody(Builder builder) {
-    this.userDailyShifts = builder.userDailyShifts;
-    this.operatorId = builder.operatorId;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public UserDailyShift[] getUserDailyShifts() {
-    return this.userDailyShifts;
-  }
-
-  public void setUserDailyShifts(UserDailyShift[] userDailyShifts) {
-    this.userDailyShifts = userDailyShifts;
-  }
-
-  public String getOperatorId() {
-    return this.operatorId;
-  }
-
-  public void setOperatorId(String operatorId) {
-    this.operatorId = operatorId;
-  }
-
-  public static class Builder {
-
+    @SerializedName("user_daily_shifts")
     private UserDailyShift[] userDailyShifts;
+    @SerializedName("operator_id")
     private String operatorId;
-
-    public Builder userDailyShifts(UserDailyShift[] userDailyShifts) {
-      this.userDailyShifts = userDailyShifts;
-      return this;
+    public UserDailyShift[] getUserDailyShifts() {
+        return this.userDailyShifts;
     }
 
-    public Builder operatorId(String operatorId) {
-      this.operatorId = operatorId;
-      return this;
+    public void setUserDailyShifts(UserDailyShift[] userDailyShifts) {
+        this.userDailyShifts = userDailyShifts;
+    }
+
+    public String getOperatorId() {
+        return this.operatorId;
+    }
+
+    public void setOperatorId(String operatorId) {
+        this.operatorId = operatorId;
     }
 
 
-    public BatchCreateUserDailyShiftReqBody build() {
-      return new BatchCreateUserDailyShiftReqBody(this);
-    }
+// builder 开始
+  public BatchCreateUserDailyShiftReqBody(){}
+
+  public BatchCreateUserDailyShiftReqBody(Builder builder){
+      this.userDailyShifts = builder.userDailyShifts;
+      this.operatorId = builder.operatorId;
   }
+
+    public static class Builder {
+        private UserDailyShift[] userDailyShifts;
+        private String operatorId;
+        public Builder userDailyShifts(UserDailyShift[] userDailyShifts) {
+             this.userDailyShifts = userDailyShifts;
+             return this;
+        }
+    
+        public Builder operatorId(String operatorId) {
+             this.operatorId = operatorId;
+             return this;
+        }
+    
+    
+    public BatchCreateUserDailyShiftReqBody build(){
+        return new BatchCreateUserDailyShiftReqBody(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

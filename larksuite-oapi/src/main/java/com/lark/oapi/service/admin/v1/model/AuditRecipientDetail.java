@@ -12,46 +12,52 @@
  */
 
 package com.lark.oapi.service.admin.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.admin.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class AuditRecipientDetail {
-
-  @SerializedName("permission_action_type")
-  private String permissionActionType;
-
-  // builder 开始
-  public AuditRecipientDetail() {
-  }
-
-  public AuditRecipientDetail(Builder builder) {
-    this.permissionActionType = builder.permissionActionType;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getPermissionActionType() {
-    return this.permissionActionType;
-  }
-
-  public void setPermissionActionType(String permissionActionType) {
-    this.permissionActionType = permissionActionType;
-  }
-
-  public static class Builder {
-
+    @SerializedName("permission_action_type")
     private String permissionActionType;
+    public String getPermissionActionType() {
+        return this.permissionActionType;
+    }
 
-    public Builder permissionActionType(String permissionActionType) {
-      this.permissionActionType = permissionActionType;
-      return this;
+    public void setPermissionActionType(String permissionActionType) {
+        this.permissionActionType = permissionActionType;
     }
 
 
-    public AuditRecipientDetail build() {
-      return new AuditRecipientDetail(this);
-    }
+// builder 开始
+  public AuditRecipientDetail(){}
+
+  public AuditRecipientDetail(Builder builder){
+      this.permissionActionType = builder.permissionActionType;
   }
+
+    public static class Builder {
+        private String permissionActionType;
+        public Builder permissionActionType(String permissionActionType) {
+             this.permissionActionType = permissionActionType;
+             return this;
+        }
+    
+    
+    public AuditRecipientDetail build(){
+        return new AuditRecipientDetail(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

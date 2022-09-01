@@ -12,63 +12,69 @@
  */
 
 package com.lark.oapi.service.attendance.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.attendance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class SearchGroupReqBody {
-
-  @SerializedName("group_name")
-  private String groupName;
-  @SerializedName("exactly_matched")
-  private Boolean exactlyMatched;
-
-  // builder 开始
-  public SearchGroupReqBody() {
-  }
-
-  public SearchGroupReqBody(Builder builder) {
-    this.groupName = builder.groupName;
-    this.exactlyMatched = builder.exactlyMatched;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getGroupName() {
-    return this.groupName;
-  }
-
-  public void setGroupName(String groupName) {
-    this.groupName = groupName;
-  }
-
-  public Boolean getExactlyMatched() {
-    return this.exactlyMatched;
-  }
-
-  public void setExactlyMatched(Boolean exactlyMatched) {
-    this.exactlyMatched = exactlyMatched;
-  }
-
-  public static class Builder {
-
+    @SerializedName("group_name")
     private String groupName;
+    @SerializedName("exactly_matched")
     private Boolean exactlyMatched;
-
-    public Builder groupName(String groupName) {
-      this.groupName = groupName;
-      return this;
+    public String getGroupName() {
+        return this.groupName;
     }
 
-    public Builder exactlyMatched(Boolean exactlyMatched) {
-      this.exactlyMatched = exactlyMatched;
-      return this;
+    public void setGroupName(String groupName) {
+        this.groupName = groupName;
+    }
+
+    public Boolean getExactlyMatched() {
+        return this.exactlyMatched;
+    }
+
+    public void setExactlyMatched(Boolean exactlyMatched) {
+        this.exactlyMatched = exactlyMatched;
     }
 
 
-    public SearchGroupReqBody build() {
-      return new SearchGroupReqBody(this);
-    }
+// builder 开始
+  public SearchGroupReqBody(){}
+
+  public SearchGroupReqBody(Builder builder){
+      this.groupName = builder.groupName;
+      this.exactlyMatched = builder.exactlyMatched;
   }
+
+    public static class Builder {
+        private String groupName;
+        private Boolean exactlyMatched;
+        public Builder groupName(String groupName) {
+             this.groupName = groupName;
+             return this;
+        }
+    
+        public Builder exactlyMatched(Boolean exactlyMatched) {
+             this.exactlyMatched = exactlyMatched;
+             return this;
+        }
+    
+    
+    public SearchGroupReqBody build(){
+        return new SearchGroupReqBody(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

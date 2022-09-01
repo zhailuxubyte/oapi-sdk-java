@@ -12,148 +12,154 @@
  */
 
 package com.lark.oapi.service.helpdesk.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.helpdesk.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class UpdateTicketReqBody {
-
-  @SerializedName("status")
-  private Integer status;
-  @SerializedName("tag_names")
-  private String[] tagNames;
-  @SerializedName("comment")
-  private String comment;
-  @SerializedName("customized_fields")
-  private CustomizedFieldDisplayItem[] customizedFields;
-  @SerializedName("ticket_type")
-  private Integer ticketType;
-  @SerializedName("solved")
-  private Integer solved;
-  @SerializedName("channel")
-  private Integer channel;
-
-  // builder 开始
-  public UpdateTicketReqBody() {
-  }
-
-  public UpdateTicketReqBody(Builder builder) {
-    this.status = builder.status;
-    this.tagNames = builder.tagNames;
-    this.comment = builder.comment;
-    this.customizedFields = builder.customizedFields;
-    this.ticketType = builder.ticketType;
-    this.solved = builder.solved;
-    this.channel = builder.channel;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Integer getStatus() {
-    return this.status;
-  }
-
-  public void setStatus(Integer status) {
-    this.status = status;
-  }
-
-  public String[] getTagNames() {
-    return this.tagNames;
-  }
-
-  public void setTagNames(String[] tagNames) {
-    this.tagNames = tagNames;
-  }
-
-  public String getComment() {
-    return this.comment;
-  }
-
-  public void setComment(String comment) {
-    this.comment = comment;
-  }
-
-  public CustomizedFieldDisplayItem[] getCustomizedFields() {
-    return this.customizedFields;
-  }
-
-  public void setCustomizedFields(CustomizedFieldDisplayItem[] customizedFields) {
-    this.customizedFields = customizedFields;
-  }
-
-  public Integer getTicketType() {
-    return this.ticketType;
-  }
-
-  public void setTicketType(Integer ticketType) {
-    this.ticketType = ticketType;
-  }
-
-  public Integer getSolved() {
-    return this.solved;
-  }
-
-  public void setSolved(Integer solved) {
-    this.solved = solved;
-  }
-
-  public Integer getChannel() {
-    return this.channel;
-  }
-
-  public void setChannel(Integer channel) {
-    this.channel = channel;
-  }
-
-  public static class Builder {
-
+    @SerializedName("status")
     private Integer status;
+    @SerializedName("tag_names")
     private String[] tagNames;
+    @SerializedName("comment")
     private String comment;
+    @SerializedName("customized_fields")
     private CustomizedFieldDisplayItem[] customizedFields;
+    @SerializedName("ticket_type")
     private Integer ticketType;
+    @SerializedName("solved")
     private Integer solved;
+    @SerializedName("channel")
     private Integer channel;
-
-    public Builder status(Integer status) {
-      this.status = status;
-      return this;
+    public Integer getStatus() {
+        return this.status;
     }
 
-    public Builder tagNames(String[] tagNames) {
-      this.tagNames = tagNames;
-      return this;
+    public void setStatus(Integer status) {
+        this.status = status;
     }
 
-    public Builder comment(String comment) {
-      this.comment = comment;
-      return this;
+    public String[] getTagNames() {
+        return this.tagNames;
     }
 
-    public Builder customizedFields(CustomizedFieldDisplayItem[] customizedFields) {
-      this.customizedFields = customizedFields;
-      return this;
+    public void setTagNames(String[] tagNames) {
+        this.tagNames = tagNames;
     }
 
-    public Builder ticketType(Integer ticketType) {
-      this.ticketType = ticketType;
-      return this;
+    public String getComment() {
+        return this.comment;
     }
 
-    public Builder solved(Integer solved) {
-      this.solved = solved;
-      return this;
+    public void setComment(String comment) {
+        this.comment = comment;
     }
 
-    public Builder channel(Integer channel) {
-      this.channel = channel;
-      return this;
+    public CustomizedFieldDisplayItem[] getCustomizedFields() {
+        return this.customizedFields;
+    }
+
+    public void setCustomizedFields(CustomizedFieldDisplayItem[] customizedFields) {
+        this.customizedFields = customizedFields;
+    }
+
+    public Integer getTicketType() {
+        return this.ticketType;
+    }
+
+    public void setTicketType(Integer ticketType) {
+        this.ticketType = ticketType;
+    }
+
+    public Integer getSolved() {
+        return this.solved;
+    }
+
+    public void setSolved(Integer solved) {
+        this.solved = solved;
+    }
+
+    public Integer getChannel() {
+        return this.channel;
+    }
+
+    public void setChannel(Integer channel) {
+        this.channel = channel;
     }
 
 
-    public UpdateTicketReqBody build() {
-      return new UpdateTicketReqBody(this);
-    }
+// builder 开始
+  public UpdateTicketReqBody(){}
+
+  public UpdateTicketReqBody(Builder builder){
+      this.status = builder.status;
+      this.tagNames = builder.tagNames;
+      this.comment = builder.comment;
+      this.customizedFields = builder.customizedFields;
+      this.ticketType = builder.ticketType;
+      this.solved = builder.solved;
+      this.channel = builder.channel;
   }
+
+    public static class Builder {
+        private Integer status;
+        private String[] tagNames;
+        private String comment;
+        private CustomizedFieldDisplayItem[] customizedFields;
+        private Integer ticketType;
+        private Integer solved;
+        private Integer channel;
+        public Builder status(Integer status) {
+             this.status = status;
+             return this;
+        }
+    
+        public Builder tagNames(String[] tagNames) {
+             this.tagNames = tagNames;
+             return this;
+        }
+    
+        public Builder comment(String comment) {
+             this.comment = comment;
+             return this;
+        }
+    
+        public Builder customizedFields(CustomizedFieldDisplayItem[] customizedFields) {
+             this.customizedFields = customizedFields;
+             return this;
+        }
+    
+        public Builder ticketType(Integer ticketType) {
+             this.ticketType = ticketType;
+             return this;
+        }
+    
+        public Builder solved(Integer solved) {
+             this.solved = solved;
+             return this;
+        }
+    
+        public Builder channel(Integer channel) {
+             this.channel = channel;
+             return this;
+        }
+    
+    
+    public UpdateTicketReqBody build(){
+        return new UpdateTicketReqBody(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

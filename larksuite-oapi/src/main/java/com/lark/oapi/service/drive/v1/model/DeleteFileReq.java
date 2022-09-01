@@ -12,71 +12,74 @@
  */
 
 package com.lark.oapi.service.drive.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.drive.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class DeleteFileReq {
-
-  @Query
-  @SerializedName("type")
-  private String type;
-  @Path
-  @SerializedName("file_token")
-  private String fileToken;
-
-  // builder 开始
-  public DeleteFileReq() {
-  }
-
-  public DeleteFileReq(Builder builder) {
-    this.type = builder.type;
-    this.fileToken = builder.fileToken;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getType() {
-    return this.type;
-  }
-
-  public void setType(String type) {
-    this.type = type;
-  }
-
-  public String getFileToken() {
-    return this.fileToken;
-  }
-
-  public void setFileToken(String fileToken) {
-    this.fileToken = fileToken;
-  }
-
-  public static class Builder {
-
+    @Query
+    @SerializedName("type")
     private String type;
+    public String getType() {
+        return this.type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    @Path
+    @SerializedName("file_token")
     private String fileToken;
-
-    public Builder type(String type) {
-      this.type = type;
-      return this;
+    public String getFileToken() {
+        return this.fileToken;
     }
 
-    public Builder type(com.lark.oapi.service.drive.v1.enums.TypeEnum type) {
-      this.type = type.getValue();
-      return this;
+    public void setFileToken(String fileToken) {
+        this.fileToken = fileToken;
     }
 
-    public Builder fileToken(String fileToken) {
-      this.fileToken = fileToken;
-      return this;
-    }
 
-    public DeleteFileReq build() {
-      return new DeleteFileReq(this);
-    }
+// builder 开始
+  public DeleteFileReq(){}
+
+  public DeleteFileReq(Builder builder){
+       this.type = builder.type;
+       this.fileToken = builder.fileToken;
   }
+
+    public static class Builder {
+        private String type;
+    
+           public Builder type(String type) {
+                this.type = type;
+                return this;
+           }
+          public Builder type(com.lark.oapi.service.drive.v1.enums.TypeEnum type) {
+               this.type = type.getValue();
+               return this;
+          }
+    
+        private String fileToken;
+          public Builder fileToken(String fileToken) {
+               this.fileToken = fileToken;
+               return this;
+          }
+    
+    public DeleteFileReq build(){
+        return new DeleteFileReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

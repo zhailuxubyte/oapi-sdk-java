@@ -12,69 +12,72 @@
  */
 
 package com.lark.oapi.service.im.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.im.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class PutTopNoticeChatTopNoticeReq {
-
-  @Path
-  @SerializedName("chat_id")
-  private String chatId;
-  @Body
-  private PutTopNoticeChatTopNoticeReqBody body;
-
-  // builder 开始
-  public PutTopNoticeChatTopNoticeReq() {
-  }
-
-  public PutTopNoticeChatTopNoticeReq(Builder builder) {
-    this.chatId = builder.chatId;
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getChatId() {
-    return this.chatId;
-  }
-
-  public void setChatId(String chatId) {
-    this.chatId = chatId;
-  }
-
-  public PutTopNoticeChatTopNoticeReqBody getPutTopNoticeChatTopNoticeReqBody() {
-    return this.body;
-  }
-
-  public void setPutTopNoticeChatTopNoticeReqBody(PutTopNoticeChatTopNoticeReqBody body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
+    @Path
+    @SerializedName("chat_id")
     private String chatId;
+    public String getChatId() {
+        return this.chatId;
+    }
+
+    public void setChatId(String chatId) {
+        this.chatId = chatId;
+    }
+
+    @Body
     private PutTopNoticeChatTopNoticeReqBody body;
 
-    public Builder chatId(String chatId) {
-      this.chatId = chatId;
-      return this;
-    }
-
     public PutTopNoticeChatTopNoticeReqBody getPutTopNoticeChatTopNoticeReqBody() {
-      return this.body;
+        return this.body;
     }
 
-    public Builder putTopNoticeChatTopNoticeReqBody(PutTopNoticeChatTopNoticeReqBody body) {
-      this.body = body;
-      return this;
+    public void setPutTopNoticeChatTopNoticeReqBody(PutTopNoticeChatTopNoticeReqBody body) {
+        this.body = body;
     }
 
-    public PutTopNoticeChatTopNoticeReq build() {
-      return new PutTopNoticeChatTopNoticeReq(this);
-    }
+// builder 开始
+  public PutTopNoticeChatTopNoticeReq(){}
+
+  public PutTopNoticeChatTopNoticeReq(Builder builder){
+       this.chatId = builder.chatId;
+        this.body = builder.body;
   }
+
+    public static class Builder {
+    
+        private String chatId;
+          public Builder chatId(String chatId) {
+               this.chatId = chatId;
+               return this;
+          }
+    
+        private PutTopNoticeChatTopNoticeReqBody body;
+    
+        public PutTopNoticeChatTopNoticeReqBody getPutTopNoticeChatTopNoticeReqBody() {
+            return this.body;
+        }
+        public Builder putTopNoticeChatTopNoticeReqBody(PutTopNoticeChatTopNoticeReqBody body) {
+             this.body = body;
+             return this;
+        }
+    public PutTopNoticeChatTopNoticeReq build(){
+        return new PutTopNoticeChatTopNoticeReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

@@ -12,46 +12,52 @@
  */
 
 package com.lark.oapi.service.docx.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.docx.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class InsertTableRowRequest {
-
-  @SerializedName("row_index")
-  private Integer rowIndex;
-
-  // builder 开始
-  public InsertTableRowRequest() {
-  }
-
-  public InsertTableRowRequest(Builder builder) {
-    this.rowIndex = builder.rowIndex;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Integer getRowIndex() {
-    return this.rowIndex;
-  }
-
-  public void setRowIndex(Integer rowIndex) {
-    this.rowIndex = rowIndex;
-  }
-
-  public static class Builder {
-
+    @SerializedName("row_index")
     private Integer rowIndex;
+    public Integer getRowIndex() {
+        return this.rowIndex;
+    }
 
-    public Builder rowIndex(Integer rowIndex) {
-      this.rowIndex = rowIndex;
-      return this;
+    public void setRowIndex(Integer rowIndex) {
+        this.rowIndex = rowIndex;
     }
 
 
-    public InsertTableRowRequest build() {
-      return new InsertTableRowRequest(this);
-    }
+// builder 开始
+  public InsertTableRowRequest(){}
+
+  public InsertTableRowRequest(Builder builder){
+      this.rowIndex = builder.rowIndex;
   }
+
+    public static class Builder {
+        private Integer rowIndex;
+        public Builder rowIndex(Integer rowIndex) {
+             this.rowIndex = rowIndex;
+             return this;
+        }
+    
+    
+    public InsertTableRowRequest build(){
+        return new InsertTableRowRequest(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

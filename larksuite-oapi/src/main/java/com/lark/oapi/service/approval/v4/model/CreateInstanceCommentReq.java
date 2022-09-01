@@ -12,111 +12,112 @@
  */
 
 package com.lark.oapi.service.approval.v4.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.approval.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class CreateInstanceCommentReq {
-
-  @Query
-  @SerializedName("user_id_type")
-  private String userIdType;
-  @Query
-  @SerializedName("user_id")
-  private String userId;
-  @Path
-  @SerializedName("instance_id")
-  private String instanceId;
-  @Body
-  private CommentRequest body;
-
-  // builder 开始
-  public CreateInstanceCommentReq() {
-  }
-
-  public CreateInstanceCommentReq(Builder builder) {
-    this.userIdType = builder.userIdType;
-    this.userId = builder.userId;
-    this.instanceId = builder.instanceId;
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getUserIdType() {
-    return this.userIdType;
-  }
-
-  public void setUserIdType(String userIdType) {
-    this.userIdType = userIdType;
-  }
-
-  public String getUserId() {
-    return this.userId;
-  }
-
-  public void setUserId(String userId) {
-    this.userId = userId;
-  }
-
-  public String getInstanceId() {
-    return this.instanceId;
-  }
-
-  public void setInstanceId(String instanceId) {
-    this.instanceId = instanceId;
-  }
-
-  public CommentRequest getCommentRequest() {
-    return this.body;
-  }
-
-  public void setCommentRequest(CommentRequest body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
+    @Query
+    @SerializedName("user_id_type")
     private String userIdType;
+    @Query
+    @SerializedName("user_id")
     private String userId;
+    public String getUserIdType() {
+        return this.userIdType;
+    }
+
+    public void setUserIdType(String userIdType) {
+        this.userIdType = userIdType;
+    }
+
+    public String getUserId() {
+        return this.userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    @Path
+    @SerializedName("instance_id")
     private String instanceId;
+    public String getInstanceId() {
+        return this.instanceId;
+    }
+
+    public void setInstanceId(String instanceId) {
+        this.instanceId = instanceId;
+    }
+
+    @Body
     private CommentRequest body;
 
-    public Builder userIdType(String userIdType) {
-      this.userIdType = userIdType;
-      return this;
-    }
-
-    public Builder userIdType(com.lark.oapi.service.approval.v4.enums.UserIdTypeEnum userIdType) {
-      this.userIdType = userIdType.getValue();
-      return this;
-    }
-
-    public Builder userId(String userId) {
-      this.userId = userId;
-      return this;
-    }
-
-    public Builder instanceId(String instanceId) {
-      this.instanceId = instanceId;
-      return this;
-    }
-
     public CommentRequest getCommentRequest() {
-      return this.body;
+        return this.body;
     }
 
-    public Builder commentRequest(CommentRequest body) {
-      this.body = body;
-      return this;
+    public void setCommentRequest(CommentRequest body) {
+        this.body = body;
     }
 
-    public CreateInstanceCommentReq build() {
-      return new CreateInstanceCommentReq(this);
-    }
+// builder 开始
+  public CreateInstanceCommentReq(){}
+
+  public CreateInstanceCommentReq(Builder builder){
+       this.userIdType = builder.userIdType;
+       this.userId = builder.userId;
+       this.instanceId = builder.instanceId;
+        this.body = builder.body;
   }
+
+    public static class Builder {
+        private String userIdType;
+        private String userId;
+    
+           public Builder userIdType(String userIdType) {
+                this.userIdType = userIdType;
+                return this;
+           }
+          public Builder userIdType(com.lark.oapi.service.approval.v4.enums.UserIdTypeEnum userIdType) {
+               this.userIdType = userIdType.getValue();
+               return this;
+          }
+    
+           public Builder userId(String userId) {
+                this.userId = userId;
+                return this;
+           }
+    
+        private String instanceId;
+          public Builder instanceId(String instanceId) {
+               this.instanceId = instanceId;
+               return this;
+          }
+    
+        private CommentRequest body;
+    
+        public CommentRequest getCommentRequest() {
+            return this.body;
+        }
+        public Builder commentRequest(CommentRequest body) {
+             this.body = body;
+             return this;
+        }
+    public CreateInstanceCommentReq build(){
+        return new CreateInstanceCommentReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

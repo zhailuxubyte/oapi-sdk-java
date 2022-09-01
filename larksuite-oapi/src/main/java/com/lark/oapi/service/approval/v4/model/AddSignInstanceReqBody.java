@@ -12,177 +12,179 @@
  */
 
 package com.lark.oapi.service.approval.v4.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.approval.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class AddSignInstanceReqBody {
-
-  @SerializedName("user_id")
-  private String userId;
-  @SerializedName("approval_code")
-  private String approvalCode;
-  @SerializedName("instance_code")
-  private String instanceCode;
-  @SerializedName("task_id")
-  private String taskId;
-  @SerializedName("comment")
-  private String comment;
-  @SerializedName("add_sign_user_ids")
-  private String[] addSignUserIds;
-  @SerializedName("add_sign_type")
-  private Integer addSignType;
-  @SerializedName("approval_method")
-  private Integer approvalMethod;
-
-  // builder 开始
-  public AddSignInstanceReqBody() {
-  }
-
-  public AddSignInstanceReqBody(Builder builder) {
-    this.userId = builder.userId;
-    this.approvalCode = builder.approvalCode;
-    this.instanceCode = builder.instanceCode;
-    this.taskId = builder.taskId;
-    this.comment = builder.comment;
-    this.addSignUserIds = builder.addSignUserIds;
-    this.addSignType = builder.addSignType;
-    this.approvalMethod = builder.approvalMethod;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getUserId() {
-    return this.userId;
-  }
-
-  public void setUserId(String userId) {
-    this.userId = userId;
-  }
-
-  public String getApprovalCode() {
-    return this.approvalCode;
-  }
-
-  public void setApprovalCode(String approvalCode) {
-    this.approvalCode = approvalCode;
-  }
-
-  public String getInstanceCode() {
-    return this.instanceCode;
-  }
-
-  public void setInstanceCode(String instanceCode) {
-    this.instanceCode = instanceCode;
-  }
-
-  public String getTaskId() {
-    return this.taskId;
-  }
-
-  public void setTaskId(String taskId) {
-    this.taskId = taskId;
-  }
-
-  public String getComment() {
-    return this.comment;
-  }
-
-  public void setComment(String comment) {
-    this.comment = comment;
-  }
-
-  public String[] getAddSignUserIds() {
-    return this.addSignUserIds;
-  }
-
-  public void setAddSignUserIds(String[] addSignUserIds) {
-    this.addSignUserIds = addSignUserIds;
-  }
-
-  public Integer getAddSignType() {
-    return this.addSignType;
-  }
-
-  public void setAddSignType(Integer addSignType) {
-    this.addSignType = addSignType;
-  }
-
-  public Integer getApprovalMethod() {
-    return this.approvalMethod;
-  }
-
-  public void setApprovalMethod(Integer approvalMethod) {
-    this.approvalMethod = approvalMethod;
-  }
-
-  public static class Builder {
-
+    @SerializedName("user_id")
     private String userId;
+    @SerializedName("approval_code")
     private String approvalCode;
+    @SerializedName("instance_code")
     private String instanceCode;
+    @SerializedName("task_id")
     private String taskId;
+    @SerializedName("comment")
     private String comment;
+    @SerializedName("add_sign_user_ids")
     private String[] addSignUserIds;
+    @SerializedName("add_sign_type")
     private Integer addSignType;
+    @SerializedName("approval_method")
     private Integer approvalMethod;
-
-    public Builder userId(String userId) {
-      this.userId = userId;
-      return this;
+    public String getUserId() {
+        return this.userId;
     }
 
-    public Builder approvalCode(String approvalCode) {
-      this.approvalCode = approvalCode;
-      return this;
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
-    public Builder instanceCode(String instanceCode) {
-      this.instanceCode = instanceCode;
-      return this;
+    public String getApprovalCode() {
+        return this.approvalCode;
     }
 
-    public Builder taskId(String taskId) {
-      this.taskId = taskId;
-      return this;
+    public void setApprovalCode(String approvalCode) {
+        this.approvalCode = approvalCode;
     }
 
-    public Builder comment(String comment) {
-      this.comment = comment;
-      return this;
+    public String getInstanceCode() {
+        return this.instanceCode;
     }
 
-    public Builder addSignUserIds(String[] addSignUserIds) {
-      this.addSignUserIds = addSignUserIds;
-      return this;
+    public void setInstanceCode(String instanceCode) {
+        this.instanceCode = instanceCode;
     }
 
-    public Builder addSignType(Integer addSignType) {
-      this.addSignType = addSignType;
-      return this;
+    public String getTaskId() {
+        return this.taskId;
     }
 
-    public Builder addSignType(
-        com.lark.oapi.service.approval.v4.enums.AddSignEnumEnum addSignType) {
-      this.addSignType = addSignType.getValue();
-      return this;
+    public void setTaskId(String taskId) {
+        this.taskId = taskId;
     }
 
-    public Builder approvalMethod(Integer approvalMethod) {
-      this.approvalMethod = approvalMethod;
-      return this;
+    public String getComment() {
+        return this.comment;
     }
 
-    public Builder approvalMethod(
-        com.lark.oapi.service.approval.v4.enums.ApprovalMethodEnumEnum approvalMethod) {
-      this.approvalMethod = approvalMethod.getValue();
-      return this;
+    public void setComment(String comment) {
+        this.comment = comment;
+    }
+
+    public String[] getAddSignUserIds() {
+        return this.addSignUserIds;
+    }
+
+    public void setAddSignUserIds(String[] addSignUserIds) {
+        this.addSignUserIds = addSignUserIds;
+    }
+
+    public Integer getAddSignType() {
+        return this.addSignType;
+    }
+
+    public void setAddSignType(Integer addSignType) {
+        this.addSignType = addSignType;
+    }
+
+    public Integer getApprovalMethod() {
+        return this.approvalMethod;
+    }
+
+    public void setApprovalMethod(Integer approvalMethod) {
+        this.approvalMethod = approvalMethod;
     }
 
 
-    public AddSignInstanceReqBody build() {
-      return new AddSignInstanceReqBody(this);
-    }
+// builder 开始
+  public AddSignInstanceReqBody(){}
+
+  public AddSignInstanceReqBody(Builder builder){
+      this.userId = builder.userId;
+      this.approvalCode = builder.approvalCode;
+      this.instanceCode = builder.instanceCode;
+      this.taskId = builder.taskId;
+      this.comment = builder.comment;
+      this.addSignUserIds = builder.addSignUserIds;
+      this.addSignType = builder.addSignType;
+      this.approvalMethod = builder.approvalMethod;
   }
+
+    public static class Builder {
+        private String userId;
+        private String approvalCode;
+        private String instanceCode;
+        private String taskId;
+        private String comment;
+        private String[] addSignUserIds;
+        private Integer addSignType;
+        private Integer approvalMethod;
+        public Builder userId(String userId) {
+             this.userId = userId;
+             return this;
+        }
+    
+        public Builder approvalCode(String approvalCode) {
+             this.approvalCode = approvalCode;
+             return this;
+        }
+    
+        public Builder instanceCode(String instanceCode) {
+             this.instanceCode = instanceCode;
+             return this;
+        }
+    
+        public Builder taskId(String taskId) {
+             this.taskId = taskId;
+             return this;
+        }
+    
+        public Builder comment(String comment) {
+             this.comment = comment;
+             return this;
+        }
+    
+        public Builder addSignUserIds(String[] addSignUserIds) {
+             this.addSignUserIds = addSignUserIds;
+             return this;
+        }
+    
+        public Builder addSignType(Integer addSignType) {
+             this.addSignType = addSignType;
+             return this;
+        }
+        public Builder addSignType(com.lark.oapi.service.approval.v4.enums.AddSignEnumEnum addSignType) {
+             this.addSignType = addSignType.getValue();
+             return this;
+        }
+    
+        public Builder approvalMethod(Integer approvalMethod) {
+             this.approvalMethod = approvalMethod;
+             return this;
+        }
+        public Builder approvalMethod(com.lark.oapi.service.approval.v4.enums.ApprovalMethodEnumEnum approvalMethod) {
+             this.approvalMethod = approvalMethod.getValue();
+             return this;
+        }
+    
+    
+    public AddSignInstanceReqBody build(){
+        return new AddSignInstanceReqBody(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

@@ -15,16 +15,15 @@ package com.lark.oapi.service.wiki.v2.enums;
 
 // 生成枚举值
 public enum NodeTypeEnum {
-  NODETYPEENTITY("origin"),
-  NODETYPESHORTCUT("shortcut"),
+     NODETYPEENTITY("origin"),
+     NODETYPESHORTCUT("shortcut"),
   ;
-  private String value;
+   private String value;
+    NodeTypeEnum(String value) {
+      this.value = value;
+    }
 
-  NodeTypeEnum(String value) {
-    this.value = value;
-  }
-
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+      return this.value;
+    }
 }

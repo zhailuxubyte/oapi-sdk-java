@@ -15,17 +15,16 @@ package com.lark.oapi.service.calendar.v4.enums;
 
 // 生成枚举值
 public enum EventStatusEnum {
-  TENTATIVE("tentative"),
-  CONFIRMED("confirmed"),
-  CANCELLED("cancelled"),
+     TENTATIVE("tentative"),
+     CONFIRMED("confirmed"),
+     CANCELLED("cancelled"),
   ;
-  private String value;
+   private String value;
+    EventStatusEnum(String value) {
+      this.value = value;
+    }
 
-  EventStatusEnum(String value) {
-    this.value = value;
-  }
-
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+      return this.value;
+    }
 }

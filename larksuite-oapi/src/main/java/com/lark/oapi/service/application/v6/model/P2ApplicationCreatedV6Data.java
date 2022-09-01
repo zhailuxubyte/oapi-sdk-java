@@ -12,80 +12,87 @@
  */
 
 package com.lark.oapi.service.application.v6.model;
-
+import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class P2ApplicationCreatedV6Data {
+    @SerializedName("operator_id")
+    private UserId operatorId;
+    @SerializedName("app_id")
+    private String appId;
+    @SerializedName("name")
+    private String name;
+    @SerializedName("description")
+    private String description;
+    @SerializedName("avatar")
+    private String avatar;
+    @SerializedName("app_scene_type")
+    private Integer appSceneType;
+    @SerializedName("primary_language")
+    private String primaryLanguage;
+    public UserId getOperatorId() {
+        return this.operatorId;
+    }
 
-  @SerializedName("operator_id")
-  private UserId operatorId;
-  @SerializedName("app_id")
-  private String appId;
-  @SerializedName("name")
-  private String name;
-  @SerializedName("description")
-  private String description;
-  @SerializedName("avatar")
-  private String avatar;
-  @SerializedName("app_scene_type")
-  private Integer appSceneType;
-  @SerializedName("primary_language")
-  private String primaryLanguage;
+    public void setOperatorId(UserId operatorId) {
+        this.operatorId = operatorId;
+    }
 
-  public UserId getOperatorId() {
-    return this.operatorId;
-  }
+    public String getAppId() {
+        return this.appId;
+    }
 
-  public void setOperatorId(UserId operatorId) {
-    this.operatorId = operatorId;
-  }
+    public void setAppId(String appId) {
+        this.appId = appId;
+    }
 
-  public String getAppId() {
-    return this.appId;
-  }
+    public String getName() {
+        return this.name;
+    }
 
-  public void setAppId(String appId) {
-    this.appId = appId;
-  }
+    public void setName(String name) {
+        this.name = name;
+    }
 
-  public String getName() {
-    return this.name;
-  }
+    public String getDescription() {
+        return this.description;
+    }
 
-  public void setName(String name) {
-    this.name = name;
-  }
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
-  public String getDescription() {
-    return this.description;
-  }
+    public String getAvatar() {
+        return this.avatar;
+    }
 
-  public void setDescription(String description) {
-    this.description = description;
-  }
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
+    }
 
-  public String getAvatar() {
-    return this.avatar;
-  }
+    public Integer getAppSceneType() {
+        return this.appSceneType;
+    }
 
-  public void setAvatar(String avatar) {
-    this.avatar = avatar;
-  }
+    public void setAppSceneType(Integer appSceneType) {
+        this.appSceneType = appSceneType;
+    }
 
-  public Integer getAppSceneType() {
-    return this.appSceneType;
-  }
+    public String getPrimaryLanguage() {
+        return this.primaryLanguage;
+    }
 
-  public void setAppSceneType(Integer appSceneType) {
-    this.appSceneType = appSceneType;
-  }
-
-  public String getPrimaryLanguage() {
-    return this.primaryLanguage;
-  }
-
-  public void setPrimaryLanguage(String primaryLanguage) {
-    this.primaryLanguage = primaryLanguage;
-  }
+    public void setPrimaryLanguage(String primaryLanguage) {
+        this.primaryLanguage = primaryLanguage;
+    }
 
 }

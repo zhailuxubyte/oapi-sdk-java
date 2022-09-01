@@ -12,69 +12,72 @@
  */
 
 package com.lark.oapi.service.attendance.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.attendance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class UploadFileReq {
-
-  @Query
-  @SerializedName("file_name")
-  private String fileName;
-  @Body
-  private UploadFileReqBody body;
-
-  // builder 开始
-  public UploadFileReq() {
-  }
-
-  public UploadFileReq(Builder builder) {
-    this.fileName = builder.fileName;
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getFileName() {
-    return this.fileName;
-  }
-
-  public void setFileName(String fileName) {
-    this.fileName = fileName;
-  }
-
-  public UploadFileReqBody getUploadFileReqBody() {
-    return this.body;
-  }
-
-  public void setUploadFileReqBody(UploadFileReqBody body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
+    @Query
+    @SerializedName("file_name")
     private String fileName;
+    public String getFileName() {
+        return this.fileName;
+    }
+
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
+    }
+
+    @Body
     private UploadFileReqBody body;
 
-    public Builder fileName(String fileName) {
-      this.fileName = fileName;
-      return this;
-    }
-
     public UploadFileReqBody getUploadFileReqBody() {
-      return this.body;
+        return this.body;
     }
 
-    public Builder uploadFileReqBody(UploadFileReqBody body) {
-      this.body = body;
-      return this;
+    public void setUploadFileReqBody(UploadFileReqBody body) {
+        this.body = body;
     }
 
-    public UploadFileReq build() {
-      return new UploadFileReq(this);
-    }
+// builder 开始
+  public UploadFileReq(){}
+
+  public UploadFileReq(Builder builder){
+       this.fileName = builder.fileName;
+        this.body = builder.body;
   }
+
+    public static class Builder {
+        private String fileName;
+    
+           public Builder fileName(String fileName) {
+                this.fileName = fileName;
+                return this;
+           }
+    
+        private UploadFileReqBody body;
+    
+        public UploadFileReqBody getUploadFileReqBody() {
+            return this.body;
+        }
+        public Builder uploadFileReqBody(UploadFileReqBody body) {
+             this.body = body;
+             return this;
+        }
+    public UploadFileReq build(){
+        return new UploadFileReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

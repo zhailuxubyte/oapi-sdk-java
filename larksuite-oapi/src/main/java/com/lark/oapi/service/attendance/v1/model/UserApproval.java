@@ -12,131 +12,137 @@
  */
 
 package com.lark.oapi.service.attendance.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.attendance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class UserApproval {
-
-  @SerializedName("user_id")
-  private String userId;
-  @SerializedName("date")
-  private String date;
-  @SerializedName("outs")
-  private UserOut[] outs;
-  @SerializedName("leaves")
-  private UserLeave[] leaves;
-  @SerializedName("overtime_works")
-  private UserOvertimeWork[] overtimeWorks;
-  @SerializedName("trips")
-  private UserTrip[] trips;
-
-  // builder 开始
-  public UserApproval() {
-  }
-
-  public UserApproval(Builder builder) {
-    this.userId = builder.userId;
-    this.date = builder.date;
-    this.outs = builder.outs;
-    this.leaves = builder.leaves;
-    this.overtimeWorks = builder.overtimeWorks;
-    this.trips = builder.trips;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getUserId() {
-    return this.userId;
-  }
-
-  public void setUserId(String userId) {
-    this.userId = userId;
-  }
-
-  public String getDate() {
-    return this.date;
-  }
-
-  public void setDate(String date) {
-    this.date = date;
-  }
-
-  public UserOut[] getOuts() {
-    return this.outs;
-  }
-
-  public void setOuts(UserOut[] outs) {
-    this.outs = outs;
-  }
-
-  public UserLeave[] getLeaves() {
-    return this.leaves;
-  }
-
-  public void setLeaves(UserLeave[] leaves) {
-    this.leaves = leaves;
-  }
-
-  public UserOvertimeWork[] getOvertimeWorks() {
-    return this.overtimeWorks;
-  }
-
-  public void setOvertimeWorks(UserOvertimeWork[] overtimeWorks) {
-    this.overtimeWorks = overtimeWorks;
-  }
-
-  public UserTrip[] getTrips() {
-    return this.trips;
-  }
-
-  public void setTrips(UserTrip[] trips) {
-    this.trips = trips;
-  }
-
-  public static class Builder {
-
+    @SerializedName("user_id")
     private String userId;
+    @SerializedName("date")
     private String date;
+    @SerializedName("outs")
     private UserOut[] outs;
+    @SerializedName("leaves")
     private UserLeave[] leaves;
+    @SerializedName("overtime_works")
     private UserOvertimeWork[] overtimeWorks;
+    @SerializedName("trips")
     private UserTrip[] trips;
-
-    public Builder userId(String userId) {
-      this.userId = userId;
-      return this;
+    public String getUserId() {
+        return this.userId;
     }
 
-    public Builder date(String date) {
-      this.date = date;
-      return this;
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
-    public Builder outs(UserOut[] outs) {
-      this.outs = outs;
-      return this;
+    public String getDate() {
+        return this.date;
     }
 
-    public Builder leaves(UserLeave[] leaves) {
-      this.leaves = leaves;
-      return this;
+    public void setDate(String date) {
+        this.date = date;
     }
 
-    public Builder overtimeWorks(UserOvertimeWork[] overtimeWorks) {
-      this.overtimeWorks = overtimeWorks;
-      return this;
+    public UserOut[] getOuts() {
+        return this.outs;
     }
 
-    public Builder trips(UserTrip[] trips) {
-      this.trips = trips;
-      return this;
+    public void setOuts(UserOut[] outs) {
+        this.outs = outs;
+    }
+
+    public UserLeave[] getLeaves() {
+        return this.leaves;
+    }
+
+    public void setLeaves(UserLeave[] leaves) {
+        this.leaves = leaves;
+    }
+
+    public UserOvertimeWork[] getOvertimeWorks() {
+        return this.overtimeWorks;
+    }
+
+    public void setOvertimeWorks(UserOvertimeWork[] overtimeWorks) {
+        this.overtimeWorks = overtimeWorks;
+    }
+
+    public UserTrip[] getTrips() {
+        return this.trips;
+    }
+
+    public void setTrips(UserTrip[] trips) {
+        this.trips = trips;
     }
 
 
-    public UserApproval build() {
-      return new UserApproval(this);
-    }
+// builder 开始
+  public UserApproval(){}
+
+  public UserApproval(Builder builder){
+      this.userId = builder.userId;
+      this.date = builder.date;
+      this.outs = builder.outs;
+      this.leaves = builder.leaves;
+      this.overtimeWorks = builder.overtimeWorks;
+      this.trips = builder.trips;
   }
+
+    public static class Builder {
+        private String userId;
+        private String date;
+        private UserOut[] outs;
+        private UserLeave[] leaves;
+        private UserOvertimeWork[] overtimeWorks;
+        private UserTrip[] trips;
+        public Builder userId(String userId) {
+             this.userId = userId;
+             return this;
+        }
+    
+        public Builder date(String date) {
+             this.date = date;
+             return this;
+        }
+    
+        public Builder outs(UserOut[] outs) {
+             this.outs = outs;
+             return this;
+        }
+    
+        public Builder leaves(UserLeave[] leaves) {
+             this.leaves = leaves;
+             return this;
+        }
+    
+        public Builder overtimeWorks(UserOvertimeWork[] overtimeWorks) {
+             this.overtimeWorks = overtimeWorks;
+             return this;
+        }
+    
+        public Builder trips(UserTrip[] trips) {
+             this.trips = trips;
+             return this;
+        }
+    
+    
+    public UserApproval build(){
+        return new UserApproval(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

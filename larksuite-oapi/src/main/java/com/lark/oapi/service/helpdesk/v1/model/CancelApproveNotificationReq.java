@@ -12,47 +12,52 @@
  */
 
 package com.lark.oapi.service.helpdesk.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.helpdesk.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class CancelApproveNotificationReq {
-
-  @Path
-  @SerializedName("notification_id")
-  private String notificationId;
-
-  // builder 开始
-  public CancelApproveNotificationReq() {
-  }
-
-  public CancelApproveNotificationReq(Builder builder) {
-    this.notificationId = builder.notificationId;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getNotificationId() {
-    return this.notificationId;
-  }
-
-  public void setNotificationId(String notificationId) {
-    this.notificationId = notificationId;
-  }
-
-  public static class Builder {
-
+    @Path
+    @SerializedName("notification_id")
     private String notificationId;
-
-    public Builder notificationId(String notificationId) {
-      this.notificationId = notificationId;
-      return this;
+    public String getNotificationId() {
+        return this.notificationId;
     }
 
-    public CancelApproveNotificationReq build() {
-      return new CancelApproveNotificationReq(this);
+    public void setNotificationId(String notificationId) {
+        this.notificationId = notificationId;
     }
+
+
+// builder 开始
+  public CancelApproveNotificationReq(){}
+
+  public CancelApproveNotificationReq(Builder builder){
+       this.notificationId = builder.notificationId;
   }
+
+    public static class Builder {
+    
+        private String notificationId;
+          public Builder notificationId(String notificationId) {
+               this.notificationId = notificationId;
+               return this;
+          }
+    
+    public CancelApproveNotificationReq build(){
+        return new CancelApproveNotificationReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

@@ -12,40 +12,47 @@
  */
 
 package com.lark.oapi.service.vc.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class ListByNoMeeting {
+    @SerializedName("has_more")
+    private Boolean hasMore;
+    @SerializedName("page_token")
+    private String pageToken;
+    @SerializedName("meeting_briefs")
+    private Meeting[] meetingBriefs;
+    public Boolean getHasMore() {
+        return this.hasMore;
+    }
 
-  @SerializedName("has_more")
-  private Boolean hasMore;
-  @SerializedName("page_token")
-  private String pageToken;
-  @SerializedName("meeting_briefs")
-  private Meeting[] meetingBriefs;
+    public void setHasMore(Boolean hasMore) {
+        this.hasMore = hasMore;
+    }
 
-  public Boolean getHasMore() {
-    return this.hasMore;
-  }
+    public String getPageToken() {
+        return this.pageToken;
+    }
 
-  public void setHasMore(Boolean hasMore) {
-    this.hasMore = hasMore;
-  }
+    public void setPageToken(String pageToken) {
+        this.pageToken = pageToken;
+    }
 
-  public String getPageToken() {
-    return this.pageToken;
-  }
+    public Meeting[] getMeetingBriefs() {
+        return this.meetingBriefs;
+    }
 
-  public void setPageToken(String pageToken) {
-    this.pageToken = pageToken;
-  }
-
-  public Meeting[] getMeetingBriefs() {
-    return this.meetingBriefs;
-  }
-
-  public void setMeetingBriefs(Meeting[] meetingBriefs) {
-    this.meetingBriefs = meetingBriefs;
-  }
+    public void setMeetingBriefs(Meeting[] meetingBriefs) {
+        this.meetingBriefs = meetingBriefs;
+    }
 
 }

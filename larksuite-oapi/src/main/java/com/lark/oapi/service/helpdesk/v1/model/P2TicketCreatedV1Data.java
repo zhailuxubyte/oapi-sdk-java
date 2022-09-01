@@ -12,140 +12,147 @@
  */
 
 package com.lark.oapi.service.helpdesk.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class P2TicketCreatedV1Data {
+    @SerializedName("ticket_id")
+    private String ticketId;
+    @SerializedName("helpdesk_id")
+    private String helpdeskId;
+    @SerializedName("guest")
+    private TicketUserEvent guest;
+    @SerializedName("stage")
+    private Integer stage;
+    @SerializedName("status")
+    private Integer status;
+    @SerializedName("score")
+    private Integer score;
+    @SerializedName("created_at")
+    private Integer createdAt;
+    @SerializedName("updated_at")
+    private Integer updatedAt;
+    @SerializedName("closed_at")
+    private Integer closedAt;
+    @SerializedName("channel")
+    private Integer channel;
+    @SerializedName("solve")
+    private Integer solve;
+    @SerializedName("customized_fields")
+    private CustomizedFieldDisplayItem[] customizedFields;
+    @SerializedName("chat_id")
+    private String chatId;
+    public String getTicketId() {
+        return this.ticketId;
+    }
 
-  @SerializedName("ticket_id")
-  private String ticketId;
-  @SerializedName("helpdesk_id")
-  private String helpdeskId;
-  @SerializedName("guest")
-  private TicketUserEvent guest;
-  @SerializedName("stage")
-  private Integer stage;
-  @SerializedName("status")
-  private Integer status;
-  @SerializedName("score")
-  private Integer score;
-  @SerializedName("created_at")
-  private Integer createdAt;
-  @SerializedName("updated_at")
-  private Integer updatedAt;
-  @SerializedName("closed_at")
-  private Integer closedAt;
-  @SerializedName("channel")
-  private Integer channel;
-  @SerializedName("solve")
-  private Integer solve;
-  @SerializedName("customized_fields")
-  private CustomizedFieldDisplayItem[] customizedFields;
-  @SerializedName("chat_id")
-  private String chatId;
+    public void setTicketId(String ticketId) {
+        this.ticketId = ticketId;
+    }
 
-  public String getTicketId() {
-    return this.ticketId;
-  }
+    public String getHelpdeskId() {
+        return this.helpdeskId;
+    }
 
-  public void setTicketId(String ticketId) {
-    this.ticketId = ticketId;
-  }
+    public void setHelpdeskId(String helpdeskId) {
+        this.helpdeskId = helpdeskId;
+    }
 
-  public String getHelpdeskId() {
-    return this.helpdeskId;
-  }
+    public TicketUserEvent getGuest() {
+        return this.guest;
+    }
 
-  public void setHelpdeskId(String helpdeskId) {
-    this.helpdeskId = helpdeskId;
-  }
+    public void setGuest(TicketUserEvent guest) {
+        this.guest = guest;
+    }
 
-  public TicketUserEvent getGuest() {
-    return this.guest;
-  }
+    public Integer getStage() {
+        return this.stage;
+    }
 
-  public void setGuest(TicketUserEvent guest) {
-    this.guest = guest;
-  }
+    public void setStage(Integer stage) {
+        this.stage = stage;
+    }
 
-  public Integer getStage() {
-    return this.stage;
-  }
+    public Integer getStatus() {
+        return this.status;
+    }
 
-  public void setStage(Integer stage) {
-    this.stage = stage;
-  }
+    public void setStatus(Integer status) {
+        this.status = status;
+    }
 
-  public Integer getStatus() {
-    return this.status;
-  }
+    public Integer getScore() {
+        return this.score;
+    }
 
-  public void setStatus(Integer status) {
-    this.status = status;
-  }
+    public void setScore(Integer score) {
+        this.score = score;
+    }
 
-  public Integer getScore() {
-    return this.score;
-  }
+    public Integer getCreatedAt() {
+        return this.createdAt;
+    }
 
-  public void setScore(Integer score) {
-    this.score = score;
-  }
+    public void setCreatedAt(Integer createdAt) {
+        this.createdAt = createdAt;
+    }
 
-  public Integer getCreatedAt() {
-    return this.createdAt;
-  }
+    public Integer getUpdatedAt() {
+        return this.updatedAt;
+    }
 
-  public void setCreatedAt(Integer createdAt) {
-    this.createdAt = createdAt;
-  }
+    public void setUpdatedAt(Integer updatedAt) {
+        this.updatedAt = updatedAt;
+    }
 
-  public Integer getUpdatedAt() {
-    return this.updatedAt;
-  }
+    public Integer getClosedAt() {
+        return this.closedAt;
+    }
 
-  public void setUpdatedAt(Integer updatedAt) {
-    this.updatedAt = updatedAt;
-  }
+    public void setClosedAt(Integer closedAt) {
+        this.closedAt = closedAt;
+    }
 
-  public Integer getClosedAt() {
-    return this.closedAt;
-  }
+    public Integer getChannel() {
+        return this.channel;
+    }
 
-  public void setClosedAt(Integer closedAt) {
-    this.closedAt = closedAt;
-  }
+    public void setChannel(Integer channel) {
+        this.channel = channel;
+    }
 
-  public Integer getChannel() {
-    return this.channel;
-  }
+    public Integer getSolve() {
+        return this.solve;
+    }
 
-  public void setChannel(Integer channel) {
-    this.channel = channel;
-  }
+    public void setSolve(Integer solve) {
+        this.solve = solve;
+    }
 
-  public Integer getSolve() {
-    return this.solve;
-  }
+    public CustomizedFieldDisplayItem[] getCustomizedFields() {
+        return this.customizedFields;
+    }
 
-  public void setSolve(Integer solve) {
-    this.solve = solve;
-  }
+    public void setCustomizedFields(CustomizedFieldDisplayItem[] customizedFields) {
+        this.customizedFields = customizedFields;
+    }
 
-  public CustomizedFieldDisplayItem[] getCustomizedFields() {
-    return this.customizedFields;
-  }
+    public String getChatId() {
+        return this.chatId;
+    }
 
-  public void setCustomizedFields(CustomizedFieldDisplayItem[] customizedFields) {
-    this.customizedFields = customizedFields;
-  }
-
-  public String getChatId() {
-    return this.chatId;
-  }
-
-  public void setChatId(String chatId) {
-    this.chatId = chatId;
-  }
+    public void setChatId(String chatId) {
+        this.chatId = chatId;
+    }
 
 }

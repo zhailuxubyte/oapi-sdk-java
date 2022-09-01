@@ -12,69 +12,72 @@
  */
 
 package com.lark.oapi.service.helpdesk.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.helpdesk.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class ExecuteSendNotificationReq {
-
-  @Path
-  @SerializedName("notification_id")
-  private String notificationId;
-  @Body
-  private ExecuteSendNotificationReqBody body;
-
-  // builder 开始
-  public ExecuteSendNotificationReq() {
-  }
-
-  public ExecuteSendNotificationReq(Builder builder) {
-    this.notificationId = builder.notificationId;
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getNotificationId() {
-    return this.notificationId;
-  }
-
-  public void setNotificationId(String notificationId) {
-    this.notificationId = notificationId;
-  }
-
-  public ExecuteSendNotificationReqBody getExecuteSendNotificationReqBody() {
-    return this.body;
-  }
-
-  public void setExecuteSendNotificationReqBody(ExecuteSendNotificationReqBody body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
+    @Path
+    @SerializedName("notification_id")
     private String notificationId;
+    public String getNotificationId() {
+        return this.notificationId;
+    }
+
+    public void setNotificationId(String notificationId) {
+        this.notificationId = notificationId;
+    }
+
+    @Body
     private ExecuteSendNotificationReqBody body;
 
-    public Builder notificationId(String notificationId) {
-      this.notificationId = notificationId;
-      return this;
-    }
-
     public ExecuteSendNotificationReqBody getExecuteSendNotificationReqBody() {
-      return this.body;
+        return this.body;
     }
 
-    public Builder executeSendNotificationReqBody(ExecuteSendNotificationReqBody body) {
-      this.body = body;
-      return this;
+    public void setExecuteSendNotificationReqBody(ExecuteSendNotificationReqBody body) {
+        this.body = body;
     }
 
-    public ExecuteSendNotificationReq build() {
-      return new ExecuteSendNotificationReq(this);
-    }
+// builder 开始
+  public ExecuteSendNotificationReq(){}
+
+  public ExecuteSendNotificationReq(Builder builder){
+       this.notificationId = builder.notificationId;
+        this.body = builder.body;
   }
+
+    public static class Builder {
+    
+        private String notificationId;
+          public Builder notificationId(String notificationId) {
+               this.notificationId = notificationId;
+               return this;
+          }
+    
+        private ExecuteSendNotificationReqBody body;
+    
+        public ExecuteSendNotificationReqBody getExecuteSendNotificationReqBody() {
+            return this.body;
+        }
+        public Builder executeSendNotificationReqBody(ExecuteSendNotificationReqBody body) {
+             this.body = body;
+             return this;
+        }
+    public ExecuteSendNotificationReq build(){
+        return new ExecuteSendNotificationReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

@@ -12,40 +12,47 @@
  */
 
 package com.lark.oapi.service.wiki.v2.model;
-
+import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class MoveDocsToWikiSpaceNode {
+    @SerializedName("wiki_token")
+    private String wikiToken;
+    @SerializedName("task_id")
+    private String taskId;
+    @SerializedName("applied")
+    private Boolean applied;
+    public String getWikiToken() {
+        return this.wikiToken;
+    }
 
-  @SerializedName("wiki_token")
-  private String wikiToken;
-  @SerializedName("task_id")
-  private String taskId;
-  @SerializedName("applied")
-  private Boolean applied;
+    public void setWikiToken(String wikiToken) {
+        this.wikiToken = wikiToken;
+    }
 
-  public String getWikiToken() {
-    return this.wikiToken;
-  }
+    public String getTaskId() {
+        return this.taskId;
+    }
 
-  public void setWikiToken(String wikiToken) {
-    this.wikiToken = wikiToken;
-  }
+    public void setTaskId(String taskId) {
+        this.taskId = taskId;
+    }
 
-  public String getTaskId() {
-    return this.taskId;
-  }
+    public Boolean getApplied() {
+        return this.applied;
+    }
 
-  public void setTaskId(String taskId) {
-    this.taskId = taskId;
-  }
-
-  public Boolean getApplied() {
-    return this.applied;
-  }
-
-  public void setApplied(Boolean applied) {
-    this.applied = applied;
-  }
+    public void setApplied(Boolean applied) {
+        this.applied = applied;
+    }
 
 }

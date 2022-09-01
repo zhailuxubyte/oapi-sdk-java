@@ -12,69 +12,72 @@
  */
 
 package com.lark.oapi.service.calendar.v4.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.calendar.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class PatchCalendarReq {
-
-  @Path
-  @SerializedName("calendar_id")
-  private String calendarId;
-  @Body
-  private Calendar body;
-
-  // builder 开始
-  public PatchCalendarReq() {
-  }
-
-  public PatchCalendarReq(Builder builder) {
-    this.calendarId = builder.calendarId;
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getCalendarId() {
-    return this.calendarId;
-  }
-
-  public void setCalendarId(String calendarId) {
-    this.calendarId = calendarId;
-  }
-
-  public Calendar getCalendar() {
-    return this.body;
-  }
-
-  public void setCalendar(Calendar body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
+    @Path
+    @SerializedName("calendar_id")
     private String calendarId;
+    public String getCalendarId() {
+        return this.calendarId;
+    }
+
+    public void setCalendarId(String calendarId) {
+        this.calendarId = calendarId;
+    }
+
+    @Body
     private Calendar body;
 
-    public Builder calendarId(String calendarId) {
-      this.calendarId = calendarId;
-      return this;
-    }
-
     public Calendar getCalendar() {
-      return this.body;
+        return this.body;
     }
 
-    public Builder calendar(Calendar body) {
-      this.body = body;
-      return this;
+    public void setCalendar(Calendar body) {
+        this.body = body;
     }
 
-    public PatchCalendarReq build() {
-      return new PatchCalendarReq(this);
-    }
+// builder 开始
+  public PatchCalendarReq(){}
+
+  public PatchCalendarReq(Builder builder){
+       this.calendarId = builder.calendarId;
+        this.body = builder.body;
   }
+
+    public static class Builder {
+    
+        private String calendarId;
+          public Builder calendarId(String calendarId) {
+               this.calendarId = calendarId;
+               return this;
+          }
+    
+        private Calendar body;
+    
+        public Calendar getCalendar() {
+            return this.body;
+        }
+        public Builder calendar(Calendar body) {
+             this.body = body;
+             return this;
+        }
+    public PatchCalendarReq build(){
+        return new PatchCalendarReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

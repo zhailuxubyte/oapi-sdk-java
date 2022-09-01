@@ -12,87 +12,90 @@
  */
 
 package com.lark.oapi.service.wiki.v2.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.wiki.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class DeleteSpaceMemberReq {
-
-  @Path
-  @SerializedName("space_id")
-  private String spaceId;
-  @Path
-  @SerializedName("member_id")
-  private String memberId;
-  @Body
-  private Member body;
-
-  // builder 开始
-  public DeleteSpaceMemberReq() {
-  }
-
-  public DeleteSpaceMemberReq(Builder builder) {
-    this.spaceId = builder.spaceId;
-    this.memberId = builder.memberId;
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getSpaceId() {
-    return this.spaceId;
-  }
-
-  public void setSpaceId(String spaceId) {
-    this.spaceId = spaceId;
-  }
-
-  public String getMemberId() {
-    return this.memberId;
-  }
-
-  public void setMemberId(String memberId) {
-    this.memberId = memberId;
-  }
-
-  public Member getMember() {
-    return this.body;
-  }
-
-  public void setMember(Member body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
+    @Path
+    @SerializedName("space_id")
     private String spaceId;
+    @Path
+    @SerializedName("member_id")
     private String memberId;
+    public String getSpaceId() {
+        return this.spaceId;
+    }
+
+    public void setSpaceId(String spaceId) {
+        this.spaceId = spaceId;
+    }
+
+    public String getMemberId() {
+        return this.memberId;
+    }
+
+    public void setMemberId(String memberId) {
+        this.memberId = memberId;
+    }
+
+    @Body
     private Member body;
 
-    public Builder spaceId(String spaceId) {
-      this.spaceId = spaceId;
-      return this;
-    }
-
-    public Builder memberId(String memberId) {
-      this.memberId = memberId;
-      return this;
-    }
-
     public Member getMember() {
-      return this.body;
+        return this.body;
     }
 
-    public Builder member(Member body) {
-      this.body = body;
-      return this;
+    public void setMember(Member body) {
+        this.body = body;
     }
 
-    public DeleteSpaceMemberReq build() {
-      return new DeleteSpaceMemberReq(this);
-    }
+// builder 开始
+  public DeleteSpaceMemberReq(){}
+
+  public DeleteSpaceMemberReq(Builder builder){
+       this.spaceId = builder.spaceId;
+       this.memberId = builder.memberId;
+        this.body = builder.body;
   }
+
+    public static class Builder {
+    
+        private String spaceId;
+        private String memberId;
+          public Builder spaceId(String spaceId) {
+               this.spaceId = spaceId;
+               return this;
+          }
+    
+          public Builder memberId(String memberId) {
+               this.memberId = memberId;
+               return this;
+          }
+    
+        private Member body;
+    
+        public Member getMember() {
+            return this.body;
+        }
+        public Builder member(Member body) {
+             this.body = body;
+             return this;
+        }
+    public DeleteSpaceMemberReq build(){
+        return new DeleteSpaceMemberReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

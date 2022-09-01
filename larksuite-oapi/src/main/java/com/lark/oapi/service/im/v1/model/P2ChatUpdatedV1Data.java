@@ -12,80 +12,87 @@
  */
 
 package com.lark.oapi.service.im.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class P2ChatUpdatedV1Data {
+    @SerializedName("chat_id")
+    private String chatId;
+    @SerializedName("operator_id")
+    private UserId operatorId;
+    @SerializedName("external")
+    private Boolean external;
+    @SerializedName("operator_tenant_key")
+    private String operatorTenantKey;
+    @SerializedName("after_change")
+    private ChatChange afterChange;
+    @SerializedName("before_change")
+    private ChatChange beforeChange;
+    @SerializedName("moderator_list")
+    private ModeratorList moderatorList;
+    public String getChatId() {
+        return this.chatId;
+    }
 
-  @SerializedName("chat_id")
-  private String chatId;
-  @SerializedName("operator_id")
-  private UserId operatorId;
-  @SerializedName("external")
-  private Boolean external;
-  @SerializedName("operator_tenant_key")
-  private String operatorTenantKey;
-  @SerializedName("after_change")
-  private ChatChange afterChange;
-  @SerializedName("before_change")
-  private ChatChange beforeChange;
-  @SerializedName("moderator_list")
-  private ModeratorList moderatorList;
+    public void setChatId(String chatId) {
+        this.chatId = chatId;
+    }
 
-  public String getChatId() {
-    return this.chatId;
-  }
+    public UserId getOperatorId() {
+        return this.operatorId;
+    }
 
-  public void setChatId(String chatId) {
-    this.chatId = chatId;
-  }
+    public void setOperatorId(UserId operatorId) {
+        this.operatorId = operatorId;
+    }
 
-  public UserId getOperatorId() {
-    return this.operatorId;
-  }
+    public Boolean getExternal() {
+        return this.external;
+    }
 
-  public void setOperatorId(UserId operatorId) {
-    this.operatorId = operatorId;
-  }
+    public void setExternal(Boolean external) {
+        this.external = external;
+    }
 
-  public Boolean getExternal() {
-    return this.external;
-  }
+    public String getOperatorTenantKey() {
+        return this.operatorTenantKey;
+    }
 
-  public void setExternal(Boolean external) {
-    this.external = external;
-  }
+    public void setOperatorTenantKey(String operatorTenantKey) {
+        this.operatorTenantKey = operatorTenantKey;
+    }
 
-  public String getOperatorTenantKey() {
-    return this.operatorTenantKey;
-  }
+    public ChatChange getAfterChange() {
+        return this.afterChange;
+    }
 
-  public void setOperatorTenantKey(String operatorTenantKey) {
-    this.operatorTenantKey = operatorTenantKey;
-  }
+    public void setAfterChange(ChatChange afterChange) {
+        this.afterChange = afterChange;
+    }
 
-  public ChatChange getAfterChange() {
-    return this.afterChange;
-  }
+    public ChatChange getBeforeChange() {
+        return this.beforeChange;
+    }
 
-  public void setAfterChange(ChatChange afterChange) {
-    this.afterChange = afterChange;
-  }
+    public void setBeforeChange(ChatChange beforeChange) {
+        this.beforeChange = beforeChange;
+    }
 
-  public ChatChange getBeforeChange() {
-    return this.beforeChange;
-  }
+    public ModeratorList getModeratorList() {
+        return this.moderatorList;
+    }
 
-  public void setBeforeChange(ChatChange beforeChange) {
-    this.beforeChange = beforeChange;
-  }
-
-  public ModeratorList getModeratorList() {
-    return this.moderatorList;
-  }
-
-  public void setModeratorList(ModeratorList moderatorList) {
-    this.moderatorList = moderatorList;
-  }
+    public void setModeratorList(ModeratorList moderatorList) {
+        this.moderatorList = moderatorList;
+    }
 
 }

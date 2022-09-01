@@ -12,83 +12,88 @@
  */
 
 package com.lark.oapi.service.helpdesk.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.helpdesk.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class ListCategoryReq {
-
-  @Query
-  @SerializedName("lang")
-  private String lang;
-  @Query
-  @SerializedName("order_by")
-  private Integer orderBy;
-  @Query
-  @SerializedName("asc")
-  private Boolean asc;
-
-  // builder 开始
-  public ListCategoryReq() {
-  }
-
-  public ListCategoryReq(Builder builder) {
-    this.lang = builder.lang;
-    this.orderBy = builder.orderBy;
-    this.asc = builder.asc;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getLang() {
-    return this.lang;
-  }
-
-  public void setLang(String lang) {
-    this.lang = lang;
-  }
-
-  public Integer getOrderBy() {
-    return this.orderBy;
-  }
-
-  public void setOrderBy(Integer orderBy) {
-    this.orderBy = orderBy;
-  }
-
-  public Boolean getAsc() {
-    return this.asc;
-  }
-
-  public void setAsc(Boolean asc) {
-    this.asc = asc;
-  }
-
-  public static class Builder {
-
+    @Query
+    @SerializedName("lang")
     private String lang;
+    @Query
+    @SerializedName("order_by")
     private Integer orderBy;
+    @Query
+    @SerializedName("asc")
     private Boolean asc;
-
-    public Builder lang(String lang) {
-      this.lang = lang;
-      return this;
+    public String getLang() {
+        return this.lang;
     }
 
-    public Builder orderBy(Integer orderBy) {
-      this.orderBy = orderBy;
-      return this;
+    public void setLang(String lang) {
+        this.lang = lang;
     }
 
-    public Builder asc(Boolean asc) {
-      this.asc = asc;
-      return this;
+    public Integer getOrderBy() {
+        return this.orderBy;
     }
 
-    public ListCategoryReq build() {
-      return new ListCategoryReq(this);
+    public void setOrderBy(Integer orderBy) {
+        this.orderBy = orderBy;
     }
+
+    public Boolean getAsc() {
+        return this.asc;
+    }
+
+    public void setAsc(Boolean asc) {
+        this.asc = asc;
+    }
+
+
+// builder 开始
+  public ListCategoryReq(){}
+
+  public ListCategoryReq(Builder builder){
+       this.lang = builder.lang;
+       this.orderBy = builder.orderBy;
+       this.asc = builder.asc;
   }
+
+    public static class Builder {
+        private String lang;
+        private Integer orderBy;
+        private Boolean asc;
+    
+           public Builder lang(String lang) {
+                this.lang = lang;
+                return this;
+           }
+    
+           public Builder orderBy(Integer orderBy) {
+                this.orderBy = orderBy;
+                return this;
+           }
+    
+           public Builder asc(Boolean asc) {
+                this.asc = asc;
+                return this;
+           }
+    
+    public ListCategoryReq build(){
+        return new ListCategoryReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

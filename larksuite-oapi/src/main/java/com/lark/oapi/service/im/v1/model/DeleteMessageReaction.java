@@ -12,50 +12,57 @@
  */
 
 package com.lark.oapi.service.im.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class DeleteMessageReaction {
+    @SerializedName("reaction_id")
+    private String reactionId;
+    @SerializedName("operator")
+    private Operator operator;
+    @SerializedName("action_time")
+    private String actionTime;
+    @SerializedName("reaction_type")
+    private Emoji reactionType;
+    public String getReactionId() {
+        return this.reactionId;
+    }
 
-  @SerializedName("reaction_id")
-  private String reactionId;
-  @SerializedName("operator")
-  private Operator operator;
-  @SerializedName("action_time")
-  private String actionTime;
-  @SerializedName("reaction_type")
-  private Emoji reactionType;
+    public void setReactionId(String reactionId) {
+        this.reactionId = reactionId;
+    }
 
-  public String getReactionId() {
-    return this.reactionId;
-  }
+    public Operator getOperator() {
+        return this.operator;
+    }
 
-  public void setReactionId(String reactionId) {
-    this.reactionId = reactionId;
-  }
+    public void setOperator(Operator operator) {
+        this.operator = operator;
+    }
 
-  public Operator getOperator() {
-    return this.operator;
-  }
+    public String getActionTime() {
+        return this.actionTime;
+    }
 
-  public void setOperator(Operator operator) {
-    this.operator = operator;
-  }
+    public void setActionTime(String actionTime) {
+        this.actionTime = actionTime;
+    }
 
-  public String getActionTime() {
-    return this.actionTime;
-  }
+    public Emoji getReactionType() {
+        return this.reactionType;
+    }
 
-  public void setActionTime(String actionTime) {
-    this.actionTime = actionTime;
-  }
-
-  public Emoji getReactionType() {
-    return this.reactionType;
-  }
-
-  public void setReactionType(Emoji reactionType) {
-    this.reactionType = reactionType;
-  }
+    public void setReactionType(Emoji reactionType) {
+        this.reactionType = reactionType;
+    }
 
 }

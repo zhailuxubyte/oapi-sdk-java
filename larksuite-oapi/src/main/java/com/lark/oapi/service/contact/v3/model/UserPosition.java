@@ -12,131 +12,137 @@
  */
 
 package com.lark.oapi.service.contact.v3.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.contact.v3.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class UserPosition {
-
-  @SerializedName("position_code")
-  private String positionCode;
-  @SerializedName("position_name")
-  private String positionName;
-  @SerializedName("department_id")
-  private String departmentId;
-  @SerializedName("leader_user_id")
-  private String leaderUserId;
-  @SerializedName("leader_position_code")
-  private String leaderPositionCode;
-  @SerializedName("is_major")
-  private Boolean isMajor;
-
-  // builder 开始
-  public UserPosition() {
-  }
-
-  public UserPosition(Builder builder) {
-    this.positionCode = builder.positionCode;
-    this.positionName = builder.positionName;
-    this.departmentId = builder.departmentId;
-    this.leaderUserId = builder.leaderUserId;
-    this.leaderPositionCode = builder.leaderPositionCode;
-    this.isMajor = builder.isMajor;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getPositionCode() {
-    return this.positionCode;
-  }
-
-  public void setPositionCode(String positionCode) {
-    this.positionCode = positionCode;
-  }
-
-  public String getPositionName() {
-    return this.positionName;
-  }
-
-  public void setPositionName(String positionName) {
-    this.positionName = positionName;
-  }
-
-  public String getDepartmentId() {
-    return this.departmentId;
-  }
-
-  public void setDepartmentId(String departmentId) {
-    this.departmentId = departmentId;
-  }
-
-  public String getLeaderUserId() {
-    return this.leaderUserId;
-  }
-
-  public void setLeaderUserId(String leaderUserId) {
-    this.leaderUserId = leaderUserId;
-  }
-
-  public String getLeaderPositionCode() {
-    return this.leaderPositionCode;
-  }
-
-  public void setLeaderPositionCode(String leaderPositionCode) {
-    this.leaderPositionCode = leaderPositionCode;
-  }
-
-  public Boolean getIsMajor() {
-    return this.isMajor;
-  }
-
-  public void setIsMajor(Boolean isMajor) {
-    this.isMajor = isMajor;
-  }
-
-  public static class Builder {
-
+    @SerializedName("position_code")
     private String positionCode;
+    @SerializedName("position_name")
     private String positionName;
+    @SerializedName("department_id")
     private String departmentId;
+    @SerializedName("leader_user_id")
     private String leaderUserId;
+    @SerializedName("leader_position_code")
     private String leaderPositionCode;
+    @SerializedName("is_major")
     private Boolean isMajor;
-
-    public Builder positionCode(String positionCode) {
-      this.positionCode = positionCode;
-      return this;
+    public String getPositionCode() {
+        return this.positionCode;
     }
 
-    public Builder positionName(String positionName) {
-      this.positionName = positionName;
-      return this;
+    public void setPositionCode(String positionCode) {
+        this.positionCode = positionCode;
     }
 
-    public Builder departmentId(String departmentId) {
-      this.departmentId = departmentId;
-      return this;
+    public String getPositionName() {
+        return this.positionName;
     }
 
-    public Builder leaderUserId(String leaderUserId) {
-      this.leaderUserId = leaderUserId;
-      return this;
+    public void setPositionName(String positionName) {
+        this.positionName = positionName;
     }
 
-    public Builder leaderPositionCode(String leaderPositionCode) {
-      this.leaderPositionCode = leaderPositionCode;
-      return this;
+    public String getDepartmentId() {
+        return this.departmentId;
     }
 
-    public Builder isMajor(Boolean isMajor) {
-      this.isMajor = isMajor;
-      return this;
+    public void setDepartmentId(String departmentId) {
+        this.departmentId = departmentId;
+    }
+
+    public String getLeaderUserId() {
+        return this.leaderUserId;
+    }
+
+    public void setLeaderUserId(String leaderUserId) {
+        this.leaderUserId = leaderUserId;
+    }
+
+    public String getLeaderPositionCode() {
+        return this.leaderPositionCode;
+    }
+
+    public void setLeaderPositionCode(String leaderPositionCode) {
+        this.leaderPositionCode = leaderPositionCode;
+    }
+
+    public Boolean getIsMajor() {
+        return this.isMajor;
+    }
+
+    public void setIsMajor(Boolean isMajor) {
+        this.isMajor = isMajor;
     }
 
 
-    public UserPosition build() {
-      return new UserPosition(this);
-    }
+// builder 开始
+  public UserPosition(){}
+
+  public UserPosition(Builder builder){
+      this.positionCode = builder.positionCode;
+      this.positionName = builder.positionName;
+      this.departmentId = builder.departmentId;
+      this.leaderUserId = builder.leaderUserId;
+      this.leaderPositionCode = builder.leaderPositionCode;
+      this.isMajor = builder.isMajor;
   }
+
+    public static class Builder {
+        private String positionCode;
+        private String positionName;
+        private String departmentId;
+        private String leaderUserId;
+        private String leaderPositionCode;
+        private Boolean isMajor;
+        public Builder positionCode(String positionCode) {
+             this.positionCode = positionCode;
+             return this;
+        }
+    
+        public Builder positionName(String positionName) {
+             this.positionName = positionName;
+             return this;
+        }
+    
+        public Builder departmentId(String departmentId) {
+             this.departmentId = departmentId;
+             return this;
+        }
+    
+        public Builder leaderUserId(String leaderUserId) {
+             this.leaderUserId = leaderUserId;
+             return this;
+        }
+    
+        public Builder leaderPositionCode(String leaderPositionCode) {
+             this.leaderPositionCode = leaderPositionCode;
+             return this;
+        }
+    
+        public Builder isMajor(Boolean isMajor) {
+             this.isMajor = isMajor;
+             return this;
+        }
+    
+    
+    public UserPosition build(){
+        return new UserPosition(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

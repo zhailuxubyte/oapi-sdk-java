@@ -12,63 +12,69 @@
  */
 
 package com.lark.oapi.service.docx.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.docx.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class CreateDocumentBlockChildrenReqBody {
-
-  @SerializedName("children")
-  private Block[] children;
-  @SerializedName("index")
-  private Integer index;
-
-  // builder 开始
-  public CreateDocumentBlockChildrenReqBody() {
-  }
-
-  public CreateDocumentBlockChildrenReqBody(Builder builder) {
-    this.children = builder.children;
-    this.index = builder.index;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Block[] getChildren() {
-    return this.children;
-  }
-
-  public void setChildren(Block[] children) {
-    this.children = children;
-  }
-
-  public Integer getIndex() {
-    return this.index;
-  }
-
-  public void setIndex(Integer index) {
-    this.index = index;
-  }
-
-  public static class Builder {
-
+    @SerializedName("children")
     private Block[] children;
+    @SerializedName("index")
     private Integer index;
-
-    public Builder children(Block[] children) {
-      this.children = children;
-      return this;
+    public Block[] getChildren() {
+        return this.children;
     }
 
-    public Builder index(Integer index) {
-      this.index = index;
-      return this;
+    public void setChildren(Block[] children) {
+        this.children = children;
+    }
+
+    public Integer getIndex() {
+        return this.index;
+    }
+
+    public void setIndex(Integer index) {
+        this.index = index;
     }
 
 
-    public CreateDocumentBlockChildrenReqBody build() {
-      return new CreateDocumentBlockChildrenReqBody(this);
-    }
+// builder 开始
+  public CreateDocumentBlockChildrenReqBody(){}
+
+  public CreateDocumentBlockChildrenReqBody(Builder builder){
+      this.children = builder.children;
+      this.index = builder.index;
   }
+
+    public static class Builder {
+        private Block[] children;
+        private Integer index;
+        public Builder children(Block[] children) {
+             this.children = children;
+             return this;
+        }
+    
+        public Builder index(Integer index) {
+             this.index = index;
+             return this;
+        }
+    
+    
+    public CreateDocumentBlockChildrenReqBody build(){
+        return new CreateDocumentBlockChildrenReqBody(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

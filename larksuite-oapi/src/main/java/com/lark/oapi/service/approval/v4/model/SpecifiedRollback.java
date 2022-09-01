@@ -12,114 +12,120 @@
  */
 
 package com.lark.oapi.service.approval.v4.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.approval.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class SpecifiedRollback {
-
-  @SerializedName("user_id")
-  private String userId;
-  @SerializedName("task_id")
-  private String taskId;
-  @SerializedName("reason")
-  private String reason;
-  @SerializedName("extra")
-  private String extra;
-  @SerializedName("task_def_key_list")
-  private String[] taskDefKeyList;
-
-  // builder 开始
-  public SpecifiedRollback() {
-  }
-
-  public SpecifiedRollback(Builder builder) {
-    this.userId = builder.userId;
-    this.taskId = builder.taskId;
-    this.reason = builder.reason;
-    this.extra = builder.extra;
-    this.taskDefKeyList = builder.taskDefKeyList;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getUserId() {
-    return this.userId;
-  }
-
-  public void setUserId(String userId) {
-    this.userId = userId;
-  }
-
-  public String getTaskId() {
-    return this.taskId;
-  }
-
-  public void setTaskId(String taskId) {
-    this.taskId = taskId;
-  }
-
-  public String getReason() {
-    return this.reason;
-  }
-
-  public void setReason(String reason) {
-    this.reason = reason;
-  }
-
-  public String getExtra() {
-    return this.extra;
-  }
-
-  public void setExtra(String extra) {
-    this.extra = extra;
-  }
-
-  public String[] getTaskDefKeyList() {
-    return this.taskDefKeyList;
-  }
-
-  public void setTaskDefKeyList(String[] taskDefKeyList) {
-    this.taskDefKeyList = taskDefKeyList;
-  }
-
-  public static class Builder {
-
+    @SerializedName("user_id")
     private String userId;
+    @SerializedName("task_id")
     private String taskId;
+    @SerializedName("reason")
     private String reason;
+    @SerializedName("extra")
     private String extra;
+    @SerializedName("task_def_key_list")
     private String[] taskDefKeyList;
-
-    public Builder userId(String userId) {
-      this.userId = userId;
-      return this;
+    public String getUserId() {
+        return this.userId;
     }
 
-    public Builder taskId(String taskId) {
-      this.taskId = taskId;
-      return this;
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
-    public Builder reason(String reason) {
-      this.reason = reason;
-      return this;
+    public String getTaskId() {
+        return this.taskId;
     }
 
-    public Builder extra(String extra) {
-      this.extra = extra;
-      return this;
+    public void setTaskId(String taskId) {
+        this.taskId = taskId;
     }
 
-    public Builder taskDefKeyList(String[] taskDefKeyList) {
-      this.taskDefKeyList = taskDefKeyList;
-      return this;
+    public String getReason() {
+        return this.reason;
+    }
+
+    public void setReason(String reason) {
+        this.reason = reason;
+    }
+
+    public String getExtra() {
+        return this.extra;
+    }
+
+    public void setExtra(String extra) {
+        this.extra = extra;
+    }
+
+    public String[] getTaskDefKeyList() {
+        return this.taskDefKeyList;
+    }
+
+    public void setTaskDefKeyList(String[] taskDefKeyList) {
+        this.taskDefKeyList = taskDefKeyList;
     }
 
 
-    public SpecifiedRollback build() {
-      return new SpecifiedRollback(this);
-    }
+// builder 开始
+  public SpecifiedRollback(){}
+
+  public SpecifiedRollback(Builder builder){
+      this.userId = builder.userId;
+      this.taskId = builder.taskId;
+      this.reason = builder.reason;
+      this.extra = builder.extra;
+      this.taskDefKeyList = builder.taskDefKeyList;
   }
+
+    public static class Builder {
+        private String userId;
+        private String taskId;
+        private String reason;
+        private String extra;
+        private String[] taskDefKeyList;
+        public Builder userId(String userId) {
+             this.userId = userId;
+             return this;
+        }
+    
+        public Builder taskId(String taskId) {
+             this.taskId = taskId;
+             return this;
+        }
+    
+        public Builder reason(String reason) {
+             this.reason = reason;
+             return this;
+        }
+    
+        public Builder extra(String extra) {
+             this.extra = extra;
+             return this;
+        }
+    
+        public Builder taskDefKeyList(String[] taskDefKeyList) {
+             this.taskDefKeyList = taskDefKeyList;
+             return this;
+        }
+    
+    
+    public SpecifiedRollback build(){
+        return new SpecifiedRollback(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

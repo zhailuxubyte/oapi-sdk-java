@@ -12,40 +12,47 @@
  */
 
 package com.lark.oapi.service.vc.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class P2MeetingRecordingReadyV1Data {
+    @SerializedName("meeting")
+    private MeetingEventMeeting meeting;
+    @SerializedName("url")
+    private String url;
+    @SerializedName("duration")
+    private String duration;
+    public MeetingEventMeeting getMeeting() {
+        return this.meeting;
+    }
 
-  @SerializedName("meeting")
-  private MeetingEventMeeting meeting;
-  @SerializedName("url")
-  private String url;
-  @SerializedName("duration")
-  private String duration;
+    public void setMeeting(MeetingEventMeeting meeting) {
+        this.meeting = meeting;
+    }
 
-  public MeetingEventMeeting getMeeting() {
-    return this.meeting;
-  }
+    public String getUrl() {
+        return this.url;
+    }
 
-  public void setMeeting(MeetingEventMeeting meeting) {
-    this.meeting = meeting;
-  }
+    public void setUrl(String url) {
+        this.url = url;
+    }
 
-  public String getUrl() {
-    return this.url;
-  }
+    public String getDuration() {
+        return this.duration;
+    }
 
-  public void setUrl(String url) {
-    this.url = url;
-  }
-
-  public String getDuration() {
-    return this.duration;
-  }
-
-  public void setDuration(String duration) {
-    this.duration = duration;
-  }
+    public void setDuration(String duration) {
+        this.duration = duration;
+    }
 
 }

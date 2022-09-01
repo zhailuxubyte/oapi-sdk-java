@@ -12,63 +12,69 @@
  */
 
 package com.lark.oapi.service.attendance.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.attendance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class LocationInfo {
-
-  @SerializedName("status")
-  private Integer status;
-  @SerializedName("geofences")
-  private Area[] geofences;
-
-  // builder 开始
-  public LocationInfo() {
-  }
-
-  public LocationInfo(Builder builder) {
-    this.status = builder.status;
-    this.geofences = builder.geofences;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Integer getStatus() {
-    return this.status;
-  }
-
-  public void setStatus(Integer status) {
-    this.status = status;
-  }
-
-  public Area[] getGeofences() {
-    return this.geofences;
-  }
-
-  public void setGeofences(Area[] geofences) {
-    this.geofences = geofences;
-  }
-
-  public static class Builder {
-
+    @SerializedName("status")
     private Integer status;
+    @SerializedName("geofences")
     private Area[] geofences;
-
-    public Builder status(Integer status) {
-      this.status = status;
-      return this;
+    public Integer getStatus() {
+        return this.status;
     }
 
-    public Builder geofences(Area[] geofences) {
-      this.geofences = geofences;
-      return this;
+    public void setStatus(Integer status) {
+        this.status = status;
+    }
+
+    public Area[] getGeofences() {
+        return this.geofences;
+    }
+
+    public void setGeofences(Area[] geofences) {
+        this.geofences = geofences;
     }
 
 
-    public LocationInfo build() {
-      return new LocationInfo(this);
-    }
+// builder 开始
+  public LocationInfo(){}
+
+  public LocationInfo(Builder builder){
+      this.status = builder.status;
+      this.geofences = builder.geofences;
   }
+
+    public static class Builder {
+        private Integer status;
+        private Area[] geofences;
+        public Builder status(Integer status) {
+             this.status = status;
+             return this;
+        }
+    
+        public Builder geofences(Area[] geofences) {
+             this.geofences = geofences;
+             return this;
+        }
+    
+    
+    public LocationInfo build(){
+        return new LocationInfo(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

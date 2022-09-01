@@ -12,80 +12,86 @@
  */
 
 package com.lark.oapi.service.contact.v3.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.contact.v3.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class UserOrder {
-
-  @SerializedName("department_id")
-  private String departmentId;
-  @SerializedName("user_order")
-  private Integer userOrder;
-  @SerializedName("department_order")
-  private Integer departmentOrder;
-
-  // builder 开始
-  public UserOrder() {
-  }
-
-  public UserOrder(Builder builder) {
-    this.departmentId = builder.departmentId;
-    this.userOrder = builder.userOrder;
-    this.departmentOrder = builder.departmentOrder;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getDepartmentId() {
-    return this.departmentId;
-  }
-
-  public void setDepartmentId(String departmentId) {
-    this.departmentId = departmentId;
-  }
-
-  public Integer getUserOrder() {
-    return this.userOrder;
-  }
-
-  public void setUserOrder(Integer userOrder) {
-    this.userOrder = userOrder;
-  }
-
-  public Integer getDepartmentOrder() {
-    return this.departmentOrder;
-  }
-
-  public void setDepartmentOrder(Integer departmentOrder) {
-    this.departmentOrder = departmentOrder;
-  }
-
-  public static class Builder {
-
+    @SerializedName("department_id")
     private String departmentId;
+    @SerializedName("user_order")
     private Integer userOrder;
+    @SerializedName("department_order")
     private Integer departmentOrder;
-
-    public Builder departmentId(String departmentId) {
-      this.departmentId = departmentId;
-      return this;
+    public String getDepartmentId() {
+        return this.departmentId;
     }
 
-    public Builder userOrder(Integer userOrder) {
-      this.userOrder = userOrder;
-      return this;
+    public void setDepartmentId(String departmentId) {
+        this.departmentId = departmentId;
     }
 
-    public Builder departmentOrder(Integer departmentOrder) {
-      this.departmentOrder = departmentOrder;
-      return this;
+    public Integer getUserOrder() {
+        return this.userOrder;
+    }
+
+    public void setUserOrder(Integer userOrder) {
+        this.userOrder = userOrder;
+    }
+
+    public Integer getDepartmentOrder() {
+        return this.departmentOrder;
+    }
+
+    public void setDepartmentOrder(Integer departmentOrder) {
+        this.departmentOrder = departmentOrder;
     }
 
 
-    public UserOrder build() {
-      return new UserOrder(this);
-    }
+// builder 开始
+  public UserOrder(){}
+
+  public UserOrder(Builder builder){
+      this.departmentId = builder.departmentId;
+      this.userOrder = builder.userOrder;
+      this.departmentOrder = builder.departmentOrder;
   }
+
+    public static class Builder {
+        private String departmentId;
+        private Integer userOrder;
+        private Integer departmentOrder;
+        public Builder departmentId(String departmentId) {
+             this.departmentId = departmentId;
+             return this;
+        }
+    
+        public Builder userOrder(Integer userOrder) {
+             this.userOrder = userOrder;
+             return this;
+        }
+    
+        public Builder departmentOrder(Integer departmentOrder) {
+             this.departmentOrder = departmentOrder;
+             return this;
+        }
+    
+    
+    public UserOrder build(){
+        return new UserOrder(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

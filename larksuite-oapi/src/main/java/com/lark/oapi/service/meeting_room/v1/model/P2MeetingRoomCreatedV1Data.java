@@ -12,30 +12,37 @@
  */
 
 package com.lark.oapi.service.meeting_room.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class P2MeetingRoomCreatedV1Data {
+    @SerializedName("room_name")
+    private String roomName;
+    @SerializedName("room_id")
+    private String roomId;
+    public String getRoomName() {
+        return this.roomName;
+    }
 
-  @SerializedName("room_name")
-  private String roomName;
-  @SerializedName("room_id")
-  private String roomId;
+    public void setRoomName(String roomName) {
+        this.roomName = roomName;
+    }
 
-  public String getRoomName() {
-    return this.roomName;
-  }
+    public String getRoomId() {
+        return this.roomId;
+    }
 
-  public void setRoomName(String roomName) {
-    this.roomName = roomName;
-  }
-
-  public String getRoomId() {
-    return this.roomId;
-  }
-
-  public void setRoomId(String roomId) {
-    this.roomId = roomId;
-  }
+    public void setRoomId(String roomId) {
+        this.roomId = roomId;
+    }
 
 }

@@ -12,130 +12,132 @@
  */
 
 package com.lark.oapi.service.application.v6.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.application.v6.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class MessageOverviewItem {
-
-  @SerializedName("page_view")
-  private String pageView;
-  @SerializedName("unique_visitor")
-  private String uniqueVisitor;
-  @SerializedName("chat_type")
-  private String chatType;
-  @SerializedName("message_type")
-  private String messageType;
-  @SerializedName("event_type")
-  private String eventType;
-
-  // builder 开始
-  public MessageOverviewItem() {
-  }
-
-  public MessageOverviewItem(Builder builder) {
-    this.pageView = builder.pageView;
-    this.uniqueVisitor = builder.uniqueVisitor;
-    this.chatType = builder.chatType;
-    this.messageType = builder.messageType;
-    this.eventType = builder.eventType;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getPageView() {
-    return this.pageView;
-  }
-
-  public void setPageView(String pageView) {
-    this.pageView = pageView;
-  }
-
-  public String getUniqueVisitor() {
-    return this.uniqueVisitor;
-  }
-
-  public void setUniqueVisitor(String uniqueVisitor) {
-    this.uniqueVisitor = uniqueVisitor;
-  }
-
-  public String getChatType() {
-    return this.chatType;
-  }
-
-  public void setChatType(String chatType) {
-    this.chatType = chatType;
-  }
-
-  public String getMessageType() {
-    return this.messageType;
-  }
-
-  public void setMessageType(String messageType) {
-    this.messageType = messageType;
-  }
-
-  public String getEventType() {
-    return this.eventType;
-  }
-
-  public void setEventType(String eventType) {
-    this.eventType = eventType;
-  }
-
-  public static class Builder {
-
+    @SerializedName("page_view")
     private String pageView;
+    @SerializedName("unique_visitor")
     private String uniqueVisitor;
+    @SerializedName("chat_type")
     private String chatType;
+    @SerializedName("message_type")
     private String messageType;
+    @SerializedName("event_type")
     private String eventType;
-
-    public Builder pageView(String pageView) {
-      this.pageView = pageView;
-      return this;
+    public String getPageView() {
+        return this.pageView;
     }
 
-    public Builder uniqueVisitor(String uniqueVisitor) {
-      this.uniqueVisitor = uniqueVisitor;
-      return this;
+    public void setPageView(String pageView) {
+        this.pageView = pageView;
     }
 
-    public Builder chatType(String chatType) {
-      this.chatType = chatType;
-      return this;
+    public String getUniqueVisitor() {
+        return this.uniqueVisitor;
     }
 
-    public Builder chatType(com.lark.oapi.service.application.v6.enums.ChatTypeEnum chatType) {
-      this.chatType = chatType.getValue();
-      return this;
+    public void setUniqueVisitor(String uniqueVisitor) {
+        this.uniqueVisitor = uniqueVisitor;
     }
 
-    public Builder messageType(String messageType) {
-      this.messageType = messageType;
-      return this;
+    public String getChatType() {
+        return this.chatType;
     }
 
-    public Builder messageType(
-        com.lark.oapi.service.application.v6.enums.MessageTypeEnum messageType) {
-      this.messageType = messageType.getValue();
-      return this;
+    public void setChatType(String chatType) {
+        this.chatType = chatType;
     }
 
-    public Builder eventType(String eventType) {
-      this.eventType = eventType;
-      return this;
+    public String getMessageType() {
+        return this.messageType;
     }
 
-    public Builder eventType(com.lark.oapi.service.application.v6.enums.EventTypeEnum eventType) {
-      this.eventType = eventType.getValue();
-      return this;
+    public void setMessageType(String messageType) {
+        this.messageType = messageType;
+    }
+
+    public String getEventType() {
+        return this.eventType;
+    }
+
+    public void setEventType(String eventType) {
+        this.eventType = eventType;
     }
 
 
-    public MessageOverviewItem build() {
-      return new MessageOverviewItem(this);
-    }
+// builder 开始
+  public MessageOverviewItem(){}
+
+  public MessageOverviewItem(Builder builder){
+      this.pageView = builder.pageView;
+      this.uniqueVisitor = builder.uniqueVisitor;
+      this.chatType = builder.chatType;
+      this.messageType = builder.messageType;
+      this.eventType = builder.eventType;
   }
+
+    public static class Builder {
+        private String pageView;
+        private String uniqueVisitor;
+        private String chatType;
+        private String messageType;
+        private String eventType;
+        public Builder pageView(String pageView) {
+             this.pageView = pageView;
+             return this;
+        }
+    
+        public Builder uniqueVisitor(String uniqueVisitor) {
+             this.uniqueVisitor = uniqueVisitor;
+             return this;
+        }
+    
+        public Builder chatType(String chatType) {
+             this.chatType = chatType;
+             return this;
+        }
+        public Builder chatType(com.lark.oapi.service.application.v6.enums.ChatTypeEnum chatType) {
+             this.chatType = chatType.getValue();
+             return this;
+        }
+    
+        public Builder messageType(String messageType) {
+             this.messageType = messageType;
+             return this;
+        }
+        public Builder messageType(com.lark.oapi.service.application.v6.enums.MessageTypeEnum messageType) {
+             this.messageType = messageType.getValue();
+             return this;
+        }
+    
+        public Builder eventType(String eventType) {
+             this.eventType = eventType;
+             return this;
+        }
+        public Builder eventType(com.lark.oapi.service.application.v6.enums.EventTypeEnum eventType) {
+             this.eventType = eventType.getValue();
+             return this;
+        }
+    
+    
+    public MessageOverviewItem build(){
+        return new MessageOverviewItem(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

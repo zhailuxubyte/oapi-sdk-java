@@ -12,80 +12,86 @@
  */
 
 package com.lark.oapi.service.application.v6.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.application.v6.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class UsageTrendItem {
-
-  @SerializedName("timestamp")
-  private String timestamp;
-  @SerializedName("page_view")
-  private String pageView;
-  @SerializedName("unique_visitor")
-  private String uniqueVisitor;
-
-  // builder 开始
-  public UsageTrendItem() {
-  }
-
-  public UsageTrendItem(Builder builder) {
-    this.timestamp = builder.timestamp;
-    this.pageView = builder.pageView;
-    this.uniqueVisitor = builder.uniqueVisitor;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getTimestamp() {
-    return this.timestamp;
-  }
-
-  public void setTimestamp(String timestamp) {
-    this.timestamp = timestamp;
-  }
-
-  public String getPageView() {
-    return this.pageView;
-  }
-
-  public void setPageView(String pageView) {
-    this.pageView = pageView;
-  }
-
-  public String getUniqueVisitor() {
-    return this.uniqueVisitor;
-  }
-
-  public void setUniqueVisitor(String uniqueVisitor) {
-    this.uniqueVisitor = uniqueVisitor;
-  }
-
-  public static class Builder {
-
+    @SerializedName("timestamp")
     private String timestamp;
+    @SerializedName("page_view")
     private String pageView;
+    @SerializedName("unique_visitor")
     private String uniqueVisitor;
-
-    public Builder timestamp(String timestamp) {
-      this.timestamp = timestamp;
-      return this;
+    public String getTimestamp() {
+        return this.timestamp;
     }
 
-    public Builder pageView(String pageView) {
-      this.pageView = pageView;
-      return this;
+    public void setTimestamp(String timestamp) {
+        this.timestamp = timestamp;
     }
 
-    public Builder uniqueVisitor(String uniqueVisitor) {
-      this.uniqueVisitor = uniqueVisitor;
-      return this;
+    public String getPageView() {
+        return this.pageView;
+    }
+
+    public void setPageView(String pageView) {
+        this.pageView = pageView;
+    }
+
+    public String getUniqueVisitor() {
+        return this.uniqueVisitor;
+    }
+
+    public void setUniqueVisitor(String uniqueVisitor) {
+        this.uniqueVisitor = uniqueVisitor;
     }
 
 
-    public UsageTrendItem build() {
-      return new UsageTrendItem(this);
-    }
+// builder 开始
+  public UsageTrendItem(){}
+
+  public UsageTrendItem(Builder builder){
+      this.timestamp = builder.timestamp;
+      this.pageView = builder.pageView;
+      this.uniqueVisitor = builder.uniqueVisitor;
   }
+
+    public static class Builder {
+        private String timestamp;
+        private String pageView;
+        private String uniqueVisitor;
+        public Builder timestamp(String timestamp) {
+             this.timestamp = timestamp;
+             return this;
+        }
+    
+        public Builder pageView(String pageView) {
+             this.pageView = pageView;
+             return this;
+        }
+    
+        public Builder uniqueVisitor(String uniqueVisitor) {
+             this.uniqueVisitor = uniqueVisitor;
+             return this;
+        }
+    
+    
+    public UsageTrendItem build(){
+        return new UsageTrendItem(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

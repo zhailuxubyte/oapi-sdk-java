@@ -12,91 +12,94 @@
  */
 
 package com.lark.oapi.service.attendance.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.attendance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class ApprovalInfo {
-
-  @SerializedName("approval_id")
-  private String approvalId;
-  @SerializedName("approval_type")
-  private String approvalType;
-  @SerializedName("status")
-  private Integer status;
-
-  // builder 开始
-  public ApprovalInfo() {
-  }
-
-  public ApprovalInfo(Builder builder) {
-    this.approvalId = builder.approvalId;
-    this.approvalType = builder.approvalType;
-    this.status = builder.status;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getApprovalId() {
-    return this.approvalId;
-  }
-
-  public void setApprovalId(String approvalId) {
-    this.approvalId = approvalId;
-  }
-
-  public String getApprovalType() {
-    return this.approvalType;
-  }
-
-  public void setApprovalType(String approvalType) {
-    this.approvalType = approvalType;
-  }
-
-  public Integer getStatus() {
-    return this.status;
-  }
-
-  public void setStatus(Integer status) {
-    this.status = status;
-  }
-
-  public static class Builder {
-
+    @SerializedName("approval_id")
     private String approvalId;
+    @SerializedName("approval_type")
     private String approvalType;
+    @SerializedName("status")
     private Integer status;
-
-    public Builder approvalId(String approvalId) {
-      this.approvalId = approvalId;
-      return this;
+    public String getApprovalId() {
+        return this.approvalId;
     }
 
-    public Builder approvalType(String approvalType) {
-      this.approvalType = approvalType;
-      return this;
+    public void setApprovalId(String approvalId) {
+        this.approvalId = approvalId;
     }
 
-    public Builder approvalType(
-        com.lark.oapi.service.attendance.v1.enums.ApprovalTypeEnum approvalType) {
-      this.approvalType = approvalType.getValue();
-      return this;
+    public String getApprovalType() {
+        return this.approvalType;
     }
 
-    public Builder status(Integer status) {
-      this.status = status;
-      return this;
+    public void setApprovalType(String approvalType) {
+        this.approvalType = approvalType;
     }
 
-    public Builder status(com.lark.oapi.service.attendance.v1.enums.ApprovalStatusEnum status) {
-      this.status = status.getValue();
-      return this;
+    public Integer getStatus() {
+        return this.status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
     }
 
 
-    public ApprovalInfo build() {
-      return new ApprovalInfo(this);
-    }
+// builder 开始
+  public ApprovalInfo(){}
+
+  public ApprovalInfo(Builder builder){
+      this.approvalId = builder.approvalId;
+      this.approvalType = builder.approvalType;
+      this.status = builder.status;
   }
+
+    public static class Builder {
+        private String approvalId;
+        private String approvalType;
+        private Integer status;
+        public Builder approvalId(String approvalId) {
+             this.approvalId = approvalId;
+             return this;
+        }
+    
+        public Builder approvalType(String approvalType) {
+             this.approvalType = approvalType;
+             return this;
+        }
+        public Builder approvalType(com.lark.oapi.service.attendance.v1.enums.ApprovalTypeEnum approvalType) {
+             this.approvalType = approvalType.getValue();
+             return this;
+        }
+    
+        public Builder status(Integer status) {
+             this.status = status;
+             return this;
+        }
+        public Builder status(com.lark.oapi.service.attendance.v1.enums.ApprovalStatusEnum status) {
+             this.status = status.getValue();
+             return this;
+        }
+    
+    
+    public ApprovalInfo build(){
+        return new ApprovalInfo(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

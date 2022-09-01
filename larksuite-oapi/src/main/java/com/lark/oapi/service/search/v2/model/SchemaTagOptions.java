@@ -12,85 +12,90 @@
  */
 
 package com.lark.oapi.service.search.v2.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.search.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class SchemaTagOptions {
-
-  @SerializedName("name")
-  private String name;
-  @SerializedName("color")
-  private String color;
-  @SerializedName("text")
-  private String text;
-
-  // builder 开始
-  public SchemaTagOptions() {
-  }
-
-  public SchemaTagOptions(Builder builder) {
-    this.name = builder.name;
-    this.color = builder.color;
-    this.text = builder.text;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getName() {
-    return this.name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public String getColor() {
-    return this.color;
-  }
-
-  public void setColor(String color) {
-    this.color = color;
-  }
-
-  public String getText() {
-    return this.text;
-  }
-
-  public void setText(String text) {
-    this.text = text;
-  }
-
-  public static class Builder {
-
+    @SerializedName("name")
     private String name;
+    @SerializedName("color")
     private String color;
+    @SerializedName("text")
     private String text;
-
-    public Builder name(String name) {
-      this.name = name;
-      return this;
+    public String getName() {
+        return this.name;
     }
 
-    public Builder color(String color) {
-      this.color = color;
-      return this;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public Builder color(com.lark.oapi.service.search.v2.enums.TagColorEnum color) {
-      this.color = color.getValue();
-      return this;
+    public String getColor() {
+        return this.color;
     }
 
-    public Builder text(String text) {
-      this.text = text;
-      return this;
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    public String getText() {
+        return this.text;
+    }
+
+    public void setText(String text) {
+        this.text = text;
     }
 
 
-    public SchemaTagOptions build() {
-      return new SchemaTagOptions(this);
-    }
+// builder 开始
+  public SchemaTagOptions(){}
+
+  public SchemaTagOptions(Builder builder){
+      this.name = builder.name;
+      this.color = builder.color;
+      this.text = builder.text;
   }
+
+    public static class Builder {
+        private String name;
+        private String color;
+        private String text;
+        public Builder name(String name) {
+             this.name = name;
+             return this;
+        }
+    
+        public Builder color(String color) {
+             this.color = color;
+             return this;
+        }
+        public Builder color(com.lark.oapi.service.search.v2.enums.TagColorEnum color) {
+             this.color = color.getValue();
+             return this;
+        }
+    
+        public Builder text(String text) {
+             this.text = text;
+             return this;
+        }
+    
+    
+    public SchemaTagOptions build(){
+        return new SchemaTagOptions(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

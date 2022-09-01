@@ -12,102 +12,106 @@
  */
 
 package com.lark.oapi.service.wiki.v2.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.wiki.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class ListSpaceNodeReq {
-
-  @Query
-  @SerializedName("page_size")
-  private Integer pageSize;
-  @Query
-  @SerializedName("page_token")
-  private String pageToken;
-  @Query
-  @SerializedName("parent_node_token")
-  private String parentNodeToken;
-  @Path
-  @SerializedName("space_id")
-  private String spaceId;
-
-  // builder 开始
-  public ListSpaceNodeReq() {
-  }
-
-  public ListSpaceNodeReq(Builder builder) {
-    this.pageSize = builder.pageSize;
-    this.pageToken = builder.pageToken;
-    this.parentNodeToken = builder.parentNodeToken;
-    this.spaceId = builder.spaceId;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Integer getPageSize() {
-    return this.pageSize;
-  }
-
-  public void setPageSize(Integer pageSize) {
-    this.pageSize = pageSize;
-  }
-
-  public String getPageToken() {
-    return this.pageToken;
-  }
-
-  public void setPageToken(String pageToken) {
-    this.pageToken = pageToken;
-  }
-
-  public String getParentNodeToken() {
-    return this.parentNodeToken;
-  }
-
-  public void setParentNodeToken(String parentNodeToken) {
-    this.parentNodeToken = parentNodeToken;
-  }
-
-  public String getSpaceId() {
-    return this.spaceId;
-  }
-
-  public void setSpaceId(String spaceId) {
-    this.spaceId = spaceId;
-  }
-
-  public static class Builder {
-
+    @Query
+    @SerializedName("page_size")
     private Integer pageSize;
+    @Query
+    @SerializedName("page_token")
     private String pageToken;
+    @Query
+    @SerializedName("parent_node_token")
     private String parentNodeToken;
+    public Integer getPageSize() {
+        return this.pageSize;
+    }
+
+    public void setPageSize(Integer pageSize) {
+        this.pageSize = pageSize;
+    }
+
+    public String getPageToken() {
+        return this.pageToken;
+    }
+
+    public void setPageToken(String pageToken) {
+        this.pageToken = pageToken;
+    }
+
+    public String getParentNodeToken() {
+        return this.parentNodeToken;
+    }
+
+    public void setParentNodeToken(String parentNodeToken) {
+        this.parentNodeToken = parentNodeToken;
+    }
+
+    @Path
+    @SerializedName("space_id")
     private String spaceId;
-
-    public Builder pageSize(Integer pageSize) {
-      this.pageSize = pageSize;
-      return this;
+    public String getSpaceId() {
+        return this.spaceId;
     }
 
-    public Builder pageToken(String pageToken) {
-      this.pageToken = pageToken;
-      return this;
+    public void setSpaceId(String spaceId) {
+        this.spaceId = spaceId;
     }
 
-    public Builder parentNodeToken(String parentNodeToken) {
-      this.parentNodeToken = parentNodeToken;
-      return this;
-    }
 
-    public Builder spaceId(String spaceId) {
-      this.spaceId = spaceId;
-      return this;
-    }
+// builder 开始
+  public ListSpaceNodeReq(){}
 
-    public ListSpaceNodeReq build() {
-      return new ListSpaceNodeReq(this);
-    }
+  public ListSpaceNodeReq(Builder builder){
+       this.pageSize = builder.pageSize;
+       this.pageToken = builder.pageToken;
+       this.parentNodeToken = builder.parentNodeToken;
+       this.spaceId = builder.spaceId;
   }
+
+    public static class Builder {
+        private Integer pageSize;
+        private String pageToken;
+        private String parentNodeToken;
+    
+           public Builder pageSize(Integer pageSize) {
+                this.pageSize = pageSize;
+                return this;
+           }
+    
+           public Builder pageToken(String pageToken) {
+                this.pageToken = pageToken;
+                return this;
+           }
+    
+           public Builder parentNodeToken(String parentNodeToken) {
+                this.parentNodeToken = parentNodeToken;
+                return this;
+           }
+    
+        private String spaceId;
+          public Builder spaceId(String spaceId) {
+               this.spaceId = spaceId;
+               return this;
+          }
+    
+    public ListSpaceNodeReq build(){
+        return new ListSpaceNodeReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

@@ -12,63 +12,68 @@
  */
 
 package com.lark.oapi.service.speech_to_text.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class FileRecognizeSpeechReqBody {
-
-  @SerializedName("speech")
-  private Speech speech;
-  @SerializedName("config")
-  private FileConfig config;
-
-  // builder 开始
-  public FileRecognizeSpeechReqBody() {
-  }
-
-  public FileRecognizeSpeechReqBody(Builder builder) {
-    this.speech = builder.speech;
-    this.config = builder.config;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Speech getSpeech() {
-    return this.speech;
-  }
-
-  public void setSpeech(Speech speech) {
-    this.speech = speech;
-  }
-
-  public FileConfig getConfig() {
-    return this.config;
-  }
-
-  public void setConfig(FileConfig config) {
-    this.config = config;
-  }
-
-  public static class Builder {
-
+    @SerializedName("speech")
     private Speech speech;
+    @SerializedName("config")
     private FileConfig config;
-
-    public Builder speech(Speech speech) {
-      this.speech = speech;
-      return this;
+    public Speech getSpeech() {
+        return this.speech;
     }
 
-    public Builder config(FileConfig config) {
-      this.config = config;
-      return this;
+    public void setSpeech(Speech speech) {
+        this.speech = speech;
+    }
+
+    public FileConfig getConfig() {
+        return this.config;
+    }
+
+    public void setConfig(FileConfig config) {
+        this.config = config;
     }
 
 
-    public FileRecognizeSpeechReqBody build() {
-      return new FileRecognizeSpeechReqBody(this);
-    }
+// builder 开始
+  public FileRecognizeSpeechReqBody(){}
+
+  public FileRecognizeSpeechReqBody(Builder builder){
+      this.speech = builder.speech;
+      this.config = builder.config;
   }
+
+    public static class Builder {
+        private Speech speech;
+        private FileConfig config;
+        public Builder speech(Speech speech) {
+             this.speech = speech;
+             return this;
+        }
+    
+        public Builder config(FileConfig config) {
+             this.config = config;
+             return this;
+        }
+    
+    
+    public FileRecognizeSpeechReqBody build(){
+        return new FileRecognizeSpeechReqBody(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

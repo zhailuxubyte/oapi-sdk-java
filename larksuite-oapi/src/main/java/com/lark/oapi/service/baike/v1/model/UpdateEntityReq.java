@@ -12,93 +12,94 @@
  */
 
 package com.lark.oapi.service.baike.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.baike.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class UpdateEntityReq {
-
-  @Query
-  @SerializedName("user_id_type")
-  private String userIdType;
-  @Path
-  @SerializedName("entity_id")
-  private String entityId;
-  @Body
-  private Entity body;
-
-  // builder 开始
-  public UpdateEntityReq() {
-  }
-
-  public UpdateEntityReq(Builder builder) {
-    this.userIdType = builder.userIdType;
-    this.entityId = builder.entityId;
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getUserIdType() {
-    return this.userIdType;
-  }
-
-  public void setUserIdType(String userIdType) {
-    this.userIdType = userIdType;
-  }
-
-  public String getEntityId() {
-    return this.entityId;
-  }
-
-  public void setEntityId(String entityId) {
-    this.entityId = entityId;
-  }
-
-  public Entity getEntity() {
-    return this.body;
-  }
-
-  public void setEntity(Entity body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
+    @Query
+    @SerializedName("user_id_type")
     private String userIdType;
+    public String getUserIdType() {
+        return this.userIdType;
+    }
+
+    public void setUserIdType(String userIdType) {
+        this.userIdType = userIdType;
+    }
+
+    @Path
+    @SerializedName("entity_id")
     private String entityId;
+    public String getEntityId() {
+        return this.entityId;
+    }
+
+    public void setEntityId(String entityId) {
+        this.entityId = entityId;
+    }
+
+    @Body
     private Entity body;
 
-    public Builder userIdType(String userIdType) {
-      this.userIdType = userIdType;
-      return this;
-    }
-
-    public Builder userIdType(com.lark.oapi.service.baike.v1.enums.UserIdTypeEnum userIdType) {
-      this.userIdType = userIdType.getValue();
-      return this;
-    }
-
-    public Builder entityId(String entityId) {
-      this.entityId = entityId;
-      return this;
-    }
-
     public Entity getEntity() {
-      return this.body;
+        return this.body;
     }
 
-    public Builder entity(Entity body) {
-      this.body = body;
-      return this;
+    public void setEntity(Entity body) {
+        this.body = body;
     }
 
-    public UpdateEntityReq build() {
-      return new UpdateEntityReq(this);
-    }
+// builder 开始
+  public UpdateEntityReq(){}
+
+  public UpdateEntityReq(Builder builder){
+       this.userIdType = builder.userIdType;
+       this.entityId = builder.entityId;
+        this.body = builder.body;
   }
+
+    public static class Builder {
+        private String userIdType;
+    
+           public Builder userIdType(String userIdType) {
+                this.userIdType = userIdType;
+                return this;
+           }
+          public Builder userIdType(com.lark.oapi.service.baike.v1.enums.UserIdTypeEnum userIdType) {
+               this.userIdType = userIdType.getValue();
+               return this;
+          }
+    
+        private String entityId;
+          public Builder entityId(String entityId) {
+               this.entityId = entityId;
+               return this;
+          }
+    
+        private Entity body;
+    
+        public Entity getEntity() {
+            return this.body;
+        }
+        public Builder entity(Entity body) {
+             this.body = body;
+             return this;
+        }
+    public UpdateEntityReq build(){
+        return new UpdateEntityReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

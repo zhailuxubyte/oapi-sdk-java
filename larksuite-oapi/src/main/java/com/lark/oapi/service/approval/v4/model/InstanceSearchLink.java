@@ -12,63 +12,69 @@
  */
 
 package com.lark.oapi.service.approval.v4.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.approval.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class InstanceSearchLink {
-
-  @SerializedName("pc_link")
-  private String pcLink;
-  @SerializedName("mobile_link")
-  private String mobileLink;
-
-  // builder 开始
-  public InstanceSearchLink() {
-  }
-
-  public InstanceSearchLink(Builder builder) {
-    this.pcLink = builder.pcLink;
-    this.mobileLink = builder.mobileLink;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getPcLink() {
-    return this.pcLink;
-  }
-
-  public void setPcLink(String pcLink) {
-    this.pcLink = pcLink;
-  }
-
-  public String getMobileLink() {
-    return this.mobileLink;
-  }
-
-  public void setMobileLink(String mobileLink) {
-    this.mobileLink = mobileLink;
-  }
-
-  public static class Builder {
-
+    @SerializedName("pc_link")
     private String pcLink;
+    @SerializedName("mobile_link")
     private String mobileLink;
-
-    public Builder pcLink(String pcLink) {
-      this.pcLink = pcLink;
-      return this;
+    public String getPcLink() {
+        return this.pcLink;
     }
 
-    public Builder mobileLink(String mobileLink) {
-      this.mobileLink = mobileLink;
-      return this;
+    public void setPcLink(String pcLink) {
+        this.pcLink = pcLink;
+    }
+
+    public String getMobileLink() {
+        return this.mobileLink;
+    }
+
+    public void setMobileLink(String mobileLink) {
+        this.mobileLink = mobileLink;
     }
 
 
-    public InstanceSearchLink build() {
-      return new InstanceSearchLink(this);
-    }
+// builder 开始
+  public InstanceSearchLink(){}
+
+  public InstanceSearchLink(Builder builder){
+      this.pcLink = builder.pcLink;
+      this.mobileLink = builder.mobileLink;
   }
+
+    public static class Builder {
+        private String pcLink;
+        private String mobileLink;
+        public Builder pcLink(String pcLink) {
+             this.pcLink = pcLink;
+             return this;
+        }
+    
+        public Builder mobileLink(String mobileLink) {
+             this.mobileLink = mobileLink;
+             return this;
+        }
+    
+    
+    public InstanceSearchLink build(){
+        return new InstanceSearchLink(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

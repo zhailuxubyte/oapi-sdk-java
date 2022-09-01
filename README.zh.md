@@ -64,7 +64,7 @@
 - 应用商店应用：应用会在 [应用目录](https://app.feishu.cn/?lang=zh-CN)
   展示，各个企业可以选择安装，[更多介绍说明](https://open.feishu.cn/document/uQjL04CN/ugTO5UjL4kTO14CO5kTN) 。
 
-![App type](doc/app_type.zh.png)
+![App type](docs/app_type.zh.png)
 
 ## 快速使用
 
@@ -184,7 +184,7 @@ public class ContactSample {
 
 ```
 
-#### [使用`应用商店应用`调用 服务端API 示例](doc/ISV.APP.README.zh.md)
+#### [使用`应用商店应用`调用 服务端API 示例](docs/ISV.APP.README.zh.md)
 
 ### 订阅服务端事件
 

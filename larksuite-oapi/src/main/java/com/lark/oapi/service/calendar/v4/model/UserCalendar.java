@@ -12,63 +12,69 @@
  */
 
 package com.lark.oapi.service.calendar.v4.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.calendar.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class UserCalendar {
-
-  @SerializedName("calendar")
-  private Calendar calendar;
-  @SerializedName("user_id")
-  private String userId;
-
-  // builder 开始
-  public UserCalendar() {
-  }
-
-  public UserCalendar(Builder builder) {
-    this.calendar = builder.calendar;
-    this.userId = builder.userId;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Calendar getCalendar() {
-    return this.calendar;
-  }
-
-  public void setCalendar(Calendar calendar) {
-    this.calendar = calendar;
-  }
-
-  public String getUserId() {
-    return this.userId;
-  }
-
-  public void setUserId(String userId) {
-    this.userId = userId;
-  }
-
-  public static class Builder {
-
+    @SerializedName("calendar")
     private Calendar calendar;
+    @SerializedName("user_id")
     private String userId;
-
-    public Builder calendar(Calendar calendar) {
-      this.calendar = calendar;
-      return this;
+    public Calendar getCalendar() {
+        return this.calendar;
     }
 
-    public Builder userId(String userId) {
-      this.userId = userId;
-      return this;
+    public void setCalendar(Calendar calendar) {
+        this.calendar = calendar;
+    }
+
+    public String getUserId() {
+        return this.userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
 
-    public UserCalendar build() {
-      return new UserCalendar(this);
-    }
+// builder 开始
+  public UserCalendar(){}
+
+  public UserCalendar(Builder builder){
+      this.calendar = builder.calendar;
+      this.userId = builder.userId;
   }
+
+    public static class Builder {
+        private Calendar calendar;
+        private String userId;
+        public Builder calendar(Calendar calendar) {
+             this.calendar = calendar;
+             return this;
+        }
+    
+        public Builder userId(String userId) {
+             this.userId = userId;
+             return this;
+        }
+    
+    
+    public UserCalendar build(){
+        return new UserCalendar(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

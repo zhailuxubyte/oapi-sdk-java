@@ -12,114 +12,120 @@
  */
 
 package com.lark.oapi.service.application.v6.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.application.v6.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class ApplicationDepartmentAppUsage {
-
-  @SerializedName("department_id")
-  private String departmentId;
-  @SerializedName("app")
-  private ApplicationAppUsage[] app;
-  @SerializedName("gadget")
-  private ApplicationAppUsage[] gadget;
-  @SerializedName("webapp")
-  private ApplicationAppUsage[] webapp;
-  @SerializedName("bot")
-  private ApplicationAppUsage[] bot;
-
-  // builder 开始
-  public ApplicationDepartmentAppUsage() {
-  }
-
-  public ApplicationDepartmentAppUsage(Builder builder) {
-    this.departmentId = builder.departmentId;
-    this.app = builder.app;
-    this.gadget = builder.gadget;
-    this.webapp = builder.webapp;
-    this.bot = builder.bot;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getDepartmentId() {
-    return this.departmentId;
-  }
-
-  public void setDepartmentId(String departmentId) {
-    this.departmentId = departmentId;
-  }
-
-  public ApplicationAppUsage[] getApp() {
-    return this.app;
-  }
-
-  public void setApp(ApplicationAppUsage[] app) {
-    this.app = app;
-  }
-
-  public ApplicationAppUsage[] getGadget() {
-    return this.gadget;
-  }
-
-  public void setGadget(ApplicationAppUsage[] gadget) {
-    this.gadget = gadget;
-  }
-
-  public ApplicationAppUsage[] getWebapp() {
-    return this.webapp;
-  }
-
-  public void setWebapp(ApplicationAppUsage[] webapp) {
-    this.webapp = webapp;
-  }
-
-  public ApplicationAppUsage[] getBot() {
-    return this.bot;
-  }
-
-  public void setBot(ApplicationAppUsage[] bot) {
-    this.bot = bot;
-  }
-
-  public static class Builder {
-
+    @SerializedName("department_id")
     private String departmentId;
+    @SerializedName("app")
     private ApplicationAppUsage[] app;
+    @SerializedName("gadget")
     private ApplicationAppUsage[] gadget;
+    @SerializedName("webapp")
     private ApplicationAppUsage[] webapp;
+    @SerializedName("bot")
     private ApplicationAppUsage[] bot;
-
-    public Builder departmentId(String departmentId) {
-      this.departmentId = departmentId;
-      return this;
+    public String getDepartmentId() {
+        return this.departmentId;
     }
 
-    public Builder app(ApplicationAppUsage[] app) {
-      this.app = app;
-      return this;
+    public void setDepartmentId(String departmentId) {
+        this.departmentId = departmentId;
     }
 
-    public Builder gadget(ApplicationAppUsage[] gadget) {
-      this.gadget = gadget;
-      return this;
+    public ApplicationAppUsage[] getApp() {
+        return this.app;
     }
 
-    public Builder webapp(ApplicationAppUsage[] webapp) {
-      this.webapp = webapp;
-      return this;
+    public void setApp(ApplicationAppUsage[] app) {
+        this.app = app;
     }
 
-    public Builder bot(ApplicationAppUsage[] bot) {
-      this.bot = bot;
-      return this;
+    public ApplicationAppUsage[] getGadget() {
+        return this.gadget;
+    }
+
+    public void setGadget(ApplicationAppUsage[] gadget) {
+        this.gadget = gadget;
+    }
+
+    public ApplicationAppUsage[] getWebapp() {
+        return this.webapp;
+    }
+
+    public void setWebapp(ApplicationAppUsage[] webapp) {
+        this.webapp = webapp;
+    }
+
+    public ApplicationAppUsage[] getBot() {
+        return this.bot;
+    }
+
+    public void setBot(ApplicationAppUsage[] bot) {
+        this.bot = bot;
     }
 
 
-    public ApplicationDepartmentAppUsage build() {
-      return new ApplicationDepartmentAppUsage(this);
-    }
+// builder 开始
+  public ApplicationDepartmentAppUsage(){}
+
+  public ApplicationDepartmentAppUsage(Builder builder){
+      this.departmentId = builder.departmentId;
+      this.app = builder.app;
+      this.gadget = builder.gadget;
+      this.webapp = builder.webapp;
+      this.bot = builder.bot;
   }
+
+    public static class Builder {
+        private String departmentId;
+        private ApplicationAppUsage[] app;
+        private ApplicationAppUsage[] gadget;
+        private ApplicationAppUsage[] webapp;
+        private ApplicationAppUsage[] bot;
+        public Builder departmentId(String departmentId) {
+             this.departmentId = departmentId;
+             return this;
+        }
+    
+        public Builder app(ApplicationAppUsage[] app) {
+             this.app = app;
+             return this;
+        }
+    
+        public Builder gadget(ApplicationAppUsage[] gadget) {
+             this.gadget = gadget;
+             return this;
+        }
+    
+        public Builder webapp(ApplicationAppUsage[] webapp) {
+             this.webapp = webapp;
+             return this;
+        }
+    
+        public Builder bot(ApplicationAppUsage[] bot) {
+             this.bot = bot;
+             return this;
+        }
+    
+    
+    public ApplicationDepartmentAppUsage build(){
+        return new ApplicationDepartmentAppUsage(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

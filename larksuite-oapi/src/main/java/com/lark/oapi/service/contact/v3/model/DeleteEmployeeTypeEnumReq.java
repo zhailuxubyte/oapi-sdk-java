@@ -12,47 +12,52 @@
  */
 
 package com.lark.oapi.service.contact.v3.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.contact.v3.enums.*;
 import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class DeleteEmployeeTypeEnumReq {
-
-  @Path
-  @SerializedName("enum_id")
-  private String enumId;
-
-  // builder 开始
-  public DeleteEmployeeTypeEnumReq() {
-  }
-
-  public DeleteEmployeeTypeEnumReq(Builder builder) {
-    this.enumId = builder.enumId;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getEnumId() {
-    return this.enumId;
-  }
-
-  public void setEnumId(String enumId) {
-    this.enumId = enumId;
-  }
-
-  public static class Builder {
-
+    @Path
+    @SerializedName("enum_id")
     private String enumId;
-
-    public Builder enumId(String enumId) {
-      this.enumId = enumId;
-      return this;
+    public String getEnumId() {
+        return this.enumId;
     }
 
-    public DeleteEmployeeTypeEnumReq build() {
-      return new DeleteEmployeeTypeEnumReq(this);
+    public void setEnumId(String enumId) {
+        this.enumId = enumId;
     }
+
+
+// builder 开始
+  public DeleteEmployeeTypeEnumReq(){}
+
+  public DeleteEmployeeTypeEnumReq(Builder builder){
+       this.enumId = builder.enumId;
   }
+
+    public static class Builder {
+    
+        private String enumId;
+          public Builder enumId(String enumId) {
+               this.enumId = enumId;
+               return this;
+          }
+    
+    public DeleteEmployeeTypeEnumReq build(){
+        return new DeleteEmployeeTypeEnumReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

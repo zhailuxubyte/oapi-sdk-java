@@ -12,158 +12,161 @@
  */
 
 package com.lark.oapi.service.admin.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.admin.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class File {
-
-  @SerializedName("title")
-  private String title;
-  @SerializedName("type")
-  private String type;
-  @SerializedName("owner")
-  private User owner;
-  @SerializedName("size")
-  private String size;
-  @SerializedName("last_op_time")
-  private String lastOpTime;
-  @SerializedName("status")
-  private String status;
-  @SerializedName("token")
-  private String token;
-
-  // builder 开始
-  public File() {
-  }
-
-  public File(Builder builder) {
-    this.title = builder.title;
-    this.type = builder.type;
-    this.owner = builder.owner;
-    this.size = builder.size;
-    this.lastOpTime = builder.lastOpTime;
-    this.status = builder.status;
-    this.token = builder.token;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getTitle() {
-    return this.title;
-  }
-
-  public void setTitle(String title) {
-    this.title = title;
-  }
-
-  public String getType() {
-    return this.type;
-  }
-
-  public void setType(String type) {
-    this.type = type;
-  }
-
-  public User getOwner() {
-    return this.owner;
-  }
-
-  public void setOwner(User owner) {
-    this.owner = owner;
-  }
-
-  public String getSize() {
-    return this.size;
-  }
-
-  public void setSize(String size) {
-    this.size = size;
-  }
-
-  public String getLastOpTime() {
-    return this.lastOpTime;
-  }
-
-  public void setLastOpTime(String lastOpTime) {
-    this.lastOpTime = lastOpTime;
-  }
-
-  public String getStatus() {
-    return this.status;
-  }
-
-  public void setStatus(String status) {
-    this.status = status;
-  }
-
-  public String getToken() {
-    return this.token;
-  }
-
-  public void setToken(String token) {
-    this.token = token;
-  }
-
-  public static class Builder {
-
+    @SerializedName("title")
     private String title;
+    @SerializedName("type")
     private String type;
+    @SerializedName("owner")
     private User owner;
+    @SerializedName("size")
     private String size;
+    @SerializedName("last_op_time")
     private String lastOpTime;
+    @SerializedName("status")
     private String status;
+    @SerializedName("token")
     private String token;
-
-    public Builder title(String title) {
-      this.title = title;
-      return this;
+    public String getTitle() {
+        return this.title;
     }
 
-    public Builder type(String type) {
-      this.type = type;
-      return this;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-    public Builder type(com.lark.oapi.service.admin.v1.enums.TypeEnum type) {
-      this.type = type.getValue();
-      return this;
+    public String getType() {
+        return this.type;
     }
 
-    public Builder owner(User owner) {
-      this.owner = owner;
-      return this;
+    public void setType(String type) {
+        this.type = type;
     }
 
-    public Builder size(String size) {
-      this.size = size;
-      return this;
+    public User getOwner() {
+        return this.owner;
     }
 
-    public Builder lastOpTime(String lastOpTime) {
-      this.lastOpTime = lastOpTime;
-      return this;
+    public void setOwner(User owner) {
+        this.owner = owner;
     }
 
-    public Builder status(String status) {
-      this.status = status;
-      return this;
+    public String getSize() {
+        return this.size;
     }
 
-    public Builder status(com.lark.oapi.service.admin.v1.enums.StatusEnum status) {
-      this.status = status.getValue();
-      return this;
+    public void setSize(String size) {
+        this.size = size;
     }
 
-    public Builder token(String token) {
-      this.token = token;
-      return this;
+    public String getLastOpTime() {
+        return this.lastOpTime;
+    }
+
+    public void setLastOpTime(String lastOpTime) {
+        this.lastOpTime = lastOpTime;
+    }
+
+    public String getStatus() {
+        return this.status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getToken() {
+        return this.token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
     }
 
 
-    public File build() {
-      return new File(this);
-    }
+// builder 开始
+  public File(){}
+
+  public File(Builder builder){
+      this.title = builder.title;
+      this.type = builder.type;
+      this.owner = builder.owner;
+      this.size = builder.size;
+      this.lastOpTime = builder.lastOpTime;
+      this.status = builder.status;
+      this.token = builder.token;
   }
+
+    public static class Builder {
+        private String title;
+        private String type;
+        private User owner;
+        private String size;
+        private String lastOpTime;
+        private String status;
+        private String token;
+        public Builder title(String title) {
+             this.title = title;
+             return this;
+        }
+    
+        public Builder type(String type) {
+             this.type = type;
+             return this;
+        }
+        public Builder type(com.lark.oapi.service.admin.v1.enums.TypeEnum type) {
+             this.type = type.getValue();
+             return this;
+        }
+    
+        public Builder owner(User owner) {
+             this.owner = owner;
+             return this;
+        }
+    
+        public Builder size(String size) {
+             this.size = size;
+             return this;
+        }
+    
+        public Builder lastOpTime(String lastOpTime) {
+             this.lastOpTime = lastOpTime;
+             return this;
+        }
+    
+        public Builder status(String status) {
+             this.status = status;
+             return this;
+        }
+        public Builder status(com.lark.oapi.service.admin.v1.enums.StatusEnum status) {
+             this.status = status.getValue();
+             return this;
+        }
+    
+        public Builder token(String token) {
+             this.token = token;
+             return this;
+        }
+    
+    
+    public File build(){
+        return new File(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

@@ -12,80 +12,86 @@
  */
 
 package com.lark.oapi.service.im.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.im.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class CreateMessageReqBody {
-
-  @SerializedName("receive_id")
-  private String receiveId;
-  @SerializedName("content")
-  private String content;
-  @SerializedName("msg_type")
-  private String msgType;
-
-  // builder 开始
-  public CreateMessageReqBody() {
-  }
-
-  public CreateMessageReqBody(Builder builder) {
-    this.receiveId = builder.receiveId;
-    this.content = builder.content;
-    this.msgType = builder.msgType;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getReceiveId() {
-    return this.receiveId;
-  }
-
-  public void setReceiveId(String receiveId) {
-    this.receiveId = receiveId;
-  }
-
-  public String getContent() {
-    return this.content;
-  }
-
-  public void setContent(String content) {
-    this.content = content;
-  }
-
-  public String getMsgType() {
-    return this.msgType;
-  }
-
-  public void setMsgType(String msgType) {
-    this.msgType = msgType;
-  }
-
-  public static class Builder {
-
+    @SerializedName("receive_id")
     private String receiveId;
+    @SerializedName("content")
     private String content;
+    @SerializedName("msg_type")
     private String msgType;
-
-    public Builder receiveId(String receiveId) {
-      this.receiveId = receiveId;
-      return this;
+    public String getReceiveId() {
+        return this.receiveId;
     }
 
-    public Builder content(String content) {
-      this.content = content;
-      return this;
+    public void setReceiveId(String receiveId) {
+        this.receiveId = receiveId;
     }
 
-    public Builder msgType(String msgType) {
-      this.msgType = msgType;
-      return this;
+    public String getContent() {
+        return this.content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public String getMsgType() {
+        return this.msgType;
+    }
+
+    public void setMsgType(String msgType) {
+        this.msgType = msgType;
     }
 
 
-    public CreateMessageReqBody build() {
-      return new CreateMessageReqBody(this);
-    }
+// builder 开始
+  public CreateMessageReqBody(){}
+
+  public CreateMessageReqBody(Builder builder){
+      this.receiveId = builder.receiveId;
+      this.content = builder.content;
+      this.msgType = builder.msgType;
   }
+
+    public static class Builder {
+        private String receiveId;
+        private String content;
+        private String msgType;
+        public Builder receiveId(String receiveId) {
+             this.receiveId = receiveId;
+             return this;
+        }
+    
+        public Builder content(String content) {
+             this.content = content;
+             return this;
+        }
+    
+        public Builder msgType(String msgType) {
+             this.msgType = msgType;
+             return this;
+        }
+    
+    
+    public CreateMessageReqBody build(){
+        return new CreateMessageReqBody(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

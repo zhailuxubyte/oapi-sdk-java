@@ -12,40 +12,47 @@
  */
 
 package com.lark.oapi.service.speech_to_text.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class StreamRecognizeSpeech {
+    @SerializedName("stream_id")
+    private String streamId;
+    @SerializedName("sequence_id")
+    private Integer sequenceId;
+    @SerializedName("recognition_text")
+    private String recognitionText;
+    public String getStreamId() {
+        return this.streamId;
+    }
 
-  @SerializedName("stream_id")
-  private String streamId;
-  @SerializedName("sequence_id")
-  private Integer sequenceId;
-  @SerializedName("recognition_text")
-  private String recognitionText;
+    public void setStreamId(String streamId) {
+        this.streamId = streamId;
+    }
 
-  public String getStreamId() {
-    return this.streamId;
-  }
+    public Integer getSequenceId() {
+        return this.sequenceId;
+    }
 
-  public void setStreamId(String streamId) {
-    this.streamId = streamId;
-  }
+    public void setSequenceId(Integer sequenceId) {
+        this.sequenceId = sequenceId;
+    }
 
-  public Integer getSequenceId() {
-    return this.sequenceId;
-  }
+    public String getRecognitionText() {
+        return this.recognitionText;
+    }
 
-  public void setSequenceId(Integer sequenceId) {
-    this.sequenceId = sequenceId;
-  }
-
-  public String getRecognitionText() {
-    return this.recognitionText;
-  }
-
-  public void setRecognitionText(String recognitionText) {
-    this.recognitionText = recognitionText;
-  }
+    public void setRecognitionText(String recognitionText) {
+        this.recognitionText = recognitionText;
+    }
 
 }

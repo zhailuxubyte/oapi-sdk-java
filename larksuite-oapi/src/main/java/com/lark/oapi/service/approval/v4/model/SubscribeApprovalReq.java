@@ -12,47 +12,52 @@
  */
 
 package com.lark.oapi.service.approval.v4.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.approval.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class SubscribeApprovalReq {
-
-  @Path
-  @SerializedName("approval_code")
-  private String approvalCode;
-
-  // builder 开始
-  public SubscribeApprovalReq() {
-  }
-
-  public SubscribeApprovalReq(Builder builder) {
-    this.approvalCode = builder.approvalCode;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getApprovalCode() {
-    return this.approvalCode;
-  }
-
-  public void setApprovalCode(String approvalCode) {
-    this.approvalCode = approvalCode;
-  }
-
-  public static class Builder {
-
+    @Path
+    @SerializedName("approval_code")
     private String approvalCode;
-
-    public Builder approvalCode(String approvalCode) {
-      this.approvalCode = approvalCode;
-      return this;
+    public String getApprovalCode() {
+        return this.approvalCode;
     }
 
-    public SubscribeApprovalReq build() {
-      return new SubscribeApprovalReq(this);
+    public void setApprovalCode(String approvalCode) {
+        this.approvalCode = approvalCode;
     }
+
+
+// builder 开始
+  public SubscribeApprovalReq(){}
+
+  public SubscribeApprovalReq(Builder builder){
+       this.approvalCode = builder.approvalCode;
   }
+
+    public static class Builder {
+    
+        private String approvalCode;
+          public Builder approvalCode(String approvalCode) {
+               this.approvalCode = approvalCode;
+               return this;
+          }
+    
+    public SubscribeApprovalReq build(){
+        return new SubscribeApprovalReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

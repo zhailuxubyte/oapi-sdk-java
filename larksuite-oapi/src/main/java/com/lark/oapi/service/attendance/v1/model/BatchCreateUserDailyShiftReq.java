@@ -12,75 +12,76 @@
  */
 
 package com.lark.oapi.service.attendance.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.attendance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class BatchCreateUserDailyShiftReq {
-
-  @Query
-  @SerializedName("employee_type")
-  private String employeeType;
-  @Body
-  private BatchCreateUserDailyShiftReqBody body;
-
-  // builder 开始
-  public BatchCreateUserDailyShiftReq() {
-  }
-
-  public BatchCreateUserDailyShiftReq(Builder builder) {
-    this.employeeType = builder.employeeType;
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getEmployeeType() {
-    return this.employeeType;
-  }
-
-  public void setEmployeeType(String employeeType) {
-    this.employeeType = employeeType;
-  }
-
-  public BatchCreateUserDailyShiftReqBody getBatchCreateUserDailyShiftReqBody() {
-    return this.body;
-  }
-
-  public void setBatchCreateUserDailyShiftReqBody(BatchCreateUserDailyShiftReqBody body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
+    @Query
+    @SerializedName("employee_type")
     private String employeeType;
+    public String getEmployeeType() {
+        return this.employeeType;
+    }
+
+    public void setEmployeeType(String employeeType) {
+        this.employeeType = employeeType;
+    }
+
+    @Body
     private BatchCreateUserDailyShiftReqBody body;
 
-    public Builder employeeType(String employeeType) {
-      this.employeeType = employeeType;
-      return this;
-    }
-
-    public Builder employeeType(
-        com.lark.oapi.service.attendance.v1.enums.EmployeeTypeEnum employeeType) {
-      this.employeeType = employeeType.getValue();
-      return this;
-    }
-
     public BatchCreateUserDailyShiftReqBody getBatchCreateUserDailyShiftReqBody() {
-      return this.body;
+        return this.body;
     }
 
-    public Builder batchCreateUserDailyShiftReqBody(BatchCreateUserDailyShiftReqBody body) {
-      this.body = body;
-      return this;
+    public void setBatchCreateUserDailyShiftReqBody(BatchCreateUserDailyShiftReqBody body) {
+        this.body = body;
     }
 
-    public BatchCreateUserDailyShiftReq build() {
-      return new BatchCreateUserDailyShiftReq(this);
-    }
+// builder 开始
+  public BatchCreateUserDailyShiftReq(){}
+
+  public BatchCreateUserDailyShiftReq(Builder builder){
+       this.employeeType = builder.employeeType;
+        this.body = builder.body;
   }
+
+    public static class Builder {
+        private String employeeType;
+    
+           public Builder employeeType(String employeeType) {
+                this.employeeType = employeeType;
+                return this;
+           }
+          public Builder employeeType(com.lark.oapi.service.attendance.v1.enums.EmployeeTypeEnum employeeType) {
+               this.employeeType = employeeType.getValue();
+               return this;
+          }
+    
+        private BatchCreateUserDailyShiftReqBody body;
+    
+        public BatchCreateUserDailyShiftReqBody getBatchCreateUserDailyShiftReqBody() {
+            return this.body;
+        }
+        public Builder batchCreateUserDailyShiftReqBody(BatchCreateUserDailyShiftReqBody body) {
+             this.body = body;
+             return this;
+        }
+    public BatchCreateUserDailyShiftReq build(){
+        return new BatchCreateUserDailyShiftReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

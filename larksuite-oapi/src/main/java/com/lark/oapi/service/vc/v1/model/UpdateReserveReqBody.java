@@ -12,63 +12,69 @@
  */
 
 package com.lark.oapi.service.vc.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.vc.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class UpdateReserveReqBody {
-
-  @SerializedName("end_time")
-  private String endTime;
-  @SerializedName("meeting_settings")
-  private ReserveMeetingSetting meetingSettings;
-
-  // builder 开始
-  public UpdateReserveReqBody() {
-  }
-
-  public UpdateReserveReqBody(Builder builder) {
-    this.endTime = builder.endTime;
-    this.meetingSettings = builder.meetingSettings;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getEndTime() {
-    return this.endTime;
-  }
-
-  public void setEndTime(String endTime) {
-    this.endTime = endTime;
-  }
-
-  public ReserveMeetingSetting getMeetingSettings() {
-    return this.meetingSettings;
-  }
-
-  public void setMeetingSettings(ReserveMeetingSetting meetingSettings) {
-    this.meetingSettings = meetingSettings;
-  }
-
-  public static class Builder {
-
+    @SerializedName("end_time")
     private String endTime;
+    @SerializedName("meeting_settings")
     private ReserveMeetingSetting meetingSettings;
-
-    public Builder endTime(String endTime) {
-      this.endTime = endTime;
-      return this;
+    public String getEndTime() {
+        return this.endTime;
     }
 
-    public Builder meetingSettings(ReserveMeetingSetting meetingSettings) {
-      this.meetingSettings = meetingSettings;
-      return this;
+    public void setEndTime(String endTime) {
+        this.endTime = endTime;
+    }
+
+    public ReserveMeetingSetting getMeetingSettings() {
+        return this.meetingSettings;
+    }
+
+    public void setMeetingSettings(ReserveMeetingSetting meetingSettings) {
+        this.meetingSettings = meetingSettings;
     }
 
 
-    public UpdateReserveReqBody build() {
-      return new UpdateReserveReqBody(this);
-    }
+// builder 开始
+  public UpdateReserveReqBody(){}
+
+  public UpdateReserveReqBody(Builder builder){
+      this.endTime = builder.endTime;
+      this.meetingSettings = builder.meetingSettings;
   }
+
+    public static class Builder {
+        private String endTime;
+        private ReserveMeetingSetting meetingSettings;
+        public Builder endTime(String endTime) {
+             this.endTime = endTime;
+             return this;
+        }
+    
+        public Builder meetingSettings(ReserveMeetingSetting meetingSettings) {
+             this.meetingSettings = meetingSettings;
+             return this;
+        }
+    
+    
+    public UpdateReserveReqBody build(){
+        return new UpdateReserveReqBody(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

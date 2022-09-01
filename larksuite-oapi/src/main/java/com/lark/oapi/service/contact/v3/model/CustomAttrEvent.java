@@ -12,63 +12,69 @@
  */
 
 package com.lark.oapi.service.contact.v3.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.contact.v3.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class CustomAttrEvent {
-
-  @SerializedName("contact_field_key")
-  private String[] contactFieldKey;
-  @SerializedName("allow_open_query")
-  private Boolean allowOpenQuery;
-
-  // builder 开始
-  public CustomAttrEvent() {
-  }
-
-  public CustomAttrEvent(Builder builder) {
-    this.contactFieldKey = builder.contactFieldKey;
-    this.allowOpenQuery = builder.allowOpenQuery;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String[] getContactFieldKey() {
-    return this.contactFieldKey;
-  }
-
-  public void setContactFieldKey(String[] contactFieldKey) {
-    this.contactFieldKey = contactFieldKey;
-  }
-
-  public Boolean getAllowOpenQuery() {
-    return this.allowOpenQuery;
-  }
-
-  public void setAllowOpenQuery(Boolean allowOpenQuery) {
-    this.allowOpenQuery = allowOpenQuery;
-  }
-
-  public static class Builder {
-
+    @SerializedName("contact_field_key")
     private String[] contactFieldKey;
+    @SerializedName("allow_open_query")
     private Boolean allowOpenQuery;
-
-    public Builder contactFieldKey(String[] contactFieldKey) {
-      this.contactFieldKey = contactFieldKey;
-      return this;
+    public String[] getContactFieldKey() {
+        return this.contactFieldKey;
     }
 
-    public Builder allowOpenQuery(Boolean allowOpenQuery) {
-      this.allowOpenQuery = allowOpenQuery;
-      return this;
+    public void setContactFieldKey(String[] contactFieldKey) {
+        this.contactFieldKey = contactFieldKey;
+    }
+
+    public Boolean getAllowOpenQuery() {
+        return this.allowOpenQuery;
+    }
+
+    public void setAllowOpenQuery(Boolean allowOpenQuery) {
+        this.allowOpenQuery = allowOpenQuery;
     }
 
 
-    public CustomAttrEvent build() {
-      return new CustomAttrEvent(this);
-    }
+// builder 开始
+  public CustomAttrEvent(){}
+
+  public CustomAttrEvent(Builder builder){
+      this.contactFieldKey = builder.contactFieldKey;
+      this.allowOpenQuery = builder.allowOpenQuery;
   }
+
+    public static class Builder {
+        private String[] contactFieldKey;
+        private Boolean allowOpenQuery;
+        public Builder contactFieldKey(String[] contactFieldKey) {
+             this.contactFieldKey = contactFieldKey;
+             return this;
+        }
+    
+        public Builder allowOpenQuery(Boolean allowOpenQuery) {
+             this.allowOpenQuery = allowOpenQuery;
+             return this;
+        }
+    
+    
+    public CustomAttrEvent build(){
+        return new CustomAttrEvent(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

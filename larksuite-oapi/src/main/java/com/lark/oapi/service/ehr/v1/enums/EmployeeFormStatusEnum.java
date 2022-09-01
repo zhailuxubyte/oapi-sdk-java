@@ -15,17 +15,16 @@ package com.lark.oapi.service.ehr.v1.enums;
 
 // 生成枚举值
 public enum EmployeeFormStatusEnum {
-  NOT_SENT(1),
-  TO_BE_SUBMITTED(2),
-  SUBMITTED(3),
+     NOT_SENT(1),
+     TO_BE_SUBMITTED(2),
+     SUBMITTED(3),
   ;
-  private Integer value;
+   private Integer value;
+    EmployeeFormStatusEnum(Integer value) {
+      this.value = value;
+    }
 
-  EmployeeFormStatusEnum(Integer value) {
-    this.value = value;
-  }
-
-  public Integer getValue() {
-    return this.value;
-  }
+    public Integer getValue() {
+      return this.value;
+    }
 }

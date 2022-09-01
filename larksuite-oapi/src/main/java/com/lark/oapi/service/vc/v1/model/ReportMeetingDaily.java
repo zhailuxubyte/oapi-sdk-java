@@ -12,97 +12,103 @@
  */
 
 package com.lark.oapi.service.vc.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.vc.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class ReportMeetingDaily {
-
-  @SerializedName("date")
-  private String date;
-  @SerializedName("meeting_count")
-  private String meetingCount;
-  @SerializedName("meeting_duration")
-  private String meetingDuration;
-  @SerializedName("participant_count")
-  private String participantCount;
-
-  // builder 开始
-  public ReportMeetingDaily() {
-  }
-
-  public ReportMeetingDaily(Builder builder) {
-    this.date = builder.date;
-    this.meetingCount = builder.meetingCount;
-    this.meetingDuration = builder.meetingDuration;
-    this.participantCount = builder.participantCount;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getDate() {
-    return this.date;
-  }
-
-  public void setDate(String date) {
-    this.date = date;
-  }
-
-  public String getMeetingCount() {
-    return this.meetingCount;
-  }
-
-  public void setMeetingCount(String meetingCount) {
-    this.meetingCount = meetingCount;
-  }
-
-  public String getMeetingDuration() {
-    return this.meetingDuration;
-  }
-
-  public void setMeetingDuration(String meetingDuration) {
-    this.meetingDuration = meetingDuration;
-  }
-
-  public String getParticipantCount() {
-    return this.participantCount;
-  }
-
-  public void setParticipantCount(String participantCount) {
-    this.participantCount = participantCount;
-  }
-
-  public static class Builder {
-
+    @SerializedName("date")
     private String date;
+    @SerializedName("meeting_count")
     private String meetingCount;
+    @SerializedName("meeting_duration")
     private String meetingDuration;
+    @SerializedName("participant_count")
     private String participantCount;
-
-    public Builder date(String date) {
-      this.date = date;
-      return this;
+    public String getDate() {
+        return this.date;
     }
 
-    public Builder meetingCount(String meetingCount) {
-      this.meetingCount = meetingCount;
-      return this;
+    public void setDate(String date) {
+        this.date = date;
     }
 
-    public Builder meetingDuration(String meetingDuration) {
-      this.meetingDuration = meetingDuration;
-      return this;
+    public String getMeetingCount() {
+        return this.meetingCount;
     }
 
-    public Builder participantCount(String participantCount) {
-      this.participantCount = participantCount;
-      return this;
+    public void setMeetingCount(String meetingCount) {
+        this.meetingCount = meetingCount;
+    }
+
+    public String getMeetingDuration() {
+        return this.meetingDuration;
+    }
+
+    public void setMeetingDuration(String meetingDuration) {
+        this.meetingDuration = meetingDuration;
+    }
+
+    public String getParticipantCount() {
+        return this.participantCount;
+    }
+
+    public void setParticipantCount(String participantCount) {
+        this.participantCount = participantCount;
     }
 
 
-    public ReportMeetingDaily build() {
-      return new ReportMeetingDaily(this);
-    }
+// builder 开始
+  public ReportMeetingDaily(){}
+
+  public ReportMeetingDaily(Builder builder){
+      this.date = builder.date;
+      this.meetingCount = builder.meetingCount;
+      this.meetingDuration = builder.meetingDuration;
+      this.participantCount = builder.participantCount;
   }
+
+    public static class Builder {
+        private String date;
+        private String meetingCount;
+        private String meetingDuration;
+        private String participantCount;
+        public Builder date(String date) {
+             this.date = date;
+             return this;
+        }
+    
+        public Builder meetingCount(String meetingCount) {
+             this.meetingCount = meetingCount;
+             return this;
+        }
+    
+        public Builder meetingDuration(String meetingDuration) {
+             this.meetingDuration = meetingDuration;
+             return this;
+        }
+    
+        public Builder participantCount(String participantCount) {
+             this.participantCount = participantCount;
+             return this;
+        }
+    
+    
+    public ReportMeetingDaily build(){
+        return new ReportMeetingDaily(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

@@ -12,114 +12,120 @@
  */
 
 package com.lark.oapi.service.application.v6.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.application.v6.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class AppBadge {
-
-  @SerializedName("user_id")
-  private String userId;
-  @SerializedName("version")
-  private String version;
-  @SerializedName("extra")
-  private String extra;
-  @SerializedName("pc")
-  private ClientBadgeNum pc;
-  @SerializedName("mobile")
-  private ClientBadgeNum mobile;
-
-  // builder 开始
-  public AppBadge() {
-  }
-
-  public AppBadge(Builder builder) {
-    this.userId = builder.userId;
-    this.version = builder.version;
-    this.extra = builder.extra;
-    this.pc = builder.pc;
-    this.mobile = builder.mobile;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getUserId() {
-    return this.userId;
-  }
-
-  public void setUserId(String userId) {
-    this.userId = userId;
-  }
-
-  public String getVersion() {
-    return this.version;
-  }
-
-  public void setVersion(String version) {
-    this.version = version;
-  }
-
-  public String getExtra() {
-    return this.extra;
-  }
-
-  public void setExtra(String extra) {
-    this.extra = extra;
-  }
-
-  public ClientBadgeNum getPc() {
-    return this.pc;
-  }
-
-  public void setPc(ClientBadgeNum pc) {
-    this.pc = pc;
-  }
-
-  public ClientBadgeNum getMobile() {
-    return this.mobile;
-  }
-
-  public void setMobile(ClientBadgeNum mobile) {
-    this.mobile = mobile;
-  }
-
-  public static class Builder {
-
+    @SerializedName("user_id")
     private String userId;
+    @SerializedName("version")
     private String version;
+    @SerializedName("extra")
     private String extra;
+    @SerializedName("pc")
     private ClientBadgeNum pc;
+    @SerializedName("mobile")
     private ClientBadgeNum mobile;
-
-    public Builder userId(String userId) {
-      this.userId = userId;
-      return this;
+    public String getUserId() {
+        return this.userId;
     }
 
-    public Builder version(String version) {
-      this.version = version;
-      return this;
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
-    public Builder extra(String extra) {
-      this.extra = extra;
-      return this;
+    public String getVersion() {
+        return this.version;
     }
 
-    public Builder pc(ClientBadgeNum pc) {
-      this.pc = pc;
-      return this;
+    public void setVersion(String version) {
+        this.version = version;
     }
 
-    public Builder mobile(ClientBadgeNum mobile) {
-      this.mobile = mobile;
-      return this;
+    public String getExtra() {
+        return this.extra;
+    }
+
+    public void setExtra(String extra) {
+        this.extra = extra;
+    }
+
+    public ClientBadgeNum getPc() {
+        return this.pc;
+    }
+
+    public void setPc(ClientBadgeNum pc) {
+        this.pc = pc;
+    }
+
+    public ClientBadgeNum getMobile() {
+        return this.mobile;
+    }
+
+    public void setMobile(ClientBadgeNum mobile) {
+        this.mobile = mobile;
     }
 
 
-    public AppBadge build() {
-      return new AppBadge(this);
-    }
+// builder 开始
+  public AppBadge(){}
+
+  public AppBadge(Builder builder){
+      this.userId = builder.userId;
+      this.version = builder.version;
+      this.extra = builder.extra;
+      this.pc = builder.pc;
+      this.mobile = builder.mobile;
   }
+
+    public static class Builder {
+        private String userId;
+        private String version;
+        private String extra;
+        private ClientBadgeNum pc;
+        private ClientBadgeNum mobile;
+        public Builder userId(String userId) {
+             this.userId = userId;
+             return this;
+        }
+    
+        public Builder version(String version) {
+             this.version = version;
+             return this;
+        }
+    
+        public Builder extra(String extra) {
+             this.extra = extra;
+             return this;
+        }
+    
+        public Builder pc(ClientBadgeNum pc) {
+             this.pc = pc;
+             return this;
+        }
+    
+        public Builder mobile(ClientBadgeNum mobile) {
+             this.mobile = mobile;
+             return this;
+        }
+    
+    
+    public AppBadge build(){
+        return new AppBadge(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

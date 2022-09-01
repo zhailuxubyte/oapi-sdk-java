@@ -12,69 +12,72 @@
  */
 
 package com.lark.oapi.service.helpdesk.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.helpdesk.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class PatchAgentSkillReq {
-
-  @Path
-  @SerializedName("agent_skill_id")
-  private String agentSkillId;
-  @Body
-  private PatchAgentSkillReqBody body;
-
-  // builder 开始
-  public PatchAgentSkillReq() {
-  }
-
-  public PatchAgentSkillReq(Builder builder) {
-    this.agentSkillId = builder.agentSkillId;
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getAgentSkillId() {
-    return this.agentSkillId;
-  }
-
-  public void setAgentSkillId(String agentSkillId) {
-    this.agentSkillId = agentSkillId;
-  }
-
-  public PatchAgentSkillReqBody getPatchAgentSkillReqBody() {
-    return this.body;
-  }
-
-  public void setPatchAgentSkillReqBody(PatchAgentSkillReqBody body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
+    @Path
+    @SerializedName("agent_skill_id")
     private String agentSkillId;
+    public String getAgentSkillId() {
+        return this.agentSkillId;
+    }
+
+    public void setAgentSkillId(String agentSkillId) {
+        this.agentSkillId = agentSkillId;
+    }
+
+    @Body
     private PatchAgentSkillReqBody body;
 
-    public Builder agentSkillId(String agentSkillId) {
-      this.agentSkillId = agentSkillId;
-      return this;
-    }
-
     public PatchAgentSkillReqBody getPatchAgentSkillReqBody() {
-      return this.body;
+        return this.body;
     }
 
-    public Builder patchAgentSkillReqBody(PatchAgentSkillReqBody body) {
-      this.body = body;
-      return this;
+    public void setPatchAgentSkillReqBody(PatchAgentSkillReqBody body) {
+        this.body = body;
     }
 
-    public PatchAgentSkillReq build() {
-      return new PatchAgentSkillReq(this);
-    }
+// builder 开始
+  public PatchAgentSkillReq(){}
+
+  public PatchAgentSkillReq(Builder builder){
+       this.agentSkillId = builder.agentSkillId;
+        this.body = builder.body;
   }
+
+    public static class Builder {
+    
+        private String agentSkillId;
+          public Builder agentSkillId(String agentSkillId) {
+               this.agentSkillId = agentSkillId;
+               return this;
+          }
+    
+        private PatchAgentSkillReqBody body;
+    
+        public PatchAgentSkillReqBody getPatchAgentSkillReqBody() {
+            return this.body;
+        }
+        public Builder patchAgentSkillReqBody(PatchAgentSkillReqBody body) {
+             this.body = body;
+             return this;
+        }
+    public PatchAgentSkillReq build(){
+        return new PatchAgentSkillReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

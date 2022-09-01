@@ -12,110 +12,117 @@
  */
 
 package com.lark.oapi.service.calendar.v4.model;
-
+import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class GetCalendar {
+    @SerializedName("calendar_id")
+    private String calendarId;
+    @SerializedName("summary")
+    private String summary;
+    @SerializedName("description")
+    private String description;
+    @SerializedName("permissions")
+    private String permissions;
+    @SerializedName("color")
+    private Integer color;
+    @SerializedName("type")
+    private String type;
+    @SerializedName("summary_alias")
+    private String summaryAlias;
+    @SerializedName("is_deleted")
+    private Boolean isDeleted;
+    @SerializedName("is_third_party")
+    private Boolean isThirdParty;
+    @SerializedName("role")
+    private String role;
+    public String getCalendarId() {
+        return this.calendarId;
+    }
 
-  @SerializedName("calendar_id")
-  private String calendarId;
-  @SerializedName("summary")
-  private String summary;
-  @SerializedName("description")
-  private String description;
-  @SerializedName("permissions")
-  private String permissions;
-  @SerializedName("color")
-  private Integer color;
-  @SerializedName("type")
-  private String type;
-  @SerializedName("summary_alias")
-  private String summaryAlias;
-  @SerializedName("is_deleted")
-  private Boolean isDeleted;
-  @SerializedName("is_third_party")
-  private Boolean isThirdParty;
-  @SerializedName("role")
-  private String role;
+    public void setCalendarId(String calendarId) {
+        this.calendarId = calendarId;
+    }
 
-  public String getCalendarId() {
-    return this.calendarId;
-  }
+    public String getSummary() {
+        return this.summary;
+    }
 
-  public void setCalendarId(String calendarId) {
-    this.calendarId = calendarId;
-  }
+    public void setSummary(String summary) {
+        this.summary = summary;
+    }
 
-  public String getSummary() {
-    return this.summary;
-  }
+    public String getDescription() {
+        return this.description;
+    }
 
-  public void setSummary(String summary) {
-    this.summary = summary;
-  }
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
-  public String getDescription() {
-    return this.description;
-  }
+    public String getPermissions() {
+        return this.permissions;
+    }
 
-  public void setDescription(String description) {
-    this.description = description;
-  }
+    public void setPermissions(String permissions) {
+        this.permissions = permissions;
+    }
 
-  public String getPermissions() {
-    return this.permissions;
-  }
+    public Integer getColor() {
+        return this.color;
+    }
 
-  public void setPermissions(String permissions) {
-    this.permissions = permissions;
-  }
+    public void setColor(Integer color) {
+        this.color = color;
+    }
 
-  public Integer getColor() {
-    return this.color;
-  }
+    public String getType() {
+        return this.type;
+    }
 
-  public void setColor(Integer color) {
-    this.color = color;
-  }
+    public void setType(String type) {
+        this.type = type;
+    }
 
-  public String getType() {
-    return this.type;
-  }
+    public String getSummaryAlias() {
+        return this.summaryAlias;
+    }
 
-  public void setType(String type) {
-    this.type = type;
-  }
+    public void setSummaryAlias(String summaryAlias) {
+        this.summaryAlias = summaryAlias;
+    }
 
-  public String getSummaryAlias() {
-    return this.summaryAlias;
-  }
+    public Boolean getIsDeleted() {
+        return this.isDeleted;
+    }
 
-  public void setSummaryAlias(String summaryAlias) {
-    this.summaryAlias = summaryAlias;
-  }
+    public void setIsDeleted(Boolean isDeleted) {
+        this.isDeleted = isDeleted;
+    }
 
-  public Boolean getIsDeleted() {
-    return this.isDeleted;
-  }
+    public Boolean getIsThirdParty() {
+        return this.isThirdParty;
+    }
 
-  public void setIsDeleted(Boolean isDeleted) {
-    this.isDeleted = isDeleted;
-  }
+    public void setIsThirdParty(Boolean isThirdParty) {
+        this.isThirdParty = isThirdParty;
+    }
 
-  public Boolean getIsThirdParty() {
-    return this.isThirdParty;
-  }
+    public String getRole() {
+        return this.role;
+    }
 
-  public void setIsThirdParty(Boolean isThirdParty) {
-    this.isThirdParty = isThirdParty;
-  }
-
-  public String getRole() {
-    return this.role;
-  }
-
-  public void setRole(String role) {
-    this.role = role;
-  }
+    public void setRole(String role) {
+        this.role = role;
+    }
 
 }

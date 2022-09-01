@@ -15,17 +15,16 @@ package com.lark.oapi.service.drive.v1.enums;
 
 // 生成枚举值
 public enum FileExtensionEnum {
-  DOCX("docx"),
-  PDF("pdf"),
-  XLSX("xlsx"),
+     DOCX("docx"),
+     PDF("pdf"),
+     XLSX("xlsx"),
   ;
-  private String value;
+   private String value;
+    FileExtensionEnum(String value) {
+      this.value = value;
+    }
 
-  FileExtensionEnum(String value) {
-    this.value = value;
-  }
-
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+      return this.value;
+    }
 }

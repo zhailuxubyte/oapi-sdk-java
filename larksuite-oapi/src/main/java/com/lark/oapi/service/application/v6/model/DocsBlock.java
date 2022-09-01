@@ -12,97 +12,103 @@
  */
 
 package com.lark.oapi.service.application.v6.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.application.v6.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class DocsBlock {
-
-  @SerializedName("block_type_id")
-  private String blockTypeId;
-  @SerializedName("i18n")
-  private BlockI18nInfo[] i18n;
-  @SerializedName("mobile_icon_url")
-  private String mobileIconUrl;
-  @SerializedName("pc_icon_url")
-  private String pcIconUrl;
-
-  // builder 开始
-  public DocsBlock() {
-  }
-
-  public DocsBlock(Builder builder) {
-    this.blockTypeId = builder.blockTypeId;
-    this.i18n = builder.i18n;
-    this.mobileIconUrl = builder.mobileIconUrl;
-    this.pcIconUrl = builder.pcIconUrl;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getBlockTypeId() {
-    return this.blockTypeId;
-  }
-
-  public void setBlockTypeId(String blockTypeId) {
-    this.blockTypeId = blockTypeId;
-  }
-
-  public BlockI18nInfo[] getI18n() {
-    return this.i18n;
-  }
-
-  public void setI18n(BlockI18nInfo[] i18n) {
-    this.i18n = i18n;
-  }
-
-  public String getMobileIconUrl() {
-    return this.mobileIconUrl;
-  }
-
-  public void setMobileIconUrl(String mobileIconUrl) {
-    this.mobileIconUrl = mobileIconUrl;
-  }
-
-  public String getPcIconUrl() {
-    return this.pcIconUrl;
-  }
-
-  public void setPcIconUrl(String pcIconUrl) {
-    this.pcIconUrl = pcIconUrl;
-  }
-
-  public static class Builder {
-
+    @SerializedName("block_type_id")
     private String blockTypeId;
+    @SerializedName("i18n")
     private BlockI18nInfo[] i18n;
+    @SerializedName("mobile_icon_url")
     private String mobileIconUrl;
+    @SerializedName("pc_icon_url")
     private String pcIconUrl;
-
-    public Builder blockTypeId(String blockTypeId) {
-      this.blockTypeId = blockTypeId;
-      return this;
+    public String getBlockTypeId() {
+        return this.blockTypeId;
     }
 
-    public Builder i18n(BlockI18nInfo[] i18n) {
-      this.i18n = i18n;
-      return this;
+    public void setBlockTypeId(String blockTypeId) {
+        this.blockTypeId = blockTypeId;
     }
 
-    public Builder mobileIconUrl(String mobileIconUrl) {
-      this.mobileIconUrl = mobileIconUrl;
-      return this;
+    public BlockI18nInfo[] getI18n() {
+        return this.i18n;
     }
 
-    public Builder pcIconUrl(String pcIconUrl) {
-      this.pcIconUrl = pcIconUrl;
-      return this;
+    public void setI18n(BlockI18nInfo[] i18n) {
+        this.i18n = i18n;
+    }
+
+    public String getMobileIconUrl() {
+        return this.mobileIconUrl;
+    }
+
+    public void setMobileIconUrl(String mobileIconUrl) {
+        this.mobileIconUrl = mobileIconUrl;
+    }
+
+    public String getPcIconUrl() {
+        return this.pcIconUrl;
+    }
+
+    public void setPcIconUrl(String pcIconUrl) {
+        this.pcIconUrl = pcIconUrl;
     }
 
 
-    public DocsBlock build() {
-      return new DocsBlock(this);
-    }
+// builder 开始
+  public DocsBlock(){}
+
+  public DocsBlock(Builder builder){
+      this.blockTypeId = builder.blockTypeId;
+      this.i18n = builder.i18n;
+      this.mobileIconUrl = builder.mobileIconUrl;
+      this.pcIconUrl = builder.pcIconUrl;
   }
+
+    public static class Builder {
+        private String blockTypeId;
+        private BlockI18nInfo[] i18n;
+        private String mobileIconUrl;
+        private String pcIconUrl;
+        public Builder blockTypeId(String blockTypeId) {
+             this.blockTypeId = blockTypeId;
+             return this;
+        }
+    
+        public Builder i18n(BlockI18nInfo[] i18n) {
+             this.i18n = i18n;
+             return this;
+        }
+    
+        public Builder mobileIconUrl(String mobileIconUrl) {
+             this.mobileIconUrl = mobileIconUrl;
+             return this;
+        }
+    
+        public Builder pcIconUrl(String pcIconUrl) {
+             this.pcIconUrl = pcIconUrl;
+             return this;
+        }
+    
+    
+    public DocsBlock build(){
+        return new DocsBlock(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

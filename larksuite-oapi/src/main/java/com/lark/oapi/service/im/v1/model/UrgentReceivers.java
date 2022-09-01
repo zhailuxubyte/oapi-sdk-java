@@ -12,46 +12,52 @@
  */
 
 package com.lark.oapi.service.im.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.im.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class UrgentReceivers {
-
-  @SerializedName("user_id_list")
-  private String[] userIdList;
-
-  // builder 开始
-  public UrgentReceivers() {
-  }
-
-  public UrgentReceivers(Builder builder) {
-    this.userIdList = builder.userIdList;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String[] getUserIdList() {
-    return this.userIdList;
-  }
-
-  public void setUserIdList(String[] userIdList) {
-    this.userIdList = userIdList;
-  }
-
-  public static class Builder {
-
+    @SerializedName("user_id_list")
     private String[] userIdList;
+    public String[] getUserIdList() {
+        return this.userIdList;
+    }
 
-    public Builder userIdList(String[] userIdList) {
-      this.userIdList = userIdList;
-      return this;
+    public void setUserIdList(String[] userIdList) {
+        this.userIdList = userIdList;
     }
 
 
-    public UrgentReceivers build() {
-      return new UrgentReceivers(this);
-    }
+// builder 开始
+  public UrgentReceivers(){}
+
+  public UrgentReceivers(Builder builder){
+      this.userIdList = builder.userIdList;
   }
+
+    public static class Builder {
+        private String[] userIdList;
+        public Builder userIdList(String[] userIdList) {
+             this.userIdList = userIdList;
+             return this;
+        }
+    
+    
+    public UrgentReceivers build(){
+        return new UrgentReceivers(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

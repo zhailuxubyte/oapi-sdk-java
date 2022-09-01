@@ -12,46 +12,52 @@
  */
 
 package com.lark.oapi.service.docx.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.docx.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class InlineBlock {
-
-  @SerializedName("block_id")
-  private String blockId;
-
-  // builder 开始
-  public InlineBlock() {
-  }
-
-  public InlineBlock(Builder builder) {
-    this.blockId = builder.blockId;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getBlockId() {
-    return this.blockId;
-  }
-
-  public void setBlockId(String blockId) {
-    this.blockId = blockId;
-  }
-
-  public static class Builder {
-
+    @SerializedName("block_id")
     private String blockId;
+    public String getBlockId() {
+        return this.blockId;
+    }
 
-    public Builder blockId(String blockId) {
-      this.blockId = blockId;
-      return this;
+    public void setBlockId(String blockId) {
+        this.blockId = blockId;
     }
 
 
-    public InlineBlock build() {
-      return new InlineBlock(this);
-    }
+// builder 开始
+  public InlineBlock(){}
+
+  public InlineBlock(Builder builder){
+      this.blockId = builder.blockId;
   }
+
+    public static class Builder {
+        private String blockId;
+        public Builder blockId(String blockId) {
+             this.blockId = blockId;
+             return this;
+        }
+    
+    
+    public InlineBlock build(){
+        return new InlineBlock(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

@@ -12,47 +12,52 @@
  */
 
 package com.lark.oapi.service.vc.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.vc.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class StopMeetingRecordingReq {
-
-  @Path
-  @SerializedName("meeting_id")
-  private String meetingId;
-
-  // builder 开始
-  public StopMeetingRecordingReq() {
-  }
-
-  public StopMeetingRecordingReq(Builder builder) {
-    this.meetingId = builder.meetingId;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getMeetingId() {
-    return this.meetingId;
-  }
-
-  public void setMeetingId(String meetingId) {
-    this.meetingId = meetingId;
-  }
-
-  public static class Builder {
-
+    @Path
+    @SerializedName("meeting_id")
     private String meetingId;
-
-    public Builder meetingId(String meetingId) {
-      this.meetingId = meetingId;
-      return this;
+    public String getMeetingId() {
+        return this.meetingId;
     }
 
-    public StopMeetingRecordingReq build() {
-      return new StopMeetingRecordingReq(this);
+    public void setMeetingId(String meetingId) {
+        this.meetingId = meetingId;
     }
+
+
+// builder 开始
+  public StopMeetingRecordingReq(){}
+
+  public StopMeetingRecordingReq(Builder builder){
+       this.meetingId = builder.meetingId;
   }
+
+    public static class Builder {
+    
+        private String meetingId;
+          public Builder meetingId(String meetingId) {
+               this.meetingId = meetingId;
+               return this;
+          }
+    
+    public StopMeetingRecordingReq build(){
+        return new StopMeetingRecordingReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

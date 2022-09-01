@@ -12,114 +12,120 @@
  */
 
 package com.lark.oapi.service.approval.v4.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.approval.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class InstanceCc {
-
-  @SerializedName("approval_code")
-  private String approvalCode;
-  @SerializedName("instance_code")
-  private String instanceCode;
-  @SerializedName("user_id")
-  private String userId;
-  @SerializedName("cc_user_ids")
-  private String[] ccUserIds;
-  @SerializedName("comment")
-  private String comment;
-
-  // builder 开始
-  public InstanceCc() {
-  }
-
-  public InstanceCc(Builder builder) {
-    this.approvalCode = builder.approvalCode;
-    this.instanceCode = builder.instanceCode;
-    this.userId = builder.userId;
-    this.ccUserIds = builder.ccUserIds;
-    this.comment = builder.comment;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getApprovalCode() {
-    return this.approvalCode;
-  }
-
-  public void setApprovalCode(String approvalCode) {
-    this.approvalCode = approvalCode;
-  }
-
-  public String getInstanceCode() {
-    return this.instanceCode;
-  }
-
-  public void setInstanceCode(String instanceCode) {
-    this.instanceCode = instanceCode;
-  }
-
-  public String getUserId() {
-    return this.userId;
-  }
-
-  public void setUserId(String userId) {
-    this.userId = userId;
-  }
-
-  public String[] getCcUserIds() {
-    return this.ccUserIds;
-  }
-
-  public void setCcUserIds(String[] ccUserIds) {
-    this.ccUserIds = ccUserIds;
-  }
-
-  public String getComment() {
-    return this.comment;
-  }
-
-  public void setComment(String comment) {
-    this.comment = comment;
-  }
-
-  public static class Builder {
-
+    @SerializedName("approval_code")
     private String approvalCode;
+    @SerializedName("instance_code")
     private String instanceCode;
+    @SerializedName("user_id")
     private String userId;
+    @SerializedName("cc_user_ids")
     private String[] ccUserIds;
+    @SerializedName("comment")
     private String comment;
-
-    public Builder approvalCode(String approvalCode) {
-      this.approvalCode = approvalCode;
-      return this;
+    public String getApprovalCode() {
+        return this.approvalCode;
     }
 
-    public Builder instanceCode(String instanceCode) {
-      this.instanceCode = instanceCode;
-      return this;
+    public void setApprovalCode(String approvalCode) {
+        this.approvalCode = approvalCode;
     }
 
-    public Builder userId(String userId) {
-      this.userId = userId;
-      return this;
+    public String getInstanceCode() {
+        return this.instanceCode;
     }
 
-    public Builder ccUserIds(String[] ccUserIds) {
-      this.ccUserIds = ccUserIds;
-      return this;
+    public void setInstanceCode(String instanceCode) {
+        this.instanceCode = instanceCode;
     }
 
-    public Builder comment(String comment) {
-      this.comment = comment;
-      return this;
+    public String getUserId() {
+        return this.userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    public String[] getCcUserIds() {
+        return this.ccUserIds;
+    }
+
+    public void setCcUserIds(String[] ccUserIds) {
+        this.ccUserIds = ccUserIds;
+    }
+
+    public String getComment() {
+        return this.comment;
+    }
+
+    public void setComment(String comment) {
+        this.comment = comment;
     }
 
 
-    public InstanceCc build() {
-      return new InstanceCc(this);
-    }
+// builder 开始
+  public InstanceCc(){}
+
+  public InstanceCc(Builder builder){
+      this.approvalCode = builder.approvalCode;
+      this.instanceCode = builder.instanceCode;
+      this.userId = builder.userId;
+      this.ccUserIds = builder.ccUserIds;
+      this.comment = builder.comment;
   }
+
+    public static class Builder {
+        private String approvalCode;
+        private String instanceCode;
+        private String userId;
+        private String[] ccUserIds;
+        private String comment;
+        public Builder approvalCode(String approvalCode) {
+             this.approvalCode = approvalCode;
+             return this;
+        }
+    
+        public Builder instanceCode(String instanceCode) {
+             this.instanceCode = instanceCode;
+             return this;
+        }
+    
+        public Builder userId(String userId) {
+             this.userId = userId;
+             return this;
+        }
+    
+        public Builder ccUserIds(String[] ccUserIds) {
+             this.ccUserIds = ccUserIds;
+             return this;
+        }
+    
+        public Builder comment(String comment) {
+             this.comment = comment;
+             return this;
+        }
+    
+    
+    public InstanceCc build(){
+        return new InstanceCc(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

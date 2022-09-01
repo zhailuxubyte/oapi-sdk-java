@@ -15,17 +15,16 @@ package com.lark.oapi.service.vc.v1.enums;
 
 // 生成枚举值
 public enum MaterialSourceEnum {
-  ISV(1),
-  ISV_FROM_VC(2),
-  ISV_FROM_PRESET(3),
+     ISV(1),
+     ISV_FROM_VC(2),
+     ISV_FROM_PRESET(3),
   ;
-  private Integer value;
+   private Integer value;
+    MaterialSourceEnum(Integer value) {
+      this.value = value;
+    }
 
-  MaterialSourceEnum(Integer value) {
-    this.value = value;
-  }
-
-  public Integer getValue() {
-    return this.value;
-  }
+    public Integer getValue() {
+      return this.value;
+    }
 }

@@ -12,47 +12,52 @@
  */
 
 package com.lark.oapi.service.im.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.im.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class ReadUserBatchMessageReq {
-
-  @Path
-  @SerializedName("batch_message_id")
-  private String batchMessageId;
-
-  // builder 开始
-  public ReadUserBatchMessageReq() {
-  }
-
-  public ReadUserBatchMessageReq(Builder builder) {
-    this.batchMessageId = builder.batchMessageId;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getBatchMessageId() {
-    return this.batchMessageId;
-  }
-
-  public void setBatchMessageId(String batchMessageId) {
-    this.batchMessageId = batchMessageId;
-  }
-
-  public static class Builder {
-
+    @Path
+    @SerializedName("batch_message_id")
     private String batchMessageId;
-
-    public Builder batchMessageId(String batchMessageId) {
-      this.batchMessageId = batchMessageId;
-      return this;
+    public String getBatchMessageId() {
+        return this.batchMessageId;
     }
 
-    public ReadUserBatchMessageReq build() {
-      return new ReadUserBatchMessageReq(this);
+    public void setBatchMessageId(String batchMessageId) {
+        this.batchMessageId = batchMessageId;
     }
+
+
+// builder 开始
+  public ReadUserBatchMessageReq(){}
+
+  public ReadUserBatchMessageReq(Builder builder){
+       this.batchMessageId = builder.batchMessageId;
   }
+
+    public static class Builder {
+    
+        private String batchMessageId;
+          public Builder batchMessageId(String batchMessageId) {
+               this.batchMessageId = batchMessageId;
+               return this;
+          }
+    
+    public ReadUserBatchMessageReq build(){
+        return new ReadUserBatchMessageReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

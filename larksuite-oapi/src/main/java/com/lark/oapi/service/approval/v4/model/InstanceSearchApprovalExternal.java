@@ -12,46 +12,52 @@
  */
 
 package com.lark.oapi.service.approval.v4.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.approval.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class InstanceSearchApprovalExternal {
-
-  @SerializedName("batch_cc_read")
-  private Boolean batchCcRead;
-
-  // builder 开始
-  public InstanceSearchApprovalExternal() {
-  }
-
-  public InstanceSearchApprovalExternal(Builder builder) {
-    this.batchCcRead = builder.batchCcRead;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Boolean getBatchCcRead() {
-    return this.batchCcRead;
-  }
-
-  public void setBatchCcRead(Boolean batchCcRead) {
-    this.batchCcRead = batchCcRead;
-  }
-
-  public static class Builder {
-
+    @SerializedName("batch_cc_read")
     private Boolean batchCcRead;
+    public Boolean getBatchCcRead() {
+        return this.batchCcRead;
+    }
 
-    public Builder batchCcRead(Boolean batchCcRead) {
-      this.batchCcRead = batchCcRead;
-      return this;
+    public void setBatchCcRead(Boolean batchCcRead) {
+        this.batchCcRead = batchCcRead;
     }
 
 
-    public InstanceSearchApprovalExternal build() {
-      return new InstanceSearchApprovalExternal(this);
-    }
+// builder 开始
+  public InstanceSearchApprovalExternal(){}
+
+  public InstanceSearchApprovalExternal(Builder builder){
+      this.batchCcRead = builder.batchCcRead;
   }
+
+    public static class Builder {
+        private Boolean batchCcRead;
+        public Builder batchCcRead(Boolean batchCcRead) {
+             this.batchCcRead = batchCcRead;
+             return this;
+        }
+    
+    
+    public InstanceSearchApprovalExternal build(){
+        return new InstanceSearchApprovalExternal(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

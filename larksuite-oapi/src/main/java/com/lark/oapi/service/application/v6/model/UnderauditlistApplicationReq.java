@@ -12,112 +12,114 @@
  */
 
 package com.lark.oapi.service.application.v6.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.application.v6.enums.*;
 import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class UnderauditlistApplicationReq {
-
-  @Query
-  @SerializedName("lang")
-  private String lang;
-  @Query
-  @SerializedName("page_token")
-  private String pageToken;
-  @Query
-  @SerializedName("page_size")
-  private Integer pageSize;
-  @Query
-  @SerializedName("user_id_type")
-  private String userIdType;
-
-  // builder 开始
-  public UnderauditlistApplicationReq() {
-  }
-
-  public UnderauditlistApplicationReq(Builder builder) {
-    this.lang = builder.lang;
-    this.pageToken = builder.pageToken;
-    this.pageSize = builder.pageSize;
-    this.userIdType = builder.userIdType;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getLang() {
-    return this.lang;
-  }
-
-  public void setLang(String lang) {
-    this.lang = lang;
-  }
-
-  public String getPageToken() {
-    return this.pageToken;
-  }
-
-  public void setPageToken(String pageToken) {
-    this.pageToken = pageToken;
-  }
-
-  public Integer getPageSize() {
-    return this.pageSize;
-  }
-
-  public void setPageSize(Integer pageSize) {
-    this.pageSize = pageSize;
-  }
-
-  public String getUserIdType() {
-    return this.userIdType;
-  }
-
-  public void setUserIdType(String userIdType) {
-    this.userIdType = userIdType;
-  }
-
-  public static class Builder {
-
+    @Query
+    @SerializedName("lang")
     private String lang;
+    @Query
+    @SerializedName("page_token")
     private String pageToken;
+    @Query
+    @SerializedName("page_size")
     private Integer pageSize;
+    @Query
+    @SerializedName("user_id_type")
     private String userIdType;
-
-    public Builder lang(String lang) {
-      this.lang = lang;
-      return this;
+    public String getLang() {
+        return this.lang;
     }
 
-    public Builder lang(com.lark.oapi.service.application.v6.enums.I18nKeyEnum lang) {
-      this.lang = lang.getValue();
-      return this;
+    public void setLang(String lang) {
+        this.lang = lang;
     }
 
-    public Builder pageToken(String pageToken) {
-      this.pageToken = pageToken;
-      return this;
+    public String getPageToken() {
+        return this.pageToken;
     }
 
-    public Builder pageSize(Integer pageSize) {
-      this.pageSize = pageSize;
-      return this;
+    public void setPageToken(String pageToken) {
+        this.pageToken = pageToken;
     }
 
-    public Builder userIdType(String userIdType) {
-      this.userIdType = userIdType;
-      return this;
+    public Integer getPageSize() {
+        return this.pageSize;
     }
 
-    public Builder userIdType(
-        com.lark.oapi.service.application.v6.enums.UserIdTypeEnum userIdType) {
-      this.userIdType = userIdType.getValue();
-      return this;
+    public void setPageSize(Integer pageSize) {
+        this.pageSize = pageSize;
     }
 
-    public UnderauditlistApplicationReq build() {
-      return new UnderauditlistApplicationReq(this);
+    public String getUserIdType() {
+        return this.userIdType;
     }
+
+    public void setUserIdType(String userIdType) {
+        this.userIdType = userIdType;
+    }
+
+
+// builder 开始
+  public UnderauditlistApplicationReq(){}
+
+  public UnderauditlistApplicationReq(Builder builder){
+       this.lang = builder.lang;
+       this.pageToken = builder.pageToken;
+       this.pageSize = builder.pageSize;
+       this.userIdType = builder.userIdType;
   }
+
+    public static class Builder {
+        private String lang;
+        private String pageToken;
+        private Integer pageSize;
+        private String userIdType;
+    
+           public Builder lang(String lang) {
+                this.lang = lang;
+                return this;
+           }
+          public Builder lang(com.lark.oapi.service.application.v6.enums.I18nKeyEnum lang) {
+               this.lang = lang.getValue();
+               return this;
+          }
+    
+           public Builder pageToken(String pageToken) {
+                this.pageToken = pageToken;
+                return this;
+           }
+    
+           public Builder pageSize(Integer pageSize) {
+                this.pageSize = pageSize;
+                return this;
+           }
+    
+           public Builder userIdType(String userIdType) {
+                this.userIdType = userIdType;
+                return this;
+           }
+          public Builder userIdType(com.lark.oapi.service.application.v6.enums.UserIdTypeEnum userIdType) {
+               this.userIdType = userIdType.getValue();
+               return this;
+          }
+    
+    public UnderauditlistApplicationReq build(){
+        return new UnderauditlistApplicationReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

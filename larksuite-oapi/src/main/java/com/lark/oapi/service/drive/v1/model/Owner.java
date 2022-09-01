@@ -12,63 +12,69 @@
  */
 
 package com.lark.oapi.service.drive.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.drive.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class Owner {
-
-  @SerializedName("member_type")
-  private String memberType;
-  @SerializedName("member_id")
-  private String memberId;
-
-  // builder 开始
-  public Owner() {
-  }
-
-  public Owner(Builder builder) {
-    this.memberType = builder.memberType;
-    this.memberId = builder.memberId;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getMemberType() {
-    return this.memberType;
-  }
-
-  public void setMemberType(String memberType) {
-    this.memberType = memberType;
-  }
-
-  public String getMemberId() {
-    return this.memberId;
-  }
-
-  public void setMemberId(String memberId) {
-    this.memberId = memberId;
-  }
-
-  public static class Builder {
-
+    @SerializedName("member_type")
     private String memberType;
+    @SerializedName("member_id")
     private String memberId;
-
-    public Builder memberType(String memberType) {
-      this.memberType = memberType;
-      return this;
+    public String getMemberType() {
+        return this.memberType;
     }
 
-    public Builder memberId(String memberId) {
-      this.memberId = memberId;
-      return this;
+    public void setMemberType(String memberType) {
+        this.memberType = memberType;
+    }
+
+    public String getMemberId() {
+        return this.memberId;
+    }
+
+    public void setMemberId(String memberId) {
+        this.memberId = memberId;
     }
 
 
-    public Owner build() {
-      return new Owner(this);
-    }
+// builder 开始
+  public Owner(){}
+
+  public Owner(Builder builder){
+      this.memberType = builder.memberType;
+      this.memberId = builder.memberId;
   }
+
+    public static class Builder {
+        private String memberType;
+        private String memberId;
+        public Builder memberType(String memberType) {
+             this.memberType = memberType;
+             return this;
+        }
+    
+        public Builder memberId(String memberId) {
+             this.memberId = memberId;
+             return this;
+        }
+    
+    
+    public Owner build(){
+        return new Owner(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

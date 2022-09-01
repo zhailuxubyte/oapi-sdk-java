@@ -12,103 +12,107 @@
  */
 
 package com.lark.oapi.service.admin.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.admin.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class RuleDetail {
-
-  @SerializedName("effective_time")
-  private String effectiveTime;
-  @SerializedName("expiration_time")
-  private String expirationTime;
-  @SerializedName("anniversary")
-  private Integer anniversary;
-  @SerializedName("effective_period")
-  private Integer effectivePeriod;
-
-  // builder 开始
-  public RuleDetail() {
-  }
-
-  public RuleDetail(Builder builder) {
-    this.effectiveTime = builder.effectiveTime;
-    this.expirationTime = builder.expirationTime;
-    this.anniversary = builder.anniversary;
-    this.effectivePeriod = builder.effectivePeriod;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getEffectiveTime() {
-    return this.effectiveTime;
-  }
-
-  public void setEffectiveTime(String effectiveTime) {
-    this.effectiveTime = effectiveTime;
-  }
-
-  public String getExpirationTime() {
-    return this.expirationTime;
-  }
-
-  public void setExpirationTime(String expirationTime) {
-    this.expirationTime = expirationTime;
-  }
-
-  public Integer getAnniversary() {
-    return this.anniversary;
-  }
-
-  public void setAnniversary(Integer anniversary) {
-    this.anniversary = anniversary;
-  }
-
-  public Integer getEffectivePeriod() {
-    return this.effectivePeriod;
-  }
-
-  public void setEffectivePeriod(Integer effectivePeriod) {
-    this.effectivePeriod = effectivePeriod;
-  }
-
-  public static class Builder {
-
+    @SerializedName("effective_time")
     private String effectiveTime;
+    @SerializedName("expiration_time")
     private String expirationTime;
+    @SerializedName("anniversary")
     private Integer anniversary;
+    @SerializedName("effective_period")
     private Integer effectivePeriod;
-
-    public Builder effectiveTime(String effectiveTime) {
-      this.effectiveTime = effectiveTime;
-      return this;
+    public String getEffectiveTime() {
+        return this.effectiveTime;
     }
 
-    public Builder expirationTime(String expirationTime) {
-      this.expirationTime = expirationTime;
-      return this;
+    public void setEffectiveTime(String effectiveTime) {
+        this.effectiveTime = effectiveTime;
     }
 
-    public Builder anniversary(Integer anniversary) {
-      this.anniversary = anniversary;
-      return this;
+    public String getExpirationTime() {
+        return this.expirationTime;
     }
 
-    public Builder effectivePeriod(Integer effectivePeriod) {
-      this.effectivePeriod = effectivePeriod;
-      return this;
+    public void setExpirationTime(String expirationTime) {
+        this.expirationTime = expirationTime;
     }
 
-    public Builder effectivePeriod(
-        com.lark.oapi.service.admin.v1.enums.EffectivePeriodEnum effectivePeriod) {
-      this.effectivePeriod = effectivePeriod.getValue();
-      return this;
+    public Integer getAnniversary() {
+        return this.anniversary;
+    }
+
+    public void setAnniversary(Integer anniversary) {
+        this.anniversary = anniversary;
+    }
+
+    public Integer getEffectivePeriod() {
+        return this.effectivePeriod;
+    }
+
+    public void setEffectivePeriod(Integer effectivePeriod) {
+        this.effectivePeriod = effectivePeriod;
     }
 
 
-    public RuleDetail build() {
-      return new RuleDetail(this);
-    }
+// builder 开始
+  public RuleDetail(){}
+
+  public RuleDetail(Builder builder){
+      this.effectiveTime = builder.effectiveTime;
+      this.expirationTime = builder.expirationTime;
+      this.anniversary = builder.anniversary;
+      this.effectivePeriod = builder.effectivePeriod;
   }
+
+    public static class Builder {
+        private String effectiveTime;
+        private String expirationTime;
+        private Integer anniversary;
+        private Integer effectivePeriod;
+        public Builder effectiveTime(String effectiveTime) {
+             this.effectiveTime = effectiveTime;
+             return this;
+        }
+    
+        public Builder expirationTime(String expirationTime) {
+             this.expirationTime = expirationTime;
+             return this;
+        }
+    
+        public Builder anniversary(Integer anniversary) {
+             this.anniversary = anniversary;
+             return this;
+        }
+    
+        public Builder effectivePeriod(Integer effectivePeriod) {
+             this.effectivePeriod = effectivePeriod;
+             return this;
+        }
+        public Builder effectivePeriod(com.lark.oapi.service.admin.v1.enums.EffectivePeriodEnum effectivePeriod) {
+             this.effectivePeriod = effectivePeriod.getValue();
+             return this;
+        }
+    
+    
+    public RuleDetail build(){
+        return new RuleDetail(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

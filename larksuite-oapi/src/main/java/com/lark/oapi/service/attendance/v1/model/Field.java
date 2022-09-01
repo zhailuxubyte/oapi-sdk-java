@@ -12,80 +12,86 @@
  */
 
 package com.lark.oapi.service.attendance.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.attendance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class Field {
-
-  @SerializedName("code")
-  private String code;
-  @SerializedName("title")
-  private String title;
-  @SerializedName("child_fields")
-  private ChildField[] childFields;
-
-  // builder 开始
-  public Field() {
-  }
-
-  public Field(Builder builder) {
-    this.code = builder.code;
-    this.title = builder.title;
-    this.childFields = builder.childFields;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getCode() {
-    return this.code;
-  }
-
-  public void setCode(String code) {
-    this.code = code;
-  }
-
-  public String getTitle() {
-    return this.title;
-  }
-
-  public void setTitle(String title) {
-    this.title = title;
-  }
-
-  public ChildField[] getChildFields() {
-    return this.childFields;
-  }
-
-  public void setChildFields(ChildField[] childFields) {
-    this.childFields = childFields;
-  }
-
-  public static class Builder {
-
+    @SerializedName("code")
     private String code;
+    @SerializedName("title")
     private String title;
+    @SerializedName("child_fields")
     private ChildField[] childFields;
-
-    public Builder code(String code) {
-      this.code = code;
-      return this;
+    public String getCode() {
+        return this.code;
     }
 
-    public Builder title(String title) {
-      this.title = title;
-      return this;
+    public void setCode(String code) {
+        this.code = code;
     }
 
-    public Builder childFields(ChildField[] childFields) {
-      this.childFields = childFields;
-      return this;
+    public String getTitle() {
+        return this.title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public ChildField[] getChildFields() {
+        return this.childFields;
+    }
+
+    public void setChildFields(ChildField[] childFields) {
+        this.childFields = childFields;
     }
 
 
-    public Field build() {
-      return new Field(this);
-    }
+// builder 开始
+  public Field(){}
+
+  public Field(Builder builder){
+      this.code = builder.code;
+      this.title = builder.title;
+      this.childFields = builder.childFields;
   }
+
+    public static class Builder {
+        private String code;
+        private String title;
+        private ChildField[] childFields;
+        public Builder code(String code) {
+             this.code = code;
+             return this;
+        }
+    
+        public Builder title(String title) {
+             this.title = title;
+             return this;
+        }
+    
+        public Builder childFields(ChildField[] childFields) {
+             this.childFields = childFields;
+             return this;
+        }
+    
+    
+    public Field build(){
+        return new Field(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

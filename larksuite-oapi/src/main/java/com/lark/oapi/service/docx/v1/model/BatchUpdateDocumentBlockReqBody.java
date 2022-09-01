@@ -12,46 +12,52 @@
  */
 
 package com.lark.oapi.service.docx.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.docx.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class BatchUpdateDocumentBlockReqBody {
-
-  @SerializedName("requests")
-  private UpdateBlockRequest[] requests;
-
-  // builder 开始
-  public BatchUpdateDocumentBlockReqBody() {
-  }
-
-  public BatchUpdateDocumentBlockReqBody(Builder builder) {
-    this.requests = builder.requests;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public UpdateBlockRequest[] getRequests() {
-    return this.requests;
-  }
-
-  public void setRequests(UpdateBlockRequest[] requests) {
-    this.requests = requests;
-  }
-
-  public static class Builder {
-
+    @SerializedName("requests")
     private UpdateBlockRequest[] requests;
+    public UpdateBlockRequest[] getRequests() {
+        return this.requests;
+    }
 
-    public Builder requests(UpdateBlockRequest[] requests) {
-      this.requests = requests;
-      return this;
+    public void setRequests(UpdateBlockRequest[] requests) {
+        this.requests = requests;
     }
 
 
-    public BatchUpdateDocumentBlockReqBody build() {
-      return new BatchUpdateDocumentBlockReqBody(this);
-    }
+// builder 开始
+  public BatchUpdateDocumentBlockReqBody(){}
+
+  public BatchUpdateDocumentBlockReqBody(Builder builder){
+      this.requests = builder.requests;
   }
+
+    public static class Builder {
+        private UpdateBlockRequest[] requests;
+        public Builder requests(UpdateBlockRequest[] requests) {
+             this.requests = requests;
+             return this;
+        }
+    
+    
+    public BatchUpdateDocumentBlockReqBody build(){
+        return new BatchUpdateDocumentBlockReqBody(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

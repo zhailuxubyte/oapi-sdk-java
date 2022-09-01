@@ -12,50 +12,57 @@
  */
 
 package com.lark.oapi.service.task.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class P2TaskCommentUpdatedV1Data {
+    @SerializedName("task_id")
+    private String taskId;
+    @SerializedName("comment_id")
+    private String commentId;
+    @SerializedName("parent_id")
+    private String parentId;
+    @SerializedName("obj_type")
+    private Integer objType;
+    public String getTaskId() {
+        return this.taskId;
+    }
 
-  @SerializedName("task_id")
-  private String taskId;
-  @SerializedName("comment_id")
-  private String commentId;
-  @SerializedName("parent_id")
-  private String parentId;
-  @SerializedName("obj_type")
-  private Integer objType;
+    public void setTaskId(String taskId) {
+        this.taskId = taskId;
+    }
 
-  public String getTaskId() {
-    return this.taskId;
-  }
+    public String getCommentId() {
+        return this.commentId;
+    }
 
-  public void setTaskId(String taskId) {
-    this.taskId = taskId;
-  }
+    public void setCommentId(String commentId) {
+        this.commentId = commentId;
+    }
 
-  public String getCommentId() {
-    return this.commentId;
-  }
+    public String getParentId() {
+        return this.parentId;
+    }
 
-  public void setCommentId(String commentId) {
-    this.commentId = commentId;
-  }
+    public void setParentId(String parentId) {
+        this.parentId = parentId;
+    }
 
-  public String getParentId() {
-    return this.parentId;
-  }
+    public Integer getObjType() {
+        return this.objType;
+    }
 
-  public void setParentId(String parentId) {
-    this.parentId = parentId;
-  }
-
-  public Integer getObjType() {
-    return this.objType;
-  }
-
-  public void setObjType(Integer objType) {
-    this.objType = objType;
-  }
+    public void setObjType(Integer objType) {
+        this.objType = objType;
+    }
 
 }

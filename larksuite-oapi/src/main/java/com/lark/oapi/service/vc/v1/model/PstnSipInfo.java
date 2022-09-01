@@ -12,63 +12,69 @@
  */
 
 package com.lark.oapi.service.vc.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.vc.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class PstnSipInfo {
-
-  @SerializedName("nickname")
-  private String nickname;
-  @SerializedName("main_address")
-  private String mainAddress;
-
-  // builder 开始
-  public PstnSipInfo() {
-  }
-
-  public PstnSipInfo(Builder builder) {
-    this.nickname = builder.nickname;
-    this.mainAddress = builder.mainAddress;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getNickname() {
-    return this.nickname;
-  }
-
-  public void setNickname(String nickname) {
-    this.nickname = nickname;
-  }
-
-  public String getMainAddress() {
-    return this.mainAddress;
-  }
-
-  public void setMainAddress(String mainAddress) {
-    this.mainAddress = mainAddress;
-  }
-
-  public static class Builder {
-
+    @SerializedName("nickname")
     private String nickname;
+    @SerializedName("main_address")
     private String mainAddress;
-
-    public Builder nickname(String nickname) {
-      this.nickname = nickname;
-      return this;
+    public String getNickname() {
+        return this.nickname;
     }
 
-    public Builder mainAddress(String mainAddress) {
-      this.mainAddress = mainAddress;
-      return this;
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
+    }
+
+    public String getMainAddress() {
+        return this.mainAddress;
+    }
+
+    public void setMainAddress(String mainAddress) {
+        this.mainAddress = mainAddress;
     }
 
 
-    public PstnSipInfo build() {
-      return new PstnSipInfo(this);
-    }
+// builder 开始
+  public PstnSipInfo(){}
+
+  public PstnSipInfo(Builder builder){
+      this.nickname = builder.nickname;
+      this.mainAddress = builder.mainAddress;
   }
+
+    public static class Builder {
+        private String nickname;
+        private String mainAddress;
+        public Builder nickname(String nickname) {
+             this.nickname = nickname;
+             return this;
+        }
+    
+        public Builder mainAddress(String mainAddress) {
+             this.mainAddress = mainAddress;
+             return this;
+        }
+    
+    
+    public PstnSipInfo build(){
+        return new PstnSipInfo(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

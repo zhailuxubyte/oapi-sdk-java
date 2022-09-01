@@ -12,63 +12,69 @@
  */
 
 package com.lark.oapi.service.application.v6.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.application.v6.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class ClientBadgeNum {
-
-  @SerializedName("web_app")
-  private Integer webApp;
-  @SerializedName("gadget")
-  private Integer gadget;
-
-  // builder 开始
-  public ClientBadgeNum() {
-  }
-
-  public ClientBadgeNum(Builder builder) {
-    this.webApp = builder.webApp;
-    this.gadget = builder.gadget;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Integer getWebApp() {
-    return this.webApp;
-  }
-
-  public void setWebApp(Integer webApp) {
-    this.webApp = webApp;
-  }
-
-  public Integer getGadget() {
-    return this.gadget;
-  }
-
-  public void setGadget(Integer gadget) {
-    this.gadget = gadget;
-  }
-
-  public static class Builder {
-
+    @SerializedName("web_app")
     private Integer webApp;
+    @SerializedName("gadget")
     private Integer gadget;
-
-    public Builder webApp(Integer webApp) {
-      this.webApp = webApp;
-      return this;
+    public Integer getWebApp() {
+        return this.webApp;
     }
 
-    public Builder gadget(Integer gadget) {
-      this.gadget = gadget;
-      return this;
+    public void setWebApp(Integer webApp) {
+        this.webApp = webApp;
+    }
+
+    public Integer getGadget() {
+        return this.gadget;
+    }
+
+    public void setGadget(Integer gadget) {
+        this.gadget = gadget;
     }
 
 
-    public ClientBadgeNum build() {
-      return new ClientBadgeNum(this);
-    }
+// builder 开始
+  public ClientBadgeNum(){}
+
+  public ClientBadgeNum(Builder builder){
+      this.webApp = builder.webApp;
+      this.gadget = builder.gadget;
   }
+
+    public static class Builder {
+        private Integer webApp;
+        private Integer gadget;
+        public Builder webApp(Integer webApp) {
+             this.webApp = webApp;
+             return this;
+        }
+    
+        public Builder gadget(Integer gadget) {
+             this.gadget = gadget;
+             return this;
+        }
+    
+    
+    public ClientBadgeNum build(){
+        return new ClientBadgeNum(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

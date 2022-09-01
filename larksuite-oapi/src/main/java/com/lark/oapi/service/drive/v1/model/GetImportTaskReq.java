@@ -12,47 +12,52 @@
  */
 
 package com.lark.oapi.service.drive.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.drive.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class GetImportTaskReq {
-
-  @Path
-  @SerializedName("ticket")
-  private String ticket;
-
-  // builder 开始
-  public GetImportTaskReq() {
-  }
-
-  public GetImportTaskReq(Builder builder) {
-    this.ticket = builder.ticket;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getTicket() {
-    return this.ticket;
-  }
-
-  public void setTicket(String ticket) {
-    this.ticket = ticket;
-  }
-
-  public static class Builder {
-
+    @Path
+    @SerializedName("ticket")
     private String ticket;
-
-    public Builder ticket(String ticket) {
-      this.ticket = ticket;
-      return this;
+    public String getTicket() {
+        return this.ticket;
     }
 
-    public GetImportTaskReq build() {
-      return new GetImportTaskReq(this);
+    public void setTicket(String ticket) {
+        this.ticket = ticket;
     }
+
+
+// builder 开始
+  public GetImportTaskReq(){}
+
+  public GetImportTaskReq(Builder builder){
+       this.ticket = builder.ticket;
   }
+
+    public static class Builder {
+    
+        private String ticket;
+          public Builder ticket(String ticket) {
+               this.ticket = ticket;
+               return this;
+          }
+    
+    public GetImportTaskReq build(){
+        return new GetImportTaskReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

@@ -12,63 +12,69 @@
  */
 
 package com.lark.oapi.service.baike.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.baike.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class Statistics {
-
-  @SerializedName("like_count")
-  private Integer likeCount;
-  @SerializedName("dislike_count")
-  private Integer dislikeCount;
-
-  // builder 开始
-  public Statistics() {
-  }
-
-  public Statistics(Builder builder) {
-    this.likeCount = builder.likeCount;
-    this.dislikeCount = builder.dislikeCount;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Integer getLikeCount() {
-    return this.likeCount;
-  }
-
-  public void setLikeCount(Integer likeCount) {
-    this.likeCount = likeCount;
-  }
-
-  public Integer getDislikeCount() {
-    return this.dislikeCount;
-  }
-
-  public void setDislikeCount(Integer dislikeCount) {
-    this.dislikeCount = dislikeCount;
-  }
-
-  public static class Builder {
-
+    @SerializedName("like_count")
     private Integer likeCount;
+    @SerializedName("dislike_count")
     private Integer dislikeCount;
-
-    public Builder likeCount(Integer likeCount) {
-      this.likeCount = likeCount;
-      return this;
+    public Integer getLikeCount() {
+        return this.likeCount;
     }
 
-    public Builder dislikeCount(Integer dislikeCount) {
-      this.dislikeCount = dislikeCount;
-      return this;
+    public void setLikeCount(Integer likeCount) {
+        this.likeCount = likeCount;
+    }
+
+    public Integer getDislikeCount() {
+        return this.dislikeCount;
+    }
+
+    public void setDislikeCount(Integer dislikeCount) {
+        this.dislikeCount = dislikeCount;
     }
 
 
-    public Statistics build() {
-      return new Statistics(this);
-    }
+// builder 开始
+  public Statistics(){}
+
+  public Statistics(Builder builder){
+      this.likeCount = builder.likeCount;
+      this.dislikeCount = builder.dislikeCount;
   }
+
+    public static class Builder {
+        private Integer likeCount;
+        private Integer dislikeCount;
+        public Builder likeCount(Integer likeCount) {
+             this.likeCount = likeCount;
+             return this;
+        }
+    
+        public Builder dislikeCount(Integer dislikeCount) {
+             this.dislikeCount = dislikeCount;
+             return this;
+        }
+    
+    
+    public Statistics build(){
+        return new Statistics(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

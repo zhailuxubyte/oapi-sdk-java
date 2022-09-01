@@ -12,63 +12,69 @@
  */
 
 package com.lark.oapi.service.baike.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.baike.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class Span {
-
-  @SerializedName("start")
-  private Integer start;
-  @SerializedName("end")
-  private Integer end;
-
-  // builder 开始
-  public Span() {
-  }
-
-  public Span(Builder builder) {
-    this.start = builder.start;
-    this.end = builder.end;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Integer getStart() {
-    return this.start;
-  }
-
-  public void setStart(Integer start) {
-    this.start = start;
-  }
-
-  public Integer getEnd() {
-    return this.end;
-  }
-
-  public void setEnd(Integer end) {
-    this.end = end;
-  }
-
-  public static class Builder {
-
+    @SerializedName("start")
     private Integer start;
+    @SerializedName("end")
     private Integer end;
-
-    public Builder start(Integer start) {
-      this.start = start;
-      return this;
+    public Integer getStart() {
+        return this.start;
     }
 
-    public Builder end(Integer end) {
-      this.end = end;
-      return this;
+    public void setStart(Integer start) {
+        this.start = start;
+    }
+
+    public Integer getEnd() {
+        return this.end;
+    }
+
+    public void setEnd(Integer end) {
+        this.end = end;
     }
 
 
-    public Span build() {
-      return new Span(this);
-    }
+// builder 开始
+  public Span(){}
+
+  public Span(Builder builder){
+      this.start = builder.start;
+      this.end = builder.end;
   }
+
+    public static class Builder {
+        private Integer start;
+        private Integer end;
+        public Builder start(Integer start) {
+             this.start = start;
+             return this;
+        }
+    
+        public Builder end(Integer end) {
+             this.end = end;
+             return this;
+        }
+    
+    
+    public Span build(){
+        return new Span(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

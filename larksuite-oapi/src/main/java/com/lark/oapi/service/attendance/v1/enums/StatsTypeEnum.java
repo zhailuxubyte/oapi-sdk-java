@@ -15,16 +15,15 @@ package com.lark.oapi.service.attendance.v1.enums;
 
 // 生成枚举值
 public enum StatsTypeEnum {
-  DAILY("daily"),
-  MONTH("month"),
+     DAILY("daily"),
+     MONTH("month"),
   ;
-  private String value;
+   private String value;
+    StatsTypeEnum(String value) {
+      this.value = value;
+    }
 
-  StatsTypeEnum(String value) {
-    this.value = value;
-  }
-
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+      return this.value;
+    }
 }

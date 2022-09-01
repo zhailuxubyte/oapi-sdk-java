@@ -12,49 +12,53 @@
  */
 
 package com.lark.oapi.service.speech_to_text.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
-
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class FileRecognizeSpeechReq {
-
-  @Body
-  private FileRecognizeSpeechReqBody body;
-
-  // builder 开始
-  public FileRecognizeSpeechReq() {
-  }
-
-  public FileRecognizeSpeechReq(Builder builder) {
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public FileRecognizeSpeechReqBody getFileRecognizeSpeechReqBody() {
-    return this.body;
-  }
-
-  public void setFileRecognizeSpeechReqBody(FileRecognizeSpeechReqBody body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
+    @Body
     private FileRecognizeSpeechReqBody body;
 
     public FileRecognizeSpeechReqBody getFileRecognizeSpeechReqBody() {
-      return this.body;
+        return this.body;
     }
 
-    public Builder fileRecognizeSpeechReqBody(FileRecognizeSpeechReqBody body) {
-      this.body = body;
-      return this;
+    public void setFileRecognizeSpeechReqBody(FileRecognizeSpeechReqBody body) {
+        this.body = body;
     }
 
-    public FileRecognizeSpeechReq build() {
-      return new FileRecognizeSpeechReq(this);
-    }
+// builder 开始
+  public FileRecognizeSpeechReq(){}
+
+  public FileRecognizeSpeechReq(Builder builder){
+        this.body = builder.body;
   }
+
+    public static class Builder {
+    
+        private FileRecognizeSpeechReqBody body;
+    
+        public FileRecognizeSpeechReqBody getFileRecognizeSpeechReqBody() {
+            return this.body;
+        }
+        public Builder fileRecognizeSpeechReqBody(FileRecognizeSpeechReqBody body) {
+             this.body = body;
+             return this;
+        }
+    public FileRecognizeSpeechReq build(){
+        return new FileRecognizeSpeechReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

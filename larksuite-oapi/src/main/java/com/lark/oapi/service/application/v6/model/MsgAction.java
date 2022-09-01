@@ -12,80 +12,86 @@
  */
 
 package com.lark.oapi.service.application.v6.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.application.v6.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class MsgAction {
-
-  @SerializedName("pc_app_link")
-  private String pcAppLink;
-  @SerializedName("mobile_app_link")
-  private String mobileAppLink;
-  @SerializedName("i18n")
-  private MsgActionI18nInfo[] i18n;
-
-  // builder 开始
-  public MsgAction() {
-  }
-
-  public MsgAction(Builder builder) {
-    this.pcAppLink = builder.pcAppLink;
-    this.mobileAppLink = builder.mobileAppLink;
-    this.i18n = builder.i18n;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getPcAppLink() {
-    return this.pcAppLink;
-  }
-
-  public void setPcAppLink(String pcAppLink) {
-    this.pcAppLink = pcAppLink;
-  }
-
-  public String getMobileAppLink() {
-    return this.mobileAppLink;
-  }
-
-  public void setMobileAppLink(String mobileAppLink) {
-    this.mobileAppLink = mobileAppLink;
-  }
-
-  public MsgActionI18nInfo[] getI18n() {
-    return this.i18n;
-  }
-
-  public void setI18n(MsgActionI18nInfo[] i18n) {
-    this.i18n = i18n;
-  }
-
-  public static class Builder {
-
+    @SerializedName("pc_app_link")
     private String pcAppLink;
+    @SerializedName("mobile_app_link")
     private String mobileAppLink;
+    @SerializedName("i18n")
     private MsgActionI18nInfo[] i18n;
-
-    public Builder pcAppLink(String pcAppLink) {
-      this.pcAppLink = pcAppLink;
-      return this;
+    public String getPcAppLink() {
+        return this.pcAppLink;
     }
 
-    public Builder mobileAppLink(String mobileAppLink) {
-      this.mobileAppLink = mobileAppLink;
-      return this;
+    public void setPcAppLink(String pcAppLink) {
+        this.pcAppLink = pcAppLink;
     }
 
-    public Builder i18n(MsgActionI18nInfo[] i18n) {
-      this.i18n = i18n;
-      return this;
+    public String getMobileAppLink() {
+        return this.mobileAppLink;
+    }
+
+    public void setMobileAppLink(String mobileAppLink) {
+        this.mobileAppLink = mobileAppLink;
+    }
+
+    public MsgActionI18nInfo[] getI18n() {
+        return this.i18n;
+    }
+
+    public void setI18n(MsgActionI18nInfo[] i18n) {
+        this.i18n = i18n;
     }
 
 
-    public MsgAction build() {
-      return new MsgAction(this);
-    }
+// builder 开始
+  public MsgAction(){}
+
+  public MsgAction(Builder builder){
+      this.pcAppLink = builder.pcAppLink;
+      this.mobileAppLink = builder.mobileAppLink;
+      this.i18n = builder.i18n;
   }
+
+    public static class Builder {
+        private String pcAppLink;
+        private String mobileAppLink;
+        private MsgActionI18nInfo[] i18n;
+        public Builder pcAppLink(String pcAppLink) {
+             this.pcAppLink = pcAppLink;
+             return this;
+        }
+    
+        public Builder mobileAppLink(String mobileAppLink) {
+             this.mobileAppLink = mobileAppLink;
+             return this;
+        }
+    
+        public Builder i18n(MsgActionI18nInfo[] i18n) {
+             this.i18n = i18n;
+             return this;
+        }
+    
+    
+    public MsgAction build(){
+        return new MsgAction(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

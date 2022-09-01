@@ -12,63 +12,69 @@
  */
 
 package com.lark.oapi.service.im.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.im.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class PatchChatAnnouncementReqBody {
-
-  @SerializedName("revision")
-  private String revision;
-  @SerializedName("requests")
-  private String[] requests;
-
-  // builder 开始
-  public PatchChatAnnouncementReqBody() {
-  }
-
-  public PatchChatAnnouncementReqBody(Builder builder) {
-    this.revision = builder.revision;
-    this.requests = builder.requests;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getRevision() {
-    return this.revision;
-  }
-
-  public void setRevision(String revision) {
-    this.revision = revision;
-  }
-
-  public String[] getRequests() {
-    return this.requests;
-  }
-
-  public void setRequests(String[] requests) {
-    this.requests = requests;
-  }
-
-  public static class Builder {
-
+    @SerializedName("revision")
     private String revision;
+    @SerializedName("requests")
     private String[] requests;
-
-    public Builder revision(String revision) {
-      this.revision = revision;
-      return this;
+    public String getRevision() {
+        return this.revision;
     }
 
-    public Builder requests(String[] requests) {
-      this.requests = requests;
-      return this;
+    public void setRevision(String revision) {
+        this.revision = revision;
+    }
+
+    public String[] getRequests() {
+        return this.requests;
+    }
+
+    public void setRequests(String[] requests) {
+        this.requests = requests;
     }
 
 
-    public PatchChatAnnouncementReqBody build() {
-      return new PatchChatAnnouncementReqBody(this);
-    }
+// builder 开始
+  public PatchChatAnnouncementReqBody(){}
+
+  public PatchChatAnnouncementReqBody(Builder builder){
+      this.revision = builder.revision;
+      this.requests = builder.requests;
   }
+
+    public static class Builder {
+        private String revision;
+        private String[] requests;
+        public Builder revision(String revision) {
+             this.revision = revision;
+             return this;
+        }
+    
+        public Builder requests(String[] requests) {
+             this.requests = requests;
+             return this;
+        }
+    
+    
+    public PatchChatAnnouncementReqBody build(){
+        return new PatchChatAnnouncementReqBody(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

@@ -12,120 +12,124 @@
  */
 
 package com.lark.oapi.service.helpdesk.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.helpdesk.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class ListTicketMessageReq {
-
-  @Query
-  @SerializedName("time_start")
-  private Integer timeStart;
-  @Query
-  @SerializedName("time_end")
-  private Integer timeEnd;
-  @Query
-  @SerializedName("page")
-  private Integer page;
-  @Query
-  @SerializedName("page_size")
-  private Integer pageSize;
-  @Path
-  @SerializedName("ticket_id")
-  private String ticketId;
-
-  // builder 开始
-  public ListTicketMessageReq() {
-  }
-
-  public ListTicketMessageReq(Builder builder) {
-    this.timeStart = builder.timeStart;
-    this.timeEnd = builder.timeEnd;
-    this.page = builder.page;
-    this.pageSize = builder.pageSize;
-    this.ticketId = builder.ticketId;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Integer getTimeStart() {
-    return this.timeStart;
-  }
-
-  public void setTimeStart(Integer timeStart) {
-    this.timeStart = timeStart;
-  }
-
-  public Integer getTimeEnd() {
-    return this.timeEnd;
-  }
-
-  public void setTimeEnd(Integer timeEnd) {
-    this.timeEnd = timeEnd;
-  }
-
-  public Integer getPage() {
-    return this.page;
-  }
-
-  public void setPage(Integer page) {
-    this.page = page;
-  }
-
-  public Integer getPageSize() {
-    return this.pageSize;
-  }
-
-  public void setPageSize(Integer pageSize) {
-    this.pageSize = pageSize;
-  }
-
-  public String getTicketId() {
-    return this.ticketId;
-  }
-
-  public void setTicketId(String ticketId) {
-    this.ticketId = ticketId;
-  }
-
-  public static class Builder {
-
+    @Query
+    @SerializedName("time_start")
     private Integer timeStart;
+    @Query
+    @SerializedName("time_end")
     private Integer timeEnd;
+    @Query
+    @SerializedName("page")
     private Integer page;
+    @Query
+    @SerializedName("page_size")
     private Integer pageSize;
+    public Integer getTimeStart() {
+        return this.timeStart;
+    }
+
+    public void setTimeStart(Integer timeStart) {
+        this.timeStart = timeStart;
+    }
+
+    public Integer getTimeEnd() {
+        return this.timeEnd;
+    }
+
+    public void setTimeEnd(Integer timeEnd) {
+        this.timeEnd = timeEnd;
+    }
+
+    public Integer getPage() {
+        return this.page;
+    }
+
+    public void setPage(Integer page) {
+        this.page = page;
+    }
+
+    public Integer getPageSize() {
+        return this.pageSize;
+    }
+
+    public void setPageSize(Integer pageSize) {
+        this.pageSize = pageSize;
+    }
+
+    @Path
+    @SerializedName("ticket_id")
     private String ticketId;
-
-    public Builder timeStart(Integer timeStart) {
-      this.timeStart = timeStart;
-      return this;
+    public String getTicketId() {
+        return this.ticketId;
     }
 
-    public Builder timeEnd(Integer timeEnd) {
-      this.timeEnd = timeEnd;
-      return this;
+    public void setTicketId(String ticketId) {
+        this.ticketId = ticketId;
     }
 
-    public Builder page(Integer page) {
-      this.page = page;
-      return this;
-    }
 
-    public Builder pageSize(Integer pageSize) {
-      this.pageSize = pageSize;
-      return this;
-    }
+// builder 开始
+  public ListTicketMessageReq(){}
 
-    public Builder ticketId(String ticketId) {
-      this.ticketId = ticketId;
-      return this;
-    }
-
-    public ListTicketMessageReq build() {
-      return new ListTicketMessageReq(this);
-    }
+  public ListTicketMessageReq(Builder builder){
+       this.timeStart = builder.timeStart;
+       this.timeEnd = builder.timeEnd;
+       this.page = builder.page;
+       this.pageSize = builder.pageSize;
+       this.ticketId = builder.ticketId;
   }
+
+    public static class Builder {
+        private Integer timeStart;
+        private Integer timeEnd;
+        private Integer page;
+        private Integer pageSize;
+    
+           public Builder timeStart(Integer timeStart) {
+                this.timeStart = timeStart;
+                return this;
+           }
+    
+           public Builder timeEnd(Integer timeEnd) {
+                this.timeEnd = timeEnd;
+                return this;
+           }
+    
+           public Builder page(Integer page) {
+                this.page = page;
+                return this;
+           }
+    
+           public Builder pageSize(Integer pageSize) {
+                this.pageSize = pageSize;
+                return this;
+           }
+    
+        private String ticketId;
+          public Builder ticketId(String ticketId) {
+               this.ticketId = ticketId;
+               return this;
+          }
+    
+    public ListTicketMessageReq build(){
+        return new ListTicketMessageReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

@@ -12,63 +12,69 @@
  */
 
 package com.lark.oapi.service.task.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.task.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class Origin {
-
-  @SerializedName("platform_i18n_name")
-  private String platformI18nName;
-  @SerializedName("href")
-  private Href href;
-
-  // builder 开始
-  public Origin() {
-  }
-
-  public Origin(Builder builder) {
-    this.platformI18nName = builder.platformI18nName;
-    this.href = builder.href;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getPlatformI18nName() {
-    return this.platformI18nName;
-  }
-
-  public void setPlatformI18nName(String platformI18nName) {
-    this.platformI18nName = platformI18nName;
-  }
-
-  public Href getHref() {
-    return this.href;
-  }
-
-  public void setHref(Href href) {
-    this.href = href;
-  }
-
-  public static class Builder {
-
+    @SerializedName("platform_i18n_name")
     private String platformI18nName;
+    @SerializedName("href")
     private Href href;
-
-    public Builder platformI18nName(String platformI18nName) {
-      this.platformI18nName = platformI18nName;
-      return this;
+    public String getPlatformI18nName() {
+        return this.platformI18nName;
     }
 
-    public Builder href(Href href) {
-      this.href = href;
-      return this;
+    public void setPlatformI18nName(String platformI18nName) {
+        this.platformI18nName = platformI18nName;
+    }
+
+    public Href getHref() {
+        return this.href;
+    }
+
+    public void setHref(Href href) {
+        this.href = href;
     }
 
 
-    public Origin build() {
-      return new Origin(this);
-    }
+// builder 开始
+  public Origin(){}
+
+  public Origin(Builder builder){
+      this.platformI18nName = builder.platformI18nName;
+      this.href = builder.href;
   }
+
+    public static class Builder {
+        private String platformI18nName;
+        private Href href;
+        public Builder platformI18nName(String platformI18nName) {
+             this.platformI18nName = platformI18nName;
+             return this;
+        }
+    
+        public Builder href(Href href) {
+             this.href = href;
+             return this;
+        }
+    
+    
+    public Origin build(){
+        return new Origin(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

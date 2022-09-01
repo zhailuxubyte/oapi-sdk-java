@@ -12,165 +12,171 @@
  */
 
 package com.lark.oapi.service.attendance.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.attendance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class PunchTimeRule {
-
-  @SerializedName("on_time")
-  private String onTime;
-  @SerializedName("off_time")
-  private String offTime;
-  @SerializedName("late_minutes_as_late")
-  private Integer lateMinutesAsLate;
-  @SerializedName("late_minutes_as_lack")
-  private Integer lateMinutesAsLack;
-  @SerializedName("on_advance_minutes")
-  private Integer onAdvanceMinutes;
-  @SerializedName("early_minutes_as_early")
-  private Integer earlyMinutesAsEarly;
-  @SerializedName("early_minutes_as_lack")
-  private Integer earlyMinutesAsLack;
-  @SerializedName("off_delay_minutes")
-  private Integer offDelayMinutes;
-
-  // builder 开始
-  public PunchTimeRule() {
-  }
-
-  public PunchTimeRule(Builder builder) {
-    this.onTime = builder.onTime;
-    this.offTime = builder.offTime;
-    this.lateMinutesAsLate = builder.lateMinutesAsLate;
-    this.lateMinutesAsLack = builder.lateMinutesAsLack;
-    this.onAdvanceMinutes = builder.onAdvanceMinutes;
-    this.earlyMinutesAsEarly = builder.earlyMinutesAsEarly;
-    this.earlyMinutesAsLack = builder.earlyMinutesAsLack;
-    this.offDelayMinutes = builder.offDelayMinutes;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getOnTime() {
-    return this.onTime;
-  }
-
-  public void setOnTime(String onTime) {
-    this.onTime = onTime;
-  }
-
-  public String getOffTime() {
-    return this.offTime;
-  }
-
-  public void setOffTime(String offTime) {
-    this.offTime = offTime;
-  }
-
-  public Integer getLateMinutesAsLate() {
-    return this.lateMinutesAsLate;
-  }
-
-  public void setLateMinutesAsLate(Integer lateMinutesAsLate) {
-    this.lateMinutesAsLate = lateMinutesAsLate;
-  }
-
-  public Integer getLateMinutesAsLack() {
-    return this.lateMinutesAsLack;
-  }
-
-  public void setLateMinutesAsLack(Integer lateMinutesAsLack) {
-    this.lateMinutesAsLack = lateMinutesAsLack;
-  }
-
-  public Integer getOnAdvanceMinutes() {
-    return this.onAdvanceMinutes;
-  }
-
-  public void setOnAdvanceMinutes(Integer onAdvanceMinutes) {
-    this.onAdvanceMinutes = onAdvanceMinutes;
-  }
-
-  public Integer getEarlyMinutesAsEarly() {
-    return this.earlyMinutesAsEarly;
-  }
-
-  public void setEarlyMinutesAsEarly(Integer earlyMinutesAsEarly) {
-    this.earlyMinutesAsEarly = earlyMinutesAsEarly;
-  }
-
-  public Integer getEarlyMinutesAsLack() {
-    return this.earlyMinutesAsLack;
-  }
-
-  public void setEarlyMinutesAsLack(Integer earlyMinutesAsLack) {
-    this.earlyMinutesAsLack = earlyMinutesAsLack;
-  }
-
-  public Integer getOffDelayMinutes() {
-    return this.offDelayMinutes;
-  }
-
-  public void setOffDelayMinutes(Integer offDelayMinutes) {
-    this.offDelayMinutes = offDelayMinutes;
-  }
-
-  public static class Builder {
-
+    @SerializedName("on_time")
     private String onTime;
+    @SerializedName("off_time")
     private String offTime;
+    @SerializedName("late_minutes_as_late")
     private Integer lateMinutesAsLate;
+    @SerializedName("late_minutes_as_lack")
     private Integer lateMinutesAsLack;
+    @SerializedName("on_advance_minutes")
     private Integer onAdvanceMinutes;
+    @SerializedName("early_minutes_as_early")
     private Integer earlyMinutesAsEarly;
+    @SerializedName("early_minutes_as_lack")
     private Integer earlyMinutesAsLack;
+    @SerializedName("off_delay_minutes")
     private Integer offDelayMinutes;
-
-    public Builder onTime(String onTime) {
-      this.onTime = onTime;
-      return this;
+    public String getOnTime() {
+        return this.onTime;
     }
 
-    public Builder offTime(String offTime) {
-      this.offTime = offTime;
-      return this;
+    public void setOnTime(String onTime) {
+        this.onTime = onTime;
     }
 
-    public Builder lateMinutesAsLate(Integer lateMinutesAsLate) {
-      this.lateMinutesAsLate = lateMinutesAsLate;
-      return this;
+    public String getOffTime() {
+        return this.offTime;
     }
 
-    public Builder lateMinutesAsLack(Integer lateMinutesAsLack) {
-      this.lateMinutesAsLack = lateMinutesAsLack;
-      return this;
+    public void setOffTime(String offTime) {
+        this.offTime = offTime;
     }
 
-    public Builder onAdvanceMinutes(Integer onAdvanceMinutes) {
-      this.onAdvanceMinutes = onAdvanceMinutes;
-      return this;
+    public Integer getLateMinutesAsLate() {
+        return this.lateMinutesAsLate;
     }
 
-    public Builder earlyMinutesAsEarly(Integer earlyMinutesAsEarly) {
-      this.earlyMinutesAsEarly = earlyMinutesAsEarly;
-      return this;
+    public void setLateMinutesAsLate(Integer lateMinutesAsLate) {
+        this.lateMinutesAsLate = lateMinutesAsLate;
     }
 
-    public Builder earlyMinutesAsLack(Integer earlyMinutesAsLack) {
-      this.earlyMinutesAsLack = earlyMinutesAsLack;
-      return this;
+    public Integer getLateMinutesAsLack() {
+        return this.lateMinutesAsLack;
     }
 
-    public Builder offDelayMinutes(Integer offDelayMinutes) {
-      this.offDelayMinutes = offDelayMinutes;
-      return this;
+    public void setLateMinutesAsLack(Integer lateMinutesAsLack) {
+        this.lateMinutesAsLack = lateMinutesAsLack;
+    }
+
+    public Integer getOnAdvanceMinutes() {
+        return this.onAdvanceMinutes;
+    }
+
+    public void setOnAdvanceMinutes(Integer onAdvanceMinutes) {
+        this.onAdvanceMinutes = onAdvanceMinutes;
+    }
+
+    public Integer getEarlyMinutesAsEarly() {
+        return this.earlyMinutesAsEarly;
+    }
+
+    public void setEarlyMinutesAsEarly(Integer earlyMinutesAsEarly) {
+        this.earlyMinutesAsEarly = earlyMinutesAsEarly;
+    }
+
+    public Integer getEarlyMinutesAsLack() {
+        return this.earlyMinutesAsLack;
+    }
+
+    public void setEarlyMinutesAsLack(Integer earlyMinutesAsLack) {
+        this.earlyMinutesAsLack = earlyMinutesAsLack;
+    }
+
+    public Integer getOffDelayMinutes() {
+        return this.offDelayMinutes;
+    }
+
+    public void setOffDelayMinutes(Integer offDelayMinutes) {
+        this.offDelayMinutes = offDelayMinutes;
     }
 
 
-    public PunchTimeRule build() {
-      return new PunchTimeRule(this);
-    }
+// builder 开始
+  public PunchTimeRule(){}
+
+  public PunchTimeRule(Builder builder){
+      this.onTime = builder.onTime;
+      this.offTime = builder.offTime;
+      this.lateMinutesAsLate = builder.lateMinutesAsLate;
+      this.lateMinutesAsLack = builder.lateMinutesAsLack;
+      this.onAdvanceMinutes = builder.onAdvanceMinutes;
+      this.earlyMinutesAsEarly = builder.earlyMinutesAsEarly;
+      this.earlyMinutesAsLack = builder.earlyMinutesAsLack;
+      this.offDelayMinutes = builder.offDelayMinutes;
   }
+
+    public static class Builder {
+        private String onTime;
+        private String offTime;
+        private Integer lateMinutesAsLate;
+        private Integer lateMinutesAsLack;
+        private Integer onAdvanceMinutes;
+        private Integer earlyMinutesAsEarly;
+        private Integer earlyMinutesAsLack;
+        private Integer offDelayMinutes;
+        public Builder onTime(String onTime) {
+             this.onTime = onTime;
+             return this;
+        }
+    
+        public Builder offTime(String offTime) {
+             this.offTime = offTime;
+             return this;
+        }
+    
+        public Builder lateMinutesAsLate(Integer lateMinutesAsLate) {
+             this.lateMinutesAsLate = lateMinutesAsLate;
+             return this;
+        }
+    
+        public Builder lateMinutesAsLack(Integer lateMinutesAsLack) {
+             this.lateMinutesAsLack = lateMinutesAsLack;
+             return this;
+        }
+    
+        public Builder onAdvanceMinutes(Integer onAdvanceMinutes) {
+             this.onAdvanceMinutes = onAdvanceMinutes;
+             return this;
+        }
+    
+        public Builder earlyMinutesAsEarly(Integer earlyMinutesAsEarly) {
+             this.earlyMinutesAsEarly = earlyMinutesAsEarly;
+             return this;
+        }
+    
+        public Builder earlyMinutesAsLack(Integer earlyMinutesAsLack) {
+             this.earlyMinutesAsLack = earlyMinutesAsLack;
+             return this;
+        }
+    
+        public Builder offDelayMinutes(Integer offDelayMinutes) {
+             this.offDelayMinutes = offDelayMinutes;
+             return this;
+        }
+    
+    
+    public PunchTimeRule build(){
+        return new PunchTimeRule(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

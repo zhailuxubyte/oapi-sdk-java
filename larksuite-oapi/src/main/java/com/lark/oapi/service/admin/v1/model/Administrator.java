@@ -12,80 +12,86 @@
  */
 
 package com.lark.oapi.service.admin.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.admin.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class Administrator {
-
-  @SerializedName("user_id")
-  private String userId;
-  @SerializedName("is_super_administrator")
-  private Boolean isSuperAdministrator;
-  @SerializedName("is_administrator")
-  private Boolean isAdministrator;
-
-  // builder 开始
-  public Administrator() {
-  }
-
-  public Administrator(Builder builder) {
-    this.userId = builder.userId;
-    this.isSuperAdministrator = builder.isSuperAdministrator;
-    this.isAdministrator = builder.isAdministrator;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getUserId() {
-    return this.userId;
-  }
-
-  public void setUserId(String userId) {
-    this.userId = userId;
-  }
-
-  public Boolean getIsSuperAdministrator() {
-    return this.isSuperAdministrator;
-  }
-
-  public void setIsSuperAdministrator(Boolean isSuperAdministrator) {
-    this.isSuperAdministrator = isSuperAdministrator;
-  }
-
-  public Boolean getIsAdministrator() {
-    return this.isAdministrator;
-  }
-
-  public void setIsAdministrator(Boolean isAdministrator) {
-    this.isAdministrator = isAdministrator;
-  }
-
-  public static class Builder {
-
+    @SerializedName("user_id")
     private String userId;
+    @SerializedName("is_super_administrator")
     private Boolean isSuperAdministrator;
+    @SerializedName("is_administrator")
     private Boolean isAdministrator;
-
-    public Builder userId(String userId) {
-      this.userId = userId;
-      return this;
+    public String getUserId() {
+        return this.userId;
     }
 
-    public Builder isSuperAdministrator(Boolean isSuperAdministrator) {
-      this.isSuperAdministrator = isSuperAdministrator;
-      return this;
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
-    public Builder isAdministrator(Boolean isAdministrator) {
-      this.isAdministrator = isAdministrator;
-      return this;
+    public Boolean getIsSuperAdministrator() {
+        return this.isSuperAdministrator;
+    }
+
+    public void setIsSuperAdministrator(Boolean isSuperAdministrator) {
+        this.isSuperAdministrator = isSuperAdministrator;
+    }
+
+    public Boolean getIsAdministrator() {
+        return this.isAdministrator;
+    }
+
+    public void setIsAdministrator(Boolean isAdministrator) {
+        this.isAdministrator = isAdministrator;
     }
 
 
-    public Administrator build() {
-      return new Administrator(this);
-    }
+// builder 开始
+  public Administrator(){}
+
+  public Administrator(Builder builder){
+      this.userId = builder.userId;
+      this.isSuperAdministrator = builder.isSuperAdministrator;
+      this.isAdministrator = builder.isAdministrator;
   }
+
+    public static class Builder {
+        private String userId;
+        private Boolean isSuperAdministrator;
+        private Boolean isAdministrator;
+        public Builder userId(String userId) {
+             this.userId = userId;
+             return this;
+        }
+    
+        public Builder isSuperAdministrator(Boolean isSuperAdministrator) {
+             this.isSuperAdministrator = isSuperAdministrator;
+             return this;
+        }
+    
+        public Builder isAdministrator(Boolean isAdministrator) {
+             this.isAdministrator = isAdministrator;
+             return this;
+        }
+    
+    
+    public Administrator build(){
+        return new Administrator(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

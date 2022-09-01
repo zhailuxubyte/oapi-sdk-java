@@ -12,69 +12,72 @@
  */
 
 package com.lark.oapi.service.helpdesk.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.helpdesk.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class PatchAgentSchedulesReq {
-
-  @Path
-  @SerializedName("agent_id")
-  private String agentId;
-  @Body
-  private PatchAgentSchedulesReqBody body;
-
-  // builder 开始
-  public PatchAgentSchedulesReq() {
-  }
-
-  public PatchAgentSchedulesReq(Builder builder) {
-    this.agentId = builder.agentId;
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getAgentId() {
-    return this.agentId;
-  }
-
-  public void setAgentId(String agentId) {
-    this.agentId = agentId;
-  }
-
-  public PatchAgentSchedulesReqBody getPatchAgentSchedulesReqBody() {
-    return this.body;
-  }
-
-  public void setPatchAgentSchedulesReqBody(PatchAgentSchedulesReqBody body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
+    @Path
+    @SerializedName("agent_id")
     private String agentId;
+    public String getAgentId() {
+        return this.agentId;
+    }
+
+    public void setAgentId(String agentId) {
+        this.agentId = agentId;
+    }
+
+    @Body
     private PatchAgentSchedulesReqBody body;
 
-    public Builder agentId(String agentId) {
-      this.agentId = agentId;
-      return this;
-    }
-
     public PatchAgentSchedulesReqBody getPatchAgentSchedulesReqBody() {
-      return this.body;
+        return this.body;
     }
 
-    public Builder patchAgentSchedulesReqBody(PatchAgentSchedulesReqBody body) {
-      this.body = body;
-      return this;
+    public void setPatchAgentSchedulesReqBody(PatchAgentSchedulesReqBody body) {
+        this.body = body;
     }
 
-    public PatchAgentSchedulesReq build() {
-      return new PatchAgentSchedulesReq(this);
-    }
+// builder 开始
+  public PatchAgentSchedulesReq(){}
+
+  public PatchAgentSchedulesReq(Builder builder){
+       this.agentId = builder.agentId;
+        this.body = builder.body;
   }
+
+    public static class Builder {
+    
+        private String agentId;
+          public Builder agentId(String agentId) {
+               this.agentId = agentId;
+               return this;
+          }
+    
+        private PatchAgentSchedulesReqBody body;
+    
+        public PatchAgentSchedulesReqBody getPatchAgentSchedulesReqBody() {
+            return this.body;
+        }
+        public Builder patchAgentSchedulesReqBody(PatchAgentSchedulesReqBody body) {
+             this.body = body;
+             return this;
+        }
+    public PatchAgentSchedulesReq build(){
+        return new PatchAgentSchedulesReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

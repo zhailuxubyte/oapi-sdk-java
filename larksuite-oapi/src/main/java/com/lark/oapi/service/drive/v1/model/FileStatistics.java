@@ -12,97 +12,103 @@
  */
 
 package com.lark.oapi.service.drive.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.drive.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class FileStatistics {
-
-  @SerializedName("uv")
-  private Integer uv;
-  @SerializedName("pv")
-  private Integer pv;
-  @SerializedName("like_count")
-  private Integer likeCount;
-  @SerializedName("timestamp")
-  private Integer timestamp;
-
-  // builder 开始
-  public FileStatistics() {
-  }
-
-  public FileStatistics(Builder builder) {
-    this.uv = builder.uv;
-    this.pv = builder.pv;
-    this.likeCount = builder.likeCount;
-    this.timestamp = builder.timestamp;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Integer getUv() {
-    return this.uv;
-  }
-
-  public void setUv(Integer uv) {
-    this.uv = uv;
-  }
-
-  public Integer getPv() {
-    return this.pv;
-  }
-
-  public void setPv(Integer pv) {
-    this.pv = pv;
-  }
-
-  public Integer getLikeCount() {
-    return this.likeCount;
-  }
-
-  public void setLikeCount(Integer likeCount) {
-    this.likeCount = likeCount;
-  }
-
-  public Integer getTimestamp() {
-    return this.timestamp;
-  }
-
-  public void setTimestamp(Integer timestamp) {
-    this.timestamp = timestamp;
-  }
-
-  public static class Builder {
-
+    @SerializedName("uv")
     private Integer uv;
+    @SerializedName("pv")
     private Integer pv;
+    @SerializedName("like_count")
     private Integer likeCount;
+    @SerializedName("timestamp")
     private Integer timestamp;
-
-    public Builder uv(Integer uv) {
-      this.uv = uv;
-      return this;
+    public Integer getUv() {
+        return this.uv;
     }
 
-    public Builder pv(Integer pv) {
-      this.pv = pv;
-      return this;
+    public void setUv(Integer uv) {
+        this.uv = uv;
     }
 
-    public Builder likeCount(Integer likeCount) {
-      this.likeCount = likeCount;
-      return this;
+    public Integer getPv() {
+        return this.pv;
     }
 
-    public Builder timestamp(Integer timestamp) {
-      this.timestamp = timestamp;
-      return this;
+    public void setPv(Integer pv) {
+        this.pv = pv;
+    }
+
+    public Integer getLikeCount() {
+        return this.likeCount;
+    }
+
+    public void setLikeCount(Integer likeCount) {
+        this.likeCount = likeCount;
+    }
+
+    public Integer getTimestamp() {
+        return this.timestamp;
+    }
+
+    public void setTimestamp(Integer timestamp) {
+        this.timestamp = timestamp;
     }
 
 
-    public FileStatistics build() {
-      return new FileStatistics(this);
-    }
+// builder 开始
+  public FileStatistics(){}
+
+  public FileStatistics(Builder builder){
+      this.uv = builder.uv;
+      this.pv = builder.pv;
+      this.likeCount = builder.likeCount;
+      this.timestamp = builder.timestamp;
   }
+
+    public static class Builder {
+        private Integer uv;
+        private Integer pv;
+        private Integer likeCount;
+        private Integer timestamp;
+        public Builder uv(Integer uv) {
+             this.uv = uv;
+             return this;
+        }
+    
+        public Builder pv(Integer pv) {
+             this.pv = pv;
+             return this;
+        }
+    
+        public Builder likeCount(Integer likeCount) {
+             this.likeCount = likeCount;
+             return this;
+        }
+    
+        public Builder timestamp(Integer timestamp) {
+             this.timestamp = timestamp;
+             return this;
+        }
+    
+    
+    public FileStatistics build(){
+        return new FileStatistics(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

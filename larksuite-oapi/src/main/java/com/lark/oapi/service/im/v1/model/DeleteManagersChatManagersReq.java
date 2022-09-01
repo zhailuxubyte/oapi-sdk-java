@@ -12,93 +12,94 @@
  */
 
 package com.lark.oapi.service.im.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.im.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class DeleteManagersChatManagersReq {
-
-  @Query
-  @SerializedName("member_id_type")
-  private String memberIdType;
-  @Path
-  @SerializedName("chat_id")
-  private String chatId;
-  @Body
-  private DeleteManagersChatManagersReqBody body;
-
-  // builder 开始
-  public DeleteManagersChatManagersReq() {
-  }
-
-  public DeleteManagersChatManagersReq(Builder builder) {
-    this.memberIdType = builder.memberIdType;
-    this.chatId = builder.chatId;
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getMemberIdType() {
-    return this.memberIdType;
-  }
-
-  public void setMemberIdType(String memberIdType) {
-    this.memberIdType = memberIdType;
-  }
-
-  public String getChatId() {
-    return this.chatId;
-  }
-
-  public void setChatId(String chatId) {
-    this.chatId = chatId;
-  }
-
-  public DeleteManagersChatManagersReqBody getDeleteManagersChatManagersReqBody() {
-    return this.body;
-  }
-
-  public void setDeleteManagersChatManagersReqBody(DeleteManagersChatManagersReqBody body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
+    @Query
+    @SerializedName("member_id_type")
     private String memberIdType;
+    public String getMemberIdType() {
+        return this.memberIdType;
+    }
+
+    public void setMemberIdType(String memberIdType) {
+        this.memberIdType = memberIdType;
+    }
+
+    @Path
+    @SerializedName("chat_id")
     private String chatId;
+    public String getChatId() {
+        return this.chatId;
+    }
+
+    public void setChatId(String chatId) {
+        this.chatId = chatId;
+    }
+
+    @Body
     private DeleteManagersChatManagersReqBody body;
 
-    public Builder memberIdType(String memberIdType) {
-      this.memberIdType = memberIdType;
-      return this;
-    }
-
-    public Builder memberIdType(com.lark.oapi.service.im.v1.enums.MemberIdTypeEnum memberIdType) {
-      this.memberIdType = memberIdType.getValue();
-      return this;
-    }
-
-    public Builder chatId(String chatId) {
-      this.chatId = chatId;
-      return this;
-    }
-
     public DeleteManagersChatManagersReqBody getDeleteManagersChatManagersReqBody() {
-      return this.body;
+        return this.body;
     }
 
-    public Builder deleteManagersChatManagersReqBody(DeleteManagersChatManagersReqBody body) {
-      this.body = body;
-      return this;
+    public void setDeleteManagersChatManagersReqBody(DeleteManagersChatManagersReqBody body) {
+        this.body = body;
     }
 
-    public DeleteManagersChatManagersReq build() {
-      return new DeleteManagersChatManagersReq(this);
-    }
+// builder 开始
+  public DeleteManagersChatManagersReq(){}
+
+  public DeleteManagersChatManagersReq(Builder builder){
+       this.memberIdType = builder.memberIdType;
+       this.chatId = builder.chatId;
+        this.body = builder.body;
   }
+
+    public static class Builder {
+        private String memberIdType;
+    
+           public Builder memberIdType(String memberIdType) {
+                this.memberIdType = memberIdType;
+                return this;
+           }
+          public Builder memberIdType(com.lark.oapi.service.im.v1.enums.MemberIdTypeEnum memberIdType) {
+               this.memberIdType = memberIdType.getValue();
+               return this;
+          }
+    
+        private String chatId;
+          public Builder chatId(String chatId) {
+               this.chatId = chatId;
+               return this;
+          }
+    
+        private DeleteManagersChatManagersReqBody body;
+    
+        public DeleteManagersChatManagersReqBody getDeleteManagersChatManagersReqBody() {
+            return this.body;
+        }
+        public Builder deleteManagersChatManagersReqBody(DeleteManagersChatManagersReqBody body) {
+             this.body = body;
+             return this;
+        }
+    public DeleteManagersChatManagersReq build(){
+        return new DeleteManagersChatManagersReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

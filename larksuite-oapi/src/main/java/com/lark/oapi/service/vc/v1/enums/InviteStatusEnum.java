@@ -15,16 +15,15 @@ package com.lark.oapi.service.vc.v1.enums;
 
 // 生成枚举值
 public enum InviteStatusEnum {
-  OK(1),
-  FAILED(2),
+     OK(1),
+     FAILED(2),
   ;
-  private Integer value;
+   private Integer value;
+    InviteStatusEnum(Integer value) {
+      this.value = value;
+    }
 
-  InviteStatusEnum(Integer value) {
-    this.value = value;
-  }
-
-  public Integer getValue() {
-    return this.value;
-  }
+    public Integer getValue() {
+      return this.value;
+    }
 }

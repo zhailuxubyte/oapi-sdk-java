@@ -12,49 +12,54 @@
  */
 
 package com.lark.oapi.service.contact.v3.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.contact.v3.enums.*;
+import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
-
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class BindDepartmentUnitReq {
-
-  @Body
-  private BindDepartmentUnitReqBody body;
-
-  // builder 开始
-  public BindDepartmentUnitReq() {
-  }
-
-  public BindDepartmentUnitReq(Builder builder) {
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public BindDepartmentUnitReqBody getBindDepartmentUnitReqBody() {
-    return this.body;
-  }
-
-  public void setBindDepartmentUnitReqBody(BindDepartmentUnitReqBody body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
+    @Body
     private BindDepartmentUnitReqBody body;
 
     public BindDepartmentUnitReqBody getBindDepartmentUnitReqBody() {
-      return this.body;
+        return this.body;
     }
 
-    public Builder bindDepartmentUnitReqBody(BindDepartmentUnitReqBody body) {
-      this.body = body;
-      return this;
+    public void setBindDepartmentUnitReqBody(BindDepartmentUnitReqBody body) {
+        this.body = body;
     }
 
-    public BindDepartmentUnitReq build() {
-      return new BindDepartmentUnitReq(this);
-    }
+// builder 开始
+  public BindDepartmentUnitReq(){}
+
+  public BindDepartmentUnitReq(Builder builder){
+        this.body = builder.body;
   }
+
+    public static class Builder {
+    
+        private BindDepartmentUnitReqBody body;
+    
+        public BindDepartmentUnitReqBody getBindDepartmentUnitReqBody() {
+            return this.body;
+        }
+        public Builder bindDepartmentUnitReqBody(BindDepartmentUnitReqBody body) {
+             this.body = body;
+             return this;
+        }
+    public BindDepartmentUnitReq build(){
+        return new BindDepartmentUnitReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

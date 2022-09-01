@@ -12,165 +12,171 @@
  */
 
 package com.lark.oapi.service.contact.v3.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.contact.v3.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class UserCustomAttrValue {
-
-  @SerializedName("text")
-  private String text;
-  @SerializedName("url")
-  private String url;
-  @SerializedName("pc_url")
-  private String pcUrl;
-  @SerializedName("option_id")
-  private String optionId;
-  @SerializedName("option_value")
-  private String optionValue;
-  @SerializedName("name")
-  private String name;
-  @SerializedName("picture_url")
-  private String pictureUrl;
-  @SerializedName("generic_user")
-  private CustomAttrGenericUser genericUser;
-
-  // builder 开始
-  public UserCustomAttrValue() {
-  }
-
-  public UserCustomAttrValue(Builder builder) {
-    this.text = builder.text;
-    this.url = builder.url;
-    this.pcUrl = builder.pcUrl;
-    this.optionId = builder.optionId;
-    this.optionValue = builder.optionValue;
-    this.name = builder.name;
-    this.pictureUrl = builder.pictureUrl;
-    this.genericUser = builder.genericUser;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getText() {
-    return this.text;
-  }
-
-  public void setText(String text) {
-    this.text = text;
-  }
-
-  public String getUrl() {
-    return this.url;
-  }
-
-  public void setUrl(String url) {
-    this.url = url;
-  }
-
-  public String getPcUrl() {
-    return this.pcUrl;
-  }
-
-  public void setPcUrl(String pcUrl) {
-    this.pcUrl = pcUrl;
-  }
-
-  public String getOptionId() {
-    return this.optionId;
-  }
-
-  public void setOptionId(String optionId) {
-    this.optionId = optionId;
-  }
-
-  public String getOptionValue() {
-    return this.optionValue;
-  }
-
-  public void setOptionValue(String optionValue) {
-    this.optionValue = optionValue;
-  }
-
-  public String getName() {
-    return this.name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public String getPictureUrl() {
-    return this.pictureUrl;
-  }
-
-  public void setPictureUrl(String pictureUrl) {
-    this.pictureUrl = pictureUrl;
-  }
-
-  public CustomAttrGenericUser getGenericUser() {
-    return this.genericUser;
-  }
-
-  public void setGenericUser(CustomAttrGenericUser genericUser) {
-    this.genericUser = genericUser;
-  }
-
-  public static class Builder {
-
+    @SerializedName("text")
     private String text;
+    @SerializedName("url")
     private String url;
+    @SerializedName("pc_url")
     private String pcUrl;
+    @SerializedName("option_id")
     private String optionId;
+    @SerializedName("option_value")
     private String optionValue;
+    @SerializedName("name")
     private String name;
+    @SerializedName("picture_url")
     private String pictureUrl;
+    @SerializedName("generic_user")
     private CustomAttrGenericUser genericUser;
-
-    public Builder text(String text) {
-      this.text = text;
-      return this;
+    public String getText() {
+        return this.text;
     }
 
-    public Builder url(String url) {
-      this.url = url;
-      return this;
+    public void setText(String text) {
+        this.text = text;
     }
 
-    public Builder pcUrl(String pcUrl) {
-      this.pcUrl = pcUrl;
-      return this;
+    public String getUrl() {
+        return this.url;
     }
 
-    public Builder optionId(String optionId) {
-      this.optionId = optionId;
-      return this;
+    public void setUrl(String url) {
+        this.url = url;
     }
 
-    public Builder optionValue(String optionValue) {
-      this.optionValue = optionValue;
-      return this;
+    public String getPcUrl() {
+        return this.pcUrl;
     }
 
-    public Builder name(String name) {
-      this.name = name;
-      return this;
+    public void setPcUrl(String pcUrl) {
+        this.pcUrl = pcUrl;
     }
 
-    public Builder pictureUrl(String pictureUrl) {
-      this.pictureUrl = pictureUrl;
-      return this;
+    public String getOptionId() {
+        return this.optionId;
     }
 
-    public Builder genericUser(CustomAttrGenericUser genericUser) {
-      this.genericUser = genericUser;
-      return this;
+    public void setOptionId(String optionId) {
+        this.optionId = optionId;
+    }
+
+    public String getOptionValue() {
+        return this.optionValue;
+    }
+
+    public void setOptionValue(String optionValue) {
+        this.optionValue = optionValue;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getPictureUrl() {
+        return this.pictureUrl;
+    }
+
+    public void setPictureUrl(String pictureUrl) {
+        this.pictureUrl = pictureUrl;
+    }
+
+    public CustomAttrGenericUser getGenericUser() {
+        return this.genericUser;
+    }
+
+    public void setGenericUser(CustomAttrGenericUser genericUser) {
+        this.genericUser = genericUser;
     }
 
 
-    public UserCustomAttrValue build() {
-      return new UserCustomAttrValue(this);
-    }
+// builder 开始
+  public UserCustomAttrValue(){}
+
+  public UserCustomAttrValue(Builder builder){
+      this.text = builder.text;
+      this.url = builder.url;
+      this.pcUrl = builder.pcUrl;
+      this.optionId = builder.optionId;
+      this.optionValue = builder.optionValue;
+      this.name = builder.name;
+      this.pictureUrl = builder.pictureUrl;
+      this.genericUser = builder.genericUser;
   }
+
+    public static class Builder {
+        private String text;
+        private String url;
+        private String pcUrl;
+        private String optionId;
+        private String optionValue;
+        private String name;
+        private String pictureUrl;
+        private CustomAttrGenericUser genericUser;
+        public Builder text(String text) {
+             this.text = text;
+             return this;
+        }
+    
+        public Builder url(String url) {
+             this.url = url;
+             return this;
+        }
+    
+        public Builder pcUrl(String pcUrl) {
+             this.pcUrl = pcUrl;
+             return this;
+        }
+    
+        public Builder optionId(String optionId) {
+             this.optionId = optionId;
+             return this;
+        }
+    
+        public Builder optionValue(String optionValue) {
+             this.optionValue = optionValue;
+             return this;
+        }
+    
+        public Builder name(String name) {
+             this.name = name;
+             return this;
+        }
+    
+        public Builder pictureUrl(String pictureUrl) {
+             this.pictureUrl = pictureUrl;
+             return this;
+        }
+    
+        public Builder genericUser(CustomAttrGenericUser genericUser) {
+             this.genericUser = genericUser;
+             return this;
+        }
+    
+    
+    public UserCustomAttrValue build(){
+        return new UserCustomAttrValue(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

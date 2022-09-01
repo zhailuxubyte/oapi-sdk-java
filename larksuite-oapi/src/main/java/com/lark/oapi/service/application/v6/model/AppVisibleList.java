@@ -12,63 +12,69 @@
  */
 
 package com.lark.oapi.service.application.v6.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.application.v6.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class AppVisibleList {
-
-  @SerializedName("open_ids")
-  private String[] openIds;
-  @SerializedName("department_ids")
-  private String[] departmentIds;
-
-  // builder 开始
-  public AppVisibleList() {
-  }
-
-  public AppVisibleList(Builder builder) {
-    this.openIds = builder.openIds;
-    this.departmentIds = builder.departmentIds;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String[] getOpenIds() {
-    return this.openIds;
-  }
-
-  public void setOpenIds(String[] openIds) {
-    this.openIds = openIds;
-  }
-
-  public String[] getDepartmentIds() {
-    return this.departmentIds;
-  }
-
-  public void setDepartmentIds(String[] departmentIds) {
-    this.departmentIds = departmentIds;
-  }
-
-  public static class Builder {
-
+    @SerializedName("open_ids")
     private String[] openIds;
+    @SerializedName("department_ids")
     private String[] departmentIds;
-
-    public Builder openIds(String[] openIds) {
-      this.openIds = openIds;
-      return this;
+    public String[] getOpenIds() {
+        return this.openIds;
     }
 
-    public Builder departmentIds(String[] departmentIds) {
-      this.departmentIds = departmentIds;
-      return this;
+    public void setOpenIds(String[] openIds) {
+        this.openIds = openIds;
+    }
+
+    public String[] getDepartmentIds() {
+        return this.departmentIds;
+    }
+
+    public void setDepartmentIds(String[] departmentIds) {
+        this.departmentIds = departmentIds;
     }
 
 
-    public AppVisibleList build() {
-      return new AppVisibleList(this);
-    }
+// builder 开始
+  public AppVisibleList(){}
+
+  public AppVisibleList(Builder builder){
+      this.openIds = builder.openIds;
+      this.departmentIds = builder.departmentIds;
   }
+
+    public static class Builder {
+        private String[] openIds;
+        private String[] departmentIds;
+        public Builder openIds(String[] openIds) {
+             this.openIds = openIds;
+             return this;
+        }
+    
+        public Builder departmentIds(String[] departmentIds) {
+             this.departmentIds = departmentIds;
+             return this;
+        }
+    
+    
+    public AppVisibleList build(){
+        return new AppVisibleList(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

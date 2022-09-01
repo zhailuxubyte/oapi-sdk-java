@@ -12,63 +12,69 @@
  */
 
 package com.lark.oapi.service.contact.v3.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.contact.v3.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class PatchGroupReqBody {
-
-  @SerializedName("name")
-  private String name;
-  @SerializedName("description")
-  private String description;
-
-  // builder 开始
-  public PatchGroupReqBody() {
-  }
-
-  public PatchGroupReqBody(Builder builder) {
-    this.name = builder.name;
-    this.description = builder.description;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getName() {
-    return this.name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public String getDescription() {
-    return this.description;
-  }
-
-  public void setDescription(String description) {
-    this.description = description;
-  }
-
-  public static class Builder {
-
+    @SerializedName("name")
     private String name;
+    @SerializedName("description")
     private String description;
-
-    public Builder name(String name) {
-      this.name = name;
-      return this;
+    public String getName() {
+        return this.name;
     }
 
-    public Builder description(String description) {
-      this.description = description;
-      return this;
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getDescription() {
+        return this.description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
 
-    public PatchGroupReqBody build() {
-      return new PatchGroupReqBody(this);
-    }
+// builder 开始
+  public PatchGroupReqBody(){}
+
+  public PatchGroupReqBody(Builder builder){
+      this.name = builder.name;
+      this.description = builder.description;
   }
+
+    public static class Builder {
+        private String name;
+        private String description;
+        public Builder name(String name) {
+             this.name = name;
+             return this;
+        }
+    
+        public Builder description(String description) {
+             this.description = description;
+             return this;
+        }
+    
+    
+    public PatchGroupReqBody build(){
+        return new PatchGroupReqBody(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

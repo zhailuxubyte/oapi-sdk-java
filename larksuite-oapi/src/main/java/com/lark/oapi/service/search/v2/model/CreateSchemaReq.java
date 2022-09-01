@@ -12,69 +12,72 @@
  */
 
 package com.lark.oapi.service.search.v2.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.search.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class CreateSchemaReq {
-
-  @Query
-  @SerializedName("validate_only")
-  private Boolean validateOnly;
-  @Body
-  private Schema body;
-
-  // builder 开始
-  public CreateSchemaReq() {
-  }
-
-  public CreateSchemaReq(Builder builder) {
-    this.validateOnly = builder.validateOnly;
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Boolean getValidateOnly() {
-    return this.validateOnly;
-  }
-
-  public void setValidateOnly(Boolean validateOnly) {
-    this.validateOnly = validateOnly;
-  }
-
-  public Schema getSchema() {
-    return this.body;
-  }
-
-  public void setSchema(Schema body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
+    @Query
+    @SerializedName("validate_only")
     private Boolean validateOnly;
+    public Boolean getValidateOnly() {
+        return this.validateOnly;
+    }
+
+    public void setValidateOnly(Boolean validateOnly) {
+        this.validateOnly = validateOnly;
+    }
+
+    @Body
     private Schema body;
 
-    public Builder validateOnly(Boolean validateOnly) {
-      this.validateOnly = validateOnly;
-      return this;
-    }
-
     public Schema getSchema() {
-      return this.body;
+        return this.body;
     }
 
-    public Builder schema(Schema body) {
-      this.body = body;
-      return this;
+    public void setSchema(Schema body) {
+        this.body = body;
     }
 
-    public CreateSchemaReq build() {
-      return new CreateSchemaReq(this);
-    }
+// builder 开始
+  public CreateSchemaReq(){}
+
+  public CreateSchemaReq(Builder builder){
+       this.validateOnly = builder.validateOnly;
+        this.body = builder.body;
   }
+
+    public static class Builder {
+        private Boolean validateOnly;
+    
+           public Builder validateOnly(Boolean validateOnly) {
+                this.validateOnly = validateOnly;
+                return this;
+           }
+    
+        private Schema body;
+    
+        public Schema getSchema() {
+            return this.body;
+        }
+        public Builder schema(Schema body) {
+             this.body = body;
+             return this;
+        }
+    public CreateSchemaReq build(){
+        return new CreateSchemaReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

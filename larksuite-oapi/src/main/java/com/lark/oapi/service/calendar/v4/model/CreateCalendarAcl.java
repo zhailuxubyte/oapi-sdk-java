@@ -12,40 +12,47 @@
  */
 
 package com.lark.oapi.service.calendar.v4.model;
-
+import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class CreateCalendarAcl {
+    @SerializedName("acl_id")
+    private String aclId;
+    @SerializedName("role")
+    private String role;
+    @SerializedName("scope")
+    private AclScope scope;
+    public String getAclId() {
+        return this.aclId;
+    }
 
-  @SerializedName("acl_id")
-  private String aclId;
-  @SerializedName("role")
-  private String role;
-  @SerializedName("scope")
-  private AclScope scope;
+    public void setAclId(String aclId) {
+        this.aclId = aclId;
+    }
 
-  public String getAclId() {
-    return this.aclId;
-  }
+    public String getRole() {
+        return this.role;
+    }
 
-  public void setAclId(String aclId) {
-    this.aclId = aclId;
-  }
+    public void setRole(String role) {
+        this.role = role;
+    }
 
-  public String getRole() {
-    return this.role;
-  }
+    public AclScope getScope() {
+        return this.scope;
+    }
 
-  public void setRole(String role) {
-    this.role = role;
-  }
-
-  public AclScope getScope() {
-    return this.scope;
-  }
-
-  public void setScope(AclScope scope) {
-    this.scope = scope;
-  }
+    public void setScope(AclScope scope) {
+        this.scope = scope;
+    }
 
 }

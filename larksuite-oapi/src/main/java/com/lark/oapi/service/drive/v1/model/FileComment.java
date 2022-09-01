@@ -12,165 +12,171 @@
  */
 
 package com.lark.oapi.service.drive.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.drive.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class FileComment {
-
-  @SerializedName("comment_id")
-  private String commentId;
-  @SerializedName("user_id")
-  private String userId;
-  @SerializedName("create_time")
-  private Integer createTime;
-  @SerializedName("update_time")
-  private Integer updateTime;
-  @SerializedName("is_solved")
-  private Boolean isSolved;
-  @SerializedName("solved_time")
-  private Integer solvedTime;
-  @SerializedName("solver_user_id")
-  private String solverUserId;
-  @SerializedName("reply_list")
-  private ReplyList replyList;
-
-  // builder 开始
-  public FileComment() {
-  }
-
-  public FileComment(Builder builder) {
-    this.commentId = builder.commentId;
-    this.userId = builder.userId;
-    this.createTime = builder.createTime;
-    this.updateTime = builder.updateTime;
-    this.isSolved = builder.isSolved;
-    this.solvedTime = builder.solvedTime;
-    this.solverUserId = builder.solverUserId;
-    this.replyList = builder.replyList;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getCommentId() {
-    return this.commentId;
-  }
-
-  public void setCommentId(String commentId) {
-    this.commentId = commentId;
-  }
-
-  public String getUserId() {
-    return this.userId;
-  }
-
-  public void setUserId(String userId) {
-    this.userId = userId;
-  }
-
-  public Integer getCreateTime() {
-    return this.createTime;
-  }
-
-  public void setCreateTime(Integer createTime) {
-    this.createTime = createTime;
-  }
-
-  public Integer getUpdateTime() {
-    return this.updateTime;
-  }
-
-  public void setUpdateTime(Integer updateTime) {
-    this.updateTime = updateTime;
-  }
-
-  public Boolean getIsSolved() {
-    return this.isSolved;
-  }
-
-  public void setIsSolved(Boolean isSolved) {
-    this.isSolved = isSolved;
-  }
-
-  public Integer getSolvedTime() {
-    return this.solvedTime;
-  }
-
-  public void setSolvedTime(Integer solvedTime) {
-    this.solvedTime = solvedTime;
-  }
-
-  public String getSolverUserId() {
-    return this.solverUserId;
-  }
-
-  public void setSolverUserId(String solverUserId) {
-    this.solverUserId = solverUserId;
-  }
-
-  public ReplyList getReplyList() {
-    return this.replyList;
-  }
-
-  public void setReplyList(ReplyList replyList) {
-    this.replyList = replyList;
-  }
-
-  public static class Builder {
-
+    @SerializedName("comment_id")
     private String commentId;
+    @SerializedName("user_id")
     private String userId;
+    @SerializedName("create_time")
     private Integer createTime;
+    @SerializedName("update_time")
     private Integer updateTime;
+    @SerializedName("is_solved")
     private Boolean isSolved;
+    @SerializedName("solved_time")
     private Integer solvedTime;
+    @SerializedName("solver_user_id")
     private String solverUserId;
+    @SerializedName("reply_list")
     private ReplyList replyList;
-
-    public Builder commentId(String commentId) {
-      this.commentId = commentId;
-      return this;
+    public String getCommentId() {
+        return this.commentId;
     }
 
-    public Builder userId(String userId) {
-      this.userId = userId;
-      return this;
+    public void setCommentId(String commentId) {
+        this.commentId = commentId;
     }
 
-    public Builder createTime(Integer createTime) {
-      this.createTime = createTime;
-      return this;
+    public String getUserId() {
+        return this.userId;
     }
 
-    public Builder updateTime(Integer updateTime) {
-      this.updateTime = updateTime;
-      return this;
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
-    public Builder isSolved(Boolean isSolved) {
-      this.isSolved = isSolved;
-      return this;
+    public Integer getCreateTime() {
+        return this.createTime;
     }
 
-    public Builder solvedTime(Integer solvedTime) {
-      this.solvedTime = solvedTime;
-      return this;
+    public void setCreateTime(Integer createTime) {
+        this.createTime = createTime;
     }
 
-    public Builder solverUserId(String solverUserId) {
-      this.solverUserId = solverUserId;
-      return this;
+    public Integer getUpdateTime() {
+        return this.updateTime;
     }
 
-    public Builder replyList(ReplyList replyList) {
-      this.replyList = replyList;
-      return this;
+    public void setUpdateTime(Integer updateTime) {
+        this.updateTime = updateTime;
+    }
+
+    public Boolean getIsSolved() {
+        return this.isSolved;
+    }
+
+    public void setIsSolved(Boolean isSolved) {
+        this.isSolved = isSolved;
+    }
+
+    public Integer getSolvedTime() {
+        return this.solvedTime;
+    }
+
+    public void setSolvedTime(Integer solvedTime) {
+        this.solvedTime = solvedTime;
+    }
+
+    public String getSolverUserId() {
+        return this.solverUserId;
+    }
+
+    public void setSolverUserId(String solverUserId) {
+        this.solverUserId = solverUserId;
+    }
+
+    public ReplyList getReplyList() {
+        return this.replyList;
+    }
+
+    public void setReplyList(ReplyList replyList) {
+        this.replyList = replyList;
     }
 
 
-    public FileComment build() {
-      return new FileComment(this);
-    }
+// builder 开始
+  public FileComment(){}
+
+  public FileComment(Builder builder){
+      this.commentId = builder.commentId;
+      this.userId = builder.userId;
+      this.createTime = builder.createTime;
+      this.updateTime = builder.updateTime;
+      this.isSolved = builder.isSolved;
+      this.solvedTime = builder.solvedTime;
+      this.solverUserId = builder.solverUserId;
+      this.replyList = builder.replyList;
   }
+
+    public static class Builder {
+        private String commentId;
+        private String userId;
+        private Integer createTime;
+        private Integer updateTime;
+        private Boolean isSolved;
+        private Integer solvedTime;
+        private String solverUserId;
+        private ReplyList replyList;
+        public Builder commentId(String commentId) {
+             this.commentId = commentId;
+             return this;
+        }
+    
+        public Builder userId(String userId) {
+             this.userId = userId;
+             return this;
+        }
+    
+        public Builder createTime(Integer createTime) {
+             this.createTime = createTime;
+             return this;
+        }
+    
+        public Builder updateTime(Integer updateTime) {
+             this.updateTime = updateTime;
+             return this;
+        }
+    
+        public Builder isSolved(Boolean isSolved) {
+             this.isSolved = isSolved;
+             return this;
+        }
+    
+        public Builder solvedTime(Integer solvedTime) {
+             this.solvedTime = solvedTime;
+             return this;
+        }
+    
+        public Builder solverUserId(String solverUserId) {
+             this.solverUserId = solverUserId;
+             return this;
+        }
+    
+        public Builder replyList(ReplyList replyList) {
+             this.replyList = replyList;
+             return this;
+        }
+    
+    
+    public FileComment build(){
+        return new FileComment(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

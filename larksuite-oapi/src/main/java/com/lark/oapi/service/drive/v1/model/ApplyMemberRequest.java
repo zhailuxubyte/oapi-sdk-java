@@ -12,68 +12,73 @@
  */
 
 package com.lark.oapi.service.drive.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.drive.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class ApplyMemberRequest {
-
-  @SerializedName("perm")
-  private String perm;
-  @SerializedName("remark")
-  private String remark;
-
-  // builder 开始
-  public ApplyMemberRequest() {
-  }
-
-  public ApplyMemberRequest(Builder builder) {
-    this.perm = builder.perm;
-    this.remark = builder.remark;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getPerm() {
-    return this.perm;
-  }
-
-  public void setPerm(String perm) {
-    this.perm = perm;
-  }
-
-  public String getRemark() {
-    return this.remark;
-  }
-
-  public void setRemark(String remark) {
-    this.remark = remark;
-  }
-
-  public static class Builder {
-
+    @SerializedName("perm")
     private String perm;
+    @SerializedName("remark")
     private String remark;
-
-    public Builder perm(String perm) {
-      this.perm = perm;
-      return this;
+    public String getPerm() {
+        return this.perm;
     }
 
-    public Builder perm(com.lark.oapi.service.drive.v1.enums.PermEnum perm) {
-      this.perm = perm.getValue();
-      return this;
+    public void setPerm(String perm) {
+        this.perm = perm;
     }
 
-    public Builder remark(String remark) {
-      this.remark = remark;
-      return this;
+    public String getRemark() {
+        return this.remark;
+    }
+
+    public void setRemark(String remark) {
+        this.remark = remark;
     }
 
 
-    public ApplyMemberRequest build() {
-      return new ApplyMemberRequest(this);
-    }
+// builder 开始
+  public ApplyMemberRequest(){}
+
+  public ApplyMemberRequest(Builder builder){
+      this.perm = builder.perm;
+      this.remark = builder.remark;
   }
+
+    public static class Builder {
+        private String perm;
+        private String remark;
+        public Builder perm(String perm) {
+             this.perm = perm;
+             return this;
+        }
+        public Builder perm(com.lark.oapi.service.drive.v1.enums.PermEnum perm) {
+             this.perm = perm.getValue();
+             return this;
+        }
+    
+        public Builder remark(String remark) {
+             this.remark = remark;
+             return this;
+        }
+    
+    
+    public ApplyMemberRequest build(){
+        return new ApplyMemberRequest(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

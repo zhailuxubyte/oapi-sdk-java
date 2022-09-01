@@ -12,69 +12,72 @@
  */
 
 package com.lark.oapi.service.im.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.im.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class SortTabsChatTabReq {
-
-  @Path
-  @SerializedName("chat_id")
-  private String chatId;
-  @Body
-  private SortTabsChatTabReqBody body;
-
-  // builder 开始
-  public SortTabsChatTabReq() {
-  }
-
-  public SortTabsChatTabReq(Builder builder) {
-    this.chatId = builder.chatId;
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getChatId() {
-    return this.chatId;
-  }
-
-  public void setChatId(String chatId) {
-    this.chatId = chatId;
-  }
-
-  public SortTabsChatTabReqBody getSortTabsChatTabReqBody() {
-    return this.body;
-  }
-
-  public void setSortTabsChatTabReqBody(SortTabsChatTabReqBody body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
+    @Path
+    @SerializedName("chat_id")
     private String chatId;
+    public String getChatId() {
+        return this.chatId;
+    }
+
+    public void setChatId(String chatId) {
+        this.chatId = chatId;
+    }
+
+    @Body
     private SortTabsChatTabReqBody body;
 
-    public Builder chatId(String chatId) {
-      this.chatId = chatId;
-      return this;
-    }
-
     public SortTabsChatTabReqBody getSortTabsChatTabReqBody() {
-      return this.body;
+        return this.body;
     }
 
-    public Builder sortTabsChatTabReqBody(SortTabsChatTabReqBody body) {
-      this.body = body;
-      return this;
+    public void setSortTabsChatTabReqBody(SortTabsChatTabReqBody body) {
+        this.body = body;
     }
 
-    public SortTabsChatTabReq build() {
-      return new SortTabsChatTabReq(this);
-    }
+// builder 开始
+  public SortTabsChatTabReq(){}
+
+  public SortTabsChatTabReq(Builder builder){
+       this.chatId = builder.chatId;
+        this.body = builder.body;
   }
+
+    public static class Builder {
+    
+        private String chatId;
+          public Builder chatId(String chatId) {
+               this.chatId = chatId;
+               return this;
+          }
+    
+        private SortTabsChatTabReqBody body;
+    
+        public SortTabsChatTabReqBody getSortTabsChatTabReqBody() {
+            return this.body;
+        }
+        public Builder sortTabsChatTabReqBody(SortTabsChatTabReqBody body) {
+             this.body = body;
+             return this;
+        }
+    public SortTabsChatTabReq build(){
+        return new SortTabsChatTabReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

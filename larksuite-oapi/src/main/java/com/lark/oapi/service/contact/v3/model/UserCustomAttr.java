@@ -12,80 +12,86 @@
  */
 
 package com.lark.oapi.service.contact.v3.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.contact.v3.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class UserCustomAttr {
-
-  @SerializedName("type")
-  private String type;
-  @SerializedName("id")
-  private String id;
-  @SerializedName("value")
-  private UserCustomAttrValue value;
-
-  // builder 开始
-  public UserCustomAttr() {
-  }
-
-  public UserCustomAttr(Builder builder) {
-    this.type = builder.type;
-    this.id = builder.id;
-    this.value = builder.value;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getType() {
-    return this.type;
-  }
-
-  public void setType(String type) {
-    this.type = type;
-  }
-
-  public String getId() {
-    return this.id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public UserCustomAttrValue getValue() {
-    return this.value;
-  }
-
-  public void setValue(UserCustomAttrValue value) {
-    this.value = value;
-  }
-
-  public static class Builder {
-
+    @SerializedName("type")
     private String type;
+    @SerializedName("id")
     private String id;
+    @SerializedName("value")
     private UserCustomAttrValue value;
-
-    public Builder type(String type) {
-      this.type = type;
-      return this;
+    public String getType() {
+        return this.type;
     }
 
-    public Builder id(String id) {
-      this.id = id;
-      return this;
+    public void setType(String type) {
+        this.type = type;
     }
 
-    public Builder value(UserCustomAttrValue value) {
-      this.value = value;
-      return this;
+    public String getId() {
+        return this.id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public UserCustomAttrValue getValue() {
+        return this.value;
+    }
+
+    public void setValue(UserCustomAttrValue value) {
+        this.value = value;
     }
 
 
-    public UserCustomAttr build() {
-      return new UserCustomAttr(this);
-    }
+// builder 开始
+  public UserCustomAttr(){}
+
+  public UserCustomAttr(Builder builder){
+      this.type = builder.type;
+      this.id = builder.id;
+      this.value = builder.value;
   }
+
+    public static class Builder {
+        private String type;
+        private String id;
+        private UserCustomAttrValue value;
+        public Builder type(String type) {
+             this.type = type;
+             return this;
+        }
+    
+        public Builder id(String id) {
+             this.id = id;
+             return this;
+        }
+    
+        public Builder value(UserCustomAttrValue value) {
+             this.value = value;
+             return this;
+        }
+    
+    
+    public UserCustomAttr build(){
+        return new UserCustomAttr(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

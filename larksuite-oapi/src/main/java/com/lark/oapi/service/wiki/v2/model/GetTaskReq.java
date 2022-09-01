@@ -12,71 +12,74 @@
  */
 
 package com.lark.oapi.service.wiki.v2.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.wiki.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class GetTaskReq {
-
-  @Query
-  @SerializedName("task_type")
-  private String taskType;
-  @Path
-  @SerializedName("task_id")
-  private String taskId;
-
-  // builder 开始
-  public GetTaskReq() {
-  }
-
-  public GetTaskReq(Builder builder) {
-    this.taskType = builder.taskType;
-    this.taskId = builder.taskId;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getTaskType() {
-    return this.taskType;
-  }
-
-  public void setTaskType(String taskType) {
-    this.taskType = taskType;
-  }
-
-  public String getTaskId() {
-    return this.taskId;
-  }
-
-  public void setTaskId(String taskId) {
-    this.taskId = taskId;
-  }
-
-  public static class Builder {
-
+    @Query
+    @SerializedName("task_type")
     private String taskType;
+    public String getTaskType() {
+        return this.taskType;
+    }
+
+    public void setTaskType(String taskType) {
+        this.taskType = taskType;
+    }
+
+    @Path
+    @SerializedName("task_id")
     private String taskId;
-
-    public Builder taskType(String taskType) {
-      this.taskType = taskType;
-      return this;
+    public String getTaskId() {
+        return this.taskId;
     }
 
-    public Builder taskType(com.lark.oapi.service.wiki.v2.enums.TaskTypeEnum taskType) {
-      this.taskType = taskType.getValue();
-      return this;
+    public void setTaskId(String taskId) {
+        this.taskId = taskId;
     }
 
-    public Builder taskId(String taskId) {
-      this.taskId = taskId;
-      return this;
-    }
 
-    public GetTaskReq build() {
-      return new GetTaskReq(this);
-    }
+// builder 开始
+  public GetTaskReq(){}
+
+  public GetTaskReq(Builder builder){
+       this.taskType = builder.taskType;
+       this.taskId = builder.taskId;
   }
+
+    public static class Builder {
+        private String taskType;
+    
+           public Builder taskType(String taskType) {
+                this.taskType = taskType;
+                return this;
+           }
+          public Builder taskType(com.lark.oapi.service.wiki.v2.enums.TaskTypeEnum taskType) {
+               this.taskType = taskType.getValue();
+               return this;
+          }
+    
+        private String taskId;
+          public Builder taskId(String taskId) {
+               this.taskId = taskId;
+               return this;
+          }
+    
+    public GetTaskReq build(){
+        return new GetTaskReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

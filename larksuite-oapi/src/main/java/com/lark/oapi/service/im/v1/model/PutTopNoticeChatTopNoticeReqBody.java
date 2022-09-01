@@ -12,46 +12,52 @@
  */
 
 package com.lark.oapi.service.im.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.im.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class PutTopNoticeChatTopNoticeReqBody {
-
-  @SerializedName("chat_top_notice")
-  private ChatTopNotice[] chatTopNotice;
-
-  // builder 开始
-  public PutTopNoticeChatTopNoticeReqBody() {
-  }
-
-  public PutTopNoticeChatTopNoticeReqBody(Builder builder) {
-    this.chatTopNotice = builder.chatTopNotice;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public ChatTopNotice[] getChatTopNotice() {
-    return this.chatTopNotice;
-  }
-
-  public void setChatTopNotice(ChatTopNotice[] chatTopNotice) {
-    this.chatTopNotice = chatTopNotice;
-  }
-
-  public static class Builder {
-
+    @SerializedName("chat_top_notice")
     private ChatTopNotice[] chatTopNotice;
+    public ChatTopNotice[] getChatTopNotice() {
+        return this.chatTopNotice;
+    }
 
-    public Builder chatTopNotice(ChatTopNotice[] chatTopNotice) {
-      this.chatTopNotice = chatTopNotice;
-      return this;
+    public void setChatTopNotice(ChatTopNotice[] chatTopNotice) {
+        this.chatTopNotice = chatTopNotice;
     }
 
 
-    public PutTopNoticeChatTopNoticeReqBody build() {
-      return new PutTopNoticeChatTopNoticeReqBody(this);
-    }
+// builder 开始
+  public PutTopNoticeChatTopNoticeReqBody(){}
+
+  public PutTopNoticeChatTopNoticeReqBody(Builder builder){
+      this.chatTopNotice = builder.chatTopNotice;
   }
+
+    public static class Builder {
+        private ChatTopNotice[] chatTopNotice;
+        public Builder chatTopNotice(ChatTopNotice[] chatTopNotice) {
+             this.chatTopNotice = chatTopNotice;
+             return this;
+        }
+    
+    
+    public PutTopNoticeChatTopNoticeReqBody build(){
+        return new PutTopNoticeChatTopNoticeReqBody(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

@@ -12,65 +12,70 @@
  */
 
 package com.lark.oapi.service.task.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.task.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class DeleteTaskFollowerReq {
-
-  @Path
-  @SerializedName("task_id")
-  private String taskId;
-  @Path
-  @SerializedName("follower_id")
-  private String followerId;
-
-  // builder 开始
-  public DeleteTaskFollowerReq() {
-  }
-
-  public DeleteTaskFollowerReq(Builder builder) {
-    this.taskId = builder.taskId;
-    this.followerId = builder.followerId;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getTaskId() {
-    return this.taskId;
-  }
-
-  public void setTaskId(String taskId) {
-    this.taskId = taskId;
-  }
-
-  public String getFollowerId() {
-    return this.followerId;
-  }
-
-  public void setFollowerId(String followerId) {
-    this.followerId = followerId;
-  }
-
-  public static class Builder {
-
+    @Path
+    @SerializedName("task_id")
     private String taskId;
+    @Path
+    @SerializedName("follower_id")
     private String followerId;
-
-    public Builder taskId(String taskId) {
-      this.taskId = taskId;
-      return this;
+    public String getTaskId() {
+        return this.taskId;
     }
 
-    public Builder followerId(String followerId) {
-      this.followerId = followerId;
-      return this;
+    public void setTaskId(String taskId) {
+        this.taskId = taskId;
     }
 
-    public DeleteTaskFollowerReq build() {
-      return new DeleteTaskFollowerReq(this);
+    public String getFollowerId() {
+        return this.followerId;
     }
+
+    public void setFollowerId(String followerId) {
+        this.followerId = followerId;
+    }
+
+
+// builder 开始
+  public DeleteTaskFollowerReq(){}
+
+  public DeleteTaskFollowerReq(Builder builder){
+       this.taskId = builder.taskId;
+       this.followerId = builder.followerId;
   }
+
+    public static class Builder {
+    
+        private String taskId;
+        private String followerId;
+          public Builder taskId(String taskId) {
+               this.taskId = taskId;
+               return this;
+          }
+    
+          public Builder followerId(String followerId) {
+               this.followerId = followerId;
+               return this;
+          }
+    
+    public DeleteTaskFollowerReq build(){
+        return new DeleteTaskFollowerReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

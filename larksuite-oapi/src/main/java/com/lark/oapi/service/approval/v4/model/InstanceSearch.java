@@ -12,210 +12,213 @@
  */
 
 package com.lark.oapi.service.approval.v4.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.approval.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class InstanceSearch {
-
-  @SerializedName("user_id")
-  private String userId;
-  @SerializedName("approval_code")
-  private String approvalCode;
-  @SerializedName("instance_code")
-  private String instanceCode;
-  @SerializedName("instance_external_id")
-  private String instanceExternalId;
-  @SerializedName("group_external_id")
-  private String groupExternalId;
-  @SerializedName("instance_title")
-  private String instanceTitle;
-  @SerializedName("instance_status")
-  private String instanceStatus;
-  @SerializedName("instance_start_time_from")
-  private String instanceStartTimeFrom;
-  @SerializedName("instance_start_time_to")
-  private String instanceStartTimeTo;
-  @SerializedName("locale")
-  private String locale;
-
-  // builder 开始
-  public InstanceSearch() {
-  }
-
-  public InstanceSearch(Builder builder) {
-    this.userId = builder.userId;
-    this.approvalCode = builder.approvalCode;
-    this.instanceCode = builder.instanceCode;
-    this.instanceExternalId = builder.instanceExternalId;
-    this.groupExternalId = builder.groupExternalId;
-    this.instanceTitle = builder.instanceTitle;
-    this.instanceStatus = builder.instanceStatus;
-    this.instanceStartTimeFrom = builder.instanceStartTimeFrom;
-    this.instanceStartTimeTo = builder.instanceStartTimeTo;
-    this.locale = builder.locale;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getUserId() {
-    return this.userId;
-  }
-
-  public void setUserId(String userId) {
-    this.userId = userId;
-  }
-
-  public String getApprovalCode() {
-    return this.approvalCode;
-  }
-
-  public void setApprovalCode(String approvalCode) {
-    this.approvalCode = approvalCode;
-  }
-
-  public String getInstanceCode() {
-    return this.instanceCode;
-  }
-
-  public void setInstanceCode(String instanceCode) {
-    this.instanceCode = instanceCode;
-  }
-
-  public String getInstanceExternalId() {
-    return this.instanceExternalId;
-  }
-
-  public void setInstanceExternalId(String instanceExternalId) {
-    this.instanceExternalId = instanceExternalId;
-  }
-
-  public String getGroupExternalId() {
-    return this.groupExternalId;
-  }
-
-  public void setGroupExternalId(String groupExternalId) {
-    this.groupExternalId = groupExternalId;
-  }
-
-  public String getInstanceTitle() {
-    return this.instanceTitle;
-  }
-
-  public void setInstanceTitle(String instanceTitle) {
-    this.instanceTitle = instanceTitle;
-  }
-
-  public String getInstanceStatus() {
-    return this.instanceStatus;
-  }
-
-  public void setInstanceStatus(String instanceStatus) {
-    this.instanceStatus = instanceStatus;
-  }
-
-  public String getInstanceStartTimeFrom() {
-    return this.instanceStartTimeFrom;
-  }
-
-  public void setInstanceStartTimeFrom(String instanceStartTimeFrom) {
-    this.instanceStartTimeFrom = instanceStartTimeFrom;
-  }
-
-  public String getInstanceStartTimeTo() {
-    return this.instanceStartTimeTo;
-  }
-
-  public void setInstanceStartTimeTo(String instanceStartTimeTo) {
-    this.instanceStartTimeTo = instanceStartTimeTo;
-  }
-
-  public String getLocale() {
-    return this.locale;
-  }
-
-  public void setLocale(String locale) {
-    this.locale = locale;
-  }
-
-  public static class Builder {
-
+    @SerializedName("user_id")
     private String userId;
+    @SerializedName("approval_code")
     private String approvalCode;
+    @SerializedName("instance_code")
     private String instanceCode;
+    @SerializedName("instance_external_id")
     private String instanceExternalId;
+    @SerializedName("group_external_id")
     private String groupExternalId;
+    @SerializedName("instance_title")
     private String instanceTitle;
+    @SerializedName("instance_status")
     private String instanceStatus;
+    @SerializedName("instance_start_time_from")
     private String instanceStartTimeFrom;
+    @SerializedName("instance_start_time_to")
     private String instanceStartTimeTo;
+    @SerializedName("locale")
     private String locale;
-
-    public Builder userId(String userId) {
-      this.userId = userId;
-      return this;
+    public String getUserId() {
+        return this.userId;
     }
 
-    public Builder approvalCode(String approvalCode) {
-      this.approvalCode = approvalCode;
-      return this;
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
-    public Builder instanceCode(String instanceCode) {
-      this.instanceCode = instanceCode;
-      return this;
+    public String getApprovalCode() {
+        return this.approvalCode;
     }
 
-    public Builder instanceExternalId(String instanceExternalId) {
-      this.instanceExternalId = instanceExternalId;
-      return this;
+    public void setApprovalCode(String approvalCode) {
+        this.approvalCode = approvalCode;
     }
 
-    public Builder groupExternalId(String groupExternalId) {
-      this.groupExternalId = groupExternalId;
-      return this;
+    public String getInstanceCode() {
+        return this.instanceCode;
     }
 
-    public Builder instanceTitle(String instanceTitle) {
-      this.instanceTitle = instanceTitle;
-      return this;
+    public void setInstanceCode(String instanceCode) {
+        this.instanceCode = instanceCode;
     }
 
-    public Builder instanceStatus(String instanceStatus) {
-      this.instanceStatus = instanceStatus;
-      return this;
+    public String getInstanceExternalId() {
+        return this.instanceExternalId;
     }
 
-    public Builder instanceStatus(
-        com.lark.oapi.service.approval.v4.enums.InstanceStatusEnum instanceStatus) {
-      this.instanceStatus = instanceStatus.getValue();
-      return this;
+    public void setInstanceExternalId(String instanceExternalId) {
+        this.instanceExternalId = instanceExternalId;
     }
 
-    public Builder instanceStartTimeFrom(String instanceStartTimeFrom) {
-      this.instanceStartTimeFrom = instanceStartTimeFrom;
-      return this;
+    public String getGroupExternalId() {
+        return this.groupExternalId;
     }
 
-    public Builder instanceStartTimeTo(String instanceStartTimeTo) {
-      this.instanceStartTimeTo = instanceStartTimeTo;
-      return this;
+    public void setGroupExternalId(String groupExternalId) {
+        this.groupExternalId = groupExternalId;
     }
 
-    public Builder locale(String locale) {
-      this.locale = locale;
-      return this;
+    public String getInstanceTitle() {
+        return this.instanceTitle;
     }
 
-    public Builder locale(com.lark.oapi.service.approval.v4.enums.LocaleEnum locale) {
-      this.locale = locale.getValue();
-      return this;
+    public void setInstanceTitle(String instanceTitle) {
+        this.instanceTitle = instanceTitle;
+    }
+
+    public String getInstanceStatus() {
+        return this.instanceStatus;
+    }
+
+    public void setInstanceStatus(String instanceStatus) {
+        this.instanceStatus = instanceStatus;
+    }
+
+    public String getInstanceStartTimeFrom() {
+        return this.instanceStartTimeFrom;
+    }
+
+    public void setInstanceStartTimeFrom(String instanceStartTimeFrom) {
+        this.instanceStartTimeFrom = instanceStartTimeFrom;
+    }
+
+    public String getInstanceStartTimeTo() {
+        return this.instanceStartTimeTo;
+    }
+
+    public void setInstanceStartTimeTo(String instanceStartTimeTo) {
+        this.instanceStartTimeTo = instanceStartTimeTo;
+    }
+
+    public String getLocale() {
+        return this.locale;
+    }
+
+    public void setLocale(String locale) {
+        this.locale = locale;
     }
 
 
-    public InstanceSearch build() {
-      return new InstanceSearch(this);
-    }
+// builder 开始
+  public InstanceSearch(){}
+
+  public InstanceSearch(Builder builder){
+      this.userId = builder.userId;
+      this.approvalCode = builder.approvalCode;
+      this.instanceCode = builder.instanceCode;
+      this.instanceExternalId = builder.instanceExternalId;
+      this.groupExternalId = builder.groupExternalId;
+      this.instanceTitle = builder.instanceTitle;
+      this.instanceStatus = builder.instanceStatus;
+      this.instanceStartTimeFrom = builder.instanceStartTimeFrom;
+      this.instanceStartTimeTo = builder.instanceStartTimeTo;
+      this.locale = builder.locale;
   }
+
+    public static class Builder {
+        private String userId;
+        private String approvalCode;
+        private String instanceCode;
+        private String instanceExternalId;
+        private String groupExternalId;
+        private String instanceTitle;
+        private String instanceStatus;
+        private String instanceStartTimeFrom;
+        private String instanceStartTimeTo;
+        private String locale;
+        public Builder userId(String userId) {
+             this.userId = userId;
+             return this;
+        }
+    
+        public Builder approvalCode(String approvalCode) {
+             this.approvalCode = approvalCode;
+             return this;
+        }
+    
+        public Builder instanceCode(String instanceCode) {
+             this.instanceCode = instanceCode;
+             return this;
+        }
+    
+        public Builder instanceExternalId(String instanceExternalId) {
+             this.instanceExternalId = instanceExternalId;
+             return this;
+        }
+    
+        public Builder groupExternalId(String groupExternalId) {
+             this.groupExternalId = groupExternalId;
+             return this;
+        }
+    
+        public Builder instanceTitle(String instanceTitle) {
+             this.instanceTitle = instanceTitle;
+             return this;
+        }
+    
+        public Builder instanceStatus(String instanceStatus) {
+             this.instanceStatus = instanceStatus;
+             return this;
+        }
+        public Builder instanceStatus(com.lark.oapi.service.approval.v4.enums.InstanceStatusEnum instanceStatus) {
+             this.instanceStatus = instanceStatus.getValue();
+             return this;
+        }
+    
+        public Builder instanceStartTimeFrom(String instanceStartTimeFrom) {
+             this.instanceStartTimeFrom = instanceStartTimeFrom;
+             return this;
+        }
+    
+        public Builder instanceStartTimeTo(String instanceStartTimeTo) {
+             this.instanceStartTimeTo = instanceStartTimeTo;
+             return this;
+        }
+    
+        public Builder locale(String locale) {
+             this.locale = locale;
+             return this;
+        }
+        public Builder locale(com.lark.oapi.service.approval.v4.enums.LocaleEnum locale) {
+             this.locale = locale.getValue();
+             return this;
+        }
+    
+    
+    public InstanceSearch build(){
+        return new InstanceSearch(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

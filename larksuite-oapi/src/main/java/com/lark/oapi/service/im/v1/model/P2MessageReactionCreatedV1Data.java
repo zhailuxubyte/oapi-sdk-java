@@ -12,70 +12,77 @@
  */
 
 package com.lark.oapi.service.im.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class P2MessageReactionCreatedV1Data {
+    @SerializedName("message_id")
+    private String messageId;
+    @SerializedName("reaction_type")
+    private Emoji reactionType;
+    @SerializedName("operator_type")
+    private String operatorType;
+    @SerializedName("user_id")
+    private UserId userId;
+    @SerializedName("app_id")
+    private String appId;
+    @SerializedName("action_time")
+    private String actionTime;
+    public String getMessageId() {
+        return this.messageId;
+    }
 
-  @SerializedName("message_id")
-  private String messageId;
-  @SerializedName("reaction_type")
-  private Emoji reactionType;
-  @SerializedName("operator_type")
-  private String operatorType;
-  @SerializedName("user_id")
-  private UserId userId;
-  @SerializedName("app_id")
-  private String appId;
-  @SerializedName("action_time")
-  private String actionTime;
+    public void setMessageId(String messageId) {
+        this.messageId = messageId;
+    }
 
-  public String getMessageId() {
-    return this.messageId;
-  }
+    public Emoji getReactionType() {
+        return this.reactionType;
+    }
 
-  public void setMessageId(String messageId) {
-    this.messageId = messageId;
-  }
+    public void setReactionType(Emoji reactionType) {
+        this.reactionType = reactionType;
+    }
 
-  public Emoji getReactionType() {
-    return this.reactionType;
-  }
+    public String getOperatorType() {
+        return this.operatorType;
+    }
 
-  public void setReactionType(Emoji reactionType) {
-    this.reactionType = reactionType;
-  }
+    public void setOperatorType(String operatorType) {
+        this.operatorType = operatorType;
+    }
 
-  public String getOperatorType() {
-    return this.operatorType;
-  }
+    public UserId getUserId() {
+        return this.userId;
+    }
 
-  public void setOperatorType(String operatorType) {
-    this.operatorType = operatorType;
-  }
+    public void setUserId(UserId userId) {
+        this.userId = userId;
+    }
 
-  public UserId getUserId() {
-    return this.userId;
-  }
+    public String getAppId() {
+        return this.appId;
+    }
 
-  public void setUserId(UserId userId) {
-    this.userId = userId;
-  }
+    public void setAppId(String appId) {
+        this.appId = appId;
+    }
 
-  public String getAppId() {
-    return this.appId;
-  }
+    public String getActionTime() {
+        return this.actionTime;
+    }
 
-  public void setAppId(String appId) {
-    this.appId = appId;
-  }
-
-  public String getActionTime() {
-    return this.actionTime;
-  }
-
-  public void setActionTime(String actionTime) {
-    this.actionTime = actionTime;
-  }
+    public void setActionTime(String actionTime) {
+        this.actionTime = actionTime;
+    }
 
 }

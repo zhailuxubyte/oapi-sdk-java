@@ -12,80 +12,86 @@
  */
 
 package com.lark.oapi.service.approval.v4.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.approval.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class InstanceSearchItem {
-
-  @SerializedName("approval")
-  private InstanceSearchApproval approval;
-  @SerializedName("group")
-  private InstanceSearchGroup group;
-  @SerializedName("instance")
-  private InstanceSearchNode instance;
-
-  // builder 开始
-  public InstanceSearchItem() {
-  }
-
-  public InstanceSearchItem(Builder builder) {
-    this.approval = builder.approval;
-    this.group = builder.group;
-    this.instance = builder.instance;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public InstanceSearchApproval getApproval() {
-    return this.approval;
-  }
-
-  public void setApproval(InstanceSearchApproval approval) {
-    this.approval = approval;
-  }
-
-  public InstanceSearchGroup getGroup() {
-    return this.group;
-  }
-
-  public void setGroup(InstanceSearchGroup group) {
-    this.group = group;
-  }
-
-  public InstanceSearchNode getInstance() {
-    return this.instance;
-  }
-
-  public void setInstance(InstanceSearchNode instance) {
-    this.instance = instance;
-  }
-
-  public static class Builder {
-
+    @SerializedName("approval")
     private InstanceSearchApproval approval;
+    @SerializedName("group")
     private InstanceSearchGroup group;
+    @SerializedName("instance")
     private InstanceSearchNode instance;
-
-    public Builder approval(InstanceSearchApproval approval) {
-      this.approval = approval;
-      return this;
+    public InstanceSearchApproval getApproval() {
+        return this.approval;
     }
 
-    public Builder group(InstanceSearchGroup group) {
-      this.group = group;
-      return this;
+    public void setApproval(InstanceSearchApproval approval) {
+        this.approval = approval;
     }
 
-    public Builder instance(InstanceSearchNode instance) {
-      this.instance = instance;
-      return this;
+    public InstanceSearchGroup getGroup() {
+        return this.group;
+    }
+
+    public void setGroup(InstanceSearchGroup group) {
+        this.group = group;
+    }
+
+    public InstanceSearchNode getInstance() {
+        return this.instance;
+    }
+
+    public void setInstance(InstanceSearchNode instance) {
+        this.instance = instance;
     }
 
 
-    public InstanceSearchItem build() {
-      return new InstanceSearchItem(this);
-    }
+// builder 开始
+  public InstanceSearchItem(){}
+
+  public InstanceSearchItem(Builder builder){
+      this.approval = builder.approval;
+      this.group = builder.group;
+      this.instance = builder.instance;
   }
+
+    public static class Builder {
+        private InstanceSearchApproval approval;
+        private InstanceSearchGroup group;
+        private InstanceSearchNode instance;
+        public Builder approval(InstanceSearchApproval approval) {
+             this.approval = approval;
+             return this;
+        }
+    
+        public Builder group(InstanceSearchGroup group) {
+             this.group = group;
+             return this;
+        }
+    
+        public Builder instance(InstanceSearchNode instance) {
+             this.instance = instance;
+             return this;
+        }
+    
+    
+    public InstanceSearchItem build(){
+        return new InstanceSearchItem(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

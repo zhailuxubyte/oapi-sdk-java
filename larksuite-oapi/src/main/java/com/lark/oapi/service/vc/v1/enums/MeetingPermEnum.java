@@ -15,17 +15,16 @@ package com.lark.oapi.service.vc.v1.enums;
 
 // 生成枚举值
 public enum MeetingPermEnum {
-  CAN_BE_HOST(1),
-  CAN_INVITE(2),
-  CAN_JOIN(3),
+     CAN_BE_HOST(1),
+     CAN_INVITE(2),
+     CAN_JOIN(3),
   ;
-  private Integer value;
+   private Integer value;
+    MeetingPermEnum(Integer value) {
+      this.value = value;
+    }
 
-  MeetingPermEnum(Integer value) {
-    this.value = value;
-  }
-
-  public Integer getValue() {
-    return this.value;
-  }
+    public Integer getValue() {
+      return this.value;
+    }
 }

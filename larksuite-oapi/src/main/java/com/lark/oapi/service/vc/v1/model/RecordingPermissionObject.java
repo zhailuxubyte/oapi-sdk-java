@@ -12,90 +12,94 @@
  */
 
 package com.lark.oapi.service.vc.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.vc.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class RecordingPermissionObject {
-
-  @SerializedName("id")
-  private String id;
-  @SerializedName("type")
-  private Integer type;
-  @SerializedName("permission")
-  private Integer permission;
-
-  // builder 开始
-  public RecordingPermissionObject() {
-  }
-
-  public RecordingPermissionObject(Builder builder) {
-    this.id = builder.id;
-    this.type = builder.type;
-    this.permission = builder.permission;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getId() {
-    return this.id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public Integer getType() {
-    return this.type;
-  }
-
-  public void setType(Integer type) {
-    this.type = type;
-  }
-
-  public Integer getPermission() {
-    return this.permission;
-  }
-
-  public void setPermission(Integer permission) {
-    this.permission = permission;
-  }
-
-  public static class Builder {
-
+    @SerializedName("id")
     private String id;
+    @SerializedName("type")
     private Integer type;
+    @SerializedName("permission")
     private Integer permission;
-
-    public Builder id(String id) {
-      this.id = id;
-      return this;
+    public String getId() {
+        return this.id;
     }
 
-    public Builder type(Integer type) {
-      this.type = type;
-      return this;
+    public void setId(String id) {
+        this.id = id;
     }
 
-    public Builder type(com.lark.oapi.service.vc.v1.enums.AuthTypeEnum type) {
-      this.type = type.getValue();
-      return this;
+    public Integer getType() {
+        return this.type;
     }
 
-    public Builder permission(Integer permission) {
-      this.permission = permission;
-      return this;
+    public void setType(Integer type) {
+        this.type = type;
     }
 
-    public Builder permission(com.lark.oapi.service.vc.v1.enums.PermTypeEnum permission) {
-      this.permission = permission.getValue();
-      return this;
+    public Integer getPermission() {
+        return this.permission;
+    }
+
+    public void setPermission(Integer permission) {
+        this.permission = permission;
     }
 
 
-    public RecordingPermissionObject build() {
-      return new RecordingPermissionObject(this);
-    }
+// builder 开始
+  public RecordingPermissionObject(){}
+
+  public RecordingPermissionObject(Builder builder){
+      this.id = builder.id;
+      this.type = builder.type;
+      this.permission = builder.permission;
   }
+
+    public static class Builder {
+        private String id;
+        private Integer type;
+        private Integer permission;
+        public Builder id(String id) {
+             this.id = id;
+             return this;
+        }
+    
+        public Builder type(Integer type) {
+             this.type = type;
+             return this;
+        }
+        public Builder type(com.lark.oapi.service.vc.v1.enums.AuthTypeEnum type) {
+             this.type = type.getValue();
+             return this;
+        }
+    
+        public Builder permission(Integer permission) {
+             this.permission = permission;
+             return this;
+        }
+        public Builder permission(com.lark.oapi.service.vc.v1.enums.PermTypeEnum permission) {
+             this.permission = permission.getValue();
+             return this;
+        }
+    
+    
+    public RecordingPermissionObject build(){
+        return new RecordingPermissionObject(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

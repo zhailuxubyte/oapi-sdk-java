@@ -12,119 +12,124 @@
  */
 
 package com.lark.oapi.service.approval.v4.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.approval.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class ListInstanceReq {
-
-  @Query
-  @SerializedName("page_size")
-  private Integer pageSize;
-  @Query
-  @SerializedName("page_token")
-  private String pageToken;
-  @Query
-  @SerializedName("approval_code")
-  private String approvalCode;
-  @Query
-  @SerializedName("start_time")
-  private String startTime;
-  @Query
-  @SerializedName("end_time")
-  private String endTime;
-
-  // builder 开始
-  public ListInstanceReq() {
-  }
-
-  public ListInstanceReq(Builder builder) {
-    this.pageSize = builder.pageSize;
-    this.pageToken = builder.pageToken;
-    this.approvalCode = builder.approvalCode;
-    this.startTime = builder.startTime;
-    this.endTime = builder.endTime;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Integer getPageSize() {
-    return this.pageSize;
-  }
-
-  public void setPageSize(Integer pageSize) {
-    this.pageSize = pageSize;
-  }
-
-  public String getPageToken() {
-    return this.pageToken;
-  }
-
-  public void setPageToken(String pageToken) {
-    this.pageToken = pageToken;
-  }
-
-  public String getApprovalCode() {
-    return this.approvalCode;
-  }
-
-  public void setApprovalCode(String approvalCode) {
-    this.approvalCode = approvalCode;
-  }
-
-  public String getStartTime() {
-    return this.startTime;
-  }
-
-  public void setStartTime(String startTime) {
-    this.startTime = startTime;
-  }
-
-  public String getEndTime() {
-    return this.endTime;
-  }
-
-  public void setEndTime(String endTime) {
-    this.endTime = endTime;
-  }
-
-  public static class Builder {
-
+    @Query
+    @SerializedName("page_size")
     private Integer pageSize;
+    @Query
+    @SerializedName("page_token")
     private String pageToken;
+    @Query
+    @SerializedName("approval_code")
     private String approvalCode;
+    @Query
+    @SerializedName("start_time")
     private String startTime;
+    @Query
+    @SerializedName("end_time")
     private String endTime;
-
-    public Builder pageSize(Integer pageSize) {
-      this.pageSize = pageSize;
-      return this;
+    public Integer getPageSize() {
+        return this.pageSize;
     }
 
-    public Builder pageToken(String pageToken) {
-      this.pageToken = pageToken;
-      return this;
+    public void setPageSize(Integer pageSize) {
+        this.pageSize = pageSize;
     }
 
-    public Builder approvalCode(String approvalCode) {
-      this.approvalCode = approvalCode;
-      return this;
+    public String getPageToken() {
+        return this.pageToken;
     }
 
-    public Builder startTime(String startTime) {
-      this.startTime = startTime;
-      return this;
+    public void setPageToken(String pageToken) {
+        this.pageToken = pageToken;
     }
 
-    public Builder endTime(String endTime) {
-      this.endTime = endTime;
-      return this;
+    public String getApprovalCode() {
+        return this.approvalCode;
     }
 
-    public ListInstanceReq build() {
-      return new ListInstanceReq(this);
+    public void setApprovalCode(String approvalCode) {
+        this.approvalCode = approvalCode;
     }
+
+    public String getStartTime() {
+        return this.startTime;
+    }
+
+    public void setStartTime(String startTime) {
+        this.startTime = startTime;
+    }
+
+    public String getEndTime() {
+        return this.endTime;
+    }
+
+    public void setEndTime(String endTime) {
+        this.endTime = endTime;
+    }
+
+
+// builder 开始
+  public ListInstanceReq(){}
+
+  public ListInstanceReq(Builder builder){
+       this.pageSize = builder.pageSize;
+       this.pageToken = builder.pageToken;
+       this.approvalCode = builder.approvalCode;
+       this.startTime = builder.startTime;
+       this.endTime = builder.endTime;
   }
+
+    public static class Builder {
+        private Integer pageSize;
+        private String pageToken;
+        private String approvalCode;
+        private String startTime;
+        private String endTime;
+    
+           public Builder pageSize(Integer pageSize) {
+                this.pageSize = pageSize;
+                return this;
+           }
+    
+           public Builder pageToken(String pageToken) {
+                this.pageToken = pageToken;
+                return this;
+           }
+    
+           public Builder approvalCode(String approvalCode) {
+                this.approvalCode = approvalCode;
+                return this;
+           }
+    
+           public Builder startTime(String startTime) {
+                this.startTime = startTime;
+                return this;
+           }
+    
+           public Builder endTime(String endTime) {
+                this.endTime = endTime;
+                return this;
+           }
+    
+    public ListInstanceReq build(){
+        return new ListInstanceReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

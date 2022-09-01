@@ -12,80 +12,86 @@
  */
 
 package com.lark.oapi.service.contact.v3.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.contact.v3.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class Scope {
-
-  @SerializedName("departments")
-  private Department[] departments;
-  @SerializedName("users")
-  private User[] users;
-  @SerializedName("user_groups")
-  private UserGroup[] userGroups;
-
-  // builder 开始
-  public Scope() {
-  }
-
-  public Scope(Builder builder) {
-    this.departments = builder.departments;
-    this.users = builder.users;
-    this.userGroups = builder.userGroups;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Department[] getDepartments() {
-    return this.departments;
-  }
-
-  public void setDepartments(Department[] departments) {
-    this.departments = departments;
-  }
-
-  public User[] getUsers() {
-    return this.users;
-  }
-
-  public void setUsers(User[] users) {
-    this.users = users;
-  }
-
-  public UserGroup[] getUserGroups() {
-    return this.userGroups;
-  }
-
-  public void setUserGroups(UserGroup[] userGroups) {
-    this.userGroups = userGroups;
-  }
-
-  public static class Builder {
-
+    @SerializedName("departments")
     private Department[] departments;
+    @SerializedName("users")
     private User[] users;
+    @SerializedName("user_groups")
     private UserGroup[] userGroups;
-
-    public Builder departments(Department[] departments) {
-      this.departments = departments;
-      return this;
+    public Department[] getDepartments() {
+        return this.departments;
     }
 
-    public Builder users(User[] users) {
-      this.users = users;
-      return this;
+    public void setDepartments(Department[] departments) {
+        this.departments = departments;
     }
 
-    public Builder userGroups(UserGroup[] userGroups) {
-      this.userGroups = userGroups;
-      return this;
+    public User[] getUsers() {
+        return this.users;
+    }
+
+    public void setUsers(User[] users) {
+        this.users = users;
+    }
+
+    public UserGroup[] getUserGroups() {
+        return this.userGroups;
+    }
+
+    public void setUserGroups(UserGroup[] userGroups) {
+        this.userGroups = userGroups;
     }
 
 
-    public Scope build() {
-      return new Scope(this);
-    }
+// builder 开始
+  public Scope(){}
+
+  public Scope(Builder builder){
+      this.departments = builder.departments;
+      this.users = builder.users;
+      this.userGroups = builder.userGroups;
   }
+
+    public static class Builder {
+        private Department[] departments;
+        private User[] users;
+        private UserGroup[] userGroups;
+        public Builder departments(Department[] departments) {
+             this.departments = departments;
+             return this;
+        }
+    
+        public Builder users(User[] users) {
+             this.users = users;
+             return this;
+        }
+    
+        public Builder userGroups(UserGroup[] userGroups) {
+             this.userGroups = userGroups;
+             return this;
+        }
+    
+    
+    public Scope build(){
+        return new Scope(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

@@ -12,80 +12,86 @@
  */
 
 package com.lark.oapi.service.im.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.im.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class EventSender {
-
-  @SerializedName("sender_id")
-  private UserId senderId;
-  @SerializedName("sender_type")
-  private String senderType;
-  @SerializedName("tenant_key")
-  private String tenantKey;
-
-  // builder 开始
-  public EventSender() {
-  }
-
-  public EventSender(Builder builder) {
-    this.senderId = builder.senderId;
-    this.senderType = builder.senderType;
-    this.tenantKey = builder.tenantKey;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public UserId getSenderId() {
-    return this.senderId;
-  }
-
-  public void setSenderId(UserId senderId) {
-    this.senderId = senderId;
-  }
-
-  public String getSenderType() {
-    return this.senderType;
-  }
-
-  public void setSenderType(String senderType) {
-    this.senderType = senderType;
-  }
-
-  public String getTenantKey() {
-    return this.tenantKey;
-  }
-
-  public void setTenantKey(String tenantKey) {
-    this.tenantKey = tenantKey;
-  }
-
-  public static class Builder {
-
+    @SerializedName("sender_id")
     private UserId senderId;
+    @SerializedName("sender_type")
     private String senderType;
+    @SerializedName("tenant_key")
     private String tenantKey;
-
-    public Builder senderId(UserId senderId) {
-      this.senderId = senderId;
-      return this;
+    public UserId getSenderId() {
+        return this.senderId;
     }
 
-    public Builder senderType(String senderType) {
-      this.senderType = senderType;
-      return this;
+    public void setSenderId(UserId senderId) {
+        this.senderId = senderId;
     }
 
-    public Builder tenantKey(String tenantKey) {
-      this.tenantKey = tenantKey;
-      return this;
+    public String getSenderType() {
+        return this.senderType;
+    }
+
+    public void setSenderType(String senderType) {
+        this.senderType = senderType;
+    }
+
+    public String getTenantKey() {
+        return this.tenantKey;
+    }
+
+    public void setTenantKey(String tenantKey) {
+        this.tenantKey = tenantKey;
     }
 
 
-    public EventSender build() {
-      return new EventSender(this);
-    }
+// builder 开始
+  public EventSender(){}
+
+  public EventSender(Builder builder){
+      this.senderId = builder.senderId;
+      this.senderType = builder.senderType;
+      this.tenantKey = builder.tenantKey;
   }
+
+    public static class Builder {
+        private UserId senderId;
+        private String senderType;
+        private String tenantKey;
+        public Builder senderId(UserId senderId) {
+             this.senderId = senderId;
+             return this;
+        }
+    
+        public Builder senderType(String senderType) {
+             this.senderType = senderType;
+             return this;
+        }
+    
+        public Builder tenantKey(String tenantKey) {
+             this.tenantKey = tenantKey;
+             return this;
+        }
+    
+    
+    public EventSender build(){
+        return new EventSender(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

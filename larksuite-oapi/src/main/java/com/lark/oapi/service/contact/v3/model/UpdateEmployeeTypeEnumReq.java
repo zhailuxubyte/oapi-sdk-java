@@ -12,69 +12,72 @@
  */
 
 package com.lark.oapi.service.contact.v3.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.contact.v3.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class UpdateEmployeeTypeEnumReq {
-
-  @Path
-  @SerializedName("enum_id")
-  private String enumId;
-  @Body
-  private EmployeeTypeEnum body;
-
-  // builder 开始
-  public UpdateEmployeeTypeEnumReq() {
-  }
-
-  public UpdateEmployeeTypeEnumReq(Builder builder) {
-    this.enumId = builder.enumId;
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getEnumId() {
-    return this.enumId;
-  }
-
-  public void setEnumId(String enumId) {
-    this.enumId = enumId;
-  }
-
-  public EmployeeTypeEnum getEmployeeTypeEnum() {
-    return this.body;
-  }
-
-  public void setEmployeeTypeEnum(EmployeeTypeEnum body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
+    @Path
+    @SerializedName("enum_id")
     private String enumId;
+    public String getEnumId() {
+        return this.enumId;
+    }
+
+    public void setEnumId(String enumId) {
+        this.enumId = enumId;
+    }
+
+    @Body
     private EmployeeTypeEnum body;
 
-    public Builder enumId(String enumId) {
-      this.enumId = enumId;
-      return this;
-    }
-
     public EmployeeTypeEnum getEmployeeTypeEnum() {
-      return this.body;
+        return this.body;
     }
 
-    public Builder employeeTypeEnum(EmployeeTypeEnum body) {
-      this.body = body;
-      return this;
+    public void setEmployeeTypeEnum(EmployeeTypeEnum body) {
+        this.body = body;
     }
 
-    public UpdateEmployeeTypeEnumReq build() {
-      return new UpdateEmployeeTypeEnumReq(this);
-    }
+// builder 开始
+  public UpdateEmployeeTypeEnumReq(){}
+
+  public UpdateEmployeeTypeEnumReq(Builder builder){
+       this.enumId = builder.enumId;
+        this.body = builder.body;
   }
+
+    public static class Builder {
+    
+        private String enumId;
+          public Builder enumId(String enumId) {
+               this.enumId = enumId;
+               return this;
+          }
+    
+        private EmployeeTypeEnum body;
+    
+        public EmployeeTypeEnum getEmployeeTypeEnum() {
+            return this.body;
+        }
+        public Builder employeeTypeEnum(EmployeeTypeEnum body) {
+             this.body = body;
+             return this;
+        }
+    public UpdateEmployeeTypeEnumReq build(){
+        return new UpdateEmployeeTypeEnumReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

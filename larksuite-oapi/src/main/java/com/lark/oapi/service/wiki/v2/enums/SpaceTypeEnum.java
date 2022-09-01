@@ -15,16 +15,15 @@ package com.lark.oapi.service.wiki.v2.enums;
 
 // 生成枚举值
 public enum SpaceTypeEnum {
-  TEAM("team"),
-  PERSON("person"),
+     TEAM("team"),
+     PERSON("person"),
   ;
-  private String value;
+   private String value;
+    SpaceTypeEnum(String value) {
+      this.value = value;
+    }
 
-  SpaceTypeEnum(String value) {
-    this.value = value;
-  }
-
-  public String getValue() {
-    return this.value;
-  }
+    public String getValue() {
+      return this.value;
+    }
 }

@@ -12,85 +12,90 @@
  */
 
 package com.lark.oapi.service.contact.v3.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.contact.v3.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class DepartmentUnit {
-
-  @SerializedName("unit_id")
-  private String unitId;
-  @SerializedName("unit_type")
-  private String unitType;
-  @SerializedName("unit_name")
-  private String unitName;
-
-  // builder 开始
-  public DepartmentUnit() {
-  }
-
-  public DepartmentUnit(Builder builder) {
-    this.unitId = builder.unitId;
-    this.unitType = builder.unitType;
-    this.unitName = builder.unitName;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getUnitId() {
-    return this.unitId;
-  }
-
-  public void setUnitId(String unitId) {
-    this.unitId = unitId;
-  }
-
-  public String getUnitType() {
-    return this.unitType;
-  }
-
-  public void setUnitType(String unitType) {
-    this.unitType = unitType;
-  }
-
-  public String getUnitName() {
-    return this.unitName;
-  }
-
-  public void setUnitName(String unitName) {
-    this.unitName = unitName;
-  }
-
-  public static class Builder {
-
+    @SerializedName("unit_id")
     private String unitId;
+    @SerializedName("unit_type")
     private String unitType;
+    @SerializedName("unit_name")
     private String unitName;
-
-    public Builder unitId(String unitId) {
-      this.unitId = unitId;
-      return this;
+    public String getUnitId() {
+        return this.unitId;
     }
 
-    public Builder unitType(String unitType) {
-      this.unitType = unitType;
-      return this;
+    public void setUnitId(String unitId) {
+        this.unitId = unitId;
     }
 
-    public Builder unitType(com.lark.oapi.service.contact.v3.enums.UnitTypeEnum unitType) {
-      this.unitType = unitType.getValue();
-      return this;
+    public String getUnitType() {
+        return this.unitType;
     }
 
-    public Builder unitName(String unitName) {
-      this.unitName = unitName;
-      return this;
+    public void setUnitType(String unitType) {
+        this.unitType = unitType;
+    }
+
+    public String getUnitName() {
+        return this.unitName;
+    }
+
+    public void setUnitName(String unitName) {
+        this.unitName = unitName;
     }
 
 
-    public DepartmentUnit build() {
-      return new DepartmentUnit(this);
-    }
+// builder 开始
+  public DepartmentUnit(){}
+
+  public DepartmentUnit(Builder builder){
+      this.unitId = builder.unitId;
+      this.unitType = builder.unitType;
+      this.unitName = builder.unitName;
   }
+
+    public static class Builder {
+        private String unitId;
+        private String unitType;
+        private String unitName;
+        public Builder unitId(String unitId) {
+             this.unitId = unitId;
+             return this;
+        }
+    
+        public Builder unitType(String unitType) {
+             this.unitType = unitType;
+             return this;
+        }
+        public Builder unitType(com.lark.oapi.service.contact.v3.enums.UnitTypeEnum unitType) {
+             this.unitType = unitType.getValue();
+             return this;
+        }
+    
+        public Builder unitName(String unitName) {
+             this.unitName = unitName;
+             return this;
+        }
+    
+    
+    public DepartmentUnit build(){
+        return new DepartmentUnit(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

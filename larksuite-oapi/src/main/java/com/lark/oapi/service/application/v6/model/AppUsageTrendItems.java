@@ -12,63 +12,69 @@
  */
 
 package com.lark.oapi.service.application.v6.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.application.v6.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class AppUsageTrendItems {
-
-  @SerializedName("id")
-  private String id;
-  @SerializedName("trend")
-  private UsageTrendItem[] trend;
-
-  // builder 开始
-  public AppUsageTrendItems() {
-  }
-
-  public AppUsageTrendItems(Builder builder) {
-    this.id = builder.id;
-    this.trend = builder.trend;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getId() {
-    return this.id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public UsageTrendItem[] getTrend() {
-    return this.trend;
-  }
-
-  public void setTrend(UsageTrendItem[] trend) {
-    this.trend = trend;
-  }
-
-  public static class Builder {
-
+    @SerializedName("id")
     private String id;
+    @SerializedName("trend")
     private UsageTrendItem[] trend;
-
-    public Builder id(String id) {
-      this.id = id;
-      return this;
+    public String getId() {
+        return this.id;
     }
 
-    public Builder trend(UsageTrendItem[] trend) {
-      this.trend = trend;
-      return this;
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public UsageTrendItem[] getTrend() {
+        return this.trend;
+    }
+
+    public void setTrend(UsageTrendItem[] trend) {
+        this.trend = trend;
     }
 
 
-    public AppUsageTrendItems build() {
-      return new AppUsageTrendItems(this);
-    }
+// builder 开始
+  public AppUsageTrendItems(){}
+
+  public AppUsageTrendItems(Builder builder){
+      this.id = builder.id;
+      this.trend = builder.trend;
   }
+
+    public static class Builder {
+        private String id;
+        private UsageTrendItem[] trend;
+        public Builder id(String id) {
+             this.id = id;
+             return this;
+        }
+    
+        public Builder trend(UsageTrendItem[] trend) {
+             this.trend = trend;
+             return this;
+        }
+    
+    
+    public AppUsageTrendItems build(){
+        return new AppUsageTrendItems(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

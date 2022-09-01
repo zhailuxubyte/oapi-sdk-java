@@ -12,68 +12,73 @@
  */
 
 package com.lark.oapi.service.application.v6.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.application.v6.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class AppCommonCategory {
-
-  @SerializedName("i18n_key")
-  private String i18nKey;
-  @SerializedName("category")
-  private String category;
-
-  // builder 开始
-  public AppCommonCategory() {
-  }
-
-  public AppCommonCategory(Builder builder) {
-    this.i18nKey = builder.i18nKey;
-    this.category = builder.category;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getI18nKey() {
-    return this.i18nKey;
-  }
-
-  public void setI18nKey(String i18nKey) {
-    this.i18nKey = i18nKey;
-  }
-
-  public String getCategory() {
-    return this.category;
-  }
-
-  public void setCategory(String category) {
-    this.category = category;
-  }
-
-  public static class Builder {
-
+    @SerializedName("i18n_key")
     private String i18nKey;
+    @SerializedName("category")
     private String category;
-
-    public Builder i18nKey(String i18nKey) {
-      this.i18nKey = i18nKey;
-      return this;
+    public String getI18nKey() {
+        return this.i18nKey;
     }
 
-    public Builder i18nKey(com.lark.oapi.service.application.v6.enums.I18nKeyEnum i18nKey) {
-      this.i18nKey = i18nKey.getValue();
-      return this;
+    public void setI18nKey(String i18nKey) {
+        this.i18nKey = i18nKey;
     }
 
-    public Builder category(String category) {
-      this.category = category;
-      return this;
+    public String getCategory() {
+        return this.category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
     }
 
 
-    public AppCommonCategory build() {
-      return new AppCommonCategory(this);
-    }
+// builder 开始
+  public AppCommonCategory(){}
+
+  public AppCommonCategory(Builder builder){
+      this.i18nKey = builder.i18nKey;
+      this.category = builder.category;
   }
+
+    public static class Builder {
+        private String i18nKey;
+        private String category;
+        public Builder i18nKey(String i18nKey) {
+             this.i18nKey = i18nKey;
+             return this;
+        }
+        public Builder i18nKey(com.lark.oapi.service.application.v6.enums.I18nKeyEnum i18nKey) {
+             this.i18nKey = i18nKey.getValue();
+             return this;
+        }
+    
+        public Builder category(String category) {
+             this.category = category;
+             return this;
+        }
+    
+    
+    public AppCommonCategory build(){
+        return new AppCommonCategory(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

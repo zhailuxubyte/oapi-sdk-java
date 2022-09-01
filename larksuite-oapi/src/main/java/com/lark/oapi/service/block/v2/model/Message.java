@@ -12,114 +12,119 @@
  */
 
 package com.lark.oapi.service.block.v2.model;
-
+import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class Message {
-
-  @SerializedName("body")
-  private String body;
-  @SerializedName("version")
-  private String version;
-  @SerializedName("block_id")
-  private String blockId;
-  @SerializedName("resource")
-  private String resource;
-  @SerializedName("open_ids")
-  private String[] openIds;
-
-  // builder 开始
-  public Message() {
-  }
-
-  public Message(Builder builder) {
-    this.body = builder.body;
-    this.version = builder.version;
-    this.blockId = builder.blockId;
-    this.resource = builder.resource;
-    this.openIds = builder.openIds;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getBody() {
-    return this.body;
-  }
-
-  public void setBody(String body) {
-    this.body = body;
-  }
-
-  public String getVersion() {
-    return this.version;
-  }
-
-  public void setVersion(String version) {
-    this.version = version;
-  }
-
-  public String getBlockId() {
-    return this.blockId;
-  }
-
-  public void setBlockId(String blockId) {
-    this.blockId = blockId;
-  }
-
-  public String getResource() {
-    return this.resource;
-  }
-
-  public void setResource(String resource) {
-    this.resource = resource;
-  }
-
-  public String[] getOpenIds() {
-    return this.openIds;
-  }
-
-  public void setOpenIds(String[] openIds) {
-    this.openIds = openIds;
-  }
-
-  public static class Builder {
-
+    @SerializedName("body")
     private String body;
+    @SerializedName("version")
     private String version;
+    @SerializedName("block_id")
     private String blockId;
+    @SerializedName("resource")
     private String resource;
+    @SerializedName("open_ids")
     private String[] openIds;
-
-    public Builder body(String body) {
-      this.body = body;
-      return this;
+    public String getBody() {
+        return this.body;
     }
 
-    public Builder version(String version) {
-      this.version = version;
-      return this;
+    public void setBody(String body) {
+        this.body = body;
     }
 
-    public Builder blockId(String blockId) {
-      this.blockId = blockId;
-      return this;
+    public String getVersion() {
+        return this.version;
     }
 
-    public Builder resource(String resource) {
-      this.resource = resource;
-      return this;
+    public void setVersion(String version) {
+        this.version = version;
     }
 
-    public Builder openIds(String[] openIds) {
-      this.openIds = openIds;
-      return this;
+    public String getBlockId() {
+        return this.blockId;
+    }
+
+    public void setBlockId(String blockId) {
+        this.blockId = blockId;
+    }
+
+    public String getResource() {
+        return this.resource;
+    }
+
+    public void setResource(String resource) {
+        this.resource = resource;
+    }
+
+    public String[] getOpenIds() {
+        return this.openIds;
+    }
+
+    public void setOpenIds(String[] openIds) {
+        this.openIds = openIds;
     }
 
 
-    public Message build() {
-      return new Message(this);
-    }
+// builder 开始
+  public Message(){}
+
+  public Message(Builder builder){
+      this.body = builder.body;
+      this.version = builder.version;
+      this.blockId = builder.blockId;
+      this.resource = builder.resource;
+      this.openIds = builder.openIds;
   }
+
+    public static class Builder {
+        private String body;
+        private String version;
+        private String blockId;
+        private String resource;
+        private String[] openIds;
+        public Builder body(String body) {
+             this.body = body;
+             return this;
+        }
+    
+        public Builder version(String version) {
+             this.version = version;
+             return this;
+        }
+    
+        public Builder blockId(String blockId) {
+             this.blockId = blockId;
+             return this;
+        }
+    
+        public Builder resource(String resource) {
+             this.resource = resource;
+             return this;
+        }
+    
+        public Builder openIds(String[] openIds) {
+             this.openIds = openIds;
+             return this;
+        }
+    
+    
+    public Message build(){
+        return new Message(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

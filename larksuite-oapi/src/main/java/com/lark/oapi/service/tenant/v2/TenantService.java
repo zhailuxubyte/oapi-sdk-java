@@ -13,68 +13,74 @@
 
 package com.lark.oapi.service.tenant.v2;
 
-import com.lark.oapi.core.Config;
-import com.lark.oapi.core.Transport;
-import com.lark.oapi.core.request.RequestOptions;
-import com.lark.oapi.core.response.RawResponse;
 import com.lark.oapi.core.token.AccessTokenType;
-import com.lark.oapi.core.utils.Sets;
+import com.lark.oapi.core.Transport;
+import com.lark.oapi.core.response.RawResponse;
 import com.lark.oapi.core.utils.UnmarshalRespUtil;
-import com.lark.oapi.service.tenant.v2.model.QueryTenantResp;
+import com.lark.oapi.core.utils.Sets;
+
+
+
+import com.lark.oapi.core.Config;
+import com.lark.oapi.core.request.RequestOptions;
+import java.io.ByteArrayOutputStream;
+import com.lark.oapi.event.model.BaseEvent;
+import com.lark.oapi.event.model.BaseEventV2;
+import com.lark.oapi.service.tenant.v2.model.*;
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
 
 public class TenantService {
+    private final Tenant tenant;
 
-  private final Tenant tenant;
-
-  public TenantService(Config config) {
-    this.tenant = new Tenant(config);
-  }
-
-  public Tenant tenant() {
-    return tenant;
-  }
-
-  public static class Tenant {
-
-    private final Config config;
-
-    public Tenant(Config config) {
-      this.config = config;
+    public TenantService(Config config) {
+        this.tenant = new Tenant(config);
+    }
+    public Tenant tenant() {
+        return tenant;
     }
 
-    public QueryTenantResp query(RequestOptions reqOptions) throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
+    public static class Tenant {
+        private final Config config;
 
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          , "/open-apis/tenant/v2/tenant/query"
-          , Sets.newHashSet(AccessTokenType.Tenant)
-          , null);
+        public Tenant(Config config) {
+            this.config = config;
+        }
+    
+        public QueryTenantResp query( RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
 
-      // 反序列化
-      QueryTenantResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, QueryTenantResp.class);
-      resp.setRawResponse(httpResponse);
-      return resp;
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config,reqOptions, "GET"
+                       ,"/open-apis/tenant/v2/tenant/query"
+                       ,Sets.newHashSet(AccessTokenType.Tenant)
+                       ,null);
+	       
+           // 反序列化
+           QueryTenantResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, QueryTenantResp.class);
+           resp.setRawResponse(httpResponse);
+           return resp;
+        }
+
+        public QueryTenantResp query() throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config,reqOptions, "GET"
+                       ,"/open-apis/tenant/v2/tenant/query"
+                       ,Sets.newHashSet(AccessTokenType.Tenant)
+                       ,null);
+            
+           // 反序列化
+           QueryTenantResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, QueryTenantResp.class);
+           resp.setRawResponse(httpResponse);
+           return resp;
+        }
     }
-
-    public QueryTenantResp query() throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "GET"
-          , "/open-apis/tenant/v2/tenant/query"
-          , Sets.newHashSet(AccessTokenType.Tenant)
-          , null);
-
-      // 反序列化
-      QueryTenantResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, QueryTenantResp.class);
-      resp.setRawResponse(httpResponse);
-      return resp;
-    }
-  }
 
 }

@@ -12,97 +12,103 @@
  */
 
 package com.lark.oapi.service.attendance.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.attendance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class Area {
-
-  @SerializedName("type")
-  private String type;
-  @SerializedName("center")
-  private Coordinate center;
-  @SerializedName("radius")
-  private String radius;
-  @SerializedName("coords")
-  private Coordinate[] coords;
-
-  // builder 开始
-  public Area() {
-  }
-
-  public Area(Builder builder) {
-    this.type = builder.type;
-    this.center = builder.center;
-    this.radius = builder.radius;
-    this.coords = builder.coords;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getType() {
-    return this.type;
-  }
-
-  public void setType(String type) {
-    this.type = type;
-  }
-
-  public Coordinate getCenter() {
-    return this.center;
-  }
-
-  public void setCenter(Coordinate center) {
-    this.center = center;
-  }
-
-  public String getRadius() {
-    return this.radius;
-  }
-
-  public void setRadius(String radius) {
-    this.radius = radius;
-  }
-
-  public Coordinate[] getCoords() {
-    return this.coords;
-  }
-
-  public void setCoords(Coordinate[] coords) {
-    this.coords = coords;
-  }
-
-  public static class Builder {
-
+    @SerializedName("type")
     private String type;
+    @SerializedName("center")
     private Coordinate center;
+    @SerializedName("radius")
     private String radius;
+    @SerializedName("coords")
     private Coordinate[] coords;
-
-    public Builder type(String type) {
-      this.type = type;
-      return this;
+    public String getType() {
+        return this.type;
     }
 
-    public Builder center(Coordinate center) {
-      this.center = center;
-      return this;
+    public void setType(String type) {
+        this.type = type;
     }
 
-    public Builder radius(String radius) {
-      this.radius = radius;
-      return this;
+    public Coordinate getCenter() {
+        return this.center;
     }
 
-    public Builder coords(Coordinate[] coords) {
-      this.coords = coords;
-      return this;
+    public void setCenter(Coordinate center) {
+        this.center = center;
+    }
+
+    public String getRadius() {
+        return this.radius;
+    }
+
+    public void setRadius(String radius) {
+        this.radius = radius;
+    }
+
+    public Coordinate[] getCoords() {
+        return this.coords;
+    }
+
+    public void setCoords(Coordinate[] coords) {
+        this.coords = coords;
     }
 
 
-    public Area build() {
-      return new Area(this);
-    }
+// builder 开始
+  public Area(){}
+
+  public Area(Builder builder){
+      this.type = builder.type;
+      this.center = builder.center;
+      this.radius = builder.radius;
+      this.coords = builder.coords;
   }
+
+    public static class Builder {
+        private String type;
+        private Coordinate center;
+        private String radius;
+        private Coordinate[] coords;
+        public Builder type(String type) {
+             this.type = type;
+             return this;
+        }
+    
+        public Builder center(Coordinate center) {
+             this.center = center;
+             return this;
+        }
+    
+        public Builder radius(String radius) {
+             this.radius = radius;
+             return this;
+        }
+    
+        public Builder coords(Coordinate[] coords) {
+             this.coords = coords;
+             return this;
+        }
+    
+    
+    public Area build(){
+        return new Area(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

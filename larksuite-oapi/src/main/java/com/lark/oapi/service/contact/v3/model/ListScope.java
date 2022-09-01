@@ -12,60 +12,67 @@
  */
 
 package com.lark.oapi.service.contact.v3.model;
-
+import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class ListScope {
+    @SerializedName("department_ids")
+    private String[] departmentIds;
+    @SerializedName("user_ids")
+    private String[] userIds;
+    @SerializedName("group_ids")
+    private String[] groupIds;
+    @SerializedName("has_more")
+    private Boolean hasMore;
+    @SerializedName("page_token")
+    private String pageToken;
+    public String[] getDepartmentIds() {
+        return this.departmentIds;
+    }
 
-  @SerializedName("department_ids")
-  private String[] departmentIds;
-  @SerializedName("user_ids")
-  private String[] userIds;
-  @SerializedName("group_ids")
-  private String[] groupIds;
-  @SerializedName("has_more")
-  private Boolean hasMore;
-  @SerializedName("page_token")
-  private String pageToken;
+    public void setDepartmentIds(String[] departmentIds) {
+        this.departmentIds = departmentIds;
+    }
 
-  public String[] getDepartmentIds() {
-    return this.departmentIds;
-  }
+    public String[] getUserIds() {
+        return this.userIds;
+    }
 
-  public void setDepartmentIds(String[] departmentIds) {
-    this.departmentIds = departmentIds;
-  }
+    public void setUserIds(String[] userIds) {
+        this.userIds = userIds;
+    }
 
-  public String[] getUserIds() {
-    return this.userIds;
-  }
+    public String[] getGroupIds() {
+        return this.groupIds;
+    }
 
-  public void setUserIds(String[] userIds) {
-    this.userIds = userIds;
-  }
+    public void setGroupIds(String[] groupIds) {
+        this.groupIds = groupIds;
+    }
 
-  public String[] getGroupIds() {
-    return this.groupIds;
-  }
+    public Boolean getHasMore() {
+        return this.hasMore;
+    }
 
-  public void setGroupIds(String[] groupIds) {
-    this.groupIds = groupIds;
-  }
+    public void setHasMore(Boolean hasMore) {
+        this.hasMore = hasMore;
+    }
 
-  public Boolean getHasMore() {
-    return this.hasMore;
-  }
+    public String getPageToken() {
+        return this.pageToken;
+    }
 
-  public void setHasMore(Boolean hasMore) {
-    this.hasMore = hasMore;
-  }
-
-  public String getPageToken() {
-    return this.pageToken;
-  }
-
-  public void setPageToken(String pageToken) {
-    this.pageToken = pageToken;
-  }
+    public void setPageToken(String pageToken) {
+        this.pageToken = pageToken;
+    }
 
 }

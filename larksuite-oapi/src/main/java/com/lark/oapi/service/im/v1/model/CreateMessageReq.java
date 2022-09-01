@@ -12,75 +12,76 @@
  */
 
 package com.lark.oapi.service.im.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.im.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class CreateMessageReq {
-
-  @Query
-  @SerializedName("receive_id_type")
-  private String receiveIdType;
-  @Body
-  private CreateMessageReqBody body;
-
-  // builder 开始
-  public CreateMessageReq() {
-  }
-
-  public CreateMessageReq(Builder builder) {
-    this.receiveIdType = builder.receiveIdType;
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getReceiveIdType() {
-    return this.receiveIdType;
-  }
-
-  public void setReceiveIdType(String receiveIdType) {
-    this.receiveIdType = receiveIdType;
-  }
-
-  public CreateMessageReqBody getCreateMessageReqBody() {
-    return this.body;
-  }
-
-  public void setCreateMessageReqBody(CreateMessageReqBody body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
+    @Query
+    @SerializedName("receive_id_type")
     private String receiveIdType;
+    public String getReceiveIdType() {
+        return this.receiveIdType;
+    }
+
+    public void setReceiveIdType(String receiveIdType) {
+        this.receiveIdType = receiveIdType;
+    }
+
+    @Body
     private CreateMessageReqBody body;
 
-    public Builder receiveIdType(String receiveIdType) {
-      this.receiveIdType = receiveIdType;
-      return this;
-    }
-
-    public Builder receiveIdType(
-        com.lark.oapi.service.im.v1.enums.ReceiveIdTypeEnum receiveIdType) {
-      this.receiveIdType = receiveIdType.getValue();
-      return this;
-    }
-
     public CreateMessageReqBody getCreateMessageReqBody() {
-      return this.body;
+        return this.body;
     }
 
-    public Builder createMessageReqBody(CreateMessageReqBody body) {
-      this.body = body;
-      return this;
+    public void setCreateMessageReqBody(CreateMessageReqBody body) {
+        this.body = body;
     }
 
-    public CreateMessageReq build() {
-      return new CreateMessageReq(this);
-    }
+// builder 开始
+  public CreateMessageReq(){}
+
+  public CreateMessageReq(Builder builder){
+       this.receiveIdType = builder.receiveIdType;
+        this.body = builder.body;
   }
+
+    public static class Builder {
+        private String receiveIdType;
+    
+           public Builder receiveIdType(String receiveIdType) {
+                this.receiveIdType = receiveIdType;
+                return this;
+           }
+          public Builder receiveIdType(com.lark.oapi.service.im.v1.enums.ReceiveIdTypeEnum receiveIdType) {
+               this.receiveIdType = receiveIdType.getValue();
+               return this;
+          }
+    
+        private CreateMessageReqBody body;
+    
+        public CreateMessageReqBody getCreateMessageReqBody() {
+            return this.body;
+        }
+        public Builder createMessageReqBody(CreateMessageReqBody body) {
+             this.body = body;
+             return this;
+        }
+    public CreateMessageReq build(){
+        return new CreateMessageReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

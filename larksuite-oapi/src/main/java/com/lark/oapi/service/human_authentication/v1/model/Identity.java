@@ -12,80 +12,86 @@
  */
 
 package com.lark.oapi.service.human_authentication.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.human_authentication.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class Identity {
-
-  @SerializedName("identity_name")
-  private String identityName;
-  @SerializedName("identity_code")
-  private String identityCode;
-  @SerializedName("mobile")
-  private String mobile;
-
-  // builder 开始
-  public Identity() {
-  }
-
-  public Identity(Builder builder) {
-    this.identityName = builder.identityName;
-    this.identityCode = builder.identityCode;
-    this.mobile = builder.mobile;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getIdentityName() {
-    return this.identityName;
-  }
-
-  public void setIdentityName(String identityName) {
-    this.identityName = identityName;
-  }
-
-  public String getIdentityCode() {
-    return this.identityCode;
-  }
-
-  public void setIdentityCode(String identityCode) {
-    this.identityCode = identityCode;
-  }
-
-  public String getMobile() {
-    return this.mobile;
-  }
-
-  public void setMobile(String mobile) {
-    this.mobile = mobile;
-  }
-
-  public static class Builder {
-
+    @SerializedName("identity_name")
     private String identityName;
+    @SerializedName("identity_code")
     private String identityCode;
+    @SerializedName("mobile")
     private String mobile;
-
-    public Builder identityName(String identityName) {
-      this.identityName = identityName;
-      return this;
+    public String getIdentityName() {
+        return this.identityName;
     }
 
-    public Builder identityCode(String identityCode) {
-      this.identityCode = identityCode;
-      return this;
+    public void setIdentityName(String identityName) {
+        this.identityName = identityName;
     }
 
-    public Builder mobile(String mobile) {
-      this.mobile = mobile;
-      return this;
+    public String getIdentityCode() {
+        return this.identityCode;
+    }
+
+    public void setIdentityCode(String identityCode) {
+        this.identityCode = identityCode;
+    }
+
+    public String getMobile() {
+        return this.mobile;
+    }
+
+    public void setMobile(String mobile) {
+        this.mobile = mobile;
     }
 
 
-    public Identity build() {
-      return new Identity(this);
-    }
+// builder 开始
+  public Identity(){}
+
+  public Identity(Builder builder){
+      this.identityName = builder.identityName;
+      this.identityCode = builder.identityCode;
+      this.mobile = builder.mobile;
   }
+
+    public static class Builder {
+        private String identityName;
+        private String identityCode;
+        private String mobile;
+        public Builder identityName(String identityName) {
+             this.identityName = identityName;
+             return this;
+        }
+    
+        public Builder identityCode(String identityCode) {
+             this.identityCode = identityCode;
+             return this;
+        }
+    
+        public Builder mobile(String mobile) {
+             this.mobile = mobile;
+             return this;
+        }
+    
+    
+    public Identity build(){
+        return new Identity(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

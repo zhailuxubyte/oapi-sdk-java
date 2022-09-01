@@ -15,17 +15,16 @@ package com.lark.oapi.service.docx.v1.enums;
 
 // 生成枚举值
 public enum AlignEnum {
-  LEFT(1),
-  CENTER(2),
-  RIGHT(3),
+     LEFT(1),
+     CENTER(2),
+     RIGHT(3),
   ;
-  private Integer value;
+   private Integer value;
+    AlignEnum(Integer value) {
+      this.value = value;
+    }
 
-  AlignEnum(Integer value) {
-    this.value = value;
-  }
-
-  public Integer getValue() {
-    return this.value;
-  }
+    public Integer getValue() {
+      return this.value;
+    }
 }

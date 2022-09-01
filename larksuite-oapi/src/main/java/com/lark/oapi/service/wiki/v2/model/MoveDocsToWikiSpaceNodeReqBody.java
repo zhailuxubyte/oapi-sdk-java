@@ -12,102 +12,107 @@
  */
 
 package com.lark.oapi.service.wiki.v2.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.wiki.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class MoveDocsToWikiSpaceNodeReqBody {
-
-  @SerializedName("parent_wiki_token")
-  private String parentWikiToken;
-  @SerializedName("obj_type")
-  private String objType;
-  @SerializedName("obj_token")
-  private String objToken;
-  @SerializedName("apply")
-  private Boolean apply;
-
-  // builder 开始
-  public MoveDocsToWikiSpaceNodeReqBody() {
-  }
-
-  public MoveDocsToWikiSpaceNodeReqBody(Builder builder) {
-    this.parentWikiToken = builder.parentWikiToken;
-    this.objType = builder.objType;
-    this.objToken = builder.objToken;
-    this.apply = builder.apply;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getParentWikiToken() {
-    return this.parentWikiToken;
-  }
-
-  public void setParentWikiToken(String parentWikiToken) {
-    this.parentWikiToken = parentWikiToken;
-  }
-
-  public String getObjType() {
-    return this.objType;
-  }
-
-  public void setObjType(String objType) {
-    this.objType = objType;
-  }
-
-  public String getObjToken() {
-    return this.objToken;
-  }
-
-  public void setObjToken(String objToken) {
-    this.objToken = objToken;
-  }
-
-  public Boolean getApply() {
-    return this.apply;
-  }
-
-  public void setApply(Boolean apply) {
-    this.apply = apply;
-  }
-
-  public static class Builder {
-
+    @SerializedName("parent_wiki_token")
     private String parentWikiToken;
+    @SerializedName("obj_type")
     private String objType;
+    @SerializedName("obj_token")
     private String objToken;
+    @SerializedName("apply")
     private Boolean apply;
-
-    public Builder parentWikiToken(String parentWikiToken) {
-      this.parentWikiToken = parentWikiToken;
-      return this;
+    public String getParentWikiToken() {
+        return this.parentWikiToken;
     }
 
-    public Builder objType(String objType) {
-      this.objType = objType;
-      return this;
+    public void setParentWikiToken(String parentWikiToken) {
+        this.parentWikiToken = parentWikiToken;
     }
 
-    public Builder objType(com.lark.oapi.service.wiki.v2.enums.MoveDocsToWikiObjTypeEnum objType) {
-      this.objType = objType.getValue();
-      return this;
+    public String getObjType() {
+        return this.objType;
     }
 
-    public Builder objToken(String objToken) {
-      this.objToken = objToken;
-      return this;
+    public void setObjType(String objType) {
+        this.objType = objType;
     }
 
-    public Builder apply(Boolean apply) {
-      this.apply = apply;
-      return this;
+    public String getObjToken() {
+        return this.objToken;
+    }
+
+    public void setObjToken(String objToken) {
+        this.objToken = objToken;
+    }
+
+    public Boolean getApply() {
+        return this.apply;
+    }
+
+    public void setApply(Boolean apply) {
+        this.apply = apply;
     }
 
 
-    public MoveDocsToWikiSpaceNodeReqBody build() {
-      return new MoveDocsToWikiSpaceNodeReqBody(this);
-    }
+// builder 开始
+  public MoveDocsToWikiSpaceNodeReqBody(){}
+
+  public MoveDocsToWikiSpaceNodeReqBody(Builder builder){
+      this.parentWikiToken = builder.parentWikiToken;
+      this.objType = builder.objType;
+      this.objToken = builder.objToken;
+      this.apply = builder.apply;
   }
+
+    public static class Builder {
+        private String parentWikiToken;
+        private String objType;
+        private String objToken;
+        private Boolean apply;
+        public Builder parentWikiToken(String parentWikiToken) {
+             this.parentWikiToken = parentWikiToken;
+             return this;
+        }
+    
+        public Builder objType(String objType) {
+             this.objType = objType;
+             return this;
+        }
+        public Builder objType(com.lark.oapi.service.wiki.v2.enums.MoveDocsToWikiObjTypeEnum objType) {
+             this.objType = objType.getValue();
+             return this;
+        }
+    
+        public Builder objToken(String objToken) {
+             this.objToken = objToken;
+             return this;
+        }
+    
+        public Builder apply(Boolean apply) {
+             this.apply = apply;
+             return this;
+        }
+    
+    
+    public MoveDocsToWikiSpaceNodeReqBody build(){
+        return new MoveDocsToWikiSpaceNodeReqBody(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

@@ -12,63 +12,69 @@
  */
 
 package com.lark.oapi.service.acs.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.acs.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class Feature {
-
-  @SerializedName("card")
-  private Integer card;
-  @SerializedName("face_uploaded")
-  private Boolean faceUploaded;
-
-  // builder 开始
-  public Feature() {
-  }
-
-  public Feature(Builder builder) {
-    this.card = builder.card;
-    this.faceUploaded = builder.faceUploaded;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Integer getCard() {
-    return this.card;
-  }
-
-  public void setCard(Integer card) {
-    this.card = card;
-  }
-
-  public Boolean getFaceUploaded() {
-    return this.faceUploaded;
-  }
-
-  public void setFaceUploaded(Boolean faceUploaded) {
-    this.faceUploaded = faceUploaded;
-  }
-
-  public static class Builder {
-
+    @SerializedName("card")
     private Integer card;
+    @SerializedName("face_uploaded")
     private Boolean faceUploaded;
-
-    public Builder card(Integer card) {
-      this.card = card;
-      return this;
+    public Integer getCard() {
+        return this.card;
     }
 
-    public Builder faceUploaded(Boolean faceUploaded) {
-      this.faceUploaded = faceUploaded;
-      return this;
+    public void setCard(Integer card) {
+        this.card = card;
+    }
+
+    public Boolean getFaceUploaded() {
+        return this.faceUploaded;
+    }
+
+    public void setFaceUploaded(Boolean faceUploaded) {
+        this.faceUploaded = faceUploaded;
     }
 
 
-    public Feature build() {
-      return new Feature(this);
-    }
+// builder 开始
+  public Feature(){}
+
+  public Feature(Builder builder){
+      this.card = builder.card;
+      this.faceUploaded = builder.faceUploaded;
   }
+
+    public static class Builder {
+        private Integer card;
+        private Boolean faceUploaded;
+        public Builder card(Integer card) {
+             this.card = card;
+             return this;
+        }
+    
+        public Builder faceUploaded(Boolean faceUploaded) {
+             this.faceUploaded = faceUploaded;
+             return this;
+        }
+    
+    
+    public Feature build(){
+        return new Feature(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

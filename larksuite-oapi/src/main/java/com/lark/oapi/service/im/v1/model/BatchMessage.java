@@ -12,80 +12,86 @@
  */
 
 package com.lark.oapi.service.im.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.im.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class BatchMessage {
-
-  @SerializedName("batch_message_id")
-  private String batchMessageId;
-  @SerializedName("batch_send_progress")
-  private BatchSendProgress batchSendProgress;
-  @SerializedName("batch_recall_progress")
-  private BatchRecallProgress batchRecallProgress;
-
-  // builder 开始
-  public BatchMessage() {
-  }
-
-  public BatchMessage(Builder builder) {
-    this.batchMessageId = builder.batchMessageId;
-    this.batchSendProgress = builder.batchSendProgress;
-    this.batchRecallProgress = builder.batchRecallProgress;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getBatchMessageId() {
-    return this.batchMessageId;
-  }
-
-  public void setBatchMessageId(String batchMessageId) {
-    this.batchMessageId = batchMessageId;
-  }
-
-  public BatchSendProgress getBatchSendProgress() {
-    return this.batchSendProgress;
-  }
-
-  public void setBatchSendProgress(BatchSendProgress batchSendProgress) {
-    this.batchSendProgress = batchSendProgress;
-  }
-
-  public BatchRecallProgress getBatchRecallProgress() {
-    return this.batchRecallProgress;
-  }
-
-  public void setBatchRecallProgress(BatchRecallProgress batchRecallProgress) {
-    this.batchRecallProgress = batchRecallProgress;
-  }
-
-  public static class Builder {
-
+    @SerializedName("batch_message_id")
     private String batchMessageId;
+    @SerializedName("batch_send_progress")
     private BatchSendProgress batchSendProgress;
+    @SerializedName("batch_recall_progress")
     private BatchRecallProgress batchRecallProgress;
-
-    public Builder batchMessageId(String batchMessageId) {
-      this.batchMessageId = batchMessageId;
-      return this;
+    public String getBatchMessageId() {
+        return this.batchMessageId;
     }
 
-    public Builder batchSendProgress(BatchSendProgress batchSendProgress) {
-      this.batchSendProgress = batchSendProgress;
-      return this;
+    public void setBatchMessageId(String batchMessageId) {
+        this.batchMessageId = batchMessageId;
     }
 
-    public Builder batchRecallProgress(BatchRecallProgress batchRecallProgress) {
-      this.batchRecallProgress = batchRecallProgress;
-      return this;
+    public BatchSendProgress getBatchSendProgress() {
+        return this.batchSendProgress;
+    }
+
+    public void setBatchSendProgress(BatchSendProgress batchSendProgress) {
+        this.batchSendProgress = batchSendProgress;
+    }
+
+    public BatchRecallProgress getBatchRecallProgress() {
+        return this.batchRecallProgress;
+    }
+
+    public void setBatchRecallProgress(BatchRecallProgress batchRecallProgress) {
+        this.batchRecallProgress = batchRecallProgress;
     }
 
 
-    public BatchMessage build() {
-      return new BatchMessage(this);
-    }
+// builder 开始
+  public BatchMessage(){}
+
+  public BatchMessage(Builder builder){
+      this.batchMessageId = builder.batchMessageId;
+      this.batchSendProgress = builder.batchSendProgress;
+      this.batchRecallProgress = builder.batchRecallProgress;
   }
+
+    public static class Builder {
+        private String batchMessageId;
+        private BatchSendProgress batchSendProgress;
+        private BatchRecallProgress batchRecallProgress;
+        public Builder batchMessageId(String batchMessageId) {
+             this.batchMessageId = batchMessageId;
+             return this;
+        }
+    
+        public Builder batchSendProgress(BatchSendProgress batchSendProgress) {
+             this.batchSendProgress = batchSendProgress;
+             return this;
+        }
+    
+        public Builder batchRecallProgress(BatchRecallProgress batchRecallProgress) {
+             this.batchRecallProgress = batchRecallProgress;
+             return this;
+        }
+    
+    
+    public BatchMessage build(){
+        return new BatchMessage(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

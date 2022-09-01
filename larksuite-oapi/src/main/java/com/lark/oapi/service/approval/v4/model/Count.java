@@ -12,63 +12,69 @@
  */
 
 package com.lark.oapi.service.approval.v4.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.approval.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class Count {
-
-  @SerializedName("total")
-  private Integer total;
-  @SerializedName("has_more")
-  private Boolean hasMore;
-
-  // builder 开始
-  public Count() {
-  }
-
-  public Count(Builder builder) {
-    this.total = builder.total;
-    this.hasMore = builder.hasMore;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Integer getTotal() {
-    return this.total;
-  }
-
-  public void setTotal(Integer total) {
-    this.total = total;
-  }
-
-  public Boolean getHasMore() {
-    return this.hasMore;
-  }
-
-  public void setHasMore(Boolean hasMore) {
-    this.hasMore = hasMore;
-  }
-
-  public static class Builder {
-
+    @SerializedName("total")
     private Integer total;
+    @SerializedName("has_more")
     private Boolean hasMore;
-
-    public Builder total(Integer total) {
-      this.total = total;
-      return this;
+    public Integer getTotal() {
+        return this.total;
     }
 
-    public Builder hasMore(Boolean hasMore) {
-      this.hasMore = hasMore;
-      return this;
+    public void setTotal(Integer total) {
+        this.total = total;
+    }
+
+    public Boolean getHasMore() {
+        return this.hasMore;
+    }
+
+    public void setHasMore(Boolean hasMore) {
+        this.hasMore = hasMore;
     }
 
 
-    public Count build() {
-      return new Count(this);
-    }
+// builder 开始
+  public Count(){}
+
+  public Count(Builder builder){
+      this.total = builder.total;
+      this.hasMore = builder.hasMore;
   }
+
+    public static class Builder {
+        private Integer total;
+        private Boolean hasMore;
+        public Builder total(Integer total) {
+             this.total = total;
+             return this;
+        }
+    
+        public Builder hasMore(Boolean hasMore) {
+             this.hasMore = hasMore;
+             return this;
+        }
+    
+    
+    public Count build(){
+        return new Count(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

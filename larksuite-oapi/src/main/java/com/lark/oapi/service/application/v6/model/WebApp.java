@@ -12,63 +12,69 @@
  */
 
 package com.lark.oapi.service.application.v6.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.application.v6.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class WebApp {
-
-  @SerializedName("pc_url")
-  private String pcUrl;
-  @SerializedName("mobile_url")
-  private String mobileUrl;
-
-  // builder 开始
-  public WebApp() {
-  }
-
-  public WebApp(Builder builder) {
-    this.pcUrl = builder.pcUrl;
-    this.mobileUrl = builder.mobileUrl;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getPcUrl() {
-    return this.pcUrl;
-  }
-
-  public void setPcUrl(String pcUrl) {
-    this.pcUrl = pcUrl;
-  }
-
-  public String getMobileUrl() {
-    return this.mobileUrl;
-  }
-
-  public void setMobileUrl(String mobileUrl) {
-    this.mobileUrl = mobileUrl;
-  }
-
-  public static class Builder {
-
+    @SerializedName("pc_url")
     private String pcUrl;
+    @SerializedName("mobile_url")
     private String mobileUrl;
-
-    public Builder pcUrl(String pcUrl) {
-      this.pcUrl = pcUrl;
-      return this;
+    public String getPcUrl() {
+        return this.pcUrl;
     }
 
-    public Builder mobileUrl(String mobileUrl) {
-      this.mobileUrl = mobileUrl;
-      return this;
+    public void setPcUrl(String pcUrl) {
+        this.pcUrl = pcUrl;
+    }
+
+    public String getMobileUrl() {
+        return this.mobileUrl;
+    }
+
+    public void setMobileUrl(String mobileUrl) {
+        this.mobileUrl = mobileUrl;
     }
 
 
-    public WebApp build() {
-      return new WebApp(this);
-    }
+// builder 开始
+  public WebApp(){}
+
+  public WebApp(Builder builder){
+      this.pcUrl = builder.pcUrl;
+      this.mobileUrl = builder.mobileUrl;
   }
+
+    public static class Builder {
+        private String pcUrl;
+        private String mobileUrl;
+        public Builder pcUrl(String pcUrl) {
+             this.pcUrl = pcUrl;
+             return this;
+        }
+    
+        public Builder mobileUrl(String mobileUrl) {
+             this.mobileUrl = mobileUrl;
+             return this;
+        }
+    
+    
+    public WebApp build(){
+        return new WebApp(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

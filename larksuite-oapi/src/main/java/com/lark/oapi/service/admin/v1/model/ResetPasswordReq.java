@@ -12,74 +12,76 @@
  */
 
 package com.lark.oapi.service.admin.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.admin.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class ResetPasswordReq {
-
-  @Query
-  @SerializedName("user_id_type")
-  private String userIdType;
-  @Body
-  private ResetPasswordReqBody body;
-
-  // builder 开始
-  public ResetPasswordReq() {
-  }
-
-  public ResetPasswordReq(Builder builder) {
-    this.userIdType = builder.userIdType;
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getUserIdType() {
-    return this.userIdType;
-  }
-
-  public void setUserIdType(String userIdType) {
-    this.userIdType = userIdType;
-  }
-
-  public ResetPasswordReqBody getResetPasswordReqBody() {
-    return this.body;
-  }
-
-  public void setResetPasswordReqBody(ResetPasswordReqBody body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
+    @Query
+    @SerializedName("user_id_type")
     private String userIdType;
+    public String getUserIdType() {
+        return this.userIdType;
+    }
+
+    public void setUserIdType(String userIdType) {
+        this.userIdType = userIdType;
+    }
+
+    @Body
     private ResetPasswordReqBody body;
 
-    public Builder userIdType(String userIdType) {
-      this.userIdType = userIdType;
-      return this;
-    }
-
-    public Builder userIdType(com.lark.oapi.service.admin.v1.enums.UserIdTypeEnum userIdType) {
-      this.userIdType = userIdType.getValue();
-      return this;
-    }
-
     public ResetPasswordReqBody getResetPasswordReqBody() {
-      return this.body;
+        return this.body;
     }
 
-    public Builder resetPasswordReqBody(ResetPasswordReqBody body) {
-      this.body = body;
-      return this;
+    public void setResetPasswordReqBody(ResetPasswordReqBody body) {
+        this.body = body;
     }
 
-    public ResetPasswordReq build() {
-      return new ResetPasswordReq(this);
-    }
+// builder 开始
+  public ResetPasswordReq(){}
+
+  public ResetPasswordReq(Builder builder){
+       this.userIdType = builder.userIdType;
+        this.body = builder.body;
   }
+
+    public static class Builder {
+        private String userIdType;
+    
+           public Builder userIdType(String userIdType) {
+                this.userIdType = userIdType;
+                return this;
+           }
+          public Builder userIdType(com.lark.oapi.service.admin.v1.enums.UserIdTypeEnum userIdType) {
+               this.userIdType = userIdType.getValue();
+               return this;
+          }
+    
+        private ResetPasswordReqBody body;
+    
+        public ResetPasswordReqBody getResetPasswordReqBody() {
+            return this.body;
+        }
+        public Builder resetPasswordReqBody(ResetPasswordReqBody body) {
+             this.body = body;
+             return this;
+        }
+    public ResetPasswordReq build(){
+        return new ResetPasswordReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

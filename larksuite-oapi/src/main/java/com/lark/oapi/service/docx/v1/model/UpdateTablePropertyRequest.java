@@ -12,63 +12,69 @@
  */
 
 package com.lark.oapi.service.docx.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.docx.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class UpdateTablePropertyRequest {
-
-  @SerializedName("column_width")
-  private Integer columnWidth;
-  @SerializedName("column_index")
-  private Integer columnIndex;
-
-  // builder 开始
-  public UpdateTablePropertyRequest() {
-  }
-
-  public UpdateTablePropertyRequest(Builder builder) {
-    this.columnWidth = builder.columnWidth;
-    this.columnIndex = builder.columnIndex;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Integer getColumnWidth() {
-    return this.columnWidth;
-  }
-
-  public void setColumnWidth(Integer columnWidth) {
-    this.columnWidth = columnWidth;
-  }
-
-  public Integer getColumnIndex() {
-    return this.columnIndex;
-  }
-
-  public void setColumnIndex(Integer columnIndex) {
-    this.columnIndex = columnIndex;
-  }
-
-  public static class Builder {
-
+    @SerializedName("column_width")
     private Integer columnWidth;
+    @SerializedName("column_index")
     private Integer columnIndex;
-
-    public Builder columnWidth(Integer columnWidth) {
-      this.columnWidth = columnWidth;
-      return this;
+    public Integer getColumnWidth() {
+        return this.columnWidth;
     }
 
-    public Builder columnIndex(Integer columnIndex) {
-      this.columnIndex = columnIndex;
-      return this;
+    public void setColumnWidth(Integer columnWidth) {
+        this.columnWidth = columnWidth;
+    }
+
+    public Integer getColumnIndex() {
+        return this.columnIndex;
+    }
+
+    public void setColumnIndex(Integer columnIndex) {
+        this.columnIndex = columnIndex;
     }
 
 
-    public UpdateTablePropertyRequest build() {
-      return new UpdateTablePropertyRequest(this);
-    }
+// builder 开始
+  public UpdateTablePropertyRequest(){}
+
+  public UpdateTablePropertyRequest(Builder builder){
+      this.columnWidth = builder.columnWidth;
+      this.columnIndex = builder.columnIndex;
   }
+
+    public static class Builder {
+        private Integer columnWidth;
+        private Integer columnIndex;
+        public Builder columnWidth(Integer columnWidth) {
+             this.columnWidth = columnWidth;
+             return this;
+        }
+    
+        public Builder columnIndex(Integer columnIndex) {
+             this.columnIndex = columnIndex;
+             return this;
+        }
+    
+    
+    public UpdateTablePropertyRequest build(){
+        return new UpdateTablePropertyRequest(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

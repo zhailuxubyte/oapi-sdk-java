@@ -12,80 +12,86 @@
  */
 
 package com.lark.oapi.service.application.v6.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.application.v6.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class AppVisibility {
-
-  @SerializedName("is_all")
-  private Boolean isAll;
-  @SerializedName("visible_list")
-  private AppVisibleList visibleList;
-  @SerializedName("invisible_list")
-  private AppVisibleList invisibleList;
-
-  // builder 开始
-  public AppVisibility() {
-  }
-
-  public AppVisibility(Builder builder) {
-    this.isAll = builder.isAll;
-    this.visibleList = builder.visibleList;
-    this.invisibleList = builder.invisibleList;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Boolean getIsAll() {
-    return this.isAll;
-  }
-
-  public void setIsAll(Boolean isAll) {
-    this.isAll = isAll;
-  }
-
-  public AppVisibleList getVisibleList() {
-    return this.visibleList;
-  }
-
-  public void setVisibleList(AppVisibleList visibleList) {
-    this.visibleList = visibleList;
-  }
-
-  public AppVisibleList getInvisibleList() {
-    return this.invisibleList;
-  }
-
-  public void setInvisibleList(AppVisibleList invisibleList) {
-    this.invisibleList = invisibleList;
-  }
-
-  public static class Builder {
-
+    @SerializedName("is_all")
     private Boolean isAll;
+    @SerializedName("visible_list")
     private AppVisibleList visibleList;
+    @SerializedName("invisible_list")
     private AppVisibleList invisibleList;
-
-    public Builder isAll(Boolean isAll) {
-      this.isAll = isAll;
-      return this;
+    public Boolean getIsAll() {
+        return this.isAll;
     }
 
-    public Builder visibleList(AppVisibleList visibleList) {
-      this.visibleList = visibleList;
-      return this;
+    public void setIsAll(Boolean isAll) {
+        this.isAll = isAll;
     }
 
-    public Builder invisibleList(AppVisibleList invisibleList) {
-      this.invisibleList = invisibleList;
-      return this;
+    public AppVisibleList getVisibleList() {
+        return this.visibleList;
+    }
+
+    public void setVisibleList(AppVisibleList visibleList) {
+        this.visibleList = visibleList;
+    }
+
+    public AppVisibleList getInvisibleList() {
+        return this.invisibleList;
+    }
+
+    public void setInvisibleList(AppVisibleList invisibleList) {
+        this.invisibleList = invisibleList;
     }
 
 
-    public AppVisibility build() {
-      return new AppVisibility(this);
-    }
+// builder 开始
+  public AppVisibility(){}
+
+  public AppVisibility(Builder builder){
+      this.isAll = builder.isAll;
+      this.visibleList = builder.visibleList;
+      this.invisibleList = builder.invisibleList;
   }
+
+    public static class Builder {
+        private Boolean isAll;
+        private AppVisibleList visibleList;
+        private AppVisibleList invisibleList;
+        public Builder isAll(Boolean isAll) {
+             this.isAll = isAll;
+             return this;
+        }
+    
+        public Builder visibleList(AppVisibleList visibleList) {
+             this.visibleList = visibleList;
+             return this;
+        }
+    
+        public Builder invisibleList(AppVisibleList invisibleList) {
+             this.invisibleList = invisibleList;
+             return this;
+        }
+    
+    
+    public AppVisibility build(){
+        return new AppVisibility(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

@@ -12,80 +12,86 @@
  */
 
 package com.lark.oapi.service.bitable.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.bitable.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class AppTableView {
-
-  @SerializedName("view_id")
-  private String viewId;
-  @SerializedName("view_name")
-  private String viewName;
-  @SerializedName("view_type")
-  private String viewType;
-
-  // builder 开始
-  public AppTableView() {
-  }
-
-  public AppTableView(Builder builder) {
-    this.viewId = builder.viewId;
-    this.viewName = builder.viewName;
-    this.viewType = builder.viewType;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getViewId() {
-    return this.viewId;
-  }
-
-  public void setViewId(String viewId) {
-    this.viewId = viewId;
-  }
-
-  public String getViewName() {
-    return this.viewName;
-  }
-
-  public void setViewName(String viewName) {
-    this.viewName = viewName;
-  }
-
-  public String getViewType() {
-    return this.viewType;
-  }
-
-  public void setViewType(String viewType) {
-    this.viewType = viewType;
-  }
-
-  public static class Builder {
-
+    @SerializedName("view_id")
     private String viewId;
+    @SerializedName("view_name")
     private String viewName;
+    @SerializedName("view_type")
     private String viewType;
-
-    public Builder viewId(String viewId) {
-      this.viewId = viewId;
-      return this;
+    public String getViewId() {
+        return this.viewId;
     }
 
-    public Builder viewName(String viewName) {
-      this.viewName = viewName;
-      return this;
+    public void setViewId(String viewId) {
+        this.viewId = viewId;
     }
 
-    public Builder viewType(String viewType) {
-      this.viewType = viewType;
-      return this;
+    public String getViewName() {
+        return this.viewName;
+    }
+
+    public void setViewName(String viewName) {
+        this.viewName = viewName;
+    }
+
+    public String getViewType() {
+        return this.viewType;
+    }
+
+    public void setViewType(String viewType) {
+        this.viewType = viewType;
     }
 
 
-    public AppTableView build() {
-      return new AppTableView(this);
-    }
+// builder 开始
+  public AppTableView(){}
+
+  public AppTableView(Builder builder){
+      this.viewId = builder.viewId;
+      this.viewName = builder.viewName;
+      this.viewType = builder.viewType;
   }
+
+    public static class Builder {
+        private String viewId;
+        private String viewName;
+        private String viewType;
+        public Builder viewId(String viewId) {
+             this.viewId = viewId;
+             return this;
+        }
+    
+        public Builder viewName(String viewName) {
+             this.viewName = viewName;
+             return this;
+        }
+    
+        public Builder viewType(String viewType) {
+             this.viewType = viewType;
+             return this;
+        }
+    
+    
+    public AppTableView build(){
+        return new AppTableView(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

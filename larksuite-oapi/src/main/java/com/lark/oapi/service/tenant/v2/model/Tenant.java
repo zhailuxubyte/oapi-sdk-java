@@ -12,119 +12,124 @@
  */
 
 package com.lark.oapi.service.tenant.v2.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.tenant.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class Tenant {
-
-  @SerializedName("name")
-  private String name;
-  @SerializedName("display_id")
-  private String displayId;
-  @SerializedName("tenant_tag")
-  private Integer tenantTag;
-  @SerializedName("tenant_key")
-  private String tenantKey;
-  @SerializedName("avatar")
-  private Avatar avatar;
-
-  // builder 开始
-  public Tenant() {
-  }
-
-  public Tenant(Builder builder) {
-    this.name = builder.name;
-    this.displayId = builder.displayId;
-    this.tenantTag = builder.tenantTag;
-    this.tenantKey = builder.tenantKey;
-    this.avatar = builder.avatar;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getName() {
-    return this.name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public String getDisplayId() {
-    return this.displayId;
-  }
-
-  public void setDisplayId(String displayId) {
-    this.displayId = displayId;
-  }
-
-  public Integer getTenantTag() {
-    return this.tenantTag;
-  }
-
-  public void setTenantTag(Integer tenantTag) {
-    this.tenantTag = tenantTag;
-  }
-
-  public String getTenantKey() {
-    return this.tenantKey;
-  }
-
-  public void setTenantKey(String tenantKey) {
-    this.tenantKey = tenantKey;
-  }
-
-  public Avatar getAvatar() {
-    return this.avatar;
-  }
-
-  public void setAvatar(Avatar avatar) {
-    this.avatar = avatar;
-  }
-
-  public static class Builder {
-
+    @SerializedName("name")
     private String name;
+    @SerializedName("display_id")
     private String displayId;
+    @SerializedName("tenant_tag")
     private Integer tenantTag;
+    @SerializedName("tenant_key")
     private String tenantKey;
+    @SerializedName("avatar")
     private Avatar avatar;
-
-    public Builder name(String name) {
-      this.name = name;
-      return this;
+    public String getName() {
+        return this.name;
     }
 
-    public Builder displayId(String displayId) {
-      this.displayId = displayId;
-      return this;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public Builder tenantTag(Integer tenantTag) {
-      this.tenantTag = tenantTag;
-      return this;
+    public String getDisplayId() {
+        return this.displayId;
     }
 
-    public Builder tenantTag(com.lark.oapi.service.tenant.v2.enums.TenantTagEnum tenantTag) {
-      this.tenantTag = tenantTag.getValue();
-      return this;
+    public void setDisplayId(String displayId) {
+        this.displayId = displayId;
     }
 
-    public Builder tenantKey(String tenantKey) {
-      this.tenantKey = tenantKey;
-      return this;
+    public Integer getTenantTag() {
+        return this.tenantTag;
     }
 
-    public Builder avatar(Avatar avatar) {
-      this.avatar = avatar;
-      return this;
+    public void setTenantTag(Integer tenantTag) {
+        this.tenantTag = tenantTag;
+    }
+
+    public String getTenantKey() {
+        return this.tenantKey;
+    }
+
+    public void setTenantKey(String tenantKey) {
+        this.tenantKey = tenantKey;
+    }
+
+    public Avatar getAvatar() {
+        return this.avatar;
+    }
+
+    public void setAvatar(Avatar avatar) {
+        this.avatar = avatar;
     }
 
 
-    public Tenant build() {
-      return new Tenant(this);
-    }
+// builder 开始
+  public Tenant(){}
+
+  public Tenant(Builder builder){
+      this.name = builder.name;
+      this.displayId = builder.displayId;
+      this.tenantTag = builder.tenantTag;
+      this.tenantKey = builder.tenantKey;
+      this.avatar = builder.avatar;
   }
+
+    public static class Builder {
+        private String name;
+        private String displayId;
+        private Integer tenantTag;
+        private String tenantKey;
+        private Avatar avatar;
+        public Builder name(String name) {
+             this.name = name;
+             return this;
+        }
+    
+        public Builder displayId(String displayId) {
+             this.displayId = displayId;
+             return this;
+        }
+    
+        public Builder tenantTag(Integer tenantTag) {
+             this.tenantTag = tenantTag;
+             return this;
+        }
+        public Builder tenantTag(com.lark.oapi.service.tenant.v2.enums.TenantTagEnum tenantTag) {
+             this.tenantTag = tenantTag.getValue();
+             return this;
+        }
+    
+        public Builder tenantKey(String tenantKey) {
+             this.tenantKey = tenantKey;
+             return this;
+        }
+    
+        public Builder avatar(Avatar avatar) {
+             this.avatar = avatar;
+             return this;
+        }
+    
+    
+    public Tenant build(){
+        return new Tenant(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

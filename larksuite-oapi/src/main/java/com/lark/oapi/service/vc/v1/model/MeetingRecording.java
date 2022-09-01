@@ -12,97 +12,103 @@
  */
 
 package com.lark.oapi.service.vc.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.vc.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class MeetingRecording {
-
-  @SerializedName("id")
-  private String id;
-  @SerializedName("meeting_id")
-  private String meetingId;
-  @SerializedName("url")
-  private String url;
-  @SerializedName("duration")
-  private String duration;
-
-  // builder 开始
-  public MeetingRecording() {
-  }
-
-  public MeetingRecording(Builder builder) {
-    this.id = builder.id;
-    this.meetingId = builder.meetingId;
-    this.url = builder.url;
-    this.duration = builder.duration;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getId() {
-    return this.id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public String getMeetingId() {
-    return this.meetingId;
-  }
-
-  public void setMeetingId(String meetingId) {
-    this.meetingId = meetingId;
-  }
-
-  public String getUrl() {
-    return this.url;
-  }
-
-  public void setUrl(String url) {
-    this.url = url;
-  }
-
-  public String getDuration() {
-    return this.duration;
-  }
-
-  public void setDuration(String duration) {
-    this.duration = duration;
-  }
-
-  public static class Builder {
-
+    @SerializedName("id")
     private String id;
+    @SerializedName("meeting_id")
     private String meetingId;
+    @SerializedName("url")
     private String url;
+    @SerializedName("duration")
     private String duration;
-
-    public Builder id(String id) {
-      this.id = id;
-      return this;
+    public String getId() {
+        return this.id;
     }
 
-    public Builder meetingId(String meetingId) {
-      this.meetingId = meetingId;
-      return this;
+    public void setId(String id) {
+        this.id = id;
     }
 
-    public Builder url(String url) {
-      this.url = url;
-      return this;
+    public String getMeetingId() {
+        return this.meetingId;
     }
 
-    public Builder duration(String duration) {
-      this.duration = duration;
-      return this;
+    public void setMeetingId(String meetingId) {
+        this.meetingId = meetingId;
+    }
+
+    public String getUrl() {
+        return this.url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public String getDuration() {
+        return this.duration;
+    }
+
+    public void setDuration(String duration) {
+        this.duration = duration;
     }
 
 
-    public MeetingRecording build() {
-      return new MeetingRecording(this);
-    }
+// builder 开始
+  public MeetingRecording(){}
+
+  public MeetingRecording(Builder builder){
+      this.id = builder.id;
+      this.meetingId = builder.meetingId;
+      this.url = builder.url;
+      this.duration = builder.duration;
   }
+
+    public static class Builder {
+        private String id;
+        private String meetingId;
+        private String url;
+        private String duration;
+        public Builder id(String id) {
+             this.id = id;
+             return this;
+        }
+    
+        public Builder meetingId(String meetingId) {
+             this.meetingId = meetingId;
+             return this;
+        }
+    
+        public Builder url(String url) {
+             this.url = url;
+             return this;
+        }
+    
+        public Builder duration(String duration) {
+             this.duration = duration;
+             return this;
+        }
+    
+    
+    public MeetingRecording build(){
+        return new MeetingRecording(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

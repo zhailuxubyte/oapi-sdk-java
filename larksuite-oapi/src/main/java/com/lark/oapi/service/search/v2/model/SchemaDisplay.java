@@ -12,68 +12,73 @@
  */
 
 package com.lark.oapi.service.search.v2.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.search.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class SchemaDisplay {
-
-  @SerializedName("card_key")
-  private String cardKey;
-  @SerializedName("fields_mapping")
-  private SchemaDisplayFieldMapping[] fieldsMapping;
-
-  // builder 开始
-  public SchemaDisplay() {
-  }
-
-  public SchemaDisplay(Builder builder) {
-    this.cardKey = builder.cardKey;
-    this.fieldsMapping = builder.fieldsMapping;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getCardKey() {
-    return this.cardKey;
-  }
-
-  public void setCardKey(String cardKey) {
-    this.cardKey = cardKey;
-  }
-
-  public SchemaDisplayFieldMapping[] getFieldsMapping() {
-    return this.fieldsMapping;
-  }
-
-  public void setFieldsMapping(SchemaDisplayFieldMapping[] fieldsMapping) {
-    this.fieldsMapping = fieldsMapping;
-  }
-
-  public static class Builder {
-
+    @SerializedName("card_key")
     private String cardKey;
+    @SerializedName("fields_mapping")
     private SchemaDisplayFieldMapping[] fieldsMapping;
-
-    public Builder cardKey(String cardKey) {
-      this.cardKey = cardKey;
-      return this;
+    public String getCardKey() {
+        return this.cardKey;
     }
 
-    public Builder cardKey(com.lark.oapi.service.search.v2.enums.CardKeyEnum cardKey) {
-      this.cardKey = cardKey.getValue();
-      return this;
+    public void setCardKey(String cardKey) {
+        this.cardKey = cardKey;
     }
 
-    public Builder fieldsMapping(SchemaDisplayFieldMapping[] fieldsMapping) {
-      this.fieldsMapping = fieldsMapping;
-      return this;
+    public SchemaDisplayFieldMapping[] getFieldsMapping() {
+        return this.fieldsMapping;
+    }
+
+    public void setFieldsMapping(SchemaDisplayFieldMapping[] fieldsMapping) {
+        this.fieldsMapping = fieldsMapping;
     }
 
 
-    public SchemaDisplay build() {
-      return new SchemaDisplay(this);
-    }
+// builder 开始
+  public SchemaDisplay(){}
+
+  public SchemaDisplay(Builder builder){
+      this.cardKey = builder.cardKey;
+      this.fieldsMapping = builder.fieldsMapping;
   }
+
+    public static class Builder {
+        private String cardKey;
+        private SchemaDisplayFieldMapping[] fieldsMapping;
+        public Builder cardKey(String cardKey) {
+             this.cardKey = cardKey;
+             return this;
+        }
+        public Builder cardKey(com.lark.oapi.service.search.v2.enums.CardKeyEnum cardKey) {
+             this.cardKey = cardKey.getValue();
+             return this;
+        }
+    
+        public Builder fieldsMapping(SchemaDisplayFieldMapping[] fieldsMapping) {
+             this.fieldsMapping = fieldsMapping;
+             return this;
+        }
+    
+    
+    public SchemaDisplay build(){
+        return new SchemaDisplay(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

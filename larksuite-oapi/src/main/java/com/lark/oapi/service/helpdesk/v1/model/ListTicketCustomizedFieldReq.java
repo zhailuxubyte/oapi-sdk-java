@@ -12,87 +12,90 @@
  */
 
 package com.lark.oapi.service.helpdesk.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.helpdesk.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class ListTicketCustomizedFieldReq {
-
-  @Query
-  @SerializedName("page_token")
-  private String pageToken;
-  @Query
-  @SerializedName("page_size")
-  private Integer pageSize;
-  @Body
-  private ListTicketCustomizedFieldReqBody body;
-
-  // builder 开始
-  public ListTicketCustomizedFieldReq() {
-  }
-
-  public ListTicketCustomizedFieldReq(Builder builder) {
-    this.pageToken = builder.pageToken;
-    this.pageSize = builder.pageSize;
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getPageToken() {
-    return this.pageToken;
-  }
-
-  public void setPageToken(String pageToken) {
-    this.pageToken = pageToken;
-  }
-
-  public Integer getPageSize() {
-    return this.pageSize;
-  }
-
-  public void setPageSize(Integer pageSize) {
-    this.pageSize = pageSize;
-  }
-
-  public ListTicketCustomizedFieldReqBody getListTicketCustomizedFieldReqBody() {
-    return this.body;
-  }
-
-  public void setListTicketCustomizedFieldReqBody(ListTicketCustomizedFieldReqBody body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
+    @Query
+    @SerializedName("page_token")
     private String pageToken;
+    @Query
+    @SerializedName("page_size")
     private Integer pageSize;
+    public String getPageToken() {
+        return this.pageToken;
+    }
+
+    public void setPageToken(String pageToken) {
+        this.pageToken = pageToken;
+    }
+
+    public Integer getPageSize() {
+        return this.pageSize;
+    }
+
+    public void setPageSize(Integer pageSize) {
+        this.pageSize = pageSize;
+    }
+
+    @Body
     private ListTicketCustomizedFieldReqBody body;
 
-    public Builder pageToken(String pageToken) {
-      this.pageToken = pageToken;
-      return this;
-    }
-
-    public Builder pageSize(Integer pageSize) {
-      this.pageSize = pageSize;
-      return this;
-    }
-
     public ListTicketCustomizedFieldReqBody getListTicketCustomizedFieldReqBody() {
-      return this.body;
+        return this.body;
     }
 
-    public Builder listTicketCustomizedFieldReqBody(ListTicketCustomizedFieldReqBody body) {
-      this.body = body;
-      return this;
+    public void setListTicketCustomizedFieldReqBody(ListTicketCustomizedFieldReqBody body) {
+        this.body = body;
     }
 
-    public ListTicketCustomizedFieldReq build() {
-      return new ListTicketCustomizedFieldReq(this);
-    }
+// builder 开始
+  public ListTicketCustomizedFieldReq(){}
+
+  public ListTicketCustomizedFieldReq(Builder builder){
+       this.pageToken = builder.pageToken;
+       this.pageSize = builder.pageSize;
+        this.body = builder.body;
   }
+
+    public static class Builder {
+        private String pageToken;
+        private Integer pageSize;
+    
+           public Builder pageToken(String pageToken) {
+                this.pageToken = pageToken;
+                return this;
+           }
+    
+           public Builder pageSize(Integer pageSize) {
+                this.pageSize = pageSize;
+                return this;
+           }
+    
+        private ListTicketCustomizedFieldReqBody body;
+    
+        public ListTicketCustomizedFieldReqBody getListTicketCustomizedFieldReqBody() {
+            return this.body;
+        }
+        public Builder listTicketCustomizedFieldReqBody(ListTicketCustomizedFieldReqBody body) {
+             this.body = body;
+             return this;
+        }
+    public ListTicketCustomizedFieldReq build(){
+        return new ListTicketCustomizedFieldReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

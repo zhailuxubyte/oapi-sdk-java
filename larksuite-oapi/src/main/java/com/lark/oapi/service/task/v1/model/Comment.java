@@ -12,80 +12,86 @@
  */
 
 package com.lark.oapi.service.task.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.task.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class Comment {
-
-  @SerializedName("content")
-  private String content;
-  @SerializedName("parent_id")
-  private String parentId;
-  @SerializedName("id")
-  private String id;
-
-  // builder 开始
-  public Comment() {
-  }
-
-  public Comment(Builder builder) {
-    this.content = builder.content;
-    this.parentId = builder.parentId;
-    this.id = builder.id;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getContent() {
-    return this.content;
-  }
-
-  public void setContent(String content) {
-    this.content = content;
-  }
-
-  public String getParentId() {
-    return this.parentId;
-  }
-
-  public void setParentId(String parentId) {
-    this.parentId = parentId;
-  }
-
-  public String getId() {
-    return this.id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public static class Builder {
-
+    @SerializedName("content")
     private String content;
+    @SerializedName("parent_id")
     private String parentId;
+    @SerializedName("id")
     private String id;
-
-    public Builder content(String content) {
-      this.content = content;
-      return this;
+    public String getContent() {
+        return this.content;
     }
 
-    public Builder parentId(String parentId) {
-      this.parentId = parentId;
-      return this;
+    public void setContent(String content) {
+        this.content = content;
     }
 
-    public Builder id(String id) {
-      this.id = id;
-      return this;
+    public String getParentId() {
+        return this.parentId;
+    }
+
+    public void setParentId(String parentId) {
+        this.parentId = parentId;
+    }
+
+    public String getId() {
+        return this.id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
 
-    public Comment build() {
-      return new Comment(this);
-    }
+// builder 开始
+  public Comment(){}
+
+  public Comment(Builder builder){
+      this.content = builder.content;
+      this.parentId = builder.parentId;
+      this.id = builder.id;
   }
+
+    public static class Builder {
+        private String content;
+        private String parentId;
+        private String id;
+        public Builder content(String content) {
+             this.content = content;
+             return this;
+        }
+    
+        public Builder parentId(String parentId) {
+             this.parentId = parentId;
+             return this;
+        }
+    
+        public Builder id(String id) {
+             this.id = id;
+             return this;
+        }
+    
+    
+    public Comment build(){
+        return new Comment(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

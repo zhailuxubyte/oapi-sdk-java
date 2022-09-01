@@ -12,40 +12,47 @@
  */
 
 package com.lark.oapi.service.drive.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class UploadPrepareFile {
+    @SerializedName("upload_id")
+    private String uploadId;
+    @SerializedName("block_size")
+    private Integer blockSize;
+    @SerializedName("block_num")
+    private Integer blockNum;
+    public String getUploadId() {
+        return this.uploadId;
+    }
 
-  @SerializedName("upload_id")
-  private String uploadId;
-  @SerializedName("block_size")
-  private Integer blockSize;
-  @SerializedName("block_num")
-  private Integer blockNum;
+    public void setUploadId(String uploadId) {
+        this.uploadId = uploadId;
+    }
 
-  public String getUploadId() {
-    return this.uploadId;
-  }
+    public Integer getBlockSize() {
+        return this.blockSize;
+    }
 
-  public void setUploadId(String uploadId) {
-    this.uploadId = uploadId;
-  }
+    public void setBlockSize(Integer blockSize) {
+        this.blockSize = blockSize;
+    }
 
-  public Integer getBlockSize() {
-    return this.blockSize;
-  }
+    public Integer getBlockNum() {
+        return this.blockNum;
+    }
 
-  public void setBlockSize(Integer blockSize) {
-    this.blockSize = blockSize;
-  }
-
-  public Integer getBlockNum() {
-    return this.blockNum;
-  }
-
-  public void setBlockNum(Integer blockNum) {
-    this.blockNum = blockNum;
-  }
+    public void setBlockNum(Integer blockNum) {
+        this.blockNum = blockNum;
+    }
 
 }

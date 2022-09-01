@@ -12,97 +12,103 @@
  */
 
 package com.lark.oapi.service.approval.v4.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.approval.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class TaskSearchItem {
-
-  @SerializedName("approval")
-  private InstanceSearchApproval approval;
-  @SerializedName("group")
-  private InstanceSearchGroup group;
-  @SerializedName("instance")
-  private InstanceSearchNode instance;
-  @SerializedName("task")
-  private TaskSearchNode task;
-
-  // builder 开始
-  public TaskSearchItem() {
-  }
-
-  public TaskSearchItem(Builder builder) {
-    this.approval = builder.approval;
-    this.group = builder.group;
-    this.instance = builder.instance;
-    this.task = builder.task;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public InstanceSearchApproval getApproval() {
-    return this.approval;
-  }
-
-  public void setApproval(InstanceSearchApproval approval) {
-    this.approval = approval;
-  }
-
-  public InstanceSearchGroup getGroup() {
-    return this.group;
-  }
-
-  public void setGroup(InstanceSearchGroup group) {
-    this.group = group;
-  }
-
-  public InstanceSearchNode getInstance() {
-    return this.instance;
-  }
-
-  public void setInstance(InstanceSearchNode instance) {
-    this.instance = instance;
-  }
-
-  public TaskSearchNode getTask() {
-    return this.task;
-  }
-
-  public void setTask(TaskSearchNode task) {
-    this.task = task;
-  }
-
-  public static class Builder {
-
+    @SerializedName("approval")
     private InstanceSearchApproval approval;
+    @SerializedName("group")
     private InstanceSearchGroup group;
+    @SerializedName("instance")
     private InstanceSearchNode instance;
+    @SerializedName("task")
     private TaskSearchNode task;
-
-    public Builder approval(InstanceSearchApproval approval) {
-      this.approval = approval;
-      return this;
+    public InstanceSearchApproval getApproval() {
+        return this.approval;
     }
 
-    public Builder group(InstanceSearchGroup group) {
-      this.group = group;
-      return this;
+    public void setApproval(InstanceSearchApproval approval) {
+        this.approval = approval;
     }
 
-    public Builder instance(InstanceSearchNode instance) {
-      this.instance = instance;
-      return this;
+    public InstanceSearchGroup getGroup() {
+        return this.group;
     }
 
-    public Builder task(TaskSearchNode task) {
-      this.task = task;
-      return this;
+    public void setGroup(InstanceSearchGroup group) {
+        this.group = group;
+    }
+
+    public InstanceSearchNode getInstance() {
+        return this.instance;
+    }
+
+    public void setInstance(InstanceSearchNode instance) {
+        this.instance = instance;
+    }
+
+    public TaskSearchNode getTask() {
+        return this.task;
+    }
+
+    public void setTask(TaskSearchNode task) {
+        this.task = task;
     }
 
 
-    public TaskSearchItem build() {
-      return new TaskSearchItem(this);
-    }
+// builder 开始
+  public TaskSearchItem(){}
+
+  public TaskSearchItem(Builder builder){
+      this.approval = builder.approval;
+      this.group = builder.group;
+      this.instance = builder.instance;
+      this.task = builder.task;
   }
+
+    public static class Builder {
+        private InstanceSearchApproval approval;
+        private InstanceSearchGroup group;
+        private InstanceSearchNode instance;
+        private TaskSearchNode task;
+        public Builder approval(InstanceSearchApproval approval) {
+             this.approval = approval;
+             return this;
+        }
+    
+        public Builder group(InstanceSearchGroup group) {
+             this.group = group;
+             return this;
+        }
+    
+        public Builder instance(InstanceSearchNode instance) {
+             this.instance = instance;
+             return this;
+        }
+    
+        public Builder task(TaskSearchNode task) {
+             this.task = task;
+             return this;
+        }
+    
+    
+    public TaskSearchItem build(){
+        return new TaskSearchItem(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

@@ -12,65 +12,70 @@
  */
 
 package com.lark.oapi.service.task.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.task.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class DeleteTaskCollaboratorReq {
-
-  @Path
-  @SerializedName("task_id")
-  private String taskId;
-  @Path
-  @SerializedName("collaborator_id")
-  private String collaboratorId;
-
-  // builder 开始
-  public DeleteTaskCollaboratorReq() {
-  }
-
-  public DeleteTaskCollaboratorReq(Builder builder) {
-    this.taskId = builder.taskId;
-    this.collaboratorId = builder.collaboratorId;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getTaskId() {
-    return this.taskId;
-  }
-
-  public void setTaskId(String taskId) {
-    this.taskId = taskId;
-  }
-
-  public String getCollaboratorId() {
-    return this.collaboratorId;
-  }
-
-  public void setCollaboratorId(String collaboratorId) {
-    this.collaboratorId = collaboratorId;
-  }
-
-  public static class Builder {
-
+    @Path
+    @SerializedName("task_id")
     private String taskId;
+    @Path
+    @SerializedName("collaborator_id")
     private String collaboratorId;
-
-    public Builder taskId(String taskId) {
-      this.taskId = taskId;
-      return this;
+    public String getTaskId() {
+        return this.taskId;
     }
 
-    public Builder collaboratorId(String collaboratorId) {
-      this.collaboratorId = collaboratorId;
-      return this;
+    public void setTaskId(String taskId) {
+        this.taskId = taskId;
     }
 
-    public DeleteTaskCollaboratorReq build() {
-      return new DeleteTaskCollaboratorReq(this);
+    public String getCollaboratorId() {
+        return this.collaboratorId;
     }
+
+    public void setCollaboratorId(String collaboratorId) {
+        this.collaboratorId = collaboratorId;
+    }
+
+
+// builder 开始
+  public DeleteTaskCollaboratorReq(){}
+
+  public DeleteTaskCollaboratorReq(Builder builder){
+       this.taskId = builder.taskId;
+       this.collaboratorId = builder.collaboratorId;
   }
+
+    public static class Builder {
+    
+        private String taskId;
+        private String collaboratorId;
+          public Builder taskId(String taskId) {
+               this.taskId = taskId;
+               return this;
+          }
+    
+          public Builder collaboratorId(String collaboratorId) {
+               this.collaboratorId = collaboratorId;
+               return this;
+          }
+    
+    public DeleteTaskCollaboratorReq build(){
+        return new DeleteTaskCollaboratorReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

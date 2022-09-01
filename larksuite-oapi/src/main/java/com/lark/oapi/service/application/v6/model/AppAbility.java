@@ -12,182 +12,188 @@
  */
 
 package com.lark.oapi.service.application.v6.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.application.v6.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class AppAbility {
-
-  @SerializedName("gadget")
-  private Gadget gadget;
-  @SerializedName("web_app")
-  private WebApp webApp;
-  @SerializedName("bot")
-  private Bot bot;
-  @SerializedName("workplace_widgets")
-  private WorkplaceWidget[] workplaceWidgets;
-  @SerializedName("navigate")
-  private Navigate navigate;
-  @SerializedName("cloud_doc")
-  private CloudDoc cloudDoc;
-  @SerializedName("docs_blocks")
-  private DocsBlock[] docsBlocks;
-  @SerializedName("message_action")
-  private MessageAction messageAction;
-  @SerializedName("plus_menu")
-  private PlusMenu plusMenu;
-
-  // builder 开始
-  public AppAbility() {
-  }
-
-  public AppAbility(Builder builder) {
-    this.gadget = builder.gadget;
-    this.webApp = builder.webApp;
-    this.bot = builder.bot;
-    this.workplaceWidgets = builder.workplaceWidgets;
-    this.navigate = builder.navigate;
-    this.cloudDoc = builder.cloudDoc;
-    this.docsBlocks = builder.docsBlocks;
-    this.messageAction = builder.messageAction;
-    this.plusMenu = builder.plusMenu;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Gadget getGadget() {
-    return this.gadget;
-  }
-
-  public void setGadget(Gadget gadget) {
-    this.gadget = gadget;
-  }
-
-  public WebApp getWebApp() {
-    return this.webApp;
-  }
-
-  public void setWebApp(WebApp webApp) {
-    this.webApp = webApp;
-  }
-
-  public Bot getBot() {
-    return this.bot;
-  }
-
-  public void setBot(Bot bot) {
-    this.bot = bot;
-  }
-
-  public WorkplaceWidget[] getWorkplaceWidgets() {
-    return this.workplaceWidgets;
-  }
-
-  public void setWorkplaceWidgets(WorkplaceWidget[] workplaceWidgets) {
-    this.workplaceWidgets = workplaceWidgets;
-  }
-
-  public Navigate getNavigate() {
-    return this.navigate;
-  }
-
-  public void setNavigate(Navigate navigate) {
-    this.navigate = navigate;
-  }
-
-  public CloudDoc getCloudDoc() {
-    return this.cloudDoc;
-  }
-
-  public void setCloudDoc(CloudDoc cloudDoc) {
-    this.cloudDoc = cloudDoc;
-  }
-
-  public DocsBlock[] getDocsBlocks() {
-    return this.docsBlocks;
-  }
-
-  public void setDocsBlocks(DocsBlock[] docsBlocks) {
-    this.docsBlocks = docsBlocks;
-  }
-
-  public MessageAction getMessageAction() {
-    return this.messageAction;
-  }
-
-  public void setMessageAction(MessageAction messageAction) {
-    this.messageAction = messageAction;
-  }
-
-  public PlusMenu getPlusMenu() {
-    return this.plusMenu;
-  }
-
-  public void setPlusMenu(PlusMenu plusMenu) {
-    this.plusMenu = plusMenu;
-  }
-
-  public static class Builder {
-
+    @SerializedName("gadget")
     private Gadget gadget;
+    @SerializedName("web_app")
     private WebApp webApp;
+    @SerializedName("bot")
     private Bot bot;
+    @SerializedName("workplace_widgets")
     private WorkplaceWidget[] workplaceWidgets;
+    @SerializedName("navigate")
     private Navigate navigate;
+    @SerializedName("cloud_doc")
     private CloudDoc cloudDoc;
+    @SerializedName("docs_blocks")
     private DocsBlock[] docsBlocks;
+    @SerializedName("message_action")
     private MessageAction messageAction;
+    @SerializedName("plus_menu")
     private PlusMenu plusMenu;
-
-    public Builder gadget(Gadget gadget) {
-      this.gadget = gadget;
-      return this;
+    public Gadget getGadget() {
+        return this.gadget;
     }
 
-    public Builder webApp(WebApp webApp) {
-      this.webApp = webApp;
-      return this;
+    public void setGadget(Gadget gadget) {
+        this.gadget = gadget;
     }
 
-    public Builder bot(Bot bot) {
-      this.bot = bot;
-      return this;
+    public WebApp getWebApp() {
+        return this.webApp;
     }
 
-    public Builder workplaceWidgets(WorkplaceWidget[] workplaceWidgets) {
-      this.workplaceWidgets = workplaceWidgets;
-      return this;
+    public void setWebApp(WebApp webApp) {
+        this.webApp = webApp;
     }
 
-    public Builder navigate(Navigate navigate) {
-      this.navigate = navigate;
-      return this;
+    public Bot getBot() {
+        return this.bot;
     }
 
-    public Builder cloudDoc(CloudDoc cloudDoc) {
-      this.cloudDoc = cloudDoc;
-      return this;
+    public void setBot(Bot bot) {
+        this.bot = bot;
     }
 
-    public Builder docsBlocks(DocsBlock[] docsBlocks) {
-      this.docsBlocks = docsBlocks;
-      return this;
+    public WorkplaceWidget[] getWorkplaceWidgets() {
+        return this.workplaceWidgets;
     }
 
-    public Builder messageAction(MessageAction messageAction) {
-      this.messageAction = messageAction;
-      return this;
+    public void setWorkplaceWidgets(WorkplaceWidget[] workplaceWidgets) {
+        this.workplaceWidgets = workplaceWidgets;
     }
 
-    public Builder plusMenu(PlusMenu plusMenu) {
-      this.plusMenu = plusMenu;
-      return this;
+    public Navigate getNavigate() {
+        return this.navigate;
+    }
+
+    public void setNavigate(Navigate navigate) {
+        this.navigate = navigate;
+    }
+
+    public CloudDoc getCloudDoc() {
+        return this.cloudDoc;
+    }
+
+    public void setCloudDoc(CloudDoc cloudDoc) {
+        this.cloudDoc = cloudDoc;
+    }
+
+    public DocsBlock[] getDocsBlocks() {
+        return this.docsBlocks;
+    }
+
+    public void setDocsBlocks(DocsBlock[] docsBlocks) {
+        this.docsBlocks = docsBlocks;
+    }
+
+    public MessageAction getMessageAction() {
+        return this.messageAction;
+    }
+
+    public void setMessageAction(MessageAction messageAction) {
+        this.messageAction = messageAction;
+    }
+
+    public PlusMenu getPlusMenu() {
+        return this.plusMenu;
+    }
+
+    public void setPlusMenu(PlusMenu plusMenu) {
+        this.plusMenu = plusMenu;
     }
 
 
-    public AppAbility build() {
-      return new AppAbility(this);
-    }
+// builder 开始
+  public AppAbility(){}
+
+  public AppAbility(Builder builder){
+      this.gadget = builder.gadget;
+      this.webApp = builder.webApp;
+      this.bot = builder.bot;
+      this.workplaceWidgets = builder.workplaceWidgets;
+      this.navigate = builder.navigate;
+      this.cloudDoc = builder.cloudDoc;
+      this.docsBlocks = builder.docsBlocks;
+      this.messageAction = builder.messageAction;
+      this.plusMenu = builder.plusMenu;
   }
+
+    public static class Builder {
+        private Gadget gadget;
+        private WebApp webApp;
+        private Bot bot;
+        private WorkplaceWidget[] workplaceWidgets;
+        private Navigate navigate;
+        private CloudDoc cloudDoc;
+        private DocsBlock[] docsBlocks;
+        private MessageAction messageAction;
+        private PlusMenu plusMenu;
+        public Builder gadget(Gadget gadget) {
+             this.gadget = gadget;
+             return this;
+        }
+    
+        public Builder webApp(WebApp webApp) {
+             this.webApp = webApp;
+             return this;
+        }
+    
+        public Builder bot(Bot bot) {
+             this.bot = bot;
+             return this;
+        }
+    
+        public Builder workplaceWidgets(WorkplaceWidget[] workplaceWidgets) {
+             this.workplaceWidgets = workplaceWidgets;
+             return this;
+        }
+    
+        public Builder navigate(Navigate navigate) {
+             this.navigate = navigate;
+             return this;
+        }
+    
+        public Builder cloudDoc(CloudDoc cloudDoc) {
+             this.cloudDoc = cloudDoc;
+             return this;
+        }
+    
+        public Builder docsBlocks(DocsBlock[] docsBlocks) {
+             this.docsBlocks = docsBlocks;
+             return this;
+        }
+    
+        public Builder messageAction(MessageAction messageAction) {
+             this.messageAction = messageAction;
+             return this;
+        }
+    
+        public Builder plusMenu(PlusMenu plusMenu) {
+             this.plusMenu = plusMenu;
+             return this;
+        }
+    
+    
+    public AppAbility build(){
+        return new AppAbility(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

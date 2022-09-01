@@ -12,69 +12,72 @@
  */
 
 package com.lark.oapi.service.drive.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.drive.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class CopyFileReq {
-
-  @Path
-  @SerializedName("file_token")
-  private String fileToken;
-  @Body
-  private CopyFileReqBody body;
-
-  // builder 开始
-  public CopyFileReq() {
-  }
-
-  public CopyFileReq(Builder builder) {
-    this.fileToken = builder.fileToken;
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getFileToken() {
-    return this.fileToken;
-  }
-
-  public void setFileToken(String fileToken) {
-    this.fileToken = fileToken;
-  }
-
-  public CopyFileReqBody getCopyFileReqBody() {
-    return this.body;
-  }
-
-  public void setCopyFileReqBody(CopyFileReqBody body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
+    @Path
+    @SerializedName("file_token")
     private String fileToken;
+    public String getFileToken() {
+        return this.fileToken;
+    }
+
+    public void setFileToken(String fileToken) {
+        this.fileToken = fileToken;
+    }
+
+    @Body
     private CopyFileReqBody body;
 
-    public Builder fileToken(String fileToken) {
-      this.fileToken = fileToken;
-      return this;
-    }
-
     public CopyFileReqBody getCopyFileReqBody() {
-      return this.body;
+        return this.body;
     }
 
-    public Builder copyFileReqBody(CopyFileReqBody body) {
-      this.body = body;
-      return this;
+    public void setCopyFileReqBody(CopyFileReqBody body) {
+        this.body = body;
     }
 
-    public CopyFileReq build() {
-      return new CopyFileReq(this);
-    }
+// builder 开始
+  public CopyFileReq(){}
+
+  public CopyFileReq(Builder builder){
+       this.fileToken = builder.fileToken;
+        this.body = builder.body;
   }
+
+    public static class Builder {
+    
+        private String fileToken;
+          public Builder fileToken(String fileToken) {
+               this.fileToken = fileToken;
+               return this;
+          }
+    
+        private CopyFileReqBody body;
+    
+        public CopyFileReqBody getCopyFileReqBody() {
+            return this.body;
+        }
+        public Builder copyFileReqBody(CopyFileReqBody body) {
+             this.body = body;
+             return this;
+        }
+    public CopyFileReq build(){
+        return new CopyFileReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

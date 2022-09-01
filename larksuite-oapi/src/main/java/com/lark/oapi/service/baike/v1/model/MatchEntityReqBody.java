@@ -12,46 +12,52 @@
  */
 
 package com.lark.oapi.service.baike.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.baike.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class MatchEntityReqBody {
-
-  @SerializedName("word")
-  private String word;
-
-  // builder 开始
-  public MatchEntityReqBody() {
-  }
-
-  public MatchEntityReqBody(Builder builder) {
-    this.word = builder.word;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getWord() {
-    return this.word;
-  }
-
-  public void setWord(String word) {
-    this.word = word;
-  }
-
-  public static class Builder {
-
+    @SerializedName("word")
     private String word;
+    public String getWord() {
+        return this.word;
+    }
 
-    public Builder word(String word) {
-      this.word = word;
-      return this;
+    public void setWord(String word) {
+        this.word = word;
     }
 
 
-    public MatchEntityReqBody build() {
-      return new MatchEntityReqBody(this);
-    }
+// builder 开始
+  public MatchEntityReqBody(){}
+
+  public MatchEntityReqBody(Builder builder){
+      this.word = builder.word;
   }
+
+    public static class Builder {
+        private String word;
+        public Builder word(String word) {
+             this.word = word;
+             return this;
+        }
+    
+    
+    public MatchEntityReqBody build(){
+        return new MatchEntityReqBody(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

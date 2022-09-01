@@ -12,88 +12,90 @@
  */
 
 package com.lark.oapi.service.wiki.v2.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.wiki.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class CreateSpaceMemberReq {
-
-  @Query
-  @SerializedName("need_notification")
-  private Boolean needNotification;
-  @Path
-  @SerializedName("space_id")
-  private String spaceId;
-  @Body
-  private Member body;
-
-  // builder 开始
-  public CreateSpaceMemberReq() {
-  }
-
-  public CreateSpaceMemberReq(Builder builder) {
-    this.needNotification = builder.needNotification;
-    this.spaceId = builder.spaceId;
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Boolean getNeedNotification() {
-    return this.needNotification;
-  }
-
-  public void setNeedNotification(Boolean needNotification) {
-    this.needNotification = needNotification;
-  }
-
-  public String getSpaceId() {
-    return this.spaceId;
-  }
-
-  public void setSpaceId(String spaceId) {
-    this.spaceId = spaceId;
-  }
-
-  public Member getMember() {
-    return this.body;
-  }
-
-  public void setMember(Member body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
+    @Query
+    @SerializedName("need_notification")
     private Boolean needNotification;
+    public Boolean getNeedNotification() {
+        return this.needNotification;
+    }
+
+    public void setNeedNotification(Boolean needNotification) {
+        this.needNotification = needNotification;
+    }
+
+    @Path
+    @SerializedName("space_id")
     private String spaceId;
+    public String getSpaceId() {
+        return this.spaceId;
+    }
+
+    public void setSpaceId(String spaceId) {
+        this.spaceId = spaceId;
+    }
+
+    @Body
     private Member body;
 
-    public Builder needNotification(Boolean needNotification) {
-      this.needNotification = needNotification;
-      return this;
-    }
-
-    public Builder spaceId(String spaceId) {
-      this.spaceId = spaceId;
-      return this;
-    }
-
     public Member getMember() {
-      return this.body;
+        return this.body;
     }
 
-    public Builder member(Member body) {
-      this.body = body;
-      return this;
+    public void setMember(Member body) {
+        this.body = body;
     }
 
-    public CreateSpaceMemberReq build() {
-      return new CreateSpaceMemberReq(this);
-    }
+// builder 开始
+  public CreateSpaceMemberReq(){}
+
+  public CreateSpaceMemberReq(Builder builder){
+       this.needNotification = builder.needNotification;
+       this.spaceId = builder.spaceId;
+        this.body = builder.body;
   }
+
+    public static class Builder {
+        private Boolean needNotification;
+    
+           public Builder needNotification(Boolean needNotification) {
+                this.needNotification = needNotification;
+                return this;
+           }
+    
+        private String spaceId;
+          public Builder spaceId(String spaceId) {
+               this.spaceId = spaceId;
+               return this;
+          }
+    
+        private Member body;
+    
+        public Member getMember() {
+            return this.body;
+        }
+        public Builder member(Member body) {
+             this.body = body;
+             return this;
+        }
+    public CreateSpaceMemberReq build(){
+        return new CreateSpaceMemberReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

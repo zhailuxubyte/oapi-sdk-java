@@ -13,76 +13,80 @@
 
 package com.lark.oapi.service.human_authentication.v1;
 
-import com.lark.oapi.core.Config;
-import com.lark.oapi.core.Transport;
-import com.lark.oapi.core.request.RequestOptions;
-import com.lark.oapi.core.response.RawResponse;
 import com.lark.oapi.core.token.AccessTokenType;
-import com.lark.oapi.core.utils.Sets;
+import com.lark.oapi.core.Transport;
+import com.lark.oapi.core.response.RawResponse;
 import com.lark.oapi.core.utils.UnmarshalRespUtil;
-import com.lark.oapi.service.human_authentication.v1.model.CreateIdentityReq;
-import com.lark.oapi.service.human_authentication.v1.model.CreateIdentityResp;
+import com.lark.oapi.core.utils.Sets;
+
+
+
+import com.lark.oapi.core.Config;
+import com.lark.oapi.core.request.RequestOptions;
+import java.io.ByteArrayOutputStream;
+import com.lark.oapi.event.model.BaseEvent;
+import com.lark.oapi.event.model.BaseEventV2;
+import com.lark.oapi.service.human_authentication.v1.model.*;
+import java.util.Map;
+import java.util.HashMap;
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
 
 public class HumanAuthenticationService {
+    private final Identity identity;
 
-  private final Identity identity;
-
-  public HumanAuthenticationService(Config config) {
-    this.identity = new Identity(config);
-  }
-
-  public Identity identity() {
-    return identity;
-  }
-
-  public static class Identity {
-
-    private final Config config;
-
-    public Identity(Config config) {
-      this.config = config;
+    public HumanAuthenticationService(Config config) {
+        this.identity = new Identity(config);
+    }
+    public Identity identity() {
+        return identity;
     }
 
-    public CreateIdentityResp create(CreateIdentityReq req, RequestOptions reqOptions)
-        throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
+    public static class Identity {
+        private final Config config;
 
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          , "/open-apis/human_authentication/v1/identities"
-          , Sets.newHashSet(AccessTokenType.Tenant)
-          , req);
+        public Identity(Config config) {
+            this.config = config;
+        }
+    
+        public CreateIdentityResp create(CreateIdentityReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
 
-      // 反序列化
-      CreateIdentityResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          CreateIdentityResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config,reqOptions, "POST"
+                       ,"/open-apis/human_authentication/v1/identities"
+                       ,Sets.newHashSet(AccessTokenType.Tenant)
+                       ,req);
+	       
+           // 反序列化
+           CreateIdentityResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateIdentityResp.class);
+           resp.setRawResponse(httpResponse);
+           resp.setRequest(req);
+           
+           return resp;
+        }
 
-      return resp;
+        public CreateIdentityResp create(CreateIdentityReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config,reqOptions, "POST"
+                       ,"/open-apis/human_authentication/v1/identities"
+                       ,Sets.newHashSet(AccessTokenType.Tenant)
+                       ,req);
+            
+           // 反序列化
+           CreateIdentityResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, CreateIdentityResp.class);
+           resp.setRawResponse(httpResponse);
+           resp.setRequest(req);
+           
+           return resp;
+        }
     }
-
-    public CreateIdentityResp create(CreateIdentityReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          , "/open-apis/human_authentication/v1/identities"
-          , Sets.newHashSet(AccessTokenType.Tenant)
-          , req);
-
-      // 反序列化
-      CreateIdentityResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          CreateIdentityResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-  }
 
 }

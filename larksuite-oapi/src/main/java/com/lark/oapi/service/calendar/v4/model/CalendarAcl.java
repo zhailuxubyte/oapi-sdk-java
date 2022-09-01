@@ -12,85 +12,90 @@
  */
 
 package com.lark.oapi.service.calendar.v4.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.calendar.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class CalendarAcl {
-
-  @SerializedName("acl_id")
-  private String aclId;
-  @SerializedName("role")
-  private String role;
-  @SerializedName("scope")
-  private AclScope scope;
-
-  // builder 开始
-  public CalendarAcl() {
-  }
-
-  public CalendarAcl(Builder builder) {
-    this.aclId = builder.aclId;
-    this.role = builder.role;
-    this.scope = builder.scope;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getAclId() {
-    return this.aclId;
-  }
-
-  public void setAclId(String aclId) {
-    this.aclId = aclId;
-  }
-
-  public String getRole() {
-    return this.role;
-  }
-
-  public void setRole(String role) {
-    this.role = role;
-  }
-
-  public AclScope getScope() {
-    return this.scope;
-  }
-
-  public void setScope(AclScope scope) {
-    this.scope = scope;
-  }
-
-  public static class Builder {
-
+    @SerializedName("acl_id")
     private String aclId;
+    @SerializedName("role")
     private String role;
+    @SerializedName("scope")
     private AclScope scope;
-
-    public Builder aclId(String aclId) {
-      this.aclId = aclId;
-      return this;
+    public String getAclId() {
+        return this.aclId;
     }
 
-    public Builder role(String role) {
-      this.role = role;
-      return this;
+    public void setAclId(String aclId) {
+        this.aclId = aclId;
     }
 
-    public Builder role(com.lark.oapi.service.calendar.v4.enums.CalendarAccessRoleEnum role) {
-      this.role = role.getValue();
-      return this;
+    public String getRole() {
+        return this.role;
     }
 
-    public Builder scope(AclScope scope) {
-      this.scope = scope;
-      return this;
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+    public AclScope getScope() {
+        return this.scope;
+    }
+
+    public void setScope(AclScope scope) {
+        this.scope = scope;
     }
 
 
-    public CalendarAcl build() {
-      return new CalendarAcl(this);
-    }
+// builder 开始
+  public CalendarAcl(){}
+
+  public CalendarAcl(Builder builder){
+      this.aclId = builder.aclId;
+      this.role = builder.role;
+      this.scope = builder.scope;
   }
+
+    public static class Builder {
+        private String aclId;
+        private String role;
+        private AclScope scope;
+        public Builder aclId(String aclId) {
+             this.aclId = aclId;
+             return this;
+        }
+    
+        public Builder role(String role) {
+             this.role = role;
+             return this;
+        }
+        public Builder role(com.lark.oapi.service.calendar.v4.enums.CalendarAccessRoleEnum role) {
+             this.role = role.getValue();
+             return this;
+        }
+    
+        public Builder scope(AclScope scope) {
+             this.scope = scope;
+             return this;
+        }
+    
+    
+    public CalendarAcl build(){
+        return new CalendarAcl(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

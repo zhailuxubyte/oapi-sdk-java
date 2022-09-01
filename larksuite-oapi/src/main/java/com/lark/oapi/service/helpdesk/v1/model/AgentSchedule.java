@@ -12,97 +12,103 @@
  */
 
 package com.lark.oapi.service.helpdesk.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.helpdesk.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class AgentSchedule {
-
-  @SerializedName("status")
-  private Integer status;
-  @SerializedName("agent")
-  private AgentUser agent;
-  @SerializedName("schedule")
-  private WeekdaySchedule[] schedule;
-  @SerializedName("agent_skills")
-  private AgentSkillLessInfo[] agentSkills;
-
-  // builder 开始
-  public AgentSchedule() {
-  }
-
-  public AgentSchedule(Builder builder) {
-    this.status = builder.status;
-    this.agent = builder.agent;
-    this.schedule = builder.schedule;
-    this.agentSkills = builder.agentSkills;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Integer getStatus() {
-    return this.status;
-  }
-
-  public void setStatus(Integer status) {
-    this.status = status;
-  }
-
-  public AgentUser getAgent() {
-    return this.agent;
-  }
-
-  public void setAgent(AgentUser agent) {
-    this.agent = agent;
-  }
-
-  public WeekdaySchedule[] getSchedule() {
-    return this.schedule;
-  }
-
-  public void setSchedule(WeekdaySchedule[] schedule) {
-    this.schedule = schedule;
-  }
-
-  public AgentSkillLessInfo[] getAgentSkills() {
-    return this.agentSkills;
-  }
-
-  public void setAgentSkills(AgentSkillLessInfo[] agentSkills) {
-    this.agentSkills = agentSkills;
-  }
-
-  public static class Builder {
-
+    @SerializedName("status")
     private Integer status;
+    @SerializedName("agent")
     private AgentUser agent;
+    @SerializedName("schedule")
     private WeekdaySchedule[] schedule;
+    @SerializedName("agent_skills")
     private AgentSkillLessInfo[] agentSkills;
-
-    public Builder status(Integer status) {
-      this.status = status;
-      return this;
+    public Integer getStatus() {
+        return this.status;
     }
 
-    public Builder agent(AgentUser agent) {
-      this.agent = agent;
-      return this;
+    public void setStatus(Integer status) {
+        this.status = status;
     }
 
-    public Builder schedule(WeekdaySchedule[] schedule) {
-      this.schedule = schedule;
-      return this;
+    public AgentUser getAgent() {
+        return this.agent;
     }
 
-    public Builder agentSkills(AgentSkillLessInfo[] agentSkills) {
-      this.agentSkills = agentSkills;
-      return this;
+    public void setAgent(AgentUser agent) {
+        this.agent = agent;
+    }
+
+    public WeekdaySchedule[] getSchedule() {
+        return this.schedule;
+    }
+
+    public void setSchedule(WeekdaySchedule[] schedule) {
+        this.schedule = schedule;
+    }
+
+    public AgentSkillLessInfo[] getAgentSkills() {
+        return this.agentSkills;
+    }
+
+    public void setAgentSkills(AgentSkillLessInfo[] agentSkills) {
+        this.agentSkills = agentSkills;
     }
 
 
-    public AgentSchedule build() {
-      return new AgentSchedule(this);
-    }
+// builder 开始
+  public AgentSchedule(){}
+
+  public AgentSchedule(Builder builder){
+      this.status = builder.status;
+      this.agent = builder.agent;
+      this.schedule = builder.schedule;
+      this.agentSkills = builder.agentSkills;
   }
+
+    public static class Builder {
+        private Integer status;
+        private AgentUser agent;
+        private WeekdaySchedule[] schedule;
+        private AgentSkillLessInfo[] agentSkills;
+        public Builder status(Integer status) {
+             this.status = status;
+             return this;
+        }
+    
+        public Builder agent(AgentUser agent) {
+             this.agent = agent;
+             return this;
+        }
+    
+        public Builder schedule(WeekdaySchedule[] schedule) {
+             this.schedule = schedule;
+             return this;
+        }
+    
+        public Builder agentSkills(AgentSkillLessInfo[] agentSkills) {
+             this.agentSkills = agentSkills;
+             return this;
+        }
+    
+    
+    public AgentSchedule build(){
+        return new AgentSchedule(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

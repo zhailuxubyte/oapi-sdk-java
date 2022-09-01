@@ -12,80 +12,86 @@
  */
 
 package com.lark.oapi.service.helpdesk.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.helpdesk.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class WeekdaySchedule {
-
-  @SerializedName("start_time")
-  private String startTime;
-  @SerializedName("end_time")
-  private String endTime;
-  @SerializedName("weekday")
-  private Integer weekday;
-
-  // builder 开始
-  public WeekdaySchedule() {
-  }
-
-  public WeekdaySchedule(Builder builder) {
-    this.startTime = builder.startTime;
-    this.endTime = builder.endTime;
-    this.weekday = builder.weekday;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getStartTime() {
-    return this.startTime;
-  }
-
-  public void setStartTime(String startTime) {
-    this.startTime = startTime;
-  }
-
-  public String getEndTime() {
-    return this.endTime;
-  }
-
-  public void setEndTime(String endTime) {
-    this.endTime = endTime;
-  }
-
-  public Integer getWeekday() {
-    return this.weekday;
-  }
-
-  public void setWeekday(Integer weekday) {
-    this.weekday = weekday;
-  }
-
-  public static class Builder {
-
+    @SerializedName("start_time")
     private String startTime;
+    @SerializedName("end_time")
     private String endTime;
+    @SerializedName("weekday")
     private Integer weekday;
-
-    public Builder startTime(String startTime) {
-      this.startTime = startTime;
-      return this;
+    public String getStartTime() {
+        return this.startTime;
     }
 
-    public Builder endTime(String endTime) {
-      this.endTime = endTime;
-      return this;
+    public void setStartTime(String startTime) {
+        this.startTime = startTime;
     }
 
-    public Builder weekday(Integer weekday) {
-      this.weekday = weekday;
-      return this;
+    public String getEndTime() {
+        return this.endTime;
+    }
+
+    public void setEndTime(String endTime) {
+        this.endTime = endTime;
+    }
+
+    public Integer getWeekday() {
+        return this.weekday;
+    }
+
+    public void setWeekday(Integer weekday) {
+        this.weekday = weekday;
     }
 
 
-    public WeekdaySchedule build() {
-      return new WeekdaySchedule(this);
-    }
+// builder 开始
+  public WeekdaySchedule(){}
+
+  public WeekdaySchedule(Builder builder){
+      this.startTime = builder.startTime;
+      this.endTime = builder.endTime;
+      this.weekday = builder.weekday;
   }
+
+    public static class Builder {
+        private String startTime;
+        private String endTime;
+        private Integer weekday;
+        public Builder startTime(String startTime) {
+             this.startTime = startTime;
+             return this;
+        }
+    
+        public Builder endTime(String endTime) {
+             this.endTime = endTime;
+             return this;
+        }
+    
+        public Builder weekday(Integer weekday) {
+             this.weekday = weekday;
+             return this;
+        }
+    
+    
+    public WeekdaySchedule build(){
+        return new WeekdaySchedule(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

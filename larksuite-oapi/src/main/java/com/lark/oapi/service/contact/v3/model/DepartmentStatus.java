@@ -12,46 +12,52 @@
  */
 
 package com.lark.oapi.service.contact.v3.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.contact.v3.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class DepartmentStatus {
-
-  @SerializedName("is_deleted")
-  private Boolean isDeleted;
-
-  // builder 开始
-  public DepartmentStatus() {
-  }
-
-  public DepartmentStatus(Builder builder) {
-    this.isDeleted = builder.isDeleted;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Boolean getIsDeleted() {
-    return this.isDeleted;
-  }
-
-  public void setIsDeleted(Boolean isDeleted) {
-    this.isDeleted = isDeleted;
-  }
-
-  public static class Builder {
-
+    @SerializedName("is_deleted")
     private Boolean isDeleted;
+    public Boolean getIsDeleted() {
+        return this.isDeleted;
+    }
 
-    public Builder isDeleted(Boolean isDeleted) {
-      this.isDeleted = isDeleted;
-      return this;
+    public void setIsDeleted(Boolean isDeleted) {
+        this.isDeleted = isDeleted;
     }
 
 
-    public DepartmentStatus build() {
-      return new DepartmentStatus(this);
-    }
+// builder 开始
+  public DepartmentStatus(){}
+
+  public DepartmentStatus(Builder builder){
+      this.isDeleted = builder.isDeleted;
   }
+
+    public static class Builder {
+        private Boolean isDeleted;
+        public Builder isDeleted(Boolean isDeleted) {
+             this.isDeleted = isDeleted;
+             return this;
+        }
+    
+    
+    public DepartmentStatus build(){
+        return new DepartmentStatus(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

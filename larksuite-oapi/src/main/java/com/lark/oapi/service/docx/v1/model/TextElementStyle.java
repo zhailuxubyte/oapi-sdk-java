@@ -12,176 +12,179 @@
  */
 
 package com.lark.oapi.service.docx.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.docx.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class TextElementStyle {
-
-  @SerializedName("bold")
-  private Boolean bold;
-  @SerializedName("italic")
-  private Boolean italic;
-  @SerializedName("strikethrough")
-  private Boolean strikethrough;
-  @SerializedName("underline")
-  private Boolean underline;
-  @SerializedName("inline_code")
-  private Boolean inlineCode;
-  @SerializedName("background_color")
-  private Integer backgroundColor;
-  @SerializedName("text_color")
-  private Integer textColor;
-  @SerializedName("link")
-  private Link link;
-
-  // builder 开始
-  public TextElementStyle() {
-  }
-
-  public TextElementStyle(Builder builder) {
-    this.bold = builder.bold;
-    this.italic = builder.italic;
-    this.strikethrough = builder.strikethrough;
-    this.underline = builder.underline;
-    this.inlineCode = builder.inlineCode;
-    this.backgroundColor = builder.backgroundColor;
-    this.textColor = builder.textColor;
-    this.link = builder.link;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Boolean getBold() {
-    return this.bold;
-  }
-
-  public void setBold(Boolean bold) {
-    this.bold = bold;
-  }
-
-  public Boolean getItalic() {
-    return this.italic;
-  }
-
-  public void setItalic(Boolean italic) {
-    this.italic = italic;
-  }
-
-  public Boolean getStrikethrough() {
-    return this.strikethrough;
-  }
-
-  public void setStrikethrough(Boolean strikethrough) {
-    this.strikethrough = strikethrough;
-  }
-
-  public Boolean getUnderline() {
-    return this.underline;
-  }
-
-  public void setUnderline(Boolean underline) {
-    this.underline = underline;
-  }
-
-  public Boolean getInlineCode() {
-    return this.inlineCode;
-  }
-
-  public void setInlineCode(Boolean inlineCode) {
-    this.inlineCode = inlineCode;
-  }
-
-  public Integer getBackgroundColor() {
-    return this.backgroundColor;
-  }
-
-  public void setBackgroundColor(Integer backgroundColor) {
-    this.backgroundColor = backgroundColor;
-  }
-
-  public Integer getTextColor() {
-    return this.textColor;
-  }
-
-  public void setTextColor(Integer textColor) {
-    this.textColor = textColor;
-  }
-
-  public Link getLink() {
-    return this.link;
-  }
-
-  public void setLink(Link link) {
-    this.link = link;
-  }
-
-  public static class Builder {
-
+    @SerializedName("bold")
     private Boolean bold;
+    @SerializedName("italic")
     private Boolean italic;
+    @SerializedName("strikethrough")
     private Boolean strikethrough;
+    @SerializedName("underline")
     private Boolean underline;
+    @SerializedName("inline_code")
     private Boolean inlineCode;
+    @SerializedName("background_color")
     private Integer backgroundColor;
+    @SerializedName("text_color")
     private Integer textColor;
+    @SerializedName("link")
     private Link link;
-
-    public Builder bold(Boolean bold) {
-      this.bold = bold;
-      return this;
+    public Boolean getBold() {
+        return this.bold;
     }
 
-    public Builder italic(Boolean italic) {
-      this.italic = italic;
-      return this;
+    public void setBold(Boolean bold) {
+        this.bold = bold;
     }
 
-    public Builder strikethrough(Boolean strikethrough) {
-      this.strikethrough = strikethrough;
-      return this;
+    public Boolean getItalic() {
+        return this.italic;
     }
 
-    public Builder underline(Boolean underline) {
-      this.underline = underline;
-      return this;
+    public void setItalic(Boolean italic) {
+        this.italic = italic;
     }
 
-    public Builder inlineCode(Boolean inlineCode) {
-      this.inlineCode = inlineCode;
-      return this;
+    public Boolean getStrikethrough() {
+        return this.strikethrough;
     }
 
-    public Builder backgroundColor(Integer backgroundColor) {
-      this.backgroundColor = backgroundColor;
-      return this;
+    public void setStrikethrough(Boolean strikethrough) {
+        this.strikethrough = strikethrough;
     }
 
-    public Builder backgroundColor(
-        com.lark.oapi.service.docx.v1.enums.FontBackgroundColorEnum backgroundColor) {
-      this.backgroundColor = backgroundColor.getValue();
-      return this;
+    public Boolean getUnderline() {
+        return this.underline;
     }
 
-    public Builder textColor(Integer textColor) {
-      this.textColor = textColor;
-      return this;
+    public void setUnderline(Boolean underline) {
+        this.underline = underline;
     }
 
-    public Builder textColor(com.lark.oapi.service.docx.v1.enums.FontColorEnum textColor) {
-      this.textColor = textColor.getValue();
-      return this;
+    public Boolean getInlineCode() {
+        return this.inlineCode;
     }
 
-    public Builder link(Link link) {
-      this.link = link;
-      return this;
+    public void setInlineCode(Boolean inlineCode) {
+        this.inlineCode = inlineCode;
+    }
+
+    public Integer getBackgroundColor() {
+        return this.backgroundColor;
+    }
+
+    public void setBackgroundColor(Integer backgroundColor) {
+        this.backgroundColor = backgroundColor;
+    }
+
+    public Integer getTextColor() {
+        return this.textColor;
+    }
+
+    public void setTextColor(Integer textColor) {
+        this.textColor = textColor;
+    }
+
+    public Link getLink() {
+        return this.link;
+    }
+
+    public void setLink(Link link) {
+        this.link = link;
     }
 
 
-    public TextElementStyle build() {
-      return new TextElementStyle(this);
-    }
+// builder 开始
+  public TextElementStyle(){}
+
+  public TextElementStyle(Builder builder){
+      this.bold = builder.bold;
+      this.italic = builder.italic;
+      this.strikethrough = builder.strikethrough;
+      this.underline = builder.underline;
+      this.inlineCode = builder.inlineCode;
+      this.backgroundColor = builder.backgroundColor;
+      this.textColor = builder.textColor;
+      this.link = builder.link;
   }
+
+    public static class Builder {
+        private Boolean bold;
+        private Boolean italic;
+        private Boolean strikethrough;
+        private Boolean underline;
+        private Boolean inlineCode;
+        private Integer backgroundColor;
+        private Integer textColor;
+        private Link link;
+        public Builder bold(Boolean bold) {
+             this.bold = bold;
+             return this;
+        }
+    
+        public Builder italic(Boolean italic) {
+             this.italic = italic;
+             return this;
+        }
+    
+        public Builder strikethrough(Boolean strikethrough) {
+             this.strikethrough = strikethrough;
+             return this;
+        }
+    
+        public Builder underline(Boolean underline) {
+             this.underline = underline;
+             return this;
+        }
+    
+        public Builder inlineCode(Boolean inlineCode) {
+             this.inlineCode = inlineCode;
+             return this;
+        }
+    
+        public Builder backgroundColor(Integer backgroundColor) {
+             this.backgroundColor = backgroundColor;
+             return this;
+        }
+        public Builder backgroundColor(com.lark.oapi.service.docx.v1.enums.FontBackgroundColorEnum backgroundColor) {
+             this.backgroundColor = backgroundColor.getValue();
+             return this;
+        }
+    
+        public Builder textColor(Integer textColor) {
+             this.textColor = textColor;
+             return this;
+        }
+        public Builder textColor(com.lark.oapi.service.docx.v1.enums.FontColorEnum textColor) {
+             this.textColor = textColor.getValue();
+             return this;
+        }
+    
+        public Builder link(Link link) {
+             this.link = link;
+             return this;
+        }
+    
+    
+    public TextElementStyle build(){
+        return new TextElementStyle(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

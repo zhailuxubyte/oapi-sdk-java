@@ -12,80 +12,86 @@
  */
 
 package com.lark.oapi.service.calendar.v4.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.calendar.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class TimeInfo {
-
-  @SerializedName("date")
-  private String date;
-  @SerializedName("timestamp")
-  private String timestamp;
-  @SerializedName("timezone")
-  private String timezone;
-
-  // builder 开始
-  public TimeInfo() {
-  }
-
-  public TimeInfo(Builder builder) {
-    this.date = builder.date;
-    this.timestamp = builder.timestamp;
-    this.timezone = builder.timezone;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getDate() {
-    return this.date;
-  }
-
-  public void setDate(String date) {
-    this.date = date;
-  }
-
-  public String getTimestamp() {
-    return this.timestamp;
-  }
-
-  public void setTimestamp(String timestamp) {
-    this.timestamp = timestamp;
-  }
-
-  public String getTimezone() {
-    return this.timezone;
-  }
-
-  public void setTimezone(String timezone) {
-    this.timezone = timezone;
-  }
-
-  public static class Builder {
-
+    @SerializedName("date")
     private String date;
+    @SerializedName("timestamp")
     private String timestamp;
+    @SerializedName("timezone")
     private String timezone;
-
-    public Builder date(String date) {
-      this.date = date;
-      return this;
+    public String getDate() {
+        return this.date;
     }
 
-    public Builder timestamp(String timestamp) {
-      this.timestamp = timestamp;
-      return this;
+    public void setDate(String date) {
+        this.date = date;
     }
 
-    public Builder timezone(String timezone) {
-      this.timezone = timezone;
-      return this;
+    public String getTimestamp() {
+        return this.timestamp;
+    }
+
+    public void setTimestamp(String timestamp) {
+        this.timestamp = timestamp;
+    }
+
+    public String getTimezone() {
+        return this.timezone;
+    }
+
+    public void setTimezone(String timezone) {
+        this.timezone = timezone;
     }
 
 
-    public TimeInfo build() {
-      return new TimeInfo(this);
-    }
+// builder 开始
+  public TimeInfo(){}
+
+  public TimeInfo(Builder builder){
+      this.date = builder.date;
+      this.timestamp = builder.timestamp;
+      this.timezone = builder.timezone;
   }
+
+    public static class Builder {
+        private String date;
+        private String timestamp;
+        private String timezone;
+        public Builder date(String date) {
+             this.date = date;
+             return this;
+        }
+    
+        public Builder timestamp(String timestamp) {
+             this.timestamp = timestamp;
+             return this;
+        }
+    
+        public Builder timezone(String timezone) {
+             this.timezone = timezone;
+             return this;
+        }
+    
+    
+    public TimeInfo build(){
+        return new TimeInfo(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

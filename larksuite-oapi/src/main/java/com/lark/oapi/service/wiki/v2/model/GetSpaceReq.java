@@ -12,47 +12,52 @@
  */
 
 package com.lark.oapi.service.wiki.v2.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.wiki.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class GetSpaceReq {
-
-  @Path
-  @SerializedName("space_id")
-  private String spaceId;
-
-  // builder 开始
-  public GetSpaceReq() {
-  }
-
-  public GetSpaceReq(Builder builder) {
-    this.spaceId = builder.spaceId;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getSpaceId() {
-    return this.spaceId;
-  }
-
-  public void setSpaceId(String spaceId) {
-    this.spaceId = spaceId;
-  }
-
-  public static class Builder {
-
+    @Path
+    @SerializedName("space_id")
     private String spaceId;
-
-    public Builder spaceId(String spaceId) {
-      this.spaceId = spaceId;
-      return this;
+    public String getSpaceId() {
+        return this.spaceId;
     }
 
-    public GetSpaceReq build() {
-      return new GetSpaceReq(this);
+    public void setSpaceId(String spaceId) {
+        this.spaceId = spaceId;
     }
+
+
+// builder 开始
+  public GetSpaceReq(){}
+
+  public GetSpaceReq(Builder builder){
+       this.spaceId = builder.spaceId;
   }
+
+    public static class Builder {
+    
+        private String spaceId;
+          public Builder spaceId(String spaceId) {
+               this.spaceId = spaceId;
+               return this;
+          }
+    
+    public GetSpaceReq build(){
+        return new GetSpaceReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

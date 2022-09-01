@@ -12,46 +12,52 @@
  */
 
 package com.lark.oapi.service.mail.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.mail.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class QueryUserReqBody {
-
-  @SerializedName("email_list")
-  private String[] emailList;
-
-  // builder 开始
-  public QueryUserReqBody() {
-  }
-
-  public QueryUserReqBody(Builder builder) {
-    this.emailList = builder.emailList;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String[] getEmailList() {
-    return this.emailList;
-  }
-
-  public void setEmailList(String[] emailList) {
-    this.emailList = emailList;
-  }
-
-  public static class Builder {
-
+    @SerializedName("email_list")
     private String[] emailList;
+    public String[] getEmailList() {
+        return this.emailList;
+    }
 
-    public Builder emailList(String[] emailList) {
-      this.emailList = emailList;
-      return this;
+    public void setEmailList(String[] emailList) {
+        this.emailList = emailList;
     }
 
 
-    public QueryUserReqBody build() {
-      return new QueryUserReqBody(this);
-    }
+// builder 开始
+  public QueryUserReqBody(){}
+
+  public QueryUserReqBody(Builder builder){
+      this.emailList = builder.emailList;
   }
+
+    public static class Builder {
+        private String[] emailList;
+        public Builder emailList(String[] emailList) {
+             this.emailList = emailList;
+             return this;
+        }
+    
+    
+    public QueryUserReqBody build(){
+        return new QueryUserReqBody(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

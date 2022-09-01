@@ -12,120 +12,124 @@
  */
 
 package com.lark.oapi.service.bitable.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.bitable.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class ListAppTableFormFieldReq {
-
-  @Query
-  @SerializedName("page_size")
-  private Integer pageSize;
-  @Query
-  @SerializedName("page_token")
-  private String pageToken;
-  @Path
-  @SerializedName("app_token")
-  private String appToken;
-  @Path
-  @SerializedName("table_id")
-  private String tableId;
-  @Path
-  @SerializedName("form_id")
-  private String formId;
-
-  // builder 开始
-  public ListAppTableFormFieldReq() {
-  }
-
-  public ListAppTableFormFieldReq(Builder builder) {
-    this.pageSize = builder.pageSize;
-    this.pageToken = builder.pageToken;
-    this.appToken = builder.appToken;
-    this.tableId = builder.tableId;
-    this.formId = builder.formId;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Integer getPageSize() {
-    return this.pageSize;
-  }
-
-  public void setPageSize(Integer pageSize) {
-    this.pageSize = pageSize;
-  }
-
-  public String getPageToken() {
-    return this.pageToken;
-  }
-
-  public void setPageToken(String pageToken) {
-    this.pageToken = pageToken;
-  }
-
-  public String getAppToken() {
-    return this.appToken;
-  }
-
-  public void setAppToken(String appToken) {
-    this.appToken = appToken;
-  }
-
-  public String getTableId() {
-    return this.tableId;
-  }
-
-  public void setTableId(String tableId) {
-    this.tableId = tableId;
-  }
-
-  public String getFormId() {
-    return this.formId;
-  }
-
-  public void setFormId(String formId) {
-    this.formId = formId;
-  }
-
-  public static class Builder {
-
+    @Query
+    @SerializedName("page_size")
     private Integer pageSize;
+    @Query
+    @SerializedName("page_token")
     private String pageToken;
+    public Integer getPageSize() {
+        return this.pageSize;
+    }
+
+    public void setPageSize(Integer pageSize) {
+        this.pageSize = pageSize;
+    }
+
+    public String getPageToken() {
+        return this.pageToken;
+    }
+
+    public void setPageToken(String pageToken) {
+        this.pageToken = pageToken;
+    }
+
+    @Path
+    @SerializedName("app_token")
     private String appToken;
+    @Path
+    @SerializedName("table_id")
     private String tableId;
+    @Path
+    @SerializedName("form_id")
     private String formId;
-
-    public Builder pageSize(Integer pageSize) {
-      this.pageSize = pageSize;
-      return this;
+    public String getAppToken() {
+        return this.appToken;
     }
 
-    public Builder pageToken(String pageToken) {
-      this.pageToken = pageToken;
-      return this;
+    public void setAppToken(String appToken) {
+        this.appToken = appToken;
     }
 
-    public Builder appToken(String appToken) {
-      this.appToken = appToken;
-      return this;
+    public String getTableId() {
+        return this.tableId;
     }
 
-    public Builder tableId(String tableId) {
-      this.tableId = tableId;
-      return this;
+    public void setTableId(String tableId) {
+        this.tableId = tableId;
     }
 
-    public Builder formId(String formId) {
-      this.formId = formId;
-      return this;
+    public String getFormId() {
+        return this.formId;
     }
 
-    public ListAppTableFormFieldReq build() {
-      return new ListAppTableFormFieldReq(this);
+    public void setFormId(String formId) {
+        this.formId = formId;
     }
+
+
+// builder 开始
+  public ListAppTableFormFieldReq(){}
+
+  public ListAppTableFormFieldReq(Builder builder){
+       this.pageSize = builder.pageSize;
+       this.pageToken = builder.pageToken;
+       this.appToken = builder.appToken;
+       this.tableId = builder.tableId;
+       this.formId = builder.formId;
   }
+
+    public static class Builder {
+        private Integer pageSize;
+        private String pageToken;
+    
+           public Builder pageSize(Integer pageSize) {
+                this.pageSize = pageSize;
+                return this;
+           }
+    
+           public Builder pageToken(String pageToken) {
+                this.pageToken = pageToken;
+                return this;
+           }
+    
+        private String appToken;
+        private String tableId;
+        private String formId;
+          public Builder appToken(String appToken) {
+               this.appToken = appToken;
+               return this;
+          }
+    
+          public Builder tableId(String tableId) {
+               this.tableId = tableId;
+               return this;
+          }
+    
+          public Builder formId(String formId) {
+               this.formId = formId;
+               return this;
+          }
+    
+    public ListAppTableFormFieldReq build(){
+        return new ListAppTableFormFieldReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

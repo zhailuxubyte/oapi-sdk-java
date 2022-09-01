@@ -12,154 +12,158 @@
  */
 
 package com.lark.oapi.service.application.v6.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.application.v6.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class Miniprogram {
-
-  @SerializedName("enable_pc_mode")
-  private Integer enablePcMode;
-  @SerializedName("schema_urls")
-  private String[] schemaUrls;
-  @SerializedName("pc_use_mobile_pkg")
-  private Boolean pcUseMobilePkg;
-  @SerializedName("pc_version_id")
-  private String pcVersionId;
-  @SerializedName("mobile_version_id")
-  private String mobileVersionId;
-  @SerializedName("mobile_min_lark_version")
-  private String mobileMinLarkVersion;
-  @SerializedName("pc_min_lark_version")
-  private String pcMinLarkVersion;
-
-  // builder 开始
-  public Miniprogram() {
-  }
-
-  public Miniprogram(Builder builder) {
-    this.enablePcMode = builder.enablePcMode;
-    this.schemaUrls = builder.schemaUrls;
-    this.pcUseMobilePkg = builder.pcUseMobilePkg;
-    this.pcVersionId = builder.pcVersionId;
-    this.mobileVersionId = builder.mobileVersionId;
-    this.mobileMinLarkVersion = builder.mobileMinLarkVersion;
-    this.pcMinLarkVersion = builder.pcMinLarkVersion;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Integer getEnablePcMode() {
-    return this.enablePcMode;
-  }
-
-  public void setEnablePcMode(Integer enablePcMode) {
-    this.enablePcMode = enablePcMode;
-  }
-
-  public String[] getSchemaUrls() {
-    return this.schemaUrls;
-  }
-
-  public void setSchemaUrls(String[] schemaUrls) {
-    this.schemaUrls = schemaUrls;
-  }
-
-  public Boolean getPcUseMobilePkg() {
-    return this.pcUseMobilePkg;
-  }
-
-  public void setPcUseMobilePkg(Boolean pcUseMobilePkg) {
-    this.pcUseMobilePkg = pcUseMobilePkg;
-  }
-
-  public String getPcVersionId() {
-    return this.pcVersionId;
-  }
-
-  public void setPcVersionId(String pcVersionId) {
-    this.pcVersionId = pcVersionId;
-  }
-
-  public String getMobileVersionId() {
-    return this.mobileVersionId;
-  }
-
-  public void setMobileVersionId(String mobileVersionId) {
-    this.mobileVersionId = mobileVersionId;
-  }
-
-  public String getMobileMinLarkVersion() {
-    return this.mobileMinLarkVersion;
-  }
-
-  public void setMobileMinLarkVersion(String mobileMinLarkVersion) {
-    this.mobileMinLarkVersion = mobileMinLarkVersion;
-  }
-
-  public String getPcMinLarkVersion() {
-    return this.pcMinLarkVersion;
-  }
-
-  public void setPcMinLarkVersion(String pcMinLarkVersion) {
-    this.pcMinLarkVersion = pcMinLarkVersion;
-  }
-
-  public static class Builder {
-
+    @SerializedName("enable_pc_mode")
     private Integer enablePcMode;
+    @SerializedName("schema_urls")
     private String[] schemaUrls;
+    @SerializedName("pc_use_mobile_pkg")
     private Boolean pcUseMobilePkg;
+    @SerializedName("pc_version_id")
     private String pcVersionId;
+    @SerializedName("mobile_version_id")
     private String mobileVersionId;
+    @SerializedName("mobile_min_lark_version")
     private String mobileMinLarkVersion;
+    @SerializedName("pc_min_lark_version")
     private String pcMinLarkVersion;
-
-    public Builder enablePcMode(Integer enablePcMode) {
-      this.enablePcMode = enablePcMode;
-      return this;
+    public Integer getEnablePcMode() {
+        return this.enablePcMode;
     }
 
-    public Builder enablePcMode(
-        com.lark.oapi.service.application.v6.enums.MpEnablePcModeEnum enablePcMode) {
-      this.enablePcMode = enablePcMode.getValue();
-      return this;
+    public void setEnablePcMode(Integer enablePcMode) {
+        this.enablePcMode = enablePcMode;
     }
 
-    public Builder schemaUrls(String[] schemaUrls) {
-      this.schemaUrls = schemaUrls;
-      return this;
+    public String[] getSchemaUrls() {
+        return this.schemaUrls;
     }
 
-    public Builder pcUseMobilePkg(Boolean pcUseMobilePkg) {
-      this.pcUseMobilePkg = pcUseMobilePkg;
-      return this;
+    public void setSchemaUrls(String[] schemaUrls) {
+        this.schemaUrls = schemaUrls;
     }
 
-    public Builder pcVersionId(String pcVersionId) {
-      this.pcVersionId = pcVersionId;
-      return this;
+    public Boolean getPcUseMobilePkg() {
+        return this.pcUseMobilePkg;
     }
 
-    public Builder mobileVersionId(String mobileVersionId) {
-      this.mobileVersionId = mobileVersionId;
-      return this;
+    public void setPcUseMobilePkg(Boolean pcUseMobilePkg) {
+        this.pcUseMobilePkg = pcUseMobilePkg;
     }
 
-    public Builder mobileMinLarkVersion(String mobileMinLarkVersion) {
-      this.mobileMinLarkVersion = mobileMinLarkVersion;
-      return this;
+    public String getPcVersionId() {
+        return this.pcVersionId;
     }
 
-    public Builder pcMinLarkVersion(String pcMinLarkVersion) {
-      this.pcMinLarkVersion = pcMinLarkVersion;
-      return this;
+    public void setPcVersionId(String pcVersionId) {
+        this.pcVersionId = pcVersionId;
+    }
+
+    public String getMobileVersionId() {
+        return this.mobileVersionId;
+    }
+
+    public void setMobileVersionId(String mobileVersionId) {
+        this.mobileVersionId = mobileVersionId;
+    }
+
+    public String getMobileMinLarkVersion() {
+        return this.mobileMinLarkVersion;
+    }
+
+    public void setMobileMinLarkVersion(String mobileMinLarkVersion) {
+        this.mobileMinLarkVersion = mobileMinLarkVersion;
+    }
+
+    public String getPcMinLarkVersion() {
+        return this.pcMinLarkVersion;
+    }
+
+    public void setPcMinLarkVersion(String pcMinLarkVersion) {
+        this.pcMinLarkVersion = pcMinLarkVersion;
     }
 
 
-    public Miniprogram build() {
-      return new Miniprogram(this);
-    }
+// builder 开始
+  public Miniprogram(){}
+
+  public Miniprogram(Builder builder){
+      this.enablePcMode = builder.enablePcMode;
+      this.schemaUrls = builder.schemaUrls;
+      this.pcUseMobilePkg = builder.pcUseMobilePkg;
+      this.pcVersionId = builder.pcVersionId;
+      this.mobileVersionId = builder.mobileVersionId;
+      this.mobileMinLarkVersion = builder.mobileMinLarkVersion;
+      this.pcMinLarkVersion = builder.pcMinLarkVersion;
   }
+
+    public static class Builder {
+        private Integer enablePcMode;
+        private String[] schemaUrls;
+        private Boolean pcUseMobilePkg;
+        private String pcVersionId;
+        private String mobileVersionId;
+        private String mobileMinLarkVersion;
+        private String pcMinLarkVersion;
+        public Builder enablePcMode(Integer enablePcMode) {
+             this.enablePcMode = enablePcMode;
+             return this;
+        }
+        public Builder enablePcMode(com.lark.oapi.service.application.v6.enums.MpEnablePcModeEnum enablePcMode) {
+             this.enablePcMode = enablePcMode.getValue();
+             return this;
+        }
+    
+        public Builder schemaUrls(String[] schemaUrls) {
+             this.schemaUrls = schemaUrls;
+             return this;
+        }
+    
+        public Builder pcUseMobilePkg(Boolean pcUseMobilePkg) {
+             this.pcUseMobilePkg = pcUseMobilePkg;
+             return this;
+        }
+    
+        public Builder pcVersionId(String pcVersionId) {
+             this.pcVersionId = pcVersionId;
+             return this;
+        }
+    
+        public Builder mobileVersionId(String mobileVersionId) {
+             this.mobileVersionId = mobileVersionId;
+             return this;
+        }
+    
+        public Builder mobileMinLarkVersion(String mobileMinLarkVersion) {
+             this.mobileMinLarkVersion = mobileMinLarkVersion;
+             return this;
+        }
+    
+        public Builder pcMinLarkVersion(String pcMinLarkVersion) {
+             this.pcMinLarkVersion = pcMinLarkVersion;
+             return this;
+        }
+    
+    
+    public Miniprogram build(){
+        return new Miniprogram(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

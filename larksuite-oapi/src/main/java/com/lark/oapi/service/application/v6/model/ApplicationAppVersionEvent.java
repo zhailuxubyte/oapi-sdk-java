@@ -12,306 +12,311 @@
  */
 
 package com.lark.oapi.service.application.v6.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.application.v6.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class ApplicationAppVersionEvent {
-
-  @SerializedName("app_id")
-  private String appId;
-  @SerializedName("version")
-  private String version;
-  @SerializedName("version_id")
-  private String versionId;
-  @SerializedName("app_name")
-  private String appName;
-  @SerializedName("avatar_url")
-  private String avatarUrl;
-  @SerializedName("description")
-  private String description;
-  @SerializedName("scopes")
-  private AppScope[] scopes;
-  @SerializedName("back_home_url")
-  private String backHomeUrl;
-  @SerializedName("i18n")
-  private AppI18nInfo[] i18n;
-  @SerializedName("common_categories")
-  private String[] commonCategories;
-  @SerializedName("events")
-  private String[] events;
-  @SerializedName("status")
-  private Integer status;
-  @SerializedName("create_time")
-  private String createTime;
-  @SerializedName("publish_time")
-  private String publishTime;
-  @SerializedName("ability")
-  private AppAbility ability;
-  @SerializedName("remark")
-  private AppVersionRemarkEvent remark;
-
-  // builder 开始
-  public ApplicationAppVersionEvent() {
-  }
-
-  public ApplicationAppVersionEvent(Builder builder) {
-    this.appId = builder.appId;
-    this.version = builder.version;
-    this.versionId = builder.versionId;
-    this.appName = builder.appName;
-    this.avatarUrl = builder.avatarUrl;
-    this.description = builder.description;
-    this.scopes = builder.scopes;
-    this.backHomeUrl = builder.backHomeUrl;
-    this.i18n = builder.i18n;
-    this.commonCategories = builder.commonCategories;
-    this.events = builder.events;
-    this.status = builder.status;
-    this.createTime = builder.createTime;
-    this.publishTime = builder.publishTime;
-    this.ability = builder.ability;
-    this.remark = builder.remark;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getAppId() {
-    return this.appId;
-  }
-
-  public void setAppId(String appId) {
-    this.appId = appId;
-  }
-
-  public String getVersion() {
-    return this.version;
-  }
-
-  public void setVersion(String version) {
-    this.version = version;
-  }
-
-  public String getVersionId() {
-    return this.versionId;
-  }
-
-  public void setVersionId(String versionId) {
-    this.versionId = versionId;
-  }
-
-  public String getAppName() {
-    return this.appName;
-  }
-
-  public void setAppName(String appName) {
-    this.appName = appName;
-  }
-
-  public String getAvatarUrl() {
-    return this.avatarUrl;
-  }
-
-  public void setAvatarUrl(String avatarUrl) {
-    this.avatarUrl = avatarUrl;
-  }
-
-  public String getDescription() {
-    return this.description;
-  }
-
-  public void setDescription(String description) {
-    this.description = description;
-  }
-
-  public AppScope[] getScopes() {
-    return this.scopes;
-  }
-
-  public void setScopes(AppScope[] scopes) {
-    this.scopes = scopes;
-  }
-
-  public String getBackHomeUrl() {
-    return this.backHomeUrl;
-  }
-
-  public void setBackHomeUrl(String backHomeUrl) {
-    this.backHomeUrl = backHomeUrl;
-  }
-
-  public AppI18nInfo[] getI18n() {
-    return this.i18n;
-  }
-
-  public void setI18n(AppI18nInfo[] i18n) {
-    this.i18n = i18n;
-  }
-
-  public String[] getCommonCategories() {
-    return this.commonCategories;
-  }
-
-  public void setCommonCategories(String[] commonCategories) {
-    this.commonCategories = commonCategories;
-  }
-
-  public String[] getEvents() {
-    return this.events;
-  }
-
-  public void setEvents(String[] events) {
-    this.events = events;
-  }
-
-  public Integer getStatus() {
-    return this.status;
-  }
-
-  public void setStatus(Integer status) {
-    this.status = status;
-  }
-
-  public String getCreateTime() {
-    return this.createTime;
-  }
-
-  public void setCreateTime(String createTime) {
-    this.createTime = createTime;
-  }
-
-  public String getPublishTime() {
-    return this.publishTime;
-  }
-
-  public void setPublishTime(String publishTime) {
-    this.publishTime = publishTime;
-  }
-
-  public AppAbility getAbility() {
-    return this.ability;
-  }
-
-  public void setAbility(AppAbility ability) {
-    this.ability = ability;
-  }
-
-  public AppVersionRemarkEvent getRemark() {
-    return this.remark;
-  }
-
-  public void setRemark(AppVersionRemarkEvent remark) {
-    this.remark = remark;
-  }
-
-  public static class Builder {
-
+    @SerializedName("app_id")
     private String appId;
+    @SerializedName("version")
     private String version;
+    @SerializedName("version_id")
     private String versionId;
+    @SerializedName("app_name")
     private String appName;
+    @SerializedName("avatar_url")
     private String avatarUrl;
+    @SerializedName("description")
     private String description;
+    @SerializedName("scopes")
     private AppScope[] scopes;
+    @SerializedName("back_home_url")
     private String backHomeUrl;
+    @SerializedName("i18n")
     private AppI18nInfo[] i18n;
+    @SerializedName("common_categories")
     private String[] commonCategories;
+    @SerializedName("events")
     private String[] events;
+    @SerializedName("status")
     private Integer status;
+    @SerializedName("create_time")
     private String createTime;
+    @SerializedName("publish_time")
     private String publishTime;
+    @SerializedName("ability")
     private AppAbility ability;
+    @SerializedName("remark")
     private AppVersionRemarkEvent remark;
-
-    public Builder appId(String appId) {
-      this.appId = appId;
-      return this;
+    public String getAppId() {
+        return this.appId;
     }
 
-    public Builder version(String version) {
-      this.version = version;
-      return this;
+    public void setAppId(String appId) {
+        this.appId = appId;
     }
 
-    public Builder versionId(String versionId) {
-      this.versionId = versionId;
-      return this;
+    public String getVersion() {
+        return this.version;
     }
 
-    public Builder appName(String appName) {
-      this.appName = appName;
-      return this;
+    public void setVersion(String version) {
+        this.version = version;
     }
 
-    public Builder avatarUrl(String avatarUrl) {
-      this.avatarUrl = avatarUrl;
-      return this;
+    public String getVersionId() {
+        return this.versionId;
     }
 
-    public Builder description(String description) {
-      this.description = description;
-      return this;
+    public void setVersionId(String versionId) {
+        this.versionId = versionId;
     }
 
-    public Builder scopes(AppScope[] scopes) {
-      this.scopes = scopes;
-      return this;
+    public String getAppName() {
+        return this.appName;
     }
 
-    public Builder backHomeUrl(String backHomeUrl) {
-      this.backHomeUrl = backHomeUrl;
-      return this;
+    public void setAppName(String appName) {
+        this.appName = appName;
     }
 
-    public Builder i18n(AppI18nInfo[] i18n) {
-      this.i18n = i18n;
-      return this;
+    public String getAvatarUrl() {
+        return this.avatarUrl;
     }
 
-    public Builder commonCategories(String[] commonCategories) {
-      this.commonCategories = commonCategories;
-      return this;
+    public void setAvatarUrl(String avatarUrl) {
+        this.avatarUrl = avatarUrl;
     }
 
-    public Builder events(String[] events) {
-      this.events = events;
-      return this;
+    public String getDescription() {
+        return this.description;
     }
 
-    public Builder status(Integer status) {
-      this.status = status;
-      return this;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    public Builder status(com.lark.oapi.service.application.v6.enums.AppVersionStatusEnum status) {
-      this.status = status.getValue();
-      return this;
+    public AppScope[] getScopes() {
+        return this.scopes;
     }
 
-    public Builder createTime(String createTime) {
-      this.createTime = createTime;
-      return this;
+    public void setScopes(AppScope[] scopes) {
+        this.scopes = scopes;
     }
 
-    public Builder publishTime(String publishTime) {
-      this.publishTime = publishTime;
-      return this;
+    public String getBackHomeUrl() {
+        return this.backHomeUrl;
     }
 
-    public Builder ability(AppAbility ability) {
-      this.ability = ability;
-      return this;
+    public void setBackHomeUrl(String backHomeUrl) {
+        this.backHomeUrl = backHomeUrl;
     }
 
-    public Builder remark(AppVersionRemarkEvent remark) {
-      this.remark = remark;
-      return this;
+    public AppI18nInfo[] getI18n() {
+        return this.i18n;
+    }
+
+    public void setI18n(AppI18nInfo[] i18n) {
+        this.i18n = i18n;
+    }
+
+    public String[] getCommonCategories() {
+        return this.commonCategories;
+    }
+
+    public void setCommonCategories(String[] commonCategories) {
+        this.commonCategories = commonCategories;
+    }
+
+    public String[] getEvents() {
+        return this.events;
+    }
+
+    public void setEvents(String[] events) {
+        this.events = events;
+    }
+
+    public Integer getStatus() {
+        return this.status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
+    }
+
+    public String getCreateTime() {
+        return this.createTime;
+    }
+
+    public void setCreateTime(String createTime) {
+        this.createTime = createTime;
+    }
+
+    public String getPublishTime() {
+        return this.publishTime;
+    }
+
+    public void setPublishTime(String publishTime) {
+        this.publishTime = publishTime;
+    }
+
+    public AppAbility getAbility() {
+        return this.ability;
+    }
+
+    public void setAbility(AppAbility ability) {
+        this.ability = ability;
+    }
+
+    public AppVersionRemarkEvent getRemark() {
+        return this.remark;
+    }
+
+    public void setRemark(AppVersionRemarkEvent remark) {
+        this.remark = remark;
     }
 
 
-    public ApplicationAppVersionEvent build() {
-      return new ApplicationAppVersionEvent(this);
-    }
+// builder 开始
+  public ApplicationAppVersionEvent(){}
+
+  public ApplicationAppVersionEvent(Builder builder){
+      this.appId = builder.appId;
+      this.version = builder.version;
+      this.versionId = builder.versionId;
+      this.appName = builder.appName;
+      this.avatarUrl = builder.avatarUrl;
+      this.description = builder.description;
+      this.scopes = builder.scopes;
+      this.backHomeUrl = builder.backHomeUrl;
+      this.i18n = builder.i18n;
+      this.commonCategories = builder.commonCategories;
+      this.events = builder.events;
+      this.status = builder.status;
+      this.createTime = builder.createTime;
+      this.publishTime = builder.publishTime;
+      this.ability = builder.ability;
+      this.remark = builder.remark;
   }
+
+    public static class Builder {
+        private String appId;
+        private String version;
+        private String versionId;
+        private String appName;
+        private String avatarUrl;
+        private String description;
+        private AppScope[] scopes;
+        private String backHomeUrl;
+        private AppI18nInfo[] i18n;
+        private String[] commonCategories;
+        private String[] events;
+        private Integer status;
+        private String createTime;
+        private String publishTime;
+        private AppAbility ability;
+        private AppVersionRemarkEvent remark;
+        public Builder appId(String appId) {
+             this.appId = appId;
+             return this;
+        }
+    
+        public Builder version(String version) {
+             this.version = version;
+             return this;
+        }
+    
+        public Builder versionId(String versionId) {
+             this.versionId = versionId;
+             return this;
+        }
+    
+        public Builder appName(String appName) {
+             this.appName = appName;
+             return this;
+        }
+    
+        public Builder avatarUrl(String avatarUrl) {
+             this.avatarUrl = avatarUrl;
+             return this;
+        }
+    
+        public Builder description(String description) {
+             this.description = description;
+             return this;
+        }
+    
+        public Builder scopes(AppScope[] scopes) {
+             this.scopes = scopes;
+             return this;
+        }
+    
+        public Builder backHomeUrl(String backHomeUrl) {
+             this.backHomeUrl = backHomeUrl;
+             return this;
+        }
+    
+        public Builder i18n(AppI18nInfo[] i18n) {
+             this.i18n = i18n;
+             return this;
+        }
+    
+        public Builder commonCategories(String[] commonCategories) {
+             this.commonCategories = commonCategories;
+             return this;
+        }
+    
+        public Builder events(String[] events) {
+             this.events = events;
+             return this;
+        }
+    
+        public Builder status(Integer status) {
+             this.status = status;
+             return this;
+        }
+        public Builder status(com.lark.oapi.service.application.v6.enums.AppVersionStatusEnum status) {
+             this.status = status.getValue();
+             return this;
+        }
+    
+        public Builder createTime(String createTime) {
+             this.createTime = createTime;
+             return this;
+        }
+    
+        public Builder publishTime(String publishTime) {
+             this.publishTime = publishTime;
+             return this;
+        }
+    
+        public Builder ability(AppAbility ability) {
+             this.ability = ability;
+             return this;
+        }
+    
+        public Builder remark(AppVersionRemarkEvent remark) {
+             this.remark = remark;
+             return this;
+        }
+    
+    
+    public ApplicationAppVersionEvent build(){
+        return new ApplicationAppVersionEvent(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

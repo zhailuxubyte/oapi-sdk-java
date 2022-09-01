@@ -12,47 +12,52 @@
  */
 
 package com.lark.oapi.service.drive.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.drive.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class DownloadExportTaskReq {
-
-  @Path
-  @SerializedName("file_token")
-  private String fileToken;
-
-  // builder 开始
-  public DownloadExportTaskReq() {
-  }
-
-  public DownloadExportTaskReq(Builder builder) {
-    this.fileToken = builder.fileToken;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getFileToken() {
-    return this.fileToken;
-  }
-
-  public void setFileToken(String fileToken) {
-    this.fileToken = fileToken;
-  }
-
-  public static class Builder {
-
+    @Path
+    @SerializedName("file_token")
     private String fileToken;
-
-    public Builder fileToken(String fileToken) {
-      this.fileToken = fileToken;
-      return this;
+    public String getFileToken() {
+        return this.fileToken;
     }
 
-    public DownloadExportTaskReq build() {
-      return new DownloadExportTaskReq(this);
+    public void setFileToken(String fileToken) {
+        this.fileToken = fileToken;
     }
+
+
+// builder 开始
+  public DownloadExportTaskReq(){}
+
+  public DownloadExportTaskReq(Builder builder){
+       this.fileToken = builder.fileToken;
   }
+
+    public static class Builder {
+    
+        private String fileToken;
+          public Builder fileToken(String fileToken) {
+               this.fileToken = fileToken;
+               return this;
+          }
+    
+    public DownloadExportTaskReq build(){
+        return new DownloadExportTaskReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

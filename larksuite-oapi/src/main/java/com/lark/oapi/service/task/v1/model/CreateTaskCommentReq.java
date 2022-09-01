@@ -12,69 +12,72 @@
  */
 
 package com.lark.oapi.service.task.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.task.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class CreateTaskCommentReq {
-
-  @Path
-  @SerializedName("task_id")
-  private String taskId;
-  @Body
-  private Comment body;
-
-  // builder 开始
-  public CreateTaskCommentReq() {
-  }
-
-  public CreateTaskCommentReq(Builder builder) {
-    this.taskId = builder.taskId;
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getTaskId() {
-    return this.taskId;
-  }
-
-  public void setTaskId(String taskId) {
-    this.taskId = taskId;
-  }
-
-  public Comment getComment() {
-    return this.body;
-  }
-
-  public void setComment(Comment body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
+    @Path
+    @SerializedName("task_id")
     private String taskId;
+    public String getTaskId() {
+        return this.taskId;
+    }
+
+    public void setTaskId(String taskId) {
+        this.taskId = taskId;
+    }
+
+    @Body
     private Comment body;
 
-    public Builder taskId(String taskId) {
-      this.taskId = taskId;
-      return this;
-    }
-
     public Comment getComment() {
-      return this.body;
+        return this.body;
     }
 
-    public Builder comment(Comment body) {
-      this.body = body;
-      return this;
+    public void setComment(Comment body) {
+        this.body = body;
     }
 
-    public CreateTaskCommentReq build() {
-      return new CreateTaskCommentReq(this);
-    }
+// builder 开始
+  public CreateTaskCommentReq(){}
+
+  public CreateTaskCommentReq(Builder builder){
+       this.taskId = builder.taskId;
+        this.body = builder.body;
   }
+
+    public static class Builder {
+    
+        private String taskId;
+          public Builder taskId(String taskId) {
+               this.taskId = taskId;
+               return this;
+          }
+    
+        private Comment body;
+    
+        public Comment getComment() {
+            return this.body;
+        }
+        public Builder comment(Comment body) {
+             this.body = body;
+             return this;
+        }
+    public CreateTaskCommentReq build(){
+        return new CreateTaskCommentReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

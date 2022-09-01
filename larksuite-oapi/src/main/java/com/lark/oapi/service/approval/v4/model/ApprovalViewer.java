@@ -12,102 +12,107 @@
  */
 
 package com.lark.oapi.service.approval.v4.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.approval.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class ApprovalViewer {
-
-  @SerializedName("type")
-  private String type;
-  @SerializedName("open_id")
-  private String openId;
-  @SerializedName("user_id")
-  private String userId;
-  @SerializedName("union_id")
-  private String unionId;
-
-  // builder 开始
-  public ApprovalViewer() {
-  }
-
-  public ApprovalViewer(Builder builder) {
-    this.type = builder.type;
-    this.openId = builder.openId;
-    this.userId = builder.userId;
-    this.unionId = builder.unionId;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getType() {
-    return this.type;
-  }
-
-  public void setType(String type) {
-    this.type = type;
-  }
-
-  public String getOpenId() {
-    return this.openId;
-  }
-
-  public void setOpenId(String openId) {
-    this.openId = openId;
-  }
-
-  public String getUserId() {
-    return this.userId;
-  }
-
-  public void setUserId(String userId) {
-    this.userId = userId;
-  }
-
-  public String getUnionId() {
-    return this.unionId;
-  }
-
-  public void setUnionId(String unionId) {
-    this.unionId = unionId;
-  }
-
-  public static class Builder {
-
+    @SerializedName("type")
     private String type;
+    @SerializedName("open_id")
     private String openId;
+    @SerializedName("user_id")
     private String userId;
+    @SerializedName("union_id")
     private String unionId;
-
-    public Builder type(String type) {
-      this.type = type;
-      return this;
+    public String getType() {
+        return this.type;
     }
 
-    public Builder type(com.lark.oapi.service.approval.v4.enums.TypeEnum type) {
-      this.type = type.getValue();
-      return this;
+    public void setType(String type) {
+        this.type = type;
     }
 
-    public Builder openId(String openId) {
-      this.openId = openId;
-      return this;
+    public String getOpenId() {
+        return this.openId;
     }
 
-    public Builder userId(String userId) {
-      this.userId = userId;
-      return this;
+    public void setOpenId(String openId) {
+        this.openId = openId;
     }
 
-    public Builder unionId(String unionId) {
-      this.unionId = unionId;
-      return this;
+    public String getUserId() {
+        return this.userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    public String getUnionId() {
+        return this.unionId;
+    }
+
+    public void setUnionId(String unionId) {
+        this.unionId = unionId;
     }
 
 
-    public ApprovalViewer build() {
-      return new ApprovalViewer(this);
-    }
+// builder 开始
+  public ApprovalViewer(){}
+
+  public ApprovalViewer(Builder builder){
+      this.type = builder.type;
+      this.openId = builder.openId;
+      this.userId = builder.userId;
+      this.unionId = builder.unionId;
   }
+
+    public static class Builder {
+        private String type;
+        private String openId;
+        private String userId;
+        private String unionId;
+        public Builder type(String type) {
+             this.type = type;
+             return this;
+        }
+        public Builder type(com.lark.oapi.service.approval.v4.enums.TypeEnum type) {
+             this.type = type.getValue();
+             return this;
+        }
+    
+        public Builder openId(String openId) {
+             this.openId = openId;
+             return this;
+        }
+    
+        public Builder userId(String userId) {
+             this.userId = userId;
+             return this;
+        }
+    
+        public Builder unionId(String unionId) {
+             this.unionId = unionId;
+             return this;
+        }
+    
+    
+    public ApprovalViewer build(){
+        return new ApprovalViewer(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

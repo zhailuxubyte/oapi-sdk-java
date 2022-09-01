@@ -12,89 +12,92 @@
  */
 
 package com.lark.oapi.service.approval.v4.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.approval.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class RemoveInstanceCommentReq {
-
-  @Query
-  @SerializedName("user_id_type")
-  private String userIdType;
-  @Query
-  @SerializedName("user_id")
-  private String userId;
-  @Path
-  @SerializedName("instance_id")
-  private String instanceId;
-
-  // builder 开始
-  public RemoveInstanceCommentReq() {
-  }
-
-  public RemoveInstanceCommentReq(Builder builder) {
-    this.userIdType = builder.userIdType;
-    this.userId = builder.userId;
-    this.instanceId = builder.instanceId;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getUserIdType() {
-    return this.userIdType;
-  }
-
-  public void setUserIdType(String userIdType) {
-    this.userIdType = userIdType;
-  }
-
-  public String getUserId() {
-    return this.userId;
-  }
-
-  public void setUserId(String userId) {
-    this.userId = userId;
-  }
-
-  public String getInstanceId() {
-    return this.instanceId;
-  }
-
-  public void setInstanceId(String instanceId) {
-    this.instanceId = instanceId;
-  }
-
-  public static class Builder {
-
+    @Query
+    @SerializedName("user_id_type")
     private String userIdType;
+    @Query
+    @SerializedName("user_id")
     private String userId;
+    public String getUserIdType() {
+        return this.userIdType;
+    }
+
+    public void setUserIdType(String userIdType) {
+        this.userIdType = userIdType;
+    }
+
+    public String getUserId() {
+        return this.userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    @Path
+    @SerializedName("instance_id")
     private String instanceId;
-
-    public Builder userIdType(String userIdType) {
-      this.userIdType = userIdType;
-      return this;
+    public String getInstanceId() {
+        return this.instanceId;
     }
 
-    public Builder userIdType(com.lark.oapi.service.approval.v4.enums.UserIdTypeEnum userIdType) {
-      this.userIdType = userIdType.getValue();
-      return this;
+    public void setInstanceId(String instanceId) {
+        this.instanceId = instanceId;
     }
 
-    public Builder userId(String userId) {
-      this.userId = userId;
-      return this;
-    }
 
-    public Builder instanceId(String instanceId) {
-      this.instanceId = instanceId;
-      return this;
-    }
+// builder 开始
+  public RemoveInstanceCommentReq(){}
 
-    public RemoveInstanceCommentReq build() {
-      return new RemoveInstanceCommentReq(this);
-    }
+  public RemoveInstanceCommentReq(Builder builder){
+       this.userIdType = builder.userIdType;
+       this.userId = builder.userId;
+       this.instanceId = builder.instanceId;
   }
+
+    public static class Builder {
+        private String userIdType;
+        private String userId;
+    
+           public Builder userIdType(String userIdType) {
+                this.userIdType = userIdType;
+                return this;
+           }
+          public Builder userIdType(com.lark.oapi.service.approval.v4.enums.UserIdTypeEnum userIdType) {
+               this.userIdType = userIdType.getValue();
+               return this;
+          }
+    
+           public Builder userId(String userId) {
+                this.userId = userId;
+                return this;
+           }
+    
+        private String instanceId;
+          public Builder instanceId(String instanceId) {
+               this.instanceId = instanceId;
+               return this;
+          }
+    
+    public RemoveInstanceCommentReq build(){
+        return new RemoveInstanceCommentReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

@@ -12,102 +12,107 @@
  */
 
 package com.lark.oapi.service.ehr.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.ehr.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class CustomFields {
-
-  @SerializedName("key")
-  private String key;
-  @SerializedName("label")
-  private String label;
-  @SerializedName("type")
-  private String type;
-  @SerializedName("value")
-  private String value;
-
-  // builder 开始
-  public CustomFields() {
-  }
-
-  public CustomFields(Builder builder) {
-    this.key = builder.key;
-    this.label = builder.label;
-    this.type = builder.type;
-    this.value = builder.value;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getKey() {
-    return this.key;
-  }
-
-  public void setKey(String key) {
-    this.key = key;
-  }
-
-  public String getLabel() {
-    return this.label;
-  }
-
-  public void setLabel(String label) {
-    this.label = label;
-  }
-
-  public String getType() {
-    return this.type;
-  }
-
-  public void setType(String type) {
-    this.type = type;
-  }
-
-  public String getValue() {
-    return this.value;
-  }
-
-  public void setValue(String value) {
-    this.value = value;
-  }
-
-  public static class Builder {
-
+    @SerializedName("key")
     private String key;
+    @SerializedName("label")
     private String label;
+    @SerializedName("type")
     private String type;
+    @SerializedName("value")
     private String value;
-
-    public Builder key(String key) {
-      this.key = key;
-      return this;
+    public String getKey() {
+        return this.key;
     }
 
-    public Builder label(String label) {
-      this.label = label;
-      return this;
+    public void setKey(String key) {
+        this.key = key;
     }
 
-    public Builder type(String type) {
-      this.type = type;
-      return this;
+    public String getLabel() {
+        return this.label;
     }
 
-    public Builder type(com.lark.oapi.service.ehr.v1.enums.TypeEnum type) {
-      this.type = type.getValue();
-      return this;
+    public void setLabel(String label) {
+        this.label = label;
     }
 
-    public Builder value(String value) {
-      this.value = value;
-      return this;
+    public String getType() {
+        return this.type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public String getValue() {
+        return this.value;
+    }
+
+    public void setValue(String value) {
+        this.value = value;
     }
 
 
-    public CustomFields build() {
-      return new CustomFields(this);
-    }
+// builder 开始
+  public CustomFields(){}
+
+  public CustomFields(Builder builder){
+      this.key = builder.key;
+      this.label = builder.label;
+      this.type = builder.type;
+      this.value = builder.value;
   }
+
+    public static class Builder {
+        private String key;
+        private String label;
+        private String type;
+        private String value;
+        public Builder key(String key) {
+             this.key = key;
+             return this;
+        }
+    
+        public Builder label(String label) {
+             this.label = label;
+             return this;
+        }
+    
+        public Builder type(String type) {
+             this.type = type;
+             return this;
+        }
+        public Builder type(com.lark.oapi.service.ehr.v1.enums.TypeEnum type) {
+             this.type = type.getValue();
+             return this;
+        }
+    
+        public Builder value(String value) {
+             this.value = value;
+             return this;
+        }
+    
+    
+    public CustomFields build(){
+        return new CustomFields(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

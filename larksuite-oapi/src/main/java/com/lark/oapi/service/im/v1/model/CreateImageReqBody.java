@@ -12,69 +12,73 @@
  */
 
 package com.lark.oapi.service.im.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.im.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
 import java.io.File;
-
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class CreateImageReqBody {
-
-  @SerializedName("image_type")
-  private String imageType;
-  @SerializedName("image")
-  private File image;
-
-  // builder 开始
-  public CreateImageReqBody() {
-  }
-
-  public CreateImageReqBody(Builder builder) {
-    this.imageType = builder.imageType;
-    this.image = builder.image;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getImageType() {
-    return this.imageType;
-  }
-
-  public void setImageType(String imageType) {
-    this.imageType = imageType;
-  }
-
-  public File getImage() {
-    return this.image;
-  }
-
-  public void setImage(File image) {
-    this.image = image;
-  }
-
-  public static class Builder {
-
+    @SerializedName("image_type")
     private String imageType;
-    private File image;
-
-    public Builder imageType(String imageType) {
-      this.imageType = imageType;
-      return this;
+    @SerializedName("image")
+    private java.io.File image;
+    public String getImageType() {
+        return this.imageType;
     }
 
-    public Builder imageType(com.lark.oapi.service.im.v1.enums.ImageTypeEnum imageType) {
-      this.imageType = imageType.getValue();
-      return this;
+    public void setImageType(String imageType) {
+        this.imageType = imageType;
     }
 
-    public Builder image(File image) {
-      this.image = image;
-      return this;
+    public java.io.File getImage() {
+        return this.image;
+    }
+
+    public void setImage(java.io.File image) {
+        this.image = image;
     }
 
 
-    public CreateImageReqBody build() {
-      return new CreateImageReqBody(this);
-    }
+// builder 开始
+  public CreateImageReqBody(){}
+
+  public CreateImageReqBody(Builder builder){
+      this.imageType = builder.imageType;
+      this.image = builder.image;
   }
+
+    public static class Builder {
+        private String imageType;
+        private java.io.File image;
+        public Builder imageType(String imageType) {
+             this.imageType = imageType;
+             return this;
+        }
+        public Builder imageType(com.lark.oapi.service.im.v1.enums.ImageTypeEnum imageType) {
+             this.imageType = imageType.getValue();
+             return this;
+        }
+    
+        public Builder image(java.io.File image) {
+             this.image = image;
+             return this;
+        }
+    
+    
+    public CreateImageReqBody build(){
+        return new CreateImageReqBody(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

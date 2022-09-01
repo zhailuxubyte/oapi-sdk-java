@@ -12,111 +12,112 @@
  */
 
 package com.lark.oapi.service.attendance.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.attendance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class QueryUserTaskReq {
-
-  @Query
-  @SerializedName("employee_type")
-  private String employeeType;
-  @Query
-  @SerializedName("ignore_invalid_users")
-  private Boolean ignoreInvalidUsers;
-  @Query
-  @SerializedName("include_terminated_user")
-  private Boolean includeTerminatedUser;
-  @Body
-  private QueryUserTaskReqBody body;
-
-  // builder 开始
-  public QueryUserTaskReq() {
-  }
-
-  public QueryUserTaskReq(Builder builder) {
-    this.employeeType = builder.employeeType;
-    this.ignoreInvalidUsers = builder.ignoreInvalidUsers;
-    this.includeTerminatedUser = builder.includeTerminatedUser;
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getEmployeeType() {
-    return this.employeeType;
-  }
-
-  public void setEmployeeType(String employeeType) {
-    this.employeeType = employeeType;
-  }
-
-  public Boolean getIgnoreInvalidUsers() {
-    return this.ignoreInvalidUsers;
-  }
-
-  public void setIgnoreInvalidUsers(Boolean ignoreInvalidUsers) {
-    this.ignoreInvalidUsers = ignoreInvalidUsers;
-  }
-
-  public Boolean getIncludeTerminatedUser() {
-    return this.includeTerminatedUser;
-  }
-
-  public void setIncludeTerminatedUser(Boolean includeTerminatedUser) {
-    this.includeTerminatedUser = includeTerminatedUser;
-  }
-
-  public QueryUserTaskReqBody getQueryUserTaskReqBody() {
-    return this.body;
-  }
-
-  public void setQueryUserTaskReqBody(QueryUserTaskReqBody body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
+    @Query
+    @SerializedName("employee_type")
     private String employeeType;
+    @Query
+    @SerializedName("ignore_invalid_users")
     private Boolean ignoreInvalidUsers;
+    @Query
+    @SerializedName("include_terminated_user")
     private Boolean includeTerminatedUser;
+    public String getEmployeeType() {
+        return this.employeeType;
+    }
+
+    public void setEmployeeType(String employeeType) {
+        this.employeeType = employeeType;
+    }
+
+    public Boolean getIgnoreInvalidUsers() {
+        return this.ignoreInvalidUsers;
+    }
+
+    public void setIgnoreInvalidUsers(Boolean ignoreInvalidUsers) {
+        this.ignoreInvalidUsers = ignoreInvalidUsers;
+    }
+
+    public Boolean getIncludeTerminatedUser() {
+        return this.includeTerminatedUser;
+    }
+
+    public void setIncludeTerminatedUser(Boolean includeTerminatedUser) {
+        this.includeTerminatedUser = includeTerminatedUser;
+    }
+
+    @Body
     private QueryUserTaskReqBody body;
 
-    public Builder employeeType(String employeeType) {
-      this.employeeType = employeeType;
-      return this;
-    }
-
-    public Builder employeeType(
-        com.lark.oapi.service.attendance.v1.enums.EmployeeTypeEnum employeeType) {
-      this.employeeType = employeeType.getValue();
-      return this;
-    }
-
-    public Builder ignoreInvalidUsers(Boolean ignoreInvalidUsers) {
-      this.ignoreInvalidUsers = ignoreInvalidUsers;
-      return this;
-    }
-
-    public Builder includeTerminatedUser(Boolean includeTerminatedUser) {
-      this.includeTerminatedUser = includeTerminatedUser;
-      return this;
-    }
-
     public QueryUserTaskReqBody getQueryUserTaskReqBody() {
-      return this.body;
+        return this.body;
     }
 
-    public Builder queryUserTaskReqBody(QueryUserTaskReqBody body) {
-      this.body = body;
-      return this;
+    public void setQueryUserTaskReqBody(QueryUserTaskReqBody body) {
+        this.body = body;
     }
 
-    public QueryUserTaskReq build() {
-      return new QueryUserTaskReq(this);
-    }
+// builder 开始
+  public QueryUserTaskReq(){}
+
+  public QueryUserTaskReq(Builder builder){
+       this.employeeType = builder.employeeType;
+       this.ignoreInvalidUsers = builder.ignoreInvalidUsers;
+       this.includeTerminatedUser = builder.includeTerminatedUser;
+        this.body = builder.body;
   }
+
+    public static class Builder {
+        private String employeeType;
+        private Boolean ignoreInvalidUsers;
+        private Boolean includeTerminatedUser;
+    
+           public Builder employeeType(String employeeType) {
+                this.employeeType = employeeType;
+                return this;
+           }
+          public Builder employeeType(com.lark.oapi.service.attendance.v1.enums.EmployeeTypeEnum employeeType) {
+               this.employeeType = employeeType.getValue();
+               return this;
+          }
+    
+           public Builder ignoreInvalidUsers(Boolean ignoreInvalidUsers) {
+                this.ignoreInvalidUsers = ignoreInvalidUsers;
+                return this;
+           }
+    
+           public Builder includeTerminatedUser(Boolean includeTerminatedUser) {
+                this.includeTerminatedUser = includeTerminatedUser;
+                return this;
+           }
+    
+        private QueryUserTaskReqBody body;
+    
+        public QueryUserTaskReqBody getQueryUserTaskReqBody() {
+            return this.body;
+        }
+        public Builder queryUserTaskReqBody(QueryUserTaskReqBody body) {
+             this.body = body;
+             return this;
+        }
+    public QueryUserTaskReq build(){
+        return new QueryUserTaskReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

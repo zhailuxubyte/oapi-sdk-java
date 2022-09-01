@@ -12,46 +12,52 @@
  */
 
 package com.lark.oapi.service.drive.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.drive.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class UpdateFileCommentReplyReqBody {
-
-  @SerializedName("content")
-  private ReplyContent content;
-
-  // builder 开始
-  public UpdateFileCommentReplyReqBody() {
-  }
-
-  public UpdateFileCommentReplyReqBody(Builder builder) {
-    this.content = builder.content;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public ReplyContent getContent() {
-    return this.content;
-  }
-
-  public void setContent(ReplyContent content) {
-    this.content = content;
-  }
-
-  public static class Builder {
-
+    @SerializedName("content")
     private ReplyContent content;
+    public ReplyContent getContent() {
+        return this.content;
+    }
 
-    public Builder content(ReplyContent content) {
-      this.content = content;
-      return this;
+    public void setContent(ReplyContent content) {
+        this.content = content;
     }
 
 
-    public UpdateFileCommentReplyReqBody build() {
-      return new UpdateFileCommentReplyReqBody(this);
-    }
+// builder 开始
+  public UpdateFileCommentReplyReqBody(){}
+
+  public UpdateFileCommentReplyReqBody(Builder builder){
+      this.content = builder.content;
   }
+
+    public static class Builder {
+        private ReplyContent content;
+        public Builder content(ReplyContent content) {
+             this.content = content;
+             return this;
+        }
+    
+    
+    public UpdateFileCommentReplyReqBody build(){
+        return new UpdateFileCommentReplyReqBody(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

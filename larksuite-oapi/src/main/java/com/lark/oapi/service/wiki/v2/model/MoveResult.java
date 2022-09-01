@@ -12,80 +12,86 @@
  */
 
 package com.lark.oapi.service.wiki.v2.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.wiki.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class MoveResult {
-
-  @SerializedName("node")
-  private Node node;
-  @SerializedName("status")
-  private Integer status;
-  @SerializedName("status_msg")
-  private String statusMsg;
-
-  // builder 开始
-  public MoveResult() {
-  }
-
-  public MoveResult(Builder builder) {
-    this.node = builder.node;
-    this.status = builder.status;
-    this.statusMsg = builder.statusMsg;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Node getNode() {
-    return this.node;
-  }
-
-  public void setNode(Node node) {
-    this.node = node;
-  }
-
-  public Integer getStatus() {
-    return this.status;
-  }
-
-  public void setStatus(Integer status) {
-    this.status = status;
-  }
-
-  public String getStatusMsg() {
-    return this.statusMsg;
-  }
-
-  public void setStatusMsg(String statusMsg) {
-    this.statusMsg = statusMsg;
-  }
-
-  public static class Builder {
-
+    @SerializedName("node")
     private Node node;
+    @SerializedName("status")
     private Integer status;
+    @SerializedName("status_msg")
     private String statusMsg;
-
-    public Builder node(Node node) {
-      this.node = node;
-      return this;
+    public Node getNode() {
+        return this.node;
     }
 
-    public Builder status(Integer status) {
-      this.status = status;
-      return this;
+    public void setNode(Node node) {
+        this.node = node;
     }
 
-    public Builder statusMsg(String statusMsg) {
-      this.statusMsg = statusMsg;
-      return this;
+    public Integer getStatus() {
+        return this.status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
+    }
+
+    public String getStatusMsg() {
+        return this.statusMsg;
+    }
+
+    public void setStatusMsg(String statusMsg) {
+        this.statusMsg = statusMsg;
     }
 
 
-    public MoveResult build() {
-      return new MoveResult(this);
-    }
+// builder 开始
+  public MoveResult(){}
+
+  public MoveResult(Builder builder){
+      this.node = builder.node;
+      this.status = builder.status;
+      this.statusMsg = builder.statusMsg;
   }
+
+    public static class Builder {
+        private Node node;
+        private Integer status;
+        private String statusMsg;
+        public Builder node(Node node) {
+             this.node = node;
+             return this;
+        }
+    
+        public Builder status(Integer status) {
+             this.status = status;
+             return this;
+        }
+    
+        public Builder statusMsg(String statusMsg) {
+             this.statusMsg = statusMsg;
+             return this;
+        }
+    
+    
+    public MoveResult build(){
+        return new MoveResult(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

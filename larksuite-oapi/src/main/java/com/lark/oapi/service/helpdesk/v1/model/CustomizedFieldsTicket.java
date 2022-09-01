@@ -12,30 +12,37 @@
  */
 
 package com.lark.oapi.service.helpdesk.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class CustomizedFieldsTicket {
+    @SerializedName("user_customized_fields")
+    private UserCustomizedField[] userCustomizedFields;
+    @SerializedName("ticket_customized_fields")
+    private TicketCustomizedField[] ticketCustomizedFields;
+    public UserCustomizedField[] getUserCustomizedFields() {
+        return this.userCustomizedFields;
+    }
 
-  @SerializedName("user_customized_fields")
-  private UserCustomizedField[] userCustomizedFields;
-  @SerializedName("ticket_customized_fields")
-  private TicketCustomizedField[] ticketCustomizedFields;
+    public void setUserCustomizedFields(UserCustomizedField[] userCustomizedFields) {
+        this.userCustomizedFields = userCustomizedFields;
+    }
 
-  public UserCustomizedField[] getUserCustomizedFields() {
-    return this.userCustomizedFields;
-  }
+    public TicketCustomizedField[] getTicketCustomizedFields() {
+        return this.ticketCustomizedFields;
+    }
 
-  public void setUserCustomizedFields(UserCustomizedField[] userCustomizedFields) {
-    this.userCustomizedFields = userCustomizedFields;
-  }
-
-  public TicketCustomizedField[] getTicketCustomizedFields() {
-    return this.ticketCustomizedFields;
-  }
-
-  public void setTicketCustomizedFields(TicketCustomizedField[] ticketCustomizedFields) {
-    this.ticketCustomizedFields = ticketCustomizedFields;
-  }
+    public void setTicketCustomizedFields(TicketCustomizedField[] ticketCustomizedFields) {
+        this.ticketCustomizedFields = ticketCustomizedFields;
+    }
 
 }

@@ -12,46 +12,52 @@
  */
 
 package com.lark.oapi.service.helpdesk.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.helpdesk.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class CreateFaqReqBody {
-
-  @SerializedName("faq")
-  private FaqUpdateInfo faq;
-
-  // builder 开始
-  public CreateFaqReqBody() {
-  }
-
-  public CreateFaqReqBody(Builder builder) {
-    this.faq = builder.faq;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public FaqUpdateInfo getFaq() {
-    return this.faq;
-  }
-
-  public void setFaq(FaqUpdateInfo faq) {
-    this.faq = faq;
-  }
-
-  public static class Builder {
-
+    @SerializedName("faq")
     private FaqUpdateInfo faq;
+    public FaqUpdateInfo getFaq() {
+        return this.faq;
+    }
 
-    public Builder faq(FaqUpdateInfo faq) {
-      this.faq = faq;
-      return this;
+    public void setFaq(FaqUpdateInfo faq) {
+        this.faq = faq;
     }
 
 
-    public CreateFaqReqBody build() {
-      return new CreateFaqReqBody(this);
-    }
+// builder 开始
+  public CreateFaqReqBody(){}
+
+  public CreateFaqReqBody(Builder builder){
+      this.faq = builder.faq;
   }
+
+    public static class Builder {
+        private FaqUpdateInfo faq;
+        public Builder faq(FaqUpdateInfo faq) {
+             this.faq = faq;
+             return this;
+        }
+    
+    
+    public CreateFaqReqBody build(){
+        return new CreateFaqReqBody(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

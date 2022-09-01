@@ -12,90 +12,94 @@
  */
 
 package com.lark.oapi.service.vc.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.vc.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class MeetingParticipantResult {
-
-  @SerializedName("id")
-  private String id;
-  @SerializedName("user_type")
-  private Integer userType;
-  @SerializedName("result")
-  private Integer result;
-
-  // builder 开始
-  public MeetingParticipantResult() {
-  }
-
-  public MeetingParticipantResult(Builder builder) {
-    this.id = builder.id;
-    this.userType = builder.userType;
-    this.result = builder.result;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getId() {
-    return this.id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public Integer getUserType() {
-    return this.userType;
-  }
-
-  public void setUserType(Integer userType) {
-    this.userType = userType;
-  }
-
-  public Integer getResult() {
-    return this.result;
-  }
-
-  public void setResult(Integer result) {
-    this.result = result;
-  }
-
-  public static class Builder {
-
+    @SerializedName("id")
     private String id;
+    @SerializedName("user_type")
     private Integer userType;
+    @SerializedName("result")
     private Integer result;
-
-    public Builder id(String id) {
-      this.id = id;
-      return this;
+    public String getId() {
+        return this.id;
     }
 
-    public Builder userType(Integer userType) {
-      this.userType = userType;
-      return this;
+    public void setId(String id) {
+        this.id = id;
     }
 
-    public Builder userType(com.lark.oapi.service.vc.v1.enums.UserTypeEnum userType) {
-      this.userType = userType.getValue();
-      return this;
+    public Integer getUserType() {
+        return this.userType;
     }
 
-    public Builder result(Integer result) {
-      this.result = result;
-      return this;
+    public void setUserType(Integer userType) {
+        this.userType = userType;
     }
 
-    public Builder result(com.lark.oapi.service.vc.v1.enums.ResultEnum result) {
-      this.result = result.getValue();
-      return this;
+    public Integer getResult() {
+        return this.result;
+    }
+
+    public void setResult(Integer result) {
+        this.result = result;
     }
 
 
-    public MeetingParticipantResult build() {
-      return new MeetingParticipantResult(this);
-    }
+// builder 开始
+  public MeetingParticipantResult(){}
+
+  public MeetingParticipantResult(Builder builder){
+      this.id = builder.id;
+      this.userType = builder.userType;
+      this.result = builder.result;
   }
+
+    public static class Builder {
+        private String id;
+        private Integer userType;
+        private Integer result;
+        public Builder id(String id) {
+             this.id = id;
+             return this;
+        }
+    
+        public Builder userType(Integer userType) {
+             this.userType = userType;
+             return this;
+        }
+        public Builder userType(com.lark.oapi.service.vc.v1.enums.UserTypeEnum userType) {
+             this.userType = userType.getValue();
+             return this;
+        }
+    
+        public Builder result(Integer result) {
+             this.result = result;
+             return this;
+        }
+        public Builder result(com.lark.oapi.service.vc.v1.enums.ResultEnum result) {
+             this.result = result.getValue();
+             return this;
+        }
+    
+    
+    public MeetingParticipantResult build(){
+        return new MeetingParticipantResult(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

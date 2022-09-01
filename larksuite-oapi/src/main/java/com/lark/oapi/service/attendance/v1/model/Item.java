@@ -12,80 +12,86 @@
  */
 
 package com.lark.oapi.service.attendance.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.attendance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class Item {
-
-  @SerializedName("code")
-  private String code;
-  @SerializedName("title")
-  private String title;
-  @SerializedName("child_items")
-  private ChildItem[] childItems;
-
-  // builder 开始
-  public Item() {
-  }
-
-  public Item(Builder builder) {
-    this.code = builder.code;
-    this.title = builder.title;
-    this.childItems = builder.childItems;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getCode() {
-    return this.code;
-  }
-
-  public void setCode(String code) {
-    this.code = code;
-  }
-
-  public String getTitle() {
-    return this.title;
-  }
-
-  public void setTitle(String title) {
-    this.title = title;
-  }
-
-  public ChildItem[] getChildItems() {
-    return this.childItems;
-  }
-
-  public void setChildItems(ChildItem[] childItems) {
-    this.childItems = childItems;
-  }
-
-  public static class Builder {
-
+    @SerializedName("code")
     private String code;
+    @SerializedName("title")
     private String title;
+    @SerializedName("child_items")
     private ChildItem[] childItems;
-
-    public Builder code(String code) {
-      this.code = code;
-      return this;
+    public String getCode() {
+        return this.code;
     }
 
-    public Builder title(String title) {
-      this.title = title;
-      return this;
+    public void setCode(String code) {
+        this.code = code;
     }
 
-    public Builder childItems(ChildItem[] childItems) {
-      this.childItems = childItems;
-      return this;
+    public String getTitle() {
+        return this.title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public ChildItem[] getChildItems() {
+        return this.childItems;
+    }
+
+    public void setChildItems(ChildItem[] childItems) {
+        this.childItems = childItems;
     }
 
 
-    public Item build() {
-      return new Item(this);
-    }
+// builder 开始
+  public Item(){}
+
+  public Item(Builder builder){
+      this.code = builder.code;
+      this.title = builder.title;
+      this.childItems = builder.childItems;
   }
+
+    public static class Builder {
+        private String code;
+        private String title;
+        private ChildItem[] childItems;
+        public Builder code(String code) {
+             this.code = code;
+             return this;
+        }
+    
+        public Builder title(String title) {
+             this.title = title;
+             return this;
+        }
+    
+        public Builder childItems(ChildItem[] childItems) {
+             this.childItems = childItems;
+             return this;
+        }
+    
+    
+    public Item build(){
+        return new Item(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

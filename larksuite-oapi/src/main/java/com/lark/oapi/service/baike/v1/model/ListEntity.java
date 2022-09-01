@@ -12,30 +12,37 @@
  */
 
 package com.lark.oapi.service.baike.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class ListEntity {
+    @SerializedName("entities")
+    private Entity[] entities;
+    @SerializedName("page_token")
+    private String pageToken;
+    public Entity[] getEntities() {
+        return this.entities;
+    }
 
-  @SerializedName("entities")
-  private Entity[] entities;
-  @SerializedName("page_token")
-  private String pageToken;
+    public void setEntities(Entity[] entities) {
+        this.entities = entities;
+    }
 
-  public Entity[] getEntities() {
-    return this.entities;
-  }
+    public String getPageToken() {
+        return this.pageToken;
+    }
 
-  public void setEntities(Entity[] entities) {
-    this.entities = entities;
-  }
-
-  public String getPageToken() {
-    return this.pageToken;
-  }
-
-  public void setPageToken(String pageToken) {
-    this.pageToken = pageToken;
-  }
+    public void setPageToken(String pageToken) {
+        this.pageToken = pageToken;
+    }
 
 }

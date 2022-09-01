@@ -12,107 +12,110 @@
  */
 
 package com.lark.oapi.service.im.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.im.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class GetChatMembersReq {
-
-  @Query
-  @SerializedName("member_id_type")
-  private String memberIdType;
-  @Query
-  @SerializedName("page_token")
-  private String pageToken;
-  @Query
-  @SerializedName("page_size")
-  private Integer pageSize;
-  @Path
-  @SerializedName("chat_id")
-  private String chatId;
-
-  // builder 开始
-  public GetChatMembersReq() {
-  }
-
-  public GetChatMembersReq(Builder builder) {
-    this.memberIdType = builder.memberIdType;
-    this.pageToken = builder.pageToken;
-    this.pageSize = builder.pageSize;
-    this.chatId = builder.chatId;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getMemberIdType() {
-    return this.memberIdType;
-  }
-
-  public void setMemberIdType(String memberIdType) {
-    this.memberIdType = memberIdType;
-  }
-
-  public String getPageToken() {
-    return this.pageToken;
-  }
-
-  public void setPageToken(String pageToken) {
-    this.pageToken = pageToken;
-  }
-
-  public Integer getPageSize() {
-    return this.pageSize;
-  }
-
-  public void setPageSize(Integer pageSize) {
-    this.pageSize = pageSize;
-  }
-
-  public String getChatId() {
-    return this.chatId;
-  }
-
-  public void setChatId(String chatId) {
-    this.chatId = chatId;
-  }
-
-  public static class Builder {
-
+    @Query
+    @SerializedName("member_id_type")
     private String memberIdType;
+    @Query
+    @SerializedName("page_token")
     private String pageToken;
+    @Query
+    @SerializedName("page_size")
     private Integer pageSize;
+    public String getMemberIdType() {
+        return this.memberIdType;
+    }
+
+    public void setMemberIdType(String memberIdType) {
+        this.memberIdType = memberIdType;
+    }
+
+    public String getPageToken() {
+        return this.pageToken;
+    }
+
+    public void setPageToken(String pageToken) {
+        this.pageToken = pageToken;
+    }
+
+    public Integer getPageSize() {
+        return this.pageSize;
+    }
+
+    public void setPageSize(Integer pageSize) {
+        this.pageSize = pageSize;
+    }
+
+    @Path
+    @SerializedName("chat_id")
     private String chatId;
-
-    public Builder memberIdType(String memberIdType) {
-      this.memberIdType = memberIdType;
-      return this;
+    public String getChatId() {
+        return this.chatId;
     }
 
-    public Builder memberIdType(com.lark.oapi.service.im.v1.enums.MemberIdTypeEnum memberIdType) {
-      this.memberIdType = memberIdType.getValue();
-      return this;
+    public void setChatId(String chatId) {
+        this.chatId = chatId;
     }
 
-    public Builder pageToken(String pageToken) {
-      this.pageToken = pageToken;
-      return this;
-    }
 
-    public Builder pageSize(Integer pageSize) {
-      this.pageSize = pageSize;
-      return this;
-    }
+// builder 开始
+  public GetChatMembersReq(){}
 
-    public Builder chatId(String chatId) {
-      this.chatId = chatId;
-      return this;
-    }
-
-    public GetChatMembersReq build() {
-      return new GetChatMembersReq(this);
-    }
+  public GetChatMembersReq(Builder builder){
+       this.memberIdType = builder.memberIdType;
+       this.pageToken = builder.pageToken;
+       this.pageSize = builder.pageSize;
+       this.chatId = builder.chatId;
   }
+
+    public static class Builder {
+        private String memberIdType;
+        private String pageToken;
+        private Integer pageSize;
+    
+           public Builder memberIdType(String memberIdType) {
+                this.memberIdType = memberIdType;
+                return this;
+           }
+          public Builder memberIdType(com.lark.oapi.service.im.v1.enums.MemberIdTypeEnum memberIdType) {
+               this.memberIdType = memberIdType.getValue();
+               return this;
+          }
+    
+           public Builder pageToken(String pageToken) {
+                this.pageToken = pageToken;
+                return this;
+           }
+    
+           public Builder pageSize(Integer pageSize) {
+                this.pageSize = pageSize;
+                return this;
+           }
+    
+        private String chatId;
+          public Builder chatId(String chatId) {
+               this.chatId = chatId;
+               return this;
+          }
+    
+    public GetChatMembersReq build(){
+        return new GetChatMembersReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

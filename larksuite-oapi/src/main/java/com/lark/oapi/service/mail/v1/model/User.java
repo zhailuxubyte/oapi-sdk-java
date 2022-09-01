@@ -12,90 +12,94 @@
  */
 
 package com.lark.oapi.service.mail.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.mail.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class User {
-
-  @SerializedName("email")
-  private String email;
-  @SerializedName("status")
-  private Integer status;
-  @SerializedName("type")
-  private Integer type;
-
-  // builder 开始
-  public User() {
-  }
-
-  public User(Builder builder) {
-    this.email = builder.email;
-    this.status = builder.status;
-    this.type = builder.type;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getEmail() {
-    return this.email;
-  }
-
-  public void setEmail(String email) {
-    this.email = email;
-  }
-
-  public Integer getStatus() {
-    return this.status;
-  }
-
-  public void setStatus(Integer status) {
-    this.status = status;
-  }
-
-  public Integer getType() {
-    return this.type;
-  }
-
-  public void setType(Integer type) {
-    this.type = type;
-  }
-
-  public static class Builder {
-
+    @SerializedName("email")
     private String email;
+    @SerializedName("status")
     private Integer status;
+    @SerializedName("type")
     private Integer type;
-
-    public Builder email(String email) {
-      this.email = email;
-      return this;
+    public String getEmail() {
+        return this.email;
     }
 
-    public Builder status(Integer status) {
-      this.status = status;
-      return this;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public Builder status(com.lark.oapi.service.mail.v1.enums.UserStatusEnum status) {
-      this.status = status.getValue();
-      return this;
+    public Integer getStatus() {
+        return this.status;
     }
 
-    public Builder type(Integer type) {
-      this.type = type;
-      return this;
+    public void setStatus(Integer status) {
+        this.status = status;
     }
 
-    public Builder type(com.lark.oapi.service.mail.v1.enums.UserTypeEnum type) {
-      this.type = type.getValue();
-      return this;
+    public Integer getType() {
+        return this.type;
+    }
+
+    public void setType(Integer type) {
+        this.type = type;
     }
 
 
-    public User build() {
-      return new User(this);
-    }
+// builder 开始
+  public User(){}
+
+  public User(Builder builder){
+      this.email = builder.email;
+      this.status = builder.status;
+      this.type = builder.type;
   }
+
+    public static class Builder {
+        private String email;
+        private Integer status;
+        private Integer type;
+        public Builder email(String email) {
+             this.email = email;
+             return this;
+        }
+    
+        public Builder status(Integer status) {
+             this.status = status;
+             return this;
+        }
+        public Builder status(com.lark.oapi.service.mail.v1.enums.UserStatusEnum status) {
+             this.status = status.getValue();
+             return this;
+        }
+    
+        public Builder type(Integer type) {
+             this.type = type;
+             return this;
+        }
+        public Builder type(com.lark.oapi.service.mail.v1.enums.UserTypeEnum type) {
+             this.type = type.getValue();
+             return this;
+        }
+    
+    
+    public User build(){
+        return new User(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

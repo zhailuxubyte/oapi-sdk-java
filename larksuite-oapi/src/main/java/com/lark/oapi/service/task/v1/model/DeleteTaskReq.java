@@ -12,47 +12,52 @@
  */
 
 package com.lark.oapi.service.task.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.task.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class DeleteTaskReq {
-
-  @Path
-  @SerializedName("task_id")
-  private String taskId;
-
-  // builder 开始
-  public DeleteTaskReq() {
-  }
-
-  public DeleteTaskReq(Builder builder) {
-    this.taskId = builder.taskId;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getTaskId() {
-    return this.taskId;
-  }
-
-  public void setTaskId(String taskId) {
-    this.taskId = taskId;
-  }
-
-  public static class Builder {
-
+    @Path
+    @SerializedName("task_id")
     private String taskId;
-
-    public Builder taskId(String taskId) {
-      this.taskId = taskId;
-      return this;
+    public String getTaskId() {
+        return this.taskId;
     }
 
-    public DeleteTaskReq build() {
-      return new DeleteTaskReq(this);
+    public void setTaskId(String taskId) {
+        this.taskId = taskId;
     }
+
+
+// builder 开始
+  public DeleteTaskReq(){}
+
+  public DeleteTaskReq(Builder builder){
+       this.taskId = builder.taskId;
   }
+
+    public static class Builder {
+    
+        private String taskId;
+          public Builder taskId(String taskId) {
+               this.taskId = taskId;
+               return this;
+          }
+    
+    public DeleteTaskReq build(){
+        return new DeleteTaskReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

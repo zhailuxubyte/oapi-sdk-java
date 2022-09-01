@@ -12,66 +12,69 @@
  */
 
 package com.lark.oapi.service.gray_test_open_sg.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class GetMotoReq {
-
-  @Query
-  @SerializedName("body_level")
-  private String bodyLevel;
-  @Path
-  @SerializedName("moto_id")
-  private String motoId;
-
-  // builder 开始
-  public GetMotoReq() {
-  }
-
-  public GetMotoReq(Builder builder) {
-    this.bodyLevel = builder.bodyLevel;
-    this.motoId = builder.motoId;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getBodyLevel() {
-    return this.bodyLevel;
-  }
-
-  public void setBodyLevel(String bodyLevel) {
-    this.bodyLevel = bodyLevel;
-  }
-
-  public String getMotoId() {
-    return this.motoId;
-  }
-
-  public void setMotoId(String motoId) {
-    this.motoId = motoId;
-  }
-
-  public static class Builder {
-
+    @Query
+    @SerializedName("body_level")
     private String bodyLevel;
+    public String getBodyLevel() {
+        return this.bodyLevel;
+    }
+
+    public void setBodyLevel(String bodyLevel) {
+        this.bodyLevel = bodyLevel;
+    }
+
+    @Path
+    @SerializedName("moto_id")
     private String motoId;
-
-    public Builder bodyLevel(String bodyLevel) {
-      this.bodyLevel = bodyLevel;
-      return this;
+    public String getMotoId() {
+        return this.motoId;
     }
 
-    public Builder motoId(String motoId) {
-      this.motoId = motoId;
-      return this;
+    public void setMotoId(String motoId) {
+        this.motoId = motoId;
     }
 
-    public GetMotoReq build() {
-      return new GetMotoReq(this);
-    }
+
+// builder 开始
+  public GetMotoReq(){}
+
+  public GetMotoReq(Builder builder){
+       this.bodyLevel = builder.bodyLevel;
+       this.motoId = builder.motoId;
   }
+
+    public static class Builder {
+        private String bodyLevel;
+    
+           public Builder bodyLevel(String bodyLevel) {
+                this.bodyLevel = bodyLevel;
+                return this;
+           }
+    
+        private String motoId;
+          public Builder motoId(String motoId) {
+               this.motoId = motoId;
+               return this;
+          }
+    
+    public GetMotoReq build(){
+        return new GetMotoReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

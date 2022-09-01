@@ -12,46 +12,52 @@
  */
 
 package com.lark.oapi.service.im.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.im.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class Emoji {
-
-  @SerializedName("emoji_type")
-  private String emojiType;
-
-  // builder 开始
-  public Emoji() {
-  }
-
-  public Emoji(Builder builder) {
-    this.emojiType = builder.emojiType;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getEmojiType() {
-    return this.emojiType;
-  }
-
-  public void setEmojiType(String emojiType) {
-    this.emojiType = emojiType;
-  }
-
-  public static class Builder {
-
+    @SerializedName("emoji_type")
     private String emojiType;
+    public String getEmojiType() {
+        return this.emojiType;
+    }
 
-    public Builder emojiType(String emojiType) {
-      this.emojiType = emojiType;
-      return this;
+    public void setEmojiType(String emojiType) {
+        this.emojiType = emojiType;
     }
 
 
-    public Emoji build() {
-      return new Emoji(this);
-    }
+// builder 开始
+  public Emoji(){}
+
+  public Emoji(Builder builder){
+      this.emojiType = builder.emojiType;
   }
+
+    public static class Builder {
+        private String emojiType;
+        public Builder emojiType(String emojiType) {
+             this.emojiType = emojiType;
+             return this;
+        }
+    
+    
+    public Emoji build(){
+        return new Emoji(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

@@ -12,74 +12,76 @@
  */
 
 package com.lark.oapi.service.approval.v4.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.approval.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class CancelInstanceReq {
-
-  @Query
-  @SerializedName("user_id_type")
-  private String userIdType;
-  @Body
-  private InstanceCancel body;
-
-  // builder 开始
-  public CancelInstanceReq() {
-  }
-
-  public CancelInstanceReq(Builder builder) {
-    this.userIdType = builder.userIdType;
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getUserIdType() {
-    return this.userIdType;
-  }
-
-  public void setUserIdType(String userIdType) {
-    this.userIdType = userIdType;
-  }
-
-  public InstanceCancel getInstanceCancel() {
-    return this.body;
-  }
-
-  public void setInstanceCancel(InstanceCancel body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
+    @Query
+    @SerializedName("user_id_type")
     private String userIdType;
+    public String getUserIdType() {
+        return this.userIdType;
+    }
+
+    public void setUserIdType(String userIdType) {
+        this.userIdType = userIdType;
+    }
+
+    @Body
     private InstanceCancel body;
 
-    public Builder userIdType(String userIdType) {
-      this.userIdType = userIdType;
-      return this;
-    }
-
-    public Builder userIdType(com.lark.oapi.service.approval.v4.enums.UserIdTypeEnum userIdType) {
-      this.userIdType = userIdType.getValue();
-      return this;
-    }
-
     public InstanceCancel getInstanceCancel() {
-      return this.body;
+        return this.body;
     }
 
-    public Builder instanceCancel(InstanceCancel body) {
-      this.body = body;
-      return this;
+    public void setInstanceCancel(InstanceCancel body) {
+        this.body = body;
     }
 
-    public CancelInstanceReq build() {
-      return new CancelInstanceReq(this);
-    }
+// builder 开始
+  public CancelInstanceReq(){}
+
+  public CancelInstanceReq(Builder builder){
+       this.userIdType = builder.userIdType;
+        this.body = builder.body;
   }
+
+    public static class Builder {
+        private String userIdType;
+    
+           public Builder userIdType(String userIdType) {
+                this.userIdType = userIdType;
+                return this;
+           }
+          public Builder userIdType(com.lark.oapi.service.approval.v4.enums.UserIdTypeEnum userIdType) {
+               this.userIdType = userIdType.getValue();
+               return this;
+          }
+    
+        private InstanceCancel body;
+    
+        public InstanceCancel getInstanceCancel() {
+            return this.body;
+        }
+        public Builder instanceCancel(InstanceCancel body) {
+             this.body = body;
+             return this;
+        }
+    public CancelInstanceReq build(){
+        return new CancelInstanceReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

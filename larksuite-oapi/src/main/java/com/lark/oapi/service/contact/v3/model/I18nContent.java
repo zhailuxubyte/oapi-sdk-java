@@ -12,63 +12,69 @@
  */
 
 package com.lark.oapi.service.contact.v3.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.contact.v3.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class I18nContent {
-
-  @SerializedName("locale")
-  private String locale;
-  @SerializedName("value")
-  private String value;
-
-  // builder 开始
-  public I18nContent() {
-  }
-
-  public I18nContent(Builder builder) {
-    this.locale = builder.locale;
-    this.value = builder.value;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getLocale() {
-    return this.locale;
-  }
-
-  public void setLocale(String locale) {
-    this.locale = locale;
-  }
-
-  public String getValue() {
-    return this.value;
-  }
-
-  public void setValue(String value) {
-    this.value = value;
-  }
-
-  public static class Builder {
-
+    @SerializedName("locale")
     private String locale;
+    @SerializedName("value")
     private String value;
-
-    public Builder locale(String locale) {
-      this.locale = locale;
-      return this;
+    public String getLocale() {
+        return this.locale;
     }
 
-    public Builder value(String value) {
-      this.value = value;
-      return this;
+    public void setLocale(String locale) {
+        this.locale = locale;
+    }
+
+    public String getValue() {
+        return this.value;
+    }
+
+    public void setValue(String value) {
+        this.value = value;
     }
 
 
-    public I18nContent build() {
-      return new I18nContent(this);
-    }
+// builder 开始
+  public I18nContent(){}
+
+  public I18nContent(Builder builder){
+      this.locale = builder.locale;
+      this.value = builder.value;
   }
+
+    public static class Builder {
+        private String locale;
+        private String value;
+        public Builder locale(String locale) {
+             this.locale = locale;
+             return this;
+        }
+    
+        public Builder value(String value) {
+             this.value = value;
+             return this;
+        }
+    
+    
+    public I18nContent build(){
+        return new I18nContent(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

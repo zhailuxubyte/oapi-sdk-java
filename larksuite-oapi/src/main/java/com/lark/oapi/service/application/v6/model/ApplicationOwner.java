@@ -12,136 +12,141 @@
  */
 
 package com.lark.oapi.service.application.v6.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.application.v6.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class ApplicationOwner {
-
-  @SerializedName("type")
-  private Integer type;
-  @SerializedName("owner_id")
-  private String ownerId;
-  @SerializedName("name")
-  private String name;
-  @SerializedName("help_desk")
-  private String helpDesk;
-  @SerializedName("email")
-  private String email;
-  @SerializedName("phone")
-  private String phone;
-
-  // builder 开始
-  public ApplicationOwner() {
-  }
-
-  public ApplicationOwner(Builder builder) {
-    this.type = builder.type;
-    this.ownerId = builder.ownerId;
-    this.name = builder.name;
-    this.helpDesk = builder.helpDesk;
-    this.email = builder.email;
-    this.phone = builder.phone;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Integer getType() {
-    return this.type;
-  }
-
-  public void setType(Integer type) {
-    this.type = type;
-  }
-
-  public String getOwnerId() {
-    return this.ownerId;
-  }
-
-  public void setOwnerId(String ownerId) {
-    this.ownerId = ownerId;
-  }
-
-  public String getName() {
-    return this.name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public String getHelpDesk() {
-    return this.helpDesk;
-  }
-
-  public void setHelpDesk(String helpDesk) {
-    this.helpDesk = helpDesk;
-  }
-
-  public String getEmail() {
-    return this.email;
-  }
-
-  public void setEmail(String email) {
-    this.email = email;
-  }
-
-  public String getPhone() {
-    return this.phone;
-  }
-
-  public void setPhone(String phone) {
-    this.phone = phone;
-  }
-
-  public static class Builder {
-
+    @SerializedName("type")
     private Integer type;
+    @SerializedName("owner_id")
     private String ownerId;
+    @SerializedName("name")
     private String name;
+    @SerializedName("help_desk")
     private String helpDesk;
+    @SerializedName("email")
     private String email;
+    @SerializedName("phone")
     private String phone;
-
-    public Builder type(Integer type) {
-      this.type = type;
-      return this;
+    public Integer getType() {
+        return this.type;
     }
 
-    public Builder type(com.lark.oapi.service.application.v6.enums.AppOwnerTypeEnum type) {
-      this.type = type.getValue();
-      return this;
+    public void setType(Integer type) {
+        this.type = type;
     }
 
-    public Builder ownerId(String ownerId) {
-      this.ownerId = ownerId;
-      return this;
+    public String getOwnerId() {
+        return this.ownerId;
     }
 
-    public Builder name(String name) {
-      this.name = name;
-      return this;
+    public void setOwnerId(String ownerId) {
+        this.ownerId = ownerId;
     }
 
-    public Builder helpDesk(String helpDesk) {
-      this.helpDesk = helpDesk;
-      return this;
+    public String getName() {
+        return this.name;
     }
 
-    public Builder email(String email) {
-      this.email = email;
-      return this;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public Builder phone(String phone) {
-      this.phone = phone;
-      return this;
+    public String getHelpDesk() {
+        return this.helpDesk;
+    }
+
+    public void setHelpDesk(String helpDesk) {
+        this.helpDesk = helpDesk;
+    }
+
+    public String getEmail() {
+        return this.email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPhone() {
+        return this.phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
 
-    public ApplicationOwner build() {
-      return new ApplicationOwner(this);
-    }
+// builder 开始
+  public ApplicationOwner(){}
+
+  public ApplicationOwner(Builder builder){
+      this.type = builder.type;
+      this.ownerId = builder.ownerId;
+      this.name = builder.name;
+      this.helpDesk = builder.helpDesk;
+      this.email = builder.email;
+      this.phone = builder.phone;
   }
+
+    public static class Builder {
+        private Integer type;
+        private String ownerId;
+        private String name;
+        private String helpDesk;
+        private String email;
+        private String phone;
+        public Builder type(Integer type) {
+             this.type = type;
+             return this;
+        }
+        public Builder type(com.lark.oapi.service.application.v6.enums.AppOwnerTypeEnum type) {
+             this.type = type.getValue();
+             return this;
+        }
+    
+        public Builder ownerId(String ownerId) {
+             this.ownerId = ownerId;
+             return this;
+        }
+    
+        public Builder name(String name) {
+             this.name = name;
+             return this;
+        }
+    
+        public Builder helpDesk(String helpDesk) {
+             this.helpDesk = helpDesk;
+             return this;
+        }
+    
+        public Builder email(String email) {
+             this.email = email;
+             return this;
+        }
+    
+        public Builder phone(String phone) {
+             this.phone = phone;
+             return this;
+        }
+    
+    
+    public ApplicationOwner build(){
+        return new ApplicationOwner(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

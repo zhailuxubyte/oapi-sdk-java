@@ -12,47 +12,52 @@
  */
 
 package com.lark.oapi.service.im.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.im.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class GetImageReq {
-
-  @Path
-  @SerializedName("image_key")
-  private String imageKey;
-
-  // builder 开始
-  public GetImageReq() {
-  }
-
-  public GetImageReq(Builder builder) {
-    this.imageKey = builder.imageKey;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getImageKey() {
-    return this.imageKey;
-  }
-
-  public void setImageKey(String imageKey) {
-    this.imageKey = imageKey;
-  }
-
-  public static class Builder {
-
+    @Path
+    @SerializedName("image_key")
     private String imageKey;
-
-    public Builder imageKey(String imageKey) {
-      this.imageKey = imageKey;
-      return this;
+    public String getImageKey() {
+        return this.imageKey;
     }
 
-    public GetImageReq build() {
-      return new GetImageReq(this);
+    public void setImageKey(String imageKey) {
+        this.imageKey = imageKey;
     }
+
+
+// builder 开始
+  public GetImageReq(){}
+
+  public GetImageReq(Builder builder){
+       this.imageKey = builder.imageKey;
   }
+
+    public static class Builder {
+    
+        private String imageKey;
+          public Builder imageKey(String imageKey) {
+               this.imageKey = imageKey;
+               return this;
+          }
+    
+    public GetImageReq build(){
+        return new GetImageReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

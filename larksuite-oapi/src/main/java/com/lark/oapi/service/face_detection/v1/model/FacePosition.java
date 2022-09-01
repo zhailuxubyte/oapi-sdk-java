@@ -12,63 +12,68 @@
  */
 
 package com.lark.oapi.service.face_detection.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class FacePosition {
-
-  @SerializedName("upper_left")
-  private Point upperLeft;
-  @SerializedName("lower_right")
-  private Point lowerRight;
-
-  // builder 开始
-  public FacePosition() {
-  }
-
-  public FacePosition(Builder builder) {
-    this.upperLeft = builder.upperLeft;
-    this.lowerRight = builder.lowerRight;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Point getUpperLeft() {
-    return this.upperLeft;
-  }
-
-  public void setUpperLeft(Point upperLeft) {
-    this.upperLeft = upperLeft;
-  }
-
-  public Point getLowerRight() {
-    return this.lowerRight;
-  }
-
-  public void setLowerRight(Point lowerRight) {
-    this.lowerRight = lowerRight;
-  }
-
-  public static class Builder {
-
+    @SerializedName("upper_left")
     private Point upperLeft;
+    @SerializedName("lower_right")
     private Point lowerRight;
-
-    public Builder upperLeft(Point upperLeft) {
-      this.upperLeft = upperLeft;
-      return this;
+    public Point getUpperLeft() {
+        return this.upperLeft;
     }
 
-    public Builder lowerRight(Point lowerRight) {
-      this.lowerRight = lowerRight;
-      return this;
+    public void setUpperLeft(Point upperLeft) {
+        this.upperLeft = upperLeft;
+    }
+
+    public Point getLowerRight() {
+        return this.lowerRight;
+    }
+
+    public void setLowerRight(Point lowerRight) {
+        this.lowerRight = lowerRight;
     }
 
 
-    public FacePosition build() {
-      return new FacePosition(this);
-    }
+// builder 开始
+  public FacePosition(){}
+
+  public FacePosition(Builder builder){
+      this.upperLeft = builder.upperLeft;
+      this.lowerRight = builder.lowerRight;
   }
+
+    public static class Builder {
+        private Point upperLeft;
+        private Point lowerRight;
+        public Builder upperLeft(Point upperLeft) {
+             this.upperLeft = upperLeft;
+             return this;
+        }
+    
+        public Builder lowerRight(Point lowerRight) {
+             this.lowerRight = lowerRight;
+             return this;
+        }
+    
+    
+    public FacePosition build(){
+        return new FacePosition(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

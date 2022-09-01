@@ -12,80 +12,86 @@
  */
 
 package com.lark.oapi.service.attendance.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.attendance.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class ChildField {
-
-  @SerializedName("code")
-  private String code;
-  @SerializedName("title")
-  private String title;
-  @SerializedName("time_unit")
-  private String timeUnit;
-
-  // builder 开始
-  public ChildField() {
-  }
-
-  public ChildField(Builder builder) {
-    this.code = builder.code;
-    this.title = builder.title;
-    this.timeUnit = builder.timeUnit;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getCode() {
-    return this.code;
-  }
-
-  public void setCode(String code) {
-    this.code = code;
-  }
-
-  public String getTitle() {
-    return this.title;
-  }
-
-  public void setTitle(String title) {
-    this.title = title;
-  }
-
-  public String getTimeUnit() {
-    return this.timeUnit;
-  }
-
-  public void setTimeUnit(String timeUnit) {
-    this.timeUnit = timeUnit;
-  }
-
-  public static class Builder {
-
+    @SerializedName("code")
     private String code;
+    @SerializedName("title")
     private String title;
+    @SerializedName("time_unit")
     private String timeUnit;
-
-    public Builder code(String code) {
-      this.code = code;
-      return this;
+    public String getCode() {
+        return this.code;
     }
 
-    public Builder title(String title) {
-      this.title = title;
-      return this;
+    public void setCode(String code) {
+        this.code = code;
     }
 
-    public Builder timeUnit(String timeUnit) {
-      this.timeUnit = timeUnit;
-      return this;
+    public String getTitle() {
+        return this.title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getTimeUnit() {
+        return this.timeUnit;
+    }
+
+    public void setTimeUnit(String timeUnit) {
+        this.timeUnit = timeUnit;
     }
 
 
-    public ChildField build() {
-      return new ChildField(this);
-    }
+// builder 开始
+  public ChildField(){}
+
+  public ChildField(Builder builder){
+      this.code = builder.code;
+      this.title = builder.title;
+      this.timeUnit = builder.timeUnit;
   }
+
+    public static class Builder {
+        private String code;
+        private String title;
+        private String timeUnit;
+        public Builder code(String code) {
+             this.code = code;
+             return this;
+        }
+    
+        public Builder title(String title) {
+             this.title = title;
+             return this;
+        }
+    
+        public Builder timeUnit(String timeUnit) {
+             this.timeUnit = timeUnit;
+             return this;
+        }
+    
+    
+    public ChildField build(){
+        return new ChildField(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

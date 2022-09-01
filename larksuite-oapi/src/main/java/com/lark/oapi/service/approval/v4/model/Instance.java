@@ -12,131 +12,137 @@
  */
 
 package com.lark.oapi.service.approval.v4.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.approval.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class Instance {
-
-  @SerializedName("instance_code")
-  private String instanceCode;
-  @SerializedName("approval_name")
-  private String approvalName;
-  @SerializedName("start_time")
-  private String startTime;
-  @SerializedName("end_time")
-  private String endTime;
-  @SerializedName("user_id")
-  private String userId;
-  @SerializedName("serial_id")
-  private String serialId;
-
-  // builder 开始
-  public Instance() {
-  }
-
-  public Instance(Builder builder) {
-    this.instanceCode = builder.instanceCode;
-    this.approvalName = builder.approvalName;
-    this.startTime = builder.startTime;
-    this.endTime = builder.endTime;
-    this.userId = builder.userId;
-    this.serialId = builder.serialId;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getInstanceCode() {
-    return this.instanceCode;
-  }
-
-  public void setInstanceCode(String instanceCode) {
-    this.instanceCode = instanceCode;
-  }
-
-  public String getApprovalName() {
-    return this.approvalName;
-  }
-
-  public void setApprovalName(String approvalName) {
-    this.approvalName = approvalName;
-  }
-
-  public String getStartTime() {
-    return this.startTime;
-  }
-
-  public void setStartTime(String startTime) {
-    this.startTime = startTime;
-  }
-
-  public String getEndTime() {
-    return this.endTime;
-  }
-
-  public void setEndTime(String endTime) {
-    this.endTime = endTime;
-  }
-
-  public String getUserId() {
-    return this.userId;
-  }
-
-  public void setUserId(String userId) {
-    this.userId = userId;
-  }
-
-  public String getSerialId() {
-    return this.serialId;
-  }
-
-  public void setSerialId(String serialId) {
-    this.serialId = serialId;
-  }
-
-  public static class Builder {
-
+    @SerializedName("instance_code")
     private String instanceCode;
+    @SerializedName("approval_name")
     private String approvalName;
+    @SerializedName("start_time")
     private String startTime;
+    @SerializedName("end_time")
     private String endTime;
+    @SerializedName("user_id")
     private String userId;
+    @SerializedName("serial_id")
     private String serialId;
-
-    public Builder instanceCode(String instanceCode) {
-      this.instanceCode = instanceCode;
-      return this;
+    public String getInstanceCode() {
+        return this.instanceCode;
     }
 
-    public Builder approvalName(String approvalName) {
-      this.approvalName = approvalName;
-      return this;
+    public void setInstanceCode(String instanceCode) {
+        this.instanceCode = instanceCode;
     }
 
-    public Builder startTime(String startTime) {
-      this.startTime = startTime;
-      return this;
+    public String getApprovalName() {
+        return this.approvalName;
     }
 
-    public Builder endTime(String endTime) {
-      this.endTime = endTime;
-      return this;
+    public void setApprovalName(String approvalName) {
+        this.approvalName = approvalName;
     }
 
-    public Builder userId(String userId) {
-      this.userId = userId;
-      return this;
+    public String getStartTime() {
+        return this.startTime;
     }
 
-    public Builder serialId(String serialId) {
-      this.serialId = serialId;
-      return this;
+    public void setStartTime(String startTime) {
+        this.startTime = startTime;
+    }
+
+    public String getEndTime() {
+        return this.endTime;
+    }
+
+    public void setEndTime(String endTime) {
+        this.endTime = endTime;
+    }
+
+    public String getUserId() {
+        return this.userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    public String getSerialId() {
+        return this.serialId;
+    }
+
+    public void setSerialId(String serialId) {
+        this.serialId = serialId;
     }
 
 
-    public Instance build() {
-      return new Instance(this);
-    }
+// builder 开始
+  public Instance(){}
+
+  public Instance(Builder builder){
+      this.instanceCode = builder.instanceCode;
+      this.approvalName = builder.approvalName;
+      this.startTime = builder.startTime;
+      this.endTime = builder.endTime;
+      this.userId = builder.userId;
+      this.serialId = builder.serialId;
   }
+
+    public static class Builder {
+        private String instanceCode;
+        private String approvalName;
+        private String startTime;
+        private String endTime;
+        private String userId;
+        private String serialId;
+        public Builder instanceCode(String instanceCode) {
+             this.instanceCode = instanceCode;
+             return this;
+        }
+    
+        public Builder approvalName(String approvalName) {
+             this.approvalName = approvalName;
+             return this;
+        }
+    
+        public Builder startTime(String startTime) {
+             this.startTime = startTime;
+             return this;
+        }
+    
+        public Builder endTime(String endTime) {
+             this.endTime = endTime;
+             return this;
+        }
+    
+        public Builder userId(String userId) {
+             this.userId = userId;
+             return this;
+        }
+    
+        public Builder serialId(String serialId) {
+             this.serialId = serialId;
+             return this;
+        }
+    
+    
+    public Instance build(){
+        return new Instance(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

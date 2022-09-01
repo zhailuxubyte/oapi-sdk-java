@@ -12,63 +12,69 @@
  */
 
 package com.lark.oapi.service.drive.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.drive.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class BitableTableRecordActionField {
-
-  @SerializedName("field_id")
-  private String fieldId;
-  @SerializedName("field_value")
-  private String fieldValue;
-
-  // builder 开始
-  public BitableTableRecordActionField() {
-  }
-
-  public BitableTableRecordActionField(Builder builder) {
-    this.fieldId = builder.fieldId;
-    this.fieldValue = builder.fieldValue;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getFieldId() {
-    return this.fieldId;
-  }
-
-  public void setFieldId(String fieldId) {
-    this.fieldId = fieldId;
-  }
-
-  public String getFieldValue() {
-    return this.fieldValue;
-  }
-
-  public void setFieldValue(String fieldValue) {
-    this.fieldValue = fieldValue;
-  }
-
-  public static class Builder {
-
+    @SerializedName("field_id")
     private String fieldId;
+    @SerializedName("field_value")
     private String fieldValue;
-
-    public Builder fieldId(String fieldId) {
-      this.fieldId = fieldId;
-      return this;
+    public String getFieldId() {
+        return this.fieldId;
     }
 
-    public Builder fieldValue(String fieldValue) {
-      this.fieldValue = fieldValue;
-      return this;
+    public void setFieldId(String fieldId) {
+        this.fieldId = fieldId;
+    }
+
+    public String getFieldValue() {
+        return this.fieldValue;
+    }
+
+    public void setFieldValue(String fieldValue) {
+        this.fieldValue = fieldValue;
     }
 
 
-    public BitableTableRecordActionField build() {
-      return new BitableTableRecordActionField(this);
-    }
+// builder 开始
+  public BitableTableRecordActionField(){}
+
+  public BitableTableRecordActionField(Builder builder){
+      this.fieldId = builder.fieldId;
+      this.fieldValue = builder.fieldValue;
   }
+
+    public static class Builder {
+        private String fieldId;
+        private String fieldValue;
+        public Builder fieldId(String fieldId) {
+             this.fieldId = fieldId;
+             return this;
+        }
+    
+        public Builder fieldValue(String fieldValue) {
+             this.fieldValue = fieldValue;
+             return this;
+        }
+    
+    
+    public BitableTableRecordActionField build(){
+        return new BitableTableRecordActionField(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

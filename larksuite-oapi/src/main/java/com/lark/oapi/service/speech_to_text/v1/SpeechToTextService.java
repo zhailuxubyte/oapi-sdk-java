@@ -13,120 +13,116 @@
 
 package com.lark.oapi.service.speech_to_text.v1;
 
-import com.lark.oapi.core.Config;
-import com.lark.oapi.core.Transport;
-import com.lark.oapi.core.request.RequestOptions;
-import com.lark.oapi.core.response.RawResponse;
 import com.lark.oapi.core.token.AccessTokenType;
-import com.lark.oapi.core.utils.Sets;
+import com.lark.oapi.core.Transport;
+import com.lark.oapi.core.response.RawResponse;
 import com.lark.oapi.core.utils.UnmarshalRespUtil;
-import com.lark.oapi.service.speech_to_text.v1.model.FileRecognizeSpeechReq;
-import com.lark.oapi.service.speech_to_text.v1.model.FileRecognizeSpeechResp;
-import com.lark.oapi.service.speech_to_text.v1.model.StreamRecognizeSpeechReq;
-import com.lark.oapi.service.speech_to_text.v1.model.StreamRecognizeSpeechResp;
+import com.lark.oapi.core.utils.Sets;
+
+
+
+import com.lark.oapi.core.Config;
+import com.lark.oapi.core.request.RequestOptions;
+import java.io.ByteArrayOutputStream;
+import com.lark.oapi.event.model.BaseEvent;
+import com.lark.oapi.event.model.BaseEventV2;
+import com.lark.oapi.service.speech_to_text.v1.model.*;
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
 
 public class SpeechToTextService {
+    private final Speech speech;
 
-  private final Speech speech;
-
-  public SpeechToTextService(Config config) {
-    this.speech = new Speech(config);
-  }
-
-  public Speech speech() {
-    return speech;
-  }
-
-  public static class Speech {
-
-    private final Config config;
-
-    public Speech(Config config) {
-      this.config = config;
+    public SpeechToTextService(Config config) {
+        this.speech = new Speech(config);
+    }
+    public Speech speech() {
+        return speech;
     }
 
-    public FileRecognizeSpeechResp fileRecognize(FileRecognizeSpeechReq req,
-        RequestOptions reqOptions) throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
+    public static class Speech {
+        private final Config config;
 
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          , "/open-apis/speech_to_text/v1/speech/file_recognize"
-          , Sets.newHashSet(AccessTokenType.Tenant)
-          , req);
+        public Speech(Config config) {
+            this.config = config;
+        }
+    
+        public FileRecognizeSpeechResp fileRecognize(FileRecognizeSpeechReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
 
-      // 反序列化
-      FileRecognizeSpeechResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          FileRecognizeSpeechResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config,reqOptions, "POST"
+                       ,"/open-apis/speech_to_text/v1/speech/file_recognize"
+                       ,Sets.newHashSet(AccessTokenType.Tenant)
+                       ,req);
+	       
+           // 反序列化
+           FileRecognizeSpeechResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, FileRecognizeSpeechResp.class);
+           resp.setRawResponse(httpResponse);
+           resp.setRequest(req);
+           
+           return resp;
+        }
 
-      return resp;
+        public FileRecognizeSpeechResp fileRecognize(FileRecognizeSpeechReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config,reqOptions, "POST"
+                       ,"/open-apis/speech_to_text/v1/speech/file_recognize"
+                       ,Sets.newHashSet(AccessTokenType.Tenant)
+                       ,req);
+            
+           // 反序列化
+           FileRecognizeSpeechResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, FileRecognizeSpeechResp.class);
+           resp.setRawResponse(httpResponse);
+           resp.setRequest(req);
+           
+           return resp;
+        }
+    
+        public StreamRecognizeSpeechResp streamRecognize(StreamRecognizeSpeechReq req, RequestOptions reqOptions) throws Exception {
+            // 请求参数选项
+            if (reqOptions == null) {
+                reqOptions = new RequestOptions();
+            }
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config,reqOptions, "POST"
+                       ,"/open-apis/speech_to_text/v1/speech/stream_recognize"
+                       ,Sets.newHashSet(AccessTokenType.Tenant)
+                       ,req);
+	       
+           // 反序列化
+           StreamRecognizeSpeechResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, StreamRecognizeSpeechResp.class);
+           resp.setRawResponse(httpResponse);
+           resp.setRequest(req);
+           
+           return resp;
+        }
+
+        public StreamRecognizeSpeechResp streamRecognize(StreamRecognizeSpeechReq req) throws Exception {
+            // 请求参数选项
+            RequestOptions reqOptions = new RequestOptions();
+
+            // 发起请求
+            RawResponse httpResponse = Transport.send(config,reqOptions, "POST"
+                       ,"/open-apis/speech_to_text/v1/speech/stream_recognize"
+                       ,Sets.newHashSet(AccessTokenType.Tenant)
+                       ,req);
+            
+           // 反序列化
+           StreamRecognizeSpeechResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse, StreamRecognizeSpeechResp.class);
+           resp.setRawResponse(httpResponse);
+           resp.setRequest(req);
+           
+           return resp;
+        }
     }
-
-    public FileRecognizeSpeechResp fileRecognize(FileRecognizeSpeechReq req) throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          , "/open-apis/speech_to_text/v1/speech/file_recognize"
-          , Sets.newHashSet(AccessTokenType.Tenant)
-          , req);
-
-      // 反序列化
-      FileRecognizeSpeechResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          FileRecognizeSpeechResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    public StreamRecognizeSpeechResp streamRecognize(StreamRecognizeSpeechReq req,
-        RequestOptions reqOptions) throws Exception {
-      // 请求参数选项
-      if (reqOptions == null) {
-        reqOptions = new RequestOptions();
-      }
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          , "/open-apis/speech_to_text/v1/speech/stream_recognize"
-          , Sets.newHashSet(AccessTokenType.Tenant)
-          , req);
-
-      // 反序列化
-      StreamRecognizeSpeechResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          StreamRecognizeSpeechResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-
-    public StreamRecognizeSpeechResp streamRecognize(StreamRecognizeSpeechReq req)
-        throws Exception {
-      // 请求参数选项
-      RequestOptions reqOptions = new RequestOptions();
-
-      // 发起请求
-      RawResponse httpResponse = Transport.send(config, reqOptions, "POST"
-          , "/open-apis/speech_to_text/v1/speech/stream_recognize"
-          , Sets.newHashSet(AccessTokenType.Tenant)
-          , req);
-
-      // 反序列化
-      StreamRecognizeSpeechResp resp = UnmarshalRespUtil.unmarshalResp(httpResponse,
-          StreamRecognizeSpeechResp.class);
-      resp.setRawResponse(httpResponse);
-      resp.setRequest(req);
-
-      return resp;
-    }
-  }
 
 }

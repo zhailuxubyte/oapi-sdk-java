@@ -12,65 +12,70 @@
  */
 
 package com.lark.oapi.service.vc.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.vc.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class GetDailyReportReq {
-
-  @Query
-  @SerializedName("start_time")
-  private String startTime;
-  @Query
-  @SerializedName("end_time")
-  private String endTime;
-
-  // builder 开始
-  public GetDailyReportReq() {
-  }
-
-  public GetDailyReportReq(Builder builder) {
-    this.startTime = builder.startTime;
-    this.endTime = builder.endTime;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getStartTime() {
-    return this.startTime;
-  }
-
-  public void setStartTime(String startTime) {
-    this.startTime = startTime;
-  }
-
-  public String getEndTime() {
-    return this.endTime;
-  }
-
-  public void setEndTime(String endTime) {
-    this.endTime = endTime;
-  }
-
-  public static class Builder {
-
+    @Query
+    @SerializedName("start_time")
     private String startTime;
+    @Query
+    @SerializedName("end_time")
     private String endTime;
-
-    public Builder startTime(String startTime) {
-      this.startTime = startTime;
-      return this;
+    public String getStartTime() {
+        return this.startTime;
     }
 
-    public Builder endTime(String endTime) {
-      this.endTime = endTime;
-      return this;
+    public void setStartTime(String startTime) {
+        this.startTime = startTime;
     }
 
-    public GetDailyReportReq build() {
-      return new GetDailyReportReq(this);
+    public String getEndTime() {
+        return this.endTime;
     }
+
+    public void setEndTime(String endTime) {
+        this.endTime = endTime;
+    }
+
+
+// builder 开始
+  public GetDailyReportReq(){}
+
+  public GetDailyReportReq(Builder builder){
+       this.startTime = builder.startTime;
+       this.endTime = builder.endTime;
   }
+
+    public static class Builder {
+        private String startTime;
+        private String endTime;
+    
+           public Builder startTime(String startTime) {
+                this.startTime = startTime;
+                return this;
+           }
+    
+           public Builder endTime(String endTime) {
+                this.endTime = endTime;
+                return this;
+           }
+    
+    public GetDailyReportReq build(){
+        return new GetDailyReportReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

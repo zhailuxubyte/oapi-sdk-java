@@ -12,87 +12,90 @@
  */
 
 package com.lark.oapi.service.task.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.task.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
 import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class UpdateTaskCommentReq {
-
-  @Path
-  @SerializedName("task_id")
-  private String taskId;
-  @Path
-  @SerializedName("comment_id")
-  private String commentId;
-  @Body
-  private UpdateTaskCommentReqBody body;
-
-  // builder 开始
-  public UpdateTaskCommentReq() {
-  }
-
-  public UpdateTaskCommentReq(Builder builder) {
-    this.taskId = builder.taskId;
-    this.commentId = builder.commentId;
-    this.body = builder.body;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getTaskId() {
-    return this.taskId;
-  }
-
-  public void setTaskId(String taskId) {
-    this.taskId = taskId;
-  }
-
-  public String getCommentId() {
-    return this.commentId;
-  }
-
-  public void setCommentId(String commentId) {
-    this.commentId = commentId;
-  }
-
-  public UpdateTaskCommentReqBody getUpdateTaskCommentReqBody() {
-    return this.body;
-  }
-
-  public void setUpdateTaskCommentReqBody(UpdateTaskCommentReqBody body) {
-    this.body = body;
-  }
-
-  public static class Builder {
-
+    @Path
+    @SerializedName("task_id")
     private String taskId;
+    @Path
+    @SerializedName("comment_id")
     private String commentId;
+    public String getTaskId() {
+        return this.taskId;
+    }
+
+    public void setTaskId(String taskId) {
+        this.taskId = taskId;
+    }
+
+    public String getCommentId() {
+        return this.commentId;
+    }
+
+    public void setCommentId(String commentId) {
+        this.commentId = commentId;
+    }
+
+    @Body
     private UpdateTaskCommentReqBody body;
 
-    public Builder taskId(String taskId) {
-      this.taskId = taskId;
-      return this;
-    }
-
-    public Builder commentId(String commentId) {
-      this.commentId = commentId;
-      return this;
-    }
-
     public UpdateTaskCommentReqBody getUpdateTaskCommentReqBody() {
-      return this.body;
+        return this.body;
     }
 
-    public Builder updateTaskCommentReqBody(UpdateTaskCommentReqBody body) {
-      this.body = body;
-      return this;
+    public void setUpdateTaskCommentReqBody(UpdateTaskCommentReqBody body) {
+        this.body = body;
     }
 
-    public UpdateTaskCommentReq build() {
-      return new UpdateTaskCommentReq(this);
-    }
+// builder 开始
+  public UpdateTaskCommentReq(){}
+
+  public UpdateTaskCommentReq(Builder builder){
+       this.taskId = builder.taskId;
+       this.commentId = builder.commentId;
+        this.body = builder.body;
   }
+
+    public static class Builder {
+    
+        private String taskId;
+        private String commentId;
+          public Builder taskId(String taskId) {
+               this.taskId = taskId;
+               return this;
+          }
+    
+          public Builder commentId(String commentId) {
+               this.commentId = commentId;
+               return this;
+          }
+    
+        private UpdateTaskCommentReqBody body;
+    
+        public UpdateTaskCommentReqBody getUpdateTaskCommentReqBody() {
+            return this.body;
+        }
+        public Builder updateTaskCommentReqBody(UpdateTaskCommentReqBody body) {
+             this.body = body;
+             return this;
+        }
+    public UpdateTaskCommentReq build(){
+        return new UpdateTaskCommentReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

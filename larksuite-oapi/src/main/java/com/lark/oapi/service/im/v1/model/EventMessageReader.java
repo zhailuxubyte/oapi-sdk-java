@@ -12,80 +12,86 @@
  */
 
 package com.lark.oapi.service.im.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.im.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class EventMessageReader {
-
-  @SerializedName("reader_id")
-  private UserId readerId;
-  @SerializedName("read_time")
-  private String readTime;
-  @SerializedName("tenant_key")
-  private String tenantKey;
-
-  // builder 开始
-  public EventMessageReader() {
-  }
-
-  public EventMessageReader(Builder builder) {
-    this.readerId = builder.readerId;
-    this.readTime = builder.readTime;
-    this.tenantKey = builder.tenantKey;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public UserId getReaderId() {
-    return this.readerId;
-  }
-
-  public void setReaderId(UserId readerId) {
-    this.readerId = readerId;
-  }
-
-  public String getReadTime() {
-    return this.readTime;
-  }
-
-  public void setReadTime(String readTime) {
-    this.readTime = readTime;
-  }
-
-  public String getTenantKey() {
-    return this.tenantKey;
-  }
-
-  public void setTenantKey(String tenantKey) {
-    this.tenantKey = tenantKey;
-  }
-
-  public static class Builder {
-
+    @SerializedName("reader_id")
     private UserId readerId;
+    @SerializedName("read_time")
     private String readTime;
+    @SerializedName("tenant_key")
     private String tenantKey;
-
-    public Builder readerId(UserId readerId) {
-      this.readerId = readerId;
-      return this;
+    public UserId getReaderId() {
+        return this.readerId;
     }
 
-    public Builder readTime(String readTime) {
-      this.readTime = readTime;
-      return this;
+    public void setReaderId(UserId readerId) {
+        this.readerId = readerId;
     }
 
-    public Builder tenantKey(String tenantKey) {
-      this.tenantKey = tenantKey;
-      return this;
+    public String getReadTime() {
+        return this.readTime;
+    }
+
+    public void setReadTime(String readTime) {
+        this.readTime = readTime;
+    }
+
+    public String getTenantKey() {
+        return this.tenantKey;
+    }
+
+    public void setTenantKey(String tenantKey) {
+        this.tenantKey = tenantKey;
     }
 
 
-    public EventMessageReader build() {
-      return new EventMessageReader(this);
-    }
+// builder 开始
+  public EventMessageReader(){}
+
+  public EventMessageReader(Builder builder){
+      this.readerId = builder.readerId;
+      this.readTime = builder.readTime;
+      this.tenantKey = builder.tenantKey;
   }
+
+    public static class Builder {
+        private UserId readerId;
+        private String readTime;
+        private String tenantKey;
+        public Builder readerId(UserId readerId) {
+             this.readerId = readerId;
+             return this;
+        }
+    
+        public Builder readTime(String readTime) {
+             this.readTime = readTime;
+             return this;
+        }
+    
+        public Builder tenantKey(String tenantKey) {
+             this.tenantKey = tenantKey;
+             return this;
+        }
+    
+    
+    public EventMessageReader build(){
+        return new EventMessageReader(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

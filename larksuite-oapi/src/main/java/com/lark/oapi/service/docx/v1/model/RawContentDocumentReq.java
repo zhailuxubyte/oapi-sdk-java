@@ -12,71 +12,74 @@
  */
 
 package com.lark.oapi.service.docx.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.docx.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class RawContentDocumentReq {
-
-  @Query
-  @SerializedName("lang")
-  private Integer lang;
-  @Path
-  @SerializedName("document_id")
-  private String documentId;
-
-  // builder 开始
-  public RawContentDocumentReq() {
-  }
-
-  public RawContentDocumentReq(Builder builder) {
-    this.lang = builder.lang;
-    this.documentId = builder.documentId;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public Integer getLang() {
-    return this.lang;
-  }
-
-  public void setLang(Integer lang) {
-    this.lang = lang;
-  }
-
-  public String getDocumentId() {
-    return this.documentId;
-  }
-
-  public void setDocumentId(String documentId) {
-    this.documentId = documentId;
-  }
-
-  public static class Builder {
-
+    @Query
+    @SerializedName("lang")
     private Integer lang;
+    public Integer getLang() {
+        return this.lang;
+    }
+
+    public void setLang(Integer lang) {
+        this.lang = lang;
+    }
+
+    @Path
+    @SerializedName("document_id")
     private String documentId;
-
-    public Builder lang(Integer lang) {
-      this.lang = lang;
-      return this;
+    public String getDocumentId() {
+        return this.documentId;
     }
 
-    public Builder lang(com.lark.oapi.service.docx.v1.enums.LangEnum lang) {
-      this.lang = lang.getValue();
-      return this;
+    public void setDocumentId(String documentId) {
+        this.documentId = documentId;
     }
 
-    public Builder documentId(String documentId) {
-      this.documentId = documentId;
-      return this;
-    }
 
-    public RawContentDocumentReq build() {
-      return new RawContentDocumentReq(this);
-    }
+// builder 开始
+  public RawContentDocumentReq(){}
+
+  public RawContentDocumentReq(Builder builder){
+       this.lang = builder.lang;
+       this.documentId = builder.documentId;
   }
+
+    public static class Builder {
+        private Integer lang;
+    
+           public Builder lang(Integer lang) {
+                this.lang = lang;
+                return this;
+           }
+          public Builder lang(com.lark.oapi.service.docx.v1.enums.LangEnum lang) {
+               this.lang = lang.getValue();
+               return this;
+          }
+    
+        private String documentId;
+          public Builder documentId(String documentId) {
+               this.documentId = documentId;
+               return this;
+          }
+    
+    public RawContentDocumentReq build(){
+        return new RawContentDocumentReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

@@ -12,86 +12,90 @@
  */
 
 package com.lark.oapi.service.passport.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.passport.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class MaskSession {
-
-  @SerializedName("create_time")
-  private String createTime;
-  @SerializedName("terminal_type")
-  private Integer terminalType;
-  @SerializedName("user_id")
-  private String userId;
-
-  // builder 开始
-  public MaskSession() {
-  }
-
-  public MaskSession(Builder builder) {
-    this.createTime = builder.createTime;
-    this.terminalType = builder.terminalType;
-    this.userId = builder.userId;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getCreateTime() {
-    return this.createTime;
-  }
-
-  public void setCreateTime(String createTime) {
-    this.createTime = createTime;
-  }
-
-  public Integer getTerminalType() {
-    return this.terminalType;
-  }
-
-  public void setTerminalType(Integer terminalType) {
-    this.terminalType = terminalType;
-  }
-
-  public String getUserId() {
-    return this.userId;
-  }
-
-  public void setUserId(String userId) {
-    this.userId = userId;
-  }
-
-  public static class Builder {
-
+    @SerializedName("create_time")
     private String createTime;
+    @SerializedName("terminal_type")
     private Integer terminalType;
+    @SerializedName("user_id")
     private String userId;
-
-    public Builder createTime(String createTime) {
-      this.createTime = createTime;
-      return this;
+    public String getCreateTime() {
+        return this.createTime;
     }
 
-    public Builder terminalType(Integer terminalType) {
-      this.terminalType = terminalType;
-      return this;
+    public void setCreateTime(String createTime) {
+        this.createTime = createTime;
     }
 
-    public Builder terminalType(
-        com.lark.oapi.service.passport.v1.enums.TerminalTypeEnum terminalType) {
-      this.terminalType = terminalType.getValue();
-      return this;
+    public Integer getTerminalType() {
+        return this.terminalType;
     }
 
-    public Builder userId(String userId) {
-      this.userId = userId;
-      return this;
+    public void setTerminalType(Integer terminalType) {
+        this.terminalType = terminalType;
+    }
+
+    public String getUserId() {
+        return this.userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
 
-    public MaskSession build() {
-      return new MaskSession(this);
-    }
+// builder 开始
+  public MaskSession(){}
+
+  public MaskSession(Builder builder){
+      this.createTime = builder.createTime;
+      this.terminalType = builder.terminalType;
+      this.userId = builder.userId;
   }
+
+    public static class Builder {
+        private String createTime;
+        private Integer terminalType;
+        private String userId;
+        public Builder createTime(String createTime) {
+             this.createTime = createTime;
+             return this;
+        }
+    
+        public Builder terminalType(Integer terminalType) {
+             this.terminalType = terminalType;
+             return this;
+        }
+        public Builder terminalType(com.lark.oapi.service.passport.v1.enums.TerminalTypeEnum terminalType) {
+             this.terminalType = terminalType.getValue();
+             return this;
+        }
+    
+        public Builder userId(String userId) {
+             this.userId = userId;
+             return this;
+        }
+    
+    
+    public MaskSession build(){
+        return new MaskSession(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

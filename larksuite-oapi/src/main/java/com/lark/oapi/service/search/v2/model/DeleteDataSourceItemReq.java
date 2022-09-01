@@ -12,65 +12,70 @@
  */
 
 package com.lark.oapi.service.search.v2.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.search.v2.enums.*;
 import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
-
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class DeleteDataSourceItemReq {
-
-  @Path
-  @SerializedName("data_source_id")
-  private String dataSourceId;
-  @Path
-  @SerializedName("item_id")
-  private String itemId;
-
-  // builder 开始
-  public DeleteDataSourceItemReq() {
-  }
-
-  public DeleteDataSourceItemReq(Builder builder) {
-    this.dataSourceId = builder.dataSourceId;
-    this.itemId = builder.itemId;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getDataSourceId() {
-    return this.dataSourceId;
-  }
-
-  public void setDataSourceId(String dataSourceId) {
-    this.dataSourceId = dataSourceId;
-  }
-
-  public String getItemId() {
-    return this.itemId;
-  }
-
-  public void setItemId(String itemId) {
-    this.itemId = itemId;
-  }
-
-  public static class Builder {
-
+    @Path
+    @SerializedName("data_source_id")
     private String dataSourceId;
+    @Path
+    @SerializedName("item_id")
     private String itemId;
-
-    public Builder dataSourceId(String dataSourceId) {
-      this.dataSourceId = dataSourceId;
-      return this;
+    public String getDataSourceId() {
+        return this.dataSourceId;
     }
 
-    public Builder itemId(String itemId) {
-      this.itemId = itemId;
-      return this;
+    public void setDataSourceId(String dataSourceId) {
+        this.dataSourceId = dataSourceId;
     }
 
-    public DeleteDataSourceItemReq build() {
-      return new DeleteDataSourceItemReq(this);
+    public String getItemId() {
+        return this.itemId;
     }
+
+    public void setItemId(String itemId) {
+        this.itemId = itemId;
+    }
+
+
+// builder 开始
+  public DeleteDataSourceItemReq(){}
+
+  public DeleteDataSourceItemReq(Builder builder){
+       this.dataSourceId = builder.dataSourceId;
+       this.itemId = builder.itemId;
   }
+
+    public static class Builder {
+    
+        private String dataSourceId;
+        private String itemId;
+          public Builder dataSourceId(String dataSourceId) {
+               this.dataSourceId = dataSourceId;
+               return this;
+          }
+    
+          public Builder itemId(String itemId) {
+               this.itemId = itemId;
+               return this;
+          }
+    
+    public DeleteDataSourceItemReq build(){
+        return new DeleteDataSourceItemReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

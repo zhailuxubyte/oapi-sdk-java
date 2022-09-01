@@ -12,85 +12,90 @@
  */
 
 package com.lark.oapi.service.mail.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.mail.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class PublicMailboxMember {
-
-  @SerializedName("member_id")
-  private String memberId;
-  @SerializedName("user_id")
-  private String userId;
-  @SerializedName("type")
-  private String type;
-
-  // builder 开始
-  public PublicMailboxMember() {
-  }
-
-  public PublicMailboxMember(Builder builder) {
-    this.memberId = builder.memberId;
-    this.userId = builder.userId;
-    this.type = builder.type;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getMemberId() {
-    return this.memberId;
-  }
-
-  public void setMemberId(String memberId) {
-    this.memberId = memberId;
-  }
-
-  public String getUserId() {
-    return this.userId;
-  }
-
-  public void setUserId(String userId) {
-    this.userId = userId;
-  }
-
-  public String getType() {
-    return this.type;
-  }
-
-  public void setType(String type) {
-    this.type = type;
-  }
-
-  public static class Builder {
-
+    @SerializedName("member_id")
     private String memberId;
+    @SerializedName("user_id")
     private String userId;
+    @SerializedName("type")
     private String type;
-
-    public Builder memberId(String memberId) {
-      this.memberId = memberId;
-      return this;
+    public String getMemberId() {
+        return this.memberId;
     }
 
-    public Builder userId(String userId) {
-      this.userId = userId;
-      return this;
+    public void setMemberId(String memberId) {
+        this.memberId = memberId;
     }
 
-    public Builder type(String type) {
-      this.type = type;
-      return this;
+    public String getUserId() {
+        return this.userId;
     }
 
-    public Builder type(com.lark.oapi.service.mail.v1.enums.TypeEnum type) {
-      this.type = type.getValue();
-      return this;
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    public String getType() {
+        return this.type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 
 
-    public PublicMailboxMember build() {
-      return new PublicMailboxMember(this);
-    }
+// builder 开始
+  public PublicMailboxMember(){}
+
+  public PublicMailboxMember(Builder builder){
+      this.memberId = builder.memberId;
+      this.userId = builder.userId;
+      this.type = builder.type;
   }
+
+    public static class Builder {
+        private String memberId;
+        private String userId;
+        private String type;
+        public Builder memberId(String memberId) {
+             this.memberId = memberId;
+             return this;
+        }
+    
+        public Builder userId(String userId) {
+             this.userId = userId;
+             return this;
+        }
+    
+        public Builder type(String type) {
+             this.type = type;
+             return this;
+        }
+        public Builder type(com.lark.oapi.service.mail.v1.enums.TypeEnum type) {
+             this.type = type.getValue();
+             return this;
+        }
+    
+    
+    public PublicMailboxMember build(){
+        return new PublicMailboxMember(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

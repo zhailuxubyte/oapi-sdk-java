@@ -12,85 +12,90 @@
  */
 
 package com.lark.oapi.service.calendar.v4.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.calendar.v4.enums.*;
 import com.google.gson.annotations.SerializedName;
-
+import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
+import com.lark.oapi.core.annotation.Path;
+import com.lark.oapi.core.annotation.Query;
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class Schema {
-
-  @SerializedName("ui_name")
-  private String uiName;
-  @SerializedName("ui_status")
-  private String uiStatus;
-  @SerializedName("app_link")
-  private String appLink;
-
-  // builder 开始
-  public Schema() {
-  }
-
-  public Schema(Builder builder) {
-    this.uiName = builder.uiName;
-    this.uiStatus = builder.uiStatus;
-    this.appLink = builder.appLink;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getUiName() {
-    return this.uiName;
-  }
-
-  public void setUiName(String uiName) {
-    this.uiName = uiName;
-  }
-
-  public String getUiStatus() {
-    return this.uiStatus;
-  }
-
-  public void setUiStatus(String uiStatus) {
-    this.uiStatus = uiStatus;
-  }
-
-  public String getAppLink() {
-    return this.appLink;
-  }
-
-  public void setAppLink(String appLink) {
-    this.appLink = appLink;
-  }
-
-  public static class Builder {
-
+    @SerializedName("ui_name")
     private String uiName;
+    @SerializedName("ui_status")
     private String uiStatus;
+    @SerializedName("app_link")
     private String appLink;
-
-    public Builder uiName(String uiName) {
-      this.uiName = uiName;
-      return this;
+    public String getUiName() {
+        return this.uiName;
     }
 
-    public Builder uiStatus(String uiStatus) {
-      this.uiStatus = uiStatus;
-      return this;
+    public void setUiName(String uiName) {
+        this.uiName = uiName;
     }
 
-    public Builder uiStatus(com.lark.oapi.service.calendar.v4.enums.SchemaUiStatusEnum uiStatus) {
-      this.uiStatus = uiStatus.getValue();
-      return this;
+    public String getUiStatus() {
+        return this.uiStatus;
     }
 
-    public Builder appLink(String appLink) {
-      this.appLink = appLink;
-      return this;
+    public void setUiStatus(String uiStatus) {
+        this.uiStatus = uiStatus;
+    }
+
+    public String getAppLink() {
+        return this.appLink;
+    }
+
+    public void setAppLink(String appLink) {
+        this.appLink = appLink;
     }
 
 
-    public Schema build() {
-      return new Schema(this);
-    }
+// builder 开始
+  public Schema(){}
+
+  public Schema(Builder builder){
+      this.uiName = builder.uiName;
+      this.uiStatus = builder.uiStatus;
+      this.appLink = builder.appLink;
   }
+
+    public static class Builder {
+        private String uiName;
+        private String uiStatus;
+        private String appLink;
+        public Builder uiName(String uiName) {
+             this.uiName = uiName;
+             return this;
+        }
+    
+        public Builder uiStatus(String uiStatus) {
+             this.uiStatus = uiStatus;
+             return this;
+        }
+        public Builder uiStatus(com.lark.oapi.service.calendar.v4.enums.SchemaUiStatusEnum uiStatus) {
+             this.uiStatus = uiStatus.getValue();
+             return this;
+        }
+    
+        public Builder appLink(String appLink) {
+             this.appLink = appLink;
+             return this;
+        }
+    
+    
+    public Schema build(){
+        return new Schema(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }

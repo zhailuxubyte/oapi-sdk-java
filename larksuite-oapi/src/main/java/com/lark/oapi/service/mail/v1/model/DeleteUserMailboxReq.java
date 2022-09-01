@@ -12,66 +12,70 @@
  */
 
 package com.lark.oapi.service.mail.v1.model;
-
+import com.lark.oapi.core.response.EmptyData;
+import com.lark.oapi.service.mail.v1.enums.*;
 import com.google.gson.annotations.SerializedName;
+import com.lark.oapi.core.annotation.Body;
 import com.lark.oapi.core.annotation.Path;
 import com.lark.oapi.core.annotation.Query;
-
+import java.io.File;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import com.lark.oapi.core.utils.Strings;
+import com.lark.oapi.core.response.BaseResponse;
 public class DeleteUserMailboxReq {
-
-  @Query
-  @SerializedName("transfer_mailbox")
-  private String transferMailbox;
-  @Path
-  @SerializedName("user_mailbox_id")
-  private String userMailboxId;
-
-  // builder 开始
-  public DeleteUserMailboxReq() {
-  }
-
-  public DeleteUserMailboxReq(Builder builder) {
-    this.transferMailbox = builder.transferMailbox;
-    this.userMailboxId = builder.userMailboxId;
-  }
-
-  public static Builder newBuilder() {
-    return new Builder();
-  }
-
-  public String getTransferMailbox() {
-    return this.transferMailbox;
-  }
-
-  public void setTransferMailbox(String transferMailbox) {
-    this.transferMailbox = transferMailbox;
-  }
-
-  public String getUserMailboxId() {
-    return this.userMailboxId;
-  }
-
-  public void setUserMailboxId(String userMailboxId) {
-    this.userMailboxId = userMailboxId;
-  }
-
-  public static class Builder {
-
+    @Query
+    @SerializedName("transfer_mailbox")
     private String transferMailbox;
+    public String getTransferMailbox() {
+        return this.transferMailbox;
+    }
+
+    public void setTransferMailbox(String transferMailbox) {
+        this.transferMailbox = transferMailbox;
+    }
+
+    @Path
+    @SerializedName("user_mailbox_id")
     private String userMailboxId;
-
-    public Builder transferMailbox(String transferMailbox) {
-      this.transferMailbox = transferMailbox;
-      return this;
+    public String getUserMailboxId() {
+        return this.userMailboxId;
     }
 
-    public Builder userMailboxId(String userMailboxId) {
-      this.userMailboxId = userMailboxId;
-      return this;
+    public void setUserMailboxId(String userMailboxId) {
+        this.userMailboxId = userMailboxId;
     }
 
-    public DeleteUserMailboxReq build() {
-      return new DeleteUserMailboxReq(this);
-    }
+
+// builder 开始
+  public DeleteUserMailboxReq(){}
+
+  public DeleteUserMailboxReq(Builder builder){
+       this.transferMailbox = builder.transferMailbox;
+       this.userMailboxId = builder.userMailboxId;
   }
+
+    public static class Builder {
+        private String transferMailbox;
+    
+           public Builder transferMailbox(String transferMailbox) {
+                this.transferMailbox = transferMailbox;
+                return this;
+           }
+    
+        private String userMailboxId;
+          public Builder userMailboxId(String userMailboxId) {
+               this.userMailboxId = userMailboxId;
+               return this;
+          }
+    
+    public DeleteUserMailboxReq build(){
+        return new DeleteUserMailboxReq(this);
+      }
+    }
+
+    public static Builder newBuilder() {
+        return new Builder();
+    }
 }
